@@ -1,0 +1,47 @@
+*{
+   @font-face {
+  font-family: 'b koodak';
+  src: url('../../fatak -font/BKoodakBold.eot?#') format('eot'),  /* IE6–8 */
+       url('../../fatak -font/BKoodakBold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../../fatak -font/BKoodakBold.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+ font-family: 'b yekan';
+  src: url('../../fatak -font/BYekan.eot?#') format('eot'),  /* IE6–8 */
+       url('../../fatak -font/BYekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+       url('../../fatak -font/BYekan.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+
+}
+}
+/* *{
+  box-sizing: border-box;
+} */
+h1,h2,h3,h4,h5,h6{margin: 0;}
+.number{font-family:'b yekan'; }
+.tahoma{font-family: Tahoma;}
+a{cursor: pointer;}
+.kama{ font-family:Tahoma, Geneva, sans-serif ; color:#000}
+
+body{font-family: "b koodak", Arial, Helvetica, sans-serif;
+direction:rtl;
+
+width: 100%;
+}
+.gif_loding{width: 250px;position: fixed; margin: 100px 0 0 0; z-index: 3000;  opacity: 0.9; display: none;}
+.all_khat{width: 100%;  }
+.khat1  , .khat3 {width: 100%; border: 1px solid ;}
+.khat1{border-color: #348c07;}
+.khat2{border-color: #fff; height: 1px;}
+.khat3{border-color: #ec5046;}
+.ul_line{margin: 0; padding: 0;}
+.ul_line li{
+display:inline;
+}
+.row{padding: 0; margin: 0;}
+/* جستجو */
+.search_all{width: 100%;float: right; margin-top: 22px;}
+.search_body{width: 100%; padding: 0 4px 6px;float: right;text-align: right;background-color: #e1ecee;border: 1px solid #105807; border-radius: 4px;}
+.search_titr{width: 200px; height: 33px; line-height: 30px; padding-right: 30px;font-size: 18px; color: #ededed;float: right; background-color:#105807; border-radius: 4px; position: relative; right: 10px; top: -19px;}
+.empty_record{float: right; color: #9d2727; padding-right: 15px;}
+/* carsol_pro_ess */
+.carsol_pro_ess{width: 100%; margin: 5px 0; float: right;}
+/* اخطار فیلذهای فرم */
+#alarm_red{width: 100%; margin: 2px 0 4px; padding: 5px 4px; text-align: center; color: #b80f19; border: 2px solid #b80f19; border-radius: 4px; font-size: 16px;float: right; background-color: #fff;}

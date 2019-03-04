@@ -1,0 +1,6 @@
+/* .header_ad{width: 100%; padding: 5px 8px; float: right;text-align: right;} */
+.header_ad_titr{width: 100%;height: 40px;line-height: 40px;padding: 0 6px;float: right;background: #fff;}
+.header_ad_titr h4{line-height: 40px;}
+.header_ad_ul{width: 100%;height: 35px;line-height: 35px;padding: 0 6px;background-color: #1271a6; border-radius: 2px;float: right;}
+.header_ad_ul li{min-width: 58px;padding:0 5px;text-align: center;border-left: 1px solid #d1d1d1; color: #e9e9e9; display: inline-block;cursor: pointer;}
+.header_ad_ul li:hover{background-color: #0a5f8f;color: #f68756}
