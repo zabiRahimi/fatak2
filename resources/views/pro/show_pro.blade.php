@@ -120,8 +120,7 @@
   </div>
   <div class="show_pro8">
       <div class="show_pro8_0 show_pro8_1  pro8_active ">
-          انشاالله به یاری خدا توانستم این قسمت هم را بسازم امیدوارم خداوند دوباره یاری کن مرا برای صاختن دیگر بخشها باشد که مشمول رحمت الهی گردیم
-          من عاجزانه از خداوند می خواهم که همهمارایاری کند به حق خودش
+          {{$show_pro->dis}}
       </div>
       <div class="show_pro8_0 show_pro8_2">
         <div class="made_pro specs_pro">
@@ -134,7 +133,7 @@
         </div>
         <div class="vazn_pro specs_pro">
             <div class="vazn_pro1">وزن (گرم) :</div>
-            <div class="vazn_pro2">1000 <span class="specs_pro_vahd">gr</span> </div>
+            <div class="vazn_pro2">{{$show_pro->gram}} <span class="specs_pro_vahd">gr</span> </div>
         </div>
         <div class="dimension_pro specs_pro">
             <div class="dimension_pro1">ابعاد (سانتیمتر) :</div>

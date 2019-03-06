@@ -81,7 +81,7 @@ class SabadController extends Controller
     $pro_pic=PicturePro::get();
     $ostan=City::where('sub_ostan' , 0)->get();
     $shop=Shop::get();
-    return view('show_sabad_pro', compact('show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
+    return view('pro.show_sabad_pro', compact('show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
   }
   //کم یا زیاد کردن تعدادخرید یک محصول
   public function num_pro_sabad_add(Request $request){
@@ -181,7 +181,7 @@ class SabadController extends Controller
          $pro_pic=PicturePro::get();
          $ostan=City::where('sub_ostan' , 0)->get();
          $shop=Shop::get();
-         return view('factor_buy', compact('show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
+         return view('pro.factor_buy', compact('show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
        }
   //ذخیره اطلاعات خریدار
    public function save_data_buyer(Save_data_buyer $request){
@@ -246,7 +246,7 @@ class SabadController extends Controller
   //ثبت نهایی خرید و پرداخت آنلاین
    public function end_buy(Request $request){
 
-        return view('end_buy');
+        return view('pro.end_buy');
       }
   public function pardakht(Request $request){
         $pro=$request->pro;
