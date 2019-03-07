@@ -15,7 +15,7 @@ class CreateTablePro extends Migration
     {
         Schema::create('Pros', function (Blueprint $table) {
             $table->increments('id');
-            
+
         });
     }
 
