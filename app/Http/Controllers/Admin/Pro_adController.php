@@ -11,8 +11,10 @@ use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای
 class Pro_adController extends Controller
 {
   public function show(Request $request){
-    $show_img=Imgpro::where('show' , 1)->get();
-    return view('management.pro_admin.pro_admin' , compact('show_img'));
+    // $show_img=Imgpro::where('show' , 1)->get();
+    // return view('management.pro_admin.pro_admin' , compact('show_img'));
+
+    return view('management.pro_admin.pro_admin');
   }
 public function uplod_img_pro(Request $request){
   //اعتبار سنجی

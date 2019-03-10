@@ -69,6 +69,62 @@
       <label for="dis_addpro1_admin" class="control-label pull-right  "> توضیحات محصول</label>
       <textarea name="name" id="dis_addpro1_admin"></textarea>
     </div>
+    <div class="fr-view add_pro_form1_2 mavad_add_pro_all">
+      <label for="mavad1_addpro1_admin" class="control-label pull-right  ">مواد تشکیل دهنده محصول</label>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad1_addpro1_admin" placeholder="1" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad2_addpro1_admin" placeholder="2" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad3_addpro1_admin" placeholder="3" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad4_addpro1_admin" placeholder="4" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad5_addpro1_admin" placeholder="5" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad6_addpro1_admin" placeholder="6" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad7_addpro1_admin" placeholder="7" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad8_addpro1_admin" placeholder="8" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad9_addpro1_admin" placeholder="9" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad10_addpro1_admin" placeholder="10" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad11_addpro1_admin" placeholder="11" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad12_addpro1_admin" placeholder="12" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad13_addpro1_admin" placeholder="13" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad14_addpro1_admin" placeholder="14" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad15_addpro1_admin" placeholder="15" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad16_addpro1_admin" placeholder="16" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad17_addpro1_admin" placeholder="17" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad18_addpro1_admin" placeholder="18" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad19_addpro1_admin" placeholder="19" ></div>
+      <div class="mavad_add_pro"><input type="text" class="form-control"  id="mavad20_addpro1_admin" placeholder="20" ></div>
+
+    </div>
+    <div class="form-group add_pro_form1_1">
+      <label for="made_addpro1_admin" class="control-label pull-right  "> سازنده محصول </label>
+      <div class="div_data_buyer"><input type="text" class="form-control"  id="made_addpro1_admin" placeholder="به تومان ..." ></div>
+    </div>
+    <div class="form-group add_pro_form1_1">
+      <label for="model_addpro1_admin" class="control-label pull-right  "> مدل محصول </label>
+      <div class="div_data_buyer"><input type="text" class="form-control"  id="model_addpro1_admin" placeholder="به تومان ..." ></div>
+    </div>
+    <div class="form-group add_pro_form1_1">
+      <label for="dimension_addpro1_admin" class="control-label pull-right  "> ابعاد محصول </label>
+      <div class="div_data_buyer"><input type="text" class="form-control"  id="dimension_addpro1_admin" placeholder="به تومان ..." ></div>
+    </div>
+    <div class="form-group add_pro_form1_1">
+      <label for="sponsor_addpro1_admin" class="control-label pull-right  "> گارانتی محصول </label>
+      <div class="div_data_buyer"><input type="text" class="form-control"  id="sponsor_addpro1_admin" placeholder="به تومان ..." ></div>
+    </div>
+    <div class="form-group add_pro_form1_1">
+      <label for="date_m_addpro1_admin" class="control-label pull-right  "> سال تولید محصول </label>
+      <div class="div_data_buyer"><input type="text" class="form-control"  id="date_m_addpro1_admin" placeholder="به تومان ..." ></div>
+    </div>
+    <div class="form-group add_pro_form1_1">
+      <label for="date_n_addpro1_admin" class="control-label pull-right  "> انقضا محصول </label>
+      <div class="div_data_buyer"><input type="text" class="form-control"  id="date_n_addpro1_admin" placeholder="به تومان ..." ></div>
+    </div>
+    <div class="fr-view add_pro_form1_2">
+      <label for="term_addpro1_admin" class="control-label pull-right  "> شرایط نگهداری محصول </label>
+      <textarea name="name" id="term_addpro1_admin"></textarea>
+    </div>
+    <div class="fr-view add_pro_form1_2">
+      <label for="bake_addpro1_admin" class="control-label pull-right  "> شرایط ارجاع محصول </label>
+      <textarea name="name" id="bake_addpro1_admin"></textarea>
+    </div>
     <div class="form-group add_pro_form1_1">
       <label for="img1_addpro1_admin" class="control-label pull-right  "> انتخاب عکس 1 </label>
 
