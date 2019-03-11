@@ -32,7 +32,7 @@ class Save_add_pro_admin extends FormRequest
           'gram_post'=>'required',
           'pakat_price'=>'required|numeric|min:3',
           'dis'=>'required',
-          'img1' => 'required',
+          // 'img1' => 'required',
           // 'img2' => 'nullable',
           // 'img3' => 'nullable',
           // 'img4' => 'nullable',

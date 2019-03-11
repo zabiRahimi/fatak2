@@ -39,37 +39,46 @@ public function uplod_img_pro(Request $request){
 public function save_add_pro1(Save_add_pro_admin $request){
 
   $old_price = (empty($request->old_price)) ? 0 : $request->old_price ;
+  $mavad=json_encode($request->mavad);
   $pro=new Pro();
   $pro->name = $request->name ;
   $pro->dis = $request->dis ;
   $pro->price = $request->price ;
-
   $pro->old_price = $old_price ;
   $pro->gram = $request->gram ;
   $pro->gram_post = $request->gram_post ;
   $pro->pakat_price = $request->pakat_price ;
+  $pro->made = $request->made ;
+  $pro->model = $request->model ;
+  $pro->dimension = $request->dimension ;
+  $pro->mavad= $mavad ;
+  $pro->date_m = $request->date_m ;
+  $pro->date_n = $request->date_n ;
+  $pro->term = $request->term ;
+  $pro->bake = $request->bake ;
+  $pro->sponsor = $request->sponsor ;
   $pro->views =1 ;
   $pro->seller = $request->seller ;
   $pro->show = 1;
   $pro-> save();
 
    //اضافه کردن عکسهای محصول
-  $picture=new PicturePro();
-  $picture->pro_id =$pro->id;
-  $picture->pic_b1=$request->img1 ;
-  $picture->pic_s1=$request->img1 ;
-  $picture->pic_b2 = (empty($request->img2)) ? NULL : $request->img2 ;
-  $picture->pic_b3 = (empty($request->img3)) ? NULL : $request->img3 ;
-  $picture->pic_b4 = (empty($request->img4)) ? NULL : $request->img4 ;
-  $picture->pic_b5 = (empty($request->img5)) ? NULL : $request->img5 ;
-  $picture->pic_b6 = (empty($request->img6)) ? NULL : $request->img6 ;
-
-  $picture->pic_s2 = (empty($request->img2)) ? NULL : $request->img2 ;
-  $picture->pic_s3 = (empty($request->img3)) ? NULL : $request->img3 ;
-  $picture->pic_s4 = (empty($request->img4)) ? NULL : $request->img4 ;
-  $picture->pic_s5 = (empty($request->img5)) ? NULL : $request->img5 ;
-  $picture->pic_s6 = (empty($request->img6)) ? NULL : $request->img6 ;
-  $picture->show = 1;
+  // $picture=new PicturePro();
+  // $picture->pro_id =$pro->id;
+  // $picture->pic_b1=$request->img1 ;
+  // $picture->pic_s1=$request->img1 ;
+  // $picture->pic_b2 = (empty($request->img2)) ? NULL : $request->img2 ;
+  // $picture->pic_b3 = (empty($request->img3)) ? NULL : $request->img3 ;
+  // $picture->pic_b4 = (empty($request->img4)) ? NULL : $request->img4 ;
+  // $picture->pic_b5 = (empty($request->img5)) ? NULL : $request->img5 ;
+  // $picture->pic_b6 = (empty($request->img6)) ? NULL : $request->img6 ;
+  //
+  // $picture->pic_s2 = (empty($request->img2)) ? NULL : $request->img2 ;
+  // $picture->pic_s3 = (empty($request->img3)) ? NULL : $request->img3 ;
+  // $picture->pic_s4 = (empty($request->img4)) ? NULL : $request->img4 ;
+  // $picture->pic_s5 = (empty($request->img5)) ? NULL : $request->img5 ;
+  // $picture->pic_s6 = (empty($request->img6)) ? NULL : $request->img6 ;
+  // $picture->show = 1;
 
   // $pro->picture_pros()->save($picture);
   $picture->save();

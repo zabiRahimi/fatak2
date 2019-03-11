@@ -229,8 +229,9 @@ function show_div(id){
 
  }
 
- function save_add_pro1(){
-
+ function save_add_pro1(mavad1=0,mavad2=0,mavad3=0,mavad4=0,mavad5=0,mavad6=0,mavad7=0,mavad8=0,mavad9=0,mavad10=0,mavad11=0,mavad12=0,mavad13=0,mavad14=0,mavad15=0,mavad16=0,mavad17=0,mavad18=0,mavad19=0,mavad20=0){
+   mavad=[mavad1,mavad2,mavad3,mavad4,mavad5,mavad6,mavad7,mavad8,mavad9,mavad10,mavad11,mavad12,mavad13,mavad14,mavad15,mavad16,mavad17,mavad18,mavad19,mavad20]
+   alert(mavad)
      $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
      $.ajax({
          url: "../../save_add_pro1",
@@ -244,6 +245,15 @@ function show_div(id){
              gram_post: $('#vaznpost_addpro1_admin').val(),
              pakat_price: $('#pakat_addpro1_admin').val(),
              dis: $('#dis_addpro1_admin').val(),
+             mavad:mavad,
+             made: $('#made_addpro1_admin').val(),
+             model: $('#model_addpro1_admin').val(),
+             dimension: $('#dimension_addpro1_admin').val(),
+             sponsor: $('#sponsor_addpro1_admin').val(),
+             date_m: $('#date_m_addpro1_admin').val(),
+             date_n: $('#date_n_addpro1_admin').val(),
+             bake: $('#bake_addpro1_admin').val(),
+             term: $('#term_addpro1_admin').val(),
              img1: $('#ajax_addpro1_img1').html(),
              img2: $('#ajax_addpro1_img2').html(),
              img3: $('#ajax_addpro1_img3').html(),

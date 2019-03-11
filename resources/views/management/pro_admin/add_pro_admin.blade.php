@@ -163,7 +163,7 @@
     </div>
     <div class="sabt_form_addPro">
       <button type="button" class="btn btn-success"
-      onclick="save_add_pro1()">
+      onclick="save_add_pro1($('#mavad1_addpro1_admin').val(),$('#mavad2_addpro1_admin').val(),$('#mavad3_addpro1_admin').val(),$('#mavad4_addpro1_admin').val(),$('#mavad5_addpro1_admin').val(),$('#mavad6_addpro1_admin').val(),$('#mavad7_addpro1_admin').val(),$('#mavad8_addpro1_admin').val(),$('#mavad9_addpro1_admin').val(),$('#mavad10_addpro1_admin').val(),$('#mavad11_addpro1_admin').val(),$('#mavad12_addpro1_admin').val(),$('#mavad13_addpro1_admin').val(),$('#mavad14_addpro1_admin').val(),$('#mavad15_addpro1_admin').val(),$('#mavad16_addpro1_admin').val(),$('#mavad17_addpro1_admin').val(),$('#mavad18_addpro1_admin').val(),$('#mavad19_addpro1_admin').val(),$('#mavad20_addpro1_admin').val())">
        ثبت محصول
       </button>
     </div>
