@@ -120,16 +120,18 @@
   </div>
   <div class="show_pro8">
       <div class="show_pro8_0 show_pro8_1  pro8_active ">
-          {{$show_pro->dis}}
+        <?=$show_pro->dis?>
       </div>
+
+
       <div class="show_pro8_0 show_pro8_2">
         <div class="made_pro specs_pro">
             <div class="made_pro1">سازنده :</div>
-            <div class="made_pro2">فاتک</div>
+            <div class="made_pro2">{{$show_pro->made}}</div>
         </div>
         <div class="model_pro specs_pro">
             <div class="model_pro1">مدل :</div>
-            <div class="model_pro2">گلی</div>
+            <div class="model_pro2">{{$show_pro->model}}</div>
         </div>
         <div class="vazn_pro specs_pro">
             <div class="vazn_pro1">وزن (گرم) :</div>
@@ -137,7 +139,7 @@
         </div>
         <div class="dimension_pro specs_pro">
             <div class="dimension_pro1">ابعاد (سانتیمتر) :</div>
-            <div class="dimension_pro2">12*56 cm</div>
+            <div class="dimension_pro2">{{$show_pro->dimension}} cm</div>
         </div>
         {{-- <div class="vazn_posty_pro specs_pro">
             <div class="vazn_posty_pro1"></div>
@@ -146,35 +148,43 @@
         <div class="mavad_pro specs_pro">
             <div class="mavad_pro1">مواد اولیه :</div>
             <div class="mavad_pro2">
+
               <ul>
-                <li>کلم</li>
-                <li>کاهو</li>
-                <li>نمک</li>
-                <li>گوشت</li>
-                <li>گوشت</li>
-                <li>گوشت</li>
+                @php
+                $mavads=  json_decode($show_pro->mavad);
+                @endphp
+                @foreach ($mavads as $mavads2)
+                  @if ($mavads2!=null)
+                    <li>{{$mavads2}}</li>
+                  @endif
+
+
+                @endforeach
+
               </ul>
+
+
             </div>
         </div>
         <div class="date_m_pro specs_pro">
             <div class="date_m_pro1">تاریخ تولید :</div>
-            <div class="date_m_pro2">25/12/97</div>
+            <div class="date_m_pro2">{{$show_pro->date_m}}</div>
         </div>
         <div class="date_n_pro specs_pro">
             <div class="date_n_pro1">تاریخ انقضا :</div>
-            <div class="date_n_pro2">دوسال بعد از تولید</div>
+            <div class="date_n_pro2">{{$show_pro->date_n}}</div>
         </div>
         <div class="term_pro specs_pro">
             <div class="term_pro1">شرایط نگهداری :</div>
-            <div class="term_pro2">این کالا باید در شرایط معمولی نگهداری شود . و در سایه بگذارید و از رسیدن نور خورشید محوظ بماند . باشد که بتوانیم درست از آن استفاده کنیم .این کالا باید در شرایط معمولی نگهداری شود . و در سایه بگذارید و از رسیدن نور خورشید محوظ بماند . باشد که بتوانیم درست از آن استفاده کنیم .این کالا باید در شرایط معمولی نگهداری شود . و در سایه بگذارید و از رسیدن نور خورشید محوظ بماند . باشد که بتوانیم درست از آن استفاده کنیم .این کالا باید در شرایط معمولی نگهداری شود . و در سایه بگذارید و از رسیدن نور خورشید محوظ بماند . باشد که بتوانیم درست از آن استفاده کنیم .</div>
+            <div class="term_pro2"><?=$show_pro->term?></div>
         </div>
         <div class="bake_pro specs_pro">
             <div class="bake_pro1">شرایط ارجاع کالا :</div>
-            <div class="bake_pro2">در صورتی که این کالا باز شده شده بود . می توانید اونو برگردونید . در صورتی که این کالا باز شده شده بود . می توانید اونو برگردونید . در صورتی که این کالا باز شده شده بود . می توانید اونو برگردونید . در صورتی که این کالا باز شده شده بود . می توانید اونو برگردونید . در صورتی که این کالا باز شده شده بود . می توانید اونو برگردونید . در صورتی که این کالا باز شده شده بود . می توانید اونو برگردونید . در صورتی که این کالا باز شده شده بود . می توانید اونو برگردونید . در صورتی که این کالا باز شده شده بود . می توانید اونو برگردونید . </div>
+            <div class="bake_pro2"><?=$show_pro->bake?></div>
         </div>
         <div class="sponsor_pro specs_pro">
             <div class="sponsor_pro1">گارانتی :</div>
-            <div class="sponsor_pro2">دوسال </div>
+            <div class="sponsor_pro2">{{$show_pro->sponsor}} </div>
         </div>
       </div>
       {{-- نظرات --}}
