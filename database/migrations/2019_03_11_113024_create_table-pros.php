@@ -26,11 +26,11 @@ class CreateTablePros extends Migration
             $table->string('model' , 70)->nullable();
             $table->string('dimension' ,23)->nullable();
             $table->json('mavad')->nullable();
-            $table->date('date_m')->nullable();
-            $table->date('date_n')->nullable();
+            $table->string('date_m' , 30)->nullable();
+            $table->string('date_n' , 30)->nullable();
             $table->text('term')->nullable();
             $table->text('bake')->nullable();
-            $table->string('sposor' , 50)->nullable();
+            $table->string('sponsor' , 50)->nullable();
             $table->string('views' , 8);
             $table->string('seller' , 60);
             $table->boolean('show');
