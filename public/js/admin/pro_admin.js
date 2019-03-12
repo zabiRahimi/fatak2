@@ -329,6 +329,10 @@ function show_div(id){
                 $('#ajax_formaddpro1_admin').append('<div id="alarm_red">آپلود کردن عکس 1 الزامی است</div>');
                 $('#amniat_data_buyer').css("border-color" , "#c30909");
              }
+             else{
+               $('#ajax_formaddpro1_admin').append('<div id="alarm_red">اخطار : محصول ذخیره نشد !</div>');
+               $('#amniat_data_buyer').css("border-color" , "#c30909");
+             }
 
 
          }
