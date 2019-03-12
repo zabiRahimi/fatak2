@@ -24,7 +24,7 @@ class Save_add_pro_admin extends FormRequest
     public function rules()
     {
         return [
-          'name'=>'required|min:4',
+          'name'=>'required|min:2',
           'seller'=>'required',
           'price'=>'required|numeric|min:3',
           'old_price'=>'nullable|numeric|min:3',
@@ -32,6 +32,15 @@ class Save_add_pro_admin extends FormRequest
           'gram_post'=>'required',
           'pakat_price'=>'required|numeric|min:3',
           'dis'=>'required',
+          'mavad'=>'nullable',
+          'date_m'=>'nullable',
+          'date_n'=>'nullable',
+          'dimension'=>'nullable',
+          'sponsor'=>'nullable',
+          'term'=>'nullable',
+          'bake'=>'nullable',
+          'made'=>'nullable',
+          'model'=>'nullable',
           'img1' => 'required',
           // 'img2' => 'nullable',
           // 'img3' => 'nullable',
