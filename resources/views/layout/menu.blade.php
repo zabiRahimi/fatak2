@@ -1,15 +1,30 @@
 <!-- header.css -->
-@php
+{{-- @php
 
 	use App\Models\Menu;
   $menu=Menu::whereSub_menuAndShow(0 ,1)->get();
-@endphp
+@endphp --}}
 
 <ul id="ul_menu" class="ul_line ul_menu" >
-  @foreach ($menu as  $value)
+	<a href="/"><li ><span> صفحه اصلی</span> </li></a>
+	<li  onclick=""><span> مدیریت کانال و گروه</span> </li>
+	<li  onclick=""><span> مدیریت فروشندگان </span> </li>
+	<li  onclick=""data-toggle="modal" data-target="#modal_ghanon"><span> قوانین و مقررات</span> </li>
+	<li  onclick=""data-toggle="modal" data-target="#modal_shekait" ><span> شکایت</span> </li>
+	<li  onclick=""><span> راهنما</span>
+		<img src="../../img_site/sort1.png" style="vertical-align:sub;"/>
+		<ul>
+			<li><a href="#">راهنمای استفاده از سایت</a></li>
+			<li><a href="#">راهنمای خرید محصول</a></li>
+			<li><a href="#">راهنمای سفارش محصول جدید</a></li>
+		</ul>
+	</li>
+
+
+  {{-- @foreach ($menu as  $value)
 
 			<a
-			<?php
+			< ? php
 					switch ($value['id']) {
 						case '1': echo 'href="/" ';break;
 						case '4':echo 'data-toggle="modal" data-target="#modal_ghanon"';	break;
@@ -33,7 +48,7 @@
           </li>
       </a>
 
-  @endforeach
+  @endforeach --}}
 </ul>
 
  <!--****************** modals ***************/-->

@@ -229,8 +229,8 @@ function show_div(id){
 
  }
 
- function save_add_pro1(){
-
+ function save_add_pro1(mavad1,mavad2,mavad3,mavad4,mavad5,mavad6,mavad7,mavad8,mavad9,mavad10,mavad11,mavad12,mavad13,mavad14,mavad15,mavad16,mavad17,mavad18,mavad19,mavad20){
+     var mavad=[mavad1,mavad2,mavad3,mavad4,mavad5,mavad6,mavad7,mavad8,mavad9,mavad10,mavad11,mavad12,mavad13,mavad14,mavad15,mavad16,mavad17,mavad18,mavad19,mavad20];
      $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
      $.ajax({
          url: "../../save_add_pro1",
@@ -243,6 +243,15 @@ function show_div(id){
              gram: $('#vazn_addpro1_admin').val(),
              gram_post: $('#vaznpost_addpro1_admin').val(),
              pakat_price: $('#pakat_addpro1_admin').val(),
+             mavad:mavad,
+             date_m: $('#date_m_addpro1_admin').val(),
+             date_n: $('#date_n_addpro1_admin').val(),
+             dimension: $('#dimension_addpro1_admin').val(),
+             sponsor: $('#sponsor_addpro1_admin').val(),
+             term: $('#term_addpro1_admin').val(),
+             bake: $('#bake_addpro1_admin').val(),
+             made: $('#made_addpro1_admin').val(),
+             model: $('#model_addpro1_admin').val(),
              dis: $('#dis_addpro1_admin').val(),
              img1: $('#ajax_addpro1_img1').html(),
              img2: $('#ajax_addpro1_img2').html(),
@@ -319,6 +328,10 @@ function show_div(id){
 
                 $('#ajax_formaddpro1_admin').append('<div id="alarm_red">آپلود کردن عکس 1 الزامی است</div>');
                 $('#amniat_data_buyer').css("border-color" , "#c30909");
+             }
+             else{
+               $('#ajax_formaddpro1_admin').append('<div id="alarm_red">اخطار : محصول ذخیره نشد !</div>');
+               $('#amniat_data_buyer').css("border-color" , "#c30909");
              }
 
 

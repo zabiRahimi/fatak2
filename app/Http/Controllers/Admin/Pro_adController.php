@@ -37,15 +37,25 @@ public function uplod_img_pro(Request $request){
 public function save_add_pro1(Save_add_pro_admin $request){
 
   $old_price = (empty($request->old_price)) ? 0 : $request->old_price ;
+  $mavad=json_encode($request->mavad);
   $pro=new Pro();
   $pro->name = $request->name ;
   $pro->dis = $request->dis ;
   $pro->price = $request->price ;
-
   $pro->old_price = $old_price ;
   $pro->gram = $request->gram ;
   $pro->gram_post = $request->gram_post ;
   $pro->pakat_price = $request->pakat_price ;
+  $pro->mavad = $mavad ;
+  $pro->date_m = $request->date_m ;
+  $pro->date_n = $request->date_n ;
+  $pro->dimension = $request->dimension ;
+  $pro->sponsor = $request->sponsor ;
+  $pro->term = $request->term ;
+  $pro->bake = $request->bake ;
+  $pro->made = $request->made ;
+  $pro->model = $request->model ;
+
   $pro->views =1 ;
   $pro->seller = $request->seller ;
   $pro->show = 1;
