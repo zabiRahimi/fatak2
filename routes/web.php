@@ -29,3 +29,4 @@ Route::get('/pro_admin', 'Admin\Pro_adController@show');//ok!!
 Route::post('/uplod_img_pro', 'Admin\Pro_adController@uplod_img_pro');//ok!!
 Route::get('/article_admin', 'Admin\Pro_adController@show');//ok!!
 Route::post('/save_add_pro1', 'Admin\Pro_adController@save_add_pro1');//ok!!
+Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro');//ok!!

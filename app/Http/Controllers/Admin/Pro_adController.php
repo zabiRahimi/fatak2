@@ -83,4 +83,8 @@ public function save_add_pro1(Save_add_pro_admin $request){
   $picture->save();
 
 }
+public function all_edit_pro(Request $request){
+  $pro="pro::get()";
+  return view('management.pro_admin.all_edit_pro_admin');
+}
 }

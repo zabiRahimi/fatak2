@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{-- <meta http-equiv="x-pjax-version" content="v123"> --}}
         <meta name="_token" content="{{csrf_token()}}" />
         <title>@yield('title')</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -17,6 +18,9 @@
         <link href="\css\admin\main_admin.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\header_admin.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\pro_admin.css" rel="stylesheet" type="text/css">
+        <link href="\css\admin\add_pro.css" rel="stylesheet" type="text/css">
+        <link href="\css\admin\all_edit_pro.css" rel="stylesheet" type="text/css">
+        <link href="\css\admin\one_edit_pro.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <header>
@@ -39,7 +43,7 @@
         <script type="text/javascript">
            $(function() { $('textarea').froalaEditor() });
            $(document).pjax('.a_pjax' , '#pjax');
-           $(document).pjax('.a_pjax_pro' , '#pjax_pro');
+           $(document).pjax('.apjaxpro' , '#pjaxpro');
            $(function () {  $('[data-toggle="tooltip"]').tooltip()});
        </script>
     </body>
