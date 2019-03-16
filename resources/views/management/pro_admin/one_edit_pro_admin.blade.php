@@ -1,5 +1,10 @@
+@extends('management.pro_admin.pro_admin')
+ @section('title')
+  مدیریت :: ویرایش محصول
+@endsection
+@section('show_pro')
 <div class="edit_pro">
- ویرایش کردن محصول
+ ویرایش محصول
 </div>
 <div class="edit_pro2">
 
@@ -375,3 +380,4 @@
     </div>
   </div>
 </div><!--end modal  عکس ششم -->
+@endsection

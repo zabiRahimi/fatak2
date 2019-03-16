@@ -34,6 +34,9 @@ public function uplod_img_pro(Request $request){
   return "$name";
 
 }
+public function add_pro(){
+  return view('management.pro_admin.add_pro_admin');
+}
 public function save_add_pro1(Save_add_pro_admin $request){
 
   $old_price = (empty($request->old_price)) ? 0 : $request->old_price ;
@@ -84,7 +87,7 @@ public function save_add_pro1(Save_add_pro_admin $request){
 
 }
 public function all_edit_pro(Request $request){
-  $pro="pro::get()";
-  return view('management.pro_admin.all_edit_pro_admin');
+  $pro=pro::get();
+  return view('management.pro_admin.all_edit_pro_admin', compact('pro'));
 }
 }

@@ -29,6 +29,7 @@
         <div class="content" id="pjax">
           @yield('content')
         </div>
+      
         <footer>
 
         </footer>
@@ -43,7 +44,7 @@
         <script type="text/javascript">
            $(function() { $('textarea').froalaEditor() });
            $(document).pjax('.a_pjax' , '#pjax');
-           $(document).pjax('.apjaxpro' , '#pjaxpro');
+           $(document).pjax('.apjaxpro' , '#pjax_pro');
            $(function () {  $('[data-toggle="tooltip"]').tooltip()});
        </script>
     </body>

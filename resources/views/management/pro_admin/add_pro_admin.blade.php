@@ -1,3 +1,8 @@
+@extends('management.pro_admin.pro_admin')
+ @section('title')
+  مدیریت :: اضافه کردن محصول
+@endsection
+@section('show_pro')
 <div class="add_pro">
  اضافه کردن محصول
 </div>
@@ -375,3 +380,4 @@
     </div>
   </div>
 </div><!--end modal  عکس ششم -->
+@endsection
