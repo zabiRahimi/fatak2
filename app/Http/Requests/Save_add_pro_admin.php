@@ -42,6 +42,7 @@ class Save_add_pro_admin extends FormRequest
           'made'=>'nullable',
           'model'=>'nullable',
           'img1' => 'required',
+          'show'=>'required|numeric|max:2',
           // 'img2' => 'nullable',
           // 'img3' => 'nullable',
           // 'img4' => 'nullable',

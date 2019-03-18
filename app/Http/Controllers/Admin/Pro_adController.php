@@ -8,6 +8,7 @@ use App\Models\Admin\Imgpro;
 use App\Models\Pro;
 use App\Models\PicturePro;
 use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای کنترلر ادمین در یک پوشه مجزا هست برای کار کردن فرم درخواست باید فایل فرم درخواست را یوز کنیم
+use App\Http\Requests\Save_edit_pro_admin;
 class Pro_adController extends Controller
 {
   public function show(Request $request){
@@ -39,7 +40,7 @@ public function add_pro(){
 }
 public function save_add_pro1(Save_add_pro_admin $request){
 
-  $old_price = (empty($request->old_price)) ? 0 : $request->old_price ;
+  $old_price = (empty($request->old_price)) ? NULL : $request->old_price ;
   $mavad=json_encode($request->mavad);
   $pro=new Pro();
   $pro->name = $request->name ;
@@ -61,10 +62,10 @@ public function save_add_pro1(Save_add_pro_admin $request){
 
   $pro->views =1 ;
   $pro->seller = $request->seller ;
-  $pro->show = 1;
+  $pro->show =  $request->show ;
   $pro-> save();
 
-   //اضافه کردن عکسهای محصول
+   // اضافه کردن عکسهای محصول
   $picture=new PicturePro();
   $picture->pro_id =$pro->id;
   $picture->pic_b1=$request->img1 ;
@@ -86,7 +87,62 @@ public function save_add_pro1(Save_add_pro_admin $request){
   $picture->save();
 
 }
-public function all_edit_pro(Request $request){
+public function edit_pro(Request $request ,$id){
+  $pro=pro::find($id);
+  $img=PicturePro::where('pro_id' , $id)->first();
+  return view('management.pro_admin.one_edit_pro_admin', compact('pro' , 'img'));
+
+}
+public function save_edit_pro1(Save_edit_pro_admin $request){
+
+  $old_price = (empty($request->old_price)) ? NULL : $request->old_price ;
+  $mavad=json_encode($request->mavad);
+  $id=$request->id;
+  $edit=pro::find($id);
+
+  $edit->name = $request->name ;
+  $edit->dis = $request->dis ;
+  $edit->price = $request->price ;
+  $edit->old_price = $old_price ;
+  $edit->gram = $request->gram ;
+  $edit->gram_post = $request->gram_post ;
+  $edit->pakat_price = $request->pakat_price ;
+  $edit->mavad = $mavad ;
+  $edit->date_m = $request->date_m ;
+  $edit->date_n = $request->date_n ;
+  $edit->dimension = $request->dimension ;
+  $edit->sponsor = $request->sponsor ;
+  $edit->term = $request->term ;
+  $edit->bake = $request->bake ;
+  $edit->made = $request->made ;
+  $edit->model = $request->model ;
+
+  $edit->views =1 ;
+  $edit->seller = $request->seller ;
+  $edit->show = $request->show;
+  $edit-> save();
+
+  //  //اضافه کردن عکسهای محصول
+  $picture=PicturePro::where('pro_id' , $id)->first();
+  $picture->pro_id =$id;
+  $picture->pic_b1=$request->img1 ;
+  $picture->pic_s1=$request->img1 ;
+  $picture->pic_b2 = (empty($request->img2)) ? NULL : $request->img2 ;
+  $picture->pic_b3 = (empty($request->img3)) ? NULL : $request->img3 ;
+  $picture->pic_b4 = (empty($request->img4)) ? NULL : $request->img4 ;
+  $picture->pic_b5 = (empty($request->img5)) ? NULL : $request->img5 ;
+  $picture->pic_b6 = (empty($request->img6)) ? NULL : $request->img6 ;
+
+  $picture->pic_s2 = (empty($request->img2)) ? NULL : $request->img2 ;
+  $picture->pic_s3 = (empty($request->img3)) ? NULL : $request->img3 ;
+  $picture->pic_s4 = (empty($request->img4)) ? NULL : $request->img4 ;
+  $picture->pic_s5 = (empty($request->img5)) ? NULL : $request->img5 ;
+  $picture->pic_s6 = (empty($request->img6)) ? NULL : $request->img6 ;
+  $picture->show = 1;
+  $picture->save();
+
+}
+public function all_edit_pro(Request $request ){
   $pro=pro::get();
   return view('management.pro_admin.all_edit_pro_admin', compact('pro'));
 }

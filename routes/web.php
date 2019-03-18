@@ -30,5 +30,6 @@ Route::post('/uplod_img_pro', 'Admin\Pro_adController@uplod_img_pro');//ok
 Route::get('/article_admin', 'Admin\Pro_adController@show');//ok!!
 Route::get('/add_pro', 'Admin\Pro_adController@add_pro');//ok
 Route::post('/save_add_pro1', 'Admin\Pro_adController@save_add_pro1');//ok
-Route::get('/edit_pro', 'Admin\Pro_adController@edit_pro');//ok!!
+Route::get('/edit_pro/{id}', 'Admin\Pro_adController@edit_pro');//ok!!
+Route::post('/save_edit_pro1', 'Admin\Pro_adController@save_edit_pro1');//ok
 Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro');//ok

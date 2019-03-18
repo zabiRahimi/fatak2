@@ -34,9 +34,10 @@
         <div class="all_edit_pro2_1_0 all_edit_pro_froosh"><span class="span1">{{number_format($pros->views)}}</span> <span class="span2">فروش</span></div>
         <div class="all_edit_pro2_1_0 all_edit_pro_did"><span class="span1">{{number_format($pros->views)}}</span> <span class="span2">بازدید</span></div>
         <div class="all_edit_pro2_1_0 all_edit_pro_show"> @if ($pros->show==1) <span class="span_ok">فعال</span> @else <span class="span_no">غیر فعال</span> @endif </div>
-        <a href="#"><div class="all_edit_pro2_1_0 all_edit_pro_edit">ویرایش</div></a>
+        <a href="/edit_pro/{{$pros->id}}"><div class="all_edit_pro2_1_0 all_edit_pro_edit">ویرایش</div></a>
 
       </div>
     @endforeach
   </div>
+
 @endsection

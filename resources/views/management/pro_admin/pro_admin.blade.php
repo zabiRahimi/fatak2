@@ -22,6 +22,7 @@
         </ul>
       </div>
       <div class="pro_ad_body_l" id="pjax_pro">
+        
         @yield('show_pro')
 
       </div>

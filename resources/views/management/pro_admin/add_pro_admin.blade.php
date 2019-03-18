@@ -3,6 +3,7 @@
   مدیریت :: اضافه کردن محصول
 @endsection
 @section('show_pro')
+
 <div class="add_pro">
  اضافه کردن محصول
 </div>
@@ -11,6 +12,7 @@
   <form class="add_pro_form1" action="" id="add_pro_form1"  method="post">
     {{ csrf_field() }}
     <div class="ajax_formaddpro1_admin" id="ajax_formaddpro1_admin"></div>
+
     <div class="form-group add_pro_form1_1">
       <label for="_addpro1_admin" class="control-label pull-right  ">نام محصول</label>
       <div class="div_data_buyer"><input type="text" class="form-control"  id="name_addpro1_admin"  ></div>
@@ -120,6 +122,7 @@
     <div class="fr-view add_pro_form1_2">
       <label for="bake_addpro1_admin" class="control-label pull-right  "> شرایط ارجاع </label>
       <textarea name="name" id="bake_addpro1_admin"></textarea>
+
     </div>
     <div class="form-group add_pro_form1_1">
       <label for="made_addpro1_admin" class="control-label pull-right  "> سازنده </label>
@@ -164,6 +167,21 @@
       <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#modal_add_pro_img6" value="انتخاب کنید">
       <div class="ajax_addpro1_img" id="ajax_addpro1_img6"></div>
     </div>
+    <div class="form-group add_pro_form1_1">
+      <label for="show_addpro1_admin" class="control-label pull-right  "> نحوه نمایش محصول </label>
+      <div class="div_show_addpro">
+        <div class="div_show_addpro_1">
+          <label for="show_addpro">فعال</label>
+          <input type="radio" class="" id="show_addpro" name="show1" value="1">
+        </div>
+        <div class="div_show_addpro_2">
+          <label for="show_addpro_2">غیر فعال</label>
+          <input type="radio" class="" id="show_addpro_2" name="show1" value="2">
+        </div>
+
+      </div>
+
+    </div>
     <div class="sabt_form_addPro">
       <button type="button" class="btn btn-success"
       onclick="save_add_pro1(
@@ -178,9 +196,11 @@
        ثبت محصول
       </button>
     </div>
+
   </form>
 
 </div>
+
 {{-- مودال عکس اول --}}
 <div class="modal fade" id="modal_add_pro_img1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-xl" role="document">
@@ -380,4 +400,5 @@
     </div>
   </div>
 </div><!--end modal  عکس ششم -->
+
 @endsection
