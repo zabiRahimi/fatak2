@@ -34,8 +34,8 @@ function num_pro_sabad_add(id,add_cut , num , vahed_price , gram_post,pakat){
 }
 //جمع کردن وزن محصولات جهت هزینه پست
 function sum_gram_post(add_cut , gram_post , num){
-  if (add_cut=='cut'&&num==1) {}else{
-  if(add_cut=='add'&&num==10){}else{
+  if (add_cut=='cut'&&num==1) {}else{//کنترل خرید کمتر از یک عدد
+  if(add_cut=='add'&&num==10){}else{// کنترل خرید بیشتر از 10 عدد
 
   var old_gram=$('#ajax_gram_sabad').html();
 
