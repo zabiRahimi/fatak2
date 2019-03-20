@@ -1,3 +1,8 @@
+@php
+namespace App\resource\wiews\pro\show_sabad_pro;
+  use Cookie;
+  use Session;
+@endphp
 @extends('layout.layout')
 @section('title')
   {{'سبد خرید'}}
@@ -25,14 +30,19 @@
           Session::put('ids' , $ids);
           $vazn_id='vazn' . $value2->id;
           $pakat_id='pakat' . $value2->id;
-          if(Session::has($vazn_id)){}
-            else{Session::put($vazn_id , $value2->gram_post);}
+          if(!empty(Cookie::get($vazn_id))){}
+            else{
+              Cookie::queue($vazn_id, $value2->gram_post);
+
+            }
+          // if(Session::has($vazn_id)){}
+          //   else{Session::put($vazn_id , $value2->gram_post);}
           if(Session::has($pakat_id)){}
             else{Session::put($pakat_id , $value2->pakat_price);}
 
         ?>
         <div class="sabad_kh_body">
-
+          
           <div class="sabad_kh_body2">
             <div class="sabad_kh_name_seller">
               <span id="ajax_vazn{{$value2->id}}" style="display: none; ">{{$value2->gram_post}}</span>
