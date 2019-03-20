@@ -78,6 +78,7 @@ class SabadController extends Controller
     if (!empty($request->del_id)) {
       $nameCookei='addpro'. $request->del_id;
       Cookie::queue($nameCookei, '' , time() - 3600);
+      Cookie::queue('vazn' . $request->del_id , '', time() - 3600);
       $id_pros=unserialize($request->cookie('id_pros'));
       if(count($id_pros)==1) {
         Cookie::queue('id_pros', '', time() - 3600);
@@ -90,7 +91,8 @@ class SabadController extends Controller
       }else{
         foreach ($id_pros as $key) {
           if($key==$request->del_id){
-            $request->session()->forget('only_pro' . $key);
+
+
             $request->session()->forget('vazn' . $key);
             $request->session()->forget('pakat' . $key);
             continue;
@@ -160,7 +162,7 @@ class SabadController extends Controller
   public function num_pro_sabad_add(Request $request){
     $vazn_id='vazn' . $request->id;
     $gram_post=$request->gram_post;
-    $old_gram=$request->session()->get($vazn_id);
+    $old_gram=$request->cookie($vazn_id);
     $num=$request->num;
     $pakat=$request->pakat;
     $pakat_id='pakat' . $request->id;
@@ -170,20 +172,46 @@ class SabadController extends Controller
       //جهت تنظیم وزن یک محصول
       $new_gram=$old_gram+$gram_post;
       $new_pakat=$old_pakat+$pakat;
-      $request->session()->put($vazn_id, $new_gram);
+      Cookie::queue($vazn_id, $new_gram);//استفاده در فایلهای پست پیشتاز و ویژه
       $request->session()->put($pakat_id, $new_pakat);
     } else {
       $num--;
       //جهت تنظیم وزن یک محصول
       $new_gram=$old_gram-$gram_post;
       $new_pakat=$old_pakat-$pakat;
-      $request->session()->put($vazn_id, $new_gram);
+      Cookie::queue($vazn_id, $new_gram);//استفاده در فایلهای پست پیشتاز و ویژه
       $request->session()->put($pakat_id, $new_pakat);
     }
   //ذخیره تعداد محصول خریداری  شده
   $num_id='num' . $request->id;
   $request->session()->put($num_id, $num);
   return $num;
+  //   $vazn_id='vazn' . $request->id;
+  //   $gram_post=$request->gram_post;
+  //   $old_gram=$request->session()->get($vazn_id);
+  //   $num=$request->num;
+  //   $pakat=$request->pakat;
+  //   $pakat_id='pakat' . $request->id;
+  //   $old_pakat=$request->session()->get($pakat_id);
+  //   if ($request->add_cut=='add') {
+  //     $num++;
+  //     //جهت تنظیم وزن یک محصول
+  //     $new_gram=$old_gram+$gram_post;
+  //     $new_pakat=$old_pakat+$pakat;
+  //     $request->session()->put($vazn_id, $new_gram);
+  //     $request->session()->put($pakat_id, $new_pakat);
+  //   } else {
+  //     $num--;
+  //     //جهت تنظیم وزن یک محصول
+  //     $new_gram=$old_gram-$gram_post;
+  //     $new_pakat=$old_pakat-$pakat;
+  //     $request->session()->put($vazn_id, $new_gram);
+  //     $request->session()->put($pakat_id, $new_pakat);
+  //   }
+  // //ذخیره تعداد محصول خریداری  شده
+  // $num_id='num' . $request->id;
+  // $request->session()->put($num_id, $num);
+  // return $num;
  }
  //مجموع قیمت جدید برای محصولی که کاربر مبادرت به خرید بیشتر از یک کالا نموده
    public function new_price(Request $request){
