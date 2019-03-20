@@ -6,12 +6,13 @@
 <div class="sabad_kh">
   <div class="sabad_kh_titr">
     <h4>سبد خرید شما</h4>
-    <span>تعداد کالا <span>@if (Session::has('sabad_pro2')){{ count(session('sabad_pro2'))}}@endif </span> </span>
+    <span>تعداد کالا <span>{{$num_pro}} </span> </span>
+    {{-- @if (Session::has('sabad_pro2')){{ count(session('sabad_pro2'))}}@endif --}}
   </div>
 
-  @if (Session::has('sabad_pro2'))
+  @if (!empty($num_pro))
 
-    @foreach (session('sabad_pro2') as  $value)
+    @foreach ($id_pros as  $value)
 
       @foreach ($show_sabad_pro->where('id' , $value) as  $value2)
 

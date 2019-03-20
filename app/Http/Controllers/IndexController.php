@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Cookie;
 use App\Models\Pro;
 use App\Models\picturePro;
 use App\Models\NazarPro;
@@ -15,8 +16,8 @@ class IndexController extends Controller
       $pro_pic=PicturePro::get();
       $pro_nazar=NazarPro::get();
       $count=Pro::where('show' , 1)->count();
-
-      return view('welcome', compact('pro' , 'pro_pic', 'pro_nazar' , 'count'   ));
+      if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
+      return view('welcome', compact('pro' , 'pro_pic', 'pro_nazar' , 'count' , 'num_pro'  ));
     }
     public function show_card(Request $request){
 

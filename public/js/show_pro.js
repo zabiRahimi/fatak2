@@ -26,19 +26,19 @@ function pro7_active(class1 , class2){
    window.scrollTo(0 ,hTop);
  }
 //ثبت بازدید محصولات
-function view_pro(id){
-   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-   $.ajax({
-     type:'put',
-     url:'../view_pro',
-     data: {
-          id: id ,
-          },
-     success:function(data){
-
-     }
-   });
-}
+// function view_pro(id){
+//    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+//    $.ajax({
+//      type:'put',
+//      url:'../view_pro',
+//      data: {
+//           id: id ,
+//           },
+//      success:function(data){
+//
+//      }
+//    });
+// }
 // اضافه کردن کالا به سبد خرید
 function add_pro_sabad(id){
 
@@ -50,8 +50,11 @@ function add_pro_sabad(id){
           id: id ,
           },
      success:function(data){
-       $('#sabad').html(data);
-       $('#pro_add_sabad').modal('show');
-     }
+       if(data){
+         $('#sabad').html(data);
+       }
+         $('#pro_add_sabad').modal('show');
+     },
+     error:function(){alert(56)}
    });
 }

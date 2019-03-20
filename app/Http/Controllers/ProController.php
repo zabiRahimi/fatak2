@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Cookie;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\Pro;
 use App\Models\picturePro;
 use App\Models\NazarPro;
@@ -28,19 +29,31 @@ class ProController extends Controller
     $count=Pro::where('show' , 1)->count();
     $pro_nazar=NazarPro::get();
     $pro_pic=PicturePro::get();
-    return view('pro.show_pro', compact('show_pro', 'pic_pro', 'nazar_pro', 'count_nazar_pro' , 'question_pro' , 'count_question_pro', 'answer_pro' , 'count_answer_pro'  ,'pro' ,  'count' , 'pro_nazar', 'pro_pic'  ));
+    if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
+    //ثبت بازدید
+
+$nameCookei='sabt'. $id;
+if(empty($request->cookie($nameCookei))){
+  $view= $show_pro->views+1;
+  $show_pro->update(['views'=>$view]);
+  Cookie::queue($nameCookei, 'ok');
+
+}
+
+    return  view('pro.show_pro', compact('show_pro', 'pic_pro', 'nazar_pro', 'count_nazar_pro' , 'question_pro' , 'count_question_pro', 'answer_pro' , 'count_answer_pro'
+     ,'pro' ,  'count' , 'pro_nazar', 'pro_pic','num_pro'  ));
   }
   //ثبت بازدید
-  public function view_pro(Request $request){
-    $id2=$request->id;
-    $name_session='seh'.$id2;
-    $val=$request->session()->get($name_session);
-    if($val!='no'){
-      $pro=Pro::find($id2);
-      $view= $pro->views+1;
-      $pro->update(['views'=>$view]);
-       $request->session()->put([$name_session=>'no']);
-    }
-  }
+  // public function view_pro(Request $request){
+  //   $id2=$request->id;
+  //   $name_session='seh'.$id2;
+  //   $val=$request->session()->get($name_session);
+  //   if($val!='no'){
+  //     $pro=Pro::find($id2);
+  //     $view= $pro->views+1;
+  //     $pro->update(['views'=>$view]);
+  //      $request->session()->put([$name_session=>'no']);
+  //   }
+  // }
 
 }//end class

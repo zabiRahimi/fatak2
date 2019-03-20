@@ -66,11 +66,7 @@
           <span class="sabad_s1"><i class="fas fa-cart-plus"></i></span>
           <span class="sabad_s2">سبد خرید</span>
           <span class=" sabad_s3" id="sabad">
-            @if (!empty(session('num_pro')))
-              {{session('num_pro')}}
-            @else
-            0
-          @endif
+            {{$num_pro}}
         </span>
         </a>
         </div>

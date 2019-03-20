@@ -4,19 +4,14 @@
   {{$show_pro->name}}
 @endsection
 @section('content')
-  @if (Session::has('sabad_pro2'))
-    @foreach (session('sabad_pro2') as  $value)
 
-      {{$value}}
-    @endforeach
-
-  @endif
 <div class="show_pro_ess" id="show_pro_ess">
 <div class="show_pro">
 <div class="show_pro1 row">
 {{-- col-5 col-xs-push-4 --}}
   <div class="show_pro2 text-right">
     <h1>{{$show_pro->name}}</h1>
+    
   </div>
   {{-- col-7 col-xs-pull-8 --}}
   <div class="  text-left show_pro3">
@@ -45,7 +40,7 @@
             @endfor
           </div>
           <div class="bp5-600">
-            @for ($i=1; $i < 7; $i++)
+             @for ($i=1; $i < 7; $i++)
               <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
               <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo 'active_img_pro' ;} ?> " height="290">
             @endfor
@@ -141,10 +136,7 @@
             <div class="dimension_pro1">ابعاد (سانتیمتر) :</div>
             <div class="dimension_pro2">{{$show_pro->dimension}} cm</div>
         </div>
-        {{-- <div class="vazn_posty_pro specs_pro">
-            <div class="vazn_posty_pro1"></div>
-            <div class="vazn_posty_pro2"></div>
-        </div> --}}
+
         <div class="mavad_pro specs_pro">
             <div class="mavad_pro1">مواد اولیه :</div>
             <div class="mavad_pro2">
@@ -412,85 +404,6 @@
     </div>
   </div>
 </div><!--end modal -->
-{{-- <p class="p_proay">
-<img src="../img_pro/i.jpg" id="img_proay" width="" alt="" />
-  این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد.این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهمو
-  م خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد.
-  این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد.این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهمو
-  م خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد. این یک متن آزمایشی است و معنی و مفهموم خاصی ندارد.
-
-</p>
-
-<div class="panel panel-default panel_proay">
-  <!-- Default panel contents -->
-  <div class="panel-heading"><h4><span class="fas fa-plus-circle  bn2"></span>&nbsp;&nbsp;خواندنی های مشابه</h4> </div>
-  <div class="panel-body">
-{{-- @for ($i=1; $i < 9; $i++)
-  @php
-  $r='similar'.$i;
-    $val=proay::whereId($similar[$r])->first();
-    if(empty($val['id'])){continue;}
-  @endphp
-<a href="/proay/{{$val['id']}}" class="pro_a">
-  <span>
-    {{$val['name']}}
-  </span>
-</a>
-@endfor --}}
-
-
-
-
-  {{-- </div>
-</div>
-<div class="panel panel-default panel_proay"> --}}
-  <!-- Default panel contents -->
-  {{-- <div class="panel-heading"><h4><i class="glyphicon glyphicon-tags bn2"></i>&nbsp;&nbsp; برچسب ها</h4> </div>
-  <div class="panel-body"> --}}
-    {{-- @for ($i=1; $i < 9; $i++)
-      @php
-      $r='tag'.$i;
-
-        if(empty($tag[$r])){continue;}
-      @endphp
-    <a href="/proay/{{$id}}" class="pro_a">
-      <span>
-        {{$tag[$r]}}
-      </span>
-    </a>
-    @endfor --}}
-  {{-- </div>
-</div> --}}
-
-<!-- نظرات -->
-{{-- <div class="panel panel-default panel_proay "> --}}
-  <!-- Default panel contents -->
-  {{-- <div class="panel-heading pro_panel_nazar"><h4 class="right"><span class="fas fa-comments bn2" id="scroll_nazar_pro"></span>&nbsp;&nbsp; نظر کاربران &nbsp; <span class="badge pro_nazar_count">12</span></h4>
-      <button type="button" class="btn btn-succpro btn_pro" data-toggle="modal" data-target="#pro_nazar"  name="button">ارسال نظر</button>
-  </div>
-  <div class="panel-body"> --}}
-    {{-- @foreach ($nazars as  $nazar) --}}
-    {{-- <div class="pro_nazar_body">
-      <div class="pro_nazar_header">
-        <i class="fas fa-user-tie pro_ikon_nazar"></i>
-        <div class="pro_nazar_header2"> --}}
-          {{-- <h4>{{$nazar['name']}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{$nazar['created_at']}}</h4> --}}
-        {{-- </div>
-        <i class="fas fa-check-double pro_tik_nazar"></i>
-
-      </div> --}}
-
-      {{-- <p class="pro_nazra_matn">{{$nazar['nazar']}}</p> --}}
-
-    {{-- </div> --}}
-    {{-- @endforeach --}}
-    {{--
-      <li>{{$nazar['name']}}</li>
-     --}}
-  {{-- </div>
-</div> --}}
-
 </div><!-- end show_pro -->
 </div>
 @endsection
-{{-- @endforeach --}}
