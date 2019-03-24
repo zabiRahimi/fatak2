@@ -42,7 +42,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
 
         ?>
         <div class="sabad_kh_body">
-          
+
           <div class="sabad_kh_body2">
             <div class="sabad_kh_name_seller">
               <span id="ajax_vazn{{$value2->id}}" style="display: none; ">{{$value2->gram_post}}</span>
@@ -98,10 +98,6 @@ namespace App\resource\wiews\pro\show_sabad_pro;
       @endforeach
 
     @endforeach
-
-
-
-
       <div class="sabad_kh2">
 
         <div class="sabad_kh2_1">
@@ -119,19 +115,48 @@ namespace App\resource\wiews\pro\show_sabad_pro;
       </div>
       <div class="sabad_kh_city_post">
         <div class="sabad_kh_ostan">
-          <select name="cars" id="ajax_sabad_ostan" class="custom-select sabad_select_ostan" onchange="show_city($('#ajax_sabad_ostan').val())">
+          <select name="cars" id="ajax_sabad_ostan" class="custom-select sabad_select_ostan" onchange="">
             <option value="aval" selected>انتخاب استان</option>
-            @foreach ($ostan as  $value)
-              <option value="{{$value->id}}" >{{$value->city}}</option>
-            @endforeach
+            <option value="1" onclick="show_city('ostan1')">اردبیل</option>
+            <option value="2" onclick="show_city('ostan2')">اصفهان</option>
+            <option value="3" onclick="show_city('ostan3')">البرز</option>
+            <option value="4" onclick="show_city('ostan4')">ایلام</option>
+            <option value="5" onclick="show_city('ostan5')">آذربایجان شرقی</option>
+            <option value="6" onclick="show_city('ostan6')">آذربایجان غربی</option>
+            <option value="7" onclick="show_city('ostan7')">بوشهر</option>
+            <option value="8" onclick="show_city('ostan8')">تهران</option>
+            <option value="9" onclick="show_city('ostan9')">چهار محال بختیاری</option>
+            <option value="10" onclick="show_city('ostan10')">خراسان جنوبی</option>
+            <option value="11" onclick="show_city('ostan11')">خراسان رضوی</option>
+            <option value="12" onclick="show_city('ostan12')">خراسان شمالی</option>
+            <option value="13" onclick="show_city('ostan13')">خوزستان</option>
+            <option value="14" onclick="show_city('ostan14')">زنجان</option>
+            <option value="15" onclick="show_city('ostan15')">سمنان</option>
+            <option value="16" onclick="show_city('ostan16')">سیستان و بلوچستان</option>
+            <option value="17" onclick="show_city('ostan17')">فارس</option>
+            <option value="18" onclick="show_city('ostan18')">قزوین</option>
+            <option value="19" onclick="show_city('ostan19')">قم</option>
+            <option value="20" onclick="show_city('ostan20')">کردستان</option>
+            <option value="21" onclick="show_city('ostan21')">کرمان</option>
+            <option value="22" onclick="show_city('ostan22')">کرمانشاه</option>
+            <option value="23" onclick="show_city('ostan23')">کهگیلویه و بویراحمد</option>
+            <option value="24" onclick="show_city('ostan24')">گلستان</option>
+            <option value="25" onclick="show_city('ostan25')">گیلان</option>
+            <option value="26" onclick="show_city('ostan26')">لرستان</option>
+            <option value="27" onclick="show_city('ostan27')">مازندران</option>
+            <option value="28" onclick="show_city('ostan28')">مرکزی</option>
+            <option value="29" onclick="show_city('ostan29')">هرمزگان</option>
+            <option value="30" onclick="show_city('ostan30')">همدان</option>
+            <option value="31" onclick="show_city('ostan31')">یزد</option>
+
          </select>
 
         </div>
         <div class="sabad_kh_city">
           <select name="cars" id="ajax_sabad_city" class="custom-select sabad_select_ostan">
-                <option value="aval" selected>انتخاب شهر</option>
-                <option >ابتدا استان را انتخاب کنید</option>
-
+                {{-- <option value="aval" selected>انتخاب شهر</option> --}}
+                {{-- <option >ابتدا استان را انتخاب کنید</option> --}}
+                @include('show_city')
               </select>
         </div>
         <div class="sabad_kh_sefareshi ">
