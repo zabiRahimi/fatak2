@@ -45,3 +45,6 @@ display:inline;
 .carsol_pro_ess{width: 100%; margin: 5px 0; float: right;}
 /* اخطار فیلذهای فرم */
 #alarm_red{width: 100%; margin: 2px 0 4px; padding: 5px 4px; text-align: center; color: #b80f19; border: 2px solid #b80f19; border-radius: 4px; font-size: 16px;float: right; background-color: #fff;}
+/* استالهای شهر و استان */
+.cityOff{display: none;}
+.cityShow{display: block; color: #020647}
