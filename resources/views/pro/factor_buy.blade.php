@@ -1,3 +1,4 @@
+
 @extends('layout.layout')
 @section('title')
   {{'فاکتور خرید'}}
@@ -5,26 +6,26 @@
 @section('content')
 <div class="all_factor">
   <div class="titr_faktor">
-    فاکتور خرید و ثبت اطلاعات پستی
+    {{-- فاکتور خرید و ثبت اطلاعات پستی --}}
   </div>
-  @if (Session::has('sabad_pro2'))
+  @if (!empty($id_pros))
     <div class="body_factor1 body_factor0">
       <div class="name_pro_factor1">محصول</div><div class="num_pro_factor1">تعداد</div><div class="price_factor1">واحد (<span class="factor_toman">تومان</span>)</div><div class="all_price_factor1">مجموع (<span class="factor_toman">تومان</span>)</div>
     </div>
     <?php $i=1; ?>
-    @foreach (session('sabad_pro2') as  $value)
+    @foreach ($id_pros as  $value)
 
       @foreach ($show_sabad_pro->where('id' , $value) as  $value2)
         <?php
           $num_id='num' . $value2->id;
-          $pakat[]=Session::get('pakat' . $value2->id);
-          $praice_all=Session::get($num_id)*$value2->price;
-          $praice_pro_all[]=Session::get($num_id)*$value2->price;
-          $price_work[]=1000*Session::get($num_id);
+          $pakat[]=Cookie::get('pakat' . $value2->id);
+          $praice_all=Cookie::get($num_id)*$value2->price;
+          $praice_pro_all[]=Cookie::get($num_id)*$value2->price;
+          $price_work[]=1000*Cookie::get($num_id);
 
          ?>
          <div class="body_factor1 body_factor2 @if (($i % 2) ==0) bg_color_factor @endif">
-           <div class="name_pro_factor1">{{$value2->name}}</div><div class="num_pro_factor1">{{Session::get($num_id)}} <span class="factor_span">عدد</span> </div><div class="price_factor1 number"><span class="factor_span">قیمت واحد :</span> {{number_format($value2->price) }} <span class="factor_toman2">تومان</span> </div><div class="all_price_factor1 number"><span class="factor_span">قیمت :</span> {{number_format($praice_all)}} <span class="factor_toman2">تومان</span> </div>
+           <div class="name_pro_factor1">{{$value2->name}}</div><div class="num_pro_factor1">{{Cookie::get($num_id)}} <span class="factor_span">عدد</span> </div><div class="price_factor1 number"><span class="factor_span">قیمت واحد :</span> {{number_format($value2->price) }} <span class="factor_toman2">تومان</span> </div><div class="all_price_factor1 number"><span class="factor_span">قیمت :</span> {{number_format($praice_all)}} <span class="factor_toman2">تومان</span> </div>
          </div>
          <?php $i++; ?>
       @endforeach
@@ -33,11 +34,11 @@
       <div class="body_factor3">
         <div class="titr_body_factor3">نحوه پست</div>
         <div class="matn_body_factor3">
-          @if (Session::get('model_post')==1)
-            <?php Session::put('model_post2' , 'سفارشی'); ?>
+          @if (cookie::get('model_post')==1)
+            <?php Cookie::queue('model_post2' , 'سفارشی'); ?>
             پست سفارشی
-          @elseif (Session::get('model_post')==2)
-            <?php Session::put('model_post2' , 'پیشتاز'); ?>
+          @elseif (cookie::get('model_post')==2)
+            <?php Cookie::queue('model_post2' , 'پیشتاز'); ?>
             پست پیشتاز
           @endif
         </div>
@@ -45,12 +46,12 @@
       <div class="body_factor3 bg_color_factor">
         <div class="titr_body_factor3 ">هزینه پست</div>
         <div class="matn_body_factor3 number">
-          @if (Session::get('model_post')==1)
-            <?php $price_post_factor=Session::get('post_sefareshi'); ?>
-            {{number_format(Session::get('post_sefareshi'))}} <span class="factor_span2">تومان</span>
-          @elseif (Session::get('model_post')==2)
-            <?php $price_post_factor=Session::get('post_pishtaz'); ?>
-            {{number_format(Session::get('post_pishtaz'))}} <span class="factor_span2">تومان</span>
+          @if (cookie::get('model_post')==1)
+            <?php $price_post_factor=cookie::get('post_sefareshi'); ?>
+            {{number_format(cookie::get('post_sefareshi'))}} <span class="factor_span2">تومان</span>
+          @elseif (cookie::get('model_post')==2)
+            <?php $price_post_factor=cookie::get('post_pishtaz'); ?>
+            {{number_format(cookie::get('post_pishtaz'))}} <span class="factor_span2">تومان</span>
           @endif
         </div>
       </div>
@@ -69,7 +70,7 @@
       <div class="body_factor4">
         <?php
           $end_price_factor=array_sum($praice_pro_all)+$price_post_factor+array_sum($pakat)+array_sum($price_work);
-          Session::put('end_all_price' , $end_price_factor);
+          // cookie::put('end_all_price' , $end_price_factor);
         ?>
         <span class="body_factor4_1">هزینه نهایی</span><span class="body_factor4_2 number">{{number_format($end_price_factor)}}</span><span class="body_factor4_3">تومان</span>
       </div>
@@ -101,11 +102,11 @@
          </div>
          <div class="form-group">
            <label for="ostan_data_buyer" class="control-label pull-right "><i class="fas fa-map-marker i_email_sabt"></i> استان</label>
-           <div class="div_data_buyer"><input type="text" value="{{Session::get('add_ostan')}}"  class="form-control"  id="ostan_data_buyer" disabled ></div>
+           <div class="div_data_buyer"><input type="text" value="{{cookie::get('add_ostan')}}"  class="form-control"  id="ostan_data_buyer" disabled ></div>
          </div>
          <div class="form-group">
            <label for="city_data_buyer" class="control-label pull-right "><i class="fas fa-map-marker-alt i_email_sabt"></i> شهر</label>
-           <div class="div_data_buyer"><input type="text" value="{{Session::get('add_city')}}" class="form-control" id="city_data_buyer" disabled ></div>
+           <div class="div_data_buyer"><input type="text" value="{{cookie::get('add_city')}}" class="form-control" id="city_data_buyer" disabled ></div>
          </div>
          <div class="form-group">
            <label for="codepost_data_buyer" class="control-label pull-right "><i class="far fa-address-card i_email_sabt"></i> کد پستی</label>
@@ -163,4 +164,4 @@
     </div>
   </div>
 </div><!--end modal صحت ثبت-->
-@endsection
+@endsection --}}

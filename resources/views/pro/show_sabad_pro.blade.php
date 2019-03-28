@@ -1,7 +1,7 @@
 @php
 namespace App\resource\wiews\pro\show_sabad_pro;
   use Cookie;
-  use Session;
+  
 @endphp
 @extends('layout.layout')
 @section('title')
@@ -12,7 +12,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
   <div class="sabad_kh_titr">
     <h4>سبد خرید شما</h4>
     <span>تعداد کالا <span>{{$num_pro}} </span> </span>
-    {{-- @if (Session::has('sabad_pro2')){{ count(session('sabad_pro2'))}}@endif --}}
+
   </div>
 
   @if (!empty($num_pro))
@@ -26,19 +26,20 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           $sum_gram_sabad[]=$value2->gram_post;
           $ids[]=$value2->id;
           $num_id='num' . $value2->id;
-          Session::put($num_id, 1);
-          Session::put('ids' , $ids);
+          Cookie::queue($num_id, 1);
+
+          Cookie::queue('ids', serialize($ids));
           $vazn_id='vazn' . $value2->id;
           $pakat_id='pakat' . $value2->id;
+          Cookie::queue($vazn_id, $value2->gram_post);
           if(!empty(Cookie::get($vazn_id))){}
             else{
               Cookie::queue($vazn_id, $value2->gram_post);
 
             }
-          // if(Session::has($vazn_id)){}
-          //   else{Session::put($vazn_id , $value2->gram_post);}
-          if(Session::has($pakat_id)){}
-            else{Session::put($pakat_id , $value2->pakat_price);}
+
+          if(!empty(Cookie::get($pakat_id))){}
+            else{Cookie::queue($pakat_id , $value2->pakat_price);}
 
         ?>
         <div class="sabad_kh_body">
@@ -65,10 +66,16 @@ namespace App\resource\wiews\pro\show_sabad_pro;
               @foreach ($shop->where('shop' , $value2->seller) as  $id_shop)
 
                 <?php
-                $ostan_id='ostan' . $value2->id;
                 $shop_id='shop' . $value2->id;
-                Session::put($ostan_id , $id_shop->id_ostan);
-                Session::put($shop_id , $id_shop->id);
+                $ostan_id='ostan' . $value2->id;
+                $city_id='city' . $value2->id;
+
+                Cookie::queue($shop_id, $id_shop->id);
+
+                Cookie::queue($ostan_id, $id_shop->id_ostan);
+
+                Cookie::queue($city_id, $id_shop->id_city);
+
                  ?>
               @endforeach
 
@@ -115,8 +122,8 @@ namespace App\resource\wiews\pro\show_sabad_pro;
       </div>
       <div class="sabad_kh_city_post">
         <div class="sabad_kh_ostan">
-          <select name="cars" id="ajax_sabad_ostan" class="custom-select sabad_select_ostan" onchange="">
-            <option value="aval" selected>انتخاب استان</option>
+          <select name="cars" id="ajax_sabad_ostan" class="custom-select sabad_select_ostan" onclick="zabi()" onchange="">
+            <option value="aval" onclick="show_city('no')" selected>انتخاب استان</option>
             <option value="1" onclick="show_city('ostan1')">اردبیل</option>
             <option value="2" onclick="show_city('ostan2')">اصفهان</option>
             <option value="3" onclick="show_city('ostan3')">البرز</option>
@@ -153,7 +160,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
 
         </div>
         <div class="sabad_kh_city">
-          <select name="cars" id="ajax_sabad_city" class="custom-select sabad_select_ostan">
+          <select name="" id="ajax_sabad_city" class="custom-select sabad_select_ostan">
                 {{-- <option value="aval" selected>انتخاب شهر</option> --}}
                 {{-- <option >ابتدا استان را انتخاب کنید</option> --}}
                 @include('show_city')
