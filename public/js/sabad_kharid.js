@@ -116,9 +116,8 @@ function show_city(id){
   });
 }
 
-function post_pishtaz(id ){
+function post_pishtaz(id_ostan , id_city ){
   // var kl = "<?php echo 120; ?>";
-
 
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
@@ -127,8 +126,8 @@ function post_pishtaz(id ){
       data: {
 
 
-           id: id,
-
+           id_ostan: id_ostan,
+           id_city:id_city,
            },
       success:function(data){
         $('.sabad_kh_pishtaz2_1').html(data);
@@ -136,10 +135,7 @@ function post_pishtaz(id ){
       },
     });
 }
-function post_sefareshi(id , city){
-  // var kl = "<?php echo 120; ?>";
-
-
+function post_sefareshi(id_ostan , id_city, city){
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'put',
@@ -147,7 +143,8 @@ function post_sefareshi(id , city){
       data: {
 
 
-           id: id,
+           id_ostan: id_ostan,
+           id_city: id_city,
            city:city,
            },
       success:function(data){
