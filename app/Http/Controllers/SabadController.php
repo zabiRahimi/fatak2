@@ -166,25 +166,25 @@ class SabadController extends Controller
     $num=$request->num;
     $pakat=$request->pakat;
     $pakat_id='pakat' . $request->id;
-    $old_pakat=$request->session()->get($pakat_id);
+    $old_pakat=$request->cookie($pakat_id);
     if ($request->add_cut=='add') {
       $num++;
       //جهت تنظیم وزن یک محصول
       $new_gram=$old_gram+$gram_post;
       $new_pakat=$old_pakat+$pakat;
       Cookie::queue($vazn_id, $new_gram);//استفاده در فایلهای پست پیشتاز و ویژه
-      $request->session()->put($pakat_id, $new_pakat);
+      Cookie::queue($pakat_id, $new_pakat);
     } else {
       $num--;
       //جهت تنظیم وزن یک محصول
       $new_gram=$old_gram-$gram_post;
       $new_pakat=$old_pakat-$pakat;
       Cookie::queue($vazn_id, $new_gram);//استفاده در فایلهای پست پیشتاز و ویژه
-      $request->session()->put($pakat_id, $new_pakat);
+      Cookie::queue($pakat_id, $new_pakat);
     }
   //ذخیره تعداد محصول خریداری  شده
   $num_id='num' . $request->id;
-  $request->session()->put($num_id, $num);
+  Cookie::queue($num_id, $num);
   return $num;
   //   $vazn_id='vazn' . $request->id;
   //   $gram_post=$request->gram_post;
@@ -250,30 +250,42 @@ class SabadController extends Controller
      $show_city=City::where('sub_ostan' , $id)->get();
     return view('show_city', compact('show_city'));
     }
+
    public function post_pishtaz(Request $request){
-      $id=$request->id;
-      $hamjavar=City::get();
-      $post_pishtaz=Post_pishtaz::get();
-      return view('post_pishtaz', compact('id' , 'hamjavar','post_pishtaz'));
+     $id_city=$request->id_city;
+     $id_ostan=$request->id_ostan;
+
+     return view('post_pishtaz', compact('id_city' , 'id_ostan' ));
+      // $id_city=$request->id_city;
+      // $id_ostan=$request->id_ostan;
+      // $hamjavar=City::get();
+      // $post_pishtaz=Post_pishtaz::get();
+      // return view('post_pishtaz', compact('id_city' , 'id_ostan' , 'hamjavar','post_pishtaz'));
      }
+
    public function post_sefareshi(Request $request){
-       $id=$request->id;
+       $id_ostan=$request->id_ostan;
+       $id_city=$request->id_city;
        $city=$request->city;
-       $hamjavar=City::get();
-       $post_sefareshi=Post_sefareshi::get();
-       return view('post_sefareshi', compact('id' , 'city', 'hamjavar','post_sefareshi'));
+       return view('post_sefareshi', compact('id_ostan' , 'id_city' , 'city'));
+       // $id=$request->id;
+       // $city=$request->city;
+       // $hamjavar=City::get();
+       // $post_sefareshi=Post_sefareshi::get();
+       // return view('post_sefareshi', compact('id' , 'city', 'hamjavar','post_sefareshi'));
       }
   //هزینه نهایی در سبد خرید
    public function end_price_all(Request $request){
         $price_pros=str_replace (',' ,'',$request->price_pros);
         $price_post=str_replace (',' ,'',$request->price_post);
-        $request->session()->put('model_post', $request->model_post);
+        Cookie::queue('model_post', $request->model_post);
         $all=$price_pros+$price_post;
         return number_format($all);
        }
        //مشاهده فاکتور خرید و ثبت اطلاعات پستی خریدار
    public function show_factor_buy(Request $request){
-
+         $id_pros=unserialize($request->cookie('id_pros'));
+         $num_pro=$request->cookie('numpro');
          $show_sabad_pro=Pro::get();
            //جهت اسلایدر محصولات
          $pro=Pro::where('show' , 1)->get();
@@ -282,7 +294,7 @@ class SabadController extends Controller
          $pro_pic=PicturePro::get();
          $ostan=City::where('sub_ostan' , 0)->get();
          $shop=Shop::get();
-         return view('pro.factor_buy', compact('show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
+         return view('pro.factor_buy', compact('id_pros','num_pro','show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
        }
   //ذخیره اطلاعات خریدار
    public function save_data_buyer(Save_data_buyer $request){
@@ -296,7 +308,7 @@ class SabadController extends Controller
      $city=$request->city;
      $codepost=$request->codepost;
      $address=$request->address;
-     $post=$request->session()->get('model_post2');
+     $post=$request->cookie('model_post2');
      $show_pro=Pro::get();
      $date1=new Verta();//تاریخ جلالی
      $date=$date1->format('Y/n/j');
