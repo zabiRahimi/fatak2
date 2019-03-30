@@ -6,7 +6,7 @@
 @section('content')
 <div class="all_factor">
   <div class="titr_faktor">
-    {{-- فاکتور خرید و ثبت اطلاعات پستی --}}
+    فاکتور خرید و ثبت اطلاعات پستی
   </div>
   @if (!empty($id_pros))
     <div class="body_factor1 body_factor0">
