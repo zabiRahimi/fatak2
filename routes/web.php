@@ -22,6 +22,7 @@ Route::get('/show_factor_buy','SabadController@show_factor_buy');//ok
 Route::post('/save_data_buyer','SabadController@save_data_buyer');//ok
 Route::put('/end_buy','SabadController@end_buy');//ok
 Route::put('/pardakht','SabadController@pardakht');//ok!!
+Route::post('/create_cookie','SabadController@create_cookie');//ok
 
 //قسمت مدیریت management
 Route::get('/management', 'Admin\ManagementController@show');//ok
