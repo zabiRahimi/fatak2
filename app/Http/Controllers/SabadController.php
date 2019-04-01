@@ -46,31 +46,6 @@ class SabadController extends Controller
 
       return $num;
     }
-
-    // $sabad_pro=[];
-    // $only_pro='only_pro' . $id;//جهت عدم اضافه کردن محصول اضافه شده
-    // if ($request->session()->has($only_pro)) {
-    //   return $request->session()->get('num_pro');
-    // }else{
-    //     $request->session()->put($only_pro , 'ok');
-    // if ($request->session()->has('sabad_pro2')) {
-    // $request->session()->push('sabad_pro2', $id);
-    // $val=$request->session()->get('sabad_pro2');
-    // $request->session()->put('sabad_pro2', $val);
-    //  }else{
-    //    $request->session()->put('sabad_pro2', [$id]);
-    //    $request->session()->put('only_pro' . $id,[$id]);
-    //  }
-    // if ($request->session()->has('num_pro')) {
-    // $num_pro=$request->session()->get('num_pro');
-    // $num_pro++;
-    // $request->session()->put('num_pro', $num_pro++);
-    //  }else{
-    //    $request->session()->put('num_pro', 1);
-    //    $num_pro=$request->session()->get('num_pro');
-    //  }
-    //  return $request->session()->get('num_pro');
-    //   }
   }
   //مشاهده سبد خرید
   public function show_sabad_pro(Request $request){
@@ -79,33 +54,27 @@ class SabadController extends Controller
       $nameCookei='addpro'. $request->del_id;
       Cookie::queue($nameCookei, '' , time() - 3600);
       Cookie::queue('vazn' . $request->del_id , '', time() - 3600);
+      Cookie::queue('pakat' . $request->del_id , '', time() - 3600);
       $id_pros=unserialize($request->cookie('id_pros'));
       if(count($id_pros)==1) {
         Cookie::queue('id_pros', '', time() - 3600);
         Cookie::queue('numpro', '', time() - 3600);
-
-        $request->session()->forget('num_pro');
-        $request->session()->forget('only_pro' . $request->del_id);
-        $request->session()->forget('vazn' . $request->del_id);
-        $request->session()->forget('pakat' . $request->del_id);
       }else{
         foreach ($id_pros as $key) {
           if($key==$request->del_id){
 
-
-            $request->session()->forget('vazn' . $key);
-            $request->session()->forget('pakat' . $key);
             continue;
           }
           $val[]=$key;
           Cookie::queue('id_pros', serialize($val));
-          $request->session()->forget('vazn' . $key);
-          $request->session()->forget('pakat' . $key);
+          Cookie::queue('vazn' . $key, '', time() - 3600);
+          Cookie::queue('pakat' . $key, '', time() - 3600);
+
         }
       $num_pro=$request->cookie('numpro');
       $num_pro--;
       Cookie::queue('numpro', $num_pro);
-      $request->session()->put('num_pro', $num_pro++);
+
       }
       return redirect('/show_sabad_pro');
 
@@ -121,42 +90,6 @@ class SabadController extends Controller
     $ostan=City::where('sub_ostan' , 0)->get();
     $shop=Shop::get();
     return view('pro.show_sabad_pro', compact('show_sabad_pro','id_pros','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop','num_pro'));
-
-    // if (!empty($request->del_id)) {
-    //   if(count($request->session()->get('sabad_pro2'))==1) {
-    //     $request->session()->forget('sabad_pro2');
-    //     $request->session()->forget('num_pro');
-    //     $request->session()->forget('only_pro' . $request->del_id);
-    //     $request->session()->forget('vazn' . $request->del_id);
-    //     $request->session()->forget('pakat' . $request->del_id);
-    //   }else{
-    //     foreach ($request->session()->get('sabad_pro2') as $key) {
-    //       if($key==$request->del_id){
-    //         $request->session()->forget('only_pro' . $key);
-    //         $request->session()->forget('vazn' . $key);
-    //         $request->session()->forget('pakat' . $key);
-    //         continue;
-    //       }
-    //       $val[]=$key;
-    //       $request->session()->put('sabad_pro2', $val);
-    //       $request->session()->forget('vazn' . $key);
-    //       $request->session()->forget('pakat' . $key);
-    //     }
-    //   $num_pro=$request->session()->get('num_pro');
-    //   $num_pro--;
-    //   $request->session()->put('num_pro', $num_pro++);
-    //   }
-    // }
-    // $show_sabad_pro=Pro::get();
-    //   //جهت اسلایدر محصولات
-    // $pro=Pro::where('show' , 1)->get();
-    // $count=Pro::where('show' , 1)->count();
-    // $pro_nazar=NazarPro::get();
-    // $pro_pic=PicturePro::get();
-    // $ostan=City::where('sub_ostan' , 0)->get();
-    // $shop=Shop::get();
-    // return view('pro.show_sabad_pro', compact('show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
-
   }
   //کم یا زیاد کردن تعدادخرید یک محصول
   public function num_pro_sabad_add(Request $request){
@@ -186,32 +119,6 @@ class SabadController extends Controller
   $num_id='num' . $request->id;
   Cookie::queue($num_id, $num);
   return $num;
-  //   $vazn_id='vazn' . $request->id;
-  //   $gram_post=$request->gram_post;
-  //   $old_gram=$request->session()->get($vazn_id);
-  //   $num=$request->num;
-  //   $pakat=$request->pakat;
-  //   $pakat_id='pakat' . $request->id;
-  //   $old_pakat=$request->session()->get($pakat_id);
-  //   if ($request->add_cut=='add') {
-  //     $num++;
-  //     //جهت تنظیم وزن یک محصول
-  //     $new_gram=$old_gram+$gram_post;
-  //     $new_pakat=$old_pakat+$pakat;
-  //     $request->session()->put($vazn_id, $new_gram);
-  //     $request->session()->put($pakat_id, $new_pakat);
-  //   } else {
-  //     $num--;
-  //     //جهت تنظیم وزن یک محصول
-  //     $new_gram=$old_gram-$gram_post;
-  //     $new_pakat=$old_pakat-$pakat;
-  //     $request->session()->put($vazn_id, $new_gram);
-  //     $request->session()->put($pakat_id, $new_pakat);
-  //   }
-  // //ذخیره تعداد محصول خریداری  شده
-  // $num_id='num' . $request->id;
-  // $request->session()->put($num_id, $num);
-  // return $num;
  }
  //مجموع قیمت جدید برای محصولی که کاربر مبادرت به خرید بیشتر از یک کالا نموده
    public function new_price(Request $request){
@@ -243,24 +150,13 @@ class SabadController extends Controller
      }
     return $total;
    }
-   public function show_city(Request $request){
-     $id=$request->id;
-     $show_ostan_factor=City::find($id);
-     $request->session()->put('add_ostan', $show_ostan_factor->city);
-     $show_city=City::where('sub_ostan' , $id)->get();
-    return view('show_city', compact('show_city'));
-    }
+
 
    public function post_pishtaz(Request $request){
      $id_city=$request->id_city;
      $id_ostan=$request->id_ostan;
 
      return view('post_pishtaz', compact('id_city' , 'id_ostan' ));
-      // $id_city=$request->id_city;
-      // $id_ostan=$request->id_ostan;
-      // $hamjavar=City::get();
-      // $post_pishtaz=Post_pishtaz::get();
-      // return view('post_pishtaz', compact('id_city' , 'id_ostan' , 'hamjavar','post_pishtaz'));
      }
 
    public function post_sefareshi(Request $request){
@@ -268,12 +164,7 @@ class SabadController extends Controller
        $id_city=$request->id_city;
        $city=$request->city;
        return view('post_sefareshi', compact('id_ostan' , 'id_city' , 'city'));
-       // $id=$request->id;
-       // $city=$request->city;
-       // $hamjavar=City::get();
-       // $post_sefareshi=Post_sefareshi::get();
-       // return view('post_sefareshi', compact('id' , 'city', 'hamjavar','post_sefareshi'));
-      }
+       }
   //هزینه نهایی در سبد خرید
    public function end_price_all(Request $request){
         $price_pros=str_replace (',' ,'',$request->price_pros);
@@ -284,8 +175,12 @@ class SabadController extends Controller
        }
        //مشاهده فاکتور خرید و ثبت اطلاعات پستی خریدار
    public function show_factor_buy(Request $request){
+
          $id_pros=unserialize($request->cookie('id_pros'));
          $num_pro=$request->cookie('numpro');
+         $factor_buy=$request->cookie('factor_buy');
+         if(!empty($id_pros)and!empty($factor_buy)){
+         Cookie::queue('factor_buy','',time() - 3600);
          $show_sabad_pro=Pro::get();
            //جهت اسلایدر محصولات
          $pro=Pro::where('show' , 1)->get();
@@ -295,6 +190,9 @@ class SabadController extends Controller
          $ostan=City::where('sub_ostan' , 0)->get();
          $shop=Shop::get();
          return view('pro.factor_buy', compact('id_pros','num_pro','show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
+       }else{
+         return redirect('/');
+       }
        }
   //ذخیره اطلاعات خریدار
    public function save_data_buyer(Save_data_buyer $request){
@@ -312,22 +210,22 @@ class SabadController extends Controller
      $show_pro=Pro::get();
      $date1=new Verta();//تاریخ جلالی
      $date=$date1->format('Y/n/j');
-     $dabad=$request->session()->get('sabad_pro2');
+     $sabad=unserialize($request->cookie('id_pros'));
 
-     foreach ( $dabad as $value) {
+     foreach ( $sabad as $value) {
        $value2=Pro::find($value);
        $name_pro[]=$value2->name;
-       $request->session()->put('end_name_pro' , $name_pro);
+       Cookie::queue('end_name_pro', serialize($name_pro));
        $seller=$value2->seller;
              $num_id='num' . $value;
-              $num_pro=$request->session()->get($num_id);
+              $num_pro=$request->cookie($num_id);
              $shop=Shop::where('shop' ,$seller)->first();
              $shop_id=$shop->id;
              $other_pro=1;//هنوز حل نشده
              if ($post=='سفارشی') {
-               $price_post=$request->session()->get('price_sefareshi_one' . $value);
+               $price_post=$request->cookie('price_sefareshi_one' . $value);
              } else {
-               $price_post=$request->session()->get('price_pishtaz_one' . $value);
+               $price_post=$request->cookie('price_pishtaz_one' . $value);
               }
             $scot=0;
             $paywork=1000*$num_pro;
@@ -355,6 +253,11 @@ class SabadController extends Controller
      $add->stage=0;
      $add-> save();
    }
+   if($add-> save()==true){
+     Cookie::queue('numpro', '', time() - 3600);
+     Cookie::queue('id_pros', '', time() - 3600);
+     Cookie::queue('model_post', '', time() - 3600);
+   }
     }
   //ثبت نهایی خرید و پرداخت آنلاین
    public function end_buy(Request $request){
@@ -365,4 +268,8 @@ class SabadController extends Controller
         $pro=$request->pro;
         return $pro;
       }
+  public function create_cookie(Request $request){
+            $name_cookie=$request->name_cookie;
+            Cookie::queue($name_cookie, 'ok');
+          }
 }//end class
