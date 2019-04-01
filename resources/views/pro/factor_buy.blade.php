@@ -1,4 +1,3 @@
-
 @extends('layout.layout')
 @section('title')
   {{'فاکتور خرید'}}
@@ -6,7 +5,7 @@
 @section('content')
 <div class="all_factor">
   <div class="titr_faktor">
-    {{-- فاکتور خرید و ثبت اطلاعات پستی --}}
+    فاکتور خرید و ثبت اطلاعات پستی
   </div>
   @if (!empty($id_pros))
     <div class="body_factor1 body_factor0">
@@ -164,4 +163,4 @@
     </div>
   </div>
 </div><!--end modal صحت ثبت-->
-@endsection --}}
+@endsection 
