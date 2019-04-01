@@ -21,8 +21,9 @@ function num_pro_sabad_add(id,add_cut , num , vahed_price , gram_post,pakat){
           },
      success:function(data){
        $('#ajax_add_cut'+id).html(data );
-       $('.sabad_kh_pishtaz2_1').html('ابتدا شهر را وارد کنید');
-       $('.sabad_kh_sefareshi2_1').html('ابتدا شهر را وارد کنید');
+       $('.sabad_kh_pishtaz2_1').html(0);
+       $('.sabad_kh_sefareshi2_1').html(0);
+       $('.sabad_kh_end_price2').html(0);
        $('#ajax_sabad_city').val('aval');
        $('#ajax_sabad_ostan').val('aval');
      },
@@ -100,21 +101,7 @@ var old_all_price=$('#ajax_price_all_pro').html();
   });
 }
 
-//مشاهده شهر پس از انتخاب استان
-function show_city(id){
 
-  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-  $.ajax({
-    type:'put',
-    url:'../../../show_city',
-    data: {
-         id: id,
-         },
-    success:function(data){
-      $('#ajax_sabad_city').html(data );
-    },
-  });
-}
 
 function post_pishtaz(id_ostan , id_city ){
   // var kl = "<?php echo 120; ?>";
@@ -136,13 +123,12 @@ function post_pishtaz(id_ostan , id_city ){
     });
 }
 function post_sefareshi(id_ostan , id_city, city){
+
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'put',
       url:'../../../post_sefareshi',
       data: {
-
-
            id_ostan: id_ostan,
            id_city: id_city,
            city:city,
@@ -155,7 +141,8 @@ function post_sefareshi(id_ostan , id_city, city){
 }
 //درج هزینه نهایی در سبد خرید
 function end_price_all(price_pros , price_post , model_post){
-
+if( price_post==0){}
+else{
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'put',
@@ -168,11 +155,22 @@ function end_price_all(price_pros , price_post , model_post){
 
     },
   });
+  }
 }
 //کنترل انتخاب شیوه پست کردن کالا
 function chek_add_post(chek){
   if (chek!=0) {
-    window.location.href  = '/show_factor_buy';
+    $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+      $.ajax({
+          url: "/create_cookie",
+          method: 'post',
+          data: {name_cookie:'factor_buy',},
+          success: function(data) {
+              window.location.href  = '/show_factor_buy';
+              },
+
+}, "json");
+
   } else {
     $('#chek_add_post').modal('show');
   }

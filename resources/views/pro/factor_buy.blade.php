@@ -1,4 +1,3 @@
-
 @extends('layout.layout')
 @section('title')
   {{'فاکتور خرید'}}
@@ -164,4 +163,4 @@
     </div>
   </div>
 </div><!--end modal صحت ثبت-->
-@endsection --}}
+@endsection 
