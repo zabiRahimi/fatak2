@@ -34,7 +34,7 @@ return [
     'tel'              => 'تلفن را صیح وارد کنید .',
     'address'          =>'آدرس را صحیح و به فارسی وارد کنید .',
     'codepost'              => 'کد پستی را صحیح وارد کنید .',
-    'pas'              => ':attribute نباد کمتر از 4 حرف باشد ، فقط استفاده از اعداد و حروف انگلیسی مجاز می باشد .',
+    'pas'              => ':attribute فقط شامل حروف انگلیسی ، اعداد ، "-" و "_"باید باشد .',
     'name'              => ':attribute صحیح و به فارسی وارد کنید',
     'boolean'              => 'The :attribute field must be true or false.',
     'confirmed'            => 'The :attribute confirmation does not match.',
@@ -116,7 +116,7 @@ return [
     ],
     'string'               => 'The :attribute must be a string.',
     'timezone'             => 'The :attribute must be a valid zone.',
-    'unique'               => 'The :attribute has already been taken.',
+    'unique'               => ':attribute تکراری می باشد .',
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
 
@@ -150,6 +150,7 @@ return [
 
     'attributes' => [
       'name_karbary'=> 'نام کاربری',
+      'karbary'=> 'نام کاربری',
       'name' => 'نام و نام خانوادگی',
       'pas' => 'رمز عبور',
       'mobail' => 'موبایل',

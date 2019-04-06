@@ -16,8 +16,9 @@ class IndexController extends Controller
       $pro_pic=PicturePro::get();
       $pro_nazar=NazarPro::get();
       $count=Pro::where('show' , 1)->count();
+      $check=$request->cookie('check_log');
       if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
-      return view('welcome', compact('pro' , 'pro_pic', 'pro_nazar' , 'count' , 'num_pro'  ));
+      return view('welcome', compact('pro' , 'pro_pic', 'pro_nazar' , 'count' , 'num_pro','check'  ));
     }
     public function show_card(Request $request){
 

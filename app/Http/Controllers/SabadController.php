@@ -89,7 +89,8 @@ class SabadController extends Controller
     $pro_pic=PicturePro::get();
     $ostan=City::where('sub_ostan' , 0)->get();
     $shop=Shop::get();
-    return view('pro.show_sabad_pro', compact('show_sabad_pro','id_pros','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop','num_pro'));
+    $check=$request->cookie('check_log');
+    return view('pro.show_sabad_pro', compact('show_sabad_pro','id_pros','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop','num_pro','check'));
   }
   //کم یا زیاد کردن تعدادخرید یک محصول
   public function num_pro_sabad_add(Request $request){
@@ -189,7 +190,8 @@ class SabadController extends Controller
          $pro_pic=PicturePro::get();
          $ostan=City::where('sub_ostan' , 0)->get();
          $shop=Shop::get();
-         return view('pro.factor_buy', compact('id_pros','num_pro','show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop'));
+         $check=$request->cookie('check_log');
+         return view('pro.factor_buy', compact('id_pros','num_pro','show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop','check'));
        }else{
          return redirect('/');
        }

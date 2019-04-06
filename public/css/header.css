@@ -6,6 +6,16 @@
 .h2_h{font-size: 18px; padding: 0; margin: 0;}
 .ul_xm_h{}
 .ul_xm_h li{font-size: 12px;color: #207baf;margin:0 7px;}
+.ul_log{width: 180px;height: 35px;margin: 3px 0 0;padding: 0;border: 2px solid #089612;}
+.li_log1{ padding: 5px 6px 5px;color:#08418e; list-style: none;cursor: pointer;font-size: 18px !important;}
+.li_log1 i{margin-left:5px;position: relative; top: 3px;display: inline-block;}
+.ul_log1{width: 180px;margin: 0 -8px 0 0;padding: 0;display: none;background-color: #dadada; z-index: 33600;position: relative;}
+.li_log1:hover .ul_log1{display: block;}
+.ul_log a{text-decoration: none;}
+.ul_log a:last-child{color: red;opacity: 0.6;}
+.ul_log a:last-child:hover{opacity: 1;}
+.ul_log1 li{height: 28px;line-height: 28px;display:block;margin: 0 0 0 0; padding:0 10px;}
+.ul_log1 li:first-child{border-bottom: 1px solid #000;}
 @media (max-width:863px){.div_h1{padding-right: 0; text-align: center;}}
 @media (max-width:576px){.div_h1{padding:3px 8px ; text-align: right;}}
 @media (max-width:956px){.h2_h{font-size: 16px;}}
@@ -74,10 +84,10 @@
 /* *********************************** modals ********************************* */
                 /* ******************************************** */
 /* مودال ثبت نام */
-.modal_h_sabtname_header , .modal_h_login_header{height: 40px; padding: 8px 20px 0 10px;float: right; background-color: #108c3a; color: #0e0ba1;}
-.modal_h_sabtname_label i , .modal_h_login_label i{margin-left: 5px;}
+.modal_h_sabtname_header , .modal_h_login_header,.end_register_header{height: 40px; padding: 8px 20px 0 10px;float: right; background-color: #108c3a; color: #0e0ba1;}
+.modal_h_sabtname_label i , .modal_h_login_label i,.end_register_label i{margin-left: 5px;}
 .modal_h_login_label i{position: relative; top: 5px;}
-.modal_h_sabtname_label_2 , .modal_h_login_label_2{float: left; margin:-22px 0 0 0 !important; color: red; font-size: 32px !important;}
+.modal_h_sabtname_label_2 , .modal_h_login_label_2,.end_register_label_2{float: left; margin:-22px 0 0 0 !important; color: red; font-size: 32px !important;}
 .form_h_sabtname_pro , .form_h_login_pro{width: 100%; margin-top: -10px;float: right;background-color: #f0f0f0; padding: 5px 4px; border-radius: 2px;}
 .form_h_sabtname_pro1 {width: 100%; margin:0 0 4px 0;padding: 2px 8px;float: right; background-color: #c9a24c;font-size: 12px; text-align: justify !important;border-radius: 3px;}
 .form_h_sabtname_pro1 i {position: relative; top: 1px; margin-left: 4px;color: #c1007a;}
@@ -91,10 +101,14 @@
 .captcha_h_sabtname_form span ,.captcha_h_login_form span{display: inline-block;height: 38px;background-color: #829077; padding: 1px;}
 .captcha_h_sabtname_form button ,.captcha_h_login_form button{padding: 4px; background-color: #6da7e0;}
 .captcha_h_sabtname_form i ,.captcha_h_login_form i{position: relative;top: 3px;font-size: 20px;}
-.modal-footer-h-sabtname ,.modal-footer-h-login {width: 100%; float: right; margin: 3px 0 4px; padding:6px 36px 4px;border-top: 1px outset #f2f1f1; }
-.modal-footer-h-sabtname button:first-child ,.modal-footer-h-login button:first-child{ width: auto; height: auto;padding: 5px 30px;float: right;}
+.modal_body_end_register_1{width: 80px;height: 80px; line-height: 80px;margin: 0 auto 10px;color:#026209; border:2px solid #026209; border-radius: 40px;text-align: center;}
+.modal_body_end_register_2{width: 100%; text-align: center; float: right; color: #026209;font-size: 18px;}
+.modal-footer-h-sabtname ,.modal-footer-h-login,.end_register_footer {width: 100%; float: right; margin: 3px 0 4px; padding:6px 36px 4px;border-top: 1px outset #f2f1f1; }
+.modal-footer-h-sabtname button:first-child ,.modal-footer-h-login button:first-child,.end_register_footer button:first-child{ width: auto; height: auto;padding: 5px 30px;float: right;}
 .modal-footer-h-sabtname button:last-child ,.modal-footer-h-login button:last-child{ width: auto; height: auto;padding: 5px 20px;float: left;}
+
 .modal-footer-h-login button:last-child{background-color: red;}
+.end_register_footer button:first-child{width: 96%; margin: 3px 2% 10px;}
 @media(max-width:435px){
   .form_h_sabtname_pro > .form-group ,.form_h_login_pro > .form-group{background-color: inherit; margin-top: -4px; padding: 0;}
   .form_h_sabtname_pro >.form-group label , .form_h_login_pro >.form-group label{width: 125px;  background-color: #ced4d9; border-radius: 4px 4px 0 0;}

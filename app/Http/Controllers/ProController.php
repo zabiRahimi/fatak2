@@ -29,6 +29,7 @@ class ProController extends Controller
     $count=Pro::where('show' , 1)->count();
     $pro_nazar=NazarPro::get();
     $pro_pic=PicturePro::get();
+    $check=$request->cookie('check_log');
     if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
     //ثبت بازدید
 
@@ -41,7 +42,7 @@ if(empty($request->cookie($nameCookei))){
 }
 
     return  view('pro.show_pro', compact('show_pro', 'pic_pro', 'nazar_pro', 'count_nazar_pro' , 'question_pro' , 'count_question_pro', 'answer_pro' , 'count_answer_pro'
-     ,'pro' ,  'count' , 'pro_nazar', 'pro_pic','num_pro'  ));
+     ,'pro' ,  'count' , 'pro_nazar', 'pro_pic','num_pro','check'  ));
   }
   //ثبت بازدید
   // public function view_pro(Request $request){

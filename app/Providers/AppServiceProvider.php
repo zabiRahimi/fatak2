@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
         return preg_match('/^0[0-9]{10}$/', $value);
       });
       Validator::extend('pas', function($attribute, $value, $parameters, $validator) {
-        return preg_match('/^[A-Za-z0-9_]{4,}$/', $value);
+        return preg_match('/^[A-Za-z0-9_]{1,}$/', $value);
       });
       Validator::extend('codepost', function($attribute, $value, $parameters, $validator) {
         return preg_match('/^[0-9]{5}_?\s?-?[0-9]{5}$/', $value);
