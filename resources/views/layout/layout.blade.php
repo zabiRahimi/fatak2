@@ -66,6 +66,7 @@ hj
         <script type="text/javascript" src="\js\show_pro.js"></script>
         <script type="text/javascript" src="\js\sabad_kharid.js"></script>
         <script type="text/javascript" src="\js\city.js"></script>
+        <script type="text/javascript" src="\js\login.js"></script>
 
         <script type="text/javascript">
 

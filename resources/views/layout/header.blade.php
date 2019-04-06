@@ -3,18 +3,44 @@
   <div class="row div_h0 ">
     <div class="col-5 col-sm-2  div_h1 "> <h2 class="h2_h"> <span class="fatak1">فروشگاه</span> <span class="fatak2">اینترنتی</span> <span class="fatak3">فاتک</span></h2>
       <ul class="ul_line  ul_xm_h d-block d-sm-none">
-         <li data-toggle="modal" data-target="#modal_h_login"><a ><i class="fas fa-sign-in-alt"></i> &nbsp;ورود </a></li>
-         <li data-toggle="modal" data-target="#modal_h_sabtname"><a ><i class="fas fa-user-plus"></i> &nbsp;ثبت نام</a></li>
+        @if (empty(cookie('check_log')))
+          <li data-toggle="modal" data-target="#modal_h_login"><a ><i class="fas fa-sign-in-alt"></i> &nbsp;ورود </a></li>
+          <li data-toggle="modal" data-target="#modal_h_sabtname"><a ><i class="fas fa-user-plus"></i> &nbsp;ثبت نام</a></li>
+        @else
+          <li ><a ><i class="fas fa-angle-down"></i> zabi  </a>
+            <ul>
+              <li>پرفایل</li>
+              <li>خروج</li>
+            </ul>
+          </li>
+
+        @endif
+
      </ul>
     </div>
 
     <div class="col-2 col-sm-8  div_h2">
       <div class="row div_h3">
           <div class="d-none d-sm-block col-sm-5 text-right div_h4">
-                 <ul class="ul_line ul_h1 ">
-                    <li data-toggle="modal" data-target="#modal_h_login"><a ><i class="fas fa-sign-in-alt"></i> &nbsp;ورود </a></li>
-                    <li data-toggle="modal" data-target="#modal_h_sabtname"><a ><i class="fas fa-user-plus"></i> &nbsp;ثبت نام</a></li>
-                </ul>
+@php
+
+@endphp
+                   @if (empty($check))
+                     <ul class="ul_line ul_h1 ">
+                       <li data-toggle="modal" data-target="#modal_h_login"><a ><i class="fas fa-sign-in-alt"></i> &nbsp;ورود </a></li>
+                       <li data-toggle="modal" data-target="#modal_h_sabtname"><a ><i class="fas fa-user-plus"></i> &nbsp;ثبت نام</a></li>
+                     </ul>
+                   @else
+                     <ul class="ul_log">
+                       <li class="li_log1"><i class="fas fa-angle-down"></i> zabi_rahimi1360
+                         <ul class="ul_log1">
+                           <a href="/dashboard_user"><li class="li_log2"><i class="fas fa-id-badge"></i> پروفایل</li></a>
+                           <a href="/logout_user"><li class="li_log3"><i class="fas fa-sign-out-alt"></i> خروج</li></a>
+                         </ul>
+                       </li>
+                     </ul>
+                   @endif
+
            </div>
           <div class="col-sm-2 text-center div_h5" > <img src="\img_site\alla1.png" alt="به نام خدا" > </div>
           <div class="d-none d-sm-block col-sm-5 text-left bg div_h6">
@@ -139,23 +165,20 @@
         </button>
       </div>
       <div class="modal-body modal_body_h_login">
-        {{-- <div class="form-group ban">
-          <label for="name_pro_question" class="control-label pull-right  ">نام </label>
-          <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="name_pro_question" ></div>
-        </div> --}}
+
          <form class="form_h_login_pro" action="" method="post">
-          <div id="pasohk_pro"></div>
+          <div id="ajax_login_user"></div>
           <div class="form-group">
-            <label for="name_pro_h_login" class="control-label pull-right  "><i class="fas fa-user-circle i_namekarbary_sabt"></i>  نام کاربری </label>
-            <div class="div_h_login"><input type="text" class="form-control" id="name_pro_question" placeholder=""></div>
+            <label for="karbary_login_user" class="control-label pull-right  "><i class="fas fa-user-circle i_namekarbary_sabt"></i>  نام کاربری </label>
+            <div class="div_h_login"><input type="text" class="form-control" id="karbary_login_user" placeholder=""></div>
           </div>
           <div class="form-group">
-            <label for="name_pro_h_login" class="control-label pull-right  "><i class="fas fa-key i_pas_sabt"></i> رمز عبور </label>
-            <div class="div_h_login"><input type="text" class="form-control" id="name_pro_question" placeholder=""></div>
+            <label for="pas_login_user" class="control-label pull-right  "><i class="fas fa-key i_pas_sabt"></i> رمز عبور </label>
+            <div class="div_h_login"><input type="text" class="form-control" id="pas_login_user" placeholder=""></div>
           </div>
           <div class="form-group" >
-            <label for="amniat_pro_question" class="control-label pull-right "><i class="fas fa-shield-alt i_amniat_sabt"></i> کد امنیتی </label>
-            <div class="div_h_login"><input type="text" class="form-control tel" id="amniat_pro_question" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+            <label for="amniat_login_user" class="control-label pull-right "><i class="fas fa-shield-alt i_amniat_sabt"></i> کد امنیتی </label>
+            <div class="div_h_login"><input type="text" class="form-control tel" id="amniat_login_user" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
           </div>
           <div class="captcha_h_login_form">
             <span class="captcha4">{!! captcha_img() !!}</span>
@@ -164,7 +187,7 @@
         </form>
       </div>
       <div class=" modal-footer-h-login">
-        <button type="button" class="btn btn-primary modal-footer-pro-login1">ثبت</button>
+        <button type="button" class="btn btn-primary modal-footer-pro-login1" onclick="login_user()">ثبت</button>
         <button type="button" class="btn btn-secondary modal-footer-pro-login2" data-dismiss="modal">خروج</button>
       </div>
       <div class="Forget_h_login" onclick="$('#modal_h_login').modal('hide').hide(function(){$('#modal_h_forget').modal('show')}) ">رمز عبور و یا نام کاربری را فراموش کرده ام !!</div>
@@ -172,6 +195,27 @@
     </div>
   </div>
 </div><!--end modal ورود-->
+<!-- Modal موفق بودن لاگین-->
+<div class="modal fade" id="ok_login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header end_register_header">
+        <h5 class="modal-title end_register_label" id="exampleModalLabel"><i class="fas fa-user-plus"></i> پایان ثبت نام</h5>
+        <button type="button" class="close end_register_label_2" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_body_end_register">
+        <div class="modal_body_end_register_1">45</div>
+        <div class="modal_body_end_register_2">خوش آمدید .</div>
+      </div>
+      <div class=" end_register_footer">
+        <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+
+      </div>
+    </div>
+  </div>
+</div><!--end modal پایان موفقیت لاگین-->
 <!-- Modal فراموشی رمز-->
 <div class="modal fade" id="modal_h_forget" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -225,33 +269,34 @@
           <label for="name_pro_question" class="control-label pull-right  ">نام </label>
           <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="name_pro_question" ></div>
         </div> --}}
-         <form class="form_h_sabtname_pro" action="" method="post">
+         <form class="form_h_sabtname_pro form_register" id="form_register" action="" method="post">
           <div class="form_h_sabtname_pro1"><i class="fas fa-info-circle"></i> ایمیل و موبایل شما منتشر نمی شود</div>
-          <div id="pasohk_pro"></div>
+          <div id="ajax_register"></div>
+          {{ csrf_field() }}
           <div class="form-group">
-            <label for="name_pro_h_sabtname" class="control-label pull-right  "><i class="fas fa-user-tie i_name_sabt"></i> نام و نام خانوادگی </label>
-            <div class="div_h_sabtname"><input type="text" class="form-control" id="name_pro_question" placeholder="به فارسی ..." ></div>
+            <label for="name_register" class="control-label pull-right  "><i class="fas fa-user-tie i_name_sabt"></i> نام و نام خانوادگی </label>
+            <div class="div_h_sabtname"><input type="text" class="form-control" id="name_register" placeholder="به فارسی ..." ></div>
           </div>
           <div class="form-group">
-            <label for="name_pro_h_sabtname" class="control-label pull-right  "><i class="fas fa-user-circle i_namekarbary_sabt"></i>  نام کاربری </label>
-            <div class="div_h_sabtname"><input type="text" class="form-control" id="name_pro_question" placeholder="به لاتین ..."></div>
+            <label for="karbary_register" class="control-label pull-right  "><i class="fas fa-user-circle i_namekarbary_sabt"></i>  نام کاربری </label>
+            <div class="div_h_sabtname"><input type="text" class="form-control" id="karbary_register" placeholder="به لاتین ..."></div>
           </div>
           <div class="form-group">
-            <label for="name_pro_h_sabtname" class="control-label pull-right  "><i class="fas fa-key i_pas_sabt"></i> رمز عبور </label>
-            <div class="div_h_sabtname"><input type="text" class="form-control" id="name_pro_question" placeholder="به لاتین ..."></div>
+            <label for="pas_register" class="control-label pull-right  "><i class="fas fa-key i_pas_sabt"></i> رمز عبور </label>
+            <div class="div_h_sabtname"><input type="text" class="form-control" id="pas_register" placeholder="به لاتین ..."></div>
           </div>
           <div class="form-group">
-            <label for="mobail_h_sabtname" class="control-label pull-right "><i class="fas fa-mobile-alt i_mobail_sabt"></i> موبایل</label>
-            <div class="div_h_sabtname"><input type="text" class="form-control" id="mobail_pro_question"></div>
+            <label for="mobail_register" class="control-label pull-right "><i class="fas fa-mobile-alt i_mobail_sabt"></i> موبایل</label>
+            <div class="div_h_sabtname"><input type="text" class="form-control" id="mobail_register"></div>
           </div>
           <div class="form-group">
-            <label for="email_pro_question" class="control-label pull-right "><i class="fas fa-at i_email_sabt"></i> ایمیل</label>
-            <div class="div_h_sabtname"><input type="text" class="form-control" id="email_pro_question"></div>
+            <label for="email_register" class="control-label pull-right "><i class="fas fa-at i_email_sabt"></i> ایمیل</label>
+            <div class="div_h_sabtname"><input type="text" class="form-control" id="email_register"></div>
           </div>
 
           <div class="form-group" >
-            <label for="amniat_pro_question" class="control-label pull-right "><i class="fas fa-shield-alt i_amniat_sabt"></i> کد امنیتی </label>
-            <div class="div_h_sabtname"><input type="text" class="form-control tel" id="amniat_pro_question" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+            <label for="amniat_register" class="control-label pull-right "><i class="fas fa-shield-alt i_amniat_sabt"></i> کد امنیتی </label>
+            <div class="div_h_sabtname"><input type="text" class="form-control tel" id="amniat_register" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
           </div>
           <div class="captcha_h_sabtname_form">
             <span class="captcha4">{!! captcha_img() !!}</span>
@@ -260,12 +305,33 @@
         </form>
       </div>
       <div class=" modal-footer-h-sabtname">
-        <button type="button" class="btn btn-primary modal-footer-pro-question1">ثبت</button>
+        <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="register();">ثبت</button>
         <button type="button" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
       </div>
     </div>
   </div>
 </div><!--end modal ثبت نام-->
+<!-- Modal موفق بودن ثبت نام-->
+<div class="modal fade" id="end_register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header end_register_header">
+        <h5 class="modal-title end_register_label" id="exampleModalLabel"><i class="fas fa-user-plus"></i> پایان ثبت نام</h5>
+        <button type="button" class="close end_register_label_2" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body modal_body_end_register">
+        <div class="modal_body_end_register_1">45</div>
+        <div class="modal_body_end_register_2">تبریک !! ثبت نام با موفقیت انجام شد .</div>
+      </div>
+      <div class=" end_register_footer">
+        <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+
+      </div>
+    </div>
+  </div>
+</div><!--end modal پایان موفقیت ثبت نام-->
 <!-- Modal درباره ما-->
 <div class="modal fade bd-example-modal-lg" id="about_we" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog modal-lg" role="document">
