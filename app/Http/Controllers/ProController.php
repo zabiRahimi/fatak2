@@ -23,26 +23,19 @@ class ProController extends Controller
     $question_pro=Pro::find($id)->QuestionPro;
     $count_question_pro=Pro::find($id)->QuestionPro->count();
     $answer_pro=AnswerPro::where('pro_id' , $id)->get();
-    // $count_answer_pro=QuestionPro::find($id)->AnswerPro->count();
-    //جهت اسلایدر محصولات
-    $pro=Pro::where('show' , 1)->get();
-    $count=Pro::where('show' , 1)->count();
-    $pro_nazar=NazarPro::get();
-    $pro_pic=PicturePro::get();
     $check=$request->cookie('check_log');
     if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
     //ثبت بازدید
 
-$nameCookei='sabt'. $id;
-if(empty($request->cookie($nameCookei))){
-  $view= $show_pro->views+1;
-  $show_pro->update(['views'=>$view]);
-  Cookie::queue($nameCookei, 'ok');
-
-}
+    $nameCookei='sabt'. $id;
+    if(empty($request->cookie($nameCookei))){
+      $view= $show_pro->views+1;
+      $show_pro->update(['views'=>$view]);
+      Cookie::queue($nameCookei, 'ok');
+    }
 
     return  view('pro.show_pro', compact('show_pro', 'pic_pro', 'nazar_pro', 'count_nazar_pro' , 'question_pro' , 'count_question_pro', 'answer_pro' , 'count_answer_pro'
-     ,'pro' ,  'count' , 'pro_nazar', 'pro_pic','num_pro','check'  ));
+     ,'num_pro','check'  ));
   }
   //ثبت بازدید
   // public function view_pro(Request $request){
