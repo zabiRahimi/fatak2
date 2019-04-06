@@ -24,6 +24,12 @@ Route::put('/end_buy','SabadController@end_buy');//ok
 Route::put('/pardakht','SabadController@pardakht');//ok!!
 Route::post('/create_cookie','SabadController@create_cookie');//ok
 
+//login
+Route::post('/register','RegisterController@register');//ok
+Route::post('/login_user','RegisterController@login_user');//ok
+Route::get('/dashboard_user','RegisterController@dashboard_user')->middleware(['cheklogin_user' ]);;//ok
+Route::get('/logout_user','RegisterController@logout_user');//ok
+Route::post('/edit_register','RegisterController@edit_register');//ok
 //قسمت مدیریت management
 Route::get('/management', 'Admin\ManagementController@show');//ok
 Route::get('/pro_admin', 'Admin\Pro_adController@show');//ok!!
