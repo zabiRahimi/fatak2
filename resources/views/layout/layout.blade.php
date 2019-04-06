@@ -43,9 +43,9 @@
             @yield('content')
 
           </div>
-          <div class="carsol_pro_ess">
+          {{-- <div class="carsol_pro_ess">
             @include('layout.carsol_pro_ess')
-          </div>
+          </div> --}}
 
 {{-- <div class="clear">
 hj

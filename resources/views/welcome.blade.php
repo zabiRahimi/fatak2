@@ -79,7 +79,7 @@
         <div class="order_in_2">
           <i class="fas fa-clipboard-check"></i>
         </div>
-        
+
         <div class="order_in_3">
         هر محصولی رو میخوای سفارش بده ، برات تهیه میکنیم ، ما متفاوت عمل میکنیم ! میخوای بدونی چه جوری ؟؟؟
         </div>
@@ -125,7 +125,9 @@
 
   </div>
 
-
+  <div class="carsol_pro_ess">
+    @include('layout.carsol_pro_ess')
+  </div>
 
 
 @endsection
