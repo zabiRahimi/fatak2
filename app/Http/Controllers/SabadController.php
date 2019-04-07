@@ -161,7 +161,7 @@ class SabadController extends Controller
          return redirect('/');
        }
        }
-  //ذخیره اطلاعات خریدار
+       //ذخیره اطلاعات خریدار
    public function save_data_buyer(Save_data_buyer $request){
      $name=$request->name;
      $mobail=$request->mobail;
@@ -225,7 +225,7 @@ class SabadController extends Controller
    }
   }
   //ثبت نهایی خرید و پرداخت آنلاین
-   public function end_buy(Request $request){
+  public function end_buy(Request $request){
         return view('pro.end_buy');
       }
   public function pardakht(Request $request){
@@ -233,7 +233,7 @@ class SabadController extends Controller
         return $pro;
       }
   public function create_cookie(Request $request){
-            $name_cookie=$request->name_cookie;
-            Cookie::queue($name_cookie, 'ok');
-          }
+        $name_cookie=$request->name_cookie;
+        Cookie::queue($name_cookie, 'ok');
+      }
 }//end class
