@@ -10,8 +10,6 @@ use App\Models\NazarPro;
 class IndexController extends Controller
 {
     public function show(Request $request){
-
-
       $pro=Pro::where('show' , 1)->get();
       $pro_pic=PicturePro::get();
       $pro_nazar=NazarPro::get();
@@ -19,15 +17,6 @@ class IndexController extends Controller
       $check=$request->cookie('check_log');
       if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
       return view('welcome', compact('pro' , 'pro_pic', 'pro_nazar' , 'count' , 'num_pro','check'  ));
-    }
-    public function show_card(Request $request){
-
-
-
-      $pro=Pro::where('show' , 1)->get();
-
-      $count=Pro::where('show' , 1)->count();
-      return view('card', compact('pro' ,  'count' ));
     }
     public function show_ajax(Request $request){
       if(empty($request->page)){$page=1;}else{$page=$request->page;}
