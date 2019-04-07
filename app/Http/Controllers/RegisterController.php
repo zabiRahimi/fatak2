@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-
 use Cookie;
 use App\Models\Register;
 use App\Http\Requests\Save_register;
@@ -27,7 +26,6 @@ class RegisterController extends Controller
       $add->updated_at=$date;
       $add->show=1;
       $add->save();
-
     }
     public function login_user(Save_login_user $request ){
       $date1=new Verta();//تاریخ جلالی
