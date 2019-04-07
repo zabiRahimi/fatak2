@@ -12,24 +12,20 @@ $(document).ready(function(){
 function captcha(){
   $.ajax({
     type:'GET',
-    url:'../refreshcaptcha',
+    url:'/refreshcaptcha',
     success:function(data){
       $(".captcha4").html(data.captcha);
     }
   });
 }
-
 //تنظیم اسکرول فرمها پس از ایجاد خطا و نمایش خطا به کاربر
 function scroll_form(class_form){
-
   var h= $('.'+class_form).offset();
   var fixedDiv= $('.fixed').outerHeight();
   if(fixedDiv){
   var hTop=h.top-fixedDiv-12;
-} else{
+  } else{
   var hTop=h.top-12;
-}
-
+  }
   window.scrollTo(0 ,hTop);
-
 }

@@ -7,6 +7,7 @@ use App\Models\picturePro;
 use App\Models\NazarPro;
 use App\Models\QuestionPro;
 use App\Models\AnswerPro;
+use App\Http\Requests\Save_sabt_nazar;
 class ProController extends Controller
 {
   public function show_pro(Request $request , $id  ){
@@ -28,5 +29,9 @@ class ProController extends Controller
     }
     return  view('pro.show_pro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro','count_answer_pro'
      ,'num_pro','check'));
+  }
+  public function sabt_nazar(Save_sabt_nazar $request)
+  {
+    // code...
   }
 }//end class

@@ -18,8 +18,12 @@ class CreateQuestionProsTable extends Migration
           $table->mediumInteger('pro_id')->index()->unsigned();
           $table->foreign('pro_id')->references('id')->on('pros')->onDelete('cascade')->onUpdate('cascade');
           $table->string('name' , 50);
+          $table->string('mobail' , 13)->nullable();
+          $table->string('email' , 150)->nullable();
           $table->text('question');
           $table->date('date');
+          $table->mediumInteger('like')->nullable();
+          $table->mediumInteger('unlike')->nullable();
           $table->boolean('show');
         });
     }

@@ -7,6 +7,7 @@ Route::get('refreshcaptcha', 'CaptchaController@refreshCaptcha');//ok
 Route::get('/search', 'SearchController@search');//ok!!
 Route::get('/product/{id}/{name?}','ProController@show_pro');//ok!!
 Route::put('/view_pro','ProController@view_pro');//ok
+Route::post('/sabt_nazar','ProController@sabt_nazar');//ok!!
 
 Route::put('/add_pro_sabad','SabadController@add_pro_sabad');//ok
 Route::get('/show_sabad_pro/{del_id?}','SabadController@show_sabad_pro');//ok
@@ -23,6 +24,7 @@ Route::post('/save_data_buyer','SabadController@save_data_buyer');//ok
 Route::put('/end_buy','SabadController@end_buy');//ok
 Route::put('/pardakht','SabadController@pardakht');//ok!!
 Route::post('/create_cookie','SabadController@create_cookie');//ok
+
 
 //login
 Route::post('/register','RegisterController@register');//ok

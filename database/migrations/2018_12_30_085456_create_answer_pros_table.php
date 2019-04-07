@@ -19,6 +19,8 @@ class CreateAnswerProsTable extends Migration
           $table->foreign('question_pro_id')->references('id')->on('question_pros')->onDelete('cascade')->onUpdate('cascade');
           $table->mediumInteger('pro_id');
           $table->string('name' , 50);
+          $table->string('mobail' , 13)->nullable();
+          $table->string('email' , 150)->nullable();
           $table->text('answer');
           $table->date('date');
           $table->mediumInteger('like')->nullable();

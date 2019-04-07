@@ -11,7 +11,7 @@
 {{-- col-5 col-xs-push-4 --}}
   <div class="show_pro2 text-right">
     <h1>{{$show_pro->name}}</h1>
-    
+
   </div>
   {{-- col-7 col-xs-pull-8 --}}
   <div class="  text-left show_pro3">
@@ -117,8 +117,6 @@
       <div class="show_pro8_0 show_pro8_1  pro8_active ">
         <?=$show_pro->dis?>
       </div>
-
-
       <div class="show_pro8_0 show_pro8_2">
         <div class="made_pro specs_pro">
             <div class="made_pro1">سازنده :</div>
@@ -149,13 +147,8 @@
                   @if ($mavads2!=null)
                     <li>{{$mavads2}}</li>
                   @endif
-
-
                 @endforeach
-
               </ul>
-
-
             </div>
         </div>
         <div class="date_m_pro specs_pro">
@@ -182,7 +175,7 @@
       {{-- نظرات --}}
       <div class="show_pro8_0 show_pro8_3">
         <div class="nazar_pro0 ">
-  <!-- Default panel contents -->
+          <!-- Default panel contents -->
             <div class="nazar_pro1">
                 <h4 ><span class="fas fa-comments bn2" id="scroll_nazar_pro"></span>&nbsp; نظر کاربران  <span class="badge pro_question_count">{{$count_nazar_pro}}</span></h4>
                 <button type="button" class="btn btn-succpro btn_pro" onclick="nazar_pro()"  name="button">ارسال نظر</button>
@@ -190,7 +183,6 @@
             <div class="panel-body nazar_pro2">
               @if (count($nazar_pro)>0)
               @foreach ($nazar_pro as  $nazar)
-
               <div class="pro_nazar_body">
                 <div class="pro_nazar_header">
                   <i class="fas fa-user-tie pro_ikon_nazar"></i>
@@ -198,13 +190,9 @@
                     <h4>{{$nazar->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{$nazar->date}}</h4>
                   </div>
                   <i class="fas fa-check-double pro_tik_nazar"></i>
-
                 </div>
-
                 <p class="pro_nazra_matn">{{$nazar->nazar}} </p>
-
               </div>
-
             @endforeach
             @else
               <div class="no_nazar_pro">
@@ -212,8 +200,6 @@
               </div>
             @endif
             </div>
-
-
           </div>
 {{-- ارسال نظر --}}
       <div class="ersal_nazar_pro">
@@ -228,33 +214,31 @@
                         <label for="name_pro_nazar" class="control-label pull-right  ">نام </label>
                         <div class="mobail_n_pro"><input type="text" class="form-control" id="name_pro_nazar" ></div>
                     </div>
-                             <div class="form-group">
-                                 <label for="mobail_pro_nazar" class="control-label pull-right ">موبایل ( اختیاری )</label>
-                                 <div class="mobail_n_pro"><input type="text" class="form-control" id="mobail_pro_nazar"></div>
-                               </div>
-                               <div class="form-group">
-                           <label for="email_pro_nazar" class="control-label pull-right ">ایمیل ( اختیاری )</label>
-                           <div class="mobail_n_pro"><input type="text" class="form-control" id="email_pro_nazar"></div>
-                         </div>
-                         <div class="form-group">
+                    <div class="form-group">
+                        <label for="mobail_pro_nazar" class="control-label pull-right ">موبایل ( اختیاری )</label>
+                        <div class="mobail_n_pro"><input type="text" class="form-control" id="mobail_pro_nazar"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email_pro_nazar" class="control-label pull-right ">ایمیل ( اختیاری )</label>
+                        <div class="mobail_n_pro"><input type="text" class="form-control" id="email_pro_nazar"></div>
+                    </div>
+                    <div class="form-group">
                         <label for="nazar_pro_nazar" class="control-label pull-right ">نظر</label>
                         <div class="mobail_n_pro"><textarea name="name" class="form-control" id="nazar_pro_nazar" rows="8" cols="80"></textarea></div>
-
-                        </div>
-                         <div class="form-group" >
+                    </div>
+                    <div class="form-group" >
                          <label for="amniat_pro_nazar" class="control-label pull-right ">کد امنیتی </label>
                          <div class="mobail_n_pro"><input type="text" class="form-control tel" id="amniat_pro_nazar" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
-                       </div>
-                      <div class="captcha_nazar_form">
+                    </div>
+                    <div class="captcha_nazar_form">
                         <span class="captcha4">{!! captcha_img() !!}</span>
                         <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
-                      </div>
-                      <div class="button_nazar_pro">
-                              <button type="button" id="submit_pro_nazar" class="btn btn-primary btn-block" onclick="pro_nazar({ {$ id}}) ; tops('pro_nazar')"><h5>ثبت نظر</h5></button>
-                              <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
-                      </div>
-
-                   </form>
+                    </div>
+                    <div class="button_nazar_pro">
+                         <button type="button" id="submit_pro_nazar" class="btn btn-primary btn-block" onclick="sabt_nazar(12)"><h5>ثبت نظر</h5></button>
+                         <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
+                    </div>
+                </form>
         </div>
   </div>
       {{-- پرسشها و پاسخها --}}
