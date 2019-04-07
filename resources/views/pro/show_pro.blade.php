@@ -235,7 +235,7 @@
                         <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
                     </div>
                     <div class="button_nazar_pro">
-                         <button type="button" id="submit_pro_nazar" class="btn btn-primary btn-block" onclick="sabt_nazar(12)"><h5>ثبت نظر</h5></button>
+                         <button type="button" id="submit_pro_nazar" class="btn btn-primary btn-block" onclick="sabt_nazar_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت نظر</h5></button>
                          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
                     </div>
                 </form>
@@ -384,6 +384,57 @@
         <button type="button"  class="btn btn-success modal_pro_add_sabad3" >مشاهده سبد خرید </button>
       </a>
         <button type="button" class="btn btn-info modal_pro_add_sabad4" data-dismiss="modal">خرید محصولی دیگر</button>
+      </div>
+    </div>
+  </div>
+</div><!--end modal -->
+<!--modal ثبت نظر -->
+<div class="modal " id="end_nazar_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body modal_pro_add_sabad">
+          ممنون !! نظر شما ثبت شد
+      </div>
+      <div class="modal_pro_add_sabad2">
+
+        <button type="button"  class="btn btn-success modal_pro_add_sabad3" data-dismiss="modal" >متوجه شدم !! </button>
+
+
+      </div>
+    </div>
+  </div>
+</div><!--end modal -->
+<!--modal ثبت سوال -->
+<div class="modal " id="question_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body modal_pro_add_sabad">
+          ممنون !! پرسش شما ثبت شد .
+      </div>
+      <div class="modal_pro_add_sabad2">
+
+        <button type="button"  class="btn btn-success modal_pro_add_sabad3" data-dismiss="modal" >متوجه شدم !! </button>
+
+
+      </div>
+    </div>
+  </div>
+</div><!--end modal -->
+<!--modal ثبت پاسخ-->
+<div class="modal " id="pasohk_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body modal_pro_add_sabad">
+          ممنون !! پاسخ شما ثبت شد .
+      </div>
+      <div class="modal_pro_add_sabad2">
+
+        <button type="button"  class="btn btn-success modal_pro_add_sabad3" data-dismiss="modal" >متوجه شدم !! </button>
+
+
       </div>
     </div>
   </div>

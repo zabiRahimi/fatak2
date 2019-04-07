@@ -15,9 +15,9 @@ function num_pro_sabad_add(id,add_cut , num , vahed_price , gram_post,pakat){
        id:id,
        add_cut:add_cut,
        gram_post:gram_post,
-          num: num ,
-          add_cut: add_cut,
-          pakat: pakat,
+       num: num ,
+       add_cut: add_cut,
+       pakat: pakat,
           },
      success:function(data){
        $('#ajax_add_cut'+id).html(data );
@@ -190,7 +190,6 @@ $(document).ready(function(){
 											url: "../../../save_data_buyer",
 											method: 'post',
 											data: {
-
 													name: $('#name_data_buyer').val(),
 													mobail: mobail,
                           tel:$('#tel_data_buyer').val(),

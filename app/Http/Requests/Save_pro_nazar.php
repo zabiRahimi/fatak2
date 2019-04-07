@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class Save_sabt_nazar extends FormRequest
+class Save_pro_nazar extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.

@@ -7,7 +7,8 @@ use App\Models\picturePro;
 use App\Models\NazarPro;
 use App\Models\QuestionPro;
 use App\Models\AnswerPro;
-use App\Http\Requests\Save_sabt_nazar;
+use App\Http\Requests\Save_pro_nazar;
+use Hekmatinasser\Verta\Verta;//تاریخ جلالی
 class ProController extends Controller
 {
   public function show_pro(Request $request , $id  ){
@@ -30,8 +31,18 @@ class ProController extends Controller
     return  view('pro.show_pro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro','count_answer_pro'
      ,'num_pro','check'));
   }
-  public function sabt_nazar(Save_sabt_nazar $request)
+  public function sabt_nazar_pro(Save_pro_nazar $request)
   {
-    // code...
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=new NazarPro();
+    $add->pro_id=$request->pro_id;
+    $add->name=$request->name;
+    $add->mobail=$request->mobail;
+    $add->email=$request->email;
+    $add->nazar=$request->nazar;
+    $add->date=$date;
+    $add->show=1;
+    $add->save();
   }
 }//end class
