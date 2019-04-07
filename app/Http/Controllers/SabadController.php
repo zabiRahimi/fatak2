@@ -9,10 +9,7 @@ use App\Models\picturePro;
 use App\Models\NazarPro;
 use App\Models\QuestionPro;
 use App\Models\AnswerPro;
-use App\Models\City;
 use App\Models\Shop;
-use App\Models\Post_pishtaz;
-use App\Models\Post_sefareshi;
 use App\Models\Buy;
 use App\Http\Requests\Save_data_buyer;
 use Validator;
@@ -23,7 +20,6 @@ class SabadController extends Controller
   public function add_pro_sabad (Request $request ){
     $id=$request->id;
     $nameCookei='addpro'. $id;
-
     if(empty($request->cookie($nameCookei))){
       if (empty($request->cookie('id_pros'))) {
         $idPro=[$id];
@@ -40,16 +36,13 @@ class SabadController extends Controller
       }else{
         $numadd=$request->cookie('numpro')+1;
         Cookie::queue('numpro', $numadd);
-
         $num=$request->cookie('numpro')+1 ;
       }
-
       return $num;
     }
   }
   //مشاهده سبد خرید
   public function show_sabad_pro(Request $request){
-
     if (!empty($request->del_id)) {
       $nameCookei='addpro'. $request->del_id;
       Cookie::queue($nameCookei, '' , time() - 3600);
@@ -62,35 +55,26 @@ class SabadController extends Controller
       }else{
         foreach ($id_pros as $key) {
           if($key==$request->del_id){
-
             continue;
           }
           $val[]=$key;
           Cookie::queue('id_pros', serialize($val));
           Cookie::queue('vazn' . $key, '', time() - 3600);
           Cookie::queue('pakat' . $key, '', time() - 3600);
-
         }
       $num_pro=$request->cookie('numpro');
       $num_pro--;
       Cookie::queue('numpro', $num_pro);
-
       }
       return redirect('/show_sabad_pro');
-
     }
     $show_sabad_pro=Pro::get();
     $id_pros=unserialize($request->cookie('id_pros'));
       //جهت اسلایدر محصولات
     if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
-    $pro=Pro::where('show' , 1)->get();
-    $count=Pro::where('show' , 1)->count();
-    $pro_nazar=NazarPro::get();
-    $pro_pic=PicturePro::get();
-    $ostan=City::where('sub_ostan' , 0)->get();
     $shop=Shop::get();
     $check=$request->cookie('check_log');
-    return view('pro.show_sabad_pro', compact('show_sabad_pro','id_pros','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop','num_pro','check'));
+    return view('pro.show_sabad_pro', compact('show_sabad_pro','id_pros','shop','num_pro','check'));
   }
   //کم یا زیاد کردن تعدادخرید یک محصول
   public function num_pro_sabad_add(Request $request){
