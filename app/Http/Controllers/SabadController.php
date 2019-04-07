@@ -1,18 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Cookie;
 use App\Models\Pro;
-use App\Models\picturePro;
-use App\Models\NazarPro;
-use App\Models\QuestionPro;
-use App\Models\AnswerPro;
 use App\Models\Shop;
 use App\Models\Buy;
 use App\Http\Requests\Save_data_buyer;
-use Validator;
 use Hekmatinasser\Verta\Verta;//تاریخ جلالی
 class SabadController extends Controller
 {
@@ -135,15 +128,11 @@ class SabadController extends Controller
      }
     return $total;
    }
-
-
    public function post_pishtaz(Request $request){
      $id_city=$request->id_city;
      $id_ostan=$request->id_ostan;
-
      return view('post_pishtaz', compact('id_city' , 'id_ostan' ));
      }
-
    public function post_sefareshi(Request $request){
        $id_ostan=$request->id_ostan;
        $id_city=$request->id_city;
@@ -160,29 +149,20 @@ class SabadController extends Controller
        }
        //مشاهده فاکتور خرید و ثبت اطلاعات پستی خریدار
    public function show_factor_buy(Request $request){
-
          $id_pros=unserialize($request->cookie('id_pros'));
          $num_pro=$request->cookie('numpro');
          $factor_buy=$request->cookie('factor_buy');
          if(!empty($id_pros)and!empty($factor_buy)){
          Cookie::queue('factor_buy','',time() - 3600);
          $show_sabad_pro=Pro::get();
-           //جهت اسلایدر محصولات
-         $pro=Pro::where('show' , 1)->get();
-         $count=Pro::where('show' , 1)->count();
-         $pro_nazar=NazarPro::get();
-         $pro_pic=PicturePro::get();
-         $ostan=City::where('sub_ostan' , 0)->get();
-         $shop=Shop::get();
          $check=$request->cookie('check_log');
-         return view('pro.factor_buy', compact('id_pros','num_pro','show_sabad_pro','pro' ,  'count' , 'pro_nazar', 'pro_pic','ostan','shop','check'));
+         return view('pro.factor_buy', compact('id_pros','num_pro','show_sabad_pro','check'));
        }else{
          return redirect('/');
        }
        }
   //ذخیره اطلاعات خریدار
    public function save_data_buyer(Save_data_buyer $request){
-
      $name=$request->name;
      $mobail=$request->mobail;
      if(preg_match('/^[0-9]{10}$/', $mobail)){$mobail=0 . $mobail;}
@@ -197,7 +177,6 @@ class SabadController extends Controller
      $date1=new Verta();//تاریخ جلالی
      $date=$date1->format('Y/n/j');
      $sabad=unserialize($request->cookie('id_pros'));
-
      foreach ( $sabad as $value) {
        $value2=Pro::find($value);
        $name_pro[]=$value2->name;
@@ -244,10 +223,9 @@ class SabadController extends Controller
      Cookie::queue('id_pros', '', time() - 3600);
      Cookie::queue('model_post', '', time() - 3600);
    }
-    }
+  }
   //ثبت نهایی خرید و پرداخت آنلاین
    public function end_buy(Request $request){
-
         return view('pro.end_buy');
       }
   public function pardakht(Request $request){
