@@ -106,7 +106,8 @@
 @media (max-width:500px) {
   .sabad_kh_sabt{width: 86%;margin: 5px 7%;}
 }
-.sabad_kh_empty{width: 100%; text-align: center; float: right; color: #995608; font-size: 18px;border: 1px solid #995608; border-radius: 4px; background-color: #fff;}
+.sabad_kh_empty{width: 100%;margin: 10px 0 30px;padding: 40px 0 90px;text-align: center; float: right; color: #ab1e05; font-size: 22px;border: 1px solid #995608; border-radius: 4px; background-color: #fff;}
+.sabad_kh_empty2 button{width: 200px; margin-top: 30px;}
 .chek_add_post{width: 96%;margin: 6px 2%;padding: 20px 12px;font-size: 18px;text-align: center;float: right; border: 1px solid  #be3e09; border-radius: 4px;color: #e25418;background-color: #c8dbe2;}
 .chek_add_post2{width: 100%; padding: 5px; float: right; text-align: center; border-top: 1px solid #aaaaaa;}
                 /* ********************** */

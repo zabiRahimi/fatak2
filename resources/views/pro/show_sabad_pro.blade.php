@@ -1,7 +1,7 @@
 @php
 namespace App\resource\wiews\pro\show_sabad_pro;
   use Cookie;
-  
+
 @endphp
 @extends('layout.layout')
 @section('title')
@@ -202,6 +202,9 @@ namespace App\resource\wiews\pro\show_sabad_pro;
     @else
       <div class="sabad_kh_empty">
           سبد شما خالی هست !
+          <div class="sabad_kh_empty2">
+              <a href="/"><button type="button"class="btn btn-info" name="button">برگشت </button></a>
+          </div>
       </div>
     @endif
 

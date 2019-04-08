@@ -8,8 +8,8 @@ Route::get('/search', 'SearchController@search');//ok!!
 Route::get('/product/{id}/{name?}','ProController@show_pro');//ok!!
 Route::put('/view_pro','ProController@view_pro');//ok
 Route::post('/sabt_nazar_pro','ProController@sabt_nazar_pro');//ok00
-Route::post('/sabt_question_pro','ProController@sabt_question_pro');//ok!!
-Route::post('/sabt_answer_pro','ProController@sabt_answer_pro');//ok!! 
+Route::post('/sabt_question_pro','ProController@sabt_question_pro');//ok00
+Route::post('/sabt_answer_pro','ProController@sabt_answer_pro');//ok00
 
 Route::put('/add_pro_sabad','SabadController@add_pro_sabad');//ok
 Route::get('/show_sabad_pro/{del_id?}','SabadController@show_sabad_pro');//ok
