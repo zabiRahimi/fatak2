@@ -245,38 +245,38 @@
       <div class="show_pro8_0 show_pro8_4">
           <div class="question_pro"><i class="far fa-question-circle"></i><h4>پرسش و پاسخ</h4></div>
           <p class="question_pro_p"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p>
-          <form class="form_question_pro" action="" method="post">
+          <form class="form_question_pro" id="form_question_pro" action="" method="post">
             <div class="form_question_pro1">ایمیل و موبایل شما منتشر نمی شود</div>
             <div id="question_pro"></div>
 
             <div class="form-group">
-                <label for="name_pro_question" class="control-label pull-right  ">نام </label>
-                <div class="mobail_question_pro"><input type="text" class="form-control" id="name_pro_question" ></div>
+                <label for="name_pro_questions" class="control-label pull-right  ">klنام </label>
+                <div class="mobail_question_pro"><input type="text" class="form-control" id="name_pro_questions"></div>
             </div>
-                     <div class="form-group">
-                         <label for="mobail_pro_question" class="control-label pull-right ">موبایل ( اختیاری )</label>
-                         <div class="mobail_question_pro"><input type="text" class="form-control" id="mobail_pro_question"></div>
-                     </div>
-                       <div class="form-group">
-                   <label for="email_pro_question" class="control-label pull-right ">ایمیل ( اختیاری )</label>
-                   <div class="mobail_question_pro"><input type="text" class="form-control" id="email_pro_question"></div>
-                 </div>
-                 <div class="form-group">
-                <label for="question_pro_question" class="control-label pull-right ">پرسش</label>
-                <div class="mobail_question_pro"><textarea name="name" class="form-control" id="question_pro_question" rows="4" cols="80"></textarea></div>
-                </div>
-                 <div class="form-group" >
-                 <label for="amniat_pro_question" class="control-label pull-right ">کد امنیتی </label>
-                 <div class="mobail_question_pro"><input type="text" class="form-control tel" id="amniat_pro_question" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
-               </div>
-              <div class="captcha_question_form">
+            <div class="form-group">
+                <label for="mobail_pro_questions" class="control-label pull-right ">موبایل ( اختیاری )</label>
+                <div class="mobail_question_pro"><input type="text" class="form-control" id="mobail_pro_questions"></div>
+            </div>
+            <div class="form-group">
+                <label for="email_pro_questions" class="control-label pull-right ">ایمیل ( اختیاری )</label>
+                <div class="mobail_question_pro"><input type="text" class="form-control" id="email_pro_questions"></div>
+            </div>
+            <div class="form-group">
+                <label for="question_pro_questions" class="control-label pull-right ">پرسش</label>
+                <div class="mobail_question_pro"><textarea name="name" class="form-control" id="question_pro_questions" rows="4" cols="80"></textarea></div>
+            </div>
+            <div class="form-group" >
+                <label for="amniat_pro_questions" class="control-label pull-right ">کد امنیتی </label>
+                <div class="mobail_question_pro"><input type="text" class="form-control tel" id="amniat_pro_questions" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+            </div>
+            <div class="captcha_question_form">
                 <span class="captcha4">{!! captcha_img() !!}</span>
                 <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
-              </div>
-              <div class="button_question_pro">
-                      <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="pro_question({ {$ id}}) ; tops('pro_question')"><h5>ثبت پرسش</h5></button>
-                      <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
-              </div>
+            </div>
+            <div class="button_question_pro">
+                <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="sabt_question_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت پرسش</h5></button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
+            </div>
           </form>
           {{-- پاسخها --}}
           <div class="question_pro2"> <i class="fas fa-list-alt"></i> پرسشهای کاربران و پاسخها</div>
@@ -292,7 +292,7 @@
                 <i class="fas fa-check-double pro_tik_question"></i>
               </div>
               <p class="pro_question_matn">{{$val_quest->question}} </p>
-              <div class="pro_question_pasohk" data-toggle="modal" data-target="#pro_question_pasohk">به این سوال پاسخ دهید</div>
+              <div class="pro_question_pasohk" data-toggle="modal" data-target="#pro_question_answer" onclick="question_id({{$val_quest->id}}) ">به این سوال پاسخ دهید</div>
               {{-- پاسخهای داده شده --}}
               @foreach ($answer_pro->where('question_pro_id' , $val_quest->id) as $val_answer)
               <div class="pro_pasohk_body">
@@ -324,7 +324,7 @@
 </div>
 <!-- Modal پاسخها-->
 
-<div class="modal fade" id="pro_question_pasohk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="pro_question_answer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header modal-pasohk-header">
@@ -334,28 +334,28 @@
         </button>
       </div>
       <div class="modal-body modal_body_pasohk">
-         <form class="form_pasohk_pro" action="" method="post">
+         <form class="form_pasohk_pro" id="form_answer_pro" action="" method="post">
           <div class="form_pasohk_pro1">ایمیل و موبایل شما منتشر نمی شود</div>
-          <div id="pasohk_pro"></div>
+          <div id="alarm_pro_answer"></div>
           <div class="form-group">
-            <label for="name_pro_question" class="control-label pull-right  ">نام </label>
-            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="name_pro_question" ></div>
+            <label for="name_pro_answer" class="control-label pull-right  ">نام </label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="name_pro_answer" ></div>
           </div>
           <div class="form-group">
-            <label for="mobail_pro_question" class="control-label pull-right ">موبایل ( اختیاری )</label>
-            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="mobail_pro_question"></div>
+            <label for="mobail_pro_answer" class="control-label pull-right ">موبایل ( اختیاری )</label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="mobail_pro_answer"></div>
           </div>
           <div class="form-group">
-            <label for="email_pro_question" class="control-label pull-right ">ایمیل ( اختیاری )</label>
-            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="email_pro_question"></div>
+            <label for="email_pro_answer" class="control-label pull-right ">ایمیل ( اختیاری )</label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="email_pro_answer"></div>
           </div>
           <div class="form-group">
-            <label for="question_pro_question" class="control-label pull-right ">پرسش</label>
-            <div class="mobail_pasohk_pro1"><textarea name="name" class="form-control" id="question_pro_question" rows="4" cols="80"></textarea></div>
+            <label for="answer_pro_answer" class="control-label pull-right ">پاسخ</label>
+            <div class="mobail_pasohk_pro1"><textarea name="name" class="form-control" id="answer_pro_answer" rows="4" cols="80"></textarea></div>
           </div>
           <div class="form-group" >
-            <label for="amniat_pro_question" class="control-label pull-right ">کد امنیتی </label>
-            <div class="mobail_pasohk_pro"><input type="text" class="form-control tel" id="amniat_pro_question" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+            <label for="amniat_pro_answer" class="control-label pull-right ">کد امنیتی </label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control tel" id="amniat_pro_answer" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
           </div>
           <div class="captcha_pasohk_form">
             <span class="captcha4">{!! captcha_img() !!}</span>
@@ -364,7 +364,7 @@
         </form>
       </div>
       <div class=" modal-footer-pro-question">
-        <button type="button" class="btn btn-primary modal-footer-pro-question1">ثبت پاسخ</button>
+        <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="sabt_answer_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')">ثبت پاسخ</button>
         <button type="button" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
       </div>
     </div>
@@ -406,7 +406,7 @@
   </div>
 </div><!--end modal -->
 <!--modal ثبت سوال -->
-<div class="modal " id="question_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal " id="end_question_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
@@ -423,7 +423,7 @@
   </div>
 </div><!--end modal -->
 <!--modal ثبت پاسخ-->
-<div class="modal " id="pasohk_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal " id="end_answer_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 

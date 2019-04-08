@@ -77,86 +77,94 @@ function pro7_active(class1 , class2){
      url:'/sabt_question_pro',
      data: {
           pro_id: id ,
-          name:$('#name_pro_nazar').val(),
-          mobail:$('#mobail_pro_nazar').val(),
-          email:$('#email_pro_nazar').val(),
-          nazar:$('#nazar_pro_nazar').val(),
-          amniat:$('#amniat_pro_nazar').val(),
+          name:$('#name_pro_questions').val(),
+          mobail:$('#mobail_pro_questions').val(),
+          email:$('#email_pro_questions').val(),
+          question:$('#question_pro_questions').val(),
+          amniat:$('#amniat_pro_questions').val(),
           },
      success:function(data){
-       $('#alarm_pro_nazar').empty();
-       document.getElementById("form_nazar_pro").reset();
-       $('#end_nazar_pro').modal('show');
-       $("#end_nazar_pro").on('hide.bs.modal', function () {
+       $('#question_pro').empty();
+       document.getElementById("form_question_pro").reset();
+       $('#end_question_pro').modal('show');
+       $("#end_question_pro").on('hide.bs.modal', function () {
        window.location.href  = "/product/" + id + "/" + name;
      });
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
-         scroll_form('form_nazar_pro');
-         $('#alarm_pro_nazar').empty();
+         scroll_form('form_question_pro');
+         $('#question_pro').empty();
          $('.form-control').css("border-color" , "#fff");
          captcha();
           if(error['name']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['name']+'</div>');
+            $('#question_pro').append('<div id="alarm_red">'+error['name']+'</div>');
             $('#name_data_buyer').css("border-color" , "#c30909");
          }else if(error['mobail']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['mobail']+'</div>');
+            $('#question_pro').append('<div id="alarm_red">'+error['mobail']+'</div>');
          }else if(error['email']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['email']+'</div>');
+            $('#question_pro').append('<div id="alarm_red">'+error['email']+'</div>');
             $('#codepost_data_buyer').css("border-color" , "#c30909");
-         }else if(error['nazar']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['nazar']+'</div>');
+         }else if(error['question']){
+            $('#question_pro').append('<div id="alarm_red">'+error['question']+'</div>');
             $('#address_data_buyer').css("border-color" , "#c30909");
          }else if(error['amniat']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['amniat']+'</div>');
+            $('#question_pro').append('<div id="alarm_red">'+error['amniat']+'</div>');
             $('#amniat_data_buyer').css("border-color" , "#c30909");
          }
      }
    });
  }
- function sabt_pasokh(id,name) {
+ //ذخیره آی دی سوال جهت ثبت پاسخ
+ function question_id(id) {
+   $.cookie("question", id);
+   //$.removeCookie("test");
+ }
+ function sabt_answer_pro(id,name) {
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'post',
-     url:'/sabt_pasokh',
+     url:'/sabt_answer_pro',
      data: {
+          question_id:$.cookie("question"),
           pro_id: id ,
-          name:$('#name_pro_nazar').val(),
-          mobail:$('#mobail_pro_nazar').val(),
-          email:$('#email_pro_nazar').val(),
-          nazar:$('#nazar_pro_nazar').val(),
-          amniat:$('#amniat_pro_nazar').val(),
+          name:$('#name_pro_answer').val(),
+          mobail:$('#mobail_pro_answer').val(),
+          email:$('#email_pro_answer').val(),
+          answer:$('#answer_pro_answer').val(),
+          amniat:$('#amniat_pro_answer').val(),
           },
      success:function(data){
-       $('#alarm_pro_nazar').empty();
-       document.getElementById("form_nazar_pro").reset();
-       $('#end_nazar_pro').modal('show');
-       $("#end_nazar_pro").on('hide.bs.modal', function () {
-       window.location.href  = "/product/" + id + "/" + name;
+       $('#alarm_pro_answer').empty();
+       document.getElementById("form_answer_pro").reset();
+       $('#pro_question_answer').modal('hide');
+       $('#end_answer_pro').modal('show');
+       $("#end_answer_pro").on('hide.bs.modal', function () {
+         $.removeCookie("question");
+         window.location.href  = "/product/" + id + "/" + name;
      });
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
          scroll_form('form_nazar_pro');
-         $('#alarm_pro_nazar').empty();
+         $('#alarm_pro_answer').empty();
          $('.form-control').css("border-color" , "#fff");
          captcha();
           if(error['name']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['name']+'</div>');
+            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['name']+'</div>');
             $('#name_data_buyer').css("border-color" , "#c30909");
          }else if(error['mobail']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['mobail']+'</div>');
+            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['mobail']+'</div>');
          }else if(error['email']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['email']+'</div>');
+            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['email']+'</div>');
             $('#codepost_data_buyer').css("border-color" , "#c30909");
-         }else if(error['nazar']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['nazar']+'</div>');
+         }else if(error['answer']){
+            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['answer']+'</div>');
             $('#address_data_buyer').css("border-color" , "#c30909");
          }else if(error['amniat']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['amniat']+'</div>');
+            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['amniat']+'</div>');
             $('#amniat_data_buyer').css("border-color" , "#c30909");
          }
      }

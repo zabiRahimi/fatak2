@@ -8,6 +8,8 @@ use App\Models\NazarPro;
 use App\Models\QuestionPro;
 use App\Models\AnswerPro;
 use App\Http\Requests\Save_pro_nazar;
+use App\Http\Requests\Save_pro_question;
+use App\Http\Requests\Save_pro_answer;
 use Hekmatinasser\Verta\Verta;//تاریخ جلالی
 class ProController extends Controller
 {
@@ -41,6 +43,35 @@ class ProController extends Controller
     $add->mobail=$request->mobail;
     $add->email=$request->email;
     $add->nazar=$request->nazar;
+    $add->date=$date;
+    $add->show=1;
+    $add->save();
+  }
+  public function sabt_question_pro(Save_pro_question $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=new QuestionPro();
+    $add->pro_id=$request->pro_id;
+    $add->name=$request->name;
+    $add->mobail=$request->mobail;
+    $add->email=$request->email;
+    $add->question=$request->question;
+    $add->date=$date;
+    $add->show=1;
+    $add->save();
+  }
+  public function sabt_answer_pro(Save_pro_answer $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=new AnswerPro();
+    $add->question_pro_id=$request->question_id;
+    $add->pro_id=$request->pro_id;
+    $add->name=$request->name;
+    $add->mobail=$request->mobail;
+    $add->email=$request->email;
+    $add->answer=$request->answer;
     $add->date=$date;
     $add->show=1;
     $add->save();
