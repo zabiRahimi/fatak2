@@ -29,3 +29,46 @@ function scroll_form(class_form){
   }
   window.scrollTo(0 ,hTop);
 }
+function sabt_shekait(){
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'/sabt_shekait',
+    data: {
+         name:$('#name_shekait').val(),
+         mobail:$('#mobail_shekait').val(),
+         email:$('#email_shekait').val(),
+         shekait:$('#shekait_shekait').val(),
+         amniat:$('#amniat_shekait').val(),
+         },
+    success:function(data){
+      $('#alarm_shekait').empty();
+      document.getElementById("form_shekait").reset();
+      $('#modal_shekait').modal('hide');
+      $('#end_shekait').modal('show');
+    },
+    error: function(xhr) {
+        var errors = xhr.responseJSON;
+        var error=errors.errors;
+
+        $('#alarm_shekait').empty();
+        $('.form-control').css("border-color" , "#fff");
+        captcha();
+         if(error['name']){
+           $('#alarm_shekait').append('<div id="alarm_red">'+error['name']+'</div>');
+           $('#name_data_buyer').css("border-color" , "#c30909");
+        }else if(error['mobail']){
+           $('#alarm_shekait').append('<div id="alarm_red">'+error['mobail']+'</div>');
+        }else if(error['email']){
+           $('#alarm_shekait').append('<div id="alarm_red">'+error['email']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }else if(error['shekait']){
+           $('#alarm_shekait').append('<div id="alarm_red">'+error['shekait']+'</div>');
+           $('#address_data_buyer').css("border-color" , "#c30909");
+        }else if(error['amniat']){
+           $('#alarm_shekait').append('<div id="alarm_red">'+error['amniat']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+    }
+  });
+}

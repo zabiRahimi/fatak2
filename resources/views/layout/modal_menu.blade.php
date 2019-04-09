@@ -61,34 +61,30 @@
         </button>
       </div>
       <div class="modal-body modal_body_h_sabtname">
-        {{-- <div class="form-group ban">
-          <label for="name_pro_question" class="control-label pull-right  ">نام </label>
-          <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="name_pro_question" ></div>
-        </div> --}}
-         <form class="form_h_sabtname_pro" action="" method="post">
+         <form class="form_h_sabtname_pro" id="form_shekait" action="" method="post">
           <div class="form_h_sabtname_pro1"><i class="fas fa-info-circle"></i> ایمیل و موبایل شما منتشر نمی شود</div>
-          <div id="pasohk_pro"></div>
+          <div id="alarm_shekait">45</div>
           <div class="form-group">
-            <label for="name_pro_h_sabtname" class="control-label pull-right  "><i class="fas fa-user-tie i_name_sabt"></i> نام و نام خانوادگی </label>
-            <div class="div_h_sabtname"><input type="text" class="form-control" id="name_pro_question" placeholder="به فارسی ..." ></div>
+            <label for="name_shekait" class="control-label pull-right  "><i class="fas fa-user-tie i_name_sabt"></i> نام و نام خانوادگی </label>
+            <div class="div_h_sabtname"><input type="text" class="form-control" id="name_shekait" placeholder="به فارسی ..." ></div>
           </div>
 
           <div class="form-group">
-            <label for="mobail_h_sabtname" class="control-label pull-right "><i class="fas fa-mobile-alt i_mobail_sabt"></i> موبایل</label>
-            <div class="div_h_sabtname"><input type="text" class="form-control" id="mobail_pro_question"></div>
+            <label for="mobail_shekait" class="control-label pull-right "><i class="fas fa-mobile-alt i_mobail_sabt"></i> موبایل</label>
+            <div class="div_h_sabtname"><input type="text" class="form-control" id="mobail_shekait"></div>
           </div>
           <div class="form-group">
-            <label for="email_pro_question" class="control-label pull-right "><i class="fas fa-at i_email_sabt"></i> ایمیل (اختیاری)</label>
-            <div class="div_h_sabtname"><input type="text" class="form-control" id="email_pro_question"></div>
+            <label for="email_shekait" class="control-label pull-right "><i class="fas fa-at i_email_sabt"></i> ایمیل (اختیاری)</label>
+            <div class="div_h_sabtname"><input type="text" class="form-control" id="email_shekait"></div>
           </div>
 					<div class="form-group">
-				 <label for="question_pro_question" class="control-label pull-right "><i class="fas fa-pencil-alt i_email_sabt"></i> انتقاد و شکایت</label>
-				 <div class="mobail_question_pro"><textarea name="name" class="form-control" id="question_pro_question" rows="4" cols="80"></textarea></div>
+				 <label for="shekait_shekait" class="control-label pull-right "><i class="fas fa-pencil-alt i_email_sabt"></i> انتقاد و شکایت</label>
+				 <div class="mobail_question_pro"><textarea name="name" class="form-control" id="shekait_shekait" rows="4" cols="80"></textarea></div>
 
 				 </div>
           <div class="form-group" >
-            <label for="amniat_pro_question" class="control-label pull-right "><i class="fas fa-shield-alt i_amniat_sabt"></i> کد امنیتی </label>
-            <div class="div_h_sabtname"><input type="text" class="form-control tel" id="amniat_pro_question" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+            <label for="amniat_shekait" class="control-label pull-right "><i class="fas fa-shield-alt i_amniat_sabt"></i> کد امنیتی </label>
+            <div class="div_h_sabtname"><input type="text" class="form-control tel" id="amniat_shekait" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
           </div>
           <div class="captcha_h_sabtname_form">
             <span class="captcha4">{!! captcha_img() !!}</span>
@@ -97,9 +93,26 @@
         </form>
       </div>
       <div class=" modal-footer-h-sabtname">
-        <button type="button" class="btn btn-primary modal-footer-pro-question1">ثبت</button>
+        <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="sabt_shekait()">ثبت</button>
         <button type="button" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
       </div>
     </div>
   </div>
 </div><!--end modal شکایت-->
+<!--modal انتهای ثبت شکایت-->
+<div class="modal " id="end_shekait" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body modal_pro_add_sabad">
+          ممنون !! انتقاد و شکایت شما ثبت شد .
+      </div>
+      <div class="modal_pro_add_sabad2">
+
+        <button type="button"  class="btn btn-success modal_pro_add_sabad3" data-dismiss="modal" >متوجه شدم !! </button>
+
+
+      </div>
+    </div>
+  </div>
+</div><!--end modal -->

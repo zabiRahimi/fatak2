@@ -7,6 +7,9 @@ use Cookie;
 use App\Models\Pro;
 use App\Models\picturePro;
 use App\Models\NazarPro;
+use App\Models\Shekait;
+use App\Http\Requests\Save_sabt_shekait;
+use Hekmatinasser\Verta\Verta;//تاریخ جلالی
 class IndexController extends Controller
 {
     public function show(Request $request){
@@ -25,5 +28,18 @@ class IndexController extends Controller
       $pro=Pro::where('show' , 1)->orderBy('id', 'desc')->skip($num)->take($take)->get();
       $count=Pro::where('show' , 1)->count();
       return view('pro_ajax', compact('pro','count','page','take'));
+    }
+    public function sabt_shekait(Save_sabt_shekait $request)
+    {
+      $date1=new Verta();//تاریخ جلالی
+      $date=$date1->format('Y/n/j');
+      $add=new Shekait();
+      $add->name=$request->name;
+      $add->mobail=$request->mobail;
+      $add->email=$request->email;
+      $add->shekait=$request->shekait;
+      $add->date=$date;
+      $add->show=1;
+      $add-> save();
     }
 }

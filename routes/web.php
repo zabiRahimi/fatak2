@@ -3,8 +3,11 @@
 Route::get('/{page?}','IndexController@show')->where('page', '[0-9]+');
 Route::get('/pro/{page?}','IndexController@show_ajax');
 Route::get('/card/{name?}/{id?}','IndexController@show_card');
+Route::post('/sabt_shekait','IndexController@sabt_shekait');
+
 Route::get('refreshcaptcha', 'CaptchaController@refreshCaptcha');//ok
 Route::get('/search', 'SearchController@search');//ok!!
+
 Route::get('/product/{id}/{name?}','ProController@show_pro');//ok!!
 Route::put('/view_pro','ProController@view_pro');//ok
 Route::post('/sabt_nazar_pro','ProController@sabt_nazar_pro');//ok00

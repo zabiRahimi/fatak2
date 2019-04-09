@@ -1,12 +1,8 @@
 
 //کم یا زیاد کردن تعداد خرید یک محصول
 function num_pro_sabad_add(id,add_cut , num , vahed_price , gram_post,pakat){
-
   if (add_cut=='cut'&&num==1) {}else{
   if(add_cut=='add'&&num==10){alert('خرید محصول بیشتر از 10 عدد از طریقه سامانه مجاز نمی باشد ، جهت تهیه  بیشتر از 10 عدد محصول باشماره 09178023733 تماس حاصل نمایید .')}else{
-
-
-
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'put',
