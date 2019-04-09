@@ -1,0 +1,16 @@
+/* //page_login */
+.channel_log{width: 98%;height: 35px;line-height: 35px;margin: 3px 1%; border: 1px solid #5c5c5c; border-radius: 3px;float: right;background-color: #a2d4a9}
+.channel_log1,.channel_log2,.channel_log3{width: 33%;float: right;font-size: 18px;}
+.channel_log1{padding-right: 20px;text-align: right;color: #18909c;}
+.channel_log2{margin: 0 0.5%;line-height: 20px;text-align: center;font-size: 14px; color: #2f9909;}
+.channel_log3{padding-left: 20px;}
+@media (max-width:340px){.channel_log1,.channel_log3{width: 50%;padding: 0 5px;}.channel_log2{display: none;}}
+.channel_log_ul{
+  width: 98%;height: 40px;line-height: 40px;margin: 0 1%;padding-right: 25px;color: #fff;background-color: #0a374d;border-radius: 3px;text-align: right;float: right;
+}
+.channel_log_ul li{
+  margin-left: 10px;
+  border-left: 1px solid #fff;
+  padding-left: 8px;
+}
+.channel_log_ul li:last-child{border-left: none;cursor: pointer;}

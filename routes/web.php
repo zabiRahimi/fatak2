@@ -37,6 +37,10 @@ Route::post('/login_user','RegisterController@login_user');//ok
 Route::get('/dashboard_user','RegisterController@dashboard_user')->middleware(['cheklogin_user' ]);;//ok
 Route::get('/logout_user','RegisterController@logout_user');//ok
 Route::post('/edit_register','RegisterController@edit_register');//ok
+
+//channel
+Route::get('/page_login','ChannelController@page_login');//ok
+
 //قسمت مدیریت management
 Route::get('/management', 'Admin\ManagementController@show');//ok
 Route::get('/pro_admin', 'Admin\Pro_adController@show');//ok!!

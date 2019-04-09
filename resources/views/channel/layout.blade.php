@@ -19,9 +19,6 @@
     <body>
       <img src="http://localhost:8000/img_site/210.gif" class="gif_loding" alt="loding" >
         <div class="">
-        <header>
-          @include('layout.header')
-        </header>
         <div class="content">
           <div class="" id="pjax">
             @yield('content')

@@ -8,7 +8,7 @@
 </div>
 <ul class="menu_mobail_ul">
   <a href="/"><li class="modal_hide"><span><i class="far fa-window-maximize"></i> صفحه اصلی</span> </li></a>
-  <li class="modal_hide" onclick="modal_sub_show()"><span><i class="fas fa-comments"></i> مدیریت کانال و گروه</span> </li>
+  <a href="/page_login"><li class="modal_hide" onclick="modal_sub_show()"><span><i class="fas fa-comments"></i> مدیریت کانال و گروه</span> </li></a>
   <li class="modal_hide" onclick="modal_sub_show()"><span><i class="fas fa-user-tag"></i> مدیریت فروشندگان </span> </li>
   <li class="modal_hide" onclick="modal_sub_show() ;hide_menu_mobail(); $('#modal_ghanon').modal('show')"><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li>
   <li class="modal_hide" onclick="modal_sub_show(); hide_menu_mobail(); $('#modal_shekait').modal('show')" ><span><i class="fas fa-gavel"></i> شکایت</span> </li>

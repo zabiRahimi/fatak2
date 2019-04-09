@@ -61,7 +61,7 @@
       </div>
 
 
-      <div class="div_in2  kanal_in">
+      <div class="div_in2  kanal_in" onclick="location.href = '/page_login';">
 
         <div class="kanal_in_1">
               کانال و گروه
@@ -72,6 +72,7 @@
 
         <div class="kanal_in_3">
           با کانال و گروهت همراه با ما کسب درآمد کن ...
+
         </div>
       </div>
 
@@ -126,7 +127,7 @@
       </div>
 
 
-      <div class="div_in2  kanal_in">
+      <div class="div_in2  kanal_in" onclick="location.href = '/page_login';">
         <div class="kanal_in_3">
           با کانال و گروهت همراه با ما کسب درآمد کن ...
         </div>
