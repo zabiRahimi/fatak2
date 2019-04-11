@@ -14,3 +14,85 @@
   padding-left: 8px;
 }
 .channel_log_ul li:last-child{border-left: none;cursor: pointer;}
+.chanel_menu_log{width: 100%; float: right;text-align: center;display: none;}
+.chanel_menu_log button{width: 120px;height: 38px;background-color:#0a374d; color: #fff;}
+.chanel_menu_log button i{position: relative;top:-3px; font-size: 28px;}
+.chanel_menu_log button span{margin-right: 17px;position: relative;top: -10px; font-size: 22px;}
+@media (max-width:768px){
+  .channel_log_ul{display: none;}
+  .chanel_menu_log{display: block;}
+}
+/* ******************* menu_login***************** */
+.menu_channel_login_1{width: 100%; height: 100%; display: none;position: fixed; opacity: 0.6;top: 0; background-color: #000; z-index: 33300}
+.menu_channel_login_2{z-index: 33501; float: right;width: 200px; height: 100%;background-color: #f2f2f2;position: fixed; top: 0; overflow: auto;right: -200px;text-align: right;}
+.close_menu_channel_login{width: 100%; height: 29px; line-height: 29px;padding: 0 7px 0 10px; margin: 5px 0 ;float: right;background-color: #dadada;}
+.close_menu_channel_login span{float: right;}
+.close_menu_channel_login button{ float: left; background-color: inherit; border: none; cursor: pointer;font-size: 32px; color: #f60404; }
+.menu_channel_login_2 i{position: relative; margin-left: 9px; top: 2px;}
+.menu_channel_login_2 ul{position: relative; float: right;}
+
+.show_channel_menu_login_1{display: block;}
+.show_channel_menu_login_2{right: 0; transition: right 0.5s ease-in-out;}
+@media (max-width:575px) {
+.hide_overflow{overflow: hidden;}/*جهت پنهان کردن اسکرول تگ بادی */
+}
+.menu_channel_login_ul{width: 100%;padding: 0; background-color: #e8e8e8;}
+.menu_channel_login_ul a{text-decoration: none;}
+.menu_channel_login_ul li{width: 100%;list-style: none; color: #05609a;border-bottom: 1px solid #d0d0d0; padding:6px 7px 3px 6px;float: right;cursor: pointer; }
+.menu_channel_login_ul li:hover{ background-color:#c9c9c9;color: #033f63; }
+.menu_channel_login_ul li span{float: right;}
+.menu_channel_login_ul li img{float: left;position: relative;top: 8px;}
+.menu_channel_login_ul li > ul{width: 100%;padding: 0;display: none;background-color: #f5f5f5; float: right; }
+.menu_channel_login_ul li > ul li:hover{background-color:#e2e2e2;  }
+@media (min-width:769px) {
+.menu_channel_login_1 , .menu_channel_login_2{display: none;}
+}
+/* دکمه های ثبت نام ورود */
+.channel_btn_log{width: 100%;margin-top: 50px;float: right;}
+.channel_btn_log button{width: 180px; height: 60px;font-size: 24px;color: #fff;}
+.channel_btn_log1{width: 50%;padding-left: 15px;float: right;text-align: left;}
+.channel_btn_log1 button{background-color: #077109;}
+.channel_btn_log2{width: 50%;padding-right: 15px;float: left;text-align: right;}
+.channel_btn_log2 button{background-color: #115c96;}
+@media (max-width:768px) {
+  .channel_btn_log{margin-top: 17px;}
+  .channel_btn_log button{width: 130px; height: 48px;font-size: 18px;}
+}
+@media (max-width:520px) {
+  .channel_btn_log{margin-top: 12px;}
+  .channel_btn_log button{width: 90px; height: 38px;}
+}
+@media (max-width:280px) {
+  .channel_btn_log1{padding-left: 8px;}
+  .channel_btn_log2{padding-right: 8px;}
+}
+/* فرمهای ورود و ثبت نام */
+.channel_sabt_log_log{
+  width: 98%;
+  float: right; margin:15px 1% ; padding: 12px 0;background-color: #d4d4d4;display: none;
+}
+ .channel_sabt_log_log2{width: 60%;margin: 3px 20%;padding: 5px 130px;float: right;background-color: #f6f1f1;display: none ;border-radius: 4px;}
+@media (max-width:1350px) {
+  .channel_sabt_log_log2{padding: 5px 90px;}
+}
+@media (max-width:1100px) {
+  .channel_sabt_log_log2{padding: 5px 50px;}
+}
+@media (max-width:900px) {
+  .channel_sabt_log_log2{width: 80%;margin: 3px 10%;}
+}
+@media (max-width:768px) {
+  .channel_sabt_log_log2{width: 90%;margin: 3px 5%;}
+}
+@media (max-width:650px) {
+  .channel_sabt_log_log2{width: 96%;margin: 3px 2%;}
+}
+@media (max-width:580px) {
+  .channel_sabt_log_log2{width: 96%;margin: 3px 2%;padding: 5px 20px;}
+}
+@media (max-width:460px) {
+  .channel_sabt_log_log2{width: 100%;margin: 3px 0;}
+}
+@media (max-width:310px) {
+  .channel_sabt_log_log2{width: 100%;margin: 3px 0;padding: 5px 5px;}
+}

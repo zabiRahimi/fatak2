@@ -49,3 +49,35 @@ display:inline;
 /* استالهای شهر و استان */
 .cityOff{display: none;}
 .cityShow{display: block; color: #020647}
+/* استایل فرم */
+.form{width: 100%;padding: 5px 7px;float: right;both;background-color: #e8e6e6; border-radius: 2px;}
+
+.form_warn ,.form_titr {width: 100%; margin:0 0 4px 0;padding: 2px 8px;float: right;  text-align: justify !important;border-radius: 3px;}
+.form_titr{background-color: #4dabc9;font-size: 18px;color: #fff;font-size: 18px;}
+@media (max-width:250px) {.form_titr{font-size: 16px;}}
+
+.form_warn{background-color: #c9a24c;font-size: 12px;}
+.form_warn i , .form_titr i {position: relative; top: 1px; margin-left: 7px;}
+.form_titr i{color: #c7f0a8;}
+.form_warn i{color: #c1007a;}
+.form > .form-group{width: 100%; margin-bottom: 4px;float: right; background-color: #c8d2d7;border-radius: 3px;}
+.form > .form-group label{width: 35%;position: relative; top:8px; padding-right: 16px; text-align: right;float: right;}
+.div_form {width: 65%; float: right;padding: 2px;}
+.div_form input{width: 100%; float: right; }
+
+.i_form{position: relative; margin-left: 10px;}
+.captcha_form {width: 65%; float: left; text-align: center;}
+.captcha_form span {display: inline-block;height: 38px;background-color: #829077; padding: 1px;}
+.captcha_form button {padding: 4px; background-color: #6da7e0;}
+.captcha_form i {position: relative;top: 3px;font-size: 20px;}
+.form_btn{text-align: center;margin-top: 5px; padding: 4px 3px;}
+.form_btn button {width: 140px;font-size: 18px;}
+@media(max-width:435px){
+  .form > .form-group {background-color: inherit; margin-top: -4px; padding: 0;}
+  .form >.form-group label {width: 125px;  background-color: #ced4d9; border-radius: 4px 4px 0 0;}
+  .form > .form-group input{width: 100%;height: 32px ;float: right;}
+  .i_form{ margin-left: 4px;}
+  .div_form {width: 100%; float: right;background-color: #ced4d9; padding: 2px 1px; border-radius: 3px 0 3px 3px;}
+  .captcha_form {width: 100%;margin-bottom: 10px; }
+
+}
