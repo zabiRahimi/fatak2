@@ -71,29 +71,29 @@
       </div>
 
       <div class="channel_sabt_log channel_sabt_log_log2">
-        <form class="form form_register" id="form_register" action="" method="post">
+        <form class="form form_channelsabt1" id="form_channelsabt1" action="" method="post">
          <div class="form_titr"><i class="fas fa-info-circle"></i>ثبت شبکه اجتماعی</div>
-         <div id="ajax_register"></div>
+         <div id="ajax_channelsabt1"></div>
          {{ csrf_field() }}
          <div class="form-group">
-           <label for="name_register" class="control-label pull-right  "><i class="fas fa-user-tie i_form"></i> نام و نام خانوادگی </label>
-           <div class="div_form"><input type="text" class="form-control" id="name_register" placeholder="به فارسی ..." ></div>
+           <label for="name_channelsabt1" class="control-label pull-right  "><i class="fas fa-user-tie i_form"></i> نام و نام خانوادگی </label>
+           <div class="div_form"><input type="text" class="form-control" id="name_channelsabt1" placeholder="به فارسی ..." ></div>
          </div>
          <div class="form-group">
-           <label for="mobail_register" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> موبایل</label>
-           <div class="div_form"><input type="text" class="form-control" id="mobail_register"></div>
+           <label for="mobail_channelsabt1" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> موبایل</label>
+           <div class="div_form"><input type="text" class="form-control" id="mobail_channelsabt1"></div>
          </div>
          <div class="form-group">
-           <label for="email_register" class="control-label pull-right "><i class="fas fa-at i_form"></i>ایمیل (اختیاری)</label>
-           <div class="div_form"><input type="text" class="form-control" id="email_register"></div>
+           <label for="email_channelsabt1" class="control-label pull-right "><i class="fas fa-at i_form"></i>ایمیل (اختیاری)</label>
+           <div class="div_form"><input type="text" class="form-control" id="email_channelsabt1"></div>
          </div>
          <div class="form-group">
-           <label for="pas_register" class="control-label pull-right  "><i class="fas fa-key i_form"></i> رمز عبور </label>
-           <div class="div_form"><input type="text" class="form-control" id="pas_register" placeholder="به لاتین ..."></div>
+           <label for="pas_channelsabt1" class="control-label pull-right  "><i class="fas fa-key i_form"></i> رمز عبور </label>
+           <div class="div_form"><input type="text" class="form-control" id="pas_channelsabt1" placeholder="به لاتین ..."></div>
          </div>
          <div class="form-group" >
-           <label for="amniat_register" class="control-label pull-right "><i class="fas fa-shield-alt i_form"></i> کد امنیتی </label>
-           <div class="div_form"><input type="text" class="form-control tel" id="amniat_register" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+           <label for="amniat_channelsabt1" class="control-label pull-right "><i class="fas fa-shield-alt i_form"></i> کد امنیتی </label>
+           <div class="div_form"><input type="text" class="form-control tel" id="amniat_channelsabt1" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
          </div>
          <div class="captcha_form">
            <span class="captcha4">{!! captcha_img() !!}</span>
@@ -101,9 +101,29 @@
          </div>
          <div class="form-group form_btn">
 
-           <button type="button" class="btn btn-success" onclick="" >ثبت</button>
+           <button type="button" class="btn btn-success" onclick="sabt_channel_1()" >ثبت</button>
          </div>
        </form>
       </div>
+    </div>
+    {{-- لوگوهای شبکه اجتماعی --}}
+    <div class="channel_logo_log">
+      <span>
+        <span>
+          <img src="img_site/sorush-farsgraphic.png" alt="" >
+          <img src="img_site/instagram-farsgraphic.png" alt="" >
+          <img src="img_site/whatsapp.png" alt="" >
+          <img src="img_site/telegram-farsgraphic.png" alt="" >
+          <img src="img_site/google_fatak.png" alt="" >
+          <img src="img_site/bisphone-farsgraphic.png" alt="" >
+          <img src="img_site/Bale-Logo-LimooGraphic.png" alt="" >
+        </span>
+        <span></span>
+      </span>
+    </div>
+    {{-- دیدگاهای مدیران --}}
+    <div class="channel_did_log">
+      <span class="channel_did_log1"></span>
+      <span class="channel_did_log2">دیدگاه مدیران</span>
     </div>
 @endsection

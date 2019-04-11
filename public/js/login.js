@@ -5,12 +5,12 @@ function register(){
     type:'post',
     url:'../register',
     data: {
-         name:$('#name_register').val(),
-         karbary:$('#karbary_register').val(),
-         pas:$('#pas_register').val(),
-         mobail:$('#mobail_register').val(),
-         email:$('#email_register').val(),
-         amniat:$('#amniat_register').val(),
+          name:$('#name_register').val(),
+          karbary:$('#karbary_register').val(),
+          pas:$('#pas_register').val(),
+          mobail:$('#mobail_register').val(),
+          email:$('#email_register').val(),
+          amniat:$('#amniat_register').val(),         
          },
     success:function(data){
       $('#ajax_register').empty();
