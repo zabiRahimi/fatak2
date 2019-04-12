@@ -10,7 +10,7 @@ function register(){
           pas:$('#pas_register').val(),
           mobail:$('#mobail_register').val(),
           email:$('#email_register').val(),
-          amniat:$('#amniat_register').val(),         
+          amniat:$('#amniat_register').val(),
          },
     success:function(data){
       $('#ajax_register').empty();
@@ -71,7 +71,6 @@ function register(){
 }
 
 function login_user(){
-  alert(45)
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',

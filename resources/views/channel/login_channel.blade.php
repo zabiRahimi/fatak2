@@ -126,4 +126,33 @@
       <span class="channel_did_log1"></span>
       <span class="channel_did_log2">دیدگاه مدیران</span>
     </div>
+    {{-- modals --}}
+    <!-- Modal موفق بودن ثبت ابتدایی کانال-->
+    <div class="modal fade" id="end_channelsabt1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body modal_ok">
+            <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
+            <div class="modal_ok2">تبریک !! ثبت اولیه شما انجام شد . جهت مشاهده پنل کاربری خود از فرم ورود استفاده کنید .</div>
+          </div>
+          <div class=" modal_ok3">
+            <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+          </div>
+        </div>
+      </div>
+    </div><!--end modal پایان موفقیت ثبت .-->
+    <!-- Modal موفق بودن لاگین-->
+    <div class="modal fade" id="end_channellog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body modal_ok">
+            <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
+            <div class="modal_ok2">خوش آمدید .</div>
+          </div>
+          <div class=" modal_ok3">
+            <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+          </div>
+        </div>
+      </div>
+    </div><!--end modal پایان لاگین .-->
 @endsection

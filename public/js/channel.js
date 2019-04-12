@@ -16,7 +16,6 @@ function show_form_channel_log(clases) {
 }
 // ثبت ابتدایی شبکه اجتماعی
 function sabt_channel_1(){
-
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
@@ -32,6 +31,9 @@ function sabt_channel_1(){
       $('#ajax_channelsabt1').empty();
       document.getElementById("form_channelsabt1").reset();
       $('#end_channelsabt1').modal('show');
+      $("#end_channelsabt1").on('hide.bs.modal', function () {
+      window.location.href  = "/page_login";
+      });
     },
     error: function(xhr) {
         var errors = xhr.responseJSON;
@@ -86,9 +88,14 @@ function login_channel(){
     success:function(data){
       $('#ajax_channellog').empty();
       document.getElementById("form_channellog").reset();
+      captcha();
       $('#end_channellog').modal('show');
+      $("#end_channellog").on('hide.bs.modal', function () {
+      window.location.href  = "/";
+      });
     },
     error: function(xhr) {
+      $('#ok_edit_user').modal('show');
         var errors = xhr.responseJSON;
         var error=errors.errors;
         scroll_form('form_channellog');
