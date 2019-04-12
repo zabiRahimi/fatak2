@@ -23,6 +23,6 @@ class Check_login_channelMiddleware
       return $next($request);
     }
     return redirect('/');
-    }
+  }
     }
 }
