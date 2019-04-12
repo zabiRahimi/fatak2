@@ -15,7 +15,7 @@ class Check_login_channelMiddleware
      */
     public function handle($request, Closure $next)
     {
-      $check=  $request->cookie('check_log');
+      $check=  $request->cookie('check_log_channel');
 
 
     if (!empty($check)){
