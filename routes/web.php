@@ -34,7 +34,7 @@ Route::post('/create_cookie','SabadController@create_cookie');//ok
 //login
 Route::post('/register','RegisterController@register');//ok
 Route::post('/login_user','RegisterController@login_user');//ok
-Route::get('/dashboard_user','RegisterController@dashboard_user')->middleware(['cheklogin_user' ]);;//ok
+Route::get('/dashboard_user','RegisterController@dashboard_user')->middleware(['cheklogin_user' ]);//ok
 Route::get('/logout_user','RegisterController@logout_user');//ok
 Route::post('/edit_register','RegisterController@edit_register');//ok
 
@@ -42,6 +42,7 @@ Route::post('/edit_register','RegisterController@edit_register');//ok
 Route::get('/page_login','ChannelController@page_login');//ok
 Route::post('/sabt_channel_1','ChannelController@sabt_channel_1');//ok!!
 Route::get('/login_channel','ChannelController@login_channel');//ok!!
+Route::get('/dashboard_channel','ChannelController@dashboard_channel')->middleware(['cheklogin_channel' ]);//ok!!
 
 
 //قسمت مدیریت management

@@ -91,7 +91,7 @@ function login_channel(){
       captcha();
       $('#end_channellog').modal('show');
       $("#end_channellog").on('hide.bs.modal', function () {
-      window.location.href  = "/";
+      window.location.href  = "/dashboard_channel";
       });
     },
     error: function(xhr) {

@@ -25,4 +25,3 @@ class Check_login_channelMiddleware
     return redirect('/');
   }
     }
-}
