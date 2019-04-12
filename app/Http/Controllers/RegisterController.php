@@ -28,8 +28,6 @@ class RegisterController extends Controller
       $add->save();
     }
     public function login_user(Save_login_user $request ){
-      $date1=new Verta();//تاریخ جلالی
-      $date=$date1->format('Y/n/j');
       $karbary=$request->karbary;
       $pas=$request->pas;
       $add=Register::where('karbary',$karbary)->first();

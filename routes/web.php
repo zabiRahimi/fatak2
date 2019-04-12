@@ -41,6 +41,8 @@ Route::post('/edit_register','RegisterController@edit_register');//ok
 //channel
 Route::get('/page_login','ChannelController@page_login');//ok
 Route::post('/sabt_channel_1','ChannelController@sabt_channel_1');//ok!!
+Route::get('/login_channel','ChannelController@login_channel');//ok!!
+
 
 //قسمت مدیریت management
 Route::get('/management', 'Admin\ManagementController@show');//ok

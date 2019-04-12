@@ -42,22 +42,22 @@
     {{-- فرمهای ورود و ثبت نام --}}
     <div class="channel_sabt_log_log">
       <div class="channel_log_log channel_sabt_log_log2">
-        <form class="form form_register" id="form_register" action="" method="post">
+        <form class="form form_channellog" id="form_channellog" action="" method="post">
          <div class="form_titr"><i class="fas fa-info-circle"></i>ورود</div>
-         <div id="ajax_register"></div>
+         <div id="ajax_channellog"></div>
          {{ csrf_field() }}
 
          <div class="form-group">
-           <label for="mobail_register" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> موبایل</label>
-           <div class="div_form"><input type="text" class="form-control" id="mobail_register"></div>
+           <label for="mobail_channellog" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> موبایل</label>
+           <div class="div_form"><input type="text" class="form-control" id="mobail_channellog"></div>
          </div>
          <div class="form-group">
-           <label for="pas_register" class="control-label pull-right  "><i class="fas fa-key i_form"></i> رمز عبور </label>
-           <div class="div_form"><input type="text" class="form-control" id="pas_register" placeholder="به لاتین ..."></div>
+           <label for="pas_channellog" class="control-label pull-right  "><i class="fas fa-key i_form"></i> رمز عبور </label>
+           <div class="div_form"><input type="text" class="form-control" id="pas_channellog" placeholder="به لاتین ..."></div>
          </div>
          <div class="form-group" >
-           <label for="amniat_register" class="control-label pull-right "><i class="fas fa-shield-alt i_form"></i> کد امنیتی </label>
-           <div class="div_form"><input type="text" class="form-control tel" id="amniat_register" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+           <label for="amniat_channellog" class="control-label pull-right "><i class="fas fa-shield-alt i_form"></i> کد امنیتی </label>
+           <div class="div_form"><input type="text" class="form-control tel" id="amniat_channellog" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
          </div>
          <div class="captcha_form">
            <span class="captcha4">{!! captcha_img() !!}</span>
@@ -65,7 +65,7 @@
          </div>
          <div class="form-group form_btn">
 
-           <button type="button" class="btn btn-success" onclick="" >ثبت</button>
+           <button type="button" class="btn btn-success" onclick="login_channel()" >ثبت</button>
          </div>
        </form>
       </div>

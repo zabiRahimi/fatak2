@@ -70,3 +70,56 @@ function sabt_channel_1(){
   });
 
 }
+
+// لاگین کردن شبکه اجتماعی
+function login_channel(){
+
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'get',
+    url:'../login_channel',
+    data: {
+          mobail:$('#mobail_channellog').val(),
+          pas:$('#pas_channellog').val(),
+          amniat:$('#amniat_channellog').val(),
+         },
+    success:function(data){
+      $('#ajax_channellog').empty();
+      document.getElementById("form_channellog").reset();
+      $('#end_channellog').modal('show');
+    },
+    error: function(xhr) {
+        var errors = xhr.responseJSON;
+        var error=errors.errors;
+        scroll_form('form_channellog');
+        $('#ajax_channellog').empty();
+        $('#amniat_channellog').val('');
+        $('.form-control').css("border-color" , "#fff");
+        captcha();
+
+
+        if(error['mobail']){
+           $('#ajax_channellog').append('<div id="alarm_red">'+error['mobail']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['pas']){
+           $('#ajax_channellog').append('<div id="alarm_red">'+error['pas']+'</div>');
+           $('#email_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['amniat']){
+           $('#ajax_channellog').append('<div id="alarm_red">'+error['amniat']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['no_karbar']){
+           $('#ajax_channellog').append('<div id="alarm_red">'+error['no_karbar']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else {
+
+           $('#ajax_channellog').modal('show');
+        }
+
+    }
+  });
+
+}
