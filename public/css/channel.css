@@ -21,31 +21,12 @@
 @media (max-width:768px){
   .channel_log_ul{display: none;}
   .chanel_menu_log{display: block;}
-}
-/* ******************* menu_login***************** */
-.menu_channel_login_1{width: 100%; height: 100%; display: none;position: fixed; opacity: 0.6;top: 0; background-color: #000; z-index: 33300}
-.menu_channel_login_2{z-index: 33501; float: right;width: 200px; height: 100%;background-color: #f2f2f2;position: fixed; top: 0; overflow: auto;right: -200px;text-align: right;}
-.close_menu_channel_login{width: 100%; height: 29px; line-height: 29px;padding: 0 7px 0 10px; margin: 5px 0 ;float: right;background-color: #dadada;}
-.close_menu_channel_login span{float: right;}
-.close_menu_channel_login button{ float: left; background-color: inherit; border: none; cursor: pointer;font-size: 32px; color: #f60404; }
-.menu_channel_login_2 i{position: relative; margin-left: 9px; top: 2px;}
-.menu_channel_login_2 ul{position: relative; float: right;}
+  /*جهت پنهان کردن اسکرول تگ بادی */
+  .chanelMeLog_scroll{overflow: hidden;}
 
-.show_channel_menu_login_1{display: block;}
-.show_channel_menu_login_2{right: 0; transition: right 0.5s ease-in-out;}
-@media (max-width:575px) {
-.hide_overflow{overflow: hidden;}/*جهت پنهان کردن اسکرول تگ بادی */
 }
-.menu_channel_login_ul{width: 100%;padding: 0; background-color: #e8e8e8;}
-.menu_channel_login_ul a{text-decoration: none;}
-.menu_channel_login_ul li{width: 100%;list-style: none; color: #05609a;border-bottom: 1px solid #d0d0d0; padding:6px 7px 3px 6px;float: right;cursor: pointer; }
-.menu_channel_login_ul li:hover{ background-color:#c9c9c9;color: #033f63; }
-.menu_channel_login_ul li span{float: right;}
-.menu_channel_login_ul li img{float: left;position: relative;top: 8px;}
-.menu_channel_login_ul li > ul{width: 100%;padding: 0;display: none;background-color: #f5f5f5; float: right; }
-.menu_channel_login_ul li > ul li:hover{background-color:#e2e2e2;  }
 @media (min-width:769px) {
-.menu_channel_login_1 , .menu_channel_login_2{display: none;}
+.chanelMeLog_small_1 , .chanelMeLog_small_2{display: none;}
 }
 /* دکمه های ثبت نام ورود */
 .channel_btn_log{width: 100%;margin-top: 50px;float: right;}
@@ -111,4 +92,47 @@
 .channel_did_log2{width: 130px;margin: -32px 42px 0 0;padding: 5px 5px;text-align: center;display: inline-block;float: right;z-index: 1;position: relative;border: 1px solid #0e1045;font-size: 18px;border-radius: 10px;background-color: #fff; color: #175d18;}
 @media (max-width:768px) {
   .channel_did_log2{margin: -28px 4% 0 0; padding: 0 5px;}
+}
+/* داشبورد شبکه */
+.dashChHead{width:98%;height:40px;line-height:40px;margin:3px 1% 2px;padding: 0 25px;background-color:#87a9c3;border-radius:3px;float:right;}
+.dashChHead1{width: 75%;float: right;text-align: right; font-size: 18px;}
+.dashChHead1_1{color: #fff;}
+.dashChHead1_2{color: #055b43;margin-right: 10px;font-size: 16px;
+  }
+.dashChHead2{width:25%;float: right;}
+.dashChHead2 a{font-size: 18px; color: #115303;}
+@media (max-width:768px) {
+  .dashChHead{padding: 0 6px;}
+}
+@media (max-width:350px) {
+  .dashChHead1 , .dashChHead2 a{font-size: 16px;}
+  .dashChHead1_2{margin-right: 5px;font-size: 12px;}
+}
+.dashChUl{width: 98%;height: 35px;line-height: 35px;margin: 0 1%;padding: 0 25px;background-color: #d1d1d1;float: right;border-radius: 3px;text-align: right;}
+.dashChUl li{padding:0 10px 0 6px; border-right: 1px solid #000;cursor: pointer;display: inline;}
+.dashChUl li:first-child,.dashChUl li:last-child{border-right: none;padding: 0;}
+.dashChUl li:last-child{float: left;color: #820909;}
+.dashChUl li:last-child i{position: relative;top: 3px; left: 3px;}
+.dashChUl li.dashChLiBt{display: none;border: none;padding: 0;}
+.dashChBt{width: 70px;height: 33px;background-color:#0a374d; color: #fff;}
+.dashChBt i{position: relative;top:-3px; font-size: 18px;}
+.dashChBt span{margin-right: 7px;position: relative;top: -7px; font-size: 18px;}
+@media (max-width:950px){
+  .dashChUl li{display: none;}
+  .dashChUl li.dashChLiBt,.dashChUl li:last-child{display: inline-block;}
+  .dashCh_scroll{overflow: hidden;}
+}
+@media (min-width:951Px) {
+.dashCh_small_1 , .dashCh_small_2{display: none;}
+}
+/* content channel */
+.dashChContent{width: 98%;margin: 5px 1%;padding: 7px 4px;background-color: #f1f1f1; float: right;}
+.dashCh_R{width: 220px;margin-left: 5px;background-color: #d4d4d4; float: right;}
+.dashCh_RUl li{font-size: 18px;border-color: #f0f0f0}
+.dashCh_RUl li i{margin-left: 8px;}
+
+.dashCh_L{width: calc(100% - 225px); float: left;background-color: #fff;}
+@media (max-width:950px){
+  .dashCh_R{display: none;}
+  .dashCh_L{width: 100%;}
 }

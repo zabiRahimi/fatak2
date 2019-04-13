@@ -15,23 +15,23 @@
   </ul>
     {{-- منو موبایل --}}
     <div class="chanel_menu_log">
-      <button type="button" class="btn" name="button"onclick="show_channel_menu_login()">
+      <button type="button" class="btn" name="button"onclick="show_menu_small('chanelMeLog_scroll')">
         <i class="fas fa-bars"></i>
         <span>منو</span>
       </button>
     </div>
-    <div class="menu_channel_login_1" onclick="hide_channel_menu_login()">
+    <div class="menu_small_1 chanelMeLog_small_1" onclick="hide_menu_small('chanelMeLog_scroll')">
     {{-- این دایو صرفا جهت فیکست بودن مودال می باشد و همچنین اعمال اوپتکی می باشد این دایو لازم است --}}
     </div>
-    <div class="menu_channel_login_2">
-      <div class="close_menu_channel_login" >
-        <span><i class="fas fa-ellipsis-v"></i> منو</span> <button  onclick="hide_channel_menu_login()"><span aria-hidden="true">&times;</span></button>
+    <div class="menu_small_2 chanelMeLog_small_2">
+      <div class="close_menu_small" >
+        <span><i class="fas fa-ellipsis-v"></i> منو</span> <button  onclick="hide_menu_small('chanelMeLog_scroll')"><span aria-hidden="true">&times;</span></button>
       </div>
-      <ul class="menu_channel_login_ul">
+      <ul class="menu_small_ul">
         <a href="/"><li class="modal_hide"><span><i class="far fa-window-maximize"></i> صفحه اصلی</span> </li></a>
         <li class="modal_hide" onclick="modal_sub_show()"><span><i class="fas fa-comments"></i> نحوه کسب درآمد از شبکه اجتماعی</span> </li>
         <li class="modal_hide" onclick="modal_sub_show()"><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li>
-        <li class="modal_hide" onclick="modal_sub_show() ;hide_channel_menu_login(); $('#modal_ghanon').modal('show')"><span><i class="fas fa-compass"></i> راهنما</span> </li>
+        <li class="modal_hide" onclick="modal_sub_show() ;hide_menu_small('chanelMeLog_scroll'); $('#modal_ghanon').modal('show')"><span><i class="fas fa-compass"></i> راهنما</span> </li>
       </ul>
     </div>
     {{-- //دکمه های ورود و ثبت نام --}}

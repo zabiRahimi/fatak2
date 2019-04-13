@@ -72,3 +72,14 @@ function sabt_shekait(){
     }
   });
 }
+/* ******************* ساخت منو کنار باز شونده جهت موبایل***************** */
+function show_menu_small(clases){
+  $('body').addClass(clases);
+  $('.menu_small_1').addClass('show_menu_small_1');
+  $('.menu_small_2').addClass('show_menu_small_2');
+}
+function hide_menu_small(clases){
+  $('body').removeClass(clases);
+  $('.menu_small_1').removeClass('show_menu_small_1');
+  $('.menu_small_2').removeClass('show_menu_small_2');
+}

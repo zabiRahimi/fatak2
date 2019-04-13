@@ -36,6 +36,15 @@ width: 100%;
 .ul_line li{
 display:inline;
 }
+/* ul right منو سمت راست سایت جهت پنل ها */
+.ul_right{width: 100%;padding: 0; background-color: #e8e8e8;}
+.ul_right a{text-decoration: none;}
+.ul_right li{width: 100%;list-style: none; color: #05609a;border-bottom: 1px solid #d0d0d0; padding:6px 7px 3px 6px;float: right;cursor: pointer; }
+.ul_right li:hover{ background-color:#c9c9c9;color: #033f63; }
+.ul_right li span{float: right;}
+.ul_right li img{float: left;position: relative;top: 8px;}
+.ul_right li > ul{width: 100%;padding: 0;display: none;background-color: #f5f5f5; float: right; }
+.ul_right li > ul li:hover{background-color:#e2e2e2;  }
 .row{padding: 0; margin: 0;}
 /* جستجو */
 .search_all{width: 100%;float: right; margin-top: 22px;}
@@ -84,3 +93,36 @@ display:inline;
 .modal_ok1,.modal_ok2,.modal_ok3{width: 100%;  float: right;font-size: 16px;text-align: center;color: #066e06;}
 .modal_ok1 i{font-size: 56px; margin: 0;padding: 0;}
 .modal_ok3 button{width: 80%; margin-bottom: 10px;}
+/* ******************* ساخت منو کنار باز شونده جهت موبایل***************** */
+.menu_small_1{width: 100%; height: 100%; display: none;position: fixed; opacity: 0.6;top: 0; background-color: #000; z-index: 33300}
+.menu_small_2{z-index: 33501; float: right;width: 200px; height: 100%;background-color: #f2f2f2;position: fixed; top: 0; overflow: auto;right: -200px;text-align: right;}
+.close_menu_small{width: 100%; height: 29px; line-height: 29px;padding: 0 7px 0 10px; margin: 5px 0 ;float: right;background-color: #dadada;}
+.close_menu_small span{float: right;}
+.close_menu_small button{ float: left; background-color: inherit; border: none; cursor: pointer;font-size: 32px; color: #f60404; }
+.menu_small_2 i{position: relative; margin-left: 9px; top: 2px;}
+.menu_small_2 ul{position: relative; float: right;}
+
+.show_menu_small_1{display: block;}
+.show_menu_small_2{right: 0; transition: right 0.5s ease-in-out;}
+/*نکته نکته */
+/* جهت پنهان کردن اسکرول تگ بادی هنگامی که کاربر دکمه منو را فشار می دهد
+باید در فایل سی اس اس مربوط به فایل پی اچ پی کد زیر را کپی کرده و اندازه پیکسل
+ماکزیمم و اختصاص نام یک کلاس را وارد کنیم ، سپس از همین نام کلاس به عنوان پارامتر
+در تابع های شو و هیدن مربوطه استفاده نماییم */
+/* @media (max-width:myPx) {
+.myClass{overflow: hidden;}
+} */
+.menu_small_ul{width: 100%;padding: 0; background-color: #e8e8e8;}
+.menu_small_ul a{text-decoration: none;}
+.menu_small_ul li{width: 100%;list-style: none; color: #05609a;border-bottom: 1px solid #d0d0d0; padding:6px 7px 3px 6px;float: right;cursor: pointer; }
+.menu_small_ul li:hover{ background-color:#c9c9c9;color: #033f63; }
+.menu_small_ul li span{float: right;}
+.menu_small_ul li img{float: left;position: relative;top: 8px;}
+.menu_small_ul li > ul{width: 100%;padding: 0;display: none;background-color: #f5f5f5; float: right; }
+.menu_small_ul li > ul li:hover{background-color:#e2e2e2;  }
+/* نکته نکته */
+/* بجای کلاسهای زیر با ید کلاسهای خود را وارد نمایم و همچنین در فایل
+پی اچ پی در کنار کلاسهای زیر کلاس خودمان را به المنت اضافه نماییم */
+/* @media (min-width:myPx) {
+.menu_small_1 , .menu_small_2{display: none;}
+} */
