@@ -20,7 +20,7 @@
       <img src="http://localhost:8000/img_site/210.gif" class="gif_loding" alt="loding" >
         <div class="">
         <div class="content">
-          <div class="" id="pjax">
+          <div class="" >
             @yield('content')
           </div>
        </div>
@@ -37,7 +37,7 @@
          <script type="text/javascript" src="\js\main.js"></script>
         <script type="text/javascript" src="\js\channel.js"></script>
         <script type="text/javascript">
-           $(document).pjax('.a_pjax' , '#pjax');
+           $(document).pjax('.apjax' , '#dashPjax');
            $(function () {  $('[data-toggle="tooltip"]').tooltip()});
         </script>
     </body>

@@ -50,6 +50,10 @@ class ChannelController extends Controller
     public function dashboard_channel(Request $request){
       $id=$request->cookie('check_log_channel');
       $user=Channel::find($id);
-      return view('channel.dashboard_channel' , compact('user'));
+      return view('channel.dashboardCh' , compact('user'));
+    }
+    public function perfect_data(Request $request)
+    {
+      return view('channel.perfect_data');
     }
 }
