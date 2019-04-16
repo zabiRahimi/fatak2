@@ -56,4 +56,36 @@ class ChannelController extends Controller
     {
       return view('channel.perfect_data');
     }
+    public function edit_data(Request $request)
+    {
+      return view('channel.edit_data');
+    }
+    public function warnCh(Request $request)
+    {
+      return view('channel.warnCh');
+    }
+    public function urlChMy(Request $request)
+    {
+      return view('channel.urlChMy');
+    }
+    public function viewChMy(Request $request)
+    {
+      return view('channel.viewChMy');
+    }
+    public function viewChAll(Request $request)
+    {
+      return view('channel.viewChAll');
+    }
+    public function incomeChMy(Request $request)
+    {
+      return view('channel.incomeChMy');
+    }
+    public function ghanonCh(Request $request)
+    {
+      return view('channel.ghanonCh');
+    }
+    public function rahnamaCh(Request $request)
+    {
+      return view('channel.rahnamaCh');
+    }
 }

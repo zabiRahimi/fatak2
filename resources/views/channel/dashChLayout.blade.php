@@ -9,8 +9,8 @@
 </div>
 <ul class="ul_line dashChUl">
   <a href="/dashboard_channel" class="apjax"><li>صفحه نخست</li></a>
-  <a href="/perfect_data" class="apjax"><li>تکمیل اطلاعات</li></a>
-  <a href="#"><li>ویرایش</li></a>
+  <a href="/perfectDaCh" class="apjax"><li>تکمیل اطلاعات</li></a>
+  <a href="/editDaCh"><li>ویرایش</li></a>
   <a class="dashChABt">
     <li>
       <button type="button" class="btn dashChBt" name="button"onclick="show_menu_small('dashCh_scroll')">
@@ -32,28 +32,28 @@
   </div>
   <ul class="menu_small_ul">
     <a href="/dashboard_channel" class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="far fa-window-maximize"></i> صفحه نخست</span></li></a>
-    <a href="/perfect_data"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-pen-square"></i> تکمیل اطلاعات</span> </li></a>
-    <a href=""class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-edit'></i> ویرایش اطلاعات</span> </li></a>
-    <a href=""class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="far fa-bell"></i> هشدارها و اخبار</span> </li></a>
-    <a href=""class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-project-diagram"></i> کد و آدرس مربوط به من</span> </li></a>
-    <a href=""class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='far fa-eye'></i> بازدیدهای شبکه من</span> </li></a>
-    <a href=""class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-eye'></i> بازدیدهای کل شبکه ها</span> </li></a>
-    <a href=""class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-dollar-sign'></i> ارزش ریالی بازدید من</span> </li></a>
-    <a href=""class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
-    <a href=""class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-compass"></i> راهنما</span> </li></a>
+    <a href="/perfectDaCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-pen-square"></i> تکمیل اطلاعات</span> </li></a>
+    <a href="/editDaCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-edit'></i> ویرایش اطلاعات</span> </li></a>
+    <a href="/warnCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="far fa-bell"></i> هشدارها و اخبار</span> </li></a>
+    <a href="/urlChMy"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-project-diagram"></i> کد و آدرس مربوط به من</span> </li></a>
+    <a href="/viewChMy"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='far fa-eye'></i> بازدیدهای شبکه من</span> </li></a>
+    <a href="/viewChAll"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-eye'></i> بازدیدهای کل شبکه ها</span> </li></a>
+    <a href="/incomeChMy"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-dollar-sign'></i> ارزش ریالی بازدید من</span> </li></a>
+    <a href="/ghanonCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
+    <a href="/rahnamaCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-compass"></i> راهنما</span> </li></a>
   </ul>
 </div>
 {{-- end menu small --}}
 <div class="dashChContent">
   <div class="dashCh_R">
     <ul class="ul_right dashCh_RUl">
-      <li class="modal_hide" onclick=""><span><i class="far fa-bell"></i> هشدارها و اخبار</span> </li>
-      <li class="modal_hide" onclick=""><span><i class="fas fa-project-diagram"></i> کد و آدرس مربوط به من</span> </li>
-      <li class="modal_hide" onclick=""><span><i class='far fa-eye'></i> بازدیدهای شبکه من</span> </li>
-      <li class="modal_hide" onclick=""><span><i class='fas fa-eye'></i> بازدیدهای کل شبکه ها</span> </li>
-      <li class="modal_hide" onclick=""><span><i class='fas fa-dollar-sign'></i> ارزش ریالی بازدید من</span> </li>
-      <li class="modal_hide" onclick=""><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li>
-      <li class="modal_hide" onclick="hide_menu_small('dashCh_scroll');"><span><i class="fas fa-compass"></i> راهنما</span> </li>
+      <a href="/warnCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-bell"></i> هشدارها و اخبار</span> </li></a>
+      <a href="/urlChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-project-diagram"></i> کد و آدرس مربوط به من</span> </li></a>
+      <a href="/viewChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class='far fa-eye'></i> بازدیدهای شبکه من</span> </li></a>
+      <a href="/viewChAll"class="apjax"><li class="modal_hide" onclick=""><span><i class='fas fa-eye'></i> بازدیدهای کل شبکه ها</span> </li></a>
+      <a href="/incomeChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class='fas fa-dollar-sign'></i> ارزش ریالی بازدید من</span> </li></a>
+      <a href="/ghanonCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
+      <a href="/rahnamaCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-compass"></i> راهنما</span> </li></a>
     </ul>
   </div>
   <div class="dashCh_L" id="dashPjax">

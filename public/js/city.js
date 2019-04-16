@@ -3,6 +3,7 @@ function show_city(ostanId){
 
 
   $('#ajax_sabad_city option[value="aval"]').prop('selected', true);
+  $('.ajax_sabad_city option[value="aval"]').prop('selected', true);
   $('.sabad_kh_sefareshi2_1').html(0);
   $('.sabad_kh_pishtaz2_1').html(0);
   $('.sabad_kh_end_price2').html(0);

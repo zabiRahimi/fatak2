@@ -1,15 +1,26 @@
 @extends('channel.dashChLayout')
 @section('title')
-  تکمیل اطلاعات
+  ویرایش اطلاعات
 @endsection
 @section('dash_content')
-  <form class="form form_perfectDaCh" id="form_perfect_data" action="" method="post">
-   <div class="form_titr"><i class="fas fa-info-circle"></i>تکمیل اطلاعات</div>
+  <form class="form form_editDaCh" id="form_edit_data" action="" method="post">
+   <div class="form_titr"><i class="fas fa-info-circle"></i>ویرایش اطلاعات</div>
    <div id="ajax_channellog"></div>
    {{ csrf_field() }}
-
+   <div class="form-group">
+     <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> نام و نام خانوادگی</label>
+     <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
+   </div>
    <div class="form-group">
      <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  کد ملی</label>
+     <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
+   </div>
+   <div class="form-group">
+     <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> موبایل</label>
+     <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
+   </div>
+   <div class="form-group">
+     <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  ایمیل</label>
      <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
    </div>
    <div class="form-group">
@@ -88,4 +99,24 @@
      <button type="button" class="btn btn-success" onclick="login_channel()" >ثبت</button>
    </div>
  </form>
+ <div class="line_editCh"></div>
+
+ <form class="form form_editDaCh" id="form_edit_data" action="" method="post">
+  <div class="form_titr"><i class="fas fa-info-circle"></i>تغییر رمز</div>
+  <div id="ajax_channellog"></div>
+  {{ csrf_field() }}
+
+  <div class="form-group">
+    <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> رمز فعلی</label>
+    <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
+  </div>
+  <div class="form-group">
+    <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> رمز جدید</label>
+    <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
+  </div>
+
+  <div class="form-group form_btn">
+    <button type="button" class="btn btn-success" onclick="login_channel()" >تغییر رمز</button>
+  </div>
+</form>
 @endsection

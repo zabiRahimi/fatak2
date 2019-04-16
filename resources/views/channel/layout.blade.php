@@ -35,6 +35,7 @@
          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
          <script type="text/javascript" src="\js\main.js"></script>
+         <script type="text/javascript" src="\js\city.js"></script>
         <script type="text/javascript" src="\js\channel.js"></script>
         <script type="text/javascript">
            $(document).pjax('.apjax' , '#dashPjax');
