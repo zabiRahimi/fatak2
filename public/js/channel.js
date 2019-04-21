@@ -124,7 +124,6 @@ function login_channel(){
 
 // perfect_data.php
 function sabt_channel_2(){
-
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
@@ -198,11 +197,132 @@ function sabt_channel_2(){
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else {
-
            $('#ajax_perfectDaCh').modal('show');
+        }
+    }
+  });
+}
+// edit_data.php
+function editDaChSave(id){
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../editDaChSave',
+    data: {
+          id:id,
+          name:$('#name_editDaCh').val(),
+          codemly:$('#codemly_editDaCh').val(),
+          mobail:$('#mobail_editDaCh').val(),
+          email:$('#email_editDaCh').val(),
+          ostan:$('#ostan_editDaCh').val(),
+          city:$('#city_editDaCh').val(),
+          address:$('#address_editDaCh').val(),
+          codepost:$('#codepost_editDaCh').val(),
+          accountNumber:$('#accountNumber_editDaCh').val(),
+          cart:$('#cart_editDaCh').val(),
+          master:$('#master_editDaCh').val(),
+          bank:$('#bank_editDaCh').val(),
+
+         },
+    success:function(){
+      $('#ajax_editDaCh').empty();
+      $('#end_editDaCh').modal('show');
+    },
+    error: function(xhr) {
+        var errors = xhr.responseJSON;
+        var error=errors.errors;
+        scroll_form('form_editDaCh');
+        $('#ajax_editDaCh').empty();
+        $('.form-control').css("border-color" , "#fff");
+        if(error['name']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['name']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['codemly']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['codemly']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+         else if(error['mobail']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['mobail']+'</div>');
+           $('#name_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['email']){
+          $('#ajax_editDaCh').append('<div id="alarm_red">'+error['email']+'</div>');
+          $('#name_data_buyer').css("border-color" , "#c30909");
+       }
+        else if(error['ostan']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['ostan']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['city']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['city']+'</div>');
+           $('#address_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['address']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['address']+'</div>');
+           $('#email_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['codepost']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['codepost']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['accountNumber']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['accountNumber']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['cart']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['cart']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['master']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['master']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['bank']){
+           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['bank']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else {
+           $('#ajax_editDaCh').modal('show');
+        }
+    }
+  });
+}
+function editPasDaCh(id){
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../editPasDaCh',
+    data: {
+          id:id,
+          pasOld:$('#pasOld_editPasDaCh').val(),
+          pasNew:$('#pasNew_editPasDaCh').val(),
+         },
+    success:function(){
+      $('#ajax_editPasDaCh').empty();
+      document.getElementById("form_editPasDaCh").reset();
+      $('#end_editPasDaCh').modal('show');
+    },
+    error: function(xhr) {
+        var errors = xhr.responseJSON;
+        var error=errors.errors;
+        scroll_form('form_editPasDaCh');
+        $('#ajax_editPasDaCh').empty();
+        $('.form-control').css("border-color" , "#fff");
+        if(error['pasOld']){
+           $('#ajax_editPasDaCh').append('<div id="alarm_red">'+error['pasOld']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['pasNew']){
+           $('#ajax_editPasDaCh').append('<div id="alarm_red">'+error['pasNew']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+
+        else if(error['no_pas']){
+           $('#ajax_editPasDaCh').append('<div id="alarm_red">'+error['no_pas']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
 
     }
   });
-
 }

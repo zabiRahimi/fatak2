@@ -1,5 +1,5 @@
 
-<option class="aval" value="aval" selected>انتخاب شهر</option>
+<option class="aval" value="" selected>انتخاب شهر</option>
 
   @if (!empty($city))
 

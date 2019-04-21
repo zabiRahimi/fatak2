@@ -4,42 +4,42 @@
 @endsection
 @section('dash_content')
   @if ($stage==1)
-    <div class="NoPerfectDaCH">
+    <div class="NoeditDaCh">
       <span>توجه :</span>
       <br>
       <p>
         شما تاکنون اطلاعات هویتی خود را تکمیل نکرده اید . جهت تکمیل اطلاعات به صفحه
-        <a href="/perfectDaCh" class="apjax">تکمیل اطلاعات</a>  وارد شوید .
+        <a href="/editDaCh" class="apjax">تکمیل اطلاعات</a>  وارد شوید .
       </p>
       <br>
-      <a href="/perfectDaCh" class="apjax"><button type="button" class="btn btn-info">تکمیل اطلاعات</button> </a>
+      <a href="/editDaCh" class="apjax"><button type="button" class="btn btn-info">تکمیل اطلاعات</button> </a>
     </div>
   @else
   <form class="form form_editDaCh" id="form_edit_data" action="" method="post">
    <div class="form_titr"><i class="fas fa-info-circle"></i>ویرایش اطلاعات</div>
-   <div id="ajax_channellog"></div>
+   <div id="ajax_editDaCh"></div>
    {{ csrf_field() }}
    <div class="form-group">
-     <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> نام و نام خانوادگی</label>
-     <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh" value="{{$user->name}}"></div>
+     <label for="name_editDaCh" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> نام و نام خانوادگی</label>
+     <div class="div_form"><input type="text" class="form-control" id="name_editDaCh" value="{{$user->name}}"></div>
    </div>
    <div class="form-group">
-     <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  کد ملی</label>
-     <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh" value="{{$user->codemly}}"></div>
+     <label for="codemly_editDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  کد ملی</label>
+     <div class="div_form"><input type="text" class="form-control" id="codemly_editDaCh" value="{{$user->codemly}}"></div>
    </div>
    <div class="form-group">
-     <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> موبایل</label>
-     <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh" value="{{$user->mobail}}"></div>
+     <label for="mobail_editDaCh" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> موبایل</label>
+     <div class="div_form"><input type="text" class="form-control" id="mobail_editDaCh" value="{{$user->mobail}}"></div>
    </div>
    <div class="form-group">
-     <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  ایمیل</label>
-     <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh" value="{{$user->email}}"></div>
+     <label for="email_editDaCh" class="control-label pull-right "><i class="fas fa-at i_form"></i>  ایمیل</label>
+     <div class="div_form"><input type="text" class="form-control" id="email_editDaCh" value="{{$user->email}}"></div>
    </div>
    <div class="form-group">
      <div class="formGroupCity">
-       <label for="ostan_perfectDaCh" class="control-label pull-right labelCity"><i class="fas fa-map-marker i_form"></i> استان</label>
+       <label for="ostan_editDaCh" class="control-label pull-right labelCity"><i class="fas fa-map-marker i_form"></i> استان</label>
        <div class="div_formCity">
-         <select class="ostan" name="" id="ostan_perfectDaCh">
+         <select class="ostan" name="" id="ostan_editDaCh">
 
            <option value="اردبیل" onclick="show_city('ostan1')" @if ($user->ostan=='اردبیل') selected @endif>اردبیل</option>
            <option value="اصفهان" onclick="show_city('ostan2')" @if ($user->ostan=='اصفهان') selected @endif>اصفهان</option>
@@ -76,12 +76,12 @@
        </div>
      </div>
      <div class="formGroupCity">
-       <label for="city_perfectDaCh" class="control-label pull-right labelCity"><i class="fas fa-map-marker-alt i_form"></i> شهر</label>
+       <label for="city_editDaCh" class="control-label pull-right labelCity"><i class="fas fa-map-marker-alt i_form"></i> شهر</label>
        <div class="div_formCity">
          @php
            $city=$user->city;
          @endphp
-         <select class="ajax_sabad_city" id="city_perfectDaCh" onclick="show_city_edit()">
+         <select class="ajax_sabad_city" id="city_editDaCh" onclick="show_city_edit()">
 
            @include('show_city2')
 
@@ -91,50 +91,78 @@
 
    </div>
    <div class="form-group">
-     <label for="address_perfectDaCh" class="control-label pull-right  "><i class="fas fa-home i_form"></i> آدرس </label>
+     <label for="address_editDaCh" class="control-label pull-right  "><i class="fas fa-home i_form"></i> آدرس </label>
      <div class="div_formTextarea">
-       <textarea name="name" id="address_perfectDaCh">{{$user->address}}</textarea>
+       <textarea name="name" id="address_editDaCh">{{$user->address}}</textarea>
      </div>
    </div>
    <div class="form-group">
-     <label for="accountNumber_perfectDaCh" class="control-label pull-right "><i class="fas fa-money-check-alt i_form"></i> شماره حساب بانکی</label>
-     <div class="div_form"><input type="text" class="form-control" id="accountNumber_perfectDaCh" value="{{$user->accountNumber}}"></div>
+     <label for="accountNumber_editDaCh" class="control-label pull-right "><i class="fas fa-money-check-alt i_form"></i> شماره حساب بانکی</label>
+     <div class="div_form"><input type="text" class="form-control" id="accountNumber_editDaCh" value="{{$user->accountNumber}}"></div>
    </div>
    <div class="form-group">
-     <label for="cart_perfectDaCh" class="control-label pull-right "><i class="fas fa-money-check i_form"></i> شماره کارت بانکی</label>
-     <div class="div_form"><input type="text" class="form-control" id="cart_perfectDaCh" value="{{$user->cart}}"></div>
+     <label for="cart_editDaCh" class="control-label pull-right "><i class="fas fa-money-check i_form"></i> شماره کارت بانکی</label>
+     <div class="div_form"><input type="text" class="form-control" id="cart_editDaCh" value="{{$user->cart}}"></div>
    </div>
    <div class="form-group">
-     <label for="master_perfectDaCh" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> نام صاحب حساب</label>
-     <div class="div_form"><input type="text" class="form-control" id="master_perfectDaCh" value="{{$user->master}}"></div>
+     <label for="master_editDaCh" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> نام صاحب حساب</label>
+     <div class="div_form"><input type="text" class="form-control" id="master_editDaCh" value="{{$user->master}}"></div>
    </div>
    <div class="form-group">
-     <label for="bank_perfectDaCh" class="control-label pull-right "><i class="fas fa-database i_form"></i> نام بانک</label>
-     <div class="div_form"><input type="text" class="form-control" id="bank_perfectDaCh" value="{{$user->bank}}"></div>
+     <label for="bank_editDaCh" class="control-label pull-right "><i class="fas fa-database i_form"></i> نام بانک</label>
+     <div class="div_form"><input type="text" class="form-control" id="bank_editDaCh" value="{{$user->bank}}"></div>
    </div>
    <div class="form-group form_btn">
-     <button type="button" class="btn btn-success" onclick="login_channel()" >ثبت</button>
+     <button type="button" class="btn btn-success" onclick="editDaChSave({{$user->id}})" >ثبت</button>
    </div>
  </form>
  <div class="line_editCh"></div>
 
- <form class="form form_editDaCh" id="form_edit_data" action="" method="post">
+ <form class="form form_editPasDaCh" id="form_editPasDaCh" action="" method="post">
   <div class="form_titr"><i class="fas fa-info-circle"></i>تغییر رمز</div>
-  <div id="ajax_channellog"></div>
+  <div id="ajax_editPasDaCh"></div>
   {{ csrf_field() }}
 
   <div class="form-group">
-    <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> رمز فعلی</label>
-    <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
+    <label for="pasOld_editPasDaCh" class="control-label pull-right "><i class="fas fa-unlock i_form"></i> رمز فعلی</label>
+    <div class="div_form"><input type="text" class="form-control" id="pasOld_editPasDaCh"></div>
   </div>
   <div class="form-group">
-    <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> رمز جدید</label>
-    <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
+    <label for="pasNew_editPasDaCh" class="control-label pull-right "><i class="fas fa-unlock-alt i_form"></i> رمز جدید</label>
+    <div class="div_form"><input type="text" class="form-control" id="pasNew_editPasDaCh"></div>
   </div>
 
   <div class="form-group form_btn">
-    <button type="button" class="btn btn-success" onclick="login_channel()" >تغییر رمز</button>
+    <button type="button" class="btn btn-success" onclick="editPasDaCh({{$user->id}})" >تغییر رمز</button>
   </div>
 </form>
 @endif
+<!-- Modal موفق بودن ویرایش-->
+<div class="modal fade" id="end_editDaCh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body modal_ok">
+        <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
+        <div class="modal_ok2">تغییرات با موفقیت انجام شد .</div>
+      </div>
+      <div class=" modal_ok3">
+        <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+      </div>
+    </div>
+  </div>
+</div><!--end modal پایان موفقیت ثبت .-->
+<!-- Modal موفق بودن ویرایش-->
+<div class="modal fade" id="end_editPasDaCh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body modal_ok">
+        <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
+        <div class="modal_ok2">رمز جدید با موفقیت ثبت شد .</div>
+      </div>
+      <div class=" modal_ok3">
+        <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+      </div>
+    </div>
+  </div>
+</div><!--end modal پایان موفقیت ثبت .-->
 @endsection
