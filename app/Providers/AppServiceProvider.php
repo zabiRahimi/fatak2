@@ -13,6 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+    
       Validator::extend('mobail', function($attribute, $value, $parameters, $validator) {
         return preg_match('/^09[0-9]{9}$/', $value);
       });
@@ -24,6 +25,12 @@ class AppServiceProvider extends ServiceProvider
       });
       Validator::extend('codepost', function($attribute, $value, $parameters, $validator) {
         return preg_match('/^[0-9]{5}_?\s?-?[0-9]{5}$/', $value);
+      });
+      Validator::extend('codemly', function($attribute, $value, $parameters, $validator) {
+        return preg_match('/^[0-9]{5}_?\s?-?[0-9]{5}$/', $value);
+      });
+      Validator::extend('farsi', function($attribute, $value, $parameters, $validator) {
+        return preg_match('/^[\x{0621}-\x{0628}\x{062A}-\x{063A}\x{0641}-\x{0642}\x{0644}-\x{0648}\x{064E}-\x{0651}\x{0655}\x{067E}\x{0686}\x{0698}\x{06A9}\x{06AF}\x{06BE}\x{06CC} \s]{1,}$/u', $value);
       });
       Validator::extend('name', function($attribute, $value, $parameters, $validator) {
         return preg_match('/^[\x{0621}-\x{0628}\x{062A}-\x{063A}\x{0641}-\x{0642}\x{0644}-\x{0648}\x{064E}-\x{0651}\x{0655}\x{067E}\x{0686}\x{0698}\x{06A9}\x{06AF}\x{06BE}\x{06CC} \s]{3,}$/u', $value);

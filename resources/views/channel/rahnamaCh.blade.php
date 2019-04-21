@@ -3,6 +3,11 @@
   راهنمای شبکه
 @endsection
 @section('dash_content')
-  راهنمای شبکه
+  <div class="dashTitrCh">
+    راهنمای شبکه ها
+  </div>
+  <div class="dashLBodyCh">
+
+  </div>
 
 @endsection

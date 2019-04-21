@@ -44,7 +44,11 @@ Route::post('/sabt_channel_1','ChannelController@sabt_channel_1');//ok!!
 Route::get('/login_channel','ChannelController@login_channel');//ok!!
 Route::get('/dashboard_channel','ChannelController@dashboard_channel')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/perfectDaCh','ChannelController@perfect_data')->middleware(['cheklogin_channel' ]);//ok!!
-Route::get('/editDaCh','ChannelController@edit_data')->middleware(['cheklogin_channel' ]);//ok!!
+Route::post('/sabt_channel_2','ChannelController@sabt_channel_2');//ok!!
+Route::get('/editDaCh','ChannelController@editDaCh')->middleware(['cheklogin_channel' ]);//ok!!
+Route::post('/editDaChSave','ChannelController@editDaChSave');//ok!!
+Route::post('/editPasDaCh','ChannelController@editPasDaCh');//ok!!
+
 Route::get('/warnCh','ChannelController@warnCh')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/urlChMy','ChannelController@urlChMy')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/viewChMy','ChannelController@viewChMy')->middleware(['cheklogin_channel' ]);//ok!!

@@ -10,7 +10,7 @@
 <ul class="ul_line dashChUl">
   <a href="/dashboard_channel" class="apjax"><li>صفحه نخست</li></a>
   <a href="/perfectDaCh" class="apjax"><li>تکمیل اطلاعات</li></a>
-  <a href="/editDaCh"><li>ویرایش</li></a>
+  <a href="/editDaCh"class="apjax"><li>ویرایش اطلاعات</li></a>
   <a class="dashChABt">
     <li>
       <button type="button" class="btn dashChBt" name="button"onclick="show_menu_small('dashCh_scroll')">
