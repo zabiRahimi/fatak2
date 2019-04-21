@@ -94,13 +94,15 @@
   .channel_did_log2{margin: -28px 4% 0 0; padding: 0 5px;}
 }
 /* داشبورد شبکه */
+
 .dashChHead{width:98%;height:40px;line-height:40px;margin:3px 1% 2px;padding: 0 25px;background-color:#87a9c3;border-radius:3px;float:right;}
 .dashChHead1{width: 75%;float: right;text-align: right; font-size: 18px;}
 .dashChHead1_1{color: #fff;}
 .dashChHead1_2{color: #055b43;margin-right: 10px;font-size: 16px;}
 .dashChHead2{width:25%;float: right;}
 .dashChHead2 a{font-size: 18px; color: #115303;}
-
+.NoPerfectDaCH{width: 100%;margin: 20px 0; padding: 15px 3px;text-align: center;border: 2px solid #904a11;border-radius: 3px;float: right;}
+.NoPerfectDaCH span {font-size: 26px; color:#b16914 ; }
 @media (max-width:768px) {
   .dashChHead{padding: 0 6px;}
 }
@@ -144,19 +146,20 @@
   .dashTitrCh{padding:0 10px;}
 
 }
-#form_perfect_data ,.form_editDaCh{
+#form_perfectDaCh ,.form_editDaCh , .form_editPasDaCh{
   width: 560px;
   margin: 8px calc((100% - 560px)/2) 25px;
 }
 .line_editCh{width: 620px;margin: 8px calc((100% - 620px)/2) 25px;border: 3px solid #0a6e65;float: right;border-radius: 4px;}
 @media (max-width:610px){
-  #form_perfect_data,.form_editDaCh,.line_editCh{
+  #form_perfectDaCh,.form_editDaCh, .form_editPasDaCh,.line_editCh{
     width: 98%;
     margin: 8px 1% 25px;
   }
 }
+.perfectDaChOk{text-align: center;margin: 25px 0 ;padding: 20px 4px;border: 2px solid #286767;border-radius: 3px;}
 /* urlChAll.php */
-.divUrlCHAll{width: 100%;height: 45px;line-height: 45px;margin: 5px 0;font-size: 18px;float: right;text-align: center;border: 2px solid #042e11;border-radius: 4px; color:#044619; }
+.divUrlCHMy{width: 100%;height: 45px;line-height: 45px;margin: 5px 0;font-size: 20px;font-weight: bold;float: right;text-align: center;border: 2px solid #042e11;border-radius: 4px; color:#024d77; }
 
 /* viewChMy.php */
 .divViweChMy{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
@@ -199,10 +202,62 @@
   .divViweChAll span:first-child{width: 100%;}
   .divViweChAll span:last-child{width: 100%;}
   }
+.div0ViweChAll{border-color: #284b59;background-color: #86c191;}
 .div1ViweChAll{border-color: #284b59;background-color: #d2e2e6;}
 .div2ViweChAll{border-color: #285942;background-color: #accfd7;}
 .div3ViweChAll{border-color: #315928;background-color: #c3e6ca;}
 .div4ViweChAll{border-color: #594428;background-color: #f2d991;}
+.div5ViweChAll{border-color: #284b59;background-color: #53afbf;}
 
 .div3ViweChAll1,.div4ViweChAll1 ,.divViweChAll2_1{width: 99%; margin: 0 0.5%;padding: 2px 6px;float: right; border: 1px solid #21275e;border-radius: 3px;background-color: #437fa1;color: #fff;}
-.divViweChAll2_1{margin-top: 2px;}
+.divViweChAll2_1{margin-top: 2px;background-color: #8ec3cd}
+.divViweChAll2_1 div {float: right;}
+.div34ViweChAll2{width: 22px;padding:3px 0 2px;background-color: #8cd575;border-radius: 20px;text-align: center;color: #000;border: 1px solid #173055;margin-left: 3px;}
+.div34ViweChAll3{width: calc(65% - 22px);padding:3px 10px 2px 0;background-color: #eee;color: #171375; border-radius: 0 3px 3px 0;}
+.div34ViweChAll4{width: calc(35% - 3px);padding: 3px 0 2px;background-color: #eee;color: #1c5910; border-radius: 3px 0 0 3px ;}
+.div34ViweChAll4 span{margin-right: 5px; font-size: 10px;}
+@media (max-width:350px){
+  .div34ViweChAll3{width: calc(100% - 25px);border-radius: 3px;}
+  .div34ViweChAll4{width: calc(100% - 25px);margin-top: 1px;border-radius: 3px;text-align: center;float: left !important;}
+  }
+/* incomeChMy.php */
+.incomeChMy{width: 450px ;padding: 6px 0;margin: 5px calc((100% - 450px)/2);float: right;border: 2px solid ; border-radius: 3px;text-align: center;}
+.incomeChMy1{color: #1599b8;}
+.incomeChMy2{color: #1f3e10;}
+.incomeChMy3{color: #0f3569;}
+.incomeChMy4{color:#05950b ;}
+.incomeChMy5{color:#0f6981 ;}
+.incomeChMy6{color:#6504a1 ;}
+.incomeChMy7{color: #8f4510;}
+.incomeChMy8{color: #0b3d04;}
+.incomeChMy9{color: #1a037a;}
+.incomeChMy10{color: #0e494b;}
+.incomeChMy1_1{width: 63%;float: right;}
+.incomeChMy1_2{width: 22%;float: right;color: #176910;}
+.incomeChMy1_3{width: 15%;float: left; color: #9aadba;}
+@media (max-width:505px){
+  .incomeChMy{width: 100%;margin: 5px 0;}
+  }
+@media (max-width:350px){
+  .incomeChMy1_1{width: 100%;float: right;}
+  .incomeChMy1_2{width: 50%;padding-left: 5px;text-align: left;}
+  .incomeChMy1_3{width: 50%;padding-right: 5px;text-align: right;}
+  }
+@media (max-width:315px){
+
+  }
+  .divIncomeChMy ,.divIncomeChMy2_1{width: 99%; margin: 0 0.5%;padding: 2px 6px;float: right; border: 1px solid #21275e;border-radius: 3px;background-color: #437fa1;color: #fff;}
+  .divIncomeChMy2_1{margin-top: 2px;background-color: #8ec3cd;}
+  .divIncomeChMy2_1 div {float: right;}
+  .div34IncomeChMy2{width: 22px;padding:3px 0 2px;background-color: #8cd575;border-radius: 20px;text-align: center;color: #000;border: 1px solid #173055;margin-left: 3px;}
+  .div34IncomeChMy3{width: calc(65% - 22px);padding:3px 10px 2px 0;background-color: #eee;color: #171375; border-radius: 0 3px 3px 0;}
+  .div34IncomeChMy4{width: calc(35% - 3px);padding: 3px 0 2px;background-color: #eee;color: #1c5910; border-radius: 3px 0 0 3px ;}
+  .div34IncomeChMy4 span{margin-right: 5px; font-size: 10px;}
+  @media (max-width:350px){
+    .div34IncomeChMy3{width: calc(100% - 25px);border-radius: 3px;}
+    .div34IncomeChMy4{width: calc(100% - 25px);margin-top: 1px;border-radius: 3px;text-align: center;float: left !important;}
+    }
+/* ghanonCh.php */
+.ghanonCh{}
+.ghanonChUl{padding:5px 25px 5px 6px;list-style: decimal;background-color: #cddfdb}
+.ghanonChUl li{margin-bottom: 5px; background-color: #fff; padding: 3px 8px 3px 5px; border-radius: 4px;}
