@@ -8,9 +8,6 @@
   @endif
 
 <option class="selectOstan" >ابتدا استان را انتخاب کنید</option>
-{{-- @foreach ($show_city as  $value)
-  <option value="{{$value->id}}" {{$value->sub_ostan}}){{$value->sub_ostan}}, {{$value->city}}">{{$value->city}}</option>
-@endforeach --}}
 <option class="cityOff ostan1"value="اردبیل">اردبیل</option>
 <option class="cityOff ostan1"value="بیله سوار">بیله سوار</option>
 <option class="cityOff ostan1"value="پارس آباد">پارس آباد</option>
