@@ -1,5 +1,12 @@
 
-<option class="aval"value="aval" selected="selected">انتخاب شهر</option>
+<option class="ff" value="aval" selected>انتخاب شهر</option>
+<span class="ff">
+  @if (!empty($city))
+
+    <option class="spanCity" value="{{$city}}" selected>{{$city}}</option>
+
+  @endif
+</span>
 <option class="selectOstan" >ابتدا استان را انتخاب کنید</option>
 {{-- @foreach ($show_city as  $value)
   <option value="{{$value->id}}" {{$value->sub_ostan}}){{$value->sub_ostan}}, {{$value->city}}">{{$value->city}}</option>

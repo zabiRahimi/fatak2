@@ -3,21 +3,22 @@
   تکمیل اطلاعات
 @endsection
 @section('dash_content')
-  <form class="form form_perfectDaCh" id="form_perfect_data" action="" method="post">
+  @if ($stage==1)
+  <form class="form form_perfectDaCh" id="form_perfectDaCh" action="" method="post">
    <div class="form_titr"><i class="fas fa-info-circle"></i>تکمیل اطلاعات</div>
-   <div id="ajax_channellog"></div>
+   <div id="ajax_perfectDaCh"></div>
    {{ csrf_field() }}
 
    <div class="form-group">
      <label for="mly_perfectDaCh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  کد ملی</label>
-     <div class="div_form"><input type="text" class="form-control" id="mly_perfectDaCh"></div>
+     <div class="div_form"><input type="text" class="form-control" id="codemly_perfectDaCh"></div>
    </div>
    <div class="form-group">
      <div class="formGroupCity">
        <label for="ostan_perfectDaCh" class="control-label pull-right labelCity"><i class="fas fa-map-marker i_form"></i> استان</label>
        <div class="div_formCity">
          <select class="" name="" id="ostan_perfectDaCh">
-           <option value="aval" onclick="show_city('no')" selected>انتخاب استان</option>
+           <option value="" onclick="show_city('no')" selected>انتخاب استان</option>
            <option value="اردبیل" onclick="show_city('ostan1')">اردبیل</option>
            <option value="اصفهان" onclick="show_city('ostan2')">اصفهان</option>
            <option value="البرز" onclick="show_city('ostan3')">البرز</option>
@@ -84,8 +85,34 @@
      <label for="bank_perfectDaCh" class="control-label pull-right "><i class="fas fa-database i_form"></i> نام بانک</label>
      <div class="div_form"><input type="text" class="form-control" id="bank_perfectDaCh"></div>
    </div>
+   <div class="form-group">
+     <label for=" allowGhanon_perfectDaCh" class="control-label pull-right allowGhanonLabel "><i class="fas fa-balance-scale i_form"></i> قوانین را خوانده و می پذیرم</label>
+     <div class="div_form_checkbox"><input type="checkbox" class="form-control" id="allowGhanon_perfectDaCh" ></div>
+
+   </div>
+
    <div class="form-group form_btn">
-     <button type="button" class="btn btn-success" onclick="login_channel()" >ثبت</button>
+     <button type="button" class="btn btn-success" onclick="sabt_channel_2()" >ثبت</button>
    </div>
  </form>
+@else
+  <div class="perfectDaChOk">
+    شما اطلاعات را تکمیل نموده اید ، جهت مشاهده و یا ویرایش اطلاعات به صفحه
+    <a href="/editDaCh" class="apjax">ویرایش اطلاعات</a> وارد شوید .
+  </div>
+@endif
+ <!-- Modal موفق بودن ثبت ابتدایی کانال-->
+ <div class="modal fade" id="end_perfectDaCh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-body modal_ok">
+         <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
+         <div class="modal_ok2">تکمیل اطلاعات انجام شد، شما می توانید کد و آدرس خود را جهت درج در شبکه اجتماعی دریافت کنید .</div>
+       </div>
+       <div class=" modal_ok3">
+         <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+       </div>
+     </div>
+   </div>
+ </div><!--end modal پایان موفقیت ثبت .-->
 @endsection

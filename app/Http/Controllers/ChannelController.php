@@ -5,13 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\channel;
 use Cookie;
+use Illuminate\Contracts\Encryption\Encrypter;
 use App\Http\Requests\Save_sabt_channel_1;
+use App\Http\Requests\Save_sabt_channel_2;
 use App\Http\Requests\Save_login_channel;
 use Hekmatinasser\Verta\Verta;//تاریخ جلالی
 use Illuminate\Support\Facades\Hash;
 
 class ChannelController extends Controller
 {
+    public $stage;
+    public $id;
+    public function __construct(Encrypter $encrypter ,Request $request)
+    {
+      $cookie=$request->cookie('check_log_channel');
+      if(!empty($cookie)){
+      $this->middleware(function ($request, $next){
+      $id = $request->cookie('check_log_channel');
+      $this->id=$id;
+      $user=Channel::find($id);
+      $this->stage=$user->stage;
+      return $next($request);
+        });
+        }
+    }
+
     public function page_login(Request $request)
     {
       return view('channel.login_channel');
@@ -27,6 +45,7 @@ class ChannelController extends Controller
       $save->pas=Hash::make($request->pas);
       $save->date_ad=$date;
       $save->date_up=$date;
+      $save->stage=1;
       $save->show=1;
       $save->save();
     }
@@ -50,15 +69,39 @@ class ChannelController extends Controller
     public function dashboard_channel(Request $request){
       $id=$request->cookie('check_log_channel');
       $user=Channel::find($id);
-      return view('channel.dashboardCh' , compact('user'));
+      $stage=$this->stage;
+      return view('channel.dashboardCh' , compact('user','stage'));
     }
     public function perfect_data(Request $request)
     {
-      return view('channel.perfect_data');
+      $stage=$this->stage;
+      return view('channel.perfect_data' , compact('stage'));
+    }
+
+    public function sabt_channel_2(Save_sabt_channel_2 $request)
+    {
+      $date1=new Verta();//تاریخ جلالی
+      $date=$date1->format('Y/n/j');
+      $id=$request->cookie('check_log_channel');
+      $save=channel::find($id);
+      $save->codemly=$request->codemly;
+      $save->ostan=$request->ostan;
+      $save->city=$request->city;
+      $save->address=$request->address;
+      // $save->codepost=$request->codepost;
+      $save->accountNumber=$request->accountNumber;
+      $save->cart=$request->cart;
+      $save->master=$request->master;
+      $save->bank=$request->bank;
+      $save->date_up=$date;
+      $save->stage=2;
+      $save->save();
     }
     public function edit_data(Request $request)
     {
-      return view('channel.edit_data');
+      $user=Channel::find($this->id);
+      $stage=$this->stage;
+      return view('channel.edit_data' , compact('stage' , 'user'));
     }
     public function warnCh(Request $request)
     {
@@ -66,19 +109,23 @@ class ChannelController extends Controller
     }
     public function urlChMy(Request $request)
     {
-      return view('channel.urlChMy');
+      $stage=$this->stage;
+      return view('channel.urlChMy', compact('stage'));
     }
     public function viewChMy(Request $request)
     {
-      return view('channel.viewChMy');
+      $stage=$this->stage;
+      return view('channel.viewChMy', compact('stage'));
     }
     public function viewChAll(Request $request)
     {
-      return view('channel.viewChAll');
+      $stage=$this->stage;
+      return view('channel.viewChAll', compact('stage'));
     }
     public function incomeChMy(Request $request)
     {
-      return view('channel.incomeChMy');
+      $stage=$this->stage;
+      return view('channel.incomeChMy', compact('stage'));
     }
     public function ghanonCh(Request $request)
     {

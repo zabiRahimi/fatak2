@@ -79,6 +79,8 @@ display:inline;
 /* .labelCity{width: 40% !important; float: right;} */
 .div_formCity{width: 60%;float: right;text-align: center;}
 .div_formCity select{width: 100%;}
+.div_form_checkbox{width: 60%;height: 40px;float: right;}
+.div_form_checkbox input{width: 26px;position: relative;top: 13px;}
 .i_form{position: relative; margin-left: 10px;}
 .captcha_form {width: 65%; float: left; text-align: center;}
 .captcha_form span {display: inline-block;height: 38px;background-color: #829077; padding: 1px;}
@@ -88,7 +90,7 @@ display:inline;
 .form_btn button {width: 140px;font-size: 18px;}
 @media(max-width:440px){
   .form > .form-group {background-color: inherit; margin-top: -4px; padding: 0;}
-  .form >.form-group label {width: 125px;  background-color: #ced4d9; border-radius: 4px 4px 0 0;}
+  .form >.form-group label {width: 185px;  background-color: #ced4d9; border-radius: 4px 4px 0 0;}
   .form > .form-group input{width: 100%;height: 32px ;float: right;}
   .i_form{ margin-left: 4px;}
   .div_form {width: 100%; float: right;background-color: #ced4d9; padding: 2px 1px; border-radius: 3px 0 3px 3px;}
@@ -96,7 +98,10 @@ display:inline;
   .formGroupCity{width: 100%;padding: 2px;margin:0 ;}
 
   .div_formCity{width: 100%;}
+  .div_form_checkbox{width: 100%;background-color: #c8d2d7;border-radius: 3px 0 3px 3px;}
+  .div_form_checkbox input{top: 5px;}
   .captcha_form {width: 100%;margin-bottom: 10px; }
+  .form_btn button{margin: 6px 0;}
 }
 /* modal_ok */
 .modal_ok1,.modal_ok2,.modal_ok3{width: 100%;  float: right;font-size: 16px;text-align: center;color: #066e06;}
