@@ -3,6 +3,7 @@
 function show_form_channel_log(clases) {
   $('.channel_sabt_log_log').css('display', 'block');
    $('.channel_sabt_log_log2' ).css('display', 'none');
+   $('.channel_ghanon_society_log3').css('display', 'none');
   $('.'+clases).css('display', 'block');
 }
 // ثبت ابتدایی شبکه اجتماعی

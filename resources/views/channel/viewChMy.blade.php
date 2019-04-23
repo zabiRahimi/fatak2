@@ -20,10 +20,10 @@
       </div>
     @else
     <div class="divViweChMy div1ViweChMy">
-      <span>کل بازدیدها :</span><span>123</span>
+      <span>کل بازدیدها :</span><span>{{$count}}</span>
     </div>
     <div class="divViweChMy div2ViweChMy">
-      <span>بازدیدهای ماه جاری :</span><span>923564587</span>
+      <span>بازدیدهای ماه جاری :</span><span>{{$count_view_month}}</span>
     </div>
     <div class="divViweChMy div3ViweChMy">
       <span>بازدیدهای تصویه شده :</span><span>233568974</span>
@@ -32,7 +32,10 @@
       <span>بازدیدهای تصویه نشده :</span><span>237878878</span>
     </div>
     <div class="divViweChMy div5ViweChMy">
-      <span>بازدیدهای منجر به خرید :</span><span>23989744</span>
+      <span>بازدیدهای منجر به خرید :</span><span>{{$count_buy}}</span>
+    </div>
+    <div class="divViweChMy div5ViweChMy">
+      <span>بازدیدهای منجر به خرید ماه جاری :</span><span>{{$count_buy_month}}</span>
     </div>
     <div class="divViweChMy div6ViweChMy">
       <span>بازدیدهای منجر به خرید تصویه شده :</span><span>98455234</span>

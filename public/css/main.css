@@ -20,7 +20,7 @@ h1,h2,h3,h4,h5,h6{margin: 0;}
 a{cursor: pointer;}
 .a{text-decoration: none; color: inherit;}
 .kama{ font-family:Tahoma, Geneva, sans-serif ; color:#000}
-
+.br{margin-bottom: 15px;}
 body{font-family: "b koodak", Arial, Helvetica, sans-serif;
 direction:rtl;
 

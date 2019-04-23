@@ -8,12 +8,15 @@
 .channel_log_ul{
   width: 98%;height: 40px;line-height: 40px;margin: 0 1%;padding-right: 25px;color: #fff;background-color: #0a374d;border-radius: 3px;text-align: right;float: right;
 }
+.channel_log_ul a{color: #fff;margin-left: 8px;border-left: 1px solid #fff;}
 .channel_log_ul li{
   margin-left: 10px;
   border-left: 1px solid #fff;
   padding-left: 8px;
+  cursor: pointer;
 }
-.channel_log_ul li:last-child{border-left: none;cursor: pointer;}
+.channel_log_ul li:hover{color: #75cdc8}
+.channel_log_ul li:last-child{border-left: none;}
 .chanel_menu_log{width: 100%; float: right;text-align: center;display: none;}
 .chanel_menu_log button{width: 120px;height: 38px;background-color:#0a374d; color: #fff;}
 .chanel_menu_log button i{position: relative;top:-3px; font-size: 28px;}
@@ -77,6 +80,7 @@
 @media (max-width:310px) {
   .channel_sabt_log_log2{width: 100%;margin: 3px 0;padding: 5px 5px;}
 }
+.channel_ghanon_society_log3{width: 100%;padding: 0 6px;}
 /* لوگوهای شبکه اجتماعی */
 .channel_logo_log{width: 100%; float: right; margin: 40px 0 10px; text-align: center;}
 .channel_logo_log span{display: inline-block;}
@@ -257,6 +261,16 @@
     .div34IncomeChMy3{width: calc(100% - 25px);border-radius: 3px;}
     .div34IncomeChMy4{width: calc(100% - 25px);margin-top: 1px;border-radius: 3px;text-align: center;float: left !important;}
     }
+/* societyCh.php */
+.society_ch{width: 100%;padding: 7px 20px 7px 10px ;text-align: justify;float: right;color: #3d3d3d;background-color: #f1f7f9;font-size: 16px;}
+.society_ch p{background-color: #fff; padding: 5px 8px; border-radius: 2px;}
+.span_society1{color: #196b0c; font-size: 18px;}
+.span_society2{color: #09898e;font-size: 18px;}
+.span_society3{color:#026a3e; }
+@media (max-width:768px){
+  .society_ch{font-size: 14px;padding: 7px 10px ;}
+  .span_society1,.span_society2{font-size: 16px;}
+  }
 /* ghanonCh.php */
 .ghanonCh{}
 .ghanonChUl{padding:5px 25px 5px 6px;list-style: decimal;background-color: #cddfdb}

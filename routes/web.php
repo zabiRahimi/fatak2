@@ -54,7 +54,9 @@ Route::get('/urlChMy','ChannelController@urlChMy')->middleware(['cheklogin_chann
 Route::get('/viewChMy','ChannelController@viewChMy')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/viewChAll','ChannelController@viewChAll')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/incomeChMy','ChannelController@incomeChMy')->middleware(['cheklogin_channel' ]);//ok!!
-Route::get('/ghanonCh','ChannelController@ghanonCh')->middleware(['cheklogin_channel' ]);//ok!!
+Route::get('/societyCh','ChannelController@societyCh');//ok!!
+
+Route::get('/ghanonCh','ChannelController@ghanonCh');//ok!!
 Route::get('/rahnamaCh','ChannelController@rahnamaCh')->middleware(['cheklogin_channel' ]);//ok!!
 
 

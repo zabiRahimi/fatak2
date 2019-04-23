@@ -39,6 +39,8 @@
     <a href="/viewChMy"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='far fa-eye'></i> بازدیدهای شبکه من</span> </li></a>
     <a href="/viewChAll"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-eye'></i> بازدیدهای کل شبکه ها</span> </li></a>
     <a href="/incomeChMy"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-dollar-sign'></i> ارزش ریالی بازدید من</span> </li></a>
+    <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-handshake"></i>نحوه شراکت و عملکرد فروشگاه</span> </li></a>
+
     <a href="/ghanonCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
     <a href="/rahnamaCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-compass"></i> راهنما</span> </li></a>
   </ul>
@@ -52,6 +54,8 @@
       <a href="/viewChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class='far fa-eye'></i> بازدیدهای شبکه من</span> </li></a>
       <a href="/viewChAll"class="apjax"><li class="modal_hide" onclick=""><span><i class='fas fa-eye'></i> بازدیدهای کل شبکه ها</span> </li></a>
       <a href="/incomeChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class='fas fa-dollar-sign'></i> ارزش ریالی بازدید من</span> </li></a>
+      <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-handshake"></i> نحوه شراکت و عملکرد</span> </li></a>
+
       <a href="/ghanonCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
       <a href="/rahnamaCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-compass"></i> راهنما</span> </li></a>
     </ul>

@@ -19,8 +19,11 @@
         <a href="/perfectDaCh" class="apjax"><button type="button" class="btn btn-info">تکمیل اطلاعات</button> </a>
       </div>
     @else
+    <div class="alert alert-warning">
+      <strong>توجه !</strong> درآمد ماه جاری محاسبه نشده است .
+    </div>
     <div class="incomeChMy incomeChMy1">
-        <div class="incomeChMy1_1">ارزش بازدید ماه جاری</div>
+        <div class="incomeChMy1_1">ارزش بازدید ماه گذشته</div>
         <div class="incomeChMy1_2">520122</div>
         <div class="incomeChMy1_3">تومان</div>
     </div>
@@ -30,12 +33,12 @@
         <div class="incomeChMy1_3">تومان</div>
     </div>
     <div class="incomeChMy incomeChMy3">
-        <div class="incomeChMy1_1">درآمد ماه جاری شبکه من</div>
+        <div class="incomeChMy1_1">درآمد ماه گذشته شبکه من</div>
         <div class="incomeChMy1_2">520122</div>
         <div class="incomeChMy1_3">تومان</div>
     </div>
     <div class="incomeChMy incomeChMy4">
-        <div class="incomeChMy1_1">درآمد بازدید ماه جاری شبکه من</div>
+        <div class="incomeChMy1_1">درآمد بازدید ماه گذشته شبکه من</div>
         <div class="incomeChMy1_2">520122</div>
         <div class="incomeChMy1_3">تومان</div>
     </div>
@@ -60,7 +63,7 @@
         <div class="incomeChMy1_3">تومان</div>
     </div>
     <div class="incomeChMy incomeChMy9">
-        <div class="incomeChMy1_1">درآمد ماه جاری کل شبکه ها</div>
+        <div class="incomeChMy1_1">درآمد ماه گذشته کل شبکه ها</div>
         <div class="incomeChMy1_2">520122</div>
         <div class="incomeChMy1_3">تومان</div>
     </div>

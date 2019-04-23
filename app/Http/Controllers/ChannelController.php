@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\channel;
+use App\Models\Ch_view;
 use Cookie;
+use DB;
 use Illuminate\Contracts\Encryption\Encrypter;
 use App\Http\Requests\Save_login_channel;
 use App\Http\Requests\Save_sabt_channel_1;
@@ -69,8 +71,7 @@ class ChannelController extends Controller
         }
     }
     public function dashboard_channel(Request $request){
-      $id=$request->cookie('check_log_channel');
-      $user=Channel::find($id);
+      $user=Channel::find($this->id);
       $stage=$this->stage;
       return view('channel.dashboardCh' , compact('user','stage'));
     }
@@ -150,22 +151,50 @@ class ChannelController extends Controller
     public function urlChMy(Request $request)
     {
       $stage=$this->stage;
-      return view('channel.urlChMy', compact('stage'));
+      $id=$this->id;
+      return view('channel.urlChMy', compact('stage','id'));
     }
     public function viewChMy(Request $request)
     {
       $stage=$this->stage;
-      return view('channel.viewChMy', compact('stage'));
+      $date1=new Verta();//تاریخ جلالی
+      $dateStart=$date1->startMonth()->format('Y/n/j');
+      $dateEnd=$date1->endMonth()->format('Y/n/j');
+      // ->whereBetween('votes', [1, 100])->get();
+      $ch=Ch_view::where('channel_id', $this->id)->get();
+      $buy=Ch_view::where('channel_id', $this->id)->where('lot_ch' ,'!=',null)->get();
+      $buy_month=Ch_view::where('channel_id', $this->id)->where('lot_ch' ,'!=',null)->whereBetween('date', [$dateStart, $dateEnd])->get();
+      $view_month=Ch_view::where('channel_id', $this->id)->whereBetween('date', [$dateStart, $dateEnd])->get();
+      $count_buy=count($buy);
+      $count_buy_month=count($buy_month);
+      $count=count($ch);
+      $count_view_month=count($view_month);
+      return view('channel.viewChMy', compact('stage','count','count_buy','count_view_month','count_buy_month'));
     }
     public function viewChAll(Request $request)
     {
+      $id=$this->id;
       $stage=$this->stage;
-      return view('channel.viewChAll', compact('stage'));
+      $date1=new Verta();//تاریخ جلالی
+      $dateStart=$date1->startMonth()->format('Y/n/j');
+      $dateEnd=$date1->endMonth()->format('Y/n/j');
+      $count_ch=Channel::count();
+      $channel=new Channel();
+      $count_view_ch=Ch_view::count();
+      $count_view_month=Ch_view::whereBetween('date', [$dateStart, $dateEnd])->count();
+      $bigViewCh = DB::table('ch_views')->select("ch_views.channel_id",Db::raw('count(*) as ch_views'))->groupBy('channel_id')->orderBy('ch_views','desc')->get();
+      $bigViewChMont = DB::table('ch_views')->select("ch_views.channel_id",Db::raw('count(*) as ch_views'))->whereBetween('date', [$dateStart, $dateEnd])->groupBy('channel_id')->orderBy('ch_views','desc')->get();
+
+      return view('channel.viewChAll', compact('id','stage' ,'count_ch','channel','count_view_ch','count_view_month','bigViewCh','bigViewChMont'));
     }
     public function incomeChMy(Request $request)
     {
       $stage=$this->stage;
       return view('channel.incomeChMy', compact('stage'));
+    }
+    public function societyCh(Request $request)
+    {
+      return view('channel.societyCh');
     }
     public function ghanonCh(Request $request)
     {
