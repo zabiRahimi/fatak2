@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\channel;
 use App\Models\Ch_view;
+use App\Models\Income;
+use App\Models\Reimburse_ch;
 use Cookie;
 use DB;
 use Illuminate\Contracts\Encryption\Encrypter;
@@ -184,13 +186,46 @@ class ChannelController extends Controller
       $count_view_month=Ch_view::whereBetween('date', [$dateStart, $dateEnd])->count();
       $bigViewCh = DB::table('ch_views')->select("ch_views.channel_id",Db::raw('count(*) as ch_views'))->groupBy('channel_id')->orderBy('ch_views','desc')->get();
       $bigViewChMont = DB::table('ch_views')->select("ch_views.channel_id",Db::raw('count(*) as ch_views'))->whereBetween('date', [$dateStart, $dateEnd])->groupBy('channel_id')->orderBy('ch_views','desc')->get();
-
       return view('channel.viewChAll', compact('id','stage' ,'count_ch','channel','count_view_ch','count_view_month','bigViewCh','bigViewChMont'));
     }
     public function incomeChMy(Request $request)
     {
+      $id=$this->id;
+      $date1=new Verta();//تاریخ جلالی
+      //ابتدای ماه گذشته
+      $startMonthPast=$date1->subMonth()->startMonth()->format('Y/n/j');
+      //انتهای ماه گذشته
+      $endMonthPast=$date1->subMonth()->endMonth()->format('Y/n/j');
+      //بدست آوردن همه بازدیدهای ماه گذشته
+      $count_view_month=Ch_view::whereBetween('date', [$startMonthPast, $endMonthPast])->count();
+      //تعداد بازدیدهای ماه گذشته من
+      $count_view_month_my=Ch_view::where('channel_id', $this->id)->whereBetween('date', [$startMonthPast, $endMonthPast])->count();
+
+      $month_income=Income::where('stage', '2')->first();
+      //ارزش بازدید ماه گذشته
+      $view_income_month=floor($month_income->channel/$count_view_month);
+      //بیشتر نبودن ارزش بازدید از 1000 تومان
+      if ($view_income_month > 1000) {
+        $view_income_month=1000;
+      }
+      //درآمد بازدید ماه گذشته من
+      $view_income_month_my=$view_income_month*$count_view_month_my;
+      //درآمد منجر به خرید ماه گذشته شبکه من
+      $price_buy_month_my=Ch_view::where('channel_id', $this->id)->whereBetween('date', [$startMonthPast, $endMonthPast])->sum('lot_ch');
+      //کل درآمد ماه گذشته من
+      $allIncomeMonth_my=$price_buy_month_my+$view_income_month_my;
+      //کل درآمد من
+      $allIncome_my=Channel::where('id', $this->id)->first();
+      //درآمد تسویه شده من
+      $defray_my=Reimburse_ch::where('channel_id', $this->id)->where('species', 1)->sum('price');
+      //درآمد تسویه نشده من
+      $noDefray_my=$allIncome_my->income-$defray_my;
+      //پردرآمد ترینها
+      $superIncomeCh=Channel::orderBy('income','desc')->get();
+
+      $all_income=Income::where('stage', '!=','1')->sum('channel');
       $stage=$this->stage;
-      return view('channel.incomeChMy', compact('stage'));
+      return view('channel.incomeChMy', compact('id','stage','view_income_month','view_income_month_my','price_buy_month_my','allIncomeMonth_my','allIncome_my','defray_my','noDefray_my','month_income','all_income','superIncomeCh'));
     }
     public function societyCh(Request $request)
     {

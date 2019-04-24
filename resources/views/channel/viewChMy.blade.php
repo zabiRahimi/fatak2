@@ -19,6 +19,9 @@
         <a href="/perfectDaCh" class="apjax"><button type="button" class="btn btn-info">تکمیل اطلاعات</button> </a>
       </div>
     @else
+    <div class="alert alert-warning">
+      <strong>توجه !</strong> بازدید ماه جاری محاسبه نشده است .
+    </div>
     <div class="divViweChMy div1ViweChMy">
       <span>کل بازدیدها :</span><span>{{$count}}</span>
     </div>

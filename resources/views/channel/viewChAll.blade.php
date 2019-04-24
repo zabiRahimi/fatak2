@@ -75,11 +75,12 @@
       @foreach ($bigViewCh as $val)
         @php
           $i3++;
+          $valId=$val->channel_id;
         @endphp
-        @if ($val->channel_id==$id)
+        @if ($valId==$id)
           <span>{{$i3}}</span>
         @endif
-      @break($val->channel_id==$id)
+      @break($valId==$id)
       @endforeach
     </div>
     @endif
