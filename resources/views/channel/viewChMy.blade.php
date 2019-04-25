@@ -19,32 +19,23 @@
         <a href="/perfectDaCh" class="apjax"><button type="button" class="btn btn-info">تکمیل اطلاعات</button> </a>
       </div>
     @else
-    <div class="alert alert-warning">
-      <strong>توجه !</strong> بازدید ماه جاری محاسبه نشده است .
-    </div>
     <div class="divViweChMy div1ViweChMy">
-      <span>کل بازدیدها :</span><span>{{$count}}</span>
+      <span>کل بازدیدها من :</span><span class="number">{{number_format($count)}}</span>
     </div>
     <div class="divViweChMy div2ViweChMy">
-      <span>بازدیدهای ماه جاری :</span><span>{{$count_view_month}}</span>
+      <span>بازدیدهای ماه جاری من :</span><span class="number">{{number_format($count_view_month)}}</span>
     </div>
     <div class="divViweChMy div3ViweChMy">
-      <span>بازدیدهای تصویه شده :</span><span>233568974</span>
-    </div>
-    <div class="divViweChMy div4ViweChMy">
-      <span>بازدیدهای تصویه نشده :</span><span>237878878</span>
+      <span>بازدیدهای ماه گذشته من :</span><span class="number">{{number_format($count_view_monthPast)}}</span>
     </div>
     <div class="divViweChMy div5ViweChMy">
-      <span>بازدیدهای منجر به خرید :</span><span>{{$count_buy}}</span>
+      <span>کل بازدیدهای منجر به خرید من :</span><span class="number">{{number_format($count_buy)}}</span>
     </div>
     <div class="divViweChMy div5ViweChMy">
-      <span>بازدیدهای منجر به خرید ماه جاری :</span><span>{{$count_buy_month}}</span>
+      <span>بازدیدهای منجر به خرید ماه جاری :</span><span class="number">{{number_format($count_buy_month)}}</span>
     </div>
     <div class="divViweChMy div6ViweChMy">
-      <span>بازدیدهای منجر به خرید تصویه شده :</span><span>98455234</span>
-    </div>
-    <div class="divViweChMy div7ViweChMy">
-      <span>بازدیدهای منجر به خرید تصویه نشده :</span><span>98645234</span>
+      <span>بازدیدهای منجر به خرید ماه گذشته :</span><span class="number">{{number_format($buy_monthPast)}}</span>
     </div>
     @endif
   </div>

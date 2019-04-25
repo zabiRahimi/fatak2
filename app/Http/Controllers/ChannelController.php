@@ -162,16 +162,24 @@ class ChannelController extends Controller
       $date1=new Verta();//تاریخ جلالی
       $dateStart=$date1->startMonth()->format('Y/n/j');
       $dateEnd=$date1->endMonth()->format('Y/n/j');
+      //ابتدای ماه گذشته
+      $startMonthPast=$date1->subMonth()->startMonth()->format('Y/n/j');
+      //انتهای ماه گذشته
+      $endMonthPast=$date1->subMonth()->endMonth()->format('Y/n/j');
       // ->whereBetween('votes', [1, 100])->get();
       $ch=Ch_view::where('channel_id', $this->id)->get();
       $buy=Ch_view::where('channel_id', $this->id)->where('lot_ch' ,'!=',null)->get();
       $buy_month=Ch_view::where('channel_id', $this->id)->where('lot_ch' ,'!=',null)->whereBetween('date', [$dateStart, $dateEnd])->get();
+      $buy_monthPast=Ch_view::where('channel_id', $this->id)->where('lot_ch' ,'!=',null)->whereBetween('date', [$startMonthPast, $endMonthPast])->count();
+
       $view_month=Ch_view::where('channel_id', $this->id)->whereBetween('date', [$dateStart, $dateEnd])->get();
+      $count_view_monthPast=Ch_view::where('channel_id', $this->id)->whereBetween('date', [$startMonthPast, $endMonthPast])->count();
+
       $count_buy=count($buy);
       $count_buy_month=count($buy_month);
       $count=count($ch);
       $count_view_month=count($view_month);
-      return view('channel.viewChMy', compact('stage','count','count_buy','count_view_month','count_buy_month'));
+      return view('channel.viewChMy', compact('stage','count','count_buy','count_view_month','count_view_monthPast','count_buy_month','buy_monthPast'));
     }
     public function viewChAll(Request $request)
     {
