@@ -9,7 +9,9 @@ return [
         'width'     => 120,
         'height'    => 36,
         'quality'   => 90,
-        
+        'fontColors'=> ['#2c3e50', '#c0392b'],
+
+
     ],
 
     'flat'   => [

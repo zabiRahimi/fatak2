@@ -180,8 +180,8 @@ $(document).ready(function(){
 
 								$.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
 								var mobail=$('#mobail_data_buyer').val();
-								var patt =/^[0-9]{10}$/;
-								if(patt.test(mobail)){mobail = 0 + mobail;}
+								var check =/^[0-9]{10}$/;
+								if(check.test(mobail)){mobail = 0 + mobail;}
 									$.ajax({
 											url: "../../../save_data_buyer",
 											method: 'post',

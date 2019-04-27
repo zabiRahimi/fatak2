@@ -52,7 +52,6 @@ class IndexController extends Controller
         $check_ip=Check_ip::where('ip',$ip)->where('date' , $dateD1)->first();
       }
       if(empty($request->cookie('ch')) && !$check_ip){
-
         $save_ch=new Ch_view();
         $save_ch->channel_id=$channel_id;
         $save_ch->date=$date;
@@ -66,12 +65,7 @@ class IndexController extends Controller
         $save_ip->save();
         Cookie::queue('ch',$channel_id ,259200);
         Cookie::queue('ch_buy',$channel_id);
-
       }
-
-      if(empty($request->cookie('ch_buy'))){return 'not';}
-        else{return $request->cookie('ch');}
-
     }
     public function sabt_shekait(Save_sabt_shekait $request)
     {

@@ -8,13 +8,14 @@ function show_form_channel_log(clases) {
 }
 // ثبت ابتدایی شبکه اجتماعی
 function sabt_channel_1(){
+  var mobail=$('#mobail_channelsabt1').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
     url:'../sabt_channel_1',
     data: {
           name:$('#name_channelsabt1').val(),
-          mobail:$('#mobail_channelsabt1').val(),
+          mobail:mobail,
           email:$('#email_channelsabt1').val(),
           pas:$('#pas_channelsabt1').val(),
           amniat:$('#amniat_channelsabt1').val(),
@@ -34,7 +35,6 @@ function sabt_channel_1(){
         $('#ajax_channelsabt1').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
-
          if(error['name']){
            $('#ajax_channelsabt1').append('<div id="alarm_red">'+error['name']+'</div>');
            $('#name_data_buyer').css("border-color" , "#c30909");
@@ -58,22 +58,17 @@ function sabt_channel_1(){
         else {
 
            $('#ajax_channelsabt1').modal('show');
-        }
-
-    }
-  });
-
-}
+        }}});}
 
 // لاگین کردن شبکه اجتماعی
 function login_channel(){
-
+  var mobail=$('#mobail_channellog').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'get',
     url:'../login_channel',
     data: {
-          mobail:$('#mobail_channellog').val(),
+          mobail:mobail,
           pas:$('#pas_channellog').val(),
           amniat:$('#amniat_channellog').val(),
          },
@@ -95,8 +90,6 @@ function login_channel(){
         $('#amniat_channellog').val('');
         $('.form-control').css("border-color" , "#fff");
         captcha();
-
-
         if(error['mobail']){
            $('#ajax_channellog').append('<div id="alarm_red">'+error['mobail']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
@@ -116,12 +109,7 @@ function login_channel(){
         else {
 
            $('#ajax_channellog').modal('show');
-        }
-
-    }
-  });
-
-}
+        }}});}
 
 // perfect_data.php
 function sabt_channel_2(){
@@ -155,8 +143,6 @@ function sabt_channel_2(){
         scroll_form('form_perfectDaCh');
         $('#ajax_perfectDaCh').empty();
         $('.form-control').css("border-color" , "#fff");
-
-
          if(error['codemly']){
            $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['codemly']+'</div>');
            $('#name_data_buyer').css("border-color" , "#c30909");
@@ -199,12 +185,10 @@ function sabt_channel_2(){
         }
         else {
            $('#ajax_perfectDaCh').modal('show');
-        }
-    }
-  });
-}
+        }}});}
 // edit_data.php
 function editDaChSave(id){
+  var mobail=$('#mobail_editDaCh').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
@@ -213,7 +197,7 @@ function editDaChSave(id){
           id:id,
           name:$('#name_editDaCh').val(),
           codemly:$('#codemly_editDaCh').val(),
-          mobail:$('#mobail_editDaCh').val(),
+          mobail:mobail,
           email:$('#email_editDaCh').val(),
           ostan:$('#ostan_editDaCh').val(),
           city:$('#city_editDaCh').val(),
@@ -223,7 +207,6 @@ function editDaChSave(id){
           cart:$('#cart_editDaCh').val(),
           master:$('#master_editDaCh').val(),
           bank:$('#bank_editDaCh').val(),
-
          },
     success:function(){
       $('#ajax_editDaCh').empty();
@@ -285,10 +268,7 @@ function editDaChSave(id){
         }
         else {
            $('#ajax_editDaCh').modal('show');
-        }
-    }
-  });
-}
+        }  }  });}
 function editPasDaCh(id){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
@@ -322,8 +302,4 @@ function editPasDaCh(id){
         else if(error['no_pas']){
            $('#ajax_editPasDaCh').append('<div id="alarm_red">'+error['no_pas']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
-        }
-
-    }
-  });
-}
+        }  }  });}

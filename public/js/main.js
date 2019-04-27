@@ -24,7 +24,7 @@ function bazdidCh() {
          amniat:$('#amniat_getchLabel').val(),
          },
     success:function(data){
-
+      $('#modal_bazdidCh').modal('hide');
     },
     error: function(xhr) {
       $('#modal_bazdidCh').modal('hide');
@@ -52,13 +52,16 @@ function scroll_form(class_form){
   window.scrollTo(0 ,hTop);
 }
 function sabt_shekait(){
+  var mobail=$('#mobail_shekait').val();
+  var check =/^[0-9]{10}$/;
+  if(check.test(mobail)){mobail = 0 + mobail;}
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
     url:'/sabt_shekait',
     data: {
          name:$('#name_shekait').val(),
-         mobail:$('#mobail_shekait').val(),
+         mobail:mobail,
          email:$('#email_shekait').val(),
          shekait:$('#shekait_shekait').val(),
          amniat:$('#amniat_shekait').val(),

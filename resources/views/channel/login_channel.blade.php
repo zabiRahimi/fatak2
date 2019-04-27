@@ -36,8 +36,8 @@
     </div>
     {{-- //دکمه های ورود و ثبت نام --}}
     <div class="channel_btn_log">
-      <div class="channel_btn_log1"><button type="button" class="btn" name="button" onclick="show_form_channel_log('channel_log_log')">ورود</button></div>
-      <div class="channel_btn_log2"><button type="button" class="btn" name="button" onclick="show_form_channel_log('channel_sabt_log')">ثبت نام</button></div>
+      <div class="channel_btn_log1"><button type="button" class="btn" name="button" onclick="show_form_channel_log('channel_log_log');captcha()">ورود</button></div>
+      <div class="channel_btn_log2"><button type="button" class="btn" name="button" onclick="show_form_channel_log('channel_sabt_log');captcha()">ثبت نام</button></div>
     </div>
     {{-- فرمهای ورود و ثبت نام --}}
     <div class="channel_sabt_log_log">

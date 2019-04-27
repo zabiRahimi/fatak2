@@ -4,8 +4,8 @@
     <div class="col-5 col-sm-2  div_h1 "> <h2 class="h2_h"> <span class="fatak1">فروشگاه</span> <span class="fatak2">اینترنتی</span> <span class="fatak3">فاتک</span></h2>
       <ul class="ul_line  ul_xm_h d-block d-sm-none">
         @if (empty(cookie('check_log')))
-          <li data-toggle="modal" data-target="#modal_h_login"><a ><i class="fas fa-sign-in-alt"></i> &nbsp;ورود </a></li>
-          <li data-toggle="modal" data-target="#modal_h_sabtname"><a ><i class="fas fa-user-plus"></i> &nbsp;ثبت نام</a></li>
+          <li data-toggle="modal" data-target="#modal_h_login" onclick="captcha()"><a ><i class="fas fa-sign-in-alt"></i> &nbsp;ورود </a></li>
+          <li data-toggle="modal" data-target="#modal_h_sabtname" onclick="captcha()"><a ><i class="fas fa-user-plus"></i> &nbsp;ثبت نام</a></li>
         @else
           <li ><a ><i class="fas fa-angle-down"></i> zabi  </a>
             <ul>
@@ -27,8 +27,8 @@
 @endphp
                    @if (empty($check))
                      <ul class="ul_line ul_h1 ">
-                       <li data-toggle="modal" data-target="#modal_h_login"><a ><i class="fas fa-sign-in-alt"></i> &nbsp;ورود </a></li>
-                       <li data-toggle="modal" data-target="#modal_h_sabtname"><a ><i class="fas fa-user-plus"></i> &nbsp;ثبت نام</a></li>
+                       <li data-toggle="modal" data-target="#modal_h_login" onclick="captcha()"><a ><i class="fas fa-sign-in-alt"></i> &nbsp;ورود </a></li>
+                       <li data-toggle="modal" data-target="#modal_h_sabtname" onclick="captcha()"><a ><i class="fas fa-user-plus"></i> &nbsp;ثبت نام</a></li>
                      </ul>
                    @else
                      <ul class="ul_log">

@@ -25,6 +25,7 @@ function pro7_active(class1 , class2){
 
 
  function sabt_nazar_pro(id,name) {
+   var mobail=$('#mobail_pro_nazar').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'post',
@@ -32,7 +33,7 @@ function pro7_active(class1 , class2){
      data: {
           pro_id: id ,
           name:$('#name_pro_nazar').val(),
-          mobail:$('#mobail_pro_nazar').val(),
+          mobail:mobail,
           email:$('#email_pro_nazar').val(),
           nazar:$('#nazar_pro_nazar').val(),
           amniat:$('#amniat_pro_nazar').val(),
@@ -71,6 +72,7 @@ function pro7_active(class1 , class2){
    });
  }
  function sabt_question_pro(id,name) {
+   var mobail=$('#mobail_pro_questions').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'post',
@@ -78,7 +80,7 @@ function pro7_active(class1 , class2){
      data: {
           pro_id: id ,
           name:$('#name_pro_questions').val(),
-          mobail:$('#mobail_pro_questions').val(),
+          mobail:mobail,
           email:$('#email_pro_questions').val(),
           question:$('#question_pro_questions').val(),
           amniat:$('#amniat_pro_questions').val(),
@@ -119,9 +121,9 @@ function pro7_active(class1 , class2){
  //ذخیره آی دی سوال جهت ثبت پاسخ
  function question_id(id) {
    $.cookie("question", id);
-   //$.removeCookie("test");
  }
  function sabt_answer_pro(id,name) {
+   var mobail=$('#mobail_pro_answer').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'post',
@@ -130,7 +132,7 @@ function pro7_active(class1 , class2){
           question_id:$.cookie("question"),
           pro_id: id ,
           name:$('#name_pro_answer').val(),
-          mobail:$('#mobail_pro_answer').val(),
+          mobail:mobail,
           email:$('#email_pro_answer').val(),
           answer:$('#answer_pro_answer').val(),
           amniat:$('#amniat_pro_answer').val(),

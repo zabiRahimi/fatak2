@@ -20,8 +20,8 @@
       <li>راهنمای سفارش محصول جدید</li>
     </ul>
   </li>
-  <li class="modal_hide" onclick="modal_sub_show();hide_menu_mobail(); $('#modal_h_login').modal('show')"><span><i class="fas fa-sign-in-alt"></i> ورود</span> </li>
-  <li class="modal_hide" onclick="modal_sub_show();hide_menu_mobail(); $('#modal_h_sabtname').modal('show')"><span><i class="fas fa-user-plus"></i> ثبت نام</span> </li>
+  <li class="modal_hide" onclick="modal_sub_show();hide_menu_mobail(); $('#modal_h_login').modal('show');captcha()"><span><i class="fas fa-sign-in-alt"></i> ورود</span> </li>
+  <li class="modal_hide" onclick="modal_sub_show();hide_menu_mobail(); $('#modal_h_sabtname').modal('show');captcha()"><span><i class="fas fa-user-plus"></i> ثبت نام</span> </li>
   <li class="modal_hide" onclick="modal_sub_show();hide_menu_mobail(); $('#about_we').modal('show')"><span><i class="fas fa-info-circle"></i> درباره ما</span> </li>
   <li class="modal_hide" onclick="modal_sub_show();hide_menu_mobail(); $('#contact_we').modal('show')"><span><i class="fas fa-phone"></i> تماس با ما</span> </li>
 </ul>

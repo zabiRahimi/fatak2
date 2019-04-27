@@ -63,7 +63,7 @@
       <div class="modal-body modal_body_h_sabtname">
          <form class="form_h_sabtname_pro" id="form_shekait" action="" method="post">
           <div class="form_h_sabtname_pro1"><i class="fas fa-info-circle"></i> ایمیل و موبایل شما منتشر نمی شود</div>
-          <div id="alarm_shekait">45</div>
+          <div id="alarm_shekait"></div>
           <div class="form-group">
             <label for="name_shekait" class="control-label pull-right  "><i class="fas fa-user-tie i_name_sabt"></i> نام و نام خانوادگی </label>
             <div class="div_h_sabtname"><input type="text" class="form-control" id="name_shekait" placeholder="به فارسی ..." ></div>

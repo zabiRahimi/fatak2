@@ -1,25 +1,7 @@
-
-//  $(window).resize(function(){
-//
-// alert(13)
-// if ($(window).width() <= 370){
-//  $(".div_h13").removeClass('col-9');
-//
-// };
-// if ($(window).width() > 370){
-//  $(".div_h13").addClass('col-9');
-//
-// };
-//
-// });
- // v = document.getElementById('fixedv').offsetTop();
 var fixed = $("#fixed").offset();
 $(window).scroll(function() {
-
-  // alert(x.top)
   if ($(document).scrollTop() > fixed.top) {
     $('#fixed').addClass('fixed');
-    // alert(13)
   }
 else{
   $('#fixed').removeClass('fixed');
@@ -40,7 +22,6 @@ function modal_sub_show(class_show=0){
   $('.modal_hide').css("color","#167fc2"  );
   $('.'+class_show+' ul').css("display","block"  );
   $('.'+class_show).css("color","#c85413"  );
-
 }
 // جستجو
 function search_empty(search_matn=0){

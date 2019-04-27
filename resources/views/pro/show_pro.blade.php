@@ -101,7 +101,7 @@
 
       </div>
       <div class="show_pro6_5">
-      <a   onclick="pro7_active('li_pro7_3', 'show_pro8_3') ; nazar_pro()"> <span class="sp_pro6_5_1"> <i class="far fa-comment-dots i_pro6_5_1"></i> نظر دهید</span></a>
+      <a   onclick="pro7_active('li_pro7_3', 'show_pro8_3') ; nazar_pro();captcha()"> <span class="sp_pro6_5_1"> <i class="far fa-comment-dots i_pro6_5_1"></i> نظر دهید</span></a>
       </div>
   </div>
 
@@ -109,8 +109,8 @@
       <ul class="ul_pro7_1">
         <li class="li_pro7_1 pro7_active" onclick="pro7_active('li_pro7_1' , 'show_pro8_1')"> <span class="span_pro7_0"> <span class="span_pro7_1"> <i class="fas fa-clipboard-check"></i></span> <span class="span_pro7_2">توضیحات کالا</span> </span></li>
         <li class="li_pro7_2" onclick="pro7_active('li_pro7_2', 'show_pro8_2')"> <span class="span_pro7_0"> <span class="span_pro7_3"><i class="fas fa-clipboard-list"></i></span> <span class="span_pro7_4">مشخصات کالا</span> </span></li>
-        <li class="li_pro7_3" onclick="pro7_active('li_pro7_3', 'show_pro8_3')"> <span class="span_pro7_0"> <span class="span_pro7_5"><i class="fas fa-comment"></i></span> <span class="span_pro7_6">نظرات کاربران</span> </span></li>
-        <li class="li_pro7_4" onclick="pro7_active('li_pro7_4', 'show_pro8_4')"> <span class="span_pro7_0"> <span class="span_pro7_7"><i class="fas fa-question-circle"></i></span> <span class="span_pro7_8">پرسش و پاسخ</span> </span></li>
+        <li class="li_pro7_3" onclick="pro7_active('li_pro7_3', 'show_pro8_3');captcha()"> <span class="span_pro7_0"> <span class="span_pro7_5"><i class="fas fa-comment"></i></span> <span class="span_pro7_6">نظرات کاربران</span> </span></li>
+        <li class="li_pro7_4" onclick="pro7_active('li_pro7_4', 'show_pro8_4');captcha()"> <span class="span_pro7_0"> <span class="span_pro7_7"><i class="fas fa-question-circle"></i></span> <span class="span_pro7_8">پرسش و پاسخ</span> </span></li>
       </ul>
   </div>
   <div class="show_pro8">
