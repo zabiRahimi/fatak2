@@ -1,6 +1,9 @@
 <?php
 
-Route::get('/{page?}','IndexController@show')->where('page', '[0-9]+');
+Route::get('/{page?,ch?}','IndexController@show')->where('page', '[0-9]+');
+// ثبت بازدید از شبکه اجتماعی
+Route::post('/bazdidCh','IndexController@bazdidCh');//ok!!
+
 Route::get('/pro/{page?}','IndexController@show_ajax');
 Route::get('/card/{name?}/{id?}','IndexController@show_card');
 Route::post('/sabt_shekait','IndexController@sabt_shekait');
@@ -58,6 +61,7 @@ Route::get('/societyCh','ChannelController@societyCh');//ok!!
 
 Route::get('/ghanonCh','ChannelController@ghanonCh');//ok!!
 Route::get('/rahnamaCh','ChannelController@rahnamaCh')->middleware(['cheklogin_channel' ]);//ok!!
+
 
 
 //قسمت مدیریت management

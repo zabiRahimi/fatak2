@@ -7,8 +7,30 @@ $(document).ready(function(){
     var w_doc2 =  $(document).width();
     var left_doc2 =( w_doc2 - 250)/2;
     $('.gif_loding').css("left", left_doc2 + "px");});
-});//end ready
+    //ثبت بازدید شبکه اجتماعی
+    var ch=$('.getid').html();
+    if(ch){
+      $('#modal_bazdidCh').modal('show');
 
+    }
+});//end ready
+function bazdidCh() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../bazdidCh',
+    data: {
+         id:$('.getid').html(),
+         amniat:$('#amniat_getchLabel').val(),
+         },
+    success:function(data){
+
+    },
+    error: function(xhr) {
+      $('#modal_bazdidCh').modal('hide');
+    }
+  });
+}
 function captcha(){
   $.ajax({
     type:'GET',

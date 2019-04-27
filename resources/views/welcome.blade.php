@@ -4,6 +4,11 @@
 @endsection
 @section('content')
  {{-- اسلایدر --}}
+@if (!empty($ch))
+  <div class="getid">
+    {{$ch}}
+  </div>
+@endif
  <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
    <ol class="carousel-indicators">
      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -59,8 +64,6 @@
           محصولی که سفارش دادی رو پیکیری کن ...
         </div>
       </div>
-
-
       <div class="div_in2  kanal_in" onclick="location.href = '/page_login';">
 
         <div class="kanal_in_1">
@@ -155,6 +158,44 @@
   <div class="carsol_pro_ess">
     @include('layout.carsol_pro_ess')
   </div>
+  <!-- Modal بازدید شبکه اجتماعی-->
+  <div class="modal fade" id="modal_bazdidCh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header modal_h_sabtname_header">
+          <h5 class="modal-title modal_h_sabtname_label" id="exampleModalLabel"><i class="fab fa-cc-diners-club"></i> ورود به فروشگاه فاتک</h5>
+        </div>
+        <div class="modal-body modal_body_h_sabtname">
+          <div class="modal_getch">
+            خوش آمدید !!
+          </div>
+          <div class="modal_getch2">
+            <span>سلام !</span>
+            <p>
+              شما به وسیله لینک از یک شبکه اجتماعی و یا یک وب سایت وارد فروشگاه شده اید .
+              لطفا جهت ورود ایمن به فروشگاه کد امنیتی زیر را وارد نموده و دکمه ثبت را فشار دهید .
+            </p>
+          </div>
+          <form class="form form_channellog" id="form_channellog" action="" method="post">
+           {{ csrf_field() }}
+           <div class="form-group" >
+             <label for="amniat_channellog" class="control-label pull-right modal_getchLabel"><i class="fas fa-shield-alt i_form"></i> کد امنیتی </label>
+             <div class="div_form"><input type="text" class="form-control tel" id="amniat_getchLabel" autofocus onblur="changeAdadFaToEn('amniat_pro_nazar')" ></div>
+           </div>
+           <div class="captcha_form">
+             <span class="captcha4">{!! captcha_img() !!}</span>
+             <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
+           </div>
+           <div class="form-group form_btn">
 
+             <button type="button" class="btn btn-success" onclick="bazdidCh()" >ثبت</button>
+           </div>
+         </form>
+        </div>
+        <div class=" modal-footer-h-sabtname">
+        </div>
+      </div>
+    </div>
+  </div><!--end modal شکایت-->
 
 @endsection

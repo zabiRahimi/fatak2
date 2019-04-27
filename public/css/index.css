@@ -1,3 +1,12 @@
+/* //ثبت بازدید شبکه اجتماعی و مودال مربوطه */
+.getid{display: none;}
+#modal_bazdidCh{z-index: 3333333333;}
+.modal_getch{width: 100%;margin: 0 0 8px;font-size: 22px; text-align: center;float: right;background-color: #03cad6;color: #093c1d;border-radius: 2px;}
+.modal_getch2{width: 100%;padding: 6px 8px;float: right;font-size: 16px;text-align: justify;background-color: #ececec; border-radius: 2px 2px 0 0;}
+.modal_getch2 span{color: #13670e;font-size: 18px;}
+@media (max-width:438px) {
+  .modal_getchLabel{width: 110px !important;}
+}
 /* ************اسلایدر************ */
 .slide{width: 100%;float: right;margin-top: -22px;}
 .content{padding: 0 7px;}
