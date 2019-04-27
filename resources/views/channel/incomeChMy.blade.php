@@ -64,7 +64,13 @@
     </div>
     <div class="incomeChMy incomeChMy9">
         <div class="incomeChMy1_1">درآمد ماه گذشته کل شبکه ها</div>
-        <div class="incomeChMy1_2 number">{{number_format($month_income->channel)}}</div>
+        <div class="incomeChMy1_2 number">
+          @if ($month_income)
+            {{number_format($month_income->channel)}}
+          @else
+            0
+          @endif
+          </div>
         <div class="incomeChMy1_3">تومان</div>
     </div>
     <div class="incomeChMy ">
@@ -76,6 +82,7 @@
         @php
           $r++;
         @endphp
+        @continue(empty ($super->income))
         <div class="divIncomeChMy2_1">
           <div class="div34IncomeChMy2 number">{{$r}}</div>
           <div class="div34IncomeChMy3">{{$super->name}}</div>

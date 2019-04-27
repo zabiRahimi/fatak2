@@ -215,7 +215,11 @@ class ChannelController extends Controller
 
       $month_income=Income::where('stage', '2')->first();
       //ارزش بازدید ماه گذشته
-      $view_income_month=floor($month_income->channel/$count_view_month);
+      if($month_income && !empty($count_view_month)){
+        $view_income_month=floor($month_income->channel/$count_view_month);
+      }else{
+        $view_income_month=0;
+      }
       //بیشتر نبودن ارزش بازدید از 1000 تومان
       if ($view_income_month > 1000) {
         $view_income_month=1000;
