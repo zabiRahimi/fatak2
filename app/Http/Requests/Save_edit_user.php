@@ -2,8 +2,6 @@
 
 namespace App\Http\Requests;
 use Illuminate\Http\Request;
-// use Illuminate\Validation\Rule;
-// use Cookie;
 use Illuminate\Foundation\Http\FormRequest;
 
 class Save_edit_user extends FormRequest
