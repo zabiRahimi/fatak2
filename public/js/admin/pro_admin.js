@@ -407,7 +407,7 @@ else{
     parallelUploads: 2,
     acceptedFiles:".png , .jpg , .jpeg",
     maxFilesize: 3,
-   error:function(){
+    error:function(){
 
      $("#imgEditPro4").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },

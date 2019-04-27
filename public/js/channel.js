@@ -35,9 +35,10 @@ function sabt_channel_1(){
         $('#ajax_channelsabt1').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
+        $('#amniat_channelsabt1').val('');
          if(error['name']){
            $('#ajax_channelsabt1').append('<div id="alarm_red">'+error['name']+'</div>');
-           $('#name_data_buyer').css("border-color" , "#c30909");
+           $('#name_channelsabt12').css("border-color" , "#c30909");
         }
         else if(error['mobail']){
            $('#ajax_channelsabt1').append('<div id="alarm_red">'+error['mobail']+'</div>');
@@ -90,6 +91,7 @@ function login_channel(){
         $('#amniat_channellog').val('');
         $('.form-control').css("border-color" , "#fff");
         captcha();
+        $('#amniat_channellog').val('');
         if(error['mobail']){
            $('#ajax_channellog').append('<div id="alarm_red">'+error['mobail']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");

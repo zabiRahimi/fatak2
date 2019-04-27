@@ -15,7 +15,14 @@ class CreateReimburseChesTable extends Migration
     {
         Schema::create('reimburse_ches', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('channel_id');
+            $table->integer('price');
+            $table->string('num_reimburse',60)->nullable();
+            $table->date('date');
+            $table->string('object');
+            $table->boolean('species');
+            $table->boolean('show');
+
         });
     }
 

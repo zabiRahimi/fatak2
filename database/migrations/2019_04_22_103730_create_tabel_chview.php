@@ -15,7 +15,11 @@ class CreateTabelChview extends Migration
     {
         Schema::create('Ch_views', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('channel_id')->index();
+            $table->date('date')->index();
+            $table->integer('buy')->nullable();
+            $table->integer('lot_ch')->nullable();
+            $table->boolean('show');
         });
     }
 

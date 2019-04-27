@@ -27,6 +27,7 @@ function register(){
         $('#ajax_register').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
+        $('#amniat_register').val('');
          if(error['name']){
            $('#ajax_register').append('<div id="alarm_red">'+error['name']+'</div>');
            $('#name_data_buyer').css("border-color" , "#c30909");
@@ -83,6 +84,7 @@ function login_user(){
         $('#ajax_login_user').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
+        $('#amniat_login_user').val('');
          if(error['karbary']){
            $('#ajax_login_user').append('<div id="alarm_red">'+error['karbary']+'</div>');
            $('#name_data_buyer').css("border-color" , "#c30909");
@@ -123,7 +125,6 @@ function edit_register(id){
         var error=errors.errors;
         $('#ajax_edit_register').empty();
         $('.form-control').css("border-color" , "#fff");
-        captcha();
          if(error['name']){
            $('#ajax_edit_register').append('<div id="alarm_red">'+error['name']+'</div>');
            $('#name_data_buyer').css("border-color" , "#c30909");
