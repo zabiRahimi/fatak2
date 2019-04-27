@@ -72,6 +72,10 @@ class ChannelController extends Controller
           return response()->json(['errors' => ['no_karbar' => ['موبایل و یا رمز عبور اشتباه است .']]], 422);
         }
     }
+    public function logoutCh(){
+      Cookie::queue('check_log_channel', '',time() - 3600);
+      return redirect('/');
+    }
     public function dashboard_channel(Request $request){
       $user=Channel::find($this->id);
       $stage=$this->stage;

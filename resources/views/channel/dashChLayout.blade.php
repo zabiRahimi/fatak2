@@ -20,7 +20,7 @@
     </li>
   </a>
 
-  <a href="#"><li> <i class='fas fa-sign-out-alt'></i> خروج</li></a>
+  <a href="/logoutCh"><li> <i class='fas fa-sign-out-alt'></i> خروج</li></a>
 </ul>
 {{-- /* ******************* ساخت منو کنار باز شونده جهت موبایل***************** */ --}}
 <div class="menu_small_1 dashCh_small_1" onclick="hide_menu_small('dashCh_scroll')">

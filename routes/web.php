@@ -45,6 +45,8 @@ Route::post('/edit_register','RegisterController@edit_register');//ok
 Route::get('/page_login','ChannelController@page_login');//ok
 Route::post('/sabt_channel_1','ChannelController@sabt_channel_1');//ok!!
 Route::get('/login_channel','ChannelController@login_channel');//ok!!
+Route::get('/logoutCh','ChannelController@logoutCh');//ok!!
+
 Route::get('/dashboard_channel','ChannelController@dashboard_channel')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/perfectDaCh','ChannelController@perfect_data')->middleware(['cheklogin_channel' ]);//ok!!
 Route::post('/sabt_channel_2','ChannelController@sabt_channel_2');//ok!!
