@@ -29,7 +29,7 @@
       </div>
       <ul class="menu_small_ul">
         <a href="/"><li class="modal_hide"><span><i class="far fa-window-maximize"></i> صفحه اصلی</span> </li></a>
-        <li class="modal_hide" onclick="show_form_channel_log('channel_society_log');hide_menu_small('chanelMeLog_scroll')"><span><i class="fas fa-comments"></i> نحوه کسب درآمد از شبکه اجتماعی</span> </li>
+        <li class="modal_hide" onclick="show_form_channel_log('channel_society_log');hide_menu_small('chanelMeLog_scroll')"><span><i class="fas fa-handshake"></i> نحوه کسب درآمد از شبکه اجتماعی</span> </li>
         <li class="modal_hide" onclick="show_form_channel_log('channel_ghanon_log');;hide_menu_small('chanelMeLog_scroll')"><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li>
         <li class="modal_hide" onclick="modal_sub_show() ;hide_menu_small('chanelMeLog_scroll'); $('#modal_ghanon').modal('show')"><span><i class="fas fa-compass"></i> راهنما</span> </li>
       </ul>

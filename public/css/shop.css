@@ -1,0 +1,277 @@
+/* //page_login */
+.shop_log{width: 98%;height: 35px;line-height: 35px;margin: 3px 1%; border: 1px solid #5c5c5c; border-radius: 3px;float: right;background-color: #a2d4a9}
+.shop_log1,.shop_log2,.shop_log3{width: 33%;float: right;font-size: 18px;}
+.shop_log1{padding-right: 20px;text-align: right;color: #18909c;}
+.shop_log2{margin: 0 0.5%;line-height: 20px;text-align: center;font-size: 14px; color: #2f9909;}
+.shop_log3{padding-left: 20px;}
+@media (max-width:340px){.shop_log1,.shop_log3{width: 50%;padding: 0 5px;}.shop_log2{display: none;}}
+.shop_log_ul{
+  width: 98%;height: 40px;line-height: 40px;margin: 0 1%;padding-right: 25px;color: #fff;background-color: #0a374d;border-radius: 3px;text-align: right;float: right;
+}
+.shop_log_ul a{color: #fff;margin-left: 8px;border-left: 1px solid #fff;}
+.shop_log_ul li{
+  margin-left: 10px;
+  border-left: 1px solid #fff;
+  padding-left: 8px;
+  cursor: pointer;
+}
+.shop_log_ul li:hover{color: #75cdc8}
+.shop_log_ul li:last-child{border-left: none;}
+.chanel_menu_log{width: 100%; float: right;text-align: center;display: none;}
+.chanel_menu_log button{width: 120px;height: 38px;background-color:#0a374d; color: #fff;}
+.chanel_menu_log button i{position: relative;top:-3px; font-size: 28px;}
+.chanel_menu_log button span{margin-right: 17px;position: relative;top: -10px; font-size: 22px;}
+@media (max-width:768px){
+  .shop_log_ul{display: none;}
+  .chanel_menu_log{display: block;}
+  /*جهت پنهان کردن اسکرول تگ بادی */
+  .chanelMeLog_scroll{overflow: hidden;}
+
+}
+@media (min-width:769px) {
+.chanelMeLog_small_1 , .chanelMeLog_small_2{display: none;}
+}
+/* دکمه های ثبت نام ورود */
+.shop_btn_log{width: 100%;margin-top: 50px;float: right;}
+.shop_btn_log button{width: 180px; height: 60px;font-size: 24px;color: #fff;}
+.shop_btn_log1{width: 50%;padding-left: 15px;float: right;text-align: left;}
+.shop_btn_log1 button{background-color: #077109;}
+.shop_btn_log2{width: 50%;padding-right: 15px;float: left;text-align: right;}
+.shop_btn_log2 button{background-color: #115c96;}
+@media (max-width:768px) {
+  .shop_btn_log{margin-top: 17px;}
+  .shop_btn_log button{width: 130px; height: 48px;font-size: 18px;}
+}
+@media (max-width:520px) {
+  .shop_btn_log{margin-top: 12px;}
+  .shop_btn_log button{width: 90px; height: 38px;}
+}
+@media (max-width:280px) {
+  .shop_btn_log1{padding-left: 8px;}
+  .shop_btn_log2{padding-right: 8px;}
+}
+/* فرمهای ورود و ثبت نام */
+.shop_sabt_log_log{
+  width: 98%;
+  float: right; margin:15px 1% ; padding: 12px 0;background-color: #d4d4d4;display: none;
+}
+ .shop_sabt_log_log2{width: 60%;margin: 3px 20%;padding: 5px 130px;float: right;background-color: #f6f1f1;display: none ;border-radius: 4px;}
+@media (max-width:1350px) {
+  .shop_sabt_log_log2{padding: 5px 90px;}
+}
+@media (max-width:1100px) {
+  .shop_sabt_log_log2{padding: 5px 50px;}
+}
+@media (max-width:900px) {
+  .shop_sabt_log_log2{width: 80%;margin: 3px 10%;}
+}
+@media (max-width:768px) {
+  .shop_sabt_log_log2{width: 90%;margin: 3px 5%;}
+}
+@media (max-width:650px) {
+  .shop_sabt_log_log2{width: 96%;margin: 3px 2%;}
+}
+@media (max-width:580px) {
+  .shop_sabt_log_log2{width: 96%;margin: 3px 2%;padding: 5px 20px;}
+}
+@media (max-width:460px) {
+  .shop_sabt_log_log2{width: 100%;margin: 3px 0;}
+}
+@media (max-width:310px) {
+  .shop_sabt_log_log2{width: 100%;margin: 3px 0;padding: 5px 5px;}
+}
+.shop_ghanon_society_log3{width: 100%;padding: 0 6px;}
+/* لوگوهای تامین کننده */
+.shop_logo_log{width: 100%; float: right; margin: 40px 0 10px; text-align: center;}
+.shop_logo_log span{display: inline-block;}
+.shop_logo_log span > span:first-child{padding: 0 8px; font-size: 25px;}
+.shop_logo_log span > span:last-child{ display: block;width: inherit;border: 3px solid #0c7082;border-radius: 4px;}
+.shop_logo_log span > span > img{width: 36px;}
+@media (max-width:768px) {
+  .shop_logo_log span > span > img{width: 26px;}
+}
+/* دیدگاه مدیران */
+.shop_did_log{width: 100%; float: right;margin: 10px 0;}
+.shop_did_log1{width: 98%; margin: 0 1%; border: 3px solid #0e1045;display: inline-block;border-radius: 3px;}
+.shop_did_log2{width: 130px;margin: -32px 42px 0 0;padding: 5px 5px;text-align: center;display: inline-block;float: right;z-index: 1;position: relative;border: 1px solid #0e1045;font-size: 18px;border-radius: 10px;background-color: #fff; color: #175d18;}
+@media (max-width:768px) {
+  .shop_did_log2{margin: -28px 4% 0 0; padding: 0 5px;}
+}
+/* داشبورد شبکه */
+
+.dashShHead{width:98%;height:40px;line-height:40px;margin:3px 1% 2px;padding: 0 25px;background-color:#87a9c3;border-radius:3px;float:right;}
+.dashShHead1{width: 75%;float: right;text-align: right; font-size: 18px;}
+.dashShHead1_1{color: #fff;}
+.dashShHead1_2{color: #055b43;margin-right: 10px;font-size: 16px;}
+.dashShHead2{width:25%;float: right;}
+.dashShHead2 a{font-size: 18px; color: #115303;}
+.NoperfectDaSh{width: 100%;margin: 20px 0; padding: 15px 3px;text-align: center;border: 2px solid #904a11;border-radius: 3px;float: right;}
+.NoperfectDaSh span {font-size: 26px; color:#b16914 ; }
+@media (max-width:768px) {
+  .dashShHead{padding: 0 6px;}
+}
+@media (max-width:350px) {
+  .dashShHead1 , .dashShHead2 a{font-size: 16px;}
+  .dashShHead1_2{margin-right: 5px;font-size: 12px;}
+}
+.dashShUl{width: 98%;height: 35px;line-height: 35px;margin: 0 1%;padding: 0 25px;background-color: #d1d1d1;float: right;border-radius: 3px;text-align: right;}
+.dashShUl a{padding:0 10px 0 6px; border-right: 1px solid #000;cursor: pointer;display: inline;}
+.dashShUl a:first-child,.dashShUl a:last-child{border-right: none;padding: 0;}
+.dashShUl a:last-child{float: left;color: #820909;}
+.dashShUl li:last-child i{position: relative;top: 3px; left: 3px;}
+.dashShUl a.dashShABt{display: none;border: none;padding: 0;}
+.dashShBt{width: 70px;height: 33px;background-color:#0a374d; color: #fff;}
+.dashShBt i{position: relative;margin-top:-7px ;font-size: 22px;}
+.dashShBt span{margin-right: 7px;position: relative;top: -5px; font-size: 18px;}
+@media (max-width:950px){
+  .dashShUl a{display: none;}
+  .dashShUl a.dashShABt,.dashShUl a:last-child{display: inline-block;}
+  .dashSh_scroll{overflow: hidden;}
+}
+@media (min-width:951Px) {
+.dashSh_small_1 , .dashSh_small_2{display: none;}
+}
+/* content shop */
+.dashShContent{width: 98%;margin: 5px 1%;padding: 7px 4px;background-color: #f1f1f1; float: right;}
+.dashSh_R{width: 220px;margin-left: 5px;background-color: #d4d4d4; float: right;}
+.dashSh_RUl li{font-size: 18px;border-color: #f0f0f0}
+.dashSh_RUl li i{margin-left: 8px;}
+
+.dashSh_L{width: calc(100% - 225px);padding: 3px 15px;float: left;background-color: #fff;}
+.dashTitrCh{width: 100%;height: 40px;line-height: 40px;padding:0 20px;float: right;font-size: 18px;color: #fff;background-color: #2454a6;border-radius: 3px;text-align: right;}
+.dashLBodyCh{width: 100%;padding:7px 4px;float: right;text-align: right;}
+@media (max-width:950px){
+  .dashSh_R{display: none;}
+  .dashSh_L{width: 100%;padding: 3px 10px;}
+}
+@media (max-width:768px){
+
+  .dashSh_L{padding: 3px 5px;}
+  .dashTitrCh{padding:0 10px;}
+
+}
+#form_perfectDaSh ,.form_editDaCh , .form_editPasDaShop{
+  width: 560px;
+  margin: 8px calc((100% - 560px)/2) 25px;
+}
+.line_editCh{width: 620px;margin: 8px calc((100% - 620px)/2) 25px;border: 3px solid #0a6e65;float: right;border-radius: 4px;}
+@media (max-width:610px){
+  #form_perfectDaSh,.form_editDaCh, .form_editPasDaShop,.line_editCh{
+    width: 98%;
+    margin: 8px 1% 25px;
+  }
+}
+.perfectDaShOk{text-align: center;margin: 25px 0 ;padding: 20px 4px;border: 2px solid #286767;border-radius: 3px;}
+/* urlChAll.php */
+.divUrlCHMy{width: 100%;height: 45px;line-height: 45px;margin: 5px 0;font-family:Arial;font-size: 20px;font-weight: bold;float: right;text-align: center;border: 2px solid #042e11;border-radius: 4px; color:#024d77; }
+
+/* viewChMy.php */
+.divViweChMy{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
+.divViweChMy span{display: inline-block;text-align: right;float: right;}
+.divViweChMy span:first-child{width: 70%;padding-right: 45px;}
+.divViweChMy span:last-child{width: 30%;padding-left:35px;text-align: left;}
+@media (max-width:505px){
+  .divViweChMy{width: 100%;margin: 5px 0;}
+  }
+@media (max-width:430px){
+  .divViweChMy span:first-child{padding-right: 5px;}
+  .divViweChMy span:last-child{padding-left:5px;}
+  }
+@media (max-width:315px){
+  .divViweChMy{padding: 0 4px;}
+  .divViweChMy span:first-child{width: 100%;}
+  .divViweChMy span:last-child{width: 100%;}
+  }
+.div1ViweChMy{border-color: #284b59;background-color: #d2e2e6;}
+.div2ViweChMy{border-color: #285942;background-color: #accfd7;}
+.div3ViweChMy{border-color: #315928;background-color: #c3e6ca;}
+.div4ViweChMy{border-color: #594428;background-color: #f2d991;}
+.div5ViweChMy{border-color: #284b59;background-color: #d2e2e6;}
+.div6ViweChMy{border-color: #315928;background-color: #c3e6ca;}
+.div7ViweChMy{border-color: #594428;background-color: #f2d991;}
+/* viewChAll.php */
+.divViweChAll , .divViweChAll2{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
+.divViweChAll span{display: inline-block;text-align: right;float: right;}
+.divViweChAll span:first-child{width: 70%;padding-right: 45px;}
+.divViweChAll span:last-child{width: 30%;padding-left:35px;text-align: left;}
+@media (max-width:505px){
+  .divViweChAll ,.divViweChAll2{width: 100%;margin: 5px 0;}
+  }
+@media (max-width:430px){
+  .divViweChAll span:first-child{padding-right: 5px;}
+  .divViweChAll span:last-child{padding-left:5px;}
+  }
+@media (max-width:315px){
+  .divViweChAll{padding:  4px;}
+  .divViweChAll span:first-child{width: 100%;}
+  .divViweChAll span:last-child{width: 100%;}
+  }
+.div0ViweChAll{border-color: #284b59;background-color: #86c191;}
+.div1ViweChAll{border-color: #284b59;background-color: #d2e2e6;}
+.div2ViweChAll{border-color: #285942;background-color: #accfd7;}
+.div3ViweChAll{border-color: #315928;background-color: #c3e6ca;}
+.div4ViweChAll{border-color: #594428;background-color: #f2d991;}
+.div5ViweChAll{border-color: #284b59;background-color: #53afbf;}
+
+.div3ViweChAll1,.div4ViweChAll1 ,.divViweChAll2_1{width: 99%; margin: 0 0.5%;padding: 2px 6px;float: right; border: 1px solid #21275e;border-radius: 3px;background-color: #437fa1;color: #fff;}
+.divViweChAll2_1{margin-top: 2px;background-color: #8ec3cd}
+.divViweChAll2_1 div {float: right;}
+.div34ViweChAll2{width: 22px;padding:3px 0 2px;background-color: #8cd575;border-radius: 20px;text-align: center;color: #000;border: 1px solid #173055;margin-left: 3px;}
+.div34ViweChAll3{width: calc(65% - 22px);padding:3px 10px 2px 0;background-color: #eee;color: #171375; border-radius: 0 3px 3px 0;}
+.div34ViweChAll4{width: calc(35% - 3px);padding: 3px 0 2px;background-color: #eee;color: #1c5910; border-radius: 3px 0 0 3px ;}
+.div34ViweChAll4 span{margin-right: 5px; font-size: 10px;}
+@media (max-width:350px){
+  .div34ViweChAll3{width: calc(100% - 25px);border-radius: 3px;}
+  .div34ViweChAll4{width: calc(100% - 25px);margin-top: 1px;border-radius: 3px;text-align: center;float: left !important;}
+  }
+/* incomeChMy.php */
+.incomeChMy{width: 450px ;padding: 6px 0;margin: 5px calc((100% - 450px)/2);float: right;border: 2px solid ; border-radius: 3px;text-align: center;}
+.incomeChMy1{color: #1599b8;}
+.incomeChMy2{color: #1f3e10;}
+.incomeChMy3{color: #0f3569;}
+.incomeChMy4{color:#05950b ;}
+.incomeChMy5{color:#0f6981 ;}
+.incomeChMy6{color:#6504a1 ;}
+.incomeChMy7{color: #8f4510;}
+.incomeChMy8{color: #0b3d04;}
+.incomeChMy9{color: #1a037a;}
+.incomeChMy10{color: #0e494b;}
+.incomeChMy1_1{width: 63%;float: right;}
+.incomeChMy1_2{width: 22%;float: right;color: #176910;}
+.incomeChMy1_3{width: 15%;float: left; color: #9aadba;}
+@media (max-width:505px){
+  .incomeChMy{width: 100%;margin: 5px 0;}
+  }
+@media (max-width:350px){
+  .incomeChMy1_1{width: 100%;float: right;}
+  .incomeChMy1_2{width: 50%;padding-left: 5px;text-align: left;}
+  .incomeChMy1_3{width: 50%;padding-right: 5px;text-align: right;}
+  }
+@media (max-width:315px){
+
+  }
+  .divIncomeChMy ,.divIncomeChMy2_1{width: 99%; margin: 0 0.5%;padding: 2px 6px;float: right; border: 1px solid #21275e;border-radius: 3px;background-color: #437fa1;color: #fff;}
+  .divIncomeChMy2_1{margin-top: 2px;background-color: #8ec3cd;}
+  .divIncomeChMy2_1 div {float: right;}
+  .div34IncomeChMy2{width: 22px;padding:3px 0 2px;background-color: #8cd575;border-radius: 20px;text-align: center;color: #000;border: 1px solid #173055;margin-left: 3px;}
+  .div34IncomeChMy3{width: calc(65% - 22px);padding:3px 10px 2px 0;background-color: #eee;color: #171375; border-radius: 0 3px 3px 0;}
+  .div34IncomeChMy4{width: calc(35% - 3px);padding: 3px 0 2px;background-color: #eee;color: #1c5910; border-radius: 3px 0 0 3px ;}
+  .div34IncomeChMy4 span{margin-right: 5px; font-size: 10px;}
+  @media (max-width:350px){
+    .div34IncomeChMy3{width: calc(100% - 25px);border-radius: 3px;}
+    .div34IncomeChMy4{width: calc(100% - 25px);margin-top: 1px;border-radius: 3px;text-align: center;float: left !important;}
+    }
+/* societyCh.php */
+.society_ch{width: 100%;padding: 7px 20px 7px 10px ;text-align: justify;float: right;color: #3d3d3d;background-color: #f1f7f9;font-size: 16px;}
+.society_ch p{background-color: #fff; padding: 5px 8px; border-radius: 2px;}
+.span_society1{color: #196b0c; font-size: 18px;}
+.span_society2{color: #09898e;font-size: 18px;}
+.span_society3{color:#026a3e; }
+@media (max-width:768px){
+  .society_ch{font-size: 14px;padding: 7px 10px ;}
+  .span_society1,.span_society2{font-size: 16px;}
+  }
+/* ghanonCh.php */
+.ghanonCh{}
+.ghanonChUl{padding:5px 25px 5px 6px;list-style: decimal;background-color: #cddfdb}
+.ghanonChUl li{margin-bottom: 5px; background-color: #fff; padding: 3px 8px 3px 5px; border-radius: 4px;}

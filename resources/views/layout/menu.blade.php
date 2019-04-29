@@ -1,14 +1,8 @@
 <!-- header.css -->
-{{-- @php
-
-	use App\Models\Menu;
-  $menu=Menu::whereSub_menuAndShow(0 ,1)->get();
-@endphp --}}
-
 <ul id="ul_menu" class="ul_line ul_menu" >
 	<a href="/"><li ><span> صفحه اصلی</span> </li></a>
 	<a href="/page_login"><li  onclick=""><span> مدیریت کانال و گروه</span> </li></a>
-	<li  onclick=""><span> مدیریت فروشندگان </span> </li>
+	<a href="/pageloginShop"><li  onclick=""><span> مدیریت فروشندگان </span> </li></a>
 	<li  onclick=""data-toggle="modal" data-target="#modal_ghanon"><span> قوانین و مقررات</span> </li>
 	<li  onclick=""data-toggle="modal" data-target="#modal_shekait" ><span> شکایت</span> </li>
 	<li  onclick=""><span> راهنما</span>

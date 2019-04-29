@@ -1,124 +1,119 @@
 
 // نمایش و عدم نمایش فرمهای ورود و ثبت نام
-function show_form_channel_log(clases) {
-  $('.channel_sabt_log_log').css('display', 'block');
-   $('.channel_sabt_log_log2' ).css('display', 'none');
-   $('.channel_ghanon_society_log3').css('display', 'none');
+function show_form_shop_log(clases) {
+  $('.shop_sabt_log_log').css('display', 'block');
+   $('.shop_sabt_log_log2' ).css('display', 'none');
+   $('.shop_ghanon_society_log3').css('display', 'none');
   $('.'+clases).css('display', 'block');
 }
-// ثبت ابتدایی شبکه اجتماعی
-function sabt_channel_1(){
-  var mobail=$('#mobail_channelsabt1').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+// ثبت ابتدایی تامین کننده
+function sabtShop_1(){
+  var mobail=$('#mobail_shopsabt1').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../sabt_channel_1',
+    url:'../sabtShop_1',
     data: {
-          name:$('#name_channelsabt1').val(),
+          seller:$('#seller_shopsabt1').val(),
           mobail:mobail,
-          email:$('#email_channelsabt1').val(),
-          pas:$('#pas_channelsabt1').val(),
-          amniat:$('#amniat_channelsabt1').val(),
+          pas:$('#pas_shopsabt1').val(),
+          amniat:$('#amniat_shopsabt1').val(),
          },
     success:function(data){
-      $('#ajax_channelsabt1').empty();
-      document.getElementById("form_channelsabt1").reset();
-      $('#end_channelsabt1').modal('show');
-      $("#end_channelsabt1").on('hide.bs.modal', function () {
-      window.location.href  = "/page_login";
+      $('#ajax_shopsabt1').empty();
+      document.getElementById("form_shopsabt1").reset();
+      $('#end_shopsabt1').modal('show');
+      $("#end_shopsabt1").on('hide.bs.modal', function () {
+      window.location.href  = "/pageloginShop";
       });
     },
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_channelsabt1');
-        $('#ajax_channelsabt1').empty();
+        scroll_form('form_shopsabt1');
+        $('#ajax_shopsabt1').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
-        $('#amniat_channelsabt1').val('');
-         if(error['name']){
-           $('#ajax_channelsabt1').append('<div id="alarm_red">'+error['name']+'</div>');
-           $('#name_channelsabt12').css("border-color" , "#c30909");
+        $('#amniat_shopsabt1').val('');
+         if(error['seller']){
+           $('#ajax_shopsabt1').append('<div id="alarm_red">'+error['seller']+'</div>');
+           $('#name_shopsabt12').css("border-color" , "#c30909");
         }
         else if(error['mobail']){
-           $('#ajax_channelsabt1').append('<div id="alarm_red">'+error['mobail']+'</div>');
+           $('#ajax_shopsabt1').append('<div id="alarm_red">'+error['mobail']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
-        else if(error['email']){
-           $('#ajax_channelsabt1').append('<div id="alarm_red">'+error['email']+'</div>');
-           $('#address_data_buyer').css("border-color" , "#c30909");
-        }
         else if(error['pas']){
-           $('#ajax_channelsabt1').append('<div id="alarm_red">'+error['pas']+'</div>');
+           $('#ajax_shopsabt1').append('<div id="alarm_red">'+error['pas']+'</div>');
            $('#email_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['amniat']){
-           $('#ajax_channelsabt1').append('<div id="alarm_red">'+error['amniat']+'</div>');
+           $('#ajax_shopsabt1').append('<div id="alarm_red">'+error['amniat']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else {
 
-           $('#ajax_channelsabt1').modal('show');
+           $('#ajax_shopsabt1').modal('show');
         }}});}
 
-// لاگین کردن شبکه اجتماعی
-function login_channel(){
-  var mobail=$('#mobail_channellog').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+// لاگین کردن تامین کننده
+function loginShop(){
+  var mobail=$('#mobail_shoplog').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../login_channel',
+    url:'../loginShop',
     data: {
           mobail:mobail,
-          pas:$('#pas_channellog').val(),
-          amniat:$('#amniat_channellog').val(),
+          pas:$('#pas_shoplog').val(),
+          amniat:$('#amniat_shoplog').val(),
          },
     success:function(data){
-      $('#ajax_channellog').empty();
-      document.getElementById("form_channellog").reset();
+      $('#ajax_shoplog').empty();
+      document.getElementById("form_shoplog").reset();
       captcha();
-      $('#end_channellog').modal('show');
-      $("#end_channellog").on('hide.bs.modal', function () {
-      window.location.href  = "/dashboard_channel";
+      $('#end_shoplog').modal('show');
+      $("#end_shoplog").on('hide.bs.modal', function () {
+      window.location.href  = "/dashboard_shop";
       });
     },
     error: function(xhr) {
       $('#ok_edit_user').modal('show');
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_channellog');
-        $('#ajax_channellog').empty();
-        $('#amniat_channellog').val('');
+        scroll_form('form_shoplog');
+        $('#ajax_shoplog').empty();
+        $('#amniat_shoplog').val('');
         $('.form-control').css("border-color" , "#fff");
         captcha();
-        $('#amniat_channellog').val('');
+        $('#amniat_shoplog').val('');
         if(error['mobail']){
-           $('#ajax_channellog').append('<div id="alarm_red">'+error['mobail']+'</div>');
+           $('#ajax_shoplog').append('<div id="alarm_red">'+error['mobail']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['pas']){
-           $('#ajax_channellog').append('<div id="alarm_red">'+error['pas']+'</div>');
+           $('#ajax_shoplog').append('<div id="alarm_red">'+error['pas']+'</div>');
            $('#email_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['amniat']){
-           $('#ajax_channellog').append('<div id="alarm_red">'+error['amniat']+'</div>');
+           $('#ajax_shoplog').append('<div id="alarm_red">'+error['amniat']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['no_karbar']){
-           $('#ajax_channellog').append('<div id="alarm_red">'+error['no_karbar']+'</div>');
+           $('#ajax_shoplog').append('<div id="alarm_red">'+error['no_karbar']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else {
 
-           $('#ajax_channellog').modal('show');
+           $('#ajax_shoplog').modal('show');
         }}});}
 
 // perfect_data.php
-function sabt_channel_2(){
+function sabt_shop_2(){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../sabt_channel_2',
+    url:'../sabt_shop_2',
     data: {
           codemly:$('#codemly_perfectDaCh').val(),
           ostan:$('#ostan_perfectDaCh').val(),

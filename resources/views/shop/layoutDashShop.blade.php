@@ -1,4 +1,4 @@
-@extends('channel.layout')
+@extends('shop.layoutShop')
 @section('content')
 <div class="dashChHead">
   <div class="dashChHead1">
@@ -8,9 +8,9 @@
   <div class="dashChHead2"><a href="www.fatak.ir">fatak.ir</a></div>
 </div>
 <ul class="ul_line dashChUl">
-  <a href="/dashboard_channel" class="apjax"><li>صفحه نخست</li></a>
-  <a href="/perfectDaCh" class="apjax"><li>تکمیل اطلاعات</li></a>
-  <a href="/editDaCh"class="apjax"><li>ویرایش اطلاعات</li></a>
+  <a href="/dashboard_shop" class="apjax"><li>صفحه نخست</li></a>
+  <a href="/perfectDaShop" class="apjax"><li>تکمیل اطلاعات</li></a>
+  <a href="/editDaShop"class="apjax"><li>ویرایش اطلاعات</li></a>
   <a class="dashChABt">
     <li>
       <button type="button" class="btn dashChBt" name="button"onclick="show_menu_small('dashCh_scroll')">
@@ -31,8 +31,8 @@
     <span><i class="fas fa-ellipsis-v"></i> منو</span> <button  onclick="hide_menu_small('dashCh_scroll')"><span aria-hidden="true">&times;</span></button>
   </div>
   <ul class="menu_small_ul">
-    <a href="/dashboard_channel" class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="far fa-window-maximize"></i> صفحه نخست</span></li></a>
-    <a href="/perfectDaCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-pen-square"></i> تکمیل اطلاعات</span> </li></a>
+    <a href="/dashboard_shop" class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="far fa-window-maximize"></i> صفحه نخست</span></li></a>
+    <a href="/perfectDaShop"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-pen-square"></i> تکمیل اطلاعات</span> </li></a>
     <a href="/editDaCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class='fas fa-edit'></i> ویرایش اطلاعات</span> </li></a>
     <a href="/warnCh"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="far fa-bell"></i> هشدارها و اخبار</span> </li></a>
     <a href="/urlChMy"class="apjax" onclick="hide_menu_small('dashCh_scroll');"><li class="modal_hide"><span><i class="fas fa-project-diagram"></i> کد و آدرس مربوط به من</span> </li></a>

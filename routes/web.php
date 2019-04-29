@@ -44,26 +44,30 @@ Route::post('/edit_register','RegisterController@edit_register');//ok
 //channel
 Route::get('/page_login','ChannelController@page_login');//ok
 Route::post('/sabt_channel_1','ChannelController@sabt_channel_1');//ok!!
-Route::get('/login_channel','ChannelController@login_channel');//ok!!
+Route::post('/login_channel','ChannelController@login_channel');//ok!!
 Route::get('/logoutCh','ChannelController@logoutCh');//ok!!
-
 Route::get('/dashboard_channel','ChannelController@dashboard_channel')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/perfectDaCh','ChannelController@perfect_data')->middleware(['cheklogin_channel' ]);//ok!!
 Route::post('/sabt_channel_2','ChannelController@sabt_channel_2');//ok!!
 Route::get('/editDaCh','ChannelController@editDaCh')->middleware(['cheklogin_channel' ]);//ok!!
 Route::post('/editDaChSave','ChannelController@editDaChSave');//ok!!
 Route::post('/editPasDaCh','ChannelController@editPasDaCh');//ok!!
-
 Route::get('/warnCh','ChannelController@warnCh')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/urlChMy','ChannelController@urlChMy')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/viewChMy','ChannelController@viewChMy')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/viewChAll','ChannelController@viewChAll')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/incomeChMy','ChannelController@incomeChMy')->middleware(['cheklogin_channel' ]);//ok!!
 Route::get('/societyCh','ChannelController@societyCh');//ok!!
-
 Route::get('/ghanonCh','ChannelController@ghanonCh');//ok!!
 Route::get('/rahnamaCh','ChannelController@rahnamaCh')->middleware(['cheklogin_channel' ]);//ok!!
 
+// فروشنده
+Route::get('/pageloginShop','ShopController@pageloginShop');//ok
+Route::post('/sabtShop_1','ShopController@sabtShop_1');//ok
+Route::post('/loginShop','ShopController@loginShop');//ok!!
+Route::get('/dashboard_shop','ShopController@dashboard_shop')->middleware(['chekloginShop' ]);;//ok
+Route::get('/perfectDaShop','ShopController@perfectDaShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/editDaShop','ShopController@editDaShop')->middleware(['chekloginShop' ]);//ok!!
 
 
 //قسمت مدیریت management

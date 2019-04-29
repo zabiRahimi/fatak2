@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shop extends Model
 {
-    public $timestamps = false;
+  public $timestamps = false;
+  protected $guarded = ['id'];
 }
