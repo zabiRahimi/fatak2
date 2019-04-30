@@ -20,8 +20,12 @@
    <div id="ajax_editDaShop"></div>
    {{ csrf_field() }}
    <div class="form-group">
-     <label for="name_editDaShop" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> نام و نام خانوادگی</label>
-     <div class="div_form"><input type="text" class="form-control" id="name_editDaShop" value="{{$user->name}}"></div>
+     <label for="shop_editDaShop" class="control-label pull-right "><i class="fas fa-tag i_form"></i> نام فروشگاه</label>
+     <div class="div_form"><input type="text" class="form-control" id="shop_editDaShop" value="{{$user->shop}}"></div>
+   </div>
+   <div class="form-group">
+     <label for="seller_editDaShop" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> نام و نام خانوادگی</label>
+     <div class="div_form"><input type="text" class="form-control" id="seller_editDaShop" value="{{$user->seller}}"></div>
    </div>
    <div class="form-group">
      <label for="codemly_editDaShop" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  کد ملی</label>
@@ -30,6 +34,10 @@
    <div class="form-group">
      <label for="mobail_editDaShop" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> موبایل</label>
      <div class="div_form"><input type="text" class="form-control" id="mobail_editDaShop" value="{{$user->mobail}}"></div>
+   </div>
+   <div class="form-group">
+     <label for="tel_editDaShop" class="control-label pull-right "><i class="fas fa-phone i_form"></i> تلفن</label>
+     <div class="div_form"><input type="text" class="form-control" id="tel_editDaShop" value="{{$user->tel}}"></div>
    </div>
    <div class="form-group">
      <label for="email_editDaShop" class="control-label pull-right "><i class="fas fa-at i_form"></i>  ایمیل</label>
@@ -95,6 +103,10 @@
      <div class="div_formTextarea">
        <textarea name="name" id="address_editDaShop">{{$user->address}}</textarea>
      </div>
+   </div>
+   <div class="form-group">
+     <label for="codepost_editDaShop" class="control-label pull-right "><i class="far fa-address-card i_form"></i>کد پستی</label>
+     <div class="div_form"><input type="text" class="form-control" id="codepost_editDaShop" value="{{$user->codepost}}"></div>
    </div>
    <div class="form-group">
      <label for="accountNumber_editDaShop" class="control-label pull-right "><i class="fas fa-money-check-alt i_form"></i> شماره حساب بانکی</label>

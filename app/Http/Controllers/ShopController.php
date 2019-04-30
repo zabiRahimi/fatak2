@@ -105,8 +105,30 @@ class ShopController extends Controller
   }
   public function editDaShop(Request $request)
   {
+    $user=Shop::find($this->id);
     $stage=$this->stage;
-    return view('shop.editDaShop',compact('stage'));
-
+    return view('shop.editDaShop',compact('stage','user'));
+  }
+  public function editDaShopSave(Save_editShop $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $save=Shop::find($this->id);
+    $save->shop=$request->shop;
+    $save->seller=$request->seller;
+    $save->mobail=$request->mobail;
+    $save->tel=$request->tel;
+    $save->email=$request->email;
+    $save->codemly=$request->codemly;
+    $save->ostan=$request->ostan;
+    $save->city=$request->city;
+    $save->address=$request->address;
+    $save->codepost=$request->codepost;
+    $save->accountNumber=$request->accountNumber;
+    $save->cart=$request->cart;
+    $save->master=$request->master;
+    $save->bank=$request->bank;
+    $save->date_up=$date;
+    $save->save();
   }
 }

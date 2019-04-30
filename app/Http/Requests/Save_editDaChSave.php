@@ -61,7 +61,7 @@ class Save_editDaChSave extends FormRequest
           'ostan'=>'required',
           'city'=>'required',
           'address'=>'required|address',
-          // 'codepost'=>'required',
+          // 'codepost'=>'required|codepost',
           'accountNumber'=>'required|numeric',
           'cart'=>'required|numeric',
           'master'=>'required|name',

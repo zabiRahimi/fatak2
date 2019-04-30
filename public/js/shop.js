@@ -110,6 +110,7 @@ function loginShop(){
 
 // perfect_data.php
 function sabtShop_2(){
+  var tel=$('#tel_perfectDaSh').val();var check =/^[0-9]{10}$/;if(check.test(tel)){tel = 0 + tel;}
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
@@ -121,7 +122,7 @@ function sabtShop_2(){
           city:$('#city_perfectDaSh').val(),
           address:$('#address_perfectDaSh').val(),
           codepost:$('#codepost_perfectDaSh').val(),
-          tel:$('#tel_perfectDaSh').val(),
+          tel:tel,
           email:$('#email_perfectDaSh').val(),
           accountNumber:$('#accountNumber_perfectDaSh').val(),
           cart:$('#cart_perfectDaSh').val(),
@@ -199,87 +200,96 @@ function sabtShop_2(){
            $('#ajax_perfectDaSh').modal('show');
         }}});}
 // edit_data.php
-function editDaChSave(id){
-  var mobail=$('#mobail_editDaCh').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+function editDaShopSave(id){
+  var mobail=$('#mobail_editDaShop').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+  var tel=$('#tel_editDaShop').val();var check =/^[0-9]{10}$/;if(check.test(tel)){tel = 0 + tel;}
+
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../editDaChSave',
+    url:'../editDaShopSave',
     data: {
           id:id,
-          name:$('#name_editDaCh').val(),
-          codemly:$('#codemly_editDaCh').val(),
+          shop:$('#shop_editDaShop').val(),
+          seller:$('#seller_editDaShop').val(),
+          codemly:$('#codemly_editDaShop').val(),
           mobail:mobail,
-          email:$('#email_editDaCh').val(),
-          ostan:$('#ostan_editDaCh').val(),
-          city:$('#city_editDaCh').val(),
-          address:$('#address_editDaCh').val(),
-          codepost:$('#codepost_editDaCh').val(),
-          accountNumber:$('#accountNumber_editDaCh').val(),
-          cart:$('#cart_editDaCh').val(),
-          master:$('#master_editDaCh').val(),
-          bank:$('#bank_editDaCh').val(),
+          tel:tel,
+          email:$('#email_editDaShop').val(),
+          ostan:$('#ostan_editDaShop').val(),
+          city:$('#city_editDaShop').val(),
+          address:$('#address_editDaShop').val(),
+          codepost:$('#codepost_editDaShop').val(),
+          accountNumber:$('#accountNumber_editDaShop').val(),
+          cart:$('#cart_editDaShop').val(),
+          master:$('#master_editDaShop').val(),
+          bank:$('#bank_editDaShop').val(),
          },
     success:function(){
-      $('#ajax_editDaCh').empty();
-      $('#end_editDaCh').modal('show');
+      $('#ajax_editDaShop').empty();
+      $('#end_editDaShop').modal('show');
     },
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_editDaCh');
-        $('#ajax_editDaCh').empty();
+        scroll_form('form_editDaShop');
+        $('#ajax_editDaShop').empty();
         $('.form-control').css("border-color" , "#fff");
-        if(error['name']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['name']+'</div>');
+        if(error['shop']){
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['shop']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['seller']){
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['seller']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['codemly']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['codemly']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['codemly']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
          else if(error['mobail']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['mobail']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['mobail']+'</div>');
            $('#name_data_buyer').css("border-color" , "#c30909");
         }
+        else if(error['tel']){
+          $('#ajax_editDaShop').append('<div id="alarm_red">'+error['tel']+'</div>');
+          $('#name_data_buyer').css("border-color" , "#c30909");
+       }
         else if(error['email']){
-          $('#ajax_editDaCh').append('<div id="alarm_red">'+error['email']+'</div>');
+          $('#ajax_editDaShop').append('<div id="alarm_red">'+error['email']+'</div>');
           $('#name_data_buyer').css("border-color" , "#c30909");
        }
         else if(error['ostan']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['ostan']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['ostan']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['city']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['city']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['city']+'</div>');
            $('#address_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['address']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['address']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['address']+'</div>');
            $('#email_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['codepost']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['codepost']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['codepost']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['accountNumber']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['accountNumber']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['accountNumber']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['cart']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['cart']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['cart']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['master']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['master']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['master']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['bank']){
-           $('#ajax_editDaCh').append('<div id="alarm_red">'+error['bank']+'</div>');
+           $('#ajax_editDaShop').append('<div id="alarm_red">'+error['bank']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
-        }
-        else {
-           $('#ajax_editDaCh').modal('show');
         }  }  });}
 function editPasDaCh(id){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
