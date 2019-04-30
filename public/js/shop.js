@@ -109,79 +109,94 @@ function loginShop(){
         }}});}
 
 // perfect_data.php
-function sabt_shop_2(){
+function sabtShop_2(){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../sabt_shop_2',
+    url:'../sabtShop_2',
     data: {
-          codemly:$('#codemly_perfectDaCh').val(),
-          ostan:$('#ostan_perfectDaCh').val(),
-          city:$('#city_perfectDaCh').val(),
-          address:$('#address_perfectDaCh').val(),
-          codepost:$('#codepost_perfectDaCh').val(),
-          accountNumber:$('#accountNumber_perfectDaCh').val(),
-          cart:$('#cart_perfectDaCh').val(),
-          master:$('#master_perfectDaCh').val(),
-          bank:$('#bank_perfectDaCh').val(),
-          allowGhanon:$('#allowGhanon_perfectDaCh:checked').val(),
+          shop:$('#shop_perfectDaSh').val(),
+          codemly:$('#codemly_perfectDaSh').val(),
+          ostan:$('#ostan_perfectDaSh').val(),
+          city:$('#city_perfectDaSh').val(),
+          address:$('#address_perfectDaSh').val(),
+          codepost:$('#codepost_perfectDaSh').val(),
+          tel:$('#tel_perfectDaSh').val(),
+          email:$('#email_perfectDaSh').val(),
+          accountNumber:$('#accountNumber_perfectDaSh').val(),
+          cart:$('#cart_perfectDaSh').val(),
+          master:$('#master_perfectDaSh').val(),
+          bank:$('#bank_perfectDaSh').val(),
+          allowGhanon:$('#allowGhanon_perfectDaSh:checked').val(),
          },
     success:function(data){
-      $('#ajax_perfectDaCh').empty();
-      document.getElementById("form_perfectDaCh").reset();
-      $('#end_perfectDaCh').modal('show');
-      $("#end_perfectDaCh").on('hide.bs.modal', function () {
-      window.location.href  = "/urlChMy";
+      $('#ajax_perfectDaSh').empty();
+      document.getElementById("form_perfectDaSh").reset();
+      $('#end_perfectDaSh').modal('show');
+      $("#end_perfectDaSh").on('hide.bs.modal', function () {
+      window.location.href  = "/editDaShop";
       });
     },
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_perfectDaCh');
-        $('#ajax_perfectDaCh').empty();
+        scroll_form('form_perfectDaSh');
+        $('#ajax_perfectDaSh').empty();
         $('.form-control').css("border-color" , "#fff");
-         if(error['codemly']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['codemly']+'</div>');
+        if(error['shop']){
+          $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['shop']+'<br>'+'نامی برای فروشگاه مجازی خود انتخاب کنید .'+'</div>');
+          $('#name_data_buyer').css("border-color" , "#c30909");
+       }
+        else if(error['codemly']){
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['codemly']+'</div>');
            $('#name_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['ostan']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['ostan']+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['ostan']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['city']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['city']+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['city']+'</div>');
            $('#address_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['address']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['address']+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['address']+'</div>');
            $('#email_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['codepost']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['codepost']+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['codepost']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['tel']){
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['tel']+'</div>');
+           $('#amniat_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['email']){
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['email']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['accountNumber']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['accountNumber']+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['accountNumber']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['cart']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['cart']+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['cart']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['master']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['master']+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['master']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['bank']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+error['bank']+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+error['bank']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['allowGhanon']){
-           $('#ajax_perfectDaCh').append('<div id="alarm_red">'+'گزینه "قوانین را خوانده و می پذیرم" را انتخاب کنید . '+'</div>');
+           $('#ajax_perfectDaSh').append('<div id="alarm_red">'+'گزینه "قوانین را خوانده و می پذیرم" را انتخاب کنید . '+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }
         else {
-           $('#ajax_perfectDaCh').modal('show');
+           $('#ajax_perfectDaSh').modal('show');
         }}});}
 // edit_data.php
 function editDaChSave(id){

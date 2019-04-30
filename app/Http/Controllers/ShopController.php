@@ -81,6 +81,28 @@ class ShopController extends Controller
     $stage=$this->stage;
     return view('shop.perfectDaShop',compact('stage'));
   }
+  public function sabtShop_2(Save_shop_2 $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $id=$this->id;
+    $save=Shop::find($id);
+    $save->shop=$request->shop;
+    $save->codemly=$request->codemly;
+    $save->ostan=$request->ostan;
+    $save->city=$request->city;
+    $save->address=$request->address;
+    $save->codepost=$request->codepost;
+    $save->tel=$request->tel;
+    $save->email=$request->email;
+    $save->accountNumber=$request->accountNumber;
+    $save->cart=$request->cart;
+    $save->master=$request->master;
+    $save->bank=$request->bank;
+    $save->date_up=$date;
+    $save->stage=2;
+    $save->save();
+  }
   public function editDaShop(Request $request)
   {
     $stage=$this->stage;

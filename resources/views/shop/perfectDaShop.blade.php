@@ -107,7 +107,7 @@
    </div>
 
    <div class="form-group form_btn">
-     <button type="button" class="btn btn-success" onclick="sabt_channel_2()" >ثبت</button>
+     <button type="button" class="btn btn-success" onclick="sabtShop_2()" >ثبت</button>
    </div>
  </form>
 @else

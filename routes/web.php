@@ -67,6 +67,8 @@ Route::post('/sabtShop_1','ShopController@sabtShop_1');//ok
 Route::post('/loginShop','ShopController@loginShop');//ok!!
 Route::get('/dashboard_shop','ShopController@dashboard_shop')->middleware(['chekloginShop' ]);;//ok
 Route::get('/perfectDaShop','ShopController@perfectDaShop')->middleware(['chekloginShop' ]);//ok!!
+Route::post('/sabtShop_2','ShopController@sabtShop_2');//ok!!
+
 Route::get('/editDaShop','ShopController@editDaShop')->middleware(['chekloginShop' ]);//ok!!
 
 
