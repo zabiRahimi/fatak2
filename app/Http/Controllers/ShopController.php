@@ -131,4 +131,18 @@ class ShopController extends Controller
     $save->date_up=$date;
     $save->save();
   }
+  public function editPasDaShop(Save_editPasShop $request)
+  {
+
+    $pas=$request->pasOld;
+    $add=Shop::find($this->id);
+
+      if (Hash::check($pas, $add['pas']))
+      {
+        $add->pas=Hash::make($request->pasNew);
+        $add->save();
+      }else{
+        return response()->json(['errors' => ['no_pas' => ['رمز فعلی اشتباه است .']]], 422);
+      }
+  }
 }

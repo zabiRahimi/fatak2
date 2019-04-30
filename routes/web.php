@@ -70,6 +70,7 @@ Route::get('/perfectDaShop','ShopController@perfectDaShop')->middleware(['cheklo
 Route::post('/sabtShop_2','ShopController@sabtShop_2');//ok!!
 Route::get('/editDaShop','ShopController@editDaShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/editDaShopSave','ShopController@editDaShopSave');//ok!!
+Route::post('/editPasDaShop','ShopController@editPasDaShop');//ok!!
 
 
 //قسمت مدیریت management

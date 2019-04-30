@@ -291,37 +291,37 @@ function editDaShopSave(id){
            $('#ajax_editDaShop').append('<div id="alarm_red">'+error['bank']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }  }  });}
-function editPasDaCh(id){
+function editPasDaShop(id){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../editPasDaCh',
+    url:'../editPasDaShop',
     data: {
           id:id,
-          pasOld:$('#pasOld_editPasDaCh').val(),
-          pasNew:$('#pasNew_editPasDaCh').val(),
+          pasOld:$('#pasOld_editPasDaShop').val(),
+          pasNew:$('#pasNew_editPasDaShop').val(),
          },
     success:function(){
-      $('#ajax_editPasDaCh').empty();
-      document.getElementById("form_editPasDaCh").reset();
-      $('#end_editPasDaCh').modal('show');
+      $('#ajax_editPasDaShop').empty();
+      document.getElementById("form_editPasDaShop").reset();
+      $('#end_editPasDaShop').modal('show');
     },
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_editPasDaCh');
-        $('#ajax_editPasDaCh').empty();
+        scroll_form('form_editPasDaShop');
+        $('#ajax_editPasDaShop').empty();
         $('.form-control').css("border-color" , "#fff");
         if(error['pasOld']){
-           $('#ajax_editPasDaCh').append('<div id="alarm_red">'+error['pasOld']+'</div>');
+           $('#ajax_editPasDaShop').append('<div id="alarm_red">'+error['pasOld']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['pasNew']){
-           $('#ajax_editPasDaCh').append('<div id="alarm_red">'+error['pasNew']+'</div>');
+           $('#ajax_editPasDaShop').append('<div id="alarm_red">'+error['pasNew']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
 
         else if(error['no_pas']){
-           $('#ajax_editPasDaCh').append('<div id="alarm_red">'+error['no_pas']+'</div>');
+           $('#ajax_editPasDaShop').append('<div id="alarm_red">'+error['no_pas']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }  }  });}
