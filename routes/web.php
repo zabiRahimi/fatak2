@@ -71,7 +71,8 @@ Route::post('/sabtShop_2','ShopController@sabtShop_2');//ok!!
 Route::get('/editDaShop','ShopController@editDaShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/editDaShopSave','ShopController@editDaShopSave');//ok!!
 Route::post('/editPasDaShop','ShopController@editPasDaShop');//ok!!
-
+//ثبت سفارش محصول ناموجود
+Route::get('/sabtOrder','OrderController@sabtOrder');//ok!!
 
 //قسمت مدیریت management
 Route::get('/management', 'Admin\ManagementController@show');//ok

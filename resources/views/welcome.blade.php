@@ -39,9 +39,9 @@
  {{-- مربوط به لب تاپ و کامپیوتر --}}
   <div class="row div_in1 pc_in">
 
-      <div class="div_in2  order_in">
+      <div class="div_in2  order_in" onclick="location.href = '/sabtOrder';">
         <div class="order_in_1">
-          سقارش محصول
+          سفارش محصول
         </div>
         <div class="order_in_2">
           <i class="fas fa-clipboard-check"></i>
@@ -99,22 +99,16 @@
   <div class="row div_in1 mobail_in">
 
       <div class="div_in2  order_in">
-
-
-
-        <div class="order_in_1">
-          سقارش محصول
+        <div class="order_in_1" onclick="location.href = '/sabtOrder';">
+          سفارش محصول
         </div>
-
         <div class="order_in_2">
           <i class="fas fa-clipboard-check"></i>
         </div>
-
         <div class="order_in_3">
         هر محصولی رو میخوای سفارش بده ، برات تهیه میکنیم ، ما متفاوت عمل میکنیم ! میخوای بدونی چه جوری ؟؟؟
         </div>
       </div>
-
 
       <div class="div_in2  paygiri_in">
 

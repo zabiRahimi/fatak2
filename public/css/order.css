@@ -1,0 +1,19 @@
+/* sabtOrder.php */
+.sabtOrder{width: 99%;height: 45px;line-height: 45px;padding: 0 15px;margin: 1px 0.5% 2px;border-radius: 3px;background-color: #226895;float: right;}
+.sabtOrder_1,.sabtOrder_2,.sabtOrder_3{width: 33%;float: right;color: #fff;}
+.sabtOrder_1{text-align: right;}
+.sabtOrder_2{text-align: center;line-height: 25px;}
+.sabtOrder_3{}
+.sabtOrder_3 span{width: 100%;height: 20px;float: right; }
+.sabtOrder_3 a{color: #fff;}
+.sabtOrder_3 span:last-child{font-size: 12px;margin-right: 8px;line-height: 28px;}
+.sabtOrderUl{width: 99%; height: 40px;line-height: 40px;padding: 0 15px;margin: 1px 0.5% 2px;background-color: #d9d9d9;border-radius: 3px;float: right;text-align: right;}
+.sabtOrderUl li{padding:0 8px; border-left: 1px solid ;color: #383838;}
+.sabtOrder3{width: 99%; margin: 3px 0.5%; background-color:#d7d6d6;float: right;border-radius: 3px;}
+.form_sabtOrder{width: 600px;margin: 20px calc((100% - 600px)/2);}
+@media (max-width:610px){
+  .form_sabtOrder{
+    width: 98%;
+    margin: 8px 1% 25px;
+  }
+}
