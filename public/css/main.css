@@ -79,6 +79,7 @@ display:inline;
 /* .labelCity{width: 40% !important; float: right;} */
 .div_formCity{width: 60%;float: right;text-align: center;}
 .div_formCity select{width: 100%;}
+.select{width: 100%;}
 .div_form_checkbox{width: 60%;height: 40px;float: right;}
 .div_form_checkbox input{width: 26px;position: relative;top: 13px;}
 .i_form{position: relative; margin-left: 10px;}

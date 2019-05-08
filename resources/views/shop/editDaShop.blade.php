@@ -4,7 +4,7 @@
 @endsection
 @section('dash_content')
   @if ($stage==1)
-    <div class="NoeditDaShop">
+    <div class="NoperfectDaSh">
       <span>توجه :</span>
       <br>
       <p>
@@ -12,7 +12,7 @@
         <a href="/editDaShop" class="apjax">تکمیل اطلاعات</a>  وارد شوید .
       </p>
       <br>
-      <a href="/editDaShop" class="apjax"><button type="button" class="btn btn-info">تکمیل اطلاعات</button> </a>
+      <a href="/perfectDaShop" class="apjax"><button type="button" class="btn btn-info">تکمیل اطلاعات</button> </a>
     </div>
   @else
   <form class="form form_editDaShop" id="form_edit_data" action="" method="post">

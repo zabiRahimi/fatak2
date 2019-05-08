@@ -30,7 +30,7 @@ class CreateShopsTable extends Migration
             $table->text('address')->nullable();
             $table->string('codepost' , 11)->nullable();
             $table->string('accountNumber' , 20)->nullable();
-            $table->string('cart ' , 20)->nullable();
+            $table->string('cart' , 20)->nullable();
             $table->string('shabab' , 100)->nullable();
             $table->string('master' , 32)->nullable();
             $table->string('bank' , 32)->nullable();

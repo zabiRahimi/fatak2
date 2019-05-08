@@ -35,12 +35,13 @@
     <a href="/perfectDaShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-pen-square"></i> تکمیل اطلاعات</span> </li></a>
     <a href="/editDaShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class='fas fa-edit'></i> ویرایش اطلاعات</span> </li></a>
     <a href="/warnCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="far fa-bell"></i> هشدارها و اخبار</span> </li></a>
-    <a href="/urlChMy"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-project-diagram"></i> کد و آدرس مربوط به من</span> </li></a>
-    <a href="/viewChMy"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class='far fa-eye'></i> بازدیدهای شبکه من</span> </li></a>
-    <a href="/viewChAll"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class='fas fa-eye'></i> بازدیدهای کل شبکه ها</span> </li></a>
-    <a href="/incomeChMy"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class='fas fa-dollar-sign'></i> ارزش ریالی بازدید من</span> </li></a>
-    <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-handshake"></i> نحوه شراکت و عملکرد فروشگاه</span> </li></a>
-
+    <a href="/newOrderShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-project-diagram"></i> سفارشات جدید</span> </li></a>
+    <a href="/viewChMy"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class='far fa-eye'></i> محصولات خریداری شده</span> </li></a>
+    <a href="/viewChAll"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class='fas fa-eye'></i>ثبت ارسال شده ها</span> </li></a>
+    <a href="/incomeChMy"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class='fas fa-dollar-sign'></i> پیگیری ارسال شده ها</span> </li></a>
+    <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-handshake"></i>پرداخت شده ها</span> </li></a>
+    <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-handshake"></i>محصولات مرجوعی</span> </li></a>
+    <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-handshake"></i>نحوه مشارکت</span> </li></a>
     <a href="/ghanonCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
     <a href="/rahnamaCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-compass"></i> راهنما</span> </li></a>
   </ul>
@@ -50,12 +51,13 @@
   <div class="dashSh_R">
     <ul class="ul_right dashSh_RUl">
       <a href="/warnCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-bell"></i> هشدارها و اخبار</span> </li></a>
-      <a href="/urlChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-project-diagram"></i> کد و آدرس مربوط به من</span> </li></a>
-      <a href="/viewChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class='far fa-eye'></i> بازدیدهای شبکه من</span> </li></a>
-      <a href="/viewChAll"class="apjax"><li class="modal_hide" onclick=""><span><i class='fas fa-eye'></i> بازدیدهای کل شبکه ها</span> </li></a>
-      <a href="/incomeChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class='fas fa-dollar-sign'></i> ارزش ریالی بازدید من</span> </li></a>
-      <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-handshake"></i> نحوه شراکت و عملکرد</span> </li></a>
-
+      <a href="/newOrderShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-project-diagram"></i> سفارشات جدید</span> </li></a>
+      <a href="/viewChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class='far fa-eye'></i> محصولات خریداری شده</span> </li></a>
+      <a href="/viewChAll"class="apjax"><li class="modal_hide" onclick=""><span><i class='fas fa-eye'></i> ثبت ارسال شده ها</span> </li></a>
+      <a href="/incomeChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class='fas fa-dollar-sign'></i> پیگیری ارسال شده ها</span> </li></a>
+      <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-handshake"></i> پرداخت شده ها</span> </li></a>
+      <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-handshake"></i>محصولات مرجوعی</span> </li></a>
+      <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-handshake"></i>نحوه مشارکت</span> </li></a>
       <a href="/ghanonCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
       <a href="/rahnamaCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-compass"></i> راهنما</span> </li></a>
     </ul>

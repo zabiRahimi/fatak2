@@ -122,7 +122,7 @@
      <div class="modal-content">
        <div class="modal-body modal_ok">
          <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
-         <div class="modal_ok2">تکمیل اطلاعات انجام شد، شما می توانید کد و آدرس خود را جهت درج در شبکه اجتماعی دریافت کنید .</div>
+         <div class="modal_ok2">تکمیل اطلاعات انجام شد . شما هم اکنون می توانید سفارشهای مشتریان را مشاهده کنید  .</div>
        </div>
        <div class=" modal_ok3">
          <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>

@@ -8,7 +8,7 @@
   </div>
   <div class="dashLBodyCh">
     @if ($stage==1)
-      <div class="NoPerfectDaCH">
+      <div class="NoperfectDaSh">
         <span>توجه :</span>
         <br>
         <p>

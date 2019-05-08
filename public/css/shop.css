@@ -138,8 +138,8 @@
 .dashSh_RUl li i{margin-left: 8px;}
 
 .dashSh_L{width: calc(100% - 225px);padding: 3px 15px;float: left;background-color: #fff;}
-.dashTitrCh{width: 100%;height: 40px;line-height: 40px;padding:0 20px;float: right;font-size: 18px;color: #fff;background-color: #2454a6;border-radius: 3px;text-align: right;}
-.dashLBodyCh{width: 100%;padding:7px 4px;float: right;text-align: right;}
+.dashTitrSh{width: 100%;height: 40px;line-height: 40px;padding:0 20px;float: right;font-size: 18px;color: #fff;background-color: #2454a6;border-radius: 3px;text-align: right;}
+.dashLBodySh{width: 100%;padding:7px 4px;float: right;text-align: right;}
 @media (max-width:950px){
   .dashSh_R{display: none;}
   .dashSh_L{width: 100%;padding: 3px 10px;}
@@ -147,24 +147,39 @@
 @media (max-width:768px){
 
   .dashSh_L{padding: 3px 5px;}
-  .dashTitrCh{padding:0 10px;}
+  .dashTitrSh{padding:0 10px;}
 
 }
 #form_perfectDaSh ,.form_editDaShop , .form_editPasDaShop{
   width: 560px;
   margin: 8px calc((100% - 560px)/2) 25px;
 }
-.line_editCh{width: 620px;margin: 8px calc((100% - 620px)/2) 25px;border: 3px solid #0a6e65;float: right;border-radius: 4px;}
 @media (max-width:610px){
-  #form_perfectDaSh,.form_editDaShop, .form_editPasDaShop,.line_editCh{
+  #form_perfectDaSh,.form_editDaShop, .form_editPasDaShop{
     width: 98%;
     margin: 8px 1% 25px;
   }
 }
 .perfectDaShOk{text-align: center;margin: 25px 0 ;padding: 20px 4px;border: 2px solid #286767;border-radius: 3px;}
-/* urlChAll.php */
-.divUrlCHMy{width: 100%;height: 45px;line-height: 45px;margin: 5px 0;font-family:Arial;font-size: 20px;font-weight: bold;float: right;text-align: center;border: 2px solid #042e11;border-radius: 4px; color:#024d77; }
-
+/* newOrderShop.php */
+.newOrder,.newOrder_1{width: 100%;height: 30px;line-height: 29px;float: right;background-color: #e0e0e0;border: 1px solid #383838; border-radius: 3px 3px 0 0;}
+.newOrder{border-bottom-width: 2px;background-color: #4a91b9;color: #fff;}
+.newOrderRwo,.newOrderName,.newOrderVahed,.newOrderDate,.newOrderRwo_1,.newOrderName_1,.newOrderVahed_1,.newOrderDate_1{float: right;border-left: 1px solid #4d565e;text-align: center;}
+.newOrderRwo,.newOrderRwo_1{width: 40px;}
+.newOrderName,.newOrderName_1{width: calc(50% - 40px);}
+.newOrderVahed,.newOrderVahed_1{width:25%;}
+.newOrderDate,.newOrderDate_1{width:25%;border-left: none;}
+.newOrder_1{border-radius: 0;border-top: none;}
+.color1{background-color: #e2dfdf;}
+.color2{background-color: #d0d0d0;}
+.newOrder_1:hover{cursor: pointer;background-color: #618fd4;color: #fff;}
+@media (max-width:500px){
+  .newOrder,.newOrder_1{font-size: 12px;}
+  .newOrderRwo,.newOrderRwo_1{width: 23px;}
+  .newOrderName,.newOrderName_1{width: calc(48% - 23px);}
+  .newOrderDate,.newOrderDate_1{width:27%;border-left: none;}
+  .newOrderRwo_1,.newOrderVahed_1,.newOrderDate_1{font-size: 10px;}
+  }
 /* viewChMy.php */
 .divViweChMy{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
 .divViweChMy span{display: inline-block;text-align: right;float: right;}

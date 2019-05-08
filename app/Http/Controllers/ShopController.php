@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Shop;
+use App\Models\Order;
+
 use App\Http\Requests\Save_shop_1;
 use App\Http\Requests\Save_shop_2;
 use App\Http\Requests\Save_loginShop;
@@ -144,5 +146,11 @@ class ShopController extends Controller
       }else{
         return response()->json(['errors' => ['no_pas' => ['رمز فعلی اشتباه است .']]], 422);
       }
+  }
+  public function newOrderShop(Request $request)
+  {
+    $stage=$this->stage;
+    $newOrder=Order::where('stage',1)->get();
+    return view('shop.newOrderShop',compact('stage','newOrder'));
   }
 }
