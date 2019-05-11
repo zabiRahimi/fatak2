@@ -82,6 +82,10 @@ display:inline;
 .select{width: 100%;}
 .div_form_checkbox{width: 60%;height: 40px;float: right;}
 .div_form_checkbox input{width: 26px;position: relative;top: 13px;}
+.div_form_radio1{width: 65%; float: right;padding: 2px;}
+.div_form_radio2{width: calc(50% - 1px);height: 40px;margin: 0 0.5px;float: right;background-color: #fff;border-radius: 3px;}
+.div_form_radio2 label{width: 80% !important;}
+.div_form_radio2 input{margin-top: 10px !important;}
 .i_form{position: relative; margin-left: 10px;}
 .captcha_form {width: 65%; float: left; text-align: center;}
 .captcha_form span {display: inline-block;height: 38px;background-color: #829077; padding: 1px;}
@@ -98,10 +102,17 @@ display:inline;
   .div_formTextarea textarea {height: 100px;}
   .formGroupCity{width: 100%;padding: 2px;margin:0 ;}
   .div_formCity{width: 100%;}
-  .div_form_checkbox{width: 100%;background-color: #c8d2d7;border-radius: 3px 0 3px 3px;}
+  .div_form_checkbox , .div_form_radio1{width: 100%;background-color: #c8d2d7;border-radius: 3px 0 3px 3px;}
+  .div_form_radio2{height: auto;}
+  .div_form_radio2 label{width: 80% !important; background-color: #fff !important;}
+  .div_form_radio2 input{width: 20% !important;margin-top: 5px !important;}
   .div_form_checkbox input{top: 5px;}
   .captcha_form {width: 100%;margin-bottom: 10px; }
   .form_btn button{margin: 6px 0;}
+}
+@media(max-width:280px){
+  .div_form_radio2 label{width: 100% !important; background-color: #fff !important;}
+  .div_form_radio2 input{width:100% !important;margin-top: -5px !important;}
 }
 /* modal_ok */
 .modal_ok1,.modal_ok2,.modal_ok3{width: 100%;  float: right;font-size: 16px;text-align: center;color: #066e06;}

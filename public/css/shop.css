@@ -191,6 +191,8 @@
 .orderDivSpan{margin-right: 10px;font-family: sans-serif;}
 .orderOk{width: 99%;margin: 10px 0.5%;padding: 10px;float: right;text-align: center;border: 2px solid #085821;border-radius: 3px;color: #093e13;}
 .orderOk a{color: #bcc607;font-size: 18px;}
+.stamp_orderSabtShD1{color: #057546;}
+.stamp_orderSabtShD2{color: #3e6204;}
 @media (max-width:470px){
   .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
   }

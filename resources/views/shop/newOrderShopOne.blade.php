@@ -40,7 +40,17 @@
        {{ csrf_field() }}
        <div class="form-group">
          <label for="stamp_orderSabtSh" class="control-label pull-right "><i class="fas fa-tag i_form"></i> نوع محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="stamp_orderSabtSh" placeholder="به لاتین ..."></div>
+         <div class="div_form_radio1">
+             <div class="div_form_radio2 stamp_orderSabtShD1">
+               <label for="stamp_orderSabtSh1" class="control-label pull-right "> اصل محصول</label>
+               <input type="radio" name="r" id="stamp_orderSabtSh1" value="1">
+             </div>
+             <div class="div_form_radio2 stamp_orderSabtShD2">
+               <label for="stamp_orderSabtSh2" class="control-label pull-right "> مشابه محصول</label>
+               <input type="radio" name="r" id="stamp_orderSabtSh2" value="2">
+             </div>
+         </div>
+
        </div>
        <div class="form-group">
          <label for="name_orderSabtSh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> نام محصول</label>
@@ -48,15 +58,34 @@
        </div>
        <div class="form-group">
          <label for="brand_orderSabtSh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  برند محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="brand_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control" id="brand_orderSabtSh"placeholder="اختیاری ..."></div>
+       </div>
+       <div class="form-group">
+         <label for="model_orderSabtSh" class="control-label pull-right "><i class="fas fa-phone i_form"></i> مدل محصول</label>
+         <div class="div_form"><input type="text" class="form-control" id="model_orderSabtSh"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group">
          <label for="price_orderSabtSh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> قیمت محصول</label>
          <div class="div_form"><input type="text" class="form-control" id="price_orderSabtSh"></div>
        </div>
        <div class="form-group">
+         <label for="vahed_sabtOrder" class="control-label pull-right "><i class="fas fa-clipboard-list i_form"></i> واحد شمارش کالا</label>
+         <div class="div_form">
+           <select class="select squad_sabtOrder" id="vahed_sabtOrder" name="" >
+             <option value="">انتخاب کنید</option>
+             <option value="عدد">عدد</option>
+             <option value="بسته">بسته</option>
+             <option value="کارتن">کارتن</option>
+             <option value="گونی">گونی</option>
+             <option value="گرم">گرم</option>
+             <option value="کیلو گرم">کیلو گرم</option>
+             <option value="جین">جین</option>
+           </select>
+         </div>
+       </div>
+       <div class="form-group">
          <label for="vazn_orderSabtSh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> وزن محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="vazn_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control" id="vazn_orderSabtSh"placeholder="در صورت نیاز ..."></div>
        </div>
        <div class="form-group">
          <label for="vaznPost_orderSabtSh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i> وزن پستی محصول</label>
@@ -64,30 +93,26 @@
        </div>
        <div class="form-group">
          <label for="pakat_orderSabtSh" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  هزینه بسته بندی</label>
-         <div class="div_form"><input type="text" class="form-control" id="pakat_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control" id="pakat_orderSabtSh"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group">
          <label for="dis_orderSabtSh" class="control-label pull-right  "><i class="fas fa-home i_form"></i>توضیح محصول</label>
          <div class="div_formTextarea">
-           <textarea name="name" id="dis_orderSabtSh"></textarea>
+           <textarea name="name" id="dis_orderSabtSh"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید ."></textarea>
          </div>
        </div>
        <div class="form-group">
          <label for="dateMake_orderSabtSh" class="control-label pull-right "><i class="far fa-address-card i_form"></i> تاریخ تولید</label>
-         <div class="div_form"><input type="text" class="form-control" id="dateMake_orderSabtSh"></div>
-       </div>
-       <div class="form-group">
-         <label for="model_orderSabtSh" class="control-label pull-right "><i class="fas fa-phone i_form"></i> مدل محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="model_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control" id="dateMake_orderSabtSh"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group">
          <label for="dateExpiration_orderSabtSh" class="control-label pull-right "><i class="fas fa-at i_form"></i> تاریخ انقضا</label>
-         <div class="div_form"><input type="text" class="form-control" id="dateExpiration_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control" id="dateExpiration_orderSabtSh"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group">
          <label for="dis_orderSabtSh" class="control-label pull-right  "><i class="fas fa-home i_form"></i>شرایط نگهداری</label>
          <div class="div_formTextarea">
-           <textarea name="name" id="dis_orderSabtSh"></textarea>
+           <textarea name="name" id="dis_orderSabtSh"placeholder="اختیاری ..."></textarea>
          </div>
        </div>
        <div class="form-group">
