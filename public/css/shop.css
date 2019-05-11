@@ -169,16 +169,30 @@
 .newOrderName,.newOrderName_1{width: calc(50% - 40px);}
 .newOrderVahed,.newOrderVahed_1{width:25%;}
 .newOrderDate,.newOrderDate_1{width:25%;border-left: none;}
+.newOrderA{color:#000;}
+.newOrderName_1{color: #2658a2}
 .newOrder_1{border-radius: 0;border-top: none;}
 .color1{background-color: #e2dfdf;}
 .color2{background-color: #d0d0d0;}
-.newOrder_1:hover{cursor: pointer;background-color: #618fd4;color: #fff;}
+.newOrder_1:hover, .newOrder_1:hover .newOrderName_1{cursor: pointer;background-color: #618fd4;color: #fff;}
 @media (max-width:500px){
   .newOrder,.newOrder_1{font-size: 12px;}
   .newOrderRwo,.newOrderRwo_1{width: 23px;}
   .newOrderName,.newOrderName_1{width: calc(48% - 23px);}
   .newOrderDate,.newOrderDate_1{width:27%;border-left: none;}
   .newOrderRwo_1,.newOrderVahed_1,.newOrderDate_1{font-size: 10px;}
+  }
+/* newOrderShopOne.php */
+.newOrderOneBut{float: left; height: 30px;margin-top: 5px;}
+.orderDiv{width: 49%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #cfe1f1;}
+.orderDiv2{width: 99%;margin: 2px 0.5%;padding: 0 20px 0 0;background-color: #cfe1f1;float: right;}
+.orderDivZ0,.orderDivZ{width: 50%; float: right;}
+.orderDivZ , .orderDivZ2{color: #04902e;}
+.orderDivSpan{margin-right: 10px;font-family: sans-serif;}
+.orderOk{width: 99%;margin: 10px 0.5%;padding: 10px;float: right;text-align: center;border: 2px solid #085821;border-radius: 3px;color: #093e13;}
+.orderOk a{color: #bcc607;font-size: 18px;}
+@media (max-width:470px){
+  .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
   }
 /* viewChMy.php */
 .divViweChMy{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}

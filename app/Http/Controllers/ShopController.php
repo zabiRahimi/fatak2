@@ -153,4 +153,10 @@ class ShopController extends Controller
     $newOrder=Order::where('stage',1)->get();
     return view('shop.newOrderShop',compact('stage','newOrder'));
   }
+  public function newOrderShopOne(Request $request)
+  {
+    $id=$request->id;
+    $newOrderOne=Order::find($id);
+    return view('shop.newOrderShopOne',compact('newOrderOne'));
+  }
 }

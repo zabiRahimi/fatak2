@@ -7,6 +7,8 @@ function sabtOrderSave(){
     data: {
           namePro:$('#namePro_sabtOrder').val(),
           squad:$('#squad_sabtOrder').val(),
+          vahedPro:$('#vahed_sabtOrder').val(),
+          numPro:$('#num_sabtOrder').val(),
           dis:$('#dis_sabtOrder').val(),
           mobail:mobail,
           ostan:$('#ostan_sabtOrder').val(),
@@ -36,6 +38,14 @@ function sabtOrderSave(){
         }
         else if(error['squad']){
            $('#ajax_sabtOrder').append('<div id="alarm_red">'+error['squad']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['vahedPro']){
+           $('#ajax_sabtOrder').append('<div id="alarm_red">'+error['vahedPro']+'</div>');
+           $('#codepost_data_buyer').css("border-color" , "#c30909");
+        }
+        else if(error['numPro']){
+           $('#ajax_sabtOrder').append('<div id="alarm_red">'+error['numPro']+'</div>');
            $('#codepost_data_buyer').css("border-color" , "#c30909");
         }
         else if(error['dis']){

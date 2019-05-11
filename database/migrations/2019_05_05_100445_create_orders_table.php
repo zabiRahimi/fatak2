@@ -17,6 +17,8 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->string('name' , 100);
             $table->string('squad',70)->nullable();
+            $table->string('vahed',40);
+            $table->string('num',3);
             $table->text('dis')->nullable();
             $table->string('mobail',12);
             $table->string('ostan',30);

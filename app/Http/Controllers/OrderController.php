@@ -38,6 +38,8 @@ class OrderController extends Controller
       $save=new Order();
       $save->name=$request->namePro;
       $save->squad=$request->squad;
+      $save->vahed=$request->vahedPro;
+      $save->num=$request->numPro;
       $save->dis=$request->dis;
       $save->mobail=$request->mobail;
       $save->ostan=$request->ostan;

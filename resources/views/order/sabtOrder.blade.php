@@ -25,15 +25,34 @@
      <div class="form-group">
        <label for="squad_sabtOrder" class="control-label pull-right "><i class="fas fa-clipboard-list i_form"></i> دسته محصول (اختیاری)</label>
        <div class="div_form">
-         <select class="select squad_sabtOrder" name="" ز>
+         <select class="select squad_sabtOrder" id="squad_sabtOrder" name="" >
            <option value="">انتخاب کنید</option>
-           <option value="">آشپزی و شیرینی پزی</option>
-           <option value="">کتاب و نوشت افزار</option>
-           <option value="">لوازم خودرو</option>
-           <option value="">اسباب منزل</option>
-           <option value="">موبایل</option>
+           <option value="آشپزی و شیرینی پزی">آشپزی و شیرینی پزی</option>
+           <option value="کتاب و نوشت افزار">کتاب و نوشت افزار</option>
+           <option value="لوازم خودرو">لوازم خودرو</option>
+           <option value="اسباب منزل">اسباب منزل</option>
+           <option value="موبایل">موبایل</option>
          </select>
        </div>
+     </div>
+     <div class="form-group">
+       <label for="vahed_sabtOrder" class="control-label pull-right "><i class="fas fa-clipboard-list i_form"></i> واحد شمارش کالا</label>
+       <div class="div_form">
+         <select class="select squad_sabtOrder" id="vahed_sabtOrder" name="" >
+           <option value="">انتخاب کنید</option>
+           <option value="عدد">عدد</option>
+           <option value="بسته">بسته</option>
+           <option value="کارتن">کارتن</option>
+           <option value="گونی">گونی</option>
+           <option value="گرم">گرم</option>
+           <option value="کیلو گرم">کیلو گرم</option>
+           <option value="جین">جین</option>
+         </select>
+       </div>
+     </div>
+     <div class="form-group">
+       <label for="num_sabtOrder" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> تعداد خرید</label>
+       <div class="div_form"><input type="number" class="form-control" id="num_sabtOrder" value="1" min="1" max="15"></div>
      </div>
      <div class="form-group">
        <label for="dis_sabtOrder" class="control-label pull-right "><i class="far fa-clipboard i_form"></i> توضیح درباره محصول</label>

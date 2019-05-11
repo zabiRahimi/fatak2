@@ -37,15 +37,17 @@
            $color="color2";
          }
         ?>
-        <div class="newOrder_1 {{$color}}">
-          <div class="newOrderRwo_1 ">{{$r}}</div>
-          <div class="newOrderName_1">{{$value->name}}</div>
-          <div class="newOrderVahed_1">
-            <span>{{$value->num}}</span>
-            <span>{{$value->vahed}}</span>
+        <a href="/newOrderShopOne/{{$value->id}}" class="newOrderA">
+          <div class="newOrder_1 {{$color}}">
+            <div class="newOrderRwo_1 ">{{$r}}</div>
+            <div class="newOrderName_1">{{$value->name}}</div>
+            <div class="newOrderVahed_1">
+              <span>{{$value->num}}</span>
+              <span>{{$value->vahed}}</span>
+            </div>
+            <div class="newOrderDate_1">{{$value->date_ad}}</div>
           </div>
-          <div class="newOrderDate_1">{{$value->date_ad}}</div>
-        </div>
+        </a>
       @endforeach
 
     </div>

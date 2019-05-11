@@ -18,6 +18,7 @@ class Save_order1 extends FormRequest
     }
     public function validationData() {
        $parametr=$this->all();
+       $numPro=$parametr['numPro'];
        $mobail=$parametr['mobail'];
        $amniat=$parametr['amniat'];
        $num_farsi=array('/(\x{06F0})/ui','/(\x{06F1})/ui','/(\x{06F2})/ui','/(\x{06F3})/ui','/(\x{06F4})/ui','/(\x{06F5})/ui','/(\x{06F6})/ui','/(\x{06F7})/ui','/(\x{06F8})/ui','/(\x{06F9})/ui');
@@ -25,6 +26,11 @@ class Save_order1 extends FormRequest
        if(!empty($mobail)and !is_numeric($mobail)){
          Request::merge([
            'mobail'=>preg_replace($num_farsi, $num_english, $mobail),
+         ]);
+       }
+       if(!empty($numPro)and !is_numeric($numPro)){
+         Request::merge([
+           'numPro'=>preg_replace($num_farsi, $num_english, $numPro),
          ]);
        }
        if(!empty($amniat)and !is_numeric($amniat)){
@@ -44,6 +50,8 @@ class Save_order1 extends FormRequest
         return [
           'namePro'=>'required' ,
           'squad'=>'nullable' ,
+          'vahedPro'=>'required',
+          'numPro'=>'required|numeric',
           'dis'=>'nullable',
           'mobail'=>'required|mobail' ,
           'ostan'=>'required' ,
