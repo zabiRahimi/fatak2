@@ -406,3 +406,18 @@ function editPasDaShop(id){
 
       $("#Aimg6_orderSabtSh").html( response );
     },  }
+  function del_img(ajax , div , i) {
+    // alert(form)
+
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../del_imgShop',
+      data: {
+
+           },
+      success:function(){
+        $("#"+ ajax).html('<div id="alarm_red"> عکس حذف شد . </div>');
+        $("#"+ div).html('');
+        $("#"+ i).html( '' );
+      },  });}

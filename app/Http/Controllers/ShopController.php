@@ -168,8 +168,12 @@ class ShopController extends Controller
    $file=$request->file('file');
     $name= time() . $file->getClientOriginalName();
     $file->move('img_shop' , $name);
-    
+
     return "$name";
 
+  }
+  public function del_imgShop(Request $request)
+  {
+  
   }
 }

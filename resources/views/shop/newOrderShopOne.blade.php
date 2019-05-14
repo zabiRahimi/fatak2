@@ -266,19 +266,25 @@
               آپلود عکس اول
            </div>
            <div class="" id="imgAddPro1"></div>
-           <form class="dropzone form_img_add_pro" id="proAddImg1" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
-             {{ csrf_field() }}
-             <div class="dz-message">
-                 <div class="col-xs-8">
-                     <div class="message">
-                         <p>جهت آپلود عکس این کادر را کلیک کنید</p>
+           <div class="proAddImg1">
+             <form class="dropzone form_img_add_pro" id="proAddImg1" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
+               {{ csrf_field() }}
+
+
+                 <div class="dz-message ">
+                     <div class="col-xs-8">
+                         <div class="message ">
+                             <p>جهت آپلود عکس این کادر را کلیک کنید</p>
+                         </div>
                      </div>
                  </div>
-             </div>
-           </form>
+             </form>
+           </div>
+
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro1','Aimg1_orderSabtSh','Iimg1_orderSabtSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -310,6 +316,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro2','Aimg2_orderSabtSh','Iimg2_orderSabtSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -341,6 +348,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro3','Aimg3_orderSabtSh','Iimg3_orderSabtSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -372,6 +380,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro4','Aimg4_orderSabtSh','Iimg4_orderSabtSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -403,6 +412,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro5','Aimg5_orderSabtSh','Iimg5_orderSabtSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -434,6 +444,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro6','Aimg6_orderSabtSh','Iimg6_orderSabtSh')">حذف عکس</button>
          </div>
        </div>
      </div>
