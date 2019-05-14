@@ -196,6 +196,21 @@
 @media (max-width:470px){
   .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
   }
+  .modal_h_img_add_pro{ line-height: 0; }
+  .modal_h_img_add_pro span{ font-size: 34px;color: #a10000;}
+  .titr_modal_img_addpro{width: 100%; height: 40px;line-height: 40px;float: right; border-radius: 3px; background-color: #e9e9e9;text-align: center;}
+  .footer_modal_img_add_pro{width: 100%; float: right; margin:0 0 6px 0;text-align: center;}
+  .footer_modal_img_add_pro button{width: 110px;color: #a10000;}
+  .form_img_add_pro{width: 100%; height: 120px; padding-top: 5px;float: right; margin: 6px 0 4px; background-color:#f2fbff;border-radius: 2px;}
+  .formTitrShop{width: 100%;margin-bottom: 4px;padding: 3px 15px;font-size: 12px;float: right;background-color: #c3f4cb;border: 1px solid #80c38b;border-radius: 3px;}
+  .formTitrShop span{color: #074717;font-size: 14px;}
+  .formTitrShop i{margin: 0 3px;}
+  .i_orderSabtSh:hover{color: #424242;cursor: pointer;}
+  .MRahnama{width: 99%;margin: 5px 0.5%;text-align: justify;border: 1px solid #012407;border-radius: 3px;}
+  @media (max-width:768px){
+    .MRahnama{font-size: 12px;}
+    }
+  .Icheck{color: #196201;margin-right: 15px;position: relative;top: 3px;}
 /* viewChMy.php */
 .divViweChMy{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
 .divViweChMy span{display: inline-block;text-align: right;float: right;}

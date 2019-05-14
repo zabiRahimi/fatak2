@@ -73,6 +73,7 @@ Route::post('/editDaShopSave','ShopController@editDaShopSave');//ok!!
 Route::post('/editPasDaShop','ShopController@editPasDaShop');//ok!!
 Route::get('/newOrderShop','ShopController@newOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/newOrderShopOne/{id}','ShopController@newOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
+Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
 
 //ثبت سفارش محصول ناموجود
 Route::get('/sabtOrder','OrderController@sabtOrder');//ok!!

@@ -55,6 +55,7 @@ display:inline;
 .carsol_pro_ess{width: 100%; margin: 5px 0; float: right;}
 /* اخطار فیلذهای فرم */
 #alarm_red{width: 100%; margin: 2px 0 4px; padding: 5px 4px; text-align: center; color: #b80f19; border: 2px solid #b80f19; border-radius: 4px; font-size: 16px;float: right; background-color: #fff;}
+#alarm_green{width: 100%; margin: 2px 0 4px; padding: 5px 4px; text-align: center; color: #01622b; border: 2px solid #01622b; border-radius: 4px; font-size: 16px;float: right; background-color: #fff;}
 /* استالهای شهر و استان */
 .cityOff{display: none;}
 .cityShow{display: block; color: #020647}
@@ -93,6 +94,8 @@ display:inline;
 .captcha_form i {position: relative;top: 3px;font-size: 20px;}
 .form_btn{text-align: center;margin-top: 5px; padding: 4px 3px;}
 .form_btn button {width: 140px;font-size: 18px;}
+/* آپلود عکس تگ پنهان */
+.imgHidden{  width: 1px;height: 1px; overflow: hidden;font-size: 1px; color:#ffffff; background-color: #ffffff;}
 @media(max-width:440px){
   .form > .form-group {background-color: inherit; margin-top: -4px; padding: 0;}
   .form >.form-group label {width: 185px;  background-color: #ced4d9; border-radius: 4px 4px 0 0;}

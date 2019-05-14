@@ -159,4 +159,17 @@ class ShopController extends Controller
     $newOrderOne=Order::find($id);
     return view('shop.newOrderShopOne',compact('newOrderOne'));
   }
+  public function uplodImgProSh(Request $request){
+    //اعتبار سنجی
+    //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب مگا بایت است . دقت شود
+    $this->validate($request, [
+          'file' => 'required|mimes:jpeg,jpg,png|max:3000',
+      ]);
+   $file=$request->file('file');
+    $name= time() . $file->getClientOriginalName();
+    $file->move('img_shop' , $name);
+    
+    return "$name";
+
+  }
 }

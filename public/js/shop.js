@@ -325,3 +325,84 @@ function editPasDaShop(id){
            $('#ajax_editPasDaShop').append('<div id="alarm_red">'+error['no_pas']+'</div>');
            $('#amniat_data_buyer').css("border-color" , "#c30909");
         }  }  });}
+
+  // newOrderShopOne.php
+  Dropzone.options.proAddImg1 = {
+     parallelUploads: 2,
+     acceptedFiles:".png , .jpg , .jpeg",
+     maxFilesize: 3,
+    error:function(){
+      $("#imgAddPro1").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+    },
+    success:function(file , response){
+      //آرگومان اول یک شی است
+      //آرکومان دوم مقدار بازگشتی از کنترلر است
+      $("#imgAddPro1").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+      $("#Iimg1_orderSabtSh").html('<i class="fas fa-check Icheck"></i>');
+      $("#Aimg1_orderSabtSh").html( response );
+    },}
+  Dropzone.options.proAddImg2 = {
+     parallelUploads: 2,
+     acceptedFiles:".png , .jpg , .jpeg",
+     maxFilesize: 3,
+    error:function(){
+      $("#imgAddPro2").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+    },
+    success:function(file , response){
+      $("#imgAddPro2").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+      $("#Iimg2_orderSabtSh").html('<i class="fas fa-check Icheck"></i>');
+
+      $("#Aimg2_orderSabtSh").html( response );
+    },  }
+  Dropzone.options.proAddImg3 = {
+     parallelUploads: 2,
+     acceptedFiles:".png , .jpg , .jpeg",
+     maxFilesize: 3,
+    error:function(){
+      $("#imgAddPro3").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+    },
+    success:function(file , response){
+      $("#imgAddPro3").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+      $("#Iimg3_orderSabtSh").html('<i class="fas fa-check Icheck"></i>');
+
+      $("#Aimg3_orderSabtSh").html( response );
+    },  }
+  Dropzone.options.proAddImg4 = {
+     parallelUploads: 2,
+     acceptedFiles:".png , .jpg , .jpeg",
+     maxFilesize: 3,
+    error:function(){
+      $("#imgAddPro4").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+    },
+    success:function(file , response){
+      $("#imgAddPro4").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+      $("#Iimg4_orderSabtSh").html('<i class="fas fa-check Icheck"></i>');
+
+      $("#Aimg4_orderSabtSh").html( response );
+  },}
+  Dropzone.options.proAddImg5 = {
+     parallelUploads: 2,
+     acceptedFiles:".png , .jpg , .jpeg",
+     maxFilesize: 3,
+    error:function(){
+      $("#imgAddPro5").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+    },
+    success:function(file , response){
+      $("#imgAddPro5").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+      $("#Iimg5_orderSabtSh").html('<i class="fas fa-check Icheck"></i>');
+
+      $("#Aimg5_orderSabtSh").html( response );
+    },  }
+  Dropzone.options.proAddImg6 = {
+     parallelUploads: 2,
+     acceptedFiles:".png , .jpg , .jpeg",
+     maxFilesize: 3,
+    error:function(){
+      $("#imgAddPro6").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+    },
+    success:function(file , response){
+      $("#imgAddPro6").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+      $("#Iimg6_orderSabtSh").html('<i class="fas fa-check Icheck"></i>');
+
+      $("#Aimg6_orderSabtSh").html( response );
+    },  }
