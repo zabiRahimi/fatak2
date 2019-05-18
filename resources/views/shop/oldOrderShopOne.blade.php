@@ -46,11 +46,11 @@
          <div class="div_form_radio1">
              <div class="div_form_radio2 stamp_orderSabtShD1">
                <label for="stamp_orderSabtSh1" class="control-label pull-right "> اصل محصول</label>
-               <input type="radio" name="stamp_orderSabtSh" id="stamp_orderSabtSh1" value="1">
+               <input type="radio" name="stamp_orderSabtSh" id="stamp_orderSabtSh1" value="1" @if ($proShopOne->stamp==1) checked @endif>
              </div>
              <div class="div_form_radio2 stamp_orderSabtShD2">
                <label for="stamp_orderSabtSh2" class="control-label pull-right "> مشابه محصول</label>
-               <input type="radio" name="stamp_orderSabtSh" id="stamp_orderSabtSh2" value="2">
+               <input type="radio" name="stamp_orderSabtSh" id="stamp_orderSabtSh2" value="2" @if ($proShopOne->stamp==2) checked @endif>
              </div>
          </div>
        </div>
@@ -60,69 +60,69 @@
        </div>
        <div class="form-group">
          <label for="maker_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mmaker_orderSabtSh"></i>  سازنده محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="maker_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control" id="maker_orderSabtSh"placeholder="اختیاری ..." value="{{$proShopOne->maker}}"></div>
        </div>
        <div class="form-group">
          <label for="brand_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mbrand_orderSabtSh"></i>  برند محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="brand_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control" id="brand_orderSabtSh"placeholder="اختیاری ..." value="{{$proShopOne->brand}}"></div>
        </div>
        <div class="form-group">
          <label for="model_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mmodel_orderSabtSh"></i> مدل محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="model_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control" id="model_orderSabtSh"placeholder="اختیاری ..." value="{{$proShopOne->model}}"></div>
        </div>
        <div class="form-group">
          <label for="price_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mprice_orderSabtSh"></i> قیمت محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="price_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control" id="price_orderSabtSh" value="{{$proShopOne->price}}"></div>
        </div>
        <div class="form-group">
          <label for="vahed_sabtOrder" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا</label>
          <div class="div_form">
            <select class="select squad_sabtOrder" id="vahed_orderSabtSh" name="" >
              <option value="">انتخاب کنید</option>
-             <option value="عدد">عدد</option>
-             <option value="بسته">بسته</option>
-             <option value="کارتن">کارتن</option>
-             <option value="گونی">گونی</option>
-             <option value="گرم">گرم</option>
-             <option value="کیلو گرم">کیلو گرم</option>
-             <option value="جین">جین</option>
+             <option value="عدد"  @if ($proShopOne->vahed=='عدد') selected @endif >عدد</option>
+             <option value="بسته" @if ($proShopOne->vahed=='بسته') selected @endif >بسته</option>
+             <option value="کارتن" @if ($proShopOne->vahed=='کارتن') selected @endif>کارتن</option>
+             <option value="گونی" @if ($proShopOne->vahed=='گونی') selected @endif>گونی</option>
+             <option value="گرم" @if ($proShopOne->vahed=='گرم') selected @endif>گرم</option>
+             <option value="کیلو گرم" @if ($proShopOne->vahed=='کیلو گرم') selected @endif>کیلو گرم</option>
+             <option value="جین" @if ($proShopOne->vahed=='جین') selected @endif>جین</option>
            </select>
          </div>
        </div>
        <div class="form-group">
          <label for="num_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mnum_orderSabtSh"></i> تعداد کالای موجود</label>
-         <div class="div_form"><input type="number" class="form-control" id="num_orderSabtSh"min="1" placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="number" class="form-control" id="num_orderSabtSh"min="1" placeholder="اختیاری ..."value="{{$proShopOne->num}}"></div>
        </div>
        <div class="form-group">
          <label for="vazn_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mvazn_orderSabtSh"></i> وزن محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="vazn_orderSabtSh"placeholder="در صورت نیاز ..."></div>
+         <div class="div_form"><input type="text" class="form-control" id="vazn_orderSabtSh"placeholder="در صورت نیاز ..."value="{{$proShopOne->vazn}}"></div>
        </div>
        <div class="form-group">
          <label for="vaznPost_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MvaznPost_orderSabtSh"></i> وزن پستی محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="vaznPost_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control" id="vaznPost_orderSabtSh"value="{{$proShopOne->vaznPost}}"></div>
        </div>
        <div class="form-group">
          <label for="pakat_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mpakat_orderSabtSh"></i>  هزینه بسته بندی</label>
-         <div class="div_form"><input type="text" class="form-control" id="pakat_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control" id="pakat_orderSabtSh"placeholder="اختیاری ..."value="{{$proShopOne->pakat}}"></div>
        </div>
        <div class="form-group">
          <label for="dis_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mdis_orderSabtSh"></i> توضیح محصول</label>
          <div class="div_formTextarea">
-           <textarea name="name" id="dis_orderSabtSh"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید ."></textarea>
+           <textarea name="name" id="dis_orderSabtSh"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید .">{{$proShopOne->dis}}</textarea>
          </div>
        </div>
        <div class="form-group">
          <label for="dateMake_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MdateMake_orderSabtSh"></i> تاریخ تولید</label>
-         <div class="div_form"><input type="text" class="form-control" id="dateMake_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control" id="dateMake_orderSabtSh"placeholder="اختیاری ..."value="{{$proShopOne->dateMake}}"></div>
        </div>
        <div class="form-group">
          <label for="dateExpiration_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MdateExpiration_orderSabtSh"></i> تاریخ انقضا</label>
-         <div class="div_form"><input type="text" class="form-control" id="dateExpiration_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control" id="dateExpiration_orderSabtSh"placeholder="اختیاری ..."value="{{$proShopOne->dateExpiration}}"></div>
        </div>
        <div class="form-group">
          <label for="term_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mterm_orderSabtSh"></i> شرایط نگهداری</label>
          <div class="div_formTextarea">
-           <textarea name="name" id="term_orderSabtSh"placeholder="اختیاری ..."></textarea>
+           <textarea name="name" id="term_orderSabtSh"placeholder="اختیاری ...">{{$proShopOne->term}}</textarea>
          </div>
        </div>
        <div class="form-group add_pro_form1_1">
