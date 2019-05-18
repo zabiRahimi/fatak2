@@ -1,33 +1,33 @@
 @extends('shop.layoutDashShop')
 @section('title')
-  مشاهده سفارش
+  مشاهده و ویرایش سفارش
 @endsection
 @section('dash_content')
 
     <div class="dashTitrSh">
-      مشاهده سفارش
-      <a href="/newOrderShop"><button type="button" class="btn newOrderOneBut" onclick="">  بازگشت  </button></a>
+    مشاهده و ویرایش سفارش
+      <a href="/oldOrderShop"><button type="button" class="btn oldOrderOneBut" onclick="">  بازگشت  </button></a>
     </div>
     <div class="dashLBodySh">
       <div class="orderDiv orderName">
         <div class="orderDivZ0 orderName1">نام محصول <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ orderName2">{{$newOrderOne->name}}</div>
+        <div class="orderDivZ orderName2">{{$oldOrderOne->name}}</div>
       </div>
       <div class="orderDiv orderDate">
         <div class="orderDivZ0 orderDate1">تاریخ ثبت <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ orderDate2">{{$newOrderOne->date_ad}}</div>
+        <div class="orderDivZ orderDate2">{{$oldOrderOne->date_ad}}</div>
       </div>
       <div class="orderDiv orderSquad">
         <div class="orderDivZ0 orderSquad1">دسته محصول <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ orderSquad2">{{$newOrderOne->name}}</div>
+        <div class="orderDivZ orderSquad2">{{$oldOrderOne->name}}</div>
       </div>
       <div class="orderDiv orderVahed">
         <div class="orderDivZ0 orderVahed1">تعداد محصول <span class="orderDivSpan">:</span> </div>
-        <div class="orderDivZ orderVahed2">{{$newOrderOne->num}} {{$newOrderOne->vahed}} </div>
+        <div class="orderDivZ orderVahed2">{{$oldOrderOne->num}} {{$oldOrderOne->vahed}} </div>
       </div>
       <div class="orderDiv2 orderDis">
         <div class="orderDivZ02 orderDis1">توضیح مشتری <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ2 orderDis2">{{$newOrderOne->dis}}</div>
+        <div class="orderDivZ2 orderDis2">{{$oldOrderOne->dis}}</div>
       </div>
       <div class="orderOk">
         {{-- <a href="#"><button type="button" class="btn btn-primary btn-block">  ثبت فروش این محصول </button></a> --}}
@@ -56,7 +56,7 @@
        </div>
        <div class="form-group">
          <label for="name_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mname_orderSabtSh"></i> نام محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="name_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control" id="name_orderSabtSh" value="{{$proShopOne->name}}"></div>
        </div>
        <div class="form-group">
          <label for="maker_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mmaker_orderSabtSh"></i>  سازنده محصول</label>
@@ -156,7 +156,7 @@
          <div class="imgHidden" id="Aimg6_orderSabtSh"></div>
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success" onclick="proShop({{$newOrderOne->id}})" >ثبت</button>
+         <button type="button" class="btn btn-success" onclick="proShop({{$oldOrderOne->id}})" >ثبت</button>
        </div>
      </form>
     </div>

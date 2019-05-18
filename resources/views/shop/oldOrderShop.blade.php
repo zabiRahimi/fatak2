@@ -1,6 +1,6 @@
 @extends('shop.layoutDashShop')
 @section('title')
-  سفارشات جدید
+  سفارشات ثبت شده
 @endsection
 @section('dash_content')
   @if ($stage==1)
@@ -16,24 +16,24 @@
     </div>
   @else
     <div class="dashTitrSh">
-      سفارشات جدید
+      سفارشات ثبت شده
     </div>
     <div class="dashLBodySh">
-      <div class="newOrder">
-        <div class="newOrderRwo"><i class="fas fa-certificate"></i></div>
-        <div class="newOrderName">نام محصول</div>
-        <div class="newOrderVahed">واحد</div>
-        <div class="newOrderDate">تاریخ</div>
+      <div class="oldOrder">
+        <div class="oldOrderRwo"><i class="fas fa-certificate"></i></div>
+        <div class="oldOrderName">نام محصول</div>
+        <div class="oldOrderVahed">تاریخ ثبت</div>
+        <div class="oldOrderDate">تاریخ ویرایش</div>
       </div>
       @php
         $r=0;
 
       @endphp
-      @foreach ($newOrder as $value)
+      @foreach ($proShop as $value)
         <?php
-        $checkOrder=$proShop->where('order_id',$value->id)->first();
+        // $checkOrder=$proShop->where('order_id',$value->id)->first();
 
-        if($checkOrder){continue;}
+        // if($checkOrder){continue;}
          $r++;
          if ($r%2==0) {
            $color='color1';
@@ -42,15 +42,12 @@
          }
         ?>
 
-        <a href="/newOrderShopOne/{{$value->id}}" class="newOrderA">
-          <div class="newOrder_1 {{$color}}">
-            <div class="newOrderRwo_1 ">{{$r}}</div>
-            <div class="newOrderName_1">{{$value->name}}</div>
-            <div class="newOrderVahed_1">
-              <span>{{$value->num}}</span>
-              <span>{{$value->vahed}}</span>
-            </div>
-            <div class="newOrderDate_1">{{$value->date_ad}}</div>
+        <a href="/oldOrderShopOne/{{$value->order_id}}/{{$value->id}}" class="oldOrderA">
+          <div class="oldOrder_1 {{$color}}">
+            <div class="oldOrderRwo_1 ">{{$r}}</div>
+            <div class="oldOrderName_1">{{$value->name}}</div>
+            <div class="oldOrderVahed_1">{{$value->date_ad}}</div>
+            <div class="oldOrderDate_1">{{$value->date_up}}</div>
           </div>
         </a>
       @endforeach

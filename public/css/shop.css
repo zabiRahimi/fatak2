@@ -136,7 +136,6 @@
 .dashSh_R{width: 220px;margin-left: 5px;background-color: #d4d4d4; float: right;}
 .dashSh_RUl li{font-size: 18px;border-color: #f0f0f0}
 .dashSh_RUl li i{margin-left: 8px;}
-
 .dashSh_L{width: calc(100% - 225px);padding: 3px 15px;float: left;background-color: #fff;}
 .dashTitrSh{width: 100%;height: 40px;line-height: 40px;padding:0 20px;float: right;font-size: 18px;color: #fff;background-color: #2454a6;border-radius: 3px;text-align: right;}
 .dashLBodySh{width: 100%;padding:7px 4px;float: right;text-align: right;}
@@ -145,10 +144,8 @@
   .dashSh_L{width: 100%;padding: 3px 10px;}
 }
 @media (max-width:768px){
-
   .dashSh_L{padding: 3px 5px;}
   .dashTitrSh{padding:0 10px;}
-
 }
 #form_perfectDaSh ,.form_editDaShop , .form_editPasDaShop{
   width: 560px;
@@ -213,6 +210,27 @@
     .MRahnama{font-size: 12px;}
     }
   .Icheck{color: #196201;margin-right: 15px;position: relative;top: 3px;}
+  /* oldOrderShop.php */
+  .oldOrder,.oldOrder_1{width: 100%;height: 30px;line-height: 29px;float: right;background-color: #e0e0e0;border: 1px solid #383838; border-radius: 3px 3px 0 0;}
+  .oldOrder{border-bottom-width: 2px;background-color: #4a91b9;color: #fff;}
+  .oldOrderRwo,.oldOrderName,.oldOrderVahed,.oldOrderDate,.oldOrderRwo_1,.oldOrderName_1,.oldOrderVahed_1,.oldOrderDate_1{float: right;border-left: 1px solid #4d565e;text-align: center;}
+  .oldOrderRwo,.oldOrderRwo_1{width: 40px;}
+  .oldOrderName,.oldOrderName_1{width: calc(50% - 40px);}
+  .oldOrderVahed,.oldOrderVahed_1{width:25%;}
+  .oldOrderDate,.oldOrderDate_1{width:25%;border-left: none;}
+  .oldOrderA{color:#000;}
+  .oldOrderName_1{color: #2658a2}
+  .oldOrder_1{border-radius: 0;border-top: none;}
+  .color1{background-color: #e2dfdf;}
+  .color2{background-color: #d0d0d0;}
+  .oldOrder_1:hover, .oldOrder_1:hover .oldOrderName_1{cursor: pointer;background-color: #618fd4;color: #fff;}
+  @media (max-width:500px){
+    .oldOrder,.oldOrder_1{font-size: 12px;}
+    .oldOrderRwo,.oldOrderRwo_1{width: 23px;}
+    .oldOrderName,.oldOrderName_1{width: calc(48% - 23px);}
+    .oldOrderDate,.oldOrderDate_1{width:27%;border-left: none;}
+    .oldOrderRwo_1,.oldOrderVahed_1,.oldOrderDate_1{font-size: 10px;}
+    }
 /* viewChMy.php */
 .divViweChMy{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
 .divViweChMy span{display: inline-block;text-align: right;float: right;}

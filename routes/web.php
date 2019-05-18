@@ -73,6 +73,10 @@ Route::post('/editDaShopSave','ShopController@editDaShopSave');//ok!!
 Route::post('/editPasDaShop','ShopController@editPasDaShop');//ok!!
 Route::get('/newOrderShop','ShopController@newOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/newOrderShopOne/{id}','ShopController@newOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
+Route::post('/proShop','ShopController@proShop');//ok!!
+Route::get('/oldOrderShop','ShopController@oldOrderShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/oldOrderShopOne/{id1}/{id2}','ShopController@oldOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
+
 Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
 Route::post('/del_imgShop','ShopController@del_imgShop');//ok!!
 

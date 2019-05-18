@@ -406,9 +406,8 @@ function editPasDaShop(id){
 
       $("#Aimg6_orderSabtSh").html( response );
     },  }
-  function del_img(ajax , div , i) {
-    // alert(form)
 
+  function del_img(ajax , div , i) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
@@ -421,3 +420,66 @@ function editPasDaShop(id){
         $("#"+ div).html('');
         $("#"+ i).html( '' );
       },  });}
+
+  function proShop(id) {
+        $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+        $.ajax({
+          type:'post',
+          url:'../proShop',
+          data: {
+                id:id,
+                stamp:$('input[type=radio][name=stamp_orderSabtSh]:checked').val(),
+                namePro:$('#name_orderSabtSh').val(),
+                maker:$('#maker_orderSabtSh').val(),
+                brand:$('#brand_orderSabtSh').val(),
+                model:$('#model_orderSabtSh').val(),
+                price:$('#price_orderSabtSh').val(),
+                vahed:$('#vahed_orderSabtSh').val(),
+                num:$('#num_orderSabtSh').val(),
+                vazn:$('#vazn_orderSabtSh').val(),
+                vaznPost:$('#vaznPost_orderSabtSh').val(),
+                pakat:$('#pakat_orderSabtSh').val(),
+                dis:$('#dis_orderSabtSh').val(),
+                dateMake:$('#dateMake_orderSabtSh').val(),
+                dateExpiration:$('#dateExpiration_orderSabtSh').val(),
+                term:$('#term_orderSabtSh').val(),
+                img1:$('#Aimg1_orderSabtSh').html(),
+                img2:$('#Aimg2_orderSabtSh').val(),
+                img3:$('#Aimg3_orderSabtSh').val(),
+                img4:$('#Aimg4_orderSabtSh').val(),
+                img5:$('#Aimg5_orderSabtSh').val(),
+                img6:$('#Aimg6_orderSabtSh').val(),
+               },
+          success:function(){
+            $('#ajax_orderSabtSh').empty();
+            document.getElementById("form_orderSabtSh").reset();
+            $('#end_orderSabtSh').modal('show');
+          },
+          error: function(xhr) {
+              var errors = xhr.responseJSON;
+              var error=errors.errors;
+              scroll_form('form_orderSabtSh');
+              $('#ajax_orderSabtSh').empty();
+              if(error['stamp']){
+                 $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['stamp']+'</div>');
+              }
+              else if(error['namePro']){
+                 $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['namePro']+'</div>');
+              }
+              else if(error['price']){
+                 $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['price']+'</div>');
+              }
+              else if(error['vahed']){
+                 $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['vahed']+'</div>');
+              }
+              else if(error['vazn']){
+                 $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['vazn']+'</div>');
+              }
+              else if(error['vaznPost']){
+                 $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['vaznPost']+'</div>');
+              }
+              else if(error['pakat']){
+                 $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['pakat']+'</div>');
+              }
+             }  });
+      }
