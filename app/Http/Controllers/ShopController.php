@@ -14,6 +14,7 @@ use App\Http\Requests\Save_loginShop;
 use App\Http\Requests\Save_editShop;
 use App\Http\Requests\Save_editPasShop;
 use App\Http\Requests\Save_proShop;
+use App\Http\Requests\Save_editProShop;
 
 use Cookie;
 use DB;
@@ -244,6 +245,49 @@ class ShopController extends Controller
     $stage=$this->stage;
     $oldOrderOne=Order::find($id_order);
     $proShopOne=proShop::find($id_proShop);
-    return view('shop.oldOrderShopOne',compact('stage','oldOrderOne','proShopOne'));
+    $proImg=Picture_shop::where('pro_shop_id', $id_proShop)->first();
+    return view('shop.oldOrderShopOne',compact('stage','oldOrderOne','proShopOne','proImg'));
+  }
+  public function editProShop(Save_editProShop $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $pro=ProShop::find($request->id);
+
+    $pro->stamp = $request->stamp ;
+    $pro->name = $request->namePro ;
+    $pro->maker = $request->maker ;
+    $pro->brand = $request->brand ;
+    $pro->model = $request->model ;
+    $pro->price = $request->price ;
+    $pro->vahed = $request->vahed ;
+    $pro->num =(empty($request->num)) ? 1 : $request->num;
+    $pro->vazn = $request->vazn ;
+    $pro->vaznPost = $request->vaznPost ;
+    $pro->pakat = $request->pakat ;
+    $pro->dis = $request->dis ;
+    $pro->dateMake = $request->dateMake ;
+    $pro->dateExpiration = $request->dateExpiration ;
+    $pro->term = $request->term ;
+    $pro->date_up = $date ;
+    $pro-> save();
+
+     // اضافه کردن عکسهای محصول
+    $picture=Picture_shop::find($request->id_img);
+    $picture->pic_b1 =  $request->img1 ;
+    $picture->pic_b2 =  $request->img2;
+    $picture->pic_b3 =  $request->img3 ;
+    $picture->pic_b4 =  $request->img4 ;
+    $picture->pic_b5 =  $request->img5 ;
+    $picture->pic_b6 =  $request->img6 ;
+    $picture->pic_s1 =  $request->img1 ;
+    $picture->pic_s2 =  $request->img2 ;
+    $picture->pic_s3 =  $request->img3 ;
+    $picture->pic_s4 =  $request->img4 ;
+    $picture->pic_s5 =  $request->img5 ;
+    $picture->pic_s6 =  $request->img6 ;
+
+    // $pro->picture_pros()->save($picture);
+    $picture->save();
   }
 }

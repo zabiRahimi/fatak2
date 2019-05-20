@@ -147,6 +147,9 @@
   .dashSh_L{padding: 3px 5px;}
   .dashTitrSh{padding:0 10px;}
 }
+@media (max-width:500px){
+  .dashTitrSh{font-size: 14px;}
+}
 #form_perfectDaSh ,.form_editDaShop , .form_editPasDaShop{
   width: 560px;
   margin: 8px calc((100% - 560px)/2) 25px;
@@ -193,6 +196,7 @@
 @media (max-width:470px){
   .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
   }
+  /* ********** */
   .modal_h_img_add_pro{ line-height: 0; }
   .modal_h_img_add_pro span{ font-size: 34px;color: #a10000;}
   .titr_modal_img_addpro{width: 100%; height: 40px;line-height: 40px;float: right; border-radius: 3px; background-color: #e9e9e9;text-align: center;}
@@ -231,6 +235,22 @@
     .oldOrderDate,.oldOrderDate_1{width:27%;border-left: none;}
     .oldOrderRwo_1,.oldOrderVahed_1,.oldOrderDate_1{font-size: 10px;}
     }
+    /* oldOrderShopOne.php */
+    .oldOrderOneBut{float: left; height: 30px;margin-top: 5px;}
+    .orderDivTitr{width:99%;margin: 2px 0.5%;padding: 0 20px;height: 30px;line-height: 30px;float: right;background-color: #047791;border-radius: 3px;color: #fff; }
+    .orderDiv{width: 49%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #cfe1f1;}
+    .orderDiv2{width: 99%;margin: 2px 0.5%;padding: 0 20px 0 0;background-color: #cfe1f1;float: right;}
+    .orderDivZ0,.orderDivZ{width: 50%; float: right;}
+    .orderDivZ , .orderDivZ2{color: #04902e;}
+    .orderDivSpan{margin-right: 10px;font-family: sans-serif;}
+    .orderLine{width:99%;margin: 25px 0.5%; float: right;border: 3px solid #032416; border-radius: 3px;}
+    .stamp_orderSabtShD1{color: #057546;}
+    .stamp_orderSabtShD2{color: #3e6204;}
+    @media (max-width:470px){
+      .orderDivTitr{font-size: 14px;}
+      .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
+      }
+
 /* viewChMy.php */
 .divViweChMy{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
 .divViweChMy span{display: inline-block;text-align: right;float: right;}
