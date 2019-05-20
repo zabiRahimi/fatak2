@@ -70,7 +70,7 @@
          <div class="div_form"><input type="text" class="form-control" id="model_orderEditSh"placeholder="اختیاری ..." value="{{$proShopOne->model}}"></div>
        </div>
        <div class="form-group">
-         <label for="price_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mprice_orderEditSh"></i> قیمت محصول</label>
+         <label for="price_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mprice_orderEditSh"></i> قیمت محصول (تومان)</label>
          <div class="div_form"><input type="text" class="form-control" id="price_orderEditSh" value="{{$proShopOne->price}}"></div>
        </div>
        <div class="form-group">
@@ -97,12 +97,12 @@
          <div class="div_form"><input type="text" class="form-control" id="vazn_orderEditSh"placeholder="در صورت نیاز ..."value="{{$proShopOne->vazn}}"></div>
        </div>
        <div class="form-group">
-         <label for="vaznPost_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MvaznPost_orderEditSh"></i> وزن پستی محصول</label>
+         <label for="vaznPost_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MvaznPost_orderEditSh"></i> وزن پستی محصول (گرم)</label>
          <div class="div_form"><input type="text" class="form-control" id="vaznPost_orderEditSh"value="{{$proShopOne->vaznPost}}"></div>
        </div>
        <div class="form-group">
-         <label for="pakat_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mpakat_orderEditSh"></i>  هزینه بسته بندی</label>
-         <div class="div_form"><input type="text" class="form-control" id="pakat_orderEditSh"placeholder="اختیاری ..."value="{{$proShopOne->pakat}}"></div>
+         <label for="pakat_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mpakat_orderEditSh"></i> هزینه بسته بندی (تومان)</label>
+         <div class="div_form"><input type="text" class="form-control" id="pakat_orderEditSh"placeholder="اختیاری ... به تومان"value="{{$proShopOne->pakat}}"></div>
        </div>
        <div class="form-group">
          <label for="dis_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mdis_orderEditSh"></i> توضیح محصول</label>
@@ -155,7 +155,7 @@
          <div class="imgHidden" id="Aimg6_orderEditSh">{{$proImg->pic_b6}}</div>
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success" onclick="editProShop({{$proShopOne->id}},{{$proImg->id}})" >ثبت تغییرات</button>
+         <button type="button" class="btn btn-success" onclick="editProShop({{$proShopOne->id}},{{$proImg->id}},{{$id_order}},{{$id_proShop}})" >ثبت تغییرات</button>
        </div>
      </form>
     </div>
@@ -166,7 +166,7 @@
        <div class="modal-content">
          <div class="modal-body modal_ok">
            <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
-           <div class="modal_ok2">محصول شما با موفقیت ثبت شد .</div>
+           <div class="modal_ok2">تغییرات با موفقیت ثبت شد .</div>
          </div>
          <div class=" modal_ok3">
            <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
@@ -273,7 +273,7 @@
            <div class="titr_modal_img_addpro">
               آپلود عکس اول
            </div>
-           <div class="" id="imgAddPro1"></div>
+           <div class="" id="imgEditPro1"></div>
            <div class="proEditImg1">
              <form class="dropzone form_img_add_pro" id="proEditImg1" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
                {{ csrf_field() }}
@@ -295,7 +295,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro1','Aimg1_orderEditSh','Iimg1_orderEditSh')">حذف عکس</button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgEditPro1','Aimg1_orderEditSh','Iimg1_orderEditSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -313,7 +313,7 @@
            <div class="titr_modal_img_addpro">
                آپلود عکس دوم
            </div>
-           <div class="" id="imgAddPro2"></div>
+           <div class="" id="imgEditPro2"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg2" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -330,7 +330,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro2','Aimg2_orderEditSh','Iimg2_orderEditSh')">حذف عکس</button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgEditPro2','Aimg2_orderEditSh','Iimg2_orderEditSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -348,7 +348,7 @@
            <div class="titr_modal_img_addpro">
              آپلود عکس سوم
            </div>
-           <div class="" id="imgAddPro3"></div>
+           <div class="" id="imgEditPro3"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg3" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -365,7 +365,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro3','Aimg3_orderEditSh','Iimg3_orderEditSh')">حذف عکس</button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgEditPro3','Aimg3_orderEditSh','Iimg3_orderEditSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -383,7 +383,7 @@
            <div class="titr_modal_img_addpro">
              آپلود عکس چهارم
            </div>
-           <div class="" id="imgAddPro4"></div>
+           <div class="" id="imgEditPro4"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg4" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -400,7 +400,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro4','Aimg4_orderEditSh','Iimg4_orderEditSh')">حذف عکس</button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgEditPro4','Aimg4_orderEditSh','Iimg4_orderEditSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -418,7 +418,7 @@
            <div class="titr_modal_img_addpro">
              آپلود عکس پنچم
            </div>
-           <div class="" id="imgAddPro5"></div>
+           <div class="" id="imgEditPro5"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg5" action="/uplodImgProSh"   enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -435,7 +435,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro5','Aimg5_orderEditSh','Iimg5_orderEditSh')">حذف عکس</button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgEditPro5','Aimg5_orderEditSh','Iimg5_orderEditSh')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -453,7 +453,7 @@
            <div class="titr_modal_img_addpro">
              آپلود عکس ششم
            </div>
-           <div class="" id="imgAddPro6"></div>
+           <div class="" id="imgEditPro6"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg6" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -470,7 +470,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro6','Aimg6_orderEditSh','Iimg6_orderEditSh')">حذف عکس</button>
+             <button type="button" class="btn btn-warning" onclick="del_img('imgEditPro6','Aimg6_orderEditSh','Iimg6_orderEditSh')">حذف عکس</button>
          </div>
        </div>
      </div>

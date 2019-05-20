@@ -71,7 +71,7 @@
          <div class="div_form"><input type="text" class="form-control" id="model_orderSabtSh"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group">
-         <label for="price_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mprice_orderSabtSh"></i> قیمت محصول</label>
+         <label for="price_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mprice_orderSabtSh"></i> قیمت محصول (تومان)</label>
          <div class="div_form"><input type="text" class="form-control" id="price_orderSabtSh"></div>
        </div>
        <div class="form-group">
@@ -98,11 +98,11 @@
          <div class="div_form"><input type="text" class="form-control" id="vazn_orderSabtSh"placeholder="در صورت نیاز ..."></div>
        </div>
        <div class="form-group">
-         <label for="vaznPost_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MvaznPost_orderSabtSh"></i> وزن پستی محصول</label>
+         <label for="vaznPost_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MvaznPost_orderSabtSh"></i> وزن پستی محصول (گرم)</label>
          <div class="div_form"><input type="text" class="form-control" id="vaznPost_orderSabtSh"></div>
        </div>
        <div class="form-group">
-         <label for="pakat_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mpakat_orderSabtSh"></i>  هزینه بسته بندی</label>
+         <label for="pakat_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mpakat_orderSabtSh"></i>  هزینه بسته بندی (تومان)</label>
          <div class="div_form"><input type="text" class="form-control" id="pakat_orderSabtSh"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group">

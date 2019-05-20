@@ -411,7 +411,7 @@ function editPasDaShop(id){
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
-      url:'../del_imgShop',
+      url:'../../del_imgShop',
       data: {
 
            },
@@ -489,7 +489,7 @@ Dropzone.options.proEditImg1 = {
    parallelUploads: 2,
    acceptedFiles:".png , .jpg , .jpeg",
    maxFilesize: 3,
-  error:function(){
+   error:function(){
     $("#imgEditPro1").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
   },
   success:function(file , response){
@@ -509,7 +509,6 @@ Dropzone.options.proEditImg2 = {
   success:function(file , response){
     $("#imgEditPro2").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
     $("#Iimg2_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
-
     $("#Aimg2_orderEditSh").html( response );
   },  }
 Dropzone.options.proEditImg3 = {
@@ -522,7 +521,6 @@ Dropzone.options.proEditImg3 = {
   success:function(file , response){
     $("#imgEditPro3").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
     $("#Iimg3_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
-
     $("#Aimg3_orderEditSh").html( response );
   },  }
 Dropzone.options.proEditImg4 = {
@@ -535,7 +533,6 @@ Dropzone.options.proEditImg4 = {
   success:function(file , response){
     $("#imgEditPro4").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
     $("#Iimg4_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
-
     $("#Aimg4_orderEditSh").html( response );
 },}
 Dropzone.options.proEditImg5 = {
@@ -548,7 +545,6 @@ Dropzone.options.proEditImg5 = {
   success:function(file , response){
     $("#imgEditPro5").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
     $("#Iimg5_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
-
     $("#Aimg5_orderEditSh").html( response );
   },  }
 Dropzone.options.proEditImg6 = {
@@ -561,10 +557,9 @@ Dropzone.options.proEditImg6 = {
   success:function(file , response){
     $("#imgEditPro6").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
     $("#Iimg6_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
-
     $("#Aimg6_orderEditSh").html( response );
   },  }
-  function editProShop(id,id_img) {
+  function editProShop(id,id_img,id_order,id_proShop) {
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
               type:'post',
@@ -598,6 +593,9 @@ Dropzone.options.proEditImg6 = {
                 $('#ajax_orderEditSh').empty();
                 document.getElementById("form_orderEditSh").reset();
                 $('#end_orderEditSh').modal('show');
+                $("#end_orderEditSh").on('hide.bs.modal', function () {
+                window.location.href  = "/oldOrderShopOne/"+id_order+"/"+id_proShop;
+                });
               },
               error: function(xhr) {
                   var errors = xhr.responseJSON;

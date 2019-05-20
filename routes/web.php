@@ -77,6 +77,8 @@ Route::post('/proShop','ShopController@proShop');//ok!!
 Route::get('/oldOrderShop','ShopController@oldOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/oldOrderShopOne/{id1}/{id2}','ShopController@oldOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/editProShop','ShopController@editProShop');//ok!!
+Route::get('/buyProShop','ShopController@buyProShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/buyProShopOne/{buyer_id}/{pro_id}','ShopController@buyProShopOne')->middleware(['chekloginShop' ]);//ok!!
 
 Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
 Route::post('/del_imgShop','ShopController@del_imgShop');//ok!!

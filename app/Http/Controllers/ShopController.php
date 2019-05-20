@@ -7,6 +7,8 @@ use App\Models\Shop;
 use App\Models\Order;
 use App\Models\ProShop;
 use App\Models\Picture_shop;
+use App\Models\Buy;
+
 
 use App\Http\Requests\Save_shop_1;
 use App\Http\Requests\Save_shop_2;
@@ -214,6 +216,23 @@ class ShopController extends Controller
     // $pro->picture_pros()->save($picture);
     $picture->save();
   }
+  public function buyProShop(Request $request)
+  {
+    $stage=$this->stage;
+    $id=$this->id;
+    $proShop=proShop::where('shop_id',$id)->where('stage',2)->get();
+    return view('shop.buyProShop',compact('stage','proShop'));
+  }
+  public function buyProShopOne(Request $request)
+  {
+    $buyer_id=$request->buyer_id;
+    $pro_id=$request->pro_id;
+    $buyer=Buy::find($buyer_id);
+    $pro=ProShop::find($pro_id);
+    return view('shop.buyProShopOne',compact('stage','buyer','pro'));
+
+  }
+
   public function uplodImgProSh(Request $request){
     //اعتبار سنجی
     //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب مگا بایت است . دقت شود
@@ -246,7 +265,7 @@ class ShopController extends Controller
     $oldOrderOne=Order::find($id_order);
     $proShopOne=proShop::find($id_proShop);
     $proImg=Picture_shop::where('pro_shop_id', $id_proShop)->first();
-    return view('shop.oldOrderShopOne',compact('stage','oldOrderOne','proShopOne','proImg'));
+    return view('shop.oldOrderShopOne',compact('stage','oldOrderOne','proShopOne','proImg','id_order','id_proShop'));
   }
   public function editProShop(Save_editProShop $request)
   {

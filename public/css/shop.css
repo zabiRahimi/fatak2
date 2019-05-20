@@ -250,66 +250,14 @@
       .orderDivTitr{font-size: 14px;}
       .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
       }
+/* buyProShop.blade.php */
+/* buyProShopOne.blade.php */
+.buyOneDivTitr,.buyOne2DivTitr{width:99%;margin: 2px 0.5%;padding: 0 20px;height: 30px;line-height: 30px;float: right;background-color: #047791;border-radius: 3px;color: #fff;}
+.buyOne2DivTitr{background-color:#0b9bbb; }
+@media (max-width:470px){
+  .buyOneDivTitr{font-size: 14px;}
+  }
 
-/* viewChMy.php */
-.divViweChMy{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
-.divViweChMy span{display: inline-block;text-align: right;float: right;}
-.divViweChMy span:first-child{width: 70%;padding-right: 45px;}
-.divViweChMy span:last-child{width: 30%;padding-left:35px;text-align: left;}
-@media (max-width:505px){
-  .divViweChMy{width: 100%;margin: 5px 0;}
-  }
-@media (max-width:430px){
-  .divViweChMy span:first-child{padding-right: 5px;}
-  .divViweChMy span:last-child{padding-left:5px;}
-  }
-@media (max-width:315px){
-  .divViweChMy{padding: 0 4px;}
-  .divViweChMy span:first-child{width: 100%;}
-  .divViweChMy span:last-child{width: 100%;}
-  }
-.div1ViweChMy{border-color: #284b59;background-color: #d2e2e6;}
-.div2ViweChMy{border-color: #285942;background-color: #accfd7;}
-.div3ViweChMy{border-color: #315928;background-color: #c3e6ca;}
-.div4ViweChMy{border-color: #594428;background-color: #f2d991;}
-.div5ViweChMy{border-color: #284b59;background-color: #d2e2e6;}
-.div6ViweChMy{border-color: #315928;background-color: #c3e6ca;}
-.div7ViweChMy{border-color: #594428;background-color: #f2d991;}
-/* viewChAll.php */
-.divViweChAll , .divViweChAll2{width: 450px;margin: 5px calc((100% - 450px)/2);padding: 8px 0;border: 2px solid;border-radius: 3px;float: right;}
-.divViweChAll span{display: inline-block;text-align: right;float: right;}
-.divViweChAll span:first-child{width: 70%;padding-right: 45px;}
-.divViweChAll span:last-child{width: 30%;padding-left:35px;text-align: left;}
-@media (max-width:505px){
-  .divViweChAll ,.divViweChAll2{width: 100%;margin: 5px 0;}
-  }
-@media (max-width:430px){
-  .divViweChAll span:first-child{padding-right: 5px;}
-  .divViweChAll span:last-child{padding-left:5px;}
-  }
-@media (max-width:315px){
-  .divViweChAll{padding:  4px;}
-  .divViweChAll span:first-child{width: 100%;}
-  .divViweChAll span:last-child{width: 100%;}
-  }
-.div0ViweChAll{border-color: #284b59;background-color: #86c191;}
-.div1ViweChAll{border-color: #284b59;background-color: #d2e2e6;}
-.div2ViweChAll{border-color: #285942;background-color: #accfd7;}
-.div3ViweChAll{border-color: #315928;background-color: #c3e6ca;}
-.div4ViweChAll{border-color: #594428;background-color: #f2d991;}
-.div5ViweChAll{border-color: #284b59;background-color: #53afbf;}
-
-.div3ViweChAll1,.div4ViweChAll1 ,.divViweChAll2_1{width: 99%; margin: 0 0.5%;padding: 2px 6px;float: right; border: 1px solid #21275e;border-radius: 3px;background-color: #437fa1;color: #fff;}
-.divViweChAll2_1{margin-top: 2px;background-color: #8ec3cd}
-.divViweChAll2_1 div {float: right;}
-.div34ViweChAll2{width: 22px;padding:3px 0 2px;background-color: #8cd575;border-radius: 20px;text-align: center;color: #000;border: 1px solid #173055;margin-left: 3px;}
-.div34ViweChAll3{width: calc(65% - 22px);padding:3px 10px 2px 0;background-color: #eee;color: #171375; border-radius: 0 3px 3px 0;}
-.div34ViweChAll4{width: calc(35% - 3px);padding: 3px 0 2px;background-color: #eee;color: #1c5910; border-radius: 3px 0 0 3px ;}
-.div34ViweChAll4 span{margin-right: 5px; font-size: 10px;}
-@media (max-width:350px){
-  .div34ViweChAll3{width: calc(100% - 25px);border-radius: 3px;}
-  .div34ViweChAll4{width: calc(100% - 25px);margin-top: 1px;border-radius: 3px;text-align: center;float: left !important;}
-  }
 /* incomeChMy.php */
 .incomeChMy{width: 450px ;padding: 6px 0;margin: 5px calc((100% - 450px)/2);float: right;border: 2px solid ; border-radius: 3px;text-align: center;}
 .incomeChMy1{color: #1599b8;}
