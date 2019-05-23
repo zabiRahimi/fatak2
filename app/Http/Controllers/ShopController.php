@@ -232,7 +232,13 @@ class ShopController extends Controller
     return view('shop.buyProShopOne',compact('stage','buyer','pro'));
 
   }
-
+  public function sabtErsalShop(Request $request)
+  {
+    $stage=$this->stage;
+    $id=$this->id;
+    $proShop=proShop::where('shop_id',$id)->where('stage',2)->get();
+    return view('shop.sabtErsalShop',compact('stage','proShop'));
+  }
   public function uplodImgProSh(Request $request){
     //اعتبار سنجی
     //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب مگا بایت است . دقت شود

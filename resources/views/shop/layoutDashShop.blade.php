@@ -38,7 +38,7 @@
     <a href="/newOrderShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-bolt"></i> سفارشات جدید</span> </li></a>
     <a href="/oldOrderShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><i class="fas fa-file-invoice"></i> سفارشات ثبت شده</span> </li></a>
     <a href="/buyProShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-check-circle"></i> محصولات خریداری شده</span> </li></a>
-    <a href="/viewChAll"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="far fa-calendar-plus"></i> ثبت ارسال شده ها</span> </li></a>
+    <a href="/sabtErsalShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="far fa-calendar-plus"></i> ثبت ارسال شده ها</span> </li></a>
     <a href="/incomeChMy"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-search-location"></i> پیگیری ارسال شده ها</span> </li></a>
     <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-calendar-check"></i> پرداخت شده ها</span> </li></a>
     <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-reply-all"></i> محصولات مرجوعی</span> </li></a>
@@ -55,7 +55,7 @@
       <a href="/newOrderShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-bolt"></i> سفارشات جدید</span> </li></a>
       <a href="/oldOrderShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-file-invoice"></i> سفارشات ثبت شده </span> </li></a>
       <a href="/buyProShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-check-circle"></i> محصولات خریداری شده</span> </li></a>
-      <a href="/viewChAll"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-calendar-plus"></i> ثبت ارسال شده ها</span> </li></a>
+      <a href="/sabtErsalShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-calendar-plus"></i> ثبت ارسال شده ها</span> </li></a>
       <a href="/incomeChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-search-location"></i> پیگیری ارسال شده ها</span> </li></a>
       <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-calendar-check"></i> پرداخت شده ها</span> </li></a>
       <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-reply-all"></i> محصولات مرجوعی</span> </li></a>

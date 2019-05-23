@@ -19,7 +19,7 @@
       </div>
       <div class="orderDiv orderSquad">
         <div class="orderDivZ0 orderSquad1">دسته محصول <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ orderSquad2">{{$newOrderOne->name}}</div>
+        <div class="orderDivZ orderSquad2">{{$newOrderOne->squad}}</div>
       </div>
       <div class="orderDiv orderVahed">
         <div class="orderDivZ0 orderVahed1">تعداد محصول <span class="orderDivSpan">:</span> </div>

@@ -1,0 +1,10 @@
+*{box-sizing: border-box;}
+#buyOneDivH{width: 100%;float: right;direction: rtl;}
+.buyOneDivTitr,.buyOne2DivTitr{width: 100%;margin:0 0 7mm;padding: 0 20mm;text-align: center;float: right;color:black;font-size: 22pt;}
+.buyOnePrint{display: none;}
+.buyOneDiv{width: 48%;margin: 2mm 1%;padding: 5mm 0;float: right;border: 0.5mm solid black;}
+.buyOneDiv1 , .buyOneDiv2{width: 49%; padding: 0 5mm; text-align: center;float: right;font-size: 16pt;direction: rtl;}
+.buyOneDivM,.buyOneDivA,.buyOneDivP{width: 98%;margin: 2mm 1%;padding: 2mm 0 5mm;float: right;border: 0.5mm solid black;}
+.buyOneDiv1M , .buyOneDiv2M,.buyOneDivA1,.buyOneDivA2,.buyOneDivP1,.buyOneDivP2{width: 100%; padding: 0 5mm; text-align: center;float: right;font-size: 16pt;direction: rtl;}
+.buyOneDiv2M,.buyOneDivA2{text-align: right;}
+.buyOneDivP2 span{display: inline-block;border: 1mm solid black; padding: 3mm 6mm;border-radius: 3mm;font-size: 25pt;}

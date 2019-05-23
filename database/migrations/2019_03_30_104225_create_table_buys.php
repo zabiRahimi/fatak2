@@ -28,6 +28,7 @@ class CreateTableBuys extends Migration
             $table->smallInteger('num_pro');
             $table->integer('shop_id');
             $table->smallInteger('other_pro')->nullable();
+            $table->text('dis')->nullable();
             $table->mediumInteger('price_post');
             $table->mediumInteger('scot')->nullable();
             $table->mediumInteger('paywork')->nullable();

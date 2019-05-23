@@ -252,8 +252,13 @@
       }
 /* buyProShop.blade.php */
 /* buyProShopOne.blade.php */
-.buyOneDivTitr,.buyOne2DivTitr{width:99%;margin: 2px 0.5%;padding: 0 20px;height: 30px;line-height: 30px;float: right;background-color: #047791;border-radius: 3px;color: #fff;}
+.buyOneDivTitr,.buyOne2DivTitr{width:99%;height: 30px;line-height: 30px;margin: 2px 0.5%;padding: 0 20px;float: right;background-color: #047791;border-radius: 3px;color: #fff;}
 .buyOne2DivTitr{background-color:#0b9bbb; }
+.buyOnePrint{float: left;height: 25px;margin-top: 2.5px;line-height: 5px;}
+.buyOneShopPost{width: 99%;margin: 2px 0.5%;float: right;}
+.buyOneShopPost1,.buyOneShopPost2{width: 100%;padding:5px 0;float: right;font-size: 18px;text-align: center;border-bottom: 1px solid #3c3801;background-color: #716a08;color: #fff}
+.buyOneShopPost2{border-bottom: none;padding: 10px 0 7px;background-color: #ccbf09;}
+.buyOneShopPost2 span{ padding: 0 20px;border: 2px solid #0a3608;border-radius: 6px;color:#0b4009;background-color: #e5f014;}
 @media (max-width:470px){
   .buyOneDivTitr{font-size: 14px;}
   }
