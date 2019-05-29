@@ -17,6 +17,8 @@ use App\Http\Requests\Save_editShop;
 use App\Http\Requests\Save_editPasShop;
 use App\Http\Requests\Save_proShop;
 use App\Http\Requests\Save_editProShop;
+use App\Http\Requests\Save_sabtCodeSh;
+use App\Http\Requests\Save_sabtCodeRahgirySh;
 
 use Cookie;
 use DB;
@@ -232,13 +234,7 @@ class ShopController extends Controller
     return view('shop.buyProShopOne',compact('stage','buyer','pro'));
 
   }
-  public function sabtErsalShop(Request $request)
-  {
-    $stage=$this->stage;
-    $id=$this->id;
-    $proShop=proShop::where('shop_id',$id)->where('stage',2)->get();
-    return view('shop.sabtErsalShop',compact('stage','proShop'));
-  }
+
   public function uplodImgProSh(Request $request){
     //اعتبار سنجی
     //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب مگا بایت است . دقت شود
@@ -314,5 +310,65 @@ class ShopController extends Controller
 
     // $pro->picture_pros()->save($picture);
     $picture->save();
+  }
+  public function sabtErsalShop(Request $request)
+  {
+    $stage=$this->stage;
+    // $id=$this->id;
+    $idPro=$request->idPro;
+    $proShop=proShop::where('id',$idPro)->where('stage',2)->first();
+    if ($proShop) {
+      $buyer=Buy::where('id',$proShop->buyer_id)->first();
+    }
+    return view('shop.sabtErsalShop',compact('stage','idPro','proShop','buyer'));
+  }
+  public function sabtCodeSh(Save_sabtCodeSh $request)
+  {
+    $code=$request->codePro;
+    $proShop=proShop::where('id',$code)->where('stage',2)->first();
+    if (!$proShop) {
+      $proShop2=proShop::where('id',$code)->where('stage',3)->first();
+
+      if($proShop2){
+        return response()->json(['errors' => ['codePro' => ['کد رهگیری این محصول قبلا ثبت شده است .']]], 422);
+
+      }
+      return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);
+
+    }
+    return $code;
+  }
+  public function sabtCodeRahgirySh(Save_sabtCodeRahgirySh $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=ProShop::find($request->id);
+    $add->codeRahgiry=$request->codeRahgiry;
+    $add->date_up=$date;
+    $add->stage=3;
+    $add->save();
+  }
+  public function editErsalShop(Request $request)
+  {
+    $stage=$this->stage;
+    $proShop=proShop::where('stage',3)->get();
+    return view('shop.editErsalShop',compact('stage','proShop'));
+
+  }
+  public function editCodeSh(Save_sabtCodeSh $request)
+  {
+    $code=$request->codePro;
+    $proShop=proShop::where('id',$code)->where('stage',3)->first();
+    if (!$proShop) {
+      $proShop2=proShop::where('id',$code)->where('stage',2)->first();
+
+      if($proShop2){
+        return response()->json(['errors' => ['codePro' => ['کد رهگیری این محصول تاکنون ثبت نشده است . جهت ثبت کد به صفحه ثبت ارسال شده ها بروید .']]], 422);
+
+      }
+      return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);
+
+    }
+    return $code;
   }
 }

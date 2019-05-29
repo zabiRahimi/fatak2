@@ -87,6 +87,8 @@ display:inline;
 .div_form_radio2{width: calc(50% - 1px);height: 40px;margin: 0 0.5px;float: right;background-color: #fff;border-radius: 3px;}
 .div_form_radio2 label{width: 80% !important;}
 .div_form_radio2 input{margin-top: 10px !important;}
+.i_rahnama{cursor: pointer;}
+.i_rahnama:hover{color: #414141;}
 .i_form{position: relative; margin-left: 10px;}
 .captcha_form {width: 65%; float: left; text-align: center;}
 .captcha_form span {display: inline-block;height: 38px;background-color: #829077; padding: 1px;}

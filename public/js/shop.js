@@ -648,4 +648,88 @@ Dropzone.options.proEditImg6 = {
         frame1.remove();
     }, 500);
   }
-        
+  function sabtCodeSh() {
+            $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+            $.ajax({
+              type:'post',
+              url:'../../sabtCodeSh',
+              data: {
+                    codePro:$('#code_sabtCodePSh').val(),
+                   },
+              success:function(data){
+                $('#ajax_sabtCodePSh').empty();
+                window.location.href  = "/sabtErsalShop/"+data;
+              },
+              error: function(xhr) {
+                // window.location.href  = "/sabtErsalShop";
+
+                  var errors = xhr.responseJSON;
+                  var error=errors.errors;
+                  scroll_form('form_sabtCodePSh');
+                  $('#ajax_error_sabtCodePSh').empty();
+
+                  if(error['codePro']){
+                     $('#ajax_error_sabtCodePSh').append('<div id="alarm_red">'+error['codePro']+'</div>');
+
+                  }
+                  $('#error_sabtCodePSh').modal('show');
+                  $("#error_sabtCodePSh").on('hide.bs.modal', function () {
+                  window.location.href  = "/sabtErsalShop";
+                  });
+
+                 }  });
+          }
+
+    function sabtCodeRahgirySh(id) {
+                    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+                    $.ajax({
+                      type:'post',
+                      url:'../../sabtCodeRahgirySh',
+                      data: {
+                            id:id,
+                            codeRahgiry:$('#codeR_sabtCodePSh').val(),
+                           },
+                      success:function(data){
+                        $('#ajax_sabtCodeRahgirySh').empty();
+                        $('#end_sabtCodeRahgirySh').modal('show');
+                        $("#end_sabtCodeRahgirySh").on('hide.bs.modal', function () {
+                        window.location.href  = "/sabtErsalShop";
+                        });
+                      },
+                      error: function(xhr) {
+                          var errors = xhr.responseJSON;
+                          var error=errors.errors;
+                          scroll_form('form_sabtCodeRahgirySh');
+                          $('#ajax_sabtCodeRahgirySh').empty();
+                          $('#codeR_sabtCodePSh').val('');
+                          if(error['codeRahgiry']){
+                             $('#ajax_sabtCodeRahgirySh').append('<div id="alarm_red">'+error['codeRahgiry']+'</div>');
+
+                          }}  });
+                  }
+function editCodeSh() {
+                      $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+                      $.ajax({
+                      type:'post',
+                      url:'../../editCodeSh',
+                      data: {
+                              codePro:$('#code_editCodePSh').val(),
+                           },
+                      success:function(data){
+                                $('#ajax_sabtCodePSh').empty();
+                                window.location.href  = "/editErsalShop/"+data;
+                              },
+                      error: function(xhr) {
+                                  var errors = xhr.responseJSON;
+                                  var error=errors.errors;
+                                  scroll_form('form_editCodePSh');
+                                  $('#ajax_error_editCodePSh').empty();
+                                  if(error['codePro']){
+                                     $('#ajax_error_editCodePSh').append('<div id="alarm_red">'+error['codePro']+'</div>');
+                                  }
+                                  $('#error_editCodePSh').modal('show');
+                                  $("#error_editCodePSh").on('hide.bs.modal', function () {
+                                  window.location.href  = "/editErsalShop";
+                                  });
+                                 }  });
+                          }
