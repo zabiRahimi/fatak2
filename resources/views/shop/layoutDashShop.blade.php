@@ -39,10 +39,10 @@
     <a href="/oldOrderShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><i class="fas fa-file-invoice"></i> سفارشات ثبت شده</span> </li></a>
     <a href="/buyProShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-check-circle"></i> محصولات خریداری شده</span> </li></a>
     <a href="/sabtErsalShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="far fa-calendar-plus"></i> ثبت ارسال شده ها</span> </li></a>
-    <a href="/editErsalShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="far fa-calendar-plus"></i> ویرایش ارسال شده ها</span> </li></a>
-    <a href="/incomeChMy"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-search-location"></i> پیگیری ارسال شده ها</span> </li></a>
-    <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-calendar-check"></i> پرداخت شده ها</span> </li></a>
-    <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-reply-all"></i> محصولات مرجوعی</span> </li></a>
+    <a href="/editErsalShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="far fa-edit"></i> ویرایش ارسال شده ها</span> </li></a>
+    <a href="/pigiryErsalShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-search-location"></i> پیگیری ارسال شده ها</span> </li></a>
+    <a href="/payShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-calendar-check"></i> پرداخت شده ها</span> </li></a>
+    <a href="/backErsalShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-reply-all"></i> محصولات مرجوعی</span> </li></a>
     <a href="/societyCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-handshake"></i>نحوه مشارکت</span> </li></a>
     <a href="/ghanonCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
     <a href="/rahnamaCh"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide"><span><i class="fas fa-compass"></i> راهنما</span> </li></a>
@@ -57,10 +57,10 @@
       <a href="/oldOrderShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-file-invoice"></i> سفارشات ثبت شده </span> </li></a>
       <a href="/buyProShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-check-circle"></i> محصولات خریداری شده</span> </li></a>
       <a href="/sabtErsalShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-calendar-plus"></i> ثبت ارسال شده ها</span> </li></a>
-      <a href="/editErsalShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-calendar-plus"></i> ویرایش ارسال شده ها</span> </li></a>
-      <a href="/incomeChMy"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-search-location"></i> پیگیری ارسال شده ها</span> </li></a>
-      <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-calendar-check"></i> پرداخت شده ها</span> </li></a>
-      <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-reply-all"></i> محصولات مرجوعی</span> </li></a>
+      <a href="/editErsalShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-edit"></i> ویرایش ارسال شده ها</span> </li></a>
+      <a href="/pigiryErsalShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-search-location"></i> پیگیری ارسال شده ها</span> </li></a>
+      <a href="/payShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-calendar-check"></i> پرداخت شده ها</span> </li></a>
+      <a href="/backErsalShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-reply-all"></i> محصولات مرجوعی</span> </li></a>
       <a href="/societyCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-handshake"></i>نحوه مشارکت</span> </li></a>
       <a href="/ghanonCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-balance-scale"></i> قوانین و مقررات</span> </li></a>
       <a href="/rahnamaCh"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-compass"></i> راهنما</span> </li></a>

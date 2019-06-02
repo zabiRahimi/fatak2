@@ -34,12 +34,15 @@
         </form>
         @if (!empty($idPro))
           <div class="editCodeBodySh">
+            <div class="editCodeBodyBazSh">
+              <button type="button" class="btn" onclick="window.location='/editErsalShop'">بازگشت</button>
+            </div>
             <div class="editCodeBodyTSh">
               مشخصات محصول
             </div>
             <div class="editCodeBodyPSh">
               <div class="editCodeBodyP1Sh">نام محصول :</div>
-              <div class="editCodeBodyP2Sh">{{$proShop->name}}</div>
+              <div class="editCodeBodyP2Sh">{{$proShop2->name}}</div>
             </div>
             <div class="editCodeBodyPSh">
               <div class="editCodeBodyP1Sh">تعداد محصول :</div>
@@ -74,10 +77,10 @@
              {{ csrf_field() }}
              <div class="form-group">
                 <label for="codeR_editCodePSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#McodeR_editCodePSh"></i> کد رهگیری محموله</label>
-                <div class="div_form"><input type="text" class="form-control" id="codeR_editCodePSh"placeholder="" value=""></div>
+                <div class="div_form"><input type="text" class="form-control" id="codeR_editCodePSh"placeholder="" value="{{$proShop2->codeRahgiry}}"></div>
               </div>
               <div class="form-group form_btn">
-                <button type="button" class="btn btn-success" onclick="editCodeRahgirySh({{$proShop->id}})" >ثبت کد</button>
+                <button type="button" class="btn btn-success" onclick="editCodeRahgirySh({{$proShop2->id}})" >ویرایش کد رهگیری</button>
               </div>
             </form>
         @else
@@ -93,7 +96,7 @@
           @endphp
           @foreach ($proShop as $value)
             <?php $r++;  ?>
-            <div class="div2_editCodeSh @if ($r % 2 == 0) bColor2 @else bColor1 @endif ">
+            <div class="div2_editCodeSh @if ($r % 2 == 0) bColor2 @else bColor1 @endif "onclick="window.location='/editErsalShop/{{$value->id}}'">
               <div class="div_editCodeSh1">{{$r}}</div>
               <div class="div_editCodeSh2">{{$value->id}}</div>
               <div class="div_editCodeSh3">{{$value->name}}</div>

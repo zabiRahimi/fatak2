@@ -84,6 +84,11 @@ Route::post('/sabtCodeSh','ShopController@sabtCodeSh');//ok!!
 Route::post('/sabtCodeRahgirySh','ShopController@sabtCodeRahgirySh');//ok!!
 Route::get('/editErsalShop/{idPro?}','ShopController@editErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/editCodeSh','ShopController@editCodeSh');//ok!!
+Route::post('/editCodeRahgirySh','ShopController@editCodeRahgirySh');//ok!!
+Route::get('/pigiryErsalShop/{idPro?}','ShopController@pigiryErsalShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/backErsalShop/{idPro?}','ShopController@backErsalShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/payShop/{idPro?}','ShopController@payShop')->middleware(['chekloginShop' ]);//ok!!
+Route::post('/SearchPayShop','ShopController@SearchPayShop');//ok!!
 
 Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
 Route::post('/del_imgShop','ShopController@del_imgShop');//ok!!

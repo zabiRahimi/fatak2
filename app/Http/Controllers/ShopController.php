@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\ProShop;
 use App\Models\Picture_shop;
 use App\Models\Buy;
+use App\Models\PayShop;
 
 
 use App\Http\Requests\Save_shop_1;
@@ -19,6 +20,7 @@ use App\Http\Requests\Save_proShop;
 use App\Http\Requests\Save_editProShop;
 use App\Http\Requests\Save_sabtCodeSh;
 use App\Http\Requests\Save_sabtCodeRahgirySh;
+use App\Http\Requests\Save_editCodeRahgirySh;
 
 use Cookie;
 use DB;
@@ -351,8 +353,13 @@ class ShopController extends Controller
   public function editErsalShop(Request $request)
   {
     $stage=$this->stage;
+    $idPro=$request->idPro;
     $proShop=proShop::where('stage',3)->get();
-    return view('shop.editErsalShop',compact('stage','proShop'));
+    $proShop2=proShop::where('id',$idPro)->first();
+    if ($proShop2) {
+      $buyer=Buy::where('id',$proShop2->buyer_id)->first();
+    }
+    return view('shop.editErsalShop',compact('stage','idPro','proShop','proShop2','buyer'));
 
   }
   public function editCodeSh(Save_sabtCodeSh $request)
@@ -364,6 +371,59 @@ class ShopController extends Controller
 
       if($proShop2){
         return response()->json(['errors' => ['codePro' => ['کد رهگیری این محصول تاکنون ثبت نشده است . جهت ثبت کد به صفحه ثبت ارسال شده ها بروید .']]], 422);
+
+      }
+      return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);
+
+    }
+    return $code;
+  }
+  public function editCodeRahgirySh(Save_editCodeRahgirySh $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=ProShop::find($request->id);
+    $add->codeRahgiry=$request->codeRahgiry;
+    $add->date_up=$date;
+    $add->stage=3;
+    $add->save();
+  }
+  public function pigiryErsalShop(Request $request)
+  {
+    $stage=$this->stage;
+    return view('shop.pigiryErsalShop',compact('stage'));
+  }
+  public function backErsalShop(Request $request)
+  {
+    $stage=$this->stage;
+    return view('shop.backErsalShop',compact('stage'));
+  }
+  public function payShop(Request $request)
+  {
+    $stage=$this->stage;
+    $idPro=$request->idPro;
+    $proShop=ProShop::where('stage','4')->get();
+    $payShop=PayShop::first();
+    if ($idPro) {
+      $proShop2=ProShop::where('id',$idPro)->where('stage','4')->first();
+
+    }
+    return view('shop.payShop',compact('stage','proShop','payShop','idPro','proShop2'));
+  }
+  public function SearchPayShop(Save_sabtCodeSh $request)
+  {
+    $code=$request->codePro;
+    $proShop=proShop::where('id',$code)->where('stage',4)->first();
+    if (!$proShop) {
+      $proShop2=proShop::where('id',$code)->where('stage',3)->first();
+      $proShop3=proShop::where('id',$code)->where('stage',6)->first();
+
+      if($proShop2){
+        return response()->json(['errors' => ['codePro' => ['مبلغ این محصول تا کنون پرداخت نشده است .']]], 422);
+
+      }
+      if($proShop3){
+        return response()->json(['errors' => ['codePro' => ['این کالا برگشت خورده است ، جهت پیگیری به صفحه محصولات مرجوعی بروید .']]], 422);
 
       }
       return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);

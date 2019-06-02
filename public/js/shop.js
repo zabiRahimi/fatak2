@@ -733,3 +733,60 @@ function editCodeSh() {
                                   });
                                  }  });
                           }
+function editCodeRahgirySh(id) {
+            $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+            $.ajax({
+            type:'post',
+            url:'../../editCodeRahgirySh',
+            data: {
+            id:id,
+            codeRahgiry:$('#codeR_editCodePSh').val(),
+                 },
+            success:function(data){
+                    $('#ajax_editCodeRahgirySh').empty();
+                    $('#end_editCodeRahgirySh').modal('show');
+                    $("#end_editCodeRahgirySh").on('hide.bs.modal', function () {
+                    window.location.href  = "/editErsalShop";
+                                          });
+                                    },
+           error: function(xhr) {
+              var errors = xhr.responseJSON;
+              var error=errors.errors;
+              scroll_form('form_editCodeRahgirySh');
+            $('#ajax_editCodeRahgirySh').empty();
+            $('#codeR_editCodePSh').val('');
+            if(error['codeRahgiry']){
+            $('#ajax_editCodeRahgirySh').append('<div id="alarm_red">'+error['codeRahgiry']+'</div>');
+  }}  });
+  }
+function SearchPayShop() {
+            $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+            $.ajax({
+              type:'post',
+              url:'../../SearchPayShop',
+              data: {
+                    codePro:$('#code_payShop').val(),
+                   },
+              success:function(data){
+                $('#ajax_sabtCodePSh').empty();
+                window.location.href  = "/payShop/"+data;
+              },
+              error: function(xhr) {
+                // window.location.href  = "/sabtErsalShop";
+
+                  var errors = xhr.responseJSON;
+                  var error=errors.errors;
+                  scroll_form('form_payShop');
+                  $('#ajax_payShop').empty();
+
+                  if(error['codePro']){
+                     $('#ajax_payShop').append('<div id="alarm_red">'+error['codePro']+'</div>');
+
+                  }
+                  // $('#error_sabtCodePSh').modal('show');
+                  // $("#error_sabtCodePSh").on('hide.bs.modal', function () {
+                  // window.location.href  = "/sabtErsalShop";
+                  // });
+
+                 }  });
+          }

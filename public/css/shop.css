@@ -346,6 +346,22 @@
   float: right;
   margin-top: 5px;
 }
+.editCodeBodyBazSh{
+  width: 100%;
+  height: 30px;
+  float: right;
+  margin: 3px 0;
+  padding: 3px 20px;
+  text-align: left;
+  background-color: #e7e0bb;
+  border-radius: 3px;
+
+}
+.editCodeBodyBazSh button{
+  height: 25px;
+  line-height: 15px;
+  background-color: #4ebee8;
+}
 .editCodeBodyTSh ,.editCodeBodyT2Sh{
   width: 100%;
   height: 30px;
@@ -441,6 +457,71 @@
       .div_editCodeSh2{width:calc(30% - 20px);font-size: 12px;}
       .div_editCodeSh3,.div_editCodeSh4{font-size: 12px;}
       }
+/* payShop.php */
+.form_payShop,.div3_payShop{
+  width: 500px;
+  margin: 0 calc( (100% - 500px ) / 2);
+  float: right;
+}
+.div_payShop , .div2_payShop{
+  width: 500px;
+  margin: 0 calc( (100% - 500px ) / 2);
+  height: 30px;
+  line-height: 30px;
+  border: 1px solid #000;
+  float: right;
+  margin-top: 5px;
+  background-color: #b3ebed;
+}
+.div2_payShop{margin-top: 0;border-top: none;cursor: pointer;}
+.div2_payShop:hover{background: #5156dd;color: #fff;}
+.payColor1{background: #fff;}
+.payColor2{background: #e3e3e3;}
+.div_payShop1{width: 25px;height: 29px;float: right;text-align: center;border-left: 1px solid #000;}
+.div_payShop2{width:calc(20% - 25px);height: 29px; float: right;text-align: center;border-left: 1px solid #000;}
+.div_payShop3{width:30%;height: 29px;float: right;text-align: center;border-left: 1px solid #000;}
+.div_payShop4{width: 28%;height: 29px;float: right;text-align: center;border-left: 1px solid #000;}
+.div2_payShop4{color: #074002;}
+.div2_payShop:hover .div2_payShop4{color: #dfd70a}
+.div_payShop5{width: 22%;height: 29px;float: right;text-align: center;}
+.div3_payShop1{
+  width: 49%;
+  height: 40px;
+  line-height: 40px;
+  margin: 2px 0.5%;
+  float: right;
+  background-color:#b7d1e2;
+  padding: 2px 10px;
+}
+.div3_payShop1_1,.div3_payShop1_2{
+  width: 50%;
+  margin: 0;
+  float: right;
+}
+.div3_payShop1_2{color: #053b0c}
+@media (max-width:550px){
+    .form_payShop,.div3_payShop{
+      width: 99%;
+      margin: 0 1%;
+    }
+    .div_payShop,.div2_payShop{
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+  }
+}
+@media (max-width:450px){
+  /* .editCodeBodyPSh,.editCodeBodyBSh{width: 98%;} */
+  .div_payShop2{width:calc(30% - 25px);}
+  .div_payShop3{width:30%;}
+  .div_payShop4{width: 40%;border-left: none;}
+  .div_payShop5{display: none;}
+  }
+@media (max-width:310px){
+    .div_payShop1{width: 20px;font-size: 12px;}
+    .div_payShop2{width:calc(30% - 20px);font-size: 12px;}
+    .div_payShop3,.div_payShop4{font-size: 12px;}
+    }
 /* societyCh.php */
 .society_ch{width: 100%;padding: 7px 20px 7px 10px ;text-align: justify;float: right;color: #3d3d3d;background-color: #f1f7f9;font-size: 16px;}
 .society_ch p{background-color: #fff; padding: 5px 8px; border-radius: 2px;}
