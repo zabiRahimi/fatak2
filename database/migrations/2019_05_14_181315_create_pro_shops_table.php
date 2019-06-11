@@ -16,7 +16,8 @@ class CreateProShopsTable extends Migration
         Schema::create('pro_shops', function (Blueprint $table) {
             $table->increments('id');
             $table->mediumInteger('order_id');
-            $table->tinyInteger('stamp',1);
+            $table->mediumInteger('shop_id');
+            $table->tinyInteger('stamp');
             $table->string('name',100);
             $table->string('maker',70)->nullable();
             $table->string('brand',70)->nullable();
@@ -33,7 +34,7 @@ class CreateProShopsTable extends Migration
             $table->text('term')->nullable();
             $table->date('date_ad');
             $table->date('date_up');
-            $table->tinyInteger('stage',2);
+            $table->tinyInteger('stage');
             $table->boolean('show');
         });
     }

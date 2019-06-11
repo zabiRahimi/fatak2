@@ -1,3 +1,4 @@
+
 /* //page_login */
 .shop_log{width: 98%;height: 35px;line-height: 35px;margin: 3px 1%; border: 1px solid #5c5c5c; border-radius: 3px;float: right;background-color: #a2d4a9}
 .shop_log1,.shop_log2,.shop_log3{width: 33%;float: right;font-size: 18px;}
@@ -137,7 +138,76 @@
 .dashSh_RUl li{font-size: 18px;border-color: #f0f0f0}
 .dashSh_RUl li i{margin-left: 8px;}
 .dashSh_L{width: calc(100% - 225px);padding: 3px 15px;float: left;background-color: #fff;}
-.dashTitrSh{width: 100%;height: 40px;line-height: 40px;padding:0 20px;float: right;font-size: 18px;color: #fff;background-color: #2454a6;border-radius: 3px;text-align: right;}
+.dashTitrSh,.searchShop{width: 100%;height: 35px;line-height: 35px;padding:0 20px;float: right;font-size: 18px;color: #fff;background-color: #2454a6;border-radius: 3px;text-align: right;}
+.searchShop{
+  height: auto;
+ margin:2px 0 5px;
+ padding: 0;
+ background-color: #fff;
+ font-size: 16px;
+
+}
+.searchShop button{
+  height: 30px;
+  line-height: 15px;
+  margin:2px 0 5px;
+  color: #4a4949;
+  background-color: #dddddd;
+}
+.searchShop button:hover{
+  background-color: #e0e8ec;
+}
+.searchSpanShop,.M_searchSpanShop {
+  height:30px;
+  padding: 0 6px;
+  color: #2f3030;
+  background-color:  #dddddd;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 14px;
+}
+.searchSpan1Shop{
+    height:25px;
+    position: relative;
+    top: -4px;
+    display: inline-block;
+}
+.searchInput2Shop,.searchInput3Shop,.M_searchInput2Shop,.M_searchInput3Shop{height: 25px;position: relative;top: -3px;margin-left: -1px;text-align: center;border-radius: 5px;border: 1px solid #fff;}
+.searchInput2Shop{width: 25px;}
+.searchInput3Shop{width: 40px;}
+.searchInputShop:-moz-placeholder,.searchInputShop::-moz-placeholder{color:#d3d5ec;opacity: 0.9;}
+.searchInputShop:focus:-moz-placeholder,.searchInputShop:focus::-moz-placeholder{opacity: 0.4;}
+
+.searchAShop{width: 25px;height: 25px;padding: 0;position: relative;top:2px;text-align:center;display: inline-block;background-color: #dfeeff;border-radius: 4px;}
+.searchAShop i{position: relative;top: -2px;}
+.M_searchSpanShop{
+  display: none;
+  height: auto;
+  width: 100%;
+  padding: 1px 6px 0;
+  float: right;
+  text-align: right;
+}
+.M_searchSpanShop2,.M_searchSpanShop3{display: inline-block;float: right;}
+.M_searchSpan1Shop{width: 40px;height: 25px;display: inline-block;text-align: center;}
+.M_searchInput2Shop,.M_searchInput3Shop{top: 0;}
+.M_searchInput2Shop{width: 25px;}
+.M_searchInput3Shop{width: 40px;}
+.M_searchAShop{width: 25px;height: 25px;padding: 0;position: relative;text-align:center;display: inline-block;background-color: #dfeeff;border-radius: 4px;}
+.M_searchAShop i{position: relative;top: 2px;}
+.M_searchSpanShop4{width: 100%;margin: 3px 0;padding:2px 4px;border-radius: 3px;float: right;background-color:#dddddd ;}
+.pro_searchShop,.osatn_searchShop,.city_searchShop{width: 120px; margin: 2px ;display: inline-block;float: right;}
+.M_searchSpanShop10{width: 100%;margin: 5px 0; padding: 2px 5px;float: right;text-align: center;}
+.M_searchSpanShop10 button{width: 70%;background-color: #09660a;}
+.divNoR0wShop{
+  width: 100%;
+  margin: 40px 0;
+  padding: 5px 15px 4px;
+  border-radius: 4px;
+  float: right;
+  background-color: #f6c67f;
+  color: #9d3d07;
+}
 .dashLBodySh{width: 100%;padding:7px 4px;float: right;text-align: right;}
 @media (max-width:950px){
   .dashSh_R{display: none;}
@@ -147,8 +217,23 @@
   .dashSh_L{padding: 3px 5px;}
   .dashTitrSh{padding:0 10px;}
 }
+@media (max-width:541px){
+  .searchSpanShop,.searchShop button{font-size: 12px;}
+}
+@media (max-width:506px){
+  .searchSpanShop{display: none;}
+  .M_searchSpanShop{display: block;}
+}
 @media (max-width:500px){
   .dashTitrSh{font-size: 14px;}
+}
+@media (max-width:370px){
+  .M_searchSpanShop2,.M_searchSpanShop3{
+    width: 100%;
+    display: block;
+    margin-top: 1px;
+  }
+  .M_searchAShop{top: -2px;}
 }
 #form_perfectDaSh ,.form_editDaShop , .form_editPasDaShop{
   width: 560px;

@@ -19,6 +19,11 @@
       محصولات خریداری شده
     </div>
     <div class="dashLBodySh">
+      @if (empty($proShop[0]->id))
+        <div class="divNoR0wShop">
+          تا کنون محصولی خرید نشده است .
+        </div>
+      @else
       <div class="oldOrder">
         <div class="oldOrderRwo"><i class="fas fa-certificate"></i></div>
         <div class="oldOrderName">نام محصول</div>
@@ -51,7 +56,7 @@
           </div>
         </a>
       @endforeach
-
+    @endif
     </div>
   @endif
    <!-- Modal موفق بودن ثبت ابتدایی کانال-->
