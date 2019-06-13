@@ -21,6 +21,7 @@ use App\Http\Requests\Save_editProShop;
 use App\Http\Requests\Save_sabtCodeSh;
 use App\Http\Requests\Save_sabtCodeRahgirySh;
 use App\Http\Requests\Save_editCodeRahgirySh;
+use App\Http\Requests\Save_searchDateShop;
 
 use Cookie;
 use DB;
@@ -158,14 +159,87 @@ class ShopController extends Controller
         return response()->json(['errors' => ['no_pas' => ['رمز فعلی اشتباه است .']]], 422);
       }
   }
+
   public function newOrderShop(Request $request)
   {
+    $GLOBALS['ostanSeSh']  =$request->cookie('osatnShop');
+    $search_ostanA =$request->cookie('osatnShop');
+    $dateA=new Verta();//تاریخ جلالی
+    $dateB=$dateA->format('Y/n/j');
+    $dateC=$dateA->subDay()->format('Y/n/j');
     $stage=$this->stage;
     $id=$this->id;
+    $date=$request->date;
+    $date1=$request->cookie('date1');
+    $date2=$request->cookie('date2');
+
+    $sortDate=$request->cookie('sortdate');
+    if ($date=='today' or $sortDate=='today') {
+      $newOrder=Order::where('stage',1)->where('date_up',$dateB)->where(function($query){
+        $ostanSeSh=$GLOBALS['ostanSeSh'];
+        if(!empty($ostanSeSh) && $ostanSeSh!=='allOstan' ){$query->where('ostan', $ostanSeSh);}
+      })->orderby('date_up', 'DESC')->get();
+      $search_order='سفارشات امروز';
+    }
+    elseif ($date=='yesterday' or $sortDate=='yesterday') {
+
+      $newOrder=Order::where('stage',1)->where('date_up' , $dateC)->where(function($query){
+        $ostanSeSh=$GLOBALS['ostanSeSh'];
+        if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
+      })->orderby('date_up', 'DESC')->get();
+      // Cookie::queue('sortdate', $date);
+      $search_order='سفارشات دیروز';
+
+
+    }
+    elseif ($date=='slicing' or $sortDate=='slicing') {
+
+      if (!empty($date1) && !empty($date2)) {
+        $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date1, $date2])->where(function($query){
+          $ostanSeSh=$GLOBALS['ostanSeSh'];
+          if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
+        })->orderby('date_up', 'DESC')->get();
+        // Cookie::queue('sortdate', $date);
+        $search_order='سفارشات از تاریخ' . $date1 . 'تا' . $date2;
+
+      }
+        // $newOrder=Order::where('stage',1)->get();
+
+    }
+    else {
+      $newOrder=Order::where('stage',1)->where(function($query){
+        $ostanSeSh=$GLOBALS['ostanSeSh'];
+        if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
+      })->where('name' ,"like", '%نار%')->orderby('date_up', 'DESC')->get();
+      // Cookie::queue('sortdate', 'all');
+      $search_order='سفارشات یک ماه اخیر';
+
+    }
+    if(!empty($search_ostanA)&& $search_ostanA!='allOstan'){$search_ostan='استان '.$search_ostanA;}else { $search_ostan='همه استانها' ;  }
     $proShop=proShop::where('shop_id',$id)->get();
-    $newOrder=Order::where('stage',1)->get();
-    return view('shop.newOrderShop',compact('stage','newOrder','proShop'));
+    return view('shop.newOrderShop',compact('stage','newOrder','proShop','search_order','sortDate','search_ostan'));
   }
+public function searchSortDateShop(Request $request)
+{
+  $sortDate=$request->sortdate;
+  Cookie::queue('sortdate', $sortDate);
+
+}
+public function searchShop(Save_searchDateShop $request)
+{
+  $date1=$request->date1;
+  $date2=$request->date2;
+  Cookie::queue('date1', $date1);
+  Cookie::queue('date2', $date2);
+  Cookie::queue('sortdate', 'slicing');
+
+}
+public function searchOstanShop(Request $request)
+{
+  $ostan=$request->ostan;
+  Cookie::queue('osatnShop', $ostan);
+
+}
   public function newOrderShopOne(Request $request)
   {
     $stage=$this->stage;
@@ -271,6 +345,7 @@ class ShopController extends Controller
     $proImg=Picture_shop::where('pro_shop_id', $id_proShop)->first();
     return view('shop.oldOrderShopOne',compact('stage','oldOrderOne','proShopOne','proImg','id_order','id_proShop'));
   }
+
   public function editProShop(Save_editProShop $request)
   {
     $date1=new Verta();//تاریخ جلالی
@@ -431,4 +506,5 @@ class ShopController extends Controller
     }
     return $code;
   }
+
 }
