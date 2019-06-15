@@ -42,7 +42,7 @@
     </div>
     <div class="dashLBodySh">
       <div class="searchMapShop">
-      {{$search_ostan}},{{$search_order}}
+      {{$search_pro}} , {{$search_ostan}} , {{$search_city}} , {{$search_order}}
       </div>
       @if (empty($newOrder[0]->id))
         <div class="divNoR0wShop">
@@ -118,24 +118,25 @@
            <div class="M_searchSpanShop">
              <div class="M_searchSpanShop2">
                <span class="M_searchSpan1Shop" >از تاریخ</span>
-               <input type="text"class="searchInputShop M_searchInput2Shop" placeholder="روز">
-               <input type="text"class="searchInputShop M_searchInput2Shop" placeholder="ماه">
-               <input type="text"class="searchInputShop M_searchInput3Shop" placeholder="سال">
+               <input type="text"class="searchInputShop M_searchInput2Shop"id="day1_searchAdvancedShop" placeholder="روز">
+               <input type="text"class="searchInputShop M_searchInput2Shop"id="month1_searchAdvancedShop" placeholder="ماه">
+               <input type="text"class="searchInputShop M_searchInput3Shop"id="year1_searchAdvancedShop" placeholder="سال">
              </div>
              <div class="M_searchSpanShop3">
                <span class="M_searchSpan1Shop">تا</span>
-               <input type="text"class="searchInputShop M_searchInput2Shop" placeholder="روز">
-               <input type="text"class="searchInputShop M_searchInput2Shop" placeholder="ماه">
-               <input type="text"class="searchInputShop M_searchInput3Shop" placeholder="سال">
+               <input type="text"class="searchInputShop M_searchInput2Shop"id="day2_searchAdvancedShop" placeholder="روز">
+               <input type="text"class="searchInputShop M_searchInput2Shop"id="month2_searchAdvancedShop" placeholder="ماه">
+               <input type="text"class="searchInputShop M_searchInput3Shop"id="year2_searchAdvancedShop" placeholder="سال">
 
                <a href="#" class="M_searchAShop"><i class="fas fa-search"></i></a>
              </div>
            </div>
            <div class="M_searchSpanShop4">
-             <input type="text" class="pro_searchShop"id="pro_searchShop" value=""placeholder="نام محصول">
-             <select class="osatn_searchShop" name="">
-               <option value=""onclick="searchOstanShop('allOstan')">استان خریدار</option>
-               <option value=""onclick="searchOstanShop('allOstan')">همه استانها</option>
+             <input type="text" class="pro_searchShop"id="pro_searchAdvancedShop" value="{{$search_proA}}"placeholder="نام محصول">
+             <select class="osatn_searchShop"id="ostan_searchAdvancedShop" name="">
+
+               <option value="allOstan"onclick="searchOstanShop('allOstan')">استان خریدار</option>
+               <option value="allOstan"onclick="searchOstanShop('allOstan')">همه استانها</option>
                <option value="اردبیل" onclick="show_city('ostan1');searchOstanShop('اردبیل')">اردبیل</option>
                <option value="اصفهان" onclick="show_city('ostan2');searchOstanShop('اصفهان')">اصفهان</option>
                <option value="البرز" onclick="show_city('ostan3');searchOstanShop('البرز')">البرز</option>
@@ -167,16 +168,19 @@
                <option value="هرمزگان" onclick="show_city('ostan29');searchOstanShop('هرمزگان')">هرمزگان</option>
                <option value="همدان" onclick="show_city('ostan30');searchOstanShop('همدان')">همدان</option>
                <option value="یزد" onclick="show_city('ostan31');searchOstanShop('یزد')">یزد</option>
+               @if (!empty($search_ostanA) && $search_ostanA!='allOstan' )
+                 <option value="{{$search_ostanA}}"selected>{{$search_ostanA}}</option>
+               @endif
              </select>
-             <select class="ajax_sabad_city city_searchShop" name="">
-               <option value="">همه شهرها</option>
+             <select class="ajax_sabad_city city_searchShop"id="city_searchAdvancedShop" name="">
+               <option value="allCity">همه شهرها</option>
                @include('show_city2')
              </select>
            </div>
          </div>
 
          <div class="M_searchSpanShop10">
-           <button type="button" class="btn btn-primary "onclick="window.location='/newOrderShop'"data-dismiss="modal" aria-label="Close" >اعمال تغییرات</button>
+           <button type="button" class="btn btn-primary "onclick="searchAdvancedShop()"data-dismiss="modal" aria-label="Close" >اعمال تغییرات</button>
          </div>
        </div>
      </div>

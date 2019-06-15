@@ -22,6 +22,7 @@ use App\Http\Requests\Save_sabtCodeSh;
 use App\Http\Requests\Save_sabtCodeRahgirySh;
 use App\Http\Requests\Save_editCodeRahgirySh;
 use App\Http\Requests\Save_searchDateShop;
+use App\Http\Requests\Save_searchAdvancedShop;
 
 use Cookie;
 use DB;
@@ -164,6 +165,11 @@ class ShopController extends Controller
   {
     $GLOBALS['ostanSeSh']  =$request->cookie('osatnShop');
     $search_ostanA =$request->cookie('osatnShop');
+    $GLOBALS['citySeSh']  =$request->cookie('cityShop');
+    $search_cityA =$request->cookie('cityShop');
+    $GLOBALS['proShop2']  =$request->cookie('proShop');
+    $search_proA =$request->cookie('proShop');
+
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->format('Y/n/j');
     $dateC=$dateA->subDay()->format('Y/n/j');
@@ -177,7 +183,11 @@ class ShopController extends Controller
     if ($date=='today' or $sortDate=='today') {
       $newOrder=Order::where('stage',1)->where('date_up',$dateB)->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
+        $citySeSh=$GLOBALS['citySeSh'];
+        $proShop2=$GLOBALS['proShop2'];
         if(!empty($ostanSeSh) && $ostanSeSh!=='allOstan' ){$query->where('ostan', $ostanSeSh);}
+        if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
+        if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
       })->orderby('date_up', 'DESC')->get();
       $search_order='سفارشات امروز';
     }
@@ -185,7 +195,11 @@ class ShopController extends Controller
 
       $newOrder=Order::where('stage',1)->where('date_up' , $dateC)->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
+        $citySeSh=$GLOBALS['citySeSh'];
+        $proShop2=$GLOBALS['proShop2'];
         if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
+        if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
+        if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
       })->orderby('date_up', 'DESC')->get();
       // Cookie::queue('sortdate', $date);
       $search_order='سفارشات دیروز';
@@ -197,7 +211,11 @@ class ShopController extends Controller
       if (!empty($date1) && !empty($date2)) {
         $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date1, $date2])->where(function($query){
           $ostanSeSh=$GLOBALS['ostanSeSh'];
+          $citySeSh=$GLOBALS['citySeSh'];
+          $proShop2=$GLOBALS['proShop2'];
           if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
+          if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
+          if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
         })->orderby('date_up', 'DESC')->get();
         // Cookie::queue('sortdate', $date);
         $search_order='سفارشات از تاریخ' . $date1 . 'تا' . $date2;
@@ -209,15 +227,23 @@ class ShopController extends Controller
     else {
       $newOrder=Order::where('stage',1)->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
+        $citySeSh=$GLOBALS['citySeSh'];
+        $proShop2=$GLOBALS['proShop2'];
         if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
-      })->where('name' ,"like", '%نار%')->orderby('date_up', 'DESC')->get();
+        if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
+        if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
+
+      })->orderby('date_up', 'DESC')->get();
       // Cookie::queue('sortdate', 'all');
       $search_order='سفارشات یک ماه اخیر';
 
     }
     if(!empty($search_ostanA)&& $search_ostanA!='allOstan'){$search_ostan='استان '.$search_ostanA;}else { $search_ostan='همه استانها' ;  }
+    if(!empty($search_cityA)&& $search_cityA!='allCity'){$search_city='شهر '.$search_cityA;}else { $search_city='همه شهرها' ;  }
+    if(!empty($search_proA)){$search_pro='محصول '.$search_proA;}else { $search_pro='همه محصولات' ;  }
+    $city=$search_cityA;
     $proShop=proShop::where('shop_id',$id)->get();
-    return view('shop.newOrderShop',compact('stage','newOrder','proShop','search_order','sortDate','search_ostan'));
+    return view('shop.newOrderShop',compact('stage','newOrder','proShop','search_order','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
   }
 public function searchSortDateShop(Request $request)
 {
@@ -234,11 +260,22 @@ public function searchShop(Save_searchDateShop $request)
   Cookie::queue('sortdate', 'slicing');
 
 }
-public function searchOstanShop(Request $request)
+public function searchAdvancedShop(Save_searchAdvancedShop $request)
 {
   $ostan=$request->ostan;
+  $city=$request->city;
+  $pro=$request->pro;
+  $date1=$request->date1;
+  $date2=$request->date2;
   Cookie::queue('osatnShop', $ostan);
-
+  Cookie::queue('cityShop', $city);
+  Cookie::queue('proShop', $pro);
+  if (!empty($date1)) {
+    Cookie::queue('date1', $date1);
+  }
+  if (!empty($date2)) {
+    Cookie::queue('date2', $date2);
+  }
 }
   public function newOrderShopOne(Request $request)
   {

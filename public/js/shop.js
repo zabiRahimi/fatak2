@@ -837,18 +837,32 @@ function searchSortDateShop(sortdate) {
     },
      });
 }
-function searchOstanShop(ostan) {
+function searchAdvancedShop() {
+  var day1=$('#day1_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
+  var month1=$('#month1_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
+  var year1=$('#year1_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
+  var day2=$('#day2_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
+  var month2=$('#month2_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
+  var year2=$('#year2_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
+  if (day1&month1&year1){var date1=year1+'-'+month1+'-'+day1;} else {var date1=0;};
+  if (day2&month2&year2){var date1=year2+'-'+month2+'-'+day2;} else {var date2=0;};
+// let uu=$('#pro_searchAdvancedShop').val();
+//   alert(uu)
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../searchOstanShop',
+    url:'../../searchAdvancedShop',
     data: {
-      ostan:ostan,
+      ostan:$('#ostan_searchAdvancedShop option:selected').val(),
+      city:$('#city_searchAdvancedShop option:selected').val(),
+      pro:$('#pro_searchAdvancedShop').val(),
+      date1:date1,
+      date2:date2,
          },
     success:function(data){
 
       // $('#ajax_sabtCodePSh').empty();
-      // window.location.href  = "/newOrderShop/"+sortdate;
+      window.location.href  = "/newOrderShop";
     },
      });
 }
