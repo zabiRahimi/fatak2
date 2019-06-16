@@ -157,7 +157,7 @@
 .searchShop button:hover{
   background-color: #e0e8ec;
 }
-.searchSpanShop,.M_searchSpanShop {
+.searchSpanShop,.searchSpan2Shop,.M_searchSpanShop,.searchSpanINShop {
   height:30px;
   padding: 0 6px;
   color: #2f3030;
@@ -172,9 +172,10 @@
     top: -4px;
     display: inline-block;
 }
-.searchInput2Shop,.searchInput3Shop,.M_searchInput2Shop,.M_searchInput3Shop{height: 25px;position: relative;top: -3px;margin-left: -1px;text-align: center;border-radius: 5px;border: 1px solid #fff;}
+.searchInput2Shop,.searchInput3Shop,.M_searchInput2Shop,.M_searchInput3Shop,.searchInputSHShop{height: 25px;position: relative;top: -3px;margin-left: -1px;text-align: center;border-radius: 5px;border: 1px solid #fff;}
 .searchInput2Shop{width: 25px;}
 .searchInput3Shop{width: 40px;}
+.searchInputSHShop{width: 100px;}
 .searchInputShop:-moz-placeholder,.searchInputShop::-moz-placeholder,.pro_searchShop::-moz-placeholder,.pro_searchShop:-moz-placeholder{color:#d3d5ec;opacity: 0.9;}
 .searchInputShop:focus:-moz-placeholder,.searchInputShop:focus::-moz-placeholder,.pro_searchShop:focus::-moz-placeholder,.pro_searchShop:focus:-moz-placeholder{opacity: 0.4;}
 
@@ -187,6 +188,7 @@
   padding: 1px 6px 0;
   float: right;
   text-align: right;
+
 }
 .M_searchSpanShop2,.M_searchSpanShop3{display: inline-block;float: right;}
 .M_searchSpan1Shop{width: 40px;height: 25px;display: inline-block;text-align: center;}
@@ -200,6 +202,11 @@
 .M_searchSpanShop10{width: 100%;margin: 5px 0; padding: 2px 5px;float: right;text-align: center;}
 .M_searchSpanShop10 button{width: 70%;background-color: #09660a;}
 .searchMapShop{width: 100%;margin: 5px 0 3px;padding: 1px 10px 0;border: 1px solid #548e64;border-radius: 4px;float:right; background-color:#ccf5d7;font-size: 12px; }
+.searchMap4Shop,.searchMap5Shop{margin: 0 3px;direction: ltr; display: inline-block;}
+.placeholder{color:#000;}
+.placeholder_price{color: #00440f;}
+.placeholder:-moz-placeholder,.placeholder::-moz-placeholder,.placeholder_price:-moz-placeholder,.placeholder_price::-moz-placeholder{color:#a2a7da;}
+.placeholder:focus:-moz-placeholder,.placeholder:focus::-moz-placeholder,.placeholder_price:focus:-moz-placeholder,.placeholder_price:focus::-moz-placeholder{opacity: 0.4;}
 .divNoR0wShop{
   width: 100%;
   margin: 40px 0;
@@ -280,6 +287,7 @@
 .orderOk a{color: #bcc607;font-size: 18px;}
 .stamp_orderSabtShD1{color: #057546;}
 .stamp_orderSabtShD2{color: #3e6204;}
+
 @media (max-width:470px){
   .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
   }

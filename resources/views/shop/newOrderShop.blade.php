@@ -20,8 +20,8 @@
       سفارشات جدید
     </div>
     <div class="searchShop">
-      <a  class="apjax"onclick="searchSortDateShop('all')"><button type="button" class="btn" >همه</button></a>
-      <a  class="apjax"onclick="searchSortDateShop('today')"><button type="button" class="btn" >سفارشات امروز</button></a>
+      <a  class="apjax"onclick="searchSortDateShop('all')"><button type="button" class="btn" >همه سفارشات</button></a>
+      <a  class="apjax"onclick="searchSortDateShop('today')"><button type="button" class="btn" >امروز</button></a>
       <a  class="apjax"onclick="searchSortDateShop('yesterday')"><button type="button" class="btn" >دیروز</button></a>
       {{-- جهت موبایل --}}
       <span class="searchSpanShop">
@@ -42,7 +42,14 @@
     </div>
     <div class="dashLBodySh">
       <div class="searchMapShop">
-      {{$search_pro}} , {{$search_ostan}} , {{$search_city}} , {{$search_order}}
+        <span class="searchMap1Shop">{{$search_pro}}</span> , <span class="searchMap2Shop">{{$search_ostan}}</span> , <span class="searchMap3Shop">{{$search_city}}</span> ,
+        @if ($sortDate=='slicing')
+          از تاریخ <span class="searchMap4Shop">{{$date1}}</span> تا <span class="searchMap5Shop">{{$date2}}</span>
+        @else
+          <span class="searchMap6Shop">{{$search_order}}</span>
+        @endif
+
+
       </div>
       @if (empty($newOrder[0]->id))
         <div class="divNoR0wShop">

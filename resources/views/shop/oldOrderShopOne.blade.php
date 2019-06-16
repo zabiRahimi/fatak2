@@ -55,23 +55,24 @@
        </div>
        <div class="form-group">
          <label for="name_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mname_orderEditSh"></i> نام محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="name_orderEditSh" value="{{$proShopOne->name}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="name_orderEditSh" value="{{$proShopOne->name}}"></div>
        </div>
        <div class="form-group">
          <label for="maker_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mmaker_orderEditSh"></i>  سازنده محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="maker_orderEditSh"placeholder="اختیاری ..." value="{{$proShopOne->maker}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="maker_orderEditSh"placeholder="اختیاری ..." value="{{$proShopOne->maker}}"></div>
        </div>
        <div class="form-group">
          <label for="brand_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mbrand_orderEditSh"></i>  برند محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="brand_orderEditSh"placeholder="اختیاری ..." value="{{$proShopOne->brand}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="brand_orderEditSh"placeholder="اختیاری ..." value="{{$proShopOne->brand}}"></div>
        </div>
        <div class="form-group">
          <label for="model_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mmodel_orderEditSh"></i> مدل محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="model_orderEditSh"placeholder="اختیاری ..." value="{{$proShopOne->model}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="model_orderEditSh"placeholder="اختیاری ..." value="{{$proShopOne->model}}"></div>
        </div>
        <div class="form-group">
          <label for="price_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mprice_orderEditSh"></i> قیمت محصول (تومان)</label>
-         <div class="div_form"><input type="text" class="form-control" id="price_orderEditSh" value="{{$proShopOne->price}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder_price number" id="price_orderEditSh" value="{{$proShopOne->price}}"></div>
+                          {{-- number_format($proShopOne->price) --}}
        </div>
        <div class="form-group">
          <label for="vahed_sabtOrder" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا</label>
@@ -90,38 +91,38 @@
        </div>
        <div class="form-group">
          <label for="num_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mnum_orderEditSh"></i> تعداد کالای موجود</label>
-         <div class="div_form"><input type="number" class="form-control" id="num_orderEditSh"min="1" placeholder="اختیاری ..."value="{{$proShopOne->num}}"></div>
+         <div class="div_form"><input type="number" class="form-control placeholder" id="num_orderEditSh"min="1" placeholder="اختیاری ..."value="{{$proShopOne->num}}"></div>
        </div>
        <div class="form-group">
          <label for="vazn_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mvazn_orderEditSh"></i> وزن محصول</label>
-         <div class="div_form"><input type="text" class="form-control" id="vazn_orderEditSh"placeholder="در صورت نیاز ..."value="{{$proShopOne->vazn}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="vazn_orderEditSh"placeholder="در صورت نیاز ..."value="{{$proShopOne->vazn}}"></div>
        </div>
        <div class="form-group">
          <label for="vaznPost_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MvaznPost_orderEditSh"></i> وزن پستی محصول (گرم)</label>
-         <div class="div_form"><input type="text" class="form-control" id="vaznPost_orderEditSh"value="{{$proShopOne->vaznPost}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="vaznPost_orderEditSh"value="{{$proShopOne->vaznPost}}"></div>
        </div>
        <div class="form-group">
          <label for="pakat_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mpakat_orderEditSh"></i> هزینه بسته بندی (تومان)</label>
-         <div class="div_form"><input type="text" class="form-control" id="pakat_orderEditSh"placeholder="اختیاری ... به تومان"value="{{$proShopOne->pakat}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder_price number" id="pakat_orderEditSh"placeholder="اختیاری ... به تومان"value="{{$proShopOne->pakat}}"></div>
        </div>
        <div class="form-group">
          <label for="dis_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mdis_orderEditSh"></i> توضیح محصول</label>
          <div class="div_formTextarea">
-           <textarea name="name" id="dis_orderEditSh"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید .">{{$proShopOne->dis}}</textarea>
+           <textarea name="name" class="placeholder" id="dis_orderEditSh"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید .">{{$proShopOne->dis}}</textarea>
          </div>
        </div>
        <div class="form-group">
          <label for="dateMake_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MdateMake_orderEditSh"></i> تاریخ تولید</label>
-         <div class="div_form"><input type="text" class="form-control" id="dateMake_orderEditSh"placeholder="اختیاری ..."value="{{$proShopOne->dateMake}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="dateMake_orderEditSh"placeholder="اختیاری ..."value="{{$proShopOne->dateMake}}"></div>
        </div>
        <div class="form-group">
          <label for="dateExpiration_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MdateExpiration_orderEditSh"></i> تاریخ انقضا</label>
-         <div class="div_form"><input type="text" class="form-control" id="dateExpiration_orderEditSh"placeholder="اختیاری ..."value="{{$proShopOne->dateExpiration}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="dateExpiration_orderEditSh"placeholder="اختیاری ..."value="{{$proShopOne->dateExpiration}}"></div>
        </div>
        <div class="form-group">
          <label for="term_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mterm_orderEditSh"></i> شرایط نگهداری</label>
          <div class="div_formTextarea">
-           <textarea name="name" id="term_orderEditSh"placeholder="اختیاری ...">{{$proShopOne->term}}</textarea>
+           <textarea name="name" class="placeholder" id="term_orderEditSh"placeholder="اختیاری ...">{{$proShopOne->term}}</textarea>
          </div>
        </div>
        <div class="form-group add_pro_form1_1">

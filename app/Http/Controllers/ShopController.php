@@ -89,7 +89,6 @@ class ShopController extends Controller
   {
     $stage=$this->stage;
     return view('shop.dashboard_shop',compact('stage'));
-
   }
   public function perfectDaShop(Request $request)
   {
@@ -148,10 +147,8 @@ class ShopController extends Controller
   }
   public function editPasDaShop(Save_editPasShop $request)
   {
-
     $pas=$request->pasOld;
     $add=Shop::find($this->id);
-
       if (Hash::check($pas, $add['pas']))
       {
         $add->pas=Hash::make($request->pasNew);
@@ -160,7 +157,6 @@ class ShopController extends Controller
         return response()->json(['errors' => ['no_pas' => ['رمز فعلی اشتباه است .']]], 422);
       }
   }
-
   public function newOrderShop(Request $request)
   {
     $GLOBALS['ostanSeSh']  =$request->cookie('osatnShop');
@@ -169,16 +165,15 @@ class ShopController extends Controller
     $search_cityA =$request->cookie('cityShop');
     $GLOBALS['proShop2']  =$request->cookie('proShop');
     $search_proA =$request->cookie('proShop');
-
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->format('Y/n/j');
     $dateC=$dateA->subDay()->format('Y/n/j');
+    $date30=$dateA->subDay(30)->format('Y/n/j');
     $stage=$this->stage;
     $id=$this->id;
     $date=$request->date;
     $date1=$request->cookie('date1');
     $date2=$request->cookie('date2');
-
     $sortDate=$request->cookie('sortdate');
     if ($date=='today' or $sortDate=='today') {
       $newOrder=Order::where('stage',1)->where('date_up',$dateB)->where(function($query){
@@ -192,7 +187,6 @@ class ShopController extends Controller
       $search_order='سفارشات امروز';
     }
     elseif ($date=='yesterday' or $sortDate=='yesterday') {
-
       $newOrder=Order::where('stage',1)->where('date_up' , $dateC)->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
         $citySeSh=$GLOBALS['citySeSh'];
@@ -203,11 +197,8 @@ class ShopController extends Controller
       })->orderby('date_up', 'DESC')->get();
       // Cookie::queue('sortdate', $date);
       $search_order='سفارشات دیروز';
-
-
     }
     elseif ($date=='slicing' or $sortDate=='slicing') {
-
       if (!empty($date1) && !empty($date2)) {
         $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date1, $date2])->where(function($query){
           $ostanSeSh=$GLOBALS['ostanSeSh'];
@@ -217,33 +208,26 @@ class ShopController extends Controller
           if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
           if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
         })->orderby('date_up', 'DESC')->get();
-        // Cookie::queue('sortdate', $date);
-        $search_order='سفارشات از تاریخ' . $date1 . 'تا' . $date2;
 
       }
-        // $newOrder=Order::where('stage',1)->get();
-
     }
     else {
-      $newOrder=Order::where('stage',1)->where(function($query){
+      $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
         $citySeSh=$GLOBALS['citySeSh'];
         $proShop2=$GLOBALS['proShop2'];
         if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
         if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
         if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
-
       })->orderby('date_up', 'DESC')->get();
-      // Cookie::queue('sortdate', 'all');
-      $search_order='سفارشات یک ماه اخیر';
-
+      $search_order='سفارشات 30 روز اخیر';
     }
     if(!empty($search_ostanA)&& $search_ostanA!='allOstan'){$search_ostan='استان '.$search_ostanA;}else { $search_ostan='همه استانها' ;  }
     if(!empty($search_cityA)&& $search_cityA!='allCity'){$search_city='شهر '.$search_cityA;}else { $search_city='همه شهرها' ;  }
     if(!empty($search_proA)){$search_pro='محصول '.$search_proA;}else { $search_pro='همه محصولات' ;  }
     $city=$search_cityA;
     $proShop=proShop::where('shop_id',$id)->get();
-    return view('shop.newOrderShop',compact('stage','newOrder','proShop','search_order','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
+    return view('shop.newOrderShop',compact('stage','newOrder','proShop','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
   }
 public function searchSortDateShop(Request $request)
 {
@@ -311,7 +295,6 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $pro->stage = 1 ;
     $pro->show = 1 ;
     $pro-> save();
-
      // اضافه کردن عکسهای محصول
     $picture=new Picture_shop();
     $picture->pro_shop_id =$pro->id;
@@ -328,7 +311,6 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $picture->pic_s5 =  $request->img5 ;
     $picture->pic_s6 =  $request->img6 ;
     $picture->show = 1;
-    // $pro->picture_pros()->save($picture);
     $picture->save();
   }
   public function buyProShop(Request $request)
@@ -345,21 +327,17 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $buyer=Buy::find($buyer_id);
     $pro=ProShop::find($pro_id);
     return view('shop.buyProShopOne',compact('stage','buyer','pro'));
-
   }
-
   public function uplodImgProSh(Request $request){
     //اعتبار سنجی
     //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب مگا بایت است . دقت شود
     $this->validate($request, [
           'file' => 'required|mimes:jpeg,jpg,png|max:3000',
       ]);
-   $file=$request->file('file');
+    $file=$request->file('file');
     $name= time() . $file->getClientOriginalName();
     $file->move('img_shop' , $name);
-
     return "$name";
-
   }
   public function del_imgShop(Request $request)
   {}
@@ -367,9 +345,18 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
   {
     $stage=$this->stage;
     $id=$this->id;
+    $codeOldOrSh=$request->code;
+    $nameOldOrSh=$request->name;
+    if (!empty($codeOldOrSh)) {
+      $proShop=proShop::where('order_id' , $codeOldOrSh)->where('shop_id',$id)->where('stage',1)->get();
+    }
+    elseif (!empty($nameOldOrSh)) {
+      // code...
+    }
+    else {
+      $proShop=proShop::where('shop_id',$id)->where('stage',1)->get();
+    }
     $proShop=proShop::where('shop_id',$id)->where('stage',1)->get();
-
-    // $oldOrderOne=Order::find($id);
     return view('shop.oldOrderShop',compact('stage','proShop'));
   }
   public function oldOrderShopOne(Request $request)
@@ -382,13 +369,11 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $proImg=Picture_shop::where('pro_shop_id', $id_proShop)->first();
     return view('shop.oldOrderShopOne',compact('stage','oldOrderOne','proShopOne','proImg','id_order','id_proShop'));
   }
-
   public function editProShop(Save_editProShop $request)
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
     $pro=ProShop::find($request->id);
-
     $pro->stamp = $request->stamp ;
     $pro->name = $request->namePro ;
     $pro->maker = $request->maker ;
@@ -406,7 +391,6 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $pro->term = $request->term ;
     $pro->date_up = $date ;
     $pro-> save();
-
      // اضافه کردن عکسهای محصول
     $picture=Picture_shop::find($request->id_img);
     $picture->pic_b1 =  $request->img1 ;
@@ -421,14 +405,11 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $picture->pic_s4 =  $request->img4 ;
     $picture->pic_s5 =  $request->img5 ;
     $picture->pic_s6 =  $request->img6 ;
-
-    // $pro->picture_pros()->save($picture);
     $picture->save();
   }
   public function sabtErsalShop(Request $request)
   {
     $stage=$this->stage;
-    // $id=$this->id;
     $idPro=$request->idPro;
     $proShop=proShop::where('id',$idPro)->where('stage',2)->first();
     if ($proShop) {
@@ -442,13 +423,10 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $proShop=proShop::where('id',$code)->where('stage',2)->first();
     if (!$proShop) {
       $proShop2=proShop::where('id',$code)->where('stage',3)->first();
-
       if($proShop2){
         return response()->json(['errors' => ['codePro' => ['کد رهگیری این محصول قبلا ثبت شده است .']]], 422);
-
       }
       return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);
-
     }
     return $code;
   }
@@ -472,7 +450,6 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
       $buyer=Buy::where('id',$proShop2->buyer_id)->first();
     }
     return view('shop.editErsalShop',compact('stage','idPro','proShop','proShop2','buyer'));
-
   }
   public function editCodeSh(Save_sabtCodeSh $request)
   {
@@ -480,13 +457,10 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $proShop=proShop::where('id',$code)->where('stage',3)->first();
     if (!$proShop) {
       $proShop2=proShop::where('id',$code)->where('stage',2)->first();
-
       if($proShop2){
         return response()->json(['errors' => ['codePro' => ['کد رهگیری این محصول تاکنون ثبت نشده است . جهت ثبت کد به صفحه ثبت ارسال شده ها بروید .']]], 422);
-
       }
       return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);
-
     }
     return $code;
   }
@@ -518,7 +492,6 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     $payShop=PayShop::first();
     if ($idPro) {
       $proShop2=ProShop::where('id',$idPro)->where('stage','4')->first();
-
     }
     return view('shop.payShop',compact('stage','proShop','payShop','idPro','proShop2'));
   }
@@ -529,19 +502,15 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     if (!$proShop) {
       $proShop2=proShop::where('id',$code)->where('stage',3)->first();
       $proShop3=proShop::where('id',$code)->where('stage',6)->first();
-
       if($proShop2){
         return response()->json(['errors' => ['codePro' => ['مبلغ این محصول تا کنون پرداخت نشده است .']]], 422);
-
       }
       if($proShop3){
         return response()->json(['errors' => ['codePro' => ['این کالا برگشت خورده است ، جهت پیگیری به صفحه محصولات مرجوعی بروید .']]], 422);
-
       }
       return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);
-
     }
     return $code;
   }
 
-}
+}//end class

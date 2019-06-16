@@ -18,6 +18,25 @@
     <div class="dashTitrSh">
       سفارشات ثبت شده
     </div>
+    <div class="searchShop">
+      <a  class="apjax"onclick=""><button type="button" class="btn" >همه محصولات</button></a>
+      <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick=""><i class="fas fa-search"></i></a></span>
+      <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick=""><i class="fas fa-search"></i></a></span>
+      {{-- جهت موبایل --}}
+      <span class="searchSpan2Shop">
+        <span class="searchSpan1Shop" >از تاریخ</span>
+        <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay1" placeholder="روز">
+        <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMonth1" placeholder="ماه">
+        <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear1" placeholder="سال">
+        <span class="searchSpan1Shop">تا</span>
+        <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay2" placeholder="روز">
+        <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMont2" placeholder="ماه">
+        <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear2" placeholder="سال">
+        <a  class="apjax searchAShop" onclick="searchShop()"><i class="fas fa-search"></i></a>
+      </span>
+
+
+    </div>
     <div class="dashLBodySh">
       @if (empty($proShop[0]->id))
         <div class="divNoR0wShop">
