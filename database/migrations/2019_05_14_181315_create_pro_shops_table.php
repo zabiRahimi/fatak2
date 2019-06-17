@@ -17,6 +17,7 @@ class CreateProShopsTable extends Migration
             $table->increments('id');
             $table->mediumInteger('order_id');
             $table->mediumInteger('shop_id');
+            $table->mediumInteger('buyer_id')->unique()->nullable();
             $table->tinyInteger('stamp');
             $table->string('name',100);
             $table->string('maker',70)->nullable();
@@ -32,6 +33,7 @@ class CreateProShopsTable extends Migration
             $table->string('dateMake',12)->nullable();
             $table->string('dateExpiration',12)->nullable();
             $table->text('term')->nullable();
+            $table->string('codeRahgiry',60)->unique()->nullable();
             $table->date('date_ad');
             $table->date('date_up');
             $table->tinyInteger('stage');

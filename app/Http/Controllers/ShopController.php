@@ -23,7 +23,10 @@ use App\Http\Requests\Save_sabtCodeRahgirySh;
 use App\Http\Requests\Save_editCodeRahgirySh;
 use App\Http\Requests\Save_searchDateShop;
 use App\Http\Requests\Save_searchAdvancedShop;
-
+use App\Http\Requests\Save_codeOldOrderShop;
+use App\Http\Requests\Save_nameOldOrderShop;
+use App\Http\Requests\Save_codeBuyProShop;
+use App\Http\Requests\Save_nameBuyProShop;
 use Cookie;
 use DB;
 use Illuminate\Contracts\Encryption\Encrypter;
@@ -317,8 +320,41 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
   {
     $stage=$this->stage;
     $id=$this->id;
-    $proShop=proShop::where('shop_id',$id)->where('stage',2)->get();
-    return view('shop.buyProShop',compact('stage','proShop'));
+    $codeBuyProSh=$request->cookie('codeBuyProShC');
+    $nameBuyProSh=$request->cookie('nameBuyProShC');
+    if (!empty($codeBuyProSh)) {
+      $proShop=proShop::where('order_id' , $codeBuyProSh)->where('shop_id',$id)->where('stage',2)->get();
+      $search= 'کد فروش ' . $codeBuyProSh;
+      $noRecord='code';
+    }
+    elseif (!empty($nameBuyProSh)) {
+      $proShop=proShop::where('shop_id',$id)->where( 'name' ,"like", "%$nameBuyProSh%")->where('stage',2)->get();
+      $search= 'محصول ' . $nameBuyProSh;
+      $noRecord='name';
+
+    }
+    else {
+      $proShop=proShop::where('shop_id',$id)->where('stage',2)->get();
+      $search= 'همه محصولات';
+      $noRecord='all';
+    }
+    return view('shop.buyProShop',compact('stage','proShop','search','noRecord'));
+  }
+  public function codeBuyProShop(Save_codeBuyProShop $request)
+  {
+    $code=$request->code;
+    Cookie::queue('codeBuyProShC', $code);
+  }
+  public function nameBuyProShop(Save_nameBuyProShop $request)
+  {
+    $namePro=$request->namePro;
+    Cookie::queue('nameBuyProShC', $namePro);
+    Cookie::queue('codeBuyProShC', '');
+  }
+  public function allBuyProShop()
+  {
+    Cookie::queue('nameBuyProShC', '');
+    Cookie::queue('codeBuyProShC', '');
   }
   public function buyProShopOne(Request $request)
   {
@@ -345,19 +381,43 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
   {
     $stage=$this->stage;
     $id=$this->id;
-    $codeOldOrSh=$request->code;
-    $nameOldOrSh=$request->name;
+    $codeOldOrSh=$request->cookie('codeOldOrShC');
+    $nameOldOrSh=$request->cookie('nameOldOrShC');
     if (!empty($codeOldOrSh)) {
       $proShop=proShop::where('order_id' , $codeOldOrSh)->where('shop_id',$id)->where('stage',1)->get();
+      $search= 'کد فروش ' . $codeOldOrSh;
+      $noRecord='code';
     }
     elseif (!empty($nameOldOrSh)) {
-      // code...
+      $proShop=proShop::where('shop_id',$id)->where( 'name' ,"like", "%$nameOldOrSh%")->where('stage',1)->get();
+      $search= 'محصول ' . $nameOldOrSh;
+      $noRecord='name';
+
     }
     else {
       $proShop=proShop::where('shop_id',$id)->where('stage',1)->get();
+      $search= 'همه محصولات';
+      $noRecord='all';
+
     }
-    $proShop=proShop::where('shop_id',$id)->where('stage',1)->get();
-    return view('shop.oldOrderShop',compact('stage','proShop'));
+
+    return view('shop.oldOrderShop',compact('stage','proShop','search','noRecord'));
+  }
+  public function codeOldOrderShop(Save_codeOldOrderShop $request)
+  {
+    $code=$request->code;
+    Cookie::queue('codeOldOrShC', $code);
+  }
+  public function nameOldOrderShop(Save_nameOldOrderShop $request)
+  {
+    $namePro=$request->namePro;
+    Cookie::queue('nameOldOrShC', $namePro);
+    Cookie::queue('codeOldOrShC', '');
+  }
+  public function allOldOrderShop()
+  {
+    Cookie::queue('nameOldOrShC', '');
+    Cookie::queue('codeOldOrShC', '');
   }
   public function oldOrderShopOne(Request $request)
   {
@@ -410,19 +470,19 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
   public function sabtErsalShop(Request $request)
   {
     $stage=$this->stage;
-    $idPro=$request->idPro;
-    $proShop=proShop::where('id',$idPro)->where('stage',2)->first();
+    $order_id=$request->order_id;
+    $proShop=proShop::where('order_id',$order_id)->where('stage',2)->first();
     if ($proShop) {
       $buyer=Buy::where('id',$proShop->buyer_id)->first();
     }
-    return view('shop.sabtErsalShop',compact('stage','idPro','proShop','buyer'));
+    return view('shop.sabtErsalShop',compact('stage','order_id','proShop','buyer'));
   }
   public function sabtCodeSh(Save_sabtCodeSh $request)
   {
     $code=$request->codePro;
-    $proShop=proShop::where('id',$code)->where('stage',2)->first();
+    $proShop=proShop::where('order_id',$code)->where('stage',2)->first();
     if (!$proShop) {
-      $proShop2=proShop::where('id',$code)->where('stage',3)->first();
+      $proShop2=proShop::where('order_id',$code)->where('stage',3)->first();
       if($proShop2){
         return response()->json(['errors' => ['codePro' => ['کد رهگیری این محصول قبلا ثبت شده است .']]], 422);
       }

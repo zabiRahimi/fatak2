@@ -79,10 +79,17 @@ Route::post('/searchAdvancedShop','ShopController@searchAdvancedShop');//ok!!
 Route::post('/proShop','ShopController@proShop');//ok!!
 Route::get('/oldOrderShop','ShopController@oldOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/oldOrderShopOne/{id1}/{id2}','ShopController@oldOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
+Route::post('/codeOldOrderShop','ShopController@codeOldOrderShop');//ok!!
+Route::post('/nameOldOrderShop','ShopController@nameOldOrderShop');//ok!!
+Route::post('/allOldOrderShop','ShopController@allOldOrderShop');//ok!!
 Route::post('/editProShop','ShopController@editProShop');//ok!!
 Route::get('/buyProShop','ShopController@buyProShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/buyProShopOne/{buyer_id}/{pro_id}','ShopController@buyProShopOne')->middleware(['chekloginShop' ]);//ok!!
-Route::get('/sabtErsalShop/{idPro?}','ShopController@sabtErsalShop')->middleware(['chekloginShop' ]);//ok!!
+Route::post('/codeBuyProShop','ShopController@codeBuyProShop');//ok!!
+Route::post('/nameBuyProShop','ShopController@nameBuyProShop');//ok!!
+Route::post('/allBuyProShop','ShopController@allBuyProShop');//ok!!
+
+Route::get('/sabtErsalShop/{order_id?}','ShopController@sabtErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/sabtCodeSh','ShopController@sabtCodeSh');//ok!!
 Route::post('/sabtCodeRahgirySh','ShopController@sabtCodeRahgirySh');//ok!!
 Route::get('/editErsalShop/{idPro?}','ShopController@editErsalShop')->middleware(['chekloginShop' ]);//ok!!

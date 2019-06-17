@@ -866,3 +866,87 @@ function searchAdvancedShop() {
     },
      });
 }
+function codeOldOrderShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../codeOldOrderShop',
+    data: {
+      code:$('#code_oldOrShop').val(),
+         },
+    success:function(data){
+      window.location.href  = "/oldOrderShop";
+    },
+    error: function(xhr) {
+
+               }
+     });
+}
+function nameOldOrderShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../nameOldOrderShop',
+    data: {
+      namePro:$('#name_oldOrShop').val(),
+         },
+    success:function(data){
+      window.location.href  = "/oldOrderShop";
+    },
+    error: function(xhr) {
+
+               }
+     });
+}
+function allOldOrderShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../allOldOrderShop',
+    success:function(data){
+      window.location.href  = "/oldOrderShop";
+    },
+  });
+ }
+function codeBuyProShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../codeBuyProShop',
+    data: {
+      code:$('#code_buyProShop').val(),
+         },
+    success:function(data){
+      window.location.href  = "/buyProShop";
+    },
+    error: function(xhr) {
+
+               }
+     });
+}
+function nameBuyProShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../nameBuyProShop',
+    data: {
+      namePro:$('#name_buyProShop').val(),
+         },
+    success:function(data){
+      window.location.href  = "/buyProShop";
+    },
+    error: function(xhr) {
+
+               }
+     });
+}
+function allBuyProShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../allBuyProShop',
+    success:function(data){
+      window.location.href  = "/buyProShop";
+    },
+  });
+}

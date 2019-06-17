@@ -25,14 +25,14 @@
          <div id="ajax_sabtCodePSh"></div>
          {{ csrf_field() }}
          <div class="form-group">
-            <label for="code_sabtCodePSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#Mcode_sabtCodePSh"></i> کد محصول</label>
+            <label for="code_sabtCodePSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#Mcode_sabtCodePSh"></i> کد فروش</label>
             <div class="div_form"><input type="text" class="form-control" id="code_sabtCodePSh"placeholder="" value=""></div>
           </div>
           <div class="form-group form_btn">
             <button type="button" class="btn btn-success" onclick="sabtCodeSh()" >ثبت و جستجو</button>
           </div>
         </form>
-        @if (!empty($idPro))
+        @if (!empty($order_id))
           <div class="sabtCodeBodySh">
             <div class="sabtCodeBodyTSh">
               مشخصات محصول

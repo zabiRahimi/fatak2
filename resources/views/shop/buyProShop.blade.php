@@ -18,10 +18,39 @@
     <div class="dashTitrSh">
       محصولات خریداری شده
     </div>
+    <div class="searchShop">
+      <a  class="apjax"onclick="allBuyProShop()"><button type="button" class="btn" >همه محصولات</button></a>
+      <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"id="name_buyProShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="nameBuyProShop()"><i class="fas fa-search"></i></a></span>
+      <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"id="code_buyProShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="codeBuyProShop()"><i class="fas fa-search"></i></a></span>
+
+      {{-- <span class="searchSpan2Shop">
+        <span class="searchSpan1Shop" >از تاریخ</span>
+        <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay1" placeholder="روز">
+        <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMonth1" placeholder="ماه">
+        <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear1" placeholder="سال">
+        <span class="searchSpan1Shop">تا</span>
+        <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay2" placeholder="روز">
+        <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMont2" placeholder="ماه">
+        <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear2" placeholder="سال">
+        <a  class="apjax searchAShop" onclick="searchShop()"><i class="fas fa-search"></i></a>
+      </span> --}}
+
+
+    </div>
+
     <div class="dashLBodySh">
+      <div class="searchMapShop">
+        {{$search}}
+      </div>
       @if (empty($proShop[0]->id))
         <div class="divNoR0wShop">
-          تا کنون محصولی خرید نشده است .
+          @if ($noRecord=='all')
+            محصول خرید شده جدیدی موجود نیست .
+          @elseif ($noRecord=='code')
+            نتیجه ای برای این کد یافت نشد ، ممکن است این محصول را ارسال کرده اید .
+          @elseif ($noRecord=='name')
+            محصولی با این نام یافت نشد ، ممکن است این محصول را ارسال کرده باشید .
+          @endif
         </div>
       @else
       <div class="oldOrder">
@@ -59,7 +88,7 @@
     @endif
     </div>
   @endif
-   <!-- Modal موفق بودن ثبت ابتدایی کانال-->
+   {{-- <!-- Modal موفق بودن ثبت ابتدایی کانال-->
    <div class="modal fade" id="end_perfectDaSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
@@ -72,5 +101,5 @@
          </div>
        </div>
      </div>
-   </div><!--end modal پایان موفقیت ثبت .-->
+   </div><!--end modal پایان موفقیت ثبت .--> --}}
 @endsection

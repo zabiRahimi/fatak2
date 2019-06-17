@@ -19,11 +19,11 @@
       سفارشات ثبت شده
     </div>
     <div class="searchShop">
-      <a  class="apjax"onclick=""><button type="button" class="btn" >همه محصولات</button></a>
-      <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick=""><i class="fas fa-search"></i></a></span>
-      <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick=""><i class="fas fa-search"></i></a></span>
-      {{-- جهت موبایل --}}
-      <span class="searchSpan2Shop">
+      <a  class="apjax"onclick="allOldOrderShop()"><button type="button" class="btn" >همه محصولات</button></a>
+      <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"id="name_oldOrShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="nameOldOrderShop()"><i class="fas fa-search"></i></a></span>
+      <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"id="code_oldOrShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="codeOldOrderShop()"><i class="fas fa-search"></i></a></span>
+
+      {{-- <span class="searchSpan2Shop">
         <span class="searchSpan1Shop" >از تاریخ</span>
         <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay1" placeholder="روز">
         <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMonth1" placeholder="ماه">
@@ -33,14 +33,23 @@
         <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMont2" placeholder="ماه">
         <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear2" placeholder="سال">
         <a  class="apjax searchAShop" onclick="searchShop()"><i class="fas fa-search"></i></a>
-      </span>
+      </span> --}}
 
 
     </div>
     <div class="dashLBodySh">
+      <div class="searchMapShop">
+        {{$search}}
+      </div>
       @if (empty($proShop[0]->id))
         <div class="divNoR0wShop">
-          شما تاکنون محصولی برای فروش ثبت نکرده اید .
+          @if ($noRecord=='all')
+            شما تا کنون محصولی برای فروش ثبت نکردید ٍ  یا اینکه محصولات ثبت شده به فروش رسیده اند .
+          @elseif ($noRecord=='code')
+            نتیجه ای برای این کد یافت نشد ، ممکن است این محصول به فروش رفته است .
+          @elseif ($noRecord=='name')
+            محصولی با این نام یافت نشد ، ممکن است این محصول به فروش رفته است .
+          @endif
         </div>
       @else
       <div class="oldOrder">
