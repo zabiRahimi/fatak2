@@ -139,6 +139,10 @@
 .dashSh_RUl li i{margin-left: 8px;}
 .dashSh_L{width: calc(100% - 225px);padding: 3px 15px;float: left;background-color: #fff;}
 .dashTitrSh,.searchShop{width: 100%;height: 35px;line-height: 35px;padding:0 20px;float: right;font-size: 18px;color: #fff;background-color: #2454a6;border-radius: 3px;text-align: right;}
+.searchDiv500{
+  width: 500px;
+  margin: 0 calc( (100% - 500px ) / 2);
+}
 .searchShop{
   height: auto;
  margin:2px 0 5px;
@@ -225,6 +229,12 @@
 @media (max-width:768px){
   .dashSh_L{padding: 3px 5px;}
   .dashTitrSh{padding:0 10px;}
+}
+@media (max-width:550px){
+  .searchDiv500{
+    width: 100%;
+    margin: 0;
+  }
 }
 @media (max-width:541px){
   .searchSpanShop,.searchShop button{font-size: 12px;}

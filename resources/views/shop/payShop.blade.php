@@ -21,50 +21,95 @@
          محصولات پرداخت شده
     </div>
     <div class="dashLBodySh">
-      <form class="form form_payShop" id="form_payShop" action="" method="post">
+      {{-- <form class="form form_payShop" id="form_payShop" action="" method="post">
          <div id="ajax_payShop"></div>
          {{ csrf_field() }}
          <div class="form-group">
-            <label for="code_payShop" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#Mcode_sabtCodePSh"></i> کد محصول</label>
+            <label for="code_payShop" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#Mcode_sabtCodePSh"></i> کد فروش</label>
             <div class="div_form"><input type="text" class="form-control" id="code_payShop"placeholder="" value=""></div>
           </div>
           <div class="form-group form_btn">
             <button type="button" class="btn btn-success" onclick="SearchPayShop()" >جستجو</button>
           </div>
-        </form>
-  @if (empty($idPro))
+        </form> --}}
+
+          <div class="searchShop">
+            <a  class="apjax"onclick="searchSortDateShop('all')"><button type="button" class="btn" >پرداخت 30 روز اخیر</button></a>
+            <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"id="name_oldOrShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="nameOldOrderShop()"><i class="fas fa-search"></i></a></span>
+            <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"id="code_payShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="SearchPayShop()"><i class="fas fa-search"></i></a></span>
+            {{-- جهت موبایل --}}
+            <span class="searchSpanShop">
+              <span class="searchSpan1Shop" >از تاریخ</span>
+              <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay1" placeholder="روز">
+              <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMonth1" placeholder="ماه">
+              <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear1" placeholder="سال">
+              <span class="searchSpan1Shop">تا</span>
+              <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay2" placeholder="روز">
+              <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMont2" placeholder="ماه">
+              <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear2" placeholder="سال">
+
+              <a  class="apjax searchAShop" onclick="searchShop()"><i class="fas fa-search"></i></a>
+
+            </span>
+           </div>
+           <div class="searchDiv500">
+           <div class="searchMapShop">
+             sfsdf
+             {{-- <span class="searchMap1Shop">{{$search_pro}}</span> , <span class="searchMap2Shop">{{$search_ostan}}</span> , <span class="searchMap3Shop">{{$search_city}}</span> ,
+             @if ($sortDate=='slicing')
+               از تاریخ <span class="searchMap4Shop">{{$date1}}</span> تا <span class="searchMap5Shop">{{$date2}}</span>
+             @else
+               <span class="searchMap6Shop">{{$search_order}}</span>
+             @endif --}}
+
+
+           </div>
+        </div>
+
+  @if (empty($order_id))
 
 
       @if (empty($proShop[0]->id))
-        <div class="">
-          تاکنون پرداختی انجام نشده است .
-        </div>
-      @else
-        <div class="div_payShop">
-          <div class="div_payShop1"><i class="fas fa-certificate"></i></div>
-          <div class="div_payShop2">کد محصول</div>
-          <div class="div_payShop3">نام محصول</div>
-          <div class="div_payShop4">مبلغ (تومان)</div>
-          <div class="div_payShop5">تاریخ</div>
-        </div>
-        @php
-          $r=0;
-        @endphp
-        @foreach ($proShop as $value)
-          <?php $r++;
-            $value2=$payShop->where('pro_id',$value->id)->first();
-           ?>
-          <div class="div2_payShop @if ($r % 2 == 0) payColor2 @else payColor1 @endif">
-            <div class="div_payShop1">{{$r}}</div>
-            <div class="div_payShop2">{{$value->id}}</div>
-            <div class="div_payShop3">{{$value->name}}</div>
-            <div class="div_payShop4 div2_payShop4 number">{{number_format($value2->price)}}</div>
-            <div class="div_payShop5">{{$value2->date_up}}</div>
+
+        <div class="searchDiv500" id="ajax_payShop">
+
+          <div class="divNoR0wShop">
+            در 30 روز گذشته پرداختی انجام نشده است .
           </div>
-        @endforeach
+        </div>
+        @else
+        <div class="" style=" width: 100%;float:right " id="ajax_payShop">
+          <div class="div_payShop" >
+            <div class="div_payShop1"><i class="fas fa-certificate"></i></div>
+            <div class="div_payShop2">کد فروش</div>
+            <div class="div_payShop3">نام محصول</div>
+            <div class="div_payShop4">مبلغ (تومان)</div>
+            <div class="div_payShop5">تاریخ</div>
+          </div>
+          @php
+            $r=0;
+          @endphp
+          @foreach ($proShop as $value)
+            <?php $r++;
+              $value2=$payShop->where('order_id',$value->order_id)->first();
+             ?>
+            <div class="div2_payShop @if ($r % 2 == 0) payColor2 @else payColor1 @endif" onclick="window.location='/payShop/{{$value->order_id}}'">
+              <div class="div_payShop1">{{$r}}</div>
+              <div class="div_payShop2">{{$value->id}}</div>
+              <div class="div_payShop3">{{$value->name}}</div>
+              <div class="div_payShop4 div2_payShop4 number">{{number_format($value2->price)}}</div>
+              <div class="div_payShop5">{{$value2->date_up}}</div>
+            </div>
+          @endforeach
+       </div>{{-- //ejax error --}}
+
       @endif
   @else
+
       <div class="div3_payShop">
+        <div class="editCodeBodyBazSh">
+          <button type="button" class="btn" onclick="window.location='/payShop'">بازگشت</button>
+        </div>
         <div class="div3_payShop1"><div class="div3_payShop1_1">کد محصول :</div><div class="div3_payShop1_2">{{$proShop2->id}}</div> </div>
         <div class="div3_payShop1"><div class="div3_payShop1_1">نام محصول :</div><div class="div3_payShop1_2">{{$proShop2->name}}</div></div>
         <div class="div3_payShop1"><div class="div3_payShop1_1">خریدار :</div><div class="div3_payShop1_2"></div></div>

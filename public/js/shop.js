@@ -680,7 +680,7 @@ Dropzone.options.proEditImg6 = {
                  }  });
           }
 
-    function sabtCodeRahgirySh(id) {
+  function sabtCodeRahgirySh(id) {
                     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
                     $.ajax({
                       type:'post',
@@ -776,7 +776,7 @@ function SearchPayShop() {
 
                   var errors = xhr.responseJSON;
                   var error=errors.errors;
-                  scroll_form('form_payShop');
+                  
                   $('#ajax_payShop').empty();
 
                   if(error['codePro']){

@@ -503,20 +503,20 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
   public function editErsalShop(Request $request)
   {
     $stage=$this->stage;
-    $idPro=$request->idPro;
+    $order_id=$request->order_id;
     $proShop=proShop::where('stage',3)->get();
-    $proShop2=proShop::where('id',$idPro)->first();
+    $proShop2=proShop::where('order_id',$order_id)->where('stage',3)->first();
     if ($proShop2) {
       $buyer=Buy::where('id',$proShop2->buyer_id)->first();
     }
-    return view('shop.editErsalShop',compact('stage','idPro','proShop','proShop2','buyer'));
+    return view('shop.editErsalShop',compact('stage','order_id','proShop','proShop2','buyer'));
   }
   public function editCodeSh(Save_sabtCodeSh $request)
   {
     $code=$request->codePro;
-    $proShop=proShop::where('id',$code)->where('stage',3)->first();
+    $proShop=proShop::where('order_id',$code)->where('stage',3)->first();
     if (!$proShop) {
-      $proShop2=proShop::where('id',$code)->where('stage',2)->first();
+      $proShop2=proShop::where('order_id',$code)->where('stage',2)->first();
       if($proShop2){
         return response()->json(['errors' => ['codePro' => ['کد رهگیری این محصول تاکنون ثبت نشده است . جهت ثبت کد به صفحه ثبت ارسال شده ها بروید .']]], 422);
       }
@@ -547,21 +547,30 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
   public function payShop(Request $request)
   {
     $stage=$this->stage;
-    $idPro=$request->idPro;
+    $order_id=$request->order_id;
+    if(){
+
+    }
+    elseif (condition) {
+      // code...
+    }
+    else{
+      
+    }
     $proShop=ProShop::where('stage','4')->get();
     $payShop=PayShop::first();
-    if ($idPro) {
-      $proShop2=ProShop::where('id',$idPro)->where('stage','4')->first();
+    if ($order_id) {
+      $proShop2=ProShop::where('order_id',$order_id)->where('stage','4')->first();
     }
-    return view('shop.payShop',compact('stage','proShop','payShop','idPro','proShop2'));
+    return view('shop.payShop',compact('stage','proShop','payShop','order_id','proShop2'));
   }
   public function SearchPayShop(Save_sabtCodeSh $request)
   {
     $code=$request->codePro;
-    $proShop=proShop::where('id',$code)->where('stage',4)->first();
+    $proShop=proShop::where('order_id',$code)->where('stage',4)->first();
     if (!$proShop) {
-      $proShop2=proShop::where('id',$code)->where('stage',3)->first();
-      $proShop3=proShop::where('id',$code)->where('stage',6)->first();
+      $proShop2=proShop::where('order_id',$code)->where('stage',3)->first();
+      $proShop3=proShop::where('order_id',$code)->where('stage',6)->first();
       if($proShop2){
         return response()->json(['errors' => ['codePro' => ['مبلغ این محصول تا کنون پرداخت نشده است .']]], 422);
       }

@@ -15,7 +15,8 @@ class CreatePayShopsTable extends Migration
     {
         Schema::create('pay_shops', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumInteger('pro_id')->unique()->nullable();
+            $table->mediumInteger('order_id')->unique()->nullable();
+            $table->mediumInteger('pro_id')->nullable();
             $table->mediumInteger('shop_id')->nullable();
             $table->string('price')->nullable();
             $table->string('numPay')->unique()->nullable();

@@ -25,14 +25,14 @@
          <div id="ajax_editCodePSh"></div>
          {{ csrf_field() }}
          <div class="form-group">
-            <label for="code_editCodePSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#Mcode_editCodePSh"></i> کد محصول</label>
+            <label for="code_editCodePSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#Mcode_editCodePSh"></i> کد فروش</label>
             <div class="div_form"><input type="text" class="form-control" id="code_editCodePSh"placeholder="" value=""></div>
           </div>
           <div class="form-group form_btn">
             <button type="button" class="btn btn-success" onclick="editCodeSh()" >جستجو</button>
           </div>
         </form>
-        @if (!empty($idPro))
+        @if (!empty($order_id))
           <div class="editCodeBodySh">
             <div class="editCodeBodyBazSh">
               <button type="button" class="btn" onclick="window.location='/editErsalShop'">بازگشت</button>
@@ -84,6 +84,11 @@
               </div>
             </form>
         @else
+          @if (empty($proShop[0]->id))
+            <div class="divNoR0wShop">
+              محصول ارسال شده ای موجود نیست .
+            </div>
+          @else
           <div class="div_editCodeSh">
             <div class="div_editCodeSh1"><i class="fas fa-certificate"></i></div>
             <div class="div_editCodeSh2">کد محصول</div>
@@ -96,7 +101,7 @@
           @endphp
           @foreach ($proShop as $value)
             <?php $r++;  ?>
-            <div class="div2_editCodeSh @if ($r % 2 == 0) bColor2 @else bColor1 @endif "onclick="window.location='/editErsalShop/{{$value->id}}'">
+            <div class="div2_editCodeSh @if ($r % 2 == 0) bColor2 @else bColor1 @endif "onclick="window.location='/editErsalShop/{{$value->order_id}}'">
               <div class="div_editCodeSh1">{{$r}}</div>
               <div class="div_editCodeSh2">{{$value->id}}</div>
               <div class="div_editCodeSh3">{{$value->name}}</div>
@@ -104,6 +109,7 @@
               <div class="div_editCodeSh5">{{$value->date_up}}</div>
             </div>
           @endforeach
+          @endif
         @endif
     </div>
   @endif

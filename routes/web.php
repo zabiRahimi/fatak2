@@ -92,12 +92,12 @@ Route::post('/allBuyProShop','ShopController@allBuyProShop');//ok!!
 Route::get('/sabtErsalShop/{order_id?}','ShopController@sabtErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/sabtCodeSh','ShopController@sabtCodeSh');//ok!!
 Route::post('/sabtCodeRahgirySh','ShopController@sabtCodeRahgirySh');//ok!!
-Route::get('/editErsalShop/{idPro?}','ShopController@editErsalShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/editErsalShop/{order_id?}','ShopController@editErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/editCodeSh','ShopController@editCodeSh');//ok!!
 Route::post('/editCodeRahgirySh','ShopController@editCodeRahgirySh');//ok!!
 Route::get('/pigiryErsalShop/{idPro?}','ShopController@pigiryErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/backErsalShop/{idPro?}','ShopController@backErsalShop')->middleware(['chekloginShop' ]);//ok!!
-Route::get('/payShop/{idPro?}','ShopController@payShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/payShop/{order_id?}','ShopController@payShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/SearchPayShop','ShopController@SearchPayShop');//ok!!
 
 Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
