@@ -776,7 +776,7 @@ function SearchPayShop() {
 
                   var errors = xhr.responseJSON;
                   var error=errors.errors;
-                  
+
                   $('#ajax_payShop').empty();
 
                   if(error['codePro']){
@@ -949,4 +949,30 @@ function allBuyProShop() {
       window.location.href  = "/buyProShop";
     },
   });
+}
+function SearchNamePayShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchNamePayShop',
+    data: {
+      namePro:$('#name_payProShop').val(),
+         },
+    success:function(data){
+      window.location.href  = "/payShop";
+    },
+    error: function(xhr) {
+
+               }
+     });
+}
+function SearchAllNamePayShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchAllNamePayShop',
+    success:function(data){
+      window.location.href  = "/payShop";
+    },
+     });
 }

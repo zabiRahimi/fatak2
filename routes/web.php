@@ -99,6 +99,8 @@ Route::get('/pigiryErsalShop/{idPro?}','ShopController@pigiryErsalShop')->middle
 Route::get('/backErsalShop/{idPro?}','ShopController@backErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/payShop/{order_id?}','ShopController@payShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/SearchPayShop','ShopController@SearchPayShop');//ok!!
+Route::post('/SearchNamePayShop','ShopController@SearchNamePayShop');//ok!!
+Route::post('/SearchAllNamePayShop','ShopController@SearchAllNamePayShop');//ok!!
 
 Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
 Route::post('/del_imgShop','ShopController@del_imgShop');//ok!!

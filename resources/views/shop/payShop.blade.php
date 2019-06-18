@@ -35,8 +35,8 @@
 
           <div class="searchShop">
             <a  class="apjax"onclick="searchSortDateShop('all')"><button type="button" class="btn" >پرداخت 30 روز اخیر</button></a>
-            <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"id="name_oldOrShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="nameOldOrderShop()"><i class="fas fa-search"></i></a></span>
-            <span class="searchSpanINShop"><input type="text" class="searchInputSHShop placeholder"id="code_payShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="SearchPayShop()"><i class="fas fa-search"></i></a></span>
+            <span class="searchSpanINShop"><button type="button" onclick="SearchAllNamePayShop()">همه محصولات</button><input type="text" class="searchInputSHShop placeholder"id="name_payProShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="SearchNamePayShop()"><i class="fas fa-search"></i></a></span>
+            <span class="searchSpanINShop"> <input type="text" class="searchInputSHShop placeholder"id="code_payShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="SearchPayShop()"><i class="fas fa-search"></i></a></span>
             {{-- جهت موبایل --}}
             <span class="searchSpanShop">
               <span class="searchSpan1Shop" >از تاریخ</span>

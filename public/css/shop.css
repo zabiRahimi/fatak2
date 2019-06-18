@@ -170,6 +170,7 @@
   display: inline-block;
   font-size: 14px;
 }
+.searchSpanINShop button{height: 25px;margin:0 0 0 2px;top: -4px;padding:0 2px;font-size: 12px ;position: relative;background-color: #f1f1f1;cursor: pointer;}
 .searchSpan1Shop{
     height:25px;
     position: relative;

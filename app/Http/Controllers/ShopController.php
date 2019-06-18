@@ -27,6 +27,7 @@ use App\Http\Requests\Save_codeOldOrderShop;
 use App\Http\Requests\Save_nameOldOrderShop;
 use App\Http\Requests\Save_codeBuyProShop;
 use App\Http\Requests\Save_nameBuyProShop;
+use App\Http\Requests\Save_namePayShop;
 use Cookie;
 use DB;
 use Illuminate\Contracts\Encryption\Encrypter;
@@ -548,21 +549,53 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
   {
     $stage=$this->stage;
     $order_id=$request->order_id;
-    if(){
+    $namePayShop=$request->cookie('namePayShop');
 
-    }
-    elseif (condition) {
-      // code...
+    $dateA=new Verta();//تاریخ جلالی
+    $dateB=$dateA->format('Y/n/j');
+    $dateC=$dateA->subDay()->format('Y/n/j');
+    $date30=$dateA->subDay(30)->format('Y/n/j');
+    $date1=$request->cookie('date1PayShop');
+    $date2=$request->cookie('date2PayShop');
+
+    if(!empty($namePayShop)){
+      if (!empty($date1)&&!empty($date2)) {
+        $proShop=ProShop::where( 'name' ,"like", "%$namePayShop%")->whereBetween('date_up', [$date1, $date2])->where('stage','4')->get();
+      }
+      else {
+        $proShop=ProShop::where( 'name' ,"like", "%$namePayShop%")->whereBetween('date_up', [$date30,$dateB])->where('stage','4')->get();
+      }
     }
     else{
-      
+      if (!empty($date1)&&!empty($date2)) {
+        $proShop=ProShop::whereBetween('date_up', [$date1, $date2])->where('stage','4')->get();
+      }
+      else {
+        $proShop=ProShop::whereBetween('date_up', [$date30,$dateB])->where('stage','4')->get();
+      }
     }
-    $proShop=ProShop::where('stage','4')->get();
     $payShop=PayShop::first();
     if ($order_id) {
       $proShop2=ProShop::where('order_id',$order_id)->where('stage','4')->first();
     }
     return view('shop.payShop',compact('stage','proShop','payShop','order_id','proShop2'));
+  }
+  public function SearchNamePayShop(Save_namePayShop $request)
+  {
+    $namePro=$request->namePro;
+    Cookie::queue('namePayShop', $namePro);
+  }
+  public function SearchDateSortPayShop($value='')
+  {
+    $date1=$request->date1;
+    $date2=$request->date2;
+    Cookie::queue('date1', $date1);
+    Cookie::queue('date2', $date2);
+    Cookie::queue('sortdate', 'slicing');
+  }
+  public function SearchAllNamePayShop()
+  {
+    Cookie::queue('namePayShop', '',time() - 3600);
   }
   public function SearchPayShop(Save_sabtCodeSh $request)
   {
