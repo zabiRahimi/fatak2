@@ -33,48 +33,50 @@
           </div>
         </form> --}}
 
-          <div class="searchShop">
-            <a  class="apjax"onclick="searchSortDateShop('all')"><button type="button" class="btn" >پرداخت 30 روز اخیر</button></a>
-            <span class="searchSpanINShop"><button type="button" onclick="SearchAllNamePayShop()">همه محصولات</button><input type="text" class="searchInputSHShop placeholder"id="name_payProShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="SearchNamePayShop()"><i class="fas fa-search"></i></a></span>
-            <span class="searchSpanINShop"> <input type="text" class="searchInputSHShop placeholder"id="code_payShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="SearchPayShop()"><i class="fas fa-search"></i></a></span>
-            {{-- جهت موبایل --}}
-            <span class="searchSpanShop">
-              <span class="searchSpan1Shop" >از تاریخ</span>
-              <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay1" placeholder="روز">
-              <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMonth1" placeholder="ماه">
-              <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear1" placeholder="سال">
-              <span class="searchSpan1Shop">تا</span>
-              <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay2" placeholder="روز">
-              <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMont2" placeholder="ماه">
-              <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear2" placeholder="سال">
-
-              <a  class="apjax searchAShop" onclick="searchShop()"><i class="fas fa-search"></i></a>
-
-            </span>
-           </div>
-           <div class="searchDiv500">
-           <div class="searchMapShop">
-             sfsdf
-             {{-- <span class="searchMap1Shop">{{$search_pro}}</span> , <span class="searchMap2Shop">{{$search_ostan}}</span> , <span class="searchMap3Shop">{{$search_city}}</span> ,
-             @if ($sortDate=='slicing')
-               از تاریخ <span class="searchMap4Shop">{{$date1}}</span> تا <span class="searchMap5Shop">{{$date2}}</span>
-             @else
-               <span class="searchMap6Shop">{{$search_order}}</span>
-             @endif --}}
 
 
-           </div>
-        </div>
 
   @if (empty($order_id))
+    <div class="searchDiv500">
+      <div class="searchShop">
+        <a  class="apjax"onclick="SearchAllDatePayShop()"><button type="button" class="btn" >پرداخت 30 روز اخیر</button></a>
+        <span class="searchSpanINShop"><button type="button" onclick="SearchAllNamePayShop()">همه محصولات</button><input type="text" class="searchInputSHShop placeholder"id="name_payProShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="SearchNamePayShop()"><i class="fas fa-search"></i></a></span>
+        <span class="searchSpanINShop"> <input type="text" class="searchInputSHShop placeholder"id="code_payShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="SearchPayShop()"><i class="fas fa-search"></i></a></span>
 
+        <div class="searchSpan2Shop">
+          <div class="searchSpan2Shop2">
+            <span class="searchSpan1Shop" >از تاریخ</span>
+            <input type="text"class="searchInputShop searchInput2Shop"id="day1_payShop" placeholder="روز">
+            <input type="text"class="searchInputShop searchInput2Shop"id="month1_payShop" placeholder="ماه">
+            <input type="text"class="searchInputShop searchInput3Shop"id="year1_payShop" placeholder="سال">
+          </div>
+          <div class="searchSpan2Shop2">
+            <span class="searchSpan1Shop">تا</span>
+            <input type="text"class="searchInputShop searchInput2Shop"id="day2_payShop" placeholder="روز">
+            <input type="text"class="searchInputShop searchInput2Shop"id="month2_payShop" placeholder="ماه">
+            <input type="text"class="searchInputShop searchInput3Shop"id="year2_payShop" placeholder="سال">
+
+            <a  class="apjax searchAShop" onclick="SearchDateSortPayShop()"><i class="fas fa-search"></i></a>
+          </div>
+        </div>
+       </div>
+       <div class="searchMapShop">
+         <span class="searchMap1Shop">{{$search_pro}}</span> ,
+         @if ($sortDate=='slicing')
+           از تاریخ <span class="searchMap4Shop">{{$date1}}</span> تا <span class="searchMap5Shop">{{$date2}}</span>
+         @else
+           <span class="searchMap6Shop">{{$sortDate}}</span>
+         @endif
+       </div>
+
+ </div>
 
       @if (empty($proShop[0]->id))
 
         <div class="searchDiv500" id="ajax_payShop">
 
           <div class="divNoR0wShop">
-            در 30 روز گذشته پرداختی انجام نشده است .
+            {{$erorrPayShop}}
           </div>
         </div>
         @else

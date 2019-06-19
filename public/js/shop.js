@@ -976,3 +976,35 @@ function SearchAllNamePayShop() {
     },
      });
 }
+function SearchDateSortPayShop() {
+  var day1=$('#day1_payShop').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
+  var month1=$('#month1_payShop').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
+  var year1=$('#year1_payShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
+  var day2=$('#day2_payShop').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
+  var month2=$('#month2_payShop').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
+  var year2=$('#year2_payShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
+
+  var date1=year1+'-'+month1+'-'+day1;
+  var date2=year2+'-'+month2+'-'+day2;
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchDateSortPayShop',
+    data: {
+      date1:date1,
+      date2:date2,
+         },
+    success:function(data){
+      // $('#ajax_sabtCodePSh').empty();
+      window.location.href  = "/payShop";
+    },  });
+}
+function SearchAllDatePayShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchAllDatePayShop',
+    success:function(data){
+      window.location.href  = "/payShop";
+    },  });
+}

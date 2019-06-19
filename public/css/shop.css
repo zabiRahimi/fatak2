@@ -195,7 +195,7 @@
   text-align: right;
 
 }
-.M_searchSpanShop2,.M_searchSpanShop3{display: inline-block;float: right;}
+.M_searchSpanShop2,.M_searchSpanShop3,.searchSpan2Shop2,.searchSpan2Shop3{display: inline-block;float: right;}
 .M_searchSpan1Shop{width: 40px;height: 25px;display: inline-block;text-align: center;}
 .M_searchInput2Shop,.M_searchInput3Shop{top: 0;}
 .M_searchInput2Shop{width: 25px;}
@@ -247,8 +247,11 @@
 @media (max-width:500px){
   .dashTitrSh{font-size: 14px;}
 }
-@media (max-width:370px){
-  .M_searchSpanShop2,.M_searchSpanShop3{
+@media (max-width:375px){
+  .searchSpan2Shop{
+    height: auto;
+  }
+  .M_searchSpanShop2,.M_searchSpanShop3,.searchSpan2Shop2,.searchSpan2Shop3{
     width: 100%;
     display: block;
     margin-top: 1px;

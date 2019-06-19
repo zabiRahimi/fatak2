@@ -233,38 +233,38 @@ class ShopController extends Controller
     $proShop=proShop::where('shop_id',$id)->get();
     return view('shop.newOrderShop',compact('stage','newOrder','proShop','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
   }
-public function searchSortDateShop(Request $request)
-{
+  public function searchSortDateShop(Request $request)
+  {
   $sortDate=$request->sortdate;
   Cookie::queue('sortdate', $sortDate);
 
 }
-public function searchShop(Save_searchDateShop $request)
-{
-  $date1=$request->date1;
-  $date2=$request->date2;
-  Cookie::queue('date1', $date1);
-  Cookie::queue('date2', $date2);
-  Cookie::queue('sortdate', 'slicing');
-
-}
-public function searchAdvancedShop(Save_searchAdvancedShop $request)
-{
-  $ostan=$request->ostan;
-  $city=$request->city;
-  $pro=$request->pro;
-  $date1=$request->date1;
-  $date2=$request->date2;
-  Cookie::queue('osatnShop', $ostan);
-  Cookie::queue('cityShop', $city);
-  Cookie::queue('proShop', $pro);
-  if (!empty($date1)) {
+  public function searchShop(Save_searchDateShop $request)
+  {
+    $date1=$request->date1;
+    $date2=$request->date2;
     Cookie::queue('date1', $date1);
-  }
-  if (!empty($date2)) {
     Cookie::queue('date2', $date2);
+    Cookie::queue('sortdate', 'slicing');
+
   }
-}
+  public function searchAdvancedShop(Save_searchAdvancedShop $request)
+  {
+    $ostan=$request->ostan;
+    $city=$request->city;
+    $pro=$request->pro;
+    $date1=$request->date1;
+    $date2=$request->date2;
+    Cookie::queue('osatnShop', $ostan);
+    Cookie::queue('cityShop', $city);
+    Cookie::queue('proShop', $pro);
+    if (!empty($date1)) {
+      Cookie::queue('date1', $date1);
+    }
+    if (!empty($date2)) {
+      Cookie::queue('date2', $date2);
+    }
+  }
   public function newOrderShopOne(Request $request)
   {
     $stage=$this->stage;
@@ -549,6 +549,8 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
   {
     $stage=$this->stage;
     $order_id=$request->order_id;
+
+    $codeOkPayShop=$request->cookie('codeOkPayShop');
     $namePayShop=$request->cookie('namePayShop');
 
     $dateA=new Verta();//تاریخ جلالی
@@ -561,41 +563,60 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
     if(!empty($namePayShop)){
       if (!empty($date1)&&!empty($date2)) {
         $proShop=ProShop::where( 'name' ,"like", "%$namePayShop%")->whereBetween('date_up', [$date1, $date2])->where('stage','4')->get();
+        $sortDate='slicing';
+        $erorrPayShop='در بازه زمانی مورد نظر برای این محصول پرداختی انجام نشده است .';
       }
       else {
         $proShop=ProShop::where( 'name' ,"like", "%$namePayShop%")->whereBetween('date_up', [$date30,$dateB])->where('stage','4')->get();
+        $sortDate='پرداخت های 30 روز اخیر';
+        $erorrPayShop='در 30 روز اخیر برای این محصول پرداختی انجام نشده است .';
+
       }
+      $search_pro='محصول ' . $namePayShop;
     }
     else{
       if (!empty($date1)&&!empty($date2)) {
         $proShop=ProShop::whereBetween('date_up', [$date1, $date2])->where('stage','4')->get();
-      }
+        $sortDate='slicing';
+        $erorrPayShop='در بازه زمانی مورد نظر پرداختی انجام نشده است .';
+
+       }
       else {
         $proShop=ProShop::whereBetween('date_up', [$date30,$dateB])->where('stage','4')->get();
+        $sortDate='پرداخت های 30 روز اخیر';
+        $erorrPayShop='طی 30 روز اخیر پرداختی انجام نشده است .';
+
       }
+      $search_pro='همه محصولات';
     }
     $payShop=PayShop::first();
     if ($order_id) {
       $proShop2=ProShop::where('order_id',$order_id)->where('stage','4')->first();
     }
-    return view('shop.payShop',compact('stage','proShop','payShop','order_id','proShop2'));
+
+    return view('shop.payShop',compact('stage','proShop','payShop','order_id','proShop2','search_pro','sortDate','date1','date2','erorrPayShop'));
   }
   public function SearchNamePayShop(Save_namePayShop $request)
   {
     $namePro=$request->namePro;
     Cookie::queue('namePayShop', $namePro);
   }
-  public function SearchDateSortPayShop($value='')
-  {
-    $date1=$request->date1;
-    $date2=$request->date2;
-    Cookie::queue('date1', $date1);
-    Cookie::queue('date2', $date2);
-    Cookie::queue('sortdate', 'slicing');
-  }
   public function SearchAllNamePayShop()
   {
     Cookie::queue('namePayShop', '',time() - 3600);
+  }
+  public function SearchDateSortPayShop(Save_searchDateShop $request)
+  {
+    $date1=$request->date1;
+    $date2=$request->date2;
+    Cookie::queue('date1PayShop', $date1);
+    Cookie::queue('date2PayShop', $date2);
+  }
+  // 30 روزه
+  public function SearchAllDatePayShop()
+  {
+    Cookie::queue('date1PayShop', '',time() - 3600);
+    Cookie::queue('date2PayShop', '',time() - 3600);
   }
   public function SearchPayShop(Save_sabtCodeSh $request)
   {
@@ -612,6 +633,7 @@ public function searchAdvancedShop(Save_searchAdvancedShop $request)
       }
       return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);
     }
+    Cookie::queue('codeOkPayShop', 'ok');
     return $code;
   }
 

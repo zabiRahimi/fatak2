@@ -101,6 +101,8 @@ Route::get('/payShop/{order_id?}','ShopController@payShop')->middleware(['cheklo
 Route::post('/SearchPayShop','ShopController@SearchPayShop');//ok!!
 Route::post('/SearchNamePayShop','ShopController@SearchNamePayShop');//ok!!
 Route::post('/SearchAllNamePayShop','ShopController@SearchAllNamePayShop');//ok!!
+Route::post('/SearchDateSortPayShop','ShopController@SearchDateSortPayShop');//ok!!
+Route::post('/SearchAllDatePayShop','ShopController@SearchAllDatePayShop');//ok!!
 
 Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
 Route::post('/del_imgShop','ShopController@del_imgShop');//ok!!
