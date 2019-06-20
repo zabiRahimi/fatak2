@@ -18,11 +18,11 @@ class CreatePayShopsTable extends Migration
             $table->mediumInteger('order_id')->unique()->nullable();
             $table->mediumInteger('pro_id')->nullable();
             $table->mediumInteger('shop_id')->nullable();
-            $table->string('price')->nullable();
-            $table->string('numPay')->unique()->nullable();
-            $table->string('sortPay')->nullable();
-            $table->string('date_ad')->nullable();
-            $table->string('date_up')->nullable();
+            $table->string('price',13)->nullable();
+            $table->string('numPay',60)->unique()->nullable();
+            $table->string('sortPay',50)->nullable();
+            $table->string('date_ad',13)->nullable();
+            $table->string('date_up',13)->nullable();
             $table->boolean('show');
         });
     }

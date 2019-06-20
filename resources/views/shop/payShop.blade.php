@@ -97,7 +97,7 @@
              ?>
             <div class="div2_payShop @if ($r % 2 == 0) payColor2 @else payColor1 @endif" onclick="window.location='/payShop/{{$value->order_id}}'">
               <div class="div_payShop1">{{$r}}</div>
-              <div class="div_payShop2">{{$value->id}}</div>
+              <div class="div_payShop2">{{$value->order_id}}</div>
               <div class="div_payShop3">{{$value->name}}</div>
               <div class="div_payShop4 div2_payShop4 number">{{number_format($value2->price)}}</div>
               <div class="div_payShop5">{{$value2->date_up}}</div>

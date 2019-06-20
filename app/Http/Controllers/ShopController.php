@@ -9,6 +9,7 @@ use App\Models\ProShop;
 use App\Models\Picture_shop;
 use App\Models\Buy;
 use App\Models\PayShop;
+use App\Models\BackErsalShop;
 
 
 use App\Http\Requests\Save_shop_1;
@@ -235,10 +236,9 @@ class ShopController extends Controller
   }
   public function searchSortDateShop(Request $request)
   {
-  $sortDate=$request->sortdate;
-  Cookie::queue('sortdate', $sortDate);
-
-}
+    $sortDate=$request->sortdate;
+    Cookie::queue('sortdate', $sortDate);
+  }
   public function searchShop(Save_searchDateShop $request)
   {
     $date1=$request->date1;
@@ -246,7 +246,6 @@ class ShopController extends Controller
     Cookie::queue('date1', $date1);
     Cookie::queue('date2', $date2);
     Cookie::queue('sortdate', 'slicing');
-
   }
   public function searchAdvancedShop(Save_searchAdvancedShop $request)
   {
@@ -543,7 +542,55 @@ class ShopController extends Controller
   public function backErsalShop(Request $request)
   {
     $stage=$this->stage;
-    return view('shop.backErsalShop',compact('stage'));
+    $order_id=$request->order_id;
+
+    $codeOkBackShop=$request->cookie('codeOkBackShop');
+    $nameBackShop=$request->cookie('nameBackShop');
+
+    $dateA=new Verta();//تاریخ جلالی
+    $dateB=$dateA->format('Y/n/j');
+    $dateC=$dateA->subDay()->format('Y/n/j');
+    $date30=$dateA->subDay(30)->format('Y/n/j');
+    $date1=$request->cookie('date1BackShop');
+    $date2=$request->cookie('date2BackShop');
+
+    if(!empty($nameBackShop)){
+      if (!empty($date1)&&!empty($date2)) {
+        $proShop=ProShop::where( 'name' ,"like", "%$nameBackShop%")->whereBetween('date_up', [$date1, $date2])->where('stage','6')->get();
+        $sortDate='slicing';
+        $erorrBackShop='در بازه زمانی مورد نظر این محصول ارجاع نشده است .';
+      }
+      else {
+        $proShop=ProShop::where( 'name' ,"like", "%$nameBackShop%")->whereBetween('date_up', [$date30,$dateB])->where('stage','6')->get();
+        $sortDate='مرجوعی های 30 روز اخیر';
+        $erorrBackShop='طی 30 روز اخیر این محصول ارجاع نشده است .';
+
+      }
+      $search_pro='محصول ' . $nameBackShop;
+    }
+    else{
+      if (!empty($date1)&&!empty($date2)) {
+        $proShop=ProShop::whereBetween('date_up', [$date1, $date2])->where('stage','6')->get();
+        $sortDate='slicing';
+        $erorrBackShop='در بازه مورد نظر ارجاعی صورت نگرفته است .';
+
+       }
+      else {
+        $proShop=ProShop::whereBetween('date_up', [$date30,$dateB])->where('stage','6')->get();
+        $sortDate='مرجوعی های 30 روز اخیر';
+        $erorrBackShop='طی 30 روز اخیر ارجاعی صورت نگرفته است .';
+
+      }
+      $search_pro='همه محصولات';
+    }
+    $backShop=BackErsalShop::first();
+    if ($order_id) {
+      $proShop2=ProShop::where('order_id',$order_id)->where('stage','6')->first();
+      $backShop2=BackErsalShop::where('order_id',$order_id)->first();
+      $buy=Buy::where('order_id',$order_id)->first();
+    }
+
+    return view('shop.backErsalShop',compact('stage','proShop','backShop','order_id','proShop2','backShop2','buy','search_pro','sortDate','date1','date2','erorrBackShop'));
   }
   public function payShop(Request $request)
   {
