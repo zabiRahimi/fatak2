@@ -40,21 +40,21 @@
     <div class="searchDiv500">
       <div class="searchShop">
         <a  class="apjax"onclick="SearchAllDateBackShop()"><button type="button" class="btn" >مرجوعی 30 روز اخیر</button></a>
-        <span class="searchSpanINShop"><button type="button" onclick="SearchAllNameBackShop()">همه محصولات</button><input type="text" class="searchInputSHShop placeholder"id="name_payProShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="SearchNameBackShop()"><i class="fas fa-search"></i></a></span>
-        <span class="searchSpanINShop"> <input type="text" class="searchInputSHShop placeholder"id="code_payShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="SearchBackShop()"><i class="fas fa-search"></i></a></span>
+        <span class="searchSpanINShop"><button type="button" onclick="SearchAllNameBackShop()">همه محصولات</button><input type="text" class="searchInputSHShop placeholder"id="name_backProShop"value=""placeholder="نام محصول"> <a  class="apjax searchAShop" onclick="SearchNameBackShop()"><i class="fas fa-search"></i></a></span>
+        <span class="searchSpanINShop"> <input type="text" class="searchInputSHShop placeholder"id="code_backShop"value=""placeholder="کد فروش"> <a  class="apjax searchAShop" onclick="SearchBackShop()"><i class="fas fa-search"></i></a></span>
 
         <div class="searchSpan2Shop">
           <div class="searchSpan2Shop2">
             <span class="searchSpan1Shop" >از تاریخ</span>
-            <input type="text"class="searchInputShop searchInput2Shop"id="day1_payShop" placeholder="روز">
-            <input type="text"class="searchInputShop searchInput2Shop"id="month1_payShop" placeholder="ماه">
-            <input type="text"class="searchInputShop searchInput3Shop"id="year1_payShop" placeholder="سال">
+            <input type="text"class="searchInputShop searchInput2Shop"id="day1_backShop" placeholder="روز">
+            <input type="text"class="searchInputShop searchInput2Shop"id="month1_backShop" placeholder="ماه">
+            <input type="text"class="searchInputShop searchInput3Shop"id="year1_backShop" placeholder="سال">
           </div>
           <div class="searchSpan2Shop2">
             <span class="searchSpan1Shop">تا</span>
-            <input type="text"class="searchInputShop searchInput2Shop"id="day2_payShop" placeholder="روز">
-            <input type="text"class="searchInputShop searchInput2Shop"id="month2_payShop" placeholder="ماه">
-            <input type="text"class="searchInputShop searchInput3Shop"id="year2_payShop" placeholder="سال">
+            <input type="text"class="searchInputShop searchInput2Shop"id="day2_backShop" placeholder="روز">
+            <input type="text"class="searchInputShop searchInput2Shop"id="month2_backShop" placeholder="ماه">
+            <input type="text"class="searchInputShop searchInput3Shop"id="year2_backShop" placeholder="سال">
 
             <a  class="apjax searchAShop" onclick="SearchDateSortBackShop()"><i class="fas fa-search"></i></a>
           </div>
@@ -73,14 +73,14 @@
 
       @if (empty($proShop[0]->id))
 
-        <div class="searchDiv500" id="ajax_payShop">
+        <div class="searchDiv500" id="ajax_backShop">
 
           <div class="divNoR0wShop">
             {{$erorrBackShop}}
           </div>
         </div>
         @else
-        <div class="" style=" width: 100%;float:right " id="ajax_payShop">
+        <div class="" style=" width: 100%;float:right " id="ajax_backShop">
           <div class="div_payShop" >
             <div class="div_payShop1"><i class="fas fa-certificate"></i></div>
             <div class="div_payShop2">کد فروش</div>
@@ -110,7 +110,7 @@
 
       <div class="div3_payShop">
         <div class="editCodeBodyBazSh">
-          <button type="button" class="btn" onclick="window.location='/payShop'">بازگشت</button>
+          <button type="button" class="btn" onclick="window.location='/backErsalShop'">بازگشت</button>
         </div>
         <div class="row1"><div class="row2_1">کد محصول :</div><div class="row2_2">{{$proShop2->id}}</div> </div>
         <div class="row1"><div class="row2_1">نام محصول :</div><div class="row2_2">{{$proShop2->name}}</div></div>
@@ -119,14 +119,14 @@
         <div class="row3"><div class="row3_1">توضیح خریدار :</div><div class="row3_2">{{$backShop2->buyer_dis}}</div></div>
         <div class="row3"><div class="row3_1">نظر کارشناس :</div><div class="row3_2">{{$backShop2->master_dis}}</div></div>
 
-        <div class="row1"><div class="row2_1">هزینه ارجاع بعهده :</div><div class="row2_2">{{$backShop2->undertake_back}}</div></div>
-        <div class="row1"><div class="row2_1">هزینه ارجاع :</div><div class="row2_2">{{number_format($backShop2->price_back) }}</div></div>
+        <div class="row1"><div class="row2_1">هزینه ارجاع بعهده :</div><div class="row2_2 ">{{$backShop2->undertake_back}}</div></div>
+        <div class="row1"><div class="row2_1">هزینه ارجاع :</div><div class="row2_2 number">{{number_format($backShop2->price_back) }}</div></div>
         <div class="row1"><div class="row2_1">هزینه ارسال بعهده :</div><div class="row2_2">{{$backShop2->undertake_ersal}}</div></div>
         <div class="row1"><div class="row2_1">هزینه ارسال :</div><div class="row2_2 number">{{number_format($buy->price_post) }}</div></div>
         <div class="row3"><div class="row3_1">شرح خسارت :</div><div class="row3_2">{{$backShop2->loss_dis}}</div></div>
 
         <div class="row1"><div class="row2_1">هزینه خسارت بعهده :</div><div class="row2_2">{{$backShop2->undertake_loss}}</div></div>
-        <div class="row1"><div class="row2_1">هزینه خسارت :</div><div class="row2_2">{{number_format($backShop2->loss_price) }}</div></div>
+        <div class="row1"><div class="row2_1">هزینه خسارت :</div><div class="row2_2 number">{{number_format($backShop2->loss_price) }}</div></div>
         <div class="row1"><div class="row2_1">تاریخ ارجاع :</div><div class="row2_2">{{$backShop2->date_back}}</div></div>
         <div class="row1"><div class="row2_1">کد رهگیری محموله :</div><div class="row2_2">{{$backShop2->code_rahgiry}}</div></div>
 

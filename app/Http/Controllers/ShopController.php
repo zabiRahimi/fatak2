@@ -592,6 +592,45 @@ class ShopController extends Controller
 
     return view('shop.backErsalShop',compact('stage','proShop','backShop','order_id','proShop2','backShop2','buy','search_pro','sortDate','date1','date2','erorrBackShop'));
   }
+  // 30 روزه
+  public function SearchAllDateBackShop()
+  {
+    Cookie::queue('date1BackShop', '',time() - 3600);
+    Cookie::queue('date2BackShop', '',time() - 3600);
+  }
+  public function SearchDateSortBackShop(Save_searchDateShop $request)
+  {
+    $date1=$request->date1;
+    $date2=$request->date2;
+    Cookie::queue('date1BackShop', $date1);
+    Cookie::queue('date2BackShop', $date2);
+  }
+  public function SearchNameBackShop(Save_namePayShop $request)
+  {
+    $namePro=$request->namePro;
+    Cookie::queue('nameBackShop', $namePro);
+  }
+  public function SearchAllNameBackShop()
+  {
+    Cookie::queue('nameBackShop', '',time() - 3600);
+  }
+  public function SearchBackShop(Save_sabtCodeSh $request)
+  {
+    $code=$request->codePro;
+    $proShop=proShop::where('order_id',$code)->where('stage',6)->first();
+    if (!$proShop) {
+      // $proShop2=proShop::where('order_id',$code)->where('stage',3)->first();
+      $proShop3=proShop::where('order_id',$code)->where('stage',4)->first();
+
+      if($proShop3){
+        return response()->json(['errors' => ['codePro' => ['مبلغ این محصول پرداخت شده است ، جهت پیگیری به صفحه پرداخت ها بروید .']]], 422);
+      }
+      return response()->json(['errors' => ['codePro' => ['محصولی با این کد تا کنون ارجاع نشده است .']]], 422);
+    }
+    Cookie::queue('codeOkBackShop', 'ok');
+    return $code;
+  }
+
   public function payShop(Request $request)
   {
     $stage=$this->stage;

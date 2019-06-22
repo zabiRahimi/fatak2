@@ -97,6 +97,12 @@ Route::post('/editCodeSh','ShopController@editCodeSh');//ok!!
 Route::post('/editCodeRahgirySh','ShopController@editCodeRahgirySh');//ok!!
 Route::get('/pigiryErsalShop/{idPro?}','ShopController@pigiryErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/backErsalShop/{order_id?}','ShopController@backErsalShop')->middleware(['chekloginShop' ]);//ok!!
+Route::post('/SearchAllDateBackShop','ShopController@SearchAllDateBackShop');//ok!!
+Route::post('/SearchNameBackShop','ShopController@SearchNameBackShop');//ok!!
+Route::post('/SearchAllNameBackShop','ShopController@SearchAllNameBackShop');//ok!!
+Route::post('/SearchBackShop','ShopController@SearchBackShop');//ok!!
+Route::post('/SearchDateSortBackShop','ShopController@SearchDateSortBackShop');//ok!!
+
 Route::get('/payShop/{order_id?}','ShopController@payShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/SearchPayShop','ShopController@SearchPayShop');//ok!!
 Route::post('/SearchNamePayShop','ShopController@SearchNamePayShop');//ok!!

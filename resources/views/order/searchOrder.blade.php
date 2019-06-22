@@ -1,6 +1,6 @@
 @extends('order.layoutOrder')
 @section('title')
- ثبت سفارش
+ پیگیری سفارش
 @endsection
 @section('content')
   <div class="headerOrder">

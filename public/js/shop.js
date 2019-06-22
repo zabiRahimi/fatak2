@@ -1008,3 +1008,86 @@ function SearchAllDatePayShop() {
       window.location.href  = "/payShop";
     },  });
 }
+function SearchAllDateBackShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchAllDateBackShop',
+    success:function(data){
+      window.location.href  = "/backErsalShop";
+    },  });
+}
+function SearchNameBackShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchNameBackShop',
+    data: {
+      namePro:$('#name_backProShop').val(),
+         },
+    success:function(data){
+      window.location.href  = "/backErsalShop";
+    },
+    error: function(xhr) {
+
+               }
+     });
+}
+function SearchAllNameBackShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchAllNameBackShop',
+    success:function(data){
+      window.location.href  = "/backErsalShop";
+    },
+     });
+}
+function SearchBackShop() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchBackShop',
+    data: {
+          codePro:$('#code_backShop').val(),
+         },
+    success:function(data){
+      window.location.href  = "/backErsalShop/"+data;
+    },
+    error: function(xhr) {
+        var errors = xhr.responseJSON;
+        var error=errors.errors;
+        $('#ajax_backShop').empty();
+        if(error['codePro']){
+           $('#ajax_backShop').append('<div id="alarm_red">'+error['codePro']+'</div>');
+        }
+        // $('#error_sabtCodePSh').modal('show');
+        // $("#error_sabtCodePSh").on('hide.bs.modal', function () {
+        // window.location.href  = "/sabtErsalShop";
+        // });
+
+       }  });
+}
+function SearchDateSortBackShop() {
+  var day1=$('#day1_backShop').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
+  var month1=$('#month1_backShop').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
+  var year1=$('#year1_backShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
+  var day2=$('#day2_backShop').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
+  var month2=$('#month2_backShop').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
+  var year2=$('#year2_backShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
+
+  var date1=year1+'-'+month1+'-'+day1;
+  var date2=year2+'-'+month2+'-'+day2;
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../SearchDateSortBackShop',
+    data: {
+      date1:date1,
+      date2:date2,
+         },
+    success:function(data){
+      // $('#ajax_sabtCodePSh').empty();
+      window.location.href  = "/backErsalShop";
+    },  });
+}
