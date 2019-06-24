@@ -93,7 +93,10 @@ function mobailSearchOrder() {
            $('#ajax_searchOrder').html('<div id="alarm_red">'+error['mobail']+'</div>');
 
         }
+      else if(error['no_mobail']){
+          $('#ajax_searchOrder').html('<div id="alarm_red">'+error['no_mobail']+'</div>');
 
+       }
            // $('#error_mobailOrder').modal('show');
         }});
 }
@@ -105,15 +108,16 @@ function searchOrderSave() {
     url:'../searchOrderSave',
     data: {
           mobail:mobail,
-          id_pro:$('#pro_searchOrder').val(),
+          id:$('#pro_searchOrder').val(),
           amniat:$('#amniat_searchOrder').val(),
          },
     success:function(data){
-
+      window.location.href ="/showOrder/" + data;
     },
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
+        captcha();
          if(error['mobail']){
            $('#ajax_searchOrder').html('<div id="alarm_red">'+error['mobail']+'</div>');
         }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\ProShop;
 use App\Http\Requests\Save_order1;
 use App\Http\Requests\Save_mobail;
 use App\Http\Requests\Save_searchOrderSave;
@@ -63,13 +64,23 @@ class OrderController extends Controller
     {
       $mobail=$request->mobail;
       $pro=Order::where('mobail', $mobail)->get();
+      if(empty($pro[0]->id)){
+        return response()->json(['errors' => ['no_mobail' => ['با این شماره موبایل تا کنون محصولی سفارش داده نشده است ، لطفا شماره موبایلی که هنگام سفارش محصول ثبت کردید را وارد کنید .']]], 422);
 
+      }
 
     return view('order.proList',compact('pro'));
 
     }
     public function searchOrderSave(Save_searchOrderSave $request)
     {
-      $id_pro=$request->id_pro;
+      $id=$request->id;
+      return $id;
+    }
+    public function showOrder(Request $request)
+    {
+      $order_id=$request->order_id;
+      $pro=ProShop::where('order_id' , $order_id)->get();
+      return view('order.showOrder',compact('pro'));
     }
 }

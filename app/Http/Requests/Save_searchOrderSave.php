@@ -44,7 +44,7 @@ class Save_searchOrderSave extends FormRequest
     {
         return [
           'mobail'=>'required|mobail',
-          'id_pro'=>'required|numeric',
+          'id'=>'required|numeric',
           'amniat'=>'required|captcha',
         ];
     }
