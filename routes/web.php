@@ -116,6 +116,9 @@ Route::post('/del_imgShop','ShopController@del_imgShop');//ok!!
 //ثبت سفارش محصول ناموجود
 Route::get('/sabtOrder','OrderController@sabtOrder');//ok!!
 Route::post('/sabtOrderSave','OrderController@sabtOrderSave');//ok!!
+Route::get('/searchOrder','OrderController@searchOrder');//ok!!
+Route::post('/mobailSearchOrder','OrderController@mobailSearchOrder');//ok!!
+Route::post('/searchOrderSave','OrderController@searchOrderSave');//ok!!
 
 
 //قسمت مدیریت management

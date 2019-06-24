@@ -181,7 +181,7 @@ class ShopController extends Controller
     $date2=$request->cookie('date2');
     $sortDate=$request->cookie('sortdate');
     if ($date=='today' or $sortDate=='today') {
-      $newOrder=Order::where('stage',1)->where('date_up',$dateB)->where(function($query){
+       $newOrder=Order::where('stage',1)->where('date_up',$dateB)->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
         $citySeSh=$GLOBALS['citySeSh'];
         $proShop2=$GLOBALS['proShop2'];

@@ -72,3 +72,59 @@ function sabtOrderSave(){
 
            $('#ajax_sabtOrder').modal('show');
         }}});}
+function mobailSearchOrder() {
+  var mobail=$('#mobail_searchOrder').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../mobailSearchOrder',
+    data: {
+          mobail:mobail,
+         },
+    success:function(data){
+      $('#ajax_searchOrder').empty();
+      $('#pro_searchOrder').html(data);
+    },
+    error: function(xhr) {
+        var errors = xhr.responseJSON;
+        var error=errors.errors;
+
+         if(error['mobail']){
+           $('#ajax_searchOrder').html('<div id="alarm_red">'+error['mobail']+'</div>');
+
+        }
+
+           // $('#error_mobailOrder').modal('show');
+        }});
+}
+function searchOrderSave() {
+  var mobail=$('#mobail_searchOrder').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../searchOrderSave',
+    data: {
+          mobail:mobail,
+          id_pro:$('#pro_searchOrder').val(),
+          amniat:$('#amniat_searchOrder').val(),
+         },
+    success:function(data){
+
+    },
+    error: function(xhr) {
+        var errors = xhr.responseJSON;
+        var error=errors.errors;
+         if(error['mobail']){
+           $('#ajax_searchOrder').html('<div id="alarm_red">'+error['mobail']+'</div>');
+        }
+        else if(error['id_pro']){
+          $('#ajax_searchOrder').html('<div id="alarm_red">لطفا نام محصول را انتخاب کنید .</div>');
+
+        }
+        else if (error['amniat']) {
+
+          $('#ajax_searchOrder').html('<div id="alarm_red">'+error['amniat']+'</div>');
+        }
+
+        }});
+}

@@ -52,7 +52,7 @@
       </div>
 
 
-      <div class="div_in2  paygiri_in">
+      <div class="div_in2  paygiri_in" onclick="location.href = '/searchOrder';">
 
         <div class="paygiri_in_1">
             پیگیری سفارش

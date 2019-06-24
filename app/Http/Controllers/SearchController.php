@@ -17,6 +17,7 @@ class SearchController extends Controller
 
          return view('search', compact('record_pro' , 'count_record_pro' , 'record_ess' , 'count_record_ess' ));
      }
+
 // public function search(Request $request)
 // {
 //     // First we define the error message we are going to show if no keywords

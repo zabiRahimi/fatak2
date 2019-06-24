@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Http\Requests\Save_order1;
+use App\Http\Requests\Save_mobail;
+use App\Http\Requests\Save_searchOrderSave;
+
+
 use Cookie;
 use DB;
 use Illuminate\Contracts\Encryption\Encrypter;
@@ -51,5 +55,21 @@ class OrderController extends Controller
       $save->Save();
       return $save->id;
     }
+    public function searchOrder(Request $request)
+    {
+      return view('order.searchOrder');
+    }
+    public function mobailSearchOrder(Save_mobail $request)
+    {
+      $mobail=$request->mobail;
+      $pro=Order::where('mobail', $mobail)->get();
 
+
+    return view('order.proList',compact('pro'));
+
+    }
+    public function searchOrderSave(Save_searchOrderSave $request)
+    {
+      $id_pro=$request->id_pro;
+    }
 }
