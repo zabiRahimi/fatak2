@@ -15,11 +15,20 @@
   </ul>
   <div class="contentOrder">
     @if (!empty($pro[0]->id))
-      @foreach ($pro as $value)
-        <div class="">
-          {{$value->name}}
-        </div>
-      @endforeach
+      <div class="mapOrder">
+        <span class="span1MapOrder">12</span>
+        <span class="span2MapOrder">محصول از</span>
+        <span class="span3MapOrder">125</span>
+        <span class="span4MapOrder">فروشنده</span>
+      </div>
+      <div class="proBadyOrder">
+        @foreach ($pro as $value)
+          <div class="proOrder">
+            {{$value->name}}
+          </div>
+        @endforeach
+      </div>
+
     @else
       <div class="">
         فعلا محصولی ثبت نشده است
