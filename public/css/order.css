@@ -14,7 +14,15 @@
 .span1MapOrder,.span3MapOrder{width: 30px; height: 30px;padding: 0;display: inline-block;position: relative;background-color:#c8dbe0;border-radius: 20px;text-align: center;}
 .span1MapOrder,.span3MapOrder{margin: 0 5px;}
 .proBadyOrder{width: 99%;margin: 5px 0.5%;padding:12px 15px;float: right;background-color: #e7e7e6;}
-.proOrder{width: 160px;height: 250px;background-color: #fff;float: left;}
+.proOrder{width: 160px;height: 250px;padding:4px 4px; background-color: #fff;float: left;text-align: right;}
+.proImgOrder{width: 100%;height: 125px;margin: 2px 0;float: right;background-color: rgb(214, 129, 73);}
+.proStampOrder{width: 100%;height: 25px;margin: 2px 0;float: right;text-align: center;}
+.proStampOrder span{border: 1px solid;height: 20px;display: inline-block;position: relative;padding: 0 20px;border-radius: 6px;}
+.span1StampOrder{border-color: #092877; color: #0e328c;}
+.span2StampOrder{border-color: #714604; color: #85560e;}
+.proNameOrder{width: 100%;height: 30px;margin: 2px 0;color: #061d40;font-size: 16px;float: right;text-align: center;}
+.proPriceOrder{width: 100%;height: 25px;margin: 2px 0;color: #0f3302;font-size: 16px;float: right;text-align: center;}
+.proShopOrder{width: 100%;height: 20px;margin: 2px 0;font-size: 12px;float: right;text-align: center;background-color: #e2c9c9;}
 @media (max-width:650px){
   .proOrder{width: 120px;height: 210px;}
 
@@ -54,8 +62,6 @@
     margin: 15px calc((100% - 800px) / 10);
   }
 }
-
-
 @media (max-width:800px){
   .proBadyOrder{
     padding:12px 8px;

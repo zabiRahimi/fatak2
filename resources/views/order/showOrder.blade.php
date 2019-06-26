@@ -24,7 +24,12 @@
       <div class="proBadyOrder">
         @foreach ($pro as $value)
           <div class="proOrder">
-            {{$value->name}}
+            <div class="proImgOrder">{{$value->name}}</div>
+            <div class="proStampOrder">@if ($value->stamp==1) <span class="span1StampOrder"> اصل محصول</span> @else <span class="span2StampOrder"> مشابه محصول</span> @endif </div>
+            <div class="proNameOrder">{{$value->name}}</div>
+            <div class="proPriceOrder number"><span>{{number_format($value->price)}}</span><span>تومان</span> </div>
+            <div class="proShopOrder"><span>فروشنده : </span><span>fatak</span> </div>
+
           </div>
         @endforeach
       </div>
