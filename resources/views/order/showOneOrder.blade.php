@@ -4,6 +4,18 @@
   {{$show_pro->name}}
 @endsection
 @section('content')
+  <div class="headerOrder">
+    <div class="headerOrder_1">مشاهده محصول</div>
+    <div class="headerOrder_2">به نام خدا</div>
+    <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
+  </div>
+  <ul class="ul_line headerOrderUl ">
+    <a href="/showOrder/{{$show_pro->order_id}}"><li>بازگشت</li></a>
+    <a href="/"><li>صفحه اصلی</li></a>
+    <li>نحوه فعالیت</li>
+    <li>قوانین و مقررات</li>
+  </ul>
+<div class="contentOrder">
 
 <div class="show_pro_ess" id="show_pro_ess">
 <div class="show_pro">
@@ -101,7 +113,7 @@
 
       </div>
       <div class="show_pro6_5">
-      <a   onclick="pro7_active('li_pro7_3', 'show_pro8_3') ; nazar_pro();captcha()"> <span class="sp_pro6_5_1"> <i class="far fa-comment-dots i_pro6_5_1"></i> نظر دهید</span></a>
+      <a   onclick=""><span>فروشنده :</span> <span class="sp_pro6_5_1">{{$shop->shop}}</span></a>
       </div>
   </div>
 
@@ -109,7 +121,7 @@
       <ul class="ul_pro7_1">
         <li class="li_pro7_1 pro7_active" onclick="pro7_active('li_pro7_1' , 'show_pro8_1')"> <span class="span_pro7_0"> <span class="span_pro7_1"> <i class="fas fa-clipboard-check"></i></span> <span class="span_pro7_2">توضیحات کالا</span> </span></li>
         <li class="li_pro7_2" onclick="pro7_active('li_pro7_2', 'show_pro8_2')"> <span class="span_pro7_0"> <span class="span_pro7_3"><i class="fas fa-clipboard-list"></i></span> <span class="span_pro7_4">مشخصات کالا</span> </span></li>
-        <li class="li_pro7_3" onclick="pro7_active('li_pro7_3', 'show_pro8_3');captcha()"> <span class="span_pro7_0"> <span class="span_pro7_5"><i class="fas fa-comment"></i></span> <span class="span_pro7_6">نظرات کاربران</span> </span></li>
+        {{-- <li class="li_pro7_3" onclick="pro7_active('li_pro7_3', 'show_pro8_3');captcha()"> <span class="span_pro7_0"> <span class="span_pro7_5"><i class="fas fa-comment"></i></span> <span class="span_pro7_6">نظرات کاربران</span> </span></li> --}}
         <li class="li_pro7_4" onclick="pro7_active('li_pro7_4', 'show_pro8_4');captcha()"> <span class="span_pro7_0"> <span class="span_pro7_7"><i class="fas fa-question-circle"></i></span> <span class="span_pro7_8">پرسش و پاسخ</span> </span></li>
       </ul>
   </div>
@@ -174,7 +186,7 @@
         </div>
       </div>
       {{-- نظرات --}}
-      <div class="show_pro8_0 show_pro8_3">
+      {{-- <div class="show_pro8_0 show_pro8_3">
         <div class="nazar_pro0 ">
           <!-- Default panel contents -->
             <div class="nazar_pro1">
@@ -200,10 +212,10 @@
                 تا کنون برای این محصول نظری داده نشده !! شما اولین نفر باشید که نظر می دهید .
               </div>
             @endif --}}
-            </div>
-          </div>
+            {{-- </div>
+          </div> --}}
 {{-- ارسال نظر --}}
-      <div class="ersal_nazar_pro">
+      {{-- <div class="ersal_nazar_pro">
         <div class="ersal_nazar_pro1">
             <h4><i class="far fa-comment-dots"></i> نظر دهید </h4>
             <span> ایمیل و موبایل شما منتشر نمی شود .</span>
@@ -240,18 +252,25 @@
                          <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
                     </div>
                 </form>
-        </div>
-  </div>
+        </div> --}}
+  {{-- </div>  --}}
       {{-- پرسشها و پاسخها --}}
       <div class="show_pro8_0 show_pro8_4">
           <div class="question_pro"><i class="far fa-question-circle"></i><h4>پرسش و پاسخ</h4></div>
-          <p class="question_pro_p"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p>
-          <form class="form_question_pro" id="form_question_pro" action="" method="post">
+          <p class="question_pro_p"> <i class="fas fa-info-circle"></i><span>در حال حاضر پرسش و پاسخ تنها از طریق تماس تلفنی امکان پذیر است .</span> </p>
+          <div class="alert alert-danger question_pro_danger" style="float: right;">
+            <strong>هشدار !</strong> چنانچه غیر حضوری کالا را خریداری می کنید و محصول را از طریق پست و غیرو تحویل می گیرید ، حتما پرداخت وجه کالا را
+            از طریق درگاه اینترنتی فروشگاه انجام دهید ، در غیر این صورت فروشگاه هیچ تعهدی در قبال کالای خریداری شده شما ندارد .
+          </div>
+          <p class="question_pro_p2"><span>تماس با فروشنده کالا :</span> <span class="number">{{$shop->mobail}}</span> </p>
+          <p class="question_pro_p2"><span>تماس با مدیریت سایت :</span> <span class="number">09178023733</span> </p>
+
+          {{-- <form class="form_question_pro" id="form_question_pro" action="" method="post">
             <div class="form_question_pro1">ایمیل و موبایل شما منتشر نمی شود</div>
             <div id="question_pro"></div>
 
             <div class="form-group">
-                <label for="name_pro_questions" class="control-label pull-right  ">klنام </label>
+                <label for="name_pro_questions" class="control-label pull-right  ">نام </label>
                 <div class="mobail_question_pro"><input type="text" class="form-control" id="name_pro_questions"></div>
             </div>
             <div class="form-group">
@@ -278,9 +297,9 @@
                 <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="sabt_question_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت پرسش</h5></button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
             </div>
-          </form>
+          </form> --}}
           {{-- پاسخها --}}
-          <div class="question_pro2"> <i class="fas fa-list-alt"></i> پرسشهای کاربران و پاسخها</div>
+          {{-- <div class="question_pro2"> <i class="fas fa-list-alt"></i> پرسشهای کاربران و پاسخها</div> --}}
           {{-- <div class="panel-body question_pro3">
             @if (count($question_pro)>0)
             @foreach ($question_pro as  $val_quest)
@@ -323,7 +342,8 @@
 </div>
 
 </div>
-<!-- Modal پاسخها-->
+</div>
+{{-- <!-- Modal پاسخها-->
 
 <div class="modal fade" id="pro_question_answer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -370,8 +390,8 @@
       </div>
     </div>
   </div>
-</div><!--end modal -->
-
+</div><!--end modal --> --}}
+{{--
 <!--modal پیام اضافه شدن به سبد خرید -->
 <div class="modal " id="pro_add_sabad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -388,9 +408,9 @@
       </div>
     </div>
   </div>
-</div><!--end modal -->
+</div><!--end modal --> --}}
 <!--modal ثبت نظر -->
-<div class="modal " id="end_nazar_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal " id="end_nazar_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
@@ -405,9 +425,9 @@
       </div>
     </div>
   </div>
-</div><!--end modal -->
+</div><!--end modal --> --}}
 <!--modal ثبت سوال -->
-<div class="modal " id="end_question_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal " id="end_question_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
@@ -422,9 +442,9 @@
       </div>
     </div>
   </div>
-</div><!--end modal -->
+</div><!--end modal --> --}}
 <!--modal ثبت پاسخ-->
-<div class="modal " id="end_answer_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal " id="end_answer_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
@@ -439,7 +459,7 @@
       </div>
     </div>
   </div>
-</div><!--end modal -->
+</div><!--end modal --> --}}
 </div><!-- end show_pro -->
 </div>
 @endsection

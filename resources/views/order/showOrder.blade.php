@@ -9,7 +9,7 @@
     <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
   </div>
   <ul class="ul_line headerOrderUl ">
-    <li>صفحه اصلی</li>
+    <a href="/"><li>صفحه اصلی</li></a>
     <li>نحوه فعالیت</li>
     <li>قوانین و مقررات</li>
   </ul>

@@ -97,7 +97,7 @@ class OrderController extends Controller
 
 
       $pic_pro=Picture_shop::where('pro_shop_id',$id)->first();
-      $shop=Shop::first();
-      return view('order.showOneOrder',compact('show_pro','pic_pro'));
+      $shop=Shop::find($show_pro->shop_id);
+      return view('order.showOneOrder',compact('show_pro','pic_pro','shop'));
     }
 }
