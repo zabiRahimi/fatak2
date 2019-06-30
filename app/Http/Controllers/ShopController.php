@@ -863,22 +863,26 @@ public function searchProSUnStock(Request $request)
   $id=$this->id;
   $this->validate($request, [
         'pro' => 'required|alpha_dash',
+        'order_id' => 'required|numeric',
     ]);
   $pro=$request->pro;
+  $order_id=$request->order_id;
   $proShop=proShop::where('shop_id',$id)->where('show',1)->where( 'name' ,"like", "%$pro%")->get();
   $check=1;
-  return view('shop.searchProSUnStock',compact('proShop','check'));
+  return view('shop.searchProSUnStock',compact('proShop','check','order_id'));
 }
 public function searchIdSUnStock(Request $request)
 {
   $id=$this->id;
   $this->validate($request, [
         'pro_id' => 'required|numeric',
+        'order_id' => 'required|numeric',
     ]);
   $pro_id=$request->pro_id;
+  $order_id=$request->order_id;
   $proShop=proShop::where('id',$pro_id)->where('shop_id',$id)->where('show',1)->first();
   $picture_shop=Picture_shop::where('pro_shop_id', $proShop->id)->first();
   $check=2;
-  return view('shop.searchProSUnStock',compact('proShop','check','picture_shop'));
+  return view('shop.searchProSUnStock',compact('proShop','check','picture_shop','order_id'));
 }
 }//end class

@@ -570,35 +570,39 @@ Dropzone.options.proEditImg6 = {
     $("#Iimg6_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
     $("#Aimg6_orderEditSh").html( response );
   },  }
-  function editProShopUnStock(id,id_img,id_order) {
+  function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6) {
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
               type:'post',
               url:'../../editProShopUnStock',
               data: {
-                    id:id,
-                    id_img:id_img,
-                    stamp:$('input[type=radio][name=stamp_orderEditSh]:checked').val(),
-                    namePro:$('#name_orderEditSh').val(),
-                    maker:$('#maker_orderEditSh').val(),
-                    brand:$('#brand_orderEditSh').val(),
-                    model:$('#model_orderEditSh').val(),
-                    price:$('#price_orderEditSh').val(),
-                    vahed:$('#vahed_orderEditSh').val(),
-                    num:$('#num_orderEditSh').val(),
-                    vazn:$('#vazn_orderEditSh').val(),
-                    vaznPost:$('#vaznPost_orderEditSh').val(),
-                    pakat:$('#pakat_orderEditSh').val(),
-                    dis:$('#dis_orderEditSh').val(),
-                    dateMake:$('#dateMake_orderEditSh').val(),
-                    dateExpiration:$('#dateExpiration_orderEditSh').val(),
-                    term:$('#term_orderEditSh').val(),
-                    img1:$('#Aimg1_orderEditSh').html(),
-                    img2:$('#Aimg2_orderEditSh').html(),
-                    img3:$('#Aimg3_orderEditSh').html(),
-                    img4:$('#Aimg4_orderEditSh').html(),
-                    img5:$('#Aimg5_orderEditSh').html(),
-                    img6:$('#Aimg6_orderEditSh').html(),
+                    pro_id:pro_id,
+                    order_id:order_id,
+                    img_id:img_id,
+                    stamp:$('input[type=radio][name='+stamp+']:checked').val(),
+                    namePro:$('#'+name).val(),
+                    maker:$('#'+maker).val(),
+                    brand:$('#'+brand).val(),
+                    model:$('#'+model).val(),
+                    price:$('#'+price).val(),
+                    priceFOrder:$('#'+priceFOrder).val(),
+                    vahed:$('#'+vahed).val(),
+                    num:$('#'+num).val(),
+                    vazn:$('#'+vazn).val(),
+                    dimension:$('input[type=radio][name='+dimension+']:checked').val(),
+                    vaznPost:$('#'+vaznPost).val(),
+                    pakat:$('#'+pakat).val(),
+                    dis:$('#'+dis).val(),
+                    disSeller:$('#'+disSeller).val(),
+                    dateMake:$('#'+dateMake).val(),
+                    dateExpiration:$('#'+dateExpiration).val(),
+                    term:$('#'+term).val(),
+                    img1:$('#'+img1).html(),
+                    img2:$('#'+img2).html(),
+                    img3:$('#'+img3).html(),
+                    img4:$('#'+img4).html(),
+                    img5:$('#'+img5).html(),
+                    img6:$('#'+img6).html(),
                    },
               success:function(){
                 $('#ajax_orderEditSh').empty();
@@ -1123,7 +1127,7 @@ function searchProSStock() {
   else{alert('نام محصول را وارد کنید .')}
 
 }
-function searchProSUnStock() {
+function searchProSUnStock(order_id) {
   var pro = $('#sProSUnStock').val();
   $('#sIdSUnStock').val('');
   $('#ajax_searchProSUnStock').html('');
@@ -1134,6 +1138,7 @@ function searchProSUnStock() {
       url:'../../searchProSUnStock',
       data: {
         pro:pro,
+        order_id:order_id,
            },
       success:function(data){
 
@@ -1145,14 +1150,13 @@ function searchProSUnStock() {
   else{alert('نام محصول را وارد کنید .')}
 
 }
-function searchIdSUnStock(id) {
+function searchIdSUnStock(id,order_id) {
   if (id) {
     var pro_id =id;
   } else {
     var pro_id = $('#sIdSUnStock').val();
     $('#sProSUnStock').val('');
   }
-
   $('#ajax_searchProSUnStock').html('');
   if (pro_id) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
@@ -1161,6 +1165,7 @@ function searchIdSUnStock(id) {
       url:'../../searchIdSUnStock',
       data: {
         pro_id:pro_id,
+        order_id:order_id,
            },
       success:function(data){
 
