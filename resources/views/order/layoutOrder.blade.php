@@ -14,7 +14,9 @@
          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
          <link href="\css\main.css" rel="stylesheet" type="text/css">
+         <link href="\css\slider.css" rel="stylesheet" type="text/css">
          <link href="\css\order.css" rel="stylesheet" type="text/css">
+         <link href="\css\orderPro.css" rel="stylesheet" type="text/css">
     </head>
     <body>
       <img src="http://localhost:8000/img_site/210.gif" class="gif_loding" alt="loding" >
@@ -35,8 +37,10 @@
          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
          <script type="text/javascript" src="\js\main.js"></script>
+         <script type="text/javascript" src="\js\slider.js"></script>
          <script type="text/javascript" src="\js\city.js"></script>
-        <script type="text/javascript" src="\js\order.js"></script>
+         <script type="text/javascript" src="\js\order.js"></script>
+        <script type="text/javascript" src="\js\orderOnePro.js"></script>
         <script type="text/javascript">
            $(document).pjax('.apjax' , '#dashPjax');
            $(function () {  $('[data-toggle="tooltip"]').tooltip()});

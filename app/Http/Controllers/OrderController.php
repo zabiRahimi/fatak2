@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\ProShop;
+use App\Models\Shop;
+use App\Models\Picture_shop;
 use App\Http\Requests\Save_order1;
 use App\Http\Requests\Save_mobail;
 use App\Http\Requests\Save_searchOrderSave;
@@ -81,6 +83,21 @@ class OrderController extends Controller
     {
       $order_id=$request->order_id;
       $pro=ProShop::where('order_id' , $order_id)->get();
-      return view('order.showOrder',compact('pro'));
+      $pro_count=ProShop::where('order_id' , $order_id)->count();
+      $shop_count=ProShop::where('order_id' , $order_id)->distinct()->count('shop_id');
+
+      $img=Picture_shop::first();
+      $shop=Shop::first();
+      return view('order.showOrder',compact('pro','img','shop','pro_count','shop_count'));
+    }
+    public function showOneOrder(Request $request)
+    {
+      $id=$request->id;
+      $show_pro=ProShop::find($id);
+
+
+      $pic_pro=Picture_shop::where('pro_shop_id',$id)->first();
+      $shop=Shop::first();
+      return view('order.showOneOrder',compact('show_pro','pic_pro'));
     }
 }

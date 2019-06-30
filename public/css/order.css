@@ -15,14 +15,20 @@
 .span1MapOrder,.span3MapOrder{margin: 0 5px;}
 .proBadyOrder{width: 99%;margin: 5px 0.5%;padding:12px 15px;float: right;background-color: #e7e7e6;}
 .proOrder{width: 160px;height: 250px;padding:4px 4px; background-color: #fff;float: left;text-align: right;}
-.proImgOrder{width: 100%;height: 125px;margin: 2px 0;float: right;background-color: rgb(214, 129, 73);}
-.proStampOrder{width: 100%;height: 25px;margin: 2px 0;float: right;text-align: center;}
-.proStampOrder span{border: 1px solid;height: 20px;display: inline-block;position: relative;padding: 0 20px;border-radius: 6px;}
-.span1StampOrder{border-color: #092877; color: #0e328c;}
-.span2StampOrder{border-color: #714604; color: #85560e;}
-.proNameOrder{width: 100%;height: 30px;margin: 2px 0;color: #061d40;font-size: 16px;float: right;text-align: center;}
-.proPriceOrder{width: 100%;height: 25px;margin: 2px 0;color: #0f3302;font-size: 16px;float: right;text-align: center;}
-.proShopOrder{width: 100%;height: 20px;margin: 2px 0;font-size: 12px;float: right;text-align: center;background-color: #e2c9c9;}
+.proOrder:hover{background-color: #d4f0f2;cursor: pointer;}
+.proAllorder{width: 100%;margin: 2px 0;float: right;text-align: center;}
+
+.proImgOrder{height: 125px;background-color: rgb(214, 129, 73);}
+.proStampOrder{height: 25px;}
+.proStampOrder span{border: 1px solid ;height: 20px;line-height: 20px;background-color:#fff; font-size: 12px;display: inline-block;padding: 0 20px;border-radius: 6px;}
+.span1StampOrder{color: #718bcd;}
+.span2StampOrder{color: #a16f23;}
+.proNameOrder{height: 30px;color: #061d40;font-size: 16px;}
+.proPriceOrder{height: 25px;line-height:16px ;color: #0f3302;font-size: 16px;}
+.proPriceOrder span:last-child{margin-right: 8px;font-size: 12px;}
+.proShopOrder{height: 20px;font-size: 12px;background-color: #f2f2f2;border-radius: 3px;}
+.proShopOrder span:first-child{margin-left: 10px;}
+.proShopOrder span:last-child{margin-right: 10px;position: relative;top: 1.5px;color: #267094;}
 @media (max-width:650px){
   .proOrder{width: 120px;height: 210px;}
 

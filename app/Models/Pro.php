@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pro extends Model
 {
-  use Searchable;
+  // نکته دستور زیر بطور موقت کامنت شده که مربوط به الیگولیا می باشد باید آیدی و رمز عبور آلگولیا در فایل env اضافه شود
+  // use Searchable;
   public $timestamps = false;
   protected $guarded = ['id'];
   public function picturepro()

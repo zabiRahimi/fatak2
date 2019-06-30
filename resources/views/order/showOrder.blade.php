@@ -16,21 +16,26 @@
   <div class="contentOrder">
     @if (!empty($pro[0]->id))
       <div class="mapOrder">
-        <span class="span1MapOrder">12</span>
+        <span class="span1MapOrder">{{$pro_count}}</span>
         <span class="span2MapOrder">محصول از</span>
-        <span class="span3MapOrder">125</span>
+        <span class="span3MapOrder">{{$shop_count}}</span>
         <span class="span4MapOrder">فروشنده</span>
       </div>
       <div class="proBadyOrder">
         @foreach ($pro as $value)
-          <div class="proOrder">
-            <div class="proImgOrder">{{$value->name}}</div>
-            <div class="proStampOrder">@if ($value->stamp==1) <span class="span1StampOrder"> اصل محصول</span> @else <span class="span2StampOrder"> مشابه محصول</span> @endif </div>
-            <div class="proNameOrder">{{$value->name}}</div>
-            <div class="proPriceOrder number"><span>{{number_format($value->price)}}</span><span>تومان</span> </div>
-            <div class="proShopOrder"><span>فروشنده : </span><span>fatak</span> </div>
-
-          </div>
+          @php
+          $imgValue=$img->where('pro_shop_id',$value->id)->first();
+          $shopValue=$shop->where('id',$value->shop_id)->first();
+          @endphp
+          <a href="/showOneOrder/{{$value->id}}">
+            <div class="proOrder">
+              <div class="proAllorder proImgOrder"><img src="/img_shop/{{$imgValue->pic_b1}}" width="152" height="125" alt=""> </div>
+              <div class="proAllorder proStampOrder">@if ($value->stamp==1) <span class="span1StampOrder"> اصل محصول</span> @else <span class="span2StampOrder"> مشابه محصول</span> @endif </div>
+              <div class="proAllorder proNameOrder">{{$value->name}}</div>
+              <div class="proAllorder proPriceOrder number"><span>{{number_format($value->price)}}</span><span>تومان</span> </div>
+              <div class="proAllorder proShopOrder"><span>فروشنده : </span><span>{{$shopValue->shop}}</span> </div>
+            </div>
+          </a>
         @endforeach
       </div>
 

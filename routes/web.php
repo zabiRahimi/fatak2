@@ -119,7 +119,8 @@ Route::post('/sabtOrderSave','OrderController@sabtOrderSave');//ok!!
 Route::get('/searchOrder','OrderController@searchOrder');//ok!!
 Route::post('/mobailSearchOrder','OrderController@mobailSearchOrder');//ok!!
 Route::post('/searchOrderSave','OrderController@searchOrderSave');//ok!!
-Route::get('/showOrder/{order_id}','OrderController@showOrder')->where('order_id', '[0-9]+');;//ok!!
+Route::get('/showOrder/{order_id}','OrderController@showOrder')->where('order_id', '[0-9]+');//ok!!
+Route::get('/showOneOrder/{id}/{name?}','OrderController@showOneOrder')->where('id', '[0-9]+');//ok!!
 
 
 //قسمت مدیریت management
