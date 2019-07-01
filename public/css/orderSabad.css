@@ -1,0 +1,221 @@
+
+.sabad_kh{
+  width: 100%;padding: 10px 12px;float: right; border: 1px solid #c8c8c8; border-radius: 4px;text-align: right;background-color: #c4c4c4;
+}
+.sabad_kh_titr{width: 100%;height: 40px; line-height: 40px; padding: 0 12px; margin-bottom: 10px;background-color: #07628f;float: right;border-radius: 4px; color: #fff;}
+.sabad_kh_titr h4{padding: 0; margin: 0; float: right; line-height: 40px;}
+@media (max-width:768px) {
+  .sabad_kh{padding: 10px 6px;}
+  .sabad_kh_titr h4{font-size: 18px;}
+}
+.sabad_kh_titr span {float: left;}
+.sabad_kh_titr span span{height: 20px; margin: 9px 6px 0 0; line-height: 24px;padding:0 8px;background-color: #dee0d6; color: #067127; border-radius: 10px;}
+.sabad_kh_body{width: 100%; float: right; height: ;padding:15px 17px 16px 0;text-align: right;border-bottom: 7px solid #d0d0d0; background-color: #fff;}
+.sabad_kh_body2{width: 100%; float: right;}
+.sabad_kh_name_seller{width: 90%;float: right;}
+.sabad_kh_name{width: 37%;float: right;text-align: right;}
+.sabad_kh_seller{/* فروشنده */  width: 46%;float: right;}
+.sabad_kh_seller1{font-size: 12px; color: #909090; margin-left: 3px;}
+.sabad_kh_seller2{color: #2680b3}
+.sabad_kh_seller3{font-size: 12px; margin-right: 3px;}
+.sabad_kh_del{width: 10%;float: left; font-size: 18px; color: #ababab;cursor: pointer;}
+.sabad_kh_del a{color:#ababab; }
+.sabad_kh_del:hover , .sabad_kh_del a:hover{color: #b9412b;}
+
+.sabad_kh_body3{width: 100%;margin-top: 6px;float: right;}
+.sabad_kh_price1 ,.sabad_kh_num , .sabad_kh_price2{width: 33%;float: right; }
+.sabad_kh_num {width: 28%; }
+ .sabad_kh_price2{width: 38%; }
+
+.sabad_kh_price1_1 , .sabad_kh_price2_1{font-size: 12px; margin-right: 3px;color:#909090; }
+.sabad_kh_price1_2 , .sabad_kh_price2_2{ color:#0f6720; }
+.sabad_kh_price2_2{ font-size: 16px}
+.sabad_kh_price1_3 , .sabad_kh_price2_3{margin-right: 4px;}
+
+.sabad_kh_num_add , .sabad_kh_num_cut , .sabad_kh_num_count{height: 26px;line-height: 26px;text-align: center;display: inline-block;background-color: #e8e8e8;cursor: pointer;}
+.sabad_kh_num_add{width: 35px;margin-left: -3px;border-radius: 0 5px 5px 0; border-left: 1px solid #cbcbcb; }
+.sabad_kh_num_count{width: 50px;}
+.sabad_kh_num_count2 input{width: 22px; height:26px;border-style: none;text-align: center;background-color:#e8e8e8; color: #000;}
+.sabad_kh_num_count3{font-size: 12px;margin-right: 4px;}
+.sabad_kh_num_cut{width: 35px;margin-right: -3px;border-radius:  5px 0 0 5px ; border-right: 1px solid #cbcbcb; }
+.sabad_kh_num_add:hover , .sabad_kh_num_cut:hover , .sabad_kh_num_add:active , .sabad_kh_num_cut:active{background-color:#cdcccc }
+.sabad_kh_num i{position: relative;top: 2px;}
+.sabad_kh_num_add i{color: #0c550e;}
+.sabad_kh_num_cut i{color: #9d170b;}
+@media (max-width:550px) {
+  .sabad_kh_body{padding:15px 5px 16px 0;}
+  .sabad_kh_name{width: 50%; text-align: right; }
+
+}
+@media (max-width:500px) {
+  .sabad_kh_body3{margin-top: 12px}
+  .sabad_kh_price1,.sabad_kh_price2{text-align: center; margin-top: -10px;}
+  .sabad_kh_price1_1 , .sabad_kh_price2_1{width: 100%;display: inline-block; }
+  .sabad_kh_price1_2 , .sabad_kh_price2_2,.sabad_kh_price1_3 , .sabad_kh_price2_3{position: relative; top: -6px}
+  .sabad_kh_price1 {width: 32%;float: right; }
+  .sabad_kh_num {width: 35%; }
+   .sabad_kh_price2{width: 33%; }
+}
+@media (max-width:390px) {
+  .sabad_kh_body{padding:12px 17px 10px 0; border-radius: 3px;}
+  .sabad_kh_name{width: 100%; text-align: right;}
+  .sabad_kh_seller{  width: 100%;text-align: right;}
+  .sabad_kh_body3{margin-top: 6px}
+  .sabad_kh_price1,.sabad_kh_price2 , .sabad_kh_num{width: 100%;margin-top: 0;text-align: center;}
+  .sabad_kh_num{margin: 6px 0;}
+  .sabad_kh_price1_1 , .sabad_kh_price2_1{width: auto;display: inline; }
+  .sabad_kh_price1_2 , .sabad_kh_price2_2,.sabad_kh_price1_3 , .sabad_kh_price2_3{ top: 0;}
+}
+.sabad_kh2{width: 100%; float: right; padding: 4px 8px;border-radius: 3px;background-color: #fff;text-align: center;}
+.sabad_kh2_1{width: 50%;float: left; font-size: 16px;}
+.sabad_kh2_2{width: 50%;padding: 3px 7px;border-radius: 3px;color:#a7450e;float:right; font-size: 13px;background-color: #ececec; }
+.sabad_kh2_2_2{margin: 0 6px; color:#0f6720; }
+@media (max-width:450px) {
+.sabad_kh2{  padding: 4px 2px;}
+  .sabad_kh2_1{width: 100%;}
+  .sabad_kh2_2{width: 100%; }
+}
+.sabad_kh_city_post{width: 100%; float: right; margin-top: 5px;padding: 4px 8px;border-radius: 3px;background-color: #fff;text-align: center;}
+.sabad_kh_ostan , .sabad_kh_city{width: 25%;float: right; margin: 3px 0;}
+
+.sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 23%;padding: 3px 5px; margin:3px 0 3px 1%;float: right; border-radius: 4px; border: 1px solid #56819c;}
+.sabad_kh_pishtaz{margin-left: 0; margin-right: 1%;}
+
+.sabad_select_ostan{width: 160px;}
+@media (max-width:710px) {
+  .sabad_kh_ostan,.sabad_kh_city{width: 50%;}
+  .sabad_kh_sefareshi ,.sabad_kh_pishtaz{width: 49%; }
+}
+@media (max-width:390px) {
+  .sabad_kh_ostan , .sabad_kh_city{width: 100%;}
+  .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 80%;margin:3px 10%; }
+}
+@media (max-width:240px) {
+  .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 98%;margin:3px 2%; }
+}
+.sabad_kh_sefareshi1 , .sabad_kh_pishtaz1{width: 100%; padding: 4px 6px;float: right;background-color: #b4cfd6; border-radius: 3px;}
+.sabad_kh_sefareshi2 ,.sabad_kh_pishtaz2{width: 100%;float: right;}
+.sabad_kh_sefareshi1_2 ,.sabad_kh_pishtaz1_2{margin-right: 23px;}
+.sabad_kh_sefareshi2_1 , .sabad_kh_pishtaz2_1{margin-left: 8px; color: #258b06;}
+
+.sabad_kh_end_price{width: 100%; float: right; margin: 6px 0;padding: 7px 4px;border: 2px solid #0d135d;text-align: center; background-color: #ebebeb;border-radius: 4px;}
+.sabad_kh_end_price1{color:#0d135d; }
+.sabad_kh_end_price2{margin: 0 6px; font-size: 20px; color:#104e09; }
+.sabad_kh_end_price3{color:#0d135d;}
+.sabad_kh_sabt{width: 50%;padding: 5px 14px;border-radius: 4px;margin: 5px 25%;float: right; background-color: #fff;}
+@media (max-width:500px) {
+  .sabad_kh_sabt{width: 86%;margin: 5px 7%;}
+}
+.sabad_kh_empty{width: 100%;margin: 10px 0 30px;padding: 40px 0 90px;text-align: center; float: right; color: #ab1e05; font-size: 22px;border: 1px solid #995608; border-radius: 4px; background-color: #fff;}
+.sabad_kh_empty2 button{width: 200px; margin-top: 30px;}
+.chek_add_post{width: 96%;margin: 6px 2%;padding: 20px 12px;font-size: 18px;text-align: center;float: right; border: 1px solid  #be3e09; border-radius: 4px;color: #e25418;background-color: #c8dbe2;}
+.chek_add_post2{width: 100%; padding: 5px; float: right; text-align: center; border-top: 1px solid #aaaaaa;}
+                /* ********************** */
+/* ********************* فاکتور خرید ********************** */
+.all_factor{width: 100%; padding: 6px 8px; float: right; border: 1px solid #959595; border-radius: 4px;text-align: right;}
+.titr_faktor{width: 100%;height: 35px; line-height: 35px; margin-bottom: 6px;padding: 0 12px; font-size: 18px; color:#fff ; background-color: #095d63; border-radius: 3px;}
+@media (max-width:500px) {
+  .all_factor{ padding: 4px 2px; }
+  .titr_faktor{ padding: 0 6px; font-size: 16px; }
+}
+.body_factor1{width: 100%; height: 35px; line-height: 35px;float: right; border: 1px solid #8f8f8f; border-radius: 2px 2px 0 0;  }
+.body_factor0{background-color: #bebdbd;}
+.name_pro_factor1{width: 51%;float: right;text-align: center;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; border-left: 1px solid #8f8f8f; }
+.num_pro_factor1{width: 9%;float: right;text-align: center; border-left: 1px solid #8f8f8f;}
+.price_factor1{width: 20%;float: right;text-align: center; border-left: 1px solid #8f8f8f; color: #106209;}
+.all_price_factor1{width: 20%;float: left;text-align: center; color: #0a4205;}
+.factor_toman , .factor_toman2{color: #999999; font-size: 12px; }
+.factor_span{display: none;color: #999999; font-size: 12px;}
+.body_factor2{ border-radius: 0;}
+.bg_color_factor{background-color: #e2e2e2;}
+@media (max-width:650px) {
+  .factor_toman2{display: none;}
+}
+@media (max-width:390px) {
+  .body_factor0{display: none;}
+  .body_factor1{height: auto; line-height: normal;}
+  .name_pro_factor1{width: 80%; padding-right: 3px;float: right; text-align: right;border-left-style: none;}
+  .num_pro_factor1{width: 20%;float: right;border-left-style: none;}
+  .price_factor1{width: 50%;float: right;border-left-style: none;}
+  .all_price_factor1{width: 50%;float: left;}
+  .factor_toman2 , .factor_span{display: inline-block;}
+}
+@media (max-width:315px) {
+  .price_factor1{width: 100%;float: right;border-left-style: none;}
+  .all_price_factor1{width: 100%;float: left;}
+
+}
+.body_factor3{width: 100%; float: right; border:1px solid #8f8f8f; }
+.titr_body_factor3{width: 60%; float: right; border-left: 1px solid #8f8f8f; text-align: center;}
+.matn_body_factor3{width: 40%; float: left;text-align: center; color: #094f0c;}
+.factor_span2{color: #999999; font-size: 12px;}
+@media (max-width:390px) {
+  .titr_body_factor3{width: 45%; }
+  .matn_body_factor3{width: 55%; }
+}
+.body_factor4{width: 100%;text-align: center;float: right; border:2px solid #8f8f8f;}
+.body_factor4_1{ padding-right: 3px; color: #033e6a;}
+.body_factor4_2{color: #09401a; font-size: 20px; margin: 0 4px;}
+.body_factor4_3{font-size: 14px;color: #033e6a;}
+/* دریافت و ثبت اطلاعات خریدار */
+.data_buyer{width: 100%; margin: 8px 0; padding: 8px 12px; float: right; border: 1px solid #b6b6b6; border-radius: 4px;}
+.titr_data_buyer{width: 100%; height: 35px; line-height: 35px; padding: 0 12px;font-size: 16px;text-align: right;float: right; color: #fff; background-color: #0a6b85; border-radius: 4px;}
+.form_data_buyer{width: 64%; margin: 0 18%;padding: 15px 14px;float: right;background-color: #f0f0f0;  border-radius: 2px;}
+@media (max-width:768px) {
+  .form_data_buyer{width: 74%; margin: 0 13%;}
+}
+@media (max-width:650px) {
+  .form_data_buyer{width: 86%; margin: 0 7%;}
+}
+@media (max-width:550px) {
+  .form_data_buyer{width: 100%; margin: 0;}
+}
+@media (max-width:330px) {
+  .data_buyer{padding: 6px 4px; }
+  .form_data_buyer{padding: 8px 5px;}
+}
+.titr_data_buyer1 {width: 100%; margin:0 0 4px 0;padding: 2px 8px;float: right; background-color: #c9a24c;font-size: 12px; text-align: justify !important;border-radius: 3px;}
+.titr_data_buyer1 i {position: relative; top: 1px; margin-left: 4px;color: #c1007a;}
+.form_data_buyer> .form-group {width: 100%; margin-bottom: 4px;float: right; background-color: #c8d2d7;border-radius: 3px;}
+.form_data_buyer> .form-group label{width: 35%;position: relative; top:8px; padding-right: 16px; text-align: right;float: right;}
+.div_data_buyer  {width: 65%; float: right;padding: 2px;}
+.div_data_buyer input  {width: 100%; float: right; }
+.captcha_data_buyer {width: 65%; float: left; text-align: center;}
+.captcha_data_buyer span {display: inline-block;height: 38px;background-color: #829077; padding: 1px;}
+.captcha_data_buyer button {padding: 4px; background-color: #6da7e0;}
+.captcha_data_buyer i {position: relative;top: 3px;font-size: 20px;}
+.end_form_data_buyer{width: 100%; margin-top: 4px;padding: 6px;float: right;border-top: 1px solid #7f8a93; }
+@media(max-width:435px){
+  .form_data_buyer > .form-group {background-color: inherit; margin-top: -4px; padding: 0;}
+  .form_data_buyer >.form-group label{width: 125px;  background-color: #ced4d9; border-radius: 4px 4px 0 0;}
+  .form_data_buyer > .form-group input {width: 100%;height: 32px ;float: right;}
+  .i_name_sabt , .i_namekarbary_sabt , .i_pas_sabt , .i_mobail_sabt , .i_email_sabt , .i_amniat_sabt{ margin-left: 4px;}
+  .div_data_buyer {width: 100%; float: right;background-color: #ced4d9; padding: 2px 1px; border-radius: 3px 0 3px 3px;}
+  .captcha_data_buyer {width: 100%;}
+
+}
+.warning_date_buyer{width: 96%;margin: 6px 2%;padding: 20px 12px;font-size: 18px;text-align: center;float: right; border: 1px solid  #be3e09; border-radius: 4px;color: #e25418;background-color: #c8dbe2;}
+.warning_date_buyer2{width: 100%; padding: 5px; float: right; text-align: center; border-top: 1px solid #aaaaaa;}
+.sabt_date_buyer{width: 96%;margin: 6px 2%;padding: 20px 12px;font-size: 18px;text-align: center;float: right; border: 1px solid  #015b02; border-radius: 4px;color: #0b790c;background-color: #c8dbe2;}
+.sabt_date_buyer2{width: 100%; padding: 5px; float: right; text-align: center; border-top: 1px solid #aaaaaa;}
+/* end_buy.php ثبت نهایی خرید و پرداخت آنلاین */
+.titr_end_buy{width: 100%; height: 35px; line-height: 35px; padding: 0 12px;font-size: 16px;text-align: right;float: right; color: #fff; background-color: #0a6b85; border-radius: 4px;}
+.titr_end_buy2{width: 100%; margin: 5px 0; padding: 6px 12px;font-size: 16px;text-align: center;float: right; color:#050d46;border: 1px solid #084f82;border-radius: 4px;}
+.bt_end_buy{width: 100%; margin: 10px 0 25px;padding-bottom: 12px;float: right; text-align: center; border-bottom: 3px solid #066e04;}
+.bt_end_buy1{width: 150px;margin:0 0 0 25px;}
+.bt_end_buy2{width: 150px;margin: 0 25px 0 0;}
+@media (max-width:520px) {
+  .titr_end_buy2{padding: 3px 6px;font-size: 14px;}
+}
+@media (max-width:408px) {
+  .bt_end_buy1{width: 150px;margin:0 0 0 10px;}
+  .bt_end_buy2{width: 150px;margin: 0 10px 0 0;}
+}
+@media (max-width:375px) {
+  .bt_end_buy1{width: 120px;margin:0 0 0 6px;}
+  .bt_end_buy2{width: 120px;margin: 0 6px 0 0;}
+}
+@media (max-width:290px) {
+  .bt_end_buy1 , .bt_end_buy2{width: 96%;margin:0 2% 5px;}
+
+}

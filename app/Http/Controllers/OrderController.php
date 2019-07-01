@@ -100,4 +100,13 @@ class OrderController extends Controller
       $shop=Shop::find($show_pro->shop_id);
       return view('order.showOneOrder',compact('show_pro','pic_pro','shop'));
     }
+    public function showSabadOrder(Request $request)
+
+    {
+      $id=$request->id;
+      $show_pro=ProShop::find($id);
+      $shop=Shop::find($show_pro->shop_id);
+      return view('order.showSabadOrder',compact('show_pro','shop'));
+    }
+    
 }

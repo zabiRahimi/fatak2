@@ -17,6 +17,7 @@
          <link href="\css\slider.css" rel="stylesheet" type="text/css">
          <link href="\css\order.css" rel="stylesheet" type="text/css">
          <link href="\css\orderPro.css" rel="stylesheet" type="text/css">
+         <link href="\css\orderSabad.css" rel="stylesheet" type="text/css">
     </head>
     <body>
       <img src="http://localhost:8000/img_site/210.gif" class="gif_loding" alt="loding" >
@@ -40,7 +41,8 @@
          <script type="text/javascript" src="\js\slider.js"></script>
          <script type="text/javascript" src="\js\city.js"></script>
          <script type="text/javascript" src="\js\order.js"></script>
-        <script type="text/javascript" src="\js\orderOnePro.js"></script>
+         <script type="text/javascript" src="\js\orderOnePro.js"></script>
+        <script type="text/javascript" src="\js\orderSabad.js"></script>
         <script type="text/javascript">
            $(document).pjax('.apjax' , '#dashPjax');
            $(function () {  $('[data-toggle="tooltip"]').tooltip()});

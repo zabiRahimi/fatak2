@@ -92,9 +92,11 @@
               <span class="span_pro6_1_4">قیمت </span> <span class="number span_pro6_1_5">:</span> <span class="span_pro6_1_6 number"> {{number_format($show_pro->price)}}</span><span class="span_pro6_1_7">تومان</span>
           </div>
       </div>
-      <div class="show_pro6_2" onclick="add_pro_sabad({{$show_pro->id}})">
-        <span class="span_pro6_1_8"> <span class="span_pro6_1_9"><i class="fas fa-cart-plus"></i></span> <span class="span_pro6_1_10">خرید </span> </span>
-      </div>
+      <a href="/showSabadOrder/{{$show_pro->id}}">
+        <div class="show_pro6_2" onclick="">
+          <span class="span_pro6_1_8"> <span class="span_pro6_1_9"><i class="fas fa-cart-plus"></i></span> <span class="span_pro6_1_10">خرید </span> </span>
+        </div>
+      </a>
       <div class="show_pro6_3">
         <span class="sp_pro6_3_1"> <span class="sp_pro6_3_1_1"><i class="fas fa-user-tie"></i></span> <span class="sp_pro6_3_1_1">به جمع فروشندگان ما بپیوندید</span> </span>
         <br>
