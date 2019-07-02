@@ -200,33 +200,69 @@ namespace App\resource\wiews\pro\show_sabad_pro;
     </div> --}}
     <div class="ersalOrderSa">
       <div class="ersalOrderHeader ersalOrderPost">شرکت پست</div>
-      <div class="sabad_kh_sefareshi ">
-        <label class="sabad_kh_sefareshi1_1" style="width:100%;cursor: pointer;">
-          <div class="sabad_kh_sefareshi1"onclick="end_price_all($('.sabad_kh2_2_2').html(),$('.sabad_kh_sefareshi2_1').html() , 1)">
-            <input type="radio" class="sabad_kh_sefareshi1_1 form-check-input" name="post">
-            <span class="sabad_kh_sefareshi1_2">پست سفارشی</span>
-          </div>
-        </label>
-        <div class="sabad_kh_sefareshi2">
-          <span class="sabad_kh_sefareshi2_1 number">0</span>
-          <span class="sabad_kh_sefareshi2_2">تومان</span>
+      @if ($show_pro->vaznPost > 40000 or $show_pro->dimension==2)
+        <div class="ersalOrderSaPo_not">
+          به علت وزن و یا حجم کالا ارسال این محصول از طریق شرکت پست امکان پذیر نیست .
         </div>
-      </div>
-      <div class="sabad_kh_pishtaz">
-          <label class="sabad_kh_pishtaz_1"  style="width:100%;cursor: pointer;">
-            <div class="sabad_kh_pishtaz1" onclick="end_price_all($('.sabad_kh2_2_2').html(),$('.sabad_kh_pishtaz2_1').html(),2)">
-              <input type="radio" class="sabad_kh_pishtaz1_1 form-check-input" name="post">
-              <span class="sabad_kh_pishtaz1_2">پست پیشتاز</span>
+      @else
+        @if ($show_pro->vaznPost > 8000)
+          @php
+            $class1='sefareshiOne';
+            $class2='pishtazNot';
+          @endphp
+        @else
+          @php
+          $class1=null;
+          $class2=null;
+          @endphp
+        @endif
+        <div class="sabad_kh_sefareshi {{$class1}}">
+          <label class="sabad_kh_sefareshi1_1" style="width:100%;cursor: pointer;">
+            <div class="sabad_kh_sefareshi1"onclick="end_price_all($('.sabad_kh2_2_2').html(),$('.sabad_kh_sefareshi2_1').html() , 1)">
+              <input type="radio" class="sabad_kh_sefareshi1_1 form-check-input" name="post">
+              <span class="sabad_kh_sefareshi1_2">پست سفارشی @if ($show_pro->vaznPost > 2000) (امانت)@endif</span>
             </div>
           </label>
-          <div class="sabad_kh_pishtaz2">
-            <span class="sabad_kh_pishtaz2_1 number">0</span>
-            <span class="sabad_kh_pishtaz2_2">تومان</span>
+          <div class="sabad_kh_sefareshi2">
+            <i class="fas fa-info-circle postIconSa"></i>
+            <span class="sabad_kh_sefareshi2_1 number">0</span>
+            <span class="sabad_kh_sefareshi2_2">تومان</span>
           </div>
-      </div>
+        </div>
+
+
+          <div class="sabad_kh_pishtaz {{$class2}}">
+              <label class="sabad_kh_pishtaz_1"  style="width:100%;cursor: pointer;">
+                <div class="sabad_kh_pishtaz1" onclick="end_price_all($('.sabad_kh2_2_2').html(),$('.sabad_kh_pishtaz2_1').html(),2)">
+                  <input type="radio" class="sabad_kh_pishtaz1_1 form-check-input" name="post">
+                  <span class="sabad_kh_pishtaz1_2">پست پیشتاز</span>
+                </div>
+              </label>
+              <div class="sabad_kh_pishtaz2">
+                <i class="fas fa-info-circle postIconSa"></i>
+                <span class="sabad_kh_pishtaz2_1 number">0</span>
+                <span class="sabad_kh_pishtaz2_2">تومان</span>
+              </div>
+          </div>
+
+      @endif
     </div>
     <div class="ersalOrderSa">
       <div class="ersalOrderHeader ersalOrderPublic">عمومی</div>
+      <div class="stampErsalSabad">
+        <i class="fas fa-info-circle "></i>
+        <label for="stampErsal1">
+          <span class=" ">حضوری</span>
+          <input type="radio" class="" id="stampErsal1" name="post">
+        </label>
+      </div>
+      <div class="stampErsalSabad">
+        <i class="fas fa-info-circle "></i>
+        <label for="stampErsal2">
+        <span class="">وانت</span>
+        <input type="radio" class="" id="stampErsal2" name="post">
+        </label>
+      </div>
     </div>
     <div class="ersalOrderSa">
       <div class="ersalOrderHeader ersalOrderCompany">شرکتهای خصوصی</div>

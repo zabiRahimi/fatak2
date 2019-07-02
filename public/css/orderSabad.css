@@ -83,11 +83,20 @@
 .ersalOrderCompany{background-color: #096f86;}
 .sabad_kh_city_post{width: 100%; float: right; margin-top: 5px;padding: 4px 8px;border-radius: 3px;background-color: #fff;text-align: center;}
 .sabad_kh_ostan , .sabad_kh_city{width: 25%;float: right; margin: 3px 0;}
-
+.ersalOrderSaPo_not{width: 94% ; margin: 17px 2% ; padding: 5px; color:#af1c36;background-color:#f4d1e1 ;float: right;text-align: center;border-radius: 3px;border: 1px solid #a31d5a;}
 .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 230px;padding: 3px 5px; margin:3px calc(( 100% - 460px ) / 4);float: right; border-radius: 4px; border: 1px solid #56819c;text-align: center;}
-.sabad_kh_pishtaz{margin-left: 0; }
-
+.sabad_kh_sefareshi{border-color: #467107;background-color: #eaf6da;}
+.sabad_kh_pishtaz{margin-left: 0;border-color: #493604;background-color: #fcf5eb;}
+.sefareshiOne{margin:3px calc(( 100% - 230px ) / 2)  10px;}
+.pishtazNot{display: none;}
+.postIconSa{float: right;position: relative;top: 3px;right: 5px;color: #851364;cursor: pointer;}
+.postIconSa:hover{color: #c971b0;}
 .sabad_select_ostan{width: 160px;}
+.stampErsalSabad{float: right;margin: 10px 6px;padding: 5px;border: 1px solid #12ac79;background-color:#d8fef1; color: #12ac79; border-radius: 4px;}
+.stampErsalSabad label{margin: 0;cursor: pointer;}
+.stampErsalSabad i{position: relative;top: 3px;margin: 0 3px 0 5px;color: #851364;cursor: pointer;}
+.stampErsalSabad i:hover{color: #c971b0;}
+.stampErsalSabad input{position: relative;top: 3px;margin: 0 5px 0 3px}
 @media (max-width:710px) {
   .sabad_kh_ostan,.sabad_kh_city{width: 50%;}
   /* .sabad_kh_sefareshi ,.sabad_kh_pishtaz{width: 49%; } */
@@ -95,13 +104,14 @@
 @media (max-width:505px) {
   /* .sabad_kh_ostan,.sabad_kh_city{width: 50%;} */
   .sabad_kh_sefareshi ,.sabad_kh_pishtaz{margin:3px calc(( 100% - 230px ) / 2); }
+
 }
 @media (max-width:390px) {
   .sabad_kh_ostan , .sabad_kh_city{width: 100%;}
   /* .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 80%;margin:3px 10%; } */
 }
-@media (max-width:240px) {
-  /* .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 98%;margin:3px 2%; } */
+@media (max-width:270px) {
+  .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 100%;margin:3px 0; }
 }
 .sabad_kh_sefareshi1 , .sabad_kh_pishtaz1{width: 100%; padding: 4px 6px;float: right;background-color: #b4cfd6; border-radius: 3px;}
 .sabad_kh_sefareshi2 ,.sabad_kh_pishtaz2{width: 100%;float: right;}
