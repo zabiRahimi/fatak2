@@ -116,10 +116,10 @@ namespace App\resource\wiews\pro\show_sabad_pro;
 
 
         <div class="sabad_kh2_2">
-          توجه : جهت مشاهده هزینه نهایی ، استان و شهر خود را وارد کنید و سپس نوع پست کالا را انتخاب نمایید .
+          <span>توجه ! </span> جهت مشاهده هزینه نهایی و همچنین رفتن به مرحله بعد باید یکی از روشهای ارسال را انتخاب کنید .
         </div>
       </div>
-      <div class="sabad_kh_city_post">
+      {{-- <div class="sabad_kh_city_post">
         <div class="sabad_kh_ostan">
           <select name="cars" id="ajax_sabad_ostan" class="custom-select sabad_select_ostan" onclick="zabi()" onchange="">
             <option value="aval" onclick="show_city('no')" selected>انتخاب استان</option>
@@ -162,9 +162,9 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           <select name="" id="ajax_sabad_city" class="custom-select sabad_select_ostan">
                 {{-- <option value="aval" selected>انتخاب شهر</option> --}}
                 {{-- <option >ابتدا استان را انتخاب کنید</option> --}}
-                @include('show_city')
-              </select>
-        </div>
+                {{-- @include('show_city')
+              </select> --}}
+        {{-- </div>
         <div class="sabad_kh_sefareshi ">
           <label class="sabad_kh_sefareshi1_1" style="width:100%;cursor: pointer;">
             <div class="sabad_kh_sefareshi1"onclick="end_price_all($('.sabad_kh2_2_2').html(),$('.sabad_kh_sefareshi2_1').html() , 1)">
@@ -197,8 +197,40 @@ namespace App\resource\wiews\pro\show_sabad_pro;
       <div class="sabad_kh_sabt">
       <a  onclick="chek_add_post($('.sabad_kh_end_price2').html())"  ><button type="button" class="btn btn-success btn-block">ثبت سفارش</button> </a>
       </div>
+    </div> --}}
+    <div class="ersalOrderSa">
+      <div class="ersalOrderHeader ersalOrderPost">شرکت پست</div>
+      <div class="sabad_kh_sefareshi ">
+        <label class="sabad_kh_sefareshi1_1" style="width:100%;cursor: pointer;">
+          <div class="sabad_kh_sefareshi1"onclick="end_price_all($('.sabad_kh2_2_2').html(),$('.sabad_kh_sefareshi2_1').html() , 1)">
+            <input type="radio" class="sabad_kh_sefareshi1_1 form-check-input" name="post">
+            <span class="sabad_kh_sefareshi1_2">پست سفارشی</span>
+          </div>
+        </label>
+        <div class="sabad_kh_sefareshi2">
+          <span class="sabad_kh_sefareshi2_1 number">0</span>
+          <span class="sabad_kh_sefareshi2_2">تومان</span>
+        </div>
+      </div>
+      <div class="sabad_kh_pishtaz">
+          <label class="sabad_kh_pishtaz_1"  style="width:100%;cursor: pointer;">
+            <div class="sabad_kh_pishtaz1" onclick="end_price_all($('.sabad_kh2_2_2').html(),$('.sabad_kh_pishtaz2_1').html(),2)">
+              <input type="radio" class="sabad_kh_pishtaz1_1 form-check-input" name="post">
+              <span class="sabad_kh_pishtaz1_2">پست پیشتاز</span>
+            </div>
+          </label>
+          <div class="sabad_kh_pishtaz2">
+            <span class="sabad_kh_pishtaz2_1 number">0</span>
+            <span class="sabad_kh_pishtaz2_2">تومان</span>
+          </div>
+      </div>
     </div>
-
+    <div class="ersalOrderSa">
+      <div class="ersalOrderHeader ersalOrderPublic">عمومی</div>
+    </div>
+    <div class="ersalOrderSa">
+      <div class="ersalOrderHeader ersalOrderCompany">شرکتهای خصوصی</div>
+    </div>
 
 
 </div><!-- end sabad -->

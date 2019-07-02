@@ -68,30 +68,40 @@
 }
 .sabad_kh2{width: 100%; float: right; padding: 4px 8px;border-radius: 3px;background-color: #fff;text-align: center;}
 .sabad_kh2_1{width: 50%;float: left; font-size: 16px;}
-.sabad_kh2_2{width: 50%;padding: 3px 7px;border-radius: 3px;color:#a7450e;float:right; font-size: 13px;background-color: #ececec; }
+.sabad_kh2_2{width: 50%;padding: 3px 7px;border-radius: 3px;color:#a80a0a;float:right; font-size: 13px;background-color: #f0cfcf; }
+.sabad_kh2_2 span{font-size: 16px;color:#c40000;}
 .sabad_kh2_2_2{margin: 0 6px; color:#0f6720; }
 @media (max-width:450px) {
 .sabad_kh2{  padding: 4px 2px;}
   .sabad_kh2_1{width: 100%;}
   .sabad_kh2_2{width: 100%; }
 }
+.ersalOrderSa{width: 100%;margin: 7px 0 0;padding: 2px 5px;float: right;background-color:#fff; border-radius: 3px;}
+.ersalOrderHeader{width: 100%;padding: 5px ;float: right; margin-bottom: 10px; border-radius: 3px; text-align: center;color: #fff;}
+.ersalOrderPost{background-color: #d28f05;}
+.ersalOrderPublic{background-color: #2c1ecc; }
+.ersalOrderCompany{background-color: #096f86;}
 .sabad_kh_city_post{width: 100%; float: right; margin-top: 5px;padding: 4px 8px;border-radius: 3px;background-color: #fff;text-align: center;}
 .sabad_kh_ostan , .sabad_kh_city{width: 25%;float: right; margin: 3px 0;}
 
-.sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 23%;padding: 3px 5px; margin:3px 0 3px 1%;float: right; border-radius: 4px; border: 1px solid #56819c;}
-.sabad_kh_pishtaz{margin-left: 0; margin-right: 1%;}
+.sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 230px;padding: 3px 5px; margin:3px calc(( 100% - 460px ) / 4);float: right; border-radius: 4px; border: 1px solid #56819c;text-align: center;}
+.sabad_kh_pishtaz{margin-left: 0; }
 
 .sabad_select_ostan{width: 160px;}
 @media (max-width:710px) {
   .sabad_kh_ostan,.sabad_kh_city{width: 50%;}
-  .sabad_kh_sefareshi ,.sabad_kh_pishtaz{width: 49%; }
+  /* .sabad_kh_sefareshi ,.sabad_kh_pishtaz{width: 49%; } */
+}
+@media (max-width:505px) {
+  /* .sabad_kh_ostan,.sabad_kh_city{width: 50%;} */
+  .sabad_kh_sefareshi ,.sabad_kh_pishtaz{margin:3px calc(( 100% - 230px ) / 2); }
 }
 @media (max-width:390px) {
   .sabad_kh_ostan , .sabad_kh_city{width: 100%;}
-  .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 80%;margin:3px 10%; }
+  /* .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 80%;margin:3px 10%; } */
 }
 @media (max-width:240px) {
-  .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 98%;margin:3px 2%; }
+  /* .sabad_kh_sefareshi , .sabad_kh_pishtaz{width: 98%;margin:3px 2%; } */
 }
 .sabad_kh_sefareshi1 , .sabad_kh_pishtaz1{width: 100%; padding: 4px 6px;float: right;background-color: #b4cfd6; border-radius: 3px;}
 .sabad_kh_sefareshi2 ,.sabad_kh_pishtaz2{width: 100%;float: right;}
