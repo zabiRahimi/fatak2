@@ -198,6 +198,30 @@ namespace App\resource\wiews\pro\show_sabad_pro;
       <a  onclick="chek_add_post($('.sabad_kh_end_price2').html())"  ><button type="button" class="btn btn-success btn-block">ثبت سفارش</button> </a>
       </div>
     </div> --}}
+    <div class="rahnamaOrderSa">
+      جهت راهنمایی هر یک از گزینه ها بروی علامت <i class="fas fa-info-circle"></i> همان گزینه کلیک کنید .
+    </div>
+    <div class="shopOrderSa">
+      <span>آدرس فروشنده :</span>
+      <span>{{$shop->ostan}} - {{$shop->city}}</span>
+
+    </div>
+    <div class="ersalOrderSa">
+      <div class="ersalOrderHeader ersalOrderHzoory">حضوری</div>
+      <div class="ersalOrderHzoory2">
+        شما می توانید با حضور در فروشگاه مربوطه نسبت به تهیه سفارش خود اقدام نمایید ، چنانچه این گزینه را انتخاب نمایید آدرس کامل و شماره
+        تماس فروشنده را در ادامه مشاهده خواهید کرد .
+      </div>
+      <div class="ersalOrderHzoory3">
+        <div class="stampErsalSabad">
+          <i class="fas fa-info-circle "></i>
+          <label for="hzooryErsal">
+            <span class=" ">حضوری</span>
+            <input type="radio" class="" id="hzooryErsal" name="post">
+          </label>
+        </div>
+      </div>
+    </div>
     <div class="ersalOrderSa">
       <div class="ersalOrderHeader ersalOrderPost">شرکت پست</div>
       @if ($show_pro->vaznPost > 40000 or $show_pro->dimension==2)
@@ -249,25 +273,44 @@ namespace App\resource\wiews\pro\show_sabad_pro;
     </div>
     <div class="ersalOrderSa">
       <div class="ersalOrderHeader ersalOrderPublic">عمومی</div>
-      <div class="stampErsalSabad">
-        <i class="fas fa-info-circle "></i>
-        <label for="stampErsal1">
-          <span class=" ">حضوری</span>
-          <input type="radio" class="" id="stampErsal1" name="post">
-        </label>
-      </div>
-      <div class="stampErsalSabad">
-        <i class="fas fa-info-circle "></i>
-        <label for="stampErsal2">
-        <span class="">وانت</span>
-        <input type="radio" class="" id="stampErsal2" name="post">
-        </label>
-      </div>
+      @for ($i=0; $i < 7; $i++)
+        @php
+          $public='public'.$i;
+        @endphp
+        @continue(empty($stampPost->$public))
+        <div class="stampErsalSabad">
+          <i class="fas fa-info-circle "></i>
+          <label for="stampErsal{{$i}}">
+            <span class=" ">{{$stampPost->$public}}</span>
+            <input type="radio" class="" id="stampErsal{{$i}}" name="post">
+          </label>
+        </div>
+      @endfor
     </div>
     <div class="ersalOrderSa">
       <div class="ersalOrderHeader ersalOrderCompany">شرکتهای خصوصی</div>
+      @for ($i=0; $i < 7; $i++)
+        @php
+          $company='company'.$i;
+        @endphp
+        @continue(empty($stampPost->$company))
+        <div class="stampErsalSabad">
+          <i class="fas fa-info-circle "></i>
+          <label for="stamp2Ersal{{$i}}">
+            <span class=" ">{{$stampPost->$company}}</span>
+            <input type="radio" class="" id="stamp2Ersal{{$i}}" name="post">
+          </label>
+        </div>
+      @endfor
     </div>
-
+    <div class="sabad_kh_end_price">
+      <span class="sabad_kh_end_price1">هزینه نهایی</span>
+      <span class="sabad_kh_end_price2 number">0</span>
+      <span class="sabad_kh_end_price3">تومان</span>
+    </div>
+    <div class="sabad_kh_sabt">
+    <a  onclick="chek_add_post($('.sabad_kh_end_price2').html())"  ><button type="button" class="btn btn-success btn-block">ثبت سفارش</button> </a>
+    </div>
 
 </div><!-- end sabad -->
 </div>

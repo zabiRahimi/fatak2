@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\ProShop;
 use App\Models\Shop;
+use App\Models\StampPost;
 use App\Models\Picture_shop;
 use App\Http\Requests\Save_order1;
 use App\Http\Requests\Save_mobail;
@@ -105,8 +106,9 @@ class OrderController extends Controller
     {
       $id=$request->id;
       $show_pro=ProShop::find($id);
+      $stampPost=StampPost::where('pro_id',$id)->first();
       $shop=Shop::find($show_pro->shop_id);
-      return view('order.showSabadOrder',compact('show_pro','shop'));
+      return view('order.showSabadOrder',compact('show_pro','shop','stampPost'));
     }
-    
+
 }
