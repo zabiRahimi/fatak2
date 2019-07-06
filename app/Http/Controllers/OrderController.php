@@ -8,6 +8,7 @@ use App\Models\ProShop;
 use App\Models\Shop;
 use App\Models\StampPost;
 use App\Models\Picture_shop;
+use App\Models\Post;
 use App\Http\Requests\Save_order1;
 use App\Http\Requests\Save_mobail;
 use App\Http\Requests\Save_searchOrderSave;
@@ -108,7 +109,89 @@ class OrderController extends Controller
       $show_pro=ProShop::find($id);
       $stampPost=StampPost::where('pro_id',$id)->first();
       $shop=Shop::find($show_pro->shop_id);
-      return view('order.showSabadOrder',compact('show_pro','shop','stampPost'));
+      $order=Order::find($show_pro->order_id);
+      $gram=$show_pro->vaznPost;
+      switch($gram){
+        case $gram<501:$gram='g500';break;
+        case $gram<1001:$gram='g1000';break;
+        case $gram<2001:$gram='g2000';break;
+        case $gram<3001:$gram='g3000';break;
+        case $gram<4001:$gram='g4000';break;
+        case $gram<5001:$gram='g5000';break;
+        case $gram<6001:$gram='g6000';break;
+        case $gram<7001:$gram='g7000';break;
+        case $gram<8001:$gram='g8000';break;
+        case $gram<9001:$gram='g9000';break;
+        case $gram<10001:$gram='g10000';break;
+        case $gram<11001:$gram='g11000';break;
+        case $gram<12001:$gram='g12000';break;
+        case $gram<13001:$gram='g13000';break;
+        case $gram<14001:$gram='g14000';break;
+        case $gram<15001:$gram='g15000';break;
+        case $gram<16001:$gram='g16000';break;
+        case $gram<17001:$gram='g17000';break;
+        case $gram<18001:$gram='g18000';break;
+        case $gram<19001:$gram='g19000';break;
+        case $gram<20001:$gram='g20000';break;
+        case $gram<21001:$gram='g21000';break;
+        case $gram<22001:$gram='g22000';break;
+        case $gram<23001:$gram='g23000';break;
+        case $gram<24001:$gram='g24000';break;
+        case $gram<25001:$gram='g25000';break;
+        case $gram<26001:$gram='g26000';break;
+        case $gram<27001:$gram='g27000';break;
+        case $gram<28001:$gram='g28000';break;
+        case $gram<29001:$gram='g29000';break;
+        case $gram<30001:$gram='g30000';break;
+        case $gram<31001:$gram='g31000';break;
+        case $gram<32001:$gram='g32000';break;
+        case $gram<33001:$gram='g33000';break;
+        case $gram<34001:$gram='g34000';break;
+        case $gram<35001:$gram='g35000';break;
+        case $gram<36001:$gram='g36000';break;
+        case $gram<37001:$gram='g37000';break;
+        case $gram<38001:$gram='g38000';break;
+        case $gram<39001:$gram='g39000';break;
+        case $gram<40001:$gram='g40000';break;
+        default:$gram='not';
+        }
+      if ($shop->ostan == $order->ostan) {
+        // هم استانی
+        if ($show_pro->vaznPost <= 2000) {
+          // سفارشی
+          $sefarshi=Post::find(1);
+        }
+        else{
+          // امانت
+          $sefarshi=Post::find(3);
+
+        }
+        // پیشتاز
+        $pishtaz=Post::find(5);
+
+      }
+      else{
+        // غیر استان
+        if ($show_pro->vaznPost <= 2000) {
+          // سفارشی
+          $sefarshi=Post::find(2);
+
+        }
+        else{
+          // امانت
+          $sefarshi=Post::find(4);
+
+        }
+        // پیشتاز
+        $pishtaz=Post::find(6);
+
+
+      }
+      if($gram != 'not'){
+        $priceSefarshi=$sefarshi->$gram + $show_pro->pakat;
+        $pricePishtaz=$pishtaz->$gram + $show_pro->pakat;
+      }else{$priceSefarshi=0;$pricePishtaz=0;}
+      return view('order.showSabadOrder',compact('show_pro','shop','stampPost','priceSefarshi','pricePishtaz'));
     }
 
 }

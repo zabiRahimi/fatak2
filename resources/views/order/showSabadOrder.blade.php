@@ -79,13 +79,13 @@ namespace App\resource\wiews\pro\show_sabad_pro;
             </div>
 
             <div class="sabad_kh_num">
-                <span class="sabad_kh_num_add" onclick="num_add_sabad_order('add',{{$show_pro->num}},$('#ajax_add_cut').html(),{{$show_pro->price }} )"><i class="fas fa-plus"></i></span>
+                <span class="sabad_kh_num_add" onclick="num_add_sabad_order('add',{{$show_pro->num}},$('#ajax_add_cut').html(),{{$show_pro->price }},{{$priceSefarshi}},{{$pricePishtaz}})"><i class="fas fa-plus"></i></span>
                 {{-- ; sum_gram_post('add' , {{$show_pro->gram_post }},$('#ajax_add_cut{{$show_pro->id}}').html()) --}}
                 <span class="sabad_kh_num_count">
                   <span class="sabad_kh_num_count2" id="ajax_add_cut">1 </span>
                   <span class="sabad_kh_num_count3 num_add_cut2" id="num_add_cut2">عدد</span>
                 </span>
-                <span class="sabad_kh_num_cut" onclick="num_add_sabad_order('cut',{{$show_pro->num }} ,$('#ajax_add_cut').html() ,{{$show_pro->price }});"><i class="fas fa-minus"></i></span>
+                <span class="sabad_kh_num_cut" onclick="num_add_sabad_order('cut',{{$show_pro->num }} ,$('#ajax_add_cut').html() ,{{$show_pro->price }},{{$priceSefarshi}},{{$pricePishtaz}});"><i class="fas fa-minus"></i></span>
                  {{-- sum_gram_post('cut' , {{$show_pro->gram_post }},$('#ajax_add_cut{{$show_pro->id}}').html()) --}}
 
             </div>
@@ -116,7 +116,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
 
 
         <div class="sabad_kh2_2">
-          <span>توجه ! </span> جهت مشاهده هزینه نهایی و همچنین رفتن به مرحله بعد باید یکی از روشهای ارسال را انتخاب کنید .
+          <span>توجه ! </span> جهت مشاهده هزینه نهایی و همچنین رفتن به مرحله بعد باید یکی از روشهای دریافت کالا را انتخاب کنید .
         </div>
       </div>
       {{-- <div class="sabad_kh_city_post">
@@ -249,7 +249,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           </label>
           <div class="sabad_kh_sefareshi2">
             <i class="fas fa-info-circle postIconSa"></i>
-            <span class="sabad_kh_sefareshi2_1 number">0</span>
+            <span class="sabad_kh_sefareshi2_1 number" id="orderSefarshi">{{number_format($priceSefarshi)}}</span>
             <span class="sabad_kh_sefareshi2_2">تومان</span>
           </div>
         </div>
@@ -264,7 +264,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
               </label>
               <div class="sabad_kh_pishtaz2">
                 <i class="fas fa-info-circle postIconSa"></i>
-                <span class="sabad_kh_pishtaz2_1 number">0</span>
+                <span class="sabad_kh_pishtaz2_1 number" id="orderPishtaz">{{number_format($pricePishtaz)}}</span>
                 <span class="sabad_kh_pishtaz2_2">تومان</span>
               </div>
           </div>

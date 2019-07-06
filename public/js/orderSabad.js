@@ -1,12 +1,13 @@
 
 //کم یا زیاد کردن تعداد خرید یک محصول
-function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price){
+function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pishtaz){
 
   if (add_cut=='cut'&&num_buyer==1) {}else{
   if(add_cut=='add'&&num_buyer==num){
-    alert('خرید محصول بیشتر از 10 عدد از طریقه سامانه مجاز نمی باشد ، جهت تهیه  بیشتر از 10 عدد محصول باشماره 09178023733 تماس حاصل نمایید .')
+    alert('فروشنده تنها ' + num_buyer + 'عدد کالا را برای فروش دارد . جهت خرید کالای بیشتر با فروشنده تماس بگیرید .')
   }else{
     num_buyer=Number(num_buyer);
+
     if (add_cut=='cut') {
       num_buyer=num_buyer-1;
     }
@@ -14,7 +15,9 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price){
       num_buyer=num_buyer+1;
     }
     // num_buyer * vahed_price
-    var sum_price=number_format(num_buyer * vahed_price);
+    let sum_price=number_format(num_buyer * vahed_price);
+    let sum_sefarshi=number_format(num_buyer * sefarshi);
+    let sum_pishtaz=number_format(num_buyer * pishtaz);
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      // type:'post',
@@ -30,6 +33,8 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price){
        $('#ajax_add_cut').html(num_buyer);
        $('#ajax_cuont_price').html(sum_price);
        $('#ajax_price_all_pro').html(sum_price);
+       $('#orderSefarshi').html(sum_sefarshi);
+       $('#orderPishtaz').html(sum_pishtaz);
        // $('#ajax_add_cut'+id).html(data );
        // $('.sabad_kh_pishtaz2_1').html(0);
        // $('.sabad_kh_sefareshi2_1').html(0);
