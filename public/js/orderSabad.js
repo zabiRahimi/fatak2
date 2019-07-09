@@ -1,6 +1,6 @@
 
 //کم یا زیاد کردن تعداد خرید یک محصول
-function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pishtaz){
+function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pishtaz,id){
 
   if (add_cut=='cut'&&num_buyer==1) {}else{
   if(add_cut=='add'&&num_buyer==num){
@@ -33,49 +33,46 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
        $('#ajax_add_cut').html(num_buyer);
        $('#ajax_cuont_price').html(sum_price);
        $('#ajax_price_all_pro').html(sum_price);
-       $('#orderSefarshi').html(sum_sefarshi);
-       $('#orderPishtaz').html(sum_pishtaz);
+
        // $('#ajax_add_cut'+id).html(data );
        // $('.sabad_kh_pishtaz2_1').html(0);
        // $('.sabad_kh_sefareshi2_1').html(0);
        // $('.sabad_kh_end_price2').html(0);
        // $('#ajax_sabad_city').val('aval');
        // $('#ajax_sabad_ostan').val('aval');
+       pricePostOrder(id , num_buyer);
      },
+     // complete:function(){
+     //
+     // },
    //   complete:function(){new_price(id , $('#ajax_add_cut'+id).html() , vahed_price ,add_cut);
    //   new_all_price( vahed_price , add_cut);
    // },
    });
  }}
 }
-// تابع فرمت کردن اعداد
-function number_format(number, decimals, decPoint, thousandsSep) {
-    decimals = Math.abs(decimals) || 0;
-    number = parseFloat(number);
+//مجموع قیمت جدید برای محصولی که کاربر مبادرت به خرید بیشتر از یک کالا نموده
+function pricePostOrder(id , num ){
 
-    if (!decPoint || !thousandsSep) {
-        decPoint = '.';
-        thousandsSep = ',';
-    }
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../pricePostOrder/' + id + '/' + num,
+    data: {
+         // num: num ,
+         // vahed_price: vahed_price,
+         },
+    success:function(data){
+      $('#orderSefarshi').html(number_format(data[0]));
+      $('#orderAmanat').html(number_format(data[1]));
+      $('#orderPishtaz').html(number_format(data[2]));
+      // $('#ajax_cuont_price'+id).html(data );
 
-    var roundedNumber = Math.round(Math.abs(number) * ('1e' + decimals)) + '';
-    var numbersString = decimals ? (roundedNumber.slice(0, decimals * -1) || 0) : roundedNumber;
-    var decimalsString = decimals ? roundedNumber.slice(decimals * -1) : '';
-    var formattedNumber = "";
+    },
 
-    while (numbersString.length > 3) {
-        formattedNumber += thousandsSep + numbersString.slice(-3)
-        numbersString = numbersString.slice(0, -3);
-    }
-
-    if (decimals && decimalsString.length === 1) {
-        while (decimalsString.length < decimals) {
-            decimalsString = decimalsString + decimalsString;
-        }
-    }
-
-    return (number < 0 ? '-' : '') + numbersString + formattedNumber + (decimalsString ? (decPoint + decimalsString) : '');
+  });
 }
+
 //جمع کردن وزن محصولات جهت هزینه پست
 function sum_gram_post(add_cut , gram_post , num){
   if (add_cut=='cut'&&num==1) {}else{//کنترل خرید کمتر از یک عدد
@@ -97,6 +94,7 @@ function sum_gram_post(add_cut , gram_post , num){
     },
 
   });}}}
+
 //مجموع قیمت جدید برای محصولی که کاربر مبادرت به خرید بیشتر از یک کالا نموده
 function new_price(id , num , vahed_price ){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
@@ -153,18 +151,30 @@ function post_sefareshi(id_ostan , id_city, city){
         $('.sabad_kh_sefareshi2_1').html(data);
     },});}
 //درج هزینه نهایی در سبد خرید
-function end_price_all(price_pros , price_post , model_post){
+function end_price_all(model_post){
+
+  if(model_post== 'امانت'){}
+  else if(model_post== 'سفارشی'){}
+  else if(model_post== 'پیشتاز'){}
+  else if(model_post== 'عمومی'){}
+
 if( price_post==0){}
 else{
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
-    type:'put',
-    url:'../../end_price_all',
-    data: {
-            price_pros:price_pros , price_post:price_post, model_post:model_post,
-         },
+    // type:'put',
+    // url:'../../end_price_all',
+    // data: {
+    //         price_pros:price_pros , price_post:price_post, model_post:model_post,
+    //      },
     success:function(data){
-      $('.sabad_kh_end_price2').html(data);
+      if(model_post== 'حضوری'){
+        $('.sabad_kh_end_price2').html();
+      }
+      else{
+        $('.sabad_kh_end_price2').html();
+      }
+
     },});  }}
 //کنترل انتخاب شیوه پست کردن کالا
 function chek_add_post(chek){

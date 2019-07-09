@@ -122,6 +122,7 @@ Route::post('/searchOrderSave','OrderController@searchOrderSave');//ok!!
 Route::get('/showOrder/{order_id}','OrderController@showOrder')->where('order_id', '[0-9]+');//ok!!
 Route::get('/showOneOrder/{id}/{name?}','OrderController@showOneOrder')->where('id', '[0-9]+');//ok!!
 Route::get('/showSabadOrder/{id}','OrderController@showSabadOrder')->where('id', '[0-9]+');//ok!!
+Route::post('/pricePostOrder/{id}/{num}','OrderController@pricePostOrder')->where('id', '[0-9]+')->where('num', '[0-9]+');//ok!!
 
 
 
