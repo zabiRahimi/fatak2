@@ -109,6 +109,7 @@
 .stampErsalSabad i{position: relative;top: 3px;margin: 0 3px 0 5px;color: #851364;cursor: pointer;}
 .stampErsalSabad i:hover{color: #c971b0;}
 .stampErsalSabad input{position: relative;top: 3px;margin: 0 5px 0 3px}
+.hidden{display: none;}
 @media (max-width:750px) {
   /* .sabad_kh_ostan,.sabad_kh_city{width: 50%;} */
   .sabad_kh_amanat,.sabad_kh_sefareshi ,.sabad_kh_pishtaz{margin:3px calc(( 100% - 230px ) / 2); }

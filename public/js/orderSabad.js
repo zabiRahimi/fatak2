@@ -33,6 +33,8 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
        $('#ajax_add_cut').html(num_buyer);
        $('#ajax_cuont_price').html(sum_price);
        $('#ajax_price_all_pro').html(sum_price);
+       $('.sabad_kh_end_price2').html(0);
+       $('input[type="radio"]').prop('checked', false); 
 
        // $('#ajax_add_cut'+id).html(data );
        // $('.sabad_kh_pishtaz2_1').html(0);
@@ -64,8 +66,11 @@ function pricePostOrder(id , num ){
          },
     success:function(data){
       $('#orderSefarshi').html(number_format(data[0]));
+      $('#orderSefarshi2').html(data[0]);
       $('#orderAmanat').html(number_format(data[1]));
+      $('#orderAmanat2').html(data[1]);
       $('#orderPishtaz').html(number_format(data[2]));
+      $('#orderPishtaz2').html(data[2]);
       // $('#ajax_cuont_price'+id).html(data );
 
     },
@@ -153,10 +158,15 @@ function post_sefareshi(id_ostan , id_city, city){
 //درج هزینه نهایی در سبد خرید
 function end_price_all(model_post){
 
-  if(model_post== 'امانت'){}
-  else if(model_post== 'سفارشی'){}
-  else if(model_post== 'پیشتاز'){}
-  else if(model_post== 'عمومی'){}
+  if(model_post == 1){var price_post = $('#orderAmanat2').html();}
+  else if(model_post== 2){ var price_post= $('#orderSefarshi2').html();}
+  else if(model_post== 3){ var price_post= $('#orderPishtaz2').html();}
+  else if(model_post== 4){ var price_post=0;}
+  let payWork = 2000;//کارمزد
+  let prrice_pro=$('#ajax_price_all_pro2').html();
+  let price_all1=payWork + Number(prrice_pro) + Number(price_post);
+  let scot=(price_all1 * 2) / 100;
+  let price_all2=price_all1 + scot;
 
 if( price_post==0){}
 else{
@@ -172,7 +182,7 @@ else{
         $('.sabad_kh_end_price2').html();
       }
       else{
-        $('.sabad_kh_end_price2').html();
+        $('.sabad_kh_end_price2').html(number_format(price_all2));
       }
 
     },});  }}
