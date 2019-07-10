@@ -137,6 +137,7 @@
 .sabad_kh_end_price1{color:#0d135d; }
 .sabad_kh_end_price2{margin: 0 6px; font-size: 20px; color:#104e09; }
 .sabad_kh_end_price3{color:#0d135d;}
+.sabad_kh_end_price_span{color: #0b3d05;background-color: #fff; padding: 1px 6px;display: inline-block;border-radius: 3px;text-align: justify;}
 .sabad_kh_sabt{width: 50%;padding: 5px 14px;border-radius: 4px;margin: 5px 25%;float: right; background-color: #fff;}
 @media (max-width:500px) {
   .sabad_kh_sabt{width: 86%;margin: 5px 7%;}

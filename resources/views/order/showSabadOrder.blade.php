@@ -218,7 +218,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           <i class="fas fa-info-circle "></i>
           <label for="hzooryErsal">
             <span class=" ">حضوری</span>
-            <input type="radio" class="" onclick="end_price_all($('.sabad_kh2_2_2').html(),$('.sabad_kh_pishtaz2_1').html(),2)" id="hzooryErsal" name="post">
+            <input type="radio" class="" onclick="end_price_all('حضوری')" id="hzooryErsal" name="post">
           </label>
         </div>
       </div>
@@ -350,4 +350,12 @@ namespace App\resource\wiews\pro\show_sabad_pro;
   </div>
 
 </div><!--end modal -->
+
+<div class="modal " id="rahnamaHzoori" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
+      <div class="modal-body chek_add_post">
+          توجه !!!<br>
+          ابتدا یکی از شیوه های دریافت کالا راانتخاب نمایید .
+      </div><div class="chek_add_post2"><button type="button" class="btn btn-info chek_add_post3" data-dismiss="modal">متوجه شدم</button></div></div></div>
+</div><!--end modal -->
+
 @endsection

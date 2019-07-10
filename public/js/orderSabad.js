@@ -34,8 +34,7 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
        $('#ajax_cuont_price').html(sum_price);
        $('#ajax_price_all_pro').html(sum_price);
        $('.sabad_kh_end_price2').html(0);
-       $('input[type="radio"]').prop('checked', false); 
-
+       $('input[name="post"]').prop('checked', false);
        // $('#ajax_add_cut'+id).html(data );
        // $('.sabad_kh_pishtaz2_1').html(0);
        // $('.sabad_kh_sefareshi2_1').html(0);
@@ -167,36 +166,29 @@ function end_price_all(model_post){
   let price_all1=payWork + Number(prrice_pro) + Number(price_post);
   let scot=(price_all1 * 2) / 100;
   let price_all2=price_all1 + scot;
-
-if( price_post==0){}
-else{
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
-    // type:'put',
-    // url:'../../end_price_all',
-    // data: {
-    //         price_pros:price_pros , price_post:price_post, model_post:model_post,
-    //      },
     success:function(data){
       if(model_post== 'حضوری'){
-        $('.sabad_kh_end_price2').html();
+        $('.sabad_kh_end_price').html('<span class="sabad_kh_end_price_span">شما گزینه دریافت کالا به صورت حضوری را انتخاب نموده اید ، پس از انتخاب دکمه ثبت سفارش آدرس کامل و شماره تماس فروشنده در اختیار شما قرار می گیرد .</span>');
       }
       else{
-        $('.sabad_kh_end_price2').html(number_format(price_all2));
+        $('.sabad_kh_end_price').html('<span class="sabad_kh_end_price1">هزینه نهایی</span><span class="sabad_kh_end_price2 number">' + number_format(price_all2) + '</span><span class="sabad_kh_end_price3">تومان</span>');
       }
 
-    },});  }}
+    },});  }
 //کنترل انتخاب شیوه پست کردن کالا
 function chek_add_post(chek){
   if (chek!=0) {
-    $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-      $.ajax({
-          url: "/create_cookie",
-          method: 'post',
-          data: {name_cookie:'factor_buy',},
-          success: function(data) {
-              window.location.href  = '/show_factor_buy';
-              },}, "json");
+    alert(45)
+    // $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    //   $.ajax({
+    //       url: "/create_cookie",
+    //       method: 'post',
+    //       data: {name_cookie:'factor_buy',},
+    //       success: function(data) {
+    //           window.location.href  = '/show_factor_buy';
+    //           },}, "json");
   } else {
     $('#chek_add_post').modal('show');
   }
