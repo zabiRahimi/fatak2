@@ -150,9 +150,17 @@
 /* ********************* فاکتور خرید ********************** */
 .all_factor{width: 100%; padding: 6px 8px; float: right; border: 1px solid #959595; border-radius: 4px;text-align: right;}
 .titr_faktor{width: 100%;height: 35px; line-height: 35px; margin-bottom: 6px;padding: 0 12px; font-size: 18px; color:#fff ; background-color: #095d63; border-radius: 3px;}
+.all_factorHz{width: 100%;margin: 5px 0;padding: 10px 15px;font-size: 18px;float: right;color:#053809;background-color:#cff6d1;text-align: center;;}
+.all_factorHz_2{width: 100%;margin: 5px 0;padding: 6px 15px;float: right;background-color: #d5e2f1;border-radius: 2px;}
+.all_factorHz_2_1{width: 30%;float: right;}
+.all_factorHz_2_2{width: 70%;float: right;color: #030a39;}
+
 @media (max-width:500px) {
   .all_factor{ padding: 4px 2px; }
   .titr_faktor{ padding: 0 6px; font-size: 16px; }
+  .all_factorHz{padding: 10px 6px;font-size: 16px;}
+  .all_factorHz_2_1{width: 100%;}
+  .all_factorHz_2_2{width: 100%;}
 }
 .body_factor1{width: 100%; height: 35px; line-height: 35px;float: right; border: 1px solid #8f8f8f; border-radius: 2px 2px 0 0;  }
 .body_factor0{background-color: #bebdbd;}

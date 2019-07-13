@@ -518,7 +518,34 @@ class OrderController extends Controller
       $id=$request->id;
       $num=$request->num;
       $post=$request->post;
-      return view('order.factor_order',compact('post'));
+
+      $pro_shop=ProShop::find($id);
+      $shop=Shop::find($pro_shop->shop_id);
+      $order=Order::find($pro_shop->order_id);
+      $price=$num * $pro_shop->price;
+      $postName=StampPost::where('order_id',$pro_shop->order_id)->where('shop_id',$pro_shop->shop_id)->where('pro_id',$pro_shop->id)->first();
+      switch ($post) {
+        case 1:$post2='پست امانت'; break;
+        case 2:$post2='پست سفارشی'; break;
+        case 3:$post2='پست پیشتاز'; break;
+        case 'public1':$post2=$postName->public1;$price_post=1;break;
+        case 'public2':$post2=$postName->public2;$price_post=2; break;
+        case 'public3':$post2=$postName->public3;$price_post=3; break;
+        case 'public4':$post2=$postName->public4;$price_post=0; break;
+        case 'public5':$post2=$postName->public5;$price_post=0; break;
+        case 'public6':$post2=$postName->public6;$price_post=0; break;
+        case 'company1':$post2=$postName->company1;$price_post=0; break;
+        case 'company2':$post2=$postName->company2;$price_post=0; break;
+        case 'company3':$post2=$postName->company3;$price_post=0; break;
+        case 'company4':$post2=$postName->company4;$price_post=0; break;
+        case 'company5':$post2=$postName->company5;$price_post=0; break;
+        case 'company6':$post2=$postName->company6;$price_post=0; break;
+
+        default:
+          // code...
+          break;
+      }
+      return view('order.factor_order',compact('id','post','shop','order','num','pro_shop','price','post2','price_post'));
     }
 
   }//end class
