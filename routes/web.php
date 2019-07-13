@@ -123,6 +123,7 @@ Route::get('/showOrder/{order_id}','OrderController@showOrder')->where('order_id
 Route::get('/showOneOrder/{id}/{name?}','OrderController@showOneOrder')->where('id', '[0-9]+');//ok!!
 Route::get('/showSabadOrder/{id}','OrderController@showSabadOrder')->where('id', '[0-9]+');//ok!!
 Route::post('/pricePostOrder/{id}/{num}','OrderController@pricePostOrder')->where('id', '[0-9]+')->where('num', '[0-9]+');//ok!!
+Route::get('/factor_order/{id}/{num}/{post}','OrderController@factor_order')->where('id', '[0-9]+')->where('num', '[0-9]+')->where('post', '[0-9 , a-z]+');//ok!!
 
 
 

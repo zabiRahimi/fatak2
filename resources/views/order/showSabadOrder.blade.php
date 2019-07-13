@@ -82,7 +82,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
                 <span class="sabad_kh_num_add" onclick="num_add_sabad_order('add',{{$show_pro->num}},$('#ajax_add_cut').html(),{{$show_pro->price }},{{$priceSefarshi}},{{$pricePishtaz}},{{$show_pro->id}})"><i class="fas fa-plus"></i></span>
                 {{-- ; sum_gram_post('add' , {{$show_pro->gram_post }},$('#ajax_add_cut{{$show_pro->id}}').html()) --}}
                 <span class="sabad_kh_num_count">
-                  <span class="sabad_kh_num_count2" id="ajax_add_cut">1 </span>
+                  <span class="sabad_kh_num_count2" id="ajax_add_cut">1</span>
                   <span class="sabad_kh_num_count3 num_add_cut2" id="num_add_cut2">عدد</span>
                 </span>
                 <span class="sabad_kh_num_cut" onclick="num_add_sabad_order('cut',{{$show_pro->num }} ,$('#ajax_add_cut').html() ,{{$show_pro->price }},{{$priceSefarshi}},{{$pricePishtaz}},{{$show_pro->id}});"><i class="fas fa-minus"></i></span>
@@ -218,7 +218,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           <i class="fas fa-info-circle "></i>
           <label for="hzooryErsal">
             <span class=" ">حضوری</span>
-            <input type="radio" class="" onclick="end_price_all('حضوری')" id="hzooryErsal" name="post">
+            <input type="radio" class="" onclick="end_price_all(5)" id="hzooryErsal" name="post" value="5">
           </label>
         </div>
       </div>
@@ -244,7 +244,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
         <div class="sabad_kh_amanat">
           <label class="sabad_kh_amanat1_1" style="width:100%;cursor: pointer;">
             <div class="sabad_kh_amanat1"onclick="end_price_all(1)">
-              <input type="radio" class="sabad_kh_amanat1_1 form-check-input" name="post">
+              <input type="radio" class="sabad_kh_amanat1_1 form-check-input" name="post"value="1">
               <span class="sabad_kh_amanat1_2">پست امانت</span>
             </div>
           </label>
@@ -259,7 +259,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
         <div class="sabad_kh_sefareshi {{$class1}}">
           <label class="sabad_kh_sefareshi1_1" style="width:100%;cursor: pointer;">
             <div class="sabad_kh_sefareshi1"onclick="end_price_all(2)">
-              <input type="radio" class="sabad_kh_sefareshi1_1 form-check-input" name="post">
+              <input type="radio" class="sabad_kh_sefareshi1_1 form-check-input" name="post"value="2">
               <span class="sabad_kh_sefareshi1_2">پست سفارشی</span>
             </div>
           </label>
@@ -276,7 +276,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           <div class="sabad_kh_pishtaz {{$class2}}">
               <label class="sabad_kh_pishtaz_1"  style="width:100%;cursor: pointer;">
                 <div class="sabad_kh_pishtaz1" onclick="end_price_all(3)">
-                  <input type="radio" class="sabad_kh_pishtaz1_1 form-check-input" name="post">
+                  <input type="radio" class="sabad_kh_pishtaz1_1 form-check-input" name="post"value="3">
                   <span class="sabad_kh_pishtaz1_2">پست پیشتاز</span>
                 </div>
               </label>
@@ -301,7 +301,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           <i class="fas fa-info-circle "></i>
           <label for="stampErsal{{$i}}">
             <span class=" ">{{$stampPost->$public}}</span>
-            <input type="radio" class=""onclick="end_price_all(4)" id="stampErsal{{$i}}" name="post">
+            <input type="radio" class=""onclick="end_price_all(4)" id="stampErsal{{$i}}" name="post"value="{{$public}}">
           </label>
         </div>
       @endfor
@@ -317,7 +317,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           <i class="fas fa-info-circle "></i>
           <label for="stamp2Ersal{{$i}}">
             <span class=" ">{{$stampPost->$company}}</span>
-            <input type="radio" class=""onclick="end_price_all(4)" id="stamp2Ersal{{$i}}" name="post">
+            <input type="radio" class=""onclick="end_price_all(4)" id="stamp2Ersal{{$i}}" name="post"value="{{$company}}">
           </label>
         </div>
       @endfor
@@ -328,7 +328,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
       <span class="sabad_kh_end_price3">تومان</span>
     </div>
     <div class="sabad_kh_sabt">
-    <a  onclick="chek_add_post($('.sabad_kh_end_price2').html())"  ><button type="button" class="btn btn-success btn-block">ثبت سفارش</button> </a>
+    <a  onclick="chek_add_post($('.sabad_kh_end_price2').html(), {{$show_pro->id}})"  ><button type="button" class="btn btn-success btn-block">ثبت سفارش</button> </a>
     </div>
 
 </div><!-- end sabad -->

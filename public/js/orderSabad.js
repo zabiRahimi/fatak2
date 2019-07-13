@@ -169,7 +169,7 @@ function end_price_all(model_post){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     success:function(data){
-      if(model_post== 'حضوری'){
+      if(model_post== 5){
         $('.sabad_kh_end_price').html('<span class="sabad_kh_end_price_span">شما گزینه دریافت کالا به صورت حضوری را انتخاب نموده اید ، پس از انتخاب دکمه ثبت سفارش آدرس کامل و شماره تماس فروشنده در اختیار شما قرار می گیرد .</span>');
       }
       else{
@@ -178,17 +178,11 @@ function end_price_all(model_post){
 
     },});  }
 //کنترل انتخاب شیوه پست کردن کالا
-function chek_add_post(chek){
+function chek_add_post(chek,id){
   if (chek!=0) {
-    alert(45)
-    // $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-    //   $.ajax({
-    //       url: "/create_cookie",
-    //       method: 'post',
-    //       data: {name_cookie:'factor_buy',},
-    //       success: function(data) {
-    //           window.location.href  = '/show_factor_buy';
-    //           },}, "json");
+    var num=$('#ajax_add_cut').html();
+    var post=$('input[name="post"]:checked').val();
+    window.location="/factor_order/" + id + "/" + num + "/" + post;
   } else {
     $('#chek_add_post').modal('show');
   }

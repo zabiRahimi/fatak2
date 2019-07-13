@@ -513,5 +513,12 @@ class OrderController extends Controller
       $data=[$priceSefarshi,$priceAmanat,$pricePishtaz];
       return $data;
     }
+    public function factor_order(Request $request)
+    {
+      $id=$request->id;
+      $num=$request->num;
+      $post=$request->post;
+      return view('order.factor_order',compact('post'));
+    }
 
-}
+  }//end class
