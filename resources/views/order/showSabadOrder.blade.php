@@ -243,8 +243,8 @@ namespace App\resource\wiews\pro\show_sabad_pro;
         @endif
         <div class="sabad_kh_amanat">
           <label class="sabad_kh_amanat1_1" style="width:100%;cursor: pointer;">
-            <div class="sabad_kh_amanat1"onclick="end_price_all(1)">
-              <input type="radio" class="sabad_kh_amanat1_1 form-check-input" name="post"value="1">
+            <div class="sabad_kh_amanat1">
+              <input type="radio" class="sabad_kh_amanat1_1 form-check-input" name="post"value="1"onclick="end_price_all(1)">
               <span class="sabad_kh_amanat1_2">پست امانت</span>
             </div>
           </label>
@@ -258,8 +258,8 @@ namespace App\resource\wiews\pro\show_sabad_pro;
         </div>
         <div class="sabad_kh_sefareshi {{$class1}}">
           <label class="sabad_kh_sefareshi1_1" style="width:100%;cursor: pointer;">
-            <div class="sabad_kh_sefareshi1"onclick="end_price_all(2)">
-              <input type="radio" class="sabad_kh_sefareshi1_1 form-check-input" name="post"value="2">
+            <div class="sabad_kh_sefareshi1">
+              <input type="radio" class="sabad_kh_sefareshi1_1 form-check-input" name="post"value="2"onclick="end_price_all(2)">
               <span class="sabad_kh_sefareshi1_2">پست سفارشی</span>
             </div>
           </label>
@@ -275,8 +275,8 @@ namespace App\resource\wiews\pro\show_sabad_pro;
 
           <div class="sabad_kh_pishtaz {{$class2}}">
               <label class="sabad_kh_pishtaz_1"  style="width:100%;cursor: pointer;">
-                <div class="sabad_kh_pishtaz1" onclick="end_price_all(3)">
-                  <input type="radio" class="sabad_kh_pishtaz1_1 form-check-input" name="post"value="3">
+                <div class="sabad_kh_pishtaz1" >
+                  <input type="radio" class="sabad_kh_pishtaz1_1 form-check-input" name="post"value="3"onclick="end_price_all(3)">
                   <span class="sabad_kh_pishtaz1_2">پست پیشتاز</span>
                 </div>
               </label>

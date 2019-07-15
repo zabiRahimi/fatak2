@@ -15,12 +15,11 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
       num_buyer=num_buyer+1;
     }
     // num_buyer * vahed_price
-    let sum_price=number_format(num_buyer * vahed_price);
+    let sum_price=num_buyer * vahed_price;
     let sum_sefarshi=number_format(num_buyer * sefarshi);
     let sum_pishtaz=number_format(num_buyer * pishtaz);
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
-     // type:'post',
      // url:'../../num_add_sabad_order',
      // data: {
      //
@@ -32,7 +31,8 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
      success:function(data){
        $('#ajax_add_cut').html(num_buyer);
        $('#ajax_cuont_price').html(sum_price);
-       $('#ajax_price_all_pro').html(sum_price);
+       $('#ajax_price_all_pro').html(number_format(sum_price));
+       $('#ajax_price_all_pro2').html(sum_price);
        $('.sabad_kh_end_price2').html(0);
        $('input[name="post"]').prop('checked', false);
        // $('#ajax_add_cut'+id).html(data );
@@ -161,13 +161,16 @@ function end_price_all(model_post){
   else if(model_post== 2){ var price_post= $('#orderSefarshi2').html();}
   else if(model_post== 3){ var price_post= $('#orderPishtaz2').html();}
   else if(model_post== 4){ var price_post=0;}
-  let payWork = 2000;//کارمزد
-  let prrice_pro=$('#ajax_price_all_pro2').html();
-  let price_all1=payWork + Number(prrice_pro) + Number(price_post);
-  let scot=(price_all1 * 2) / 100;
-  let price_all2=price_all1 + scot;
+  // let payWork = 2000;//کارمزد
+  let price_pro=$('#ajax_price_all_pro2').html();
+  let price_all1=Number(price_pro) + Number(price_post);
+  alert(price_all1)
+  let payWork=(price_all1 * 2) / 100 + 2000;
+  let price_all2=price_all1 + payWork;
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
+    type:'post',
+    url:'/../../end_price_all',
     success:function(data){
       if(model_post== 5){
         $('.sabad_kh_end_price').html('<span class="sabad_kh_end_price_span">شما گزینه دریافت کالا به صورت حضوری را انتخاب نموده اید ، پس از انتخاب دکمه ثبت سفارش آدرس کامل و شماره تماس فروشنده در اختیار شما قرار می گیرد .</span>');

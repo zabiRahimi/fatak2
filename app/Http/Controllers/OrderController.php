@@ -192,8 +192,12 @@ class OrderController extends Controller
 
         $pricePishtaz=$pishtaz->$gram + $show_pro->pakat;
       }else{$priceSefarshi=0;$pricePishtaz=0;}
+      Cookie::queue('priceAmanat', $priceAmanat);
+      Cookie::queue('priceSefarshi', $priceSefarshi);
+      Cookie::queue('pricePishtaz', $pricePishtaz);
       return view('order.showSabadOrder',compact('show_pro','shop','stampPost','priceSefarshi','priceAmanat','pricePishtaz'));
     }
+    public function end_price_all()  {}
     //حساب کردن قیمت پست کالا هنگامی که کاربر مبادرت به خرید بیش از یک کالا می نمایید .
     public function pricePostOrder(Request $request)
     {
@@ -509,6 +513,11 @@ class OrderController extends Controller
       $priceSefarshi=array_sum($priceSefarshi1);
       $priceAmanat=array_sum($priceAmanat1);
       $pricePishtaz=array_sum($pricePishtaz1);
+      Cookie::queue('priceSefarshi', $priceSefarshi);
+      Cookie::queue('priceAmanat', $priceAmanat);
+      // Cookie::queue('pricePishtaz', '' , time() - 3600 );
+
+      Cookie::queue('pricePishtaz', $pricePishtaz);
       // $pricePishtaz=0;
       $data=[$priceSefarshi,$priceAmanat,$pricePishtaz];
       return $data;
@@ -525,9 +534,9 @@ class OrderController extends Controller
       $price=$num * $pro_shop->price;
       $postName=StampPost::where('order_id',$pro_shop->order_id)->where('shop_id',$pro_shop->shop_id)->where('pro_id',$pro_shop->id)->first();
       switch ($post) {
-        case 1:$post2='پست امانت'; break;
-        case 2:$post2='پست سفارشی'; break;
-        case 3:$post2='پست پیشتاز'; break;
+        case 1:$post2='پست امانت';$price_post=$request->cookie('priceAmanat'); break;
+        case 2:$post2='پست سفارشی';$price_post=$request->cookie('priceSefarshi'); break;
+        case 3:$post2='پست پیشتاز';$price_post=$request->cookie('pricePishtaz'); break;
         case 'public1':$post2=$postName->public1;$price_post=1;break;
         case 'public2':$post2=$postName->public2;$price_post=2; break;
         case 'public3':$post2=$postName->public3;$price_post=3; break;
@@ -541,11 +550,11 @@ class OrderController extends Controller
         case 'company5':$post2=$postName->company5;$price_post=0; break;
         case 'company6':$post2=$postName->company6;$price_post=0; break;
 
-        default:
-          // code...
-          break;
       }
-      return view('order.factor_order',compact('id','post','shop','order','num','pro_shop','price','post2','price_post'));
+      $payWork=($price + $price_post) * 2 / 100 + 2000;
+      $allPrice= $price + $price_post + $payWork;
+    // $r=540;
+      return view('order.factor_order',compact('id','post','shop','order','num','pro_shop','price','post2','price_post','payWork','allPrice'));
     }
 
   }//end class

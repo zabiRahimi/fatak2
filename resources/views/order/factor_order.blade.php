@@ -76,7 +76,7 @@
       <div class="body_factor3 ">
         <div class="titr_body_factor3 ">هزینه پست</div>
         <div class="matn_body_factor3 number">
-          {{number_format($price_post)}}<span class="factor_span2">تومان</span>
+          {{number_format($price_post)}} <span class="factor_span2">تومان</span>
         </div>
       </div>
       {{-- <div class="body_factor3">
@@ -86,14 +86,14 @@
         <div class="titr_body_factor3">مالیات</div><div class="matn_body_factor3 number">0 <span class="factor_span2">تومان</span></div>
       </div>
       <div class="body_factor3">
-        <div class="titr_body_factor3">کارمزد</div><div class="matn_body_factor3 number"> <span class="factor_span2">تومان</span></div>
+        <div class="titr_body_factor3">کارمزد</div><div class="matn_body_factor3 number">{{number_format($payWork)}} <span class="factor_span2">تومان</span></div>
       </div>
       <div class="body_factor3 bg_color_factor">
         <div class="titr_body_factor3">تخفیف</div><div class="matn_body_factor3 number">0 <span class="factor_span2">تومان</span></div>
       </div>
       <div class="body_factor4">
 
-        <span class="body_factor4_1">هزینه نهایی</span><span class="body_factor4_2 number"></span><span class="body_factor4_3">تومان</span>
+        <span class="body_factor4_1">هزینه نهایی</span><span class="body_factor4_2 number">{{number_format($allPrice)}} </span><span class="body_factor4_3">تومان</span>
       </div>
       {{-- دریافت و ثبت اطلاعات خریدار --}}
       <div class="data_buyer">
@@ -111,7 +111,7 @@
 
          <div class="form-group">
            <label for="mobail_data_buyer" class="control-label pull-right "><i class="fas fa-mobile-alt i_mobail_sabt"></i> موبایل</label>
-           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="mobail_data_buyer"></div>
+           <div class="div_data_buyer"><input type="text" class="form-control" value="{{$order->mobail}}" onfocus="$('.form-control').css('border-color' , '#fff')" id="mobail_data_buyer" disabled></div>
          </div>
          <div class="form-group">
            <label for="tel_data_buyer" class="control-label pull-right "><i class="fas fa-phone i_mobail_sabt"></i>تلفن (اختیاری)</label>
@@ -123,11 +123,11 @@
          </div>
          <div class="form-group">
            <label for="ostan_data_buyer" class="control-label pull-right "><i class="fas fa-map-marker i_email_sabt"></i> استان</label>
-           <div class="div_data_buyer"><input type="text" value=""  class="form-control"  id="ostan_data_buyer" disabled ></div>
+           <div class="div_data_buyer"><input type="text" value="{{$order->ostan}}"  class="form-control"  id="ostan_data_buyer" disabled ></div>
          </div>
          <div class="form-group">
            <label for="city_data_buyer" class="control-label pull-right "><i class="fas fa-map-marker-alt i_email_sabt"></i> شهر</label>
-           <div class="div_data_buyer"><input type="text" value="" class="form-control" id="city_data_buyer" disabled ></div>
+           <div class="div_data_buyer"><input type="text" value="{{$order->city}}" class="form-control" id="city_data_buyer" disabled ></div>
          </div>
          <div class="form-group">
            <label for="codepost_data_buyer" class="control-label pull-right "><i class="far fa-address-card i_email_sabt"></i> کد پستی</label>
