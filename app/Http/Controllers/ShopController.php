@@ -7,7 +7,7 @@ use App\Models\Shop;
 use App\Models\Order;
 use App\Models\ProShop;
 use App\Models\Picture_shop;
-use App\Models\Buy;
+use App\Models\BuyOrder;
 use App\Models\PayShop;
 use App\Models\BackErsalShop;
 
@@ -360,7 +360,7 @@ class ShopController extends Controller
   {
     $buyer_id=$request->buyer_id;
     $pro_id=$request->pro_id;
-    $buyer=Buy::find($buyer_id);
+    $buyer=BuyOrder::find($buyer_id);
     $pro=ProShop::find($pro_id);
     return view('shop.buyProShopOne',compact('stage','buyer','pro'));
   }
@@ -473,7 +473,7 @@ class ShopController extends Controller
     $order_id=$request->order_id;
     $proShop=proShop::where('order_id',$order_id)->where('stage',2)->first();
     if ($proShop) {
-      $buyer=Buy::where('id',$proShop->buyer_id)->first();
+      $buyer=BuyOrder::where('id',$proShop->buyer_id)->first();
     }
     return view('shop.sabtErsalShop',compact('stage','order_id','proShop','buyer'));
   }
@@ -507,7 +507,7 @@ class ShopController extends Controller
     $proShop=proShop::where('stage',3)->get();
     $proShop2=proShop::where('order_id',$order_id)->where('stage',3)->first();
     if ($proShop2) {
-      $buyer=Buy::where('id',$proShop2->buyer_id)->first();
+      $buyer=BuyOrder::where('id',$proShop2->buyer_id)->first();
     }
     return view('shop.editErsalShop',compact('stage','order_id','proShop','proShop2','buyer'));
   }
@@ -587,7 +587,7 @@ class ShopController extends Controller
     if ($order_id) {
       $proShop2=ProShop::where('order_id',$order_id)->where('stage','6')->first();
       $backShop2=BackErsalShop::where('order_id',$order_id)->first();
-      $buy=Buy::where('order_id',$order_id)->first();
+      $buy=BuyOrder::where('order_id',$order_id)->first();
     }
 
     return view('shop.backErsalShop',compact('stage','proShop','backShop','order_id','proShop2','backShop2','buy','search_pro','sortDate','date1','date2','erorrBackShop'));

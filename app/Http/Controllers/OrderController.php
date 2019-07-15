@@ -9,11 +9,11 @@ use App\Models\Shop;
 use App\Models\StampPost;
 use App\Models\Picture_shop;
 use App\Models\Post;
+use App\Models\BuyOrder;
 use App\Http\Requests\Save_order1;
 use App\Http\Requests\Save_mobail;
 use App\Http\Requests\Save_searchOrderSave;
-
-
+use App\Http\Requests\Save_data_buyer;
 use Cookie;
 use DB;
 use Illuminate\Contracts\Encryption\Encrypter;
@@ -556,5 +556,48 @@ class OrderController extends Controller
     // $r=540;
       return view('order.factor_order',compact('id','post','shop','order','num','pro_shop','price','post2','price_post','payWork','allPrice'));
     }
+    //ذخیره اطلاعات خریدار
+public function save_data_buyer2(Save_data_buyer $request){
+  $name=$request->name;
+  $mobail=$request->mobail;
+  if(preg_match('/^[0-9]{10}$/', $mobail)){$mobail=0 . $mobail;}
+  $tel=$request->tel;
+  $email=$request->email;
+  $ostan=$request->ostan;
+  $city=$request->city;
+  $codepost=$request->codepost;
+  $address=$request->address;
+  $post=$request->cookie('model_post2');
+  $show_pro=ProShop::get();
+  $date1=new Verta();//تاریخ جلالی
+  $date=$date1->format('Y/n/j');
 
+
+         $scot=0;
+         $paywork=1000*$num_pro;
+         $all_price=$num_pro*$value2->price;
+         $amount=$all_price+$price_post+$paywork+$scot;
+  $add=new BuyOrder();
+  $add->name=$name;//
+  $add->mobail=$mobail;//
+  $add->tel=$tel;//
+  $add->email=$email;//
+  $add->ostan=$ostan;//
+  $add->city=$city;//
+  $add->codepost=$codepost;//
+  $add->address=$address;//
+  $add->post=$post;
+  $add->pro_id=$value;
+  $add->num_pro=$num_pro;
+  $add->shop_id=$shop_id;
+  $add->other_pro=$other_pro;
+  $add->price_post=$price_post;
+  $add->scot=$scot;
+  $add->paywork=$paywork;
+  $add->amount=$amount;
+  $add->date=$date;
+  $add->stage=0;
+  $add-> save();
+
+}
   }//end class

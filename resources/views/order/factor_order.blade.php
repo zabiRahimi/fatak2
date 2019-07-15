@@ -102,52 +102,52 @@
         </div>
         <form class="form_data_buyer" action="" method="post">
           {{ csrf_field() }}
-         <div class="titr_data_buyer1"><i class="fas fa-info-circle"></i>جهت اصلاح استان و شهر خود به سبد خرید برگردید .</div>
-         <div id="ajax_data_buyer"></div>
+         <div class="titr_data_buyer1"><i class="fas fa-info-circle"></i>با دقت اطلاعات را وارد کنید .</div>
+         <div id="ajax_data_buyer2">klklk</div>
          <div class="form-group">
-           <label for="name_data_buyer" class="control-label pull-right  "><i class="fas fa-user-tie i_name_sabt"></i> نام و نام خانوادگی </label>
-           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="name_data_buyer" placeholder="به فارسی ..." ></div>
+           <label for="name_data_buyer2" class="control-label pull-right  "><i class="fas fa-user-tie i_name_sabt"></i> نام و نام خانوادگی </label>
+           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="name_data_buyer2" placeholder="به فارسی ..." ></div>
          </div>
 
          <div class="form-group">
-           <label for="mobail_data_buyer" class="control-label pull-right "><i class="fas fa-mobile-alt i_mobail_sabt"></i> موبایل</label>
-           <div class="div_data_buyer"><input type="text" class="form-control" value="{{$order->mobail}}" onfocus="$('.form-control').css('border-color' , '#fff')" id="mobail_data_buyer" disabled></div>
+           <label for="mobail_data_buyer2" class="control-label pull-right "><i class="fas fa-mobile-alt i_mobail_sabt"></i> موبایل</label>
+           <div class="div_data_buyer"><input type="text" class="form-control" value="{{$order->mobail}}" onfocus="$('.form-control').css('border-color' , '#fff')" id="mobail_data_buyer2" disabled></div>
          </div>
          <div class="form-group">
-           <label for="tel_data_buyer" class="control-label pull-right "><i class="fas fa-phone i_mobail_sabt"></i>تلفن (اختیاری)</label>
-           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="tel_data_buyer"></div>
+           <label for="tel_data_buyer2" class="control-label pull-right "><i class="fas fa-phone i_mobail_sabt"></i>تلفن (اختیاری)</label>
+           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="tel_data_buyer2"></div>
          </div>
          <div class="form-group">
-           <label for="email_data_buyer" class="control-label pull-right "><i class="fas fa-at i_email_sabt"></i> ایمیل (اختیاری)</label>
-           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="email_data_buyer"></div>
+           <label for="email_data_buyer2" class="control-label pull-right "><i class="fas fa-at i_email_sabt"></i> ایمیل (اختیاری)</label>
+           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="email_data_buyer2"></div>
          </div>
          <div class="form-group">
-           <label for="ostan_data_buyer" class="control-label pull-right "><i class="fas fa-map-marker i_email_sabt"></i> استان</label>
-           <div class="div_data_buyer"><input type="text" value="{{$order->ostan}}"  class="form-control"  id="ostan_data_buyer" disabled ></div>
+           <label for="ostan_data_buyer2" class="control-label pull-right "><i class="fas fa-map-marker i_email_sabt"></i> استان</label>
+           <div class="div_data_buyer"><input type="text" value="{{$order->ostan}}"  class="form-control"  id="ostan_data_buyer2" disabled ></div>
          </div>
          <div class="form-group">
-           <label for="city_data_buyer" class="control-label pull-right "><i class="fas fa-map-marker-alt i_email_sabt"></i> شهر</label>
-           <div class="div_data_buyer"><input type="text" value="{{$order->city}}" class="form-control" id="city_data_buyer" disabled ></div>
+           <label for="city_data_buyer2" class="control-label pull-right "><i class="fas fa-map-marker-alt i_email_sabt"></i> شهر</label>
+           <div class="div_data_buyer"><input type="text" value="{{$order->city}}" class="form-control" id="city_data_buyer2" disabled ></div>
          </div>
          <div class="form-group">
-           <label for="codepost_data_buyer" class="control-label pull-right "><i class="far fa-address-card i_email_sabt"></i> کد پستی</label>
-           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="codepost_data_buyer"></div>
+           <label for="codepost_data_buyer2" class="control-label pull-right "><i class="far fa-address-card i_email_sabt"></i> کد پستی</label>
+           <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="codepost_data_buyer2"></div>
          </div>
          <div class="form-group">
-        <label for="address_data_buyer" class="control-label pull-right "><i class="fas fa-pencil-alt i_email_sabt"></i> آدرس</label>
-        <div class="mobail_question_pro"><textarea name="name" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="address_data_buyer" rows="2" cols="80"></textarea></div>
+        <label for="address_data_buyer2" class="control-label pull-right "><i class="fas fa-pencil-alt i_email_sabt"></i> آدرس</label>
+        <div class="mobail_question_pro"><textarea name="name" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="address_data_buyer2" rows="2" cols="80"></textarea></div>
 
         </div>
          <div class="form-group" >
-           <label for="amniat_data_buyer" class="control-label pull-right "><i class="fas fa-shield-alt i_amniat_sabt"></i> کد امنیتی </label>
-           <div class="div_data_buyer"><input type="text" class="form-control tel" id="amniat_data_buyer" onfocus="$('.form-control').css('border-color' , '#fff')" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+           <label for="amniat_data_buyer2" class="control-label pull-right "><i class="fas fa-shield-alt i_amniat_sabt"></i> کد امنیتی </label>
+           <div class="div_data_buyer"><input type="text" class="form-control tel" id="amniat_data_buyer2" onfocus="$('.form-control').css('border-color' , '#fff')" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
          </div>
          <div class="captcha_data_buyer">
            <span class="captcha4">{!! captcha_img() !!}</span>
            <button type="button" class="btn btn-succpro" onfocus="$('.form-control').css('border-color' , '#fff')" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
          </div>
          <div class="end_form_data_buyer">
-            <button type="submit" class="btn btn-success btn-block submit_data_buyer" onclick="">ثبت اطلاعات</button>
+            <button type="submit" class="btn btn-success btn-block submit_data_buyer2" onclick="">ثبت اطلاعات</button>
          </div>
        </form>
       </div>

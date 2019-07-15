@@ -15,6 +15,8 @@ class CreateTableBuys extends Migration
     {
         Schema::create('Buys', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('pro_id');
+            $table->integer('shop_id');
             $table->string('name',100);
             $table->string('mobail' , 13);
             $table->string('tel' , 13)->nullable();
@@ -24,9 +26,7 @@ class CreateTableBuys extends Migration
             $table->string('codepost',11);
             $table->text('address');
             $table->string('post',25);
-            $table->integer('pro_id');
             $table->smallInteger('num_pro');
-            $table->integer('shop_id');
             $table->smallInteger('other_pro')->nullable();
             $table->text('dis')->nullable();
             $table->mediumInteger('price_post');

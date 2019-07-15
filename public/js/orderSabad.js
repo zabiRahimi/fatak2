@@ -164,7 +164,6 @@ function end_price_all(model_post){
   // let payWork = 2000;//کارمزد
   let price_pro=$('#ajax_price_all_pro2').html();
   let price_all1=Number(price_pro) + Number(price_post);
-  alert(price_all1)
   let payWork=(price_all1 * 2) / 100 + 2000;
   let price_all2=price_all1 + payWork;
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
@@ -192,73 +191,73 @@ function chek_add_post(chek,id){
 }
 //اعتبار سنجی و ذخیره اطلاعات خریدار
 $(document).ready(function(){
-							$('.submit_data_buyer').click(function(e){
+							$('.submit_data_buyer2').click(function(e){
 								e.preventDefault();
 								$.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-								var mobail=$('#mobail_data_buyer').val();	var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+								var mobail=$('#mobail_data_buyer2').val();	var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
 									$.ajax({
-											url: "../../../save_data_buyer",
+											url: "../../../save_data_buyer2",
 											method: 'post',
 											data: {
-													name: $('#name_data_buyer').val(),
+													name: $('#name_data_buyer2').val(),
 													mobail: mobail,
-                          tel:$('#tel_data_buyer').val(),
-													email: $('#email_data_buyer').val(),
-                          ostan: $('#ostan_data_buyer').val(),
-                          city: $('#city_data_buyer').val(),
-                          codepost: $('#codepost_data_buyer').val(),
-                          address: $('#address_data_buyer').val(),
-													amniat: $('#amniat_data_buyer').val(),
+                          tel:$('#tel_data_buyer2').val(),
+													email: $('#email_data_buyer2').val(),
+                          ostan: $('#ostan_data_buyer2').val(),
+                          city: $('#city_data_buyer2').val(),
+                          codepost: $('#codepost_data_buyer2').val(),
+                          address: $('#address_data_buyer2').val(),
+													amniat: $('#amniat_data_buyer2').val(),
 											},
 											success: function(data) {
-                        $('#ajax_data_buyer').empty();
-                        $('#sabt_date_buyer').modal('show');
-                        scroll_form('data_buyer');
+                        $('#ajax_data_buyer2').empty();
+                        $('#sabt_date_buyer2').modal('show');
+                        scroll_form('data_buyer2');
                         end_buy();
                       },
 											error: function(xhr) {
 													var errors = xhr.responseJSON;
 													var error=errors.errors;
                           scroll_form('form_data_buyer');
-													$('#ajax_data_buyer').empty();
+													$('#ajax_data_buyer2').empty();
                           $('.form-control').css("border-color" , "#fff");
 													captcha();
-                          $('#amniat_data_buyer').val('');
+                          $('#amniat_data_buyer2').val('');
 													 if(error['name']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['name']+'</div>');
-                             $('#name_data_buyer').css("border-color" , "#c30909");
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['name']+'</div>');
+                             $('#name_data_buyer2').css("border-color" , "#c30909");
                           }else if(error['mobail']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['mobail']+'</div>');
-                             $('#mobail_data_buyer').css("border-color" , "#c30909");
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['mobail']+'</div>');
+                             $('#mobail_data_buyer2').css("border-color" , "#c30909");
                           }
 													else if(error['tel']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['tel']+'</div>');
-                             $('#tel_data_buyer').css("border-color" , "#c30909");
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['tel']+'</div>');
+                             $('#tel_data_buyer2').css("border-color" , "#c30909");
                           }
                           else if(error['email']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['email']+'</div>');
-                             $('#email_data_buyer').css("border-color" , "#c30909");
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['email']+'</div>');
+                             $('#email_data_buyer2').css("border-color" , "#c30909");
                           }
                           else if(error['ostan']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['ostan']+'</div>');
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['ostan']+'</div>');
                         	}
                           else if(error['city']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['city']+'</div>');
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['city']+'</div>');
                           }
                           else if(error['codepost']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['codepost']+'</div>');
-                             $('#codepost_data_buyer').css("border-color" , "#c30909");
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['codepost']+'</div>');
+                             $('#codepost_data_buyer2').css("border-color" , "#c30909");
                           }
                           else if(error['address']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['address']+'</div>');
-                             $('#address_data_buyer').css("border-color" , "#c30909");
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['address']+'</div>');
+                             $('#address_data_buyer2').css("border-color" , "#c30909");
                           }
 													else if(error['amniat']){
-														 $('#ajax_data_buyer').append('<div id="alarm_red">'+error['amniat']+'</div>');
-                             $('#amniat_data_buyer').css("border-color" , "#c30909");
+														 $('#ajax_data_buyer2').append('<div id="alarm_red">'+error['amniat']+'</div>');
+                             $('#amniat_data_buyer2').css("border-color" , "#c30909");
                           }
                           else {
-													   $('#warning_date_buyer').modal('show');
+													   $('#warning_date_buyer2').modal('show');
 													}
 											}
 		}, "json");
