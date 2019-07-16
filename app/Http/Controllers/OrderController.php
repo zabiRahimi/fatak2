@@ -598,6 +598,10 @@ public function save_data_buyer2(Save_data_buyer $request){
     $add->stage=0;
     $add-> save();
     if(!empty($add->id)){
+      Cookie::queue('amountOrder', $amount );
+      Cookie::queue('proOrder', $proShop->name);
+      Cookie::queue('buyOrder_id', $add->id);
+      Cookie::queue('proShop_id', $proShop->id);
       Cookie::queue('postOrder', '' , time() - 3600);
       Cookie::queue('pricePostOrder', '' , time() - 3600);
       Cookie::queue('numProOrder', '' , time() - 3600);
@@ -605,6 +609,10 @@ public function save_data_buyer2(Save_data_buyer $request){
 }
 public function payBuyOrder(Request $request)
 {
-  return view('order.payBuyOrder');
+  $amount=$request->cookie('amountOrder');
+  $proOrder=$request->cookie('proOrder');
+  $buyOrder_id=$request->cookie('buyOrder_id');
+  $proShop_id=$request->cookie('proShop_id');
+  return view('order.payBuyOrder',compact('amount','proOrder','buyOrder_id','proShop_id'));
 }
   }//end class

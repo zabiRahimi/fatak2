@@ -16,15 +16,15 @@
       در حال حاضر پرداخت مبلغ کالا تنها از طریق درگاه اینترنتی فروشگاه مقدور می باشد .
     </div>
     <div class="payBuy2">
-      <div class="">
-        <div class="">مبلغ پرداخت :</div>
-        <div class=""></div>
+      <div class="payBuy3">
+        <div class="payBuy3_1">مبلغ پرداخت :</div>
+        <div class="payBuy3_2"><span>{{number_format($amount)}}</span> تومان</div>
       </div>
-      <div class="">
-        <div class="">
+      <div class="payBuy4">
+        <div class="payBuy4_1">
           <button type="button" class="btn btn-success" name="button">پرداخت آنلاین</button>
         </div>
-        <div class="">
+        <div class="payBuy4_2">
           <button type="button" class="btn btn-warning" name="button">بعدا خرید می کنم</button>
         </div>
       </div>

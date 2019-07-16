@@ -287,3 +287,54 @@
   background-color: inherit;
   border-color: #d4d5bf;
 }
+.payBuy3 , .payBuy4{
+  width: 390px;
+  margin: 6px calc((100% - 390px) / 2);
+  padding: 12px 0;
+  float: right;
+  background-color: #fff;
+  border: 1px solid #c0d4df;
+  border-radius: 15px;
+  text-align: center;
+}
+.payBuy3_1,.payBuy3_2{
+  display: inline-block;
+  color: #001855;
+}
+.payBuy3_1{ padding:4px 0 0 5px;}
+.payBuy3_2{padding-right: 5px;}
+.payBuy3_2 span{padding-left: 5px;font-size: 18px;color:#03133b; }
+.payBuy4_1 , .payBuy4_2{
+  width: 50%;
+  float: right;
+}
+.payBuy4{
+  /* margin: 0 calc((100% - 390px) / 2); */
+  padding: 0;
+  background-color: inherit;
+  border: none;
+  border-radius: 0;
+}
+.payBuy4_1 button{
+  width: 98%;
+}
+.payBuy4_2 button{
+  width: 98%;
+  background-color: #a33709;
+  color: #fff;
+}
+.payBuy4_2 button:hover{
+  background-color: #8c320b;
+  color: #fff;
+}
+@media (max-width:670px) {
+  .payBuyAll{width: 98%;margin: 50px 1%;}
+}
+@media (max-width:430px) {
+  .payBuy1 ,.payBuy2{padding: 6px 5px;}
+  .payBuy3 , .payBuy4{width: 100%;margin: 6px 0;}
+}
+@media (max-width:265px) {
+  .payBuy4_1 , .payBuy4_2{width: 100%;}
+  .payBuy4_2{margin-top: 5px;}
+}
