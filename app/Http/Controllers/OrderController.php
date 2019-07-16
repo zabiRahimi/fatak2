@@ -537,9 +537,9 @@ class OrderController extends Controller
         case 1:$post2='پست امانت';$price_post=$request->cookie('priceAmanat'); break;
         case 2:$post2='پست سفارشی';$price_post=$request->cookie('priceSefarshi'); break;
         case 3:$post2='پست پیشتاز';$price_post=$request->cookie('pricePishtaz'); break;
-        case 'public1':$post2=$postName->public1;$price_post=1;break;
-        case 'public2':$post2=$postName->public2;$price_post=2; break;
-        case 'public3':$post2=$postName->public3;$price_post=3; break;
+        case 'public1':$post2=$postName->public1;$price_post=0;break;
+        case 'public2':$post2=$postName->public2;$price_post=0; break;
+        case 'public3':$post2=$postName->public3;$price_post=0; break;
         case 'public4':$post2=$postName->public4;$price_post=0; break;
         case 'public5':$post2=$postName->public5;$price_post=0; break;
         case 'public6':$post2=$postName->public6;$price_post=0; break;
@@ -553,51 +553,58 @@ class OrderController extends Controller
       }
       $payWork=($price + $price_post) * 2 / 100 + 2000;
       $allPrice= $price + $price_post + $payWork;
+      Cookie::queue('postOrder', $post2);
+      Cookie::queue('pricePostOrder', $price_post);
+      Cookie::queue('numProOrder', $num);
+
     // $r=540;
       return view('order.factor_order',compact('id','post','shop','order','num','pro_shop','price','post2','price_post','payWork','allPrice'));
     }
     //ذخیره اطلاعات خریدار
 public function save_data_buyer2(Save_data_buyer $request){
-  $name=$request->name;
-  $mobail=$request->mobail;
-  if(preg_match('/^[0-9]{10}$/', $mobail)){$mobail=0 . $mobail;}
-  $tel=$request->tel;
-  $email=$request->email;
-  $ostan=$request->ostan;
-  $city=$request->city;
-  $codepost=$request->codepost;
-  $address=$request->address;
-  $post=$request->cookie('model_post2');
-  $show_pro=ProShop::get();
-  $date1=new Verta();//تاریخ جلالی
-  $date=$date1->format('Y/n/j');
-
-
-         $scot=0;
-         $paywork=1000*$num_pro;
-         $all_price=$num_pro*$value2->price;
-         $amount=$all_price+$price_post+$paywork+$scot;
-  $add=new BuyOrder();
-  $add->name=$name;//
-  $add->mobail=$mobail;//
-  $add->tel=$tel;//
-  $add->email=$email;//
-  $add->ostan=$ostan;//
-  $add->city=$city;//
-  $add->codepost=$codepost;//
-  $add->address=$address;//
-  $add->post=$post;
-  $add->pro_id=$value;
-  $add->num_pro=$num_pro;
-  $add->shop_id=$shop_id;
-  $add->other_pro=$other_pro;
-  $add->price_post=$price_post;
-  $add->scot=$scot;
-  $add->paywork=$paywork;
-  $add->amount=$amount;
-  $add->date=$date;
-  $add->stage=0;
-  $add-> save();
-
+    $num_pro=$request->cookie('numProOrder');
+    $pricePost=$request->cookie('pricePostOrder');
+    $proShop_id=$request->id;
+    $proShop=ProShop::find($proShop_id);
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $scot=0;
+    $priceAll=$num_pro * $proShop->price;
+    $paywork=($priceAll + $pricePost) * 2 /100 + 2000;
+    $amount=$priceAll + $pricePost + $paywork;
+    if(empty($num_pro) or empty($pricePost)){
+      return 12;
+    }
+    $add=new BuyOrder();
+    $add->order_id=$proShop->order_id;
+    $add->proShop_id=$proShop_id;
+    $add->shop_id=$proShop->shop_id;
+    $add->name=$request->name;
+    $add->mobail=$request->mobail;//
+    $add->tel=$request->tel;//
+    $add->email=$request->email;//
+    $add->ostan=$request->ostan;//
+    $add->city=$request->city;//
+    $add->codepost=$request->codepost;//
+    $add->address=$request->address;//
+    $add->post=$request->cookie('postOrder');
+    $add->num_pro=$num_pro;
+    $add->dis=$request->dis;
+    $add->price_post=$pricePost;
+    $add->scot=$scot;
+    $add->paywork=$paywork;
+    $add->amount=$amount;
+    $add->date=$date;
+    $add->stage=0;
+    $add-> save();
+    if(!empty($add->id)){
+      Cookie::queue('postOrder', '' , time() - 3600);
+      Cookie::queue('pricePostOrder', '' , time() - 3600);
+      Cookie::queue('numProOrder', '' , time() - 3600);
+    }
+}
+public function payBuyOrder(Request $request)
+{
+  return view('order.payBuyOrder');
 }
   }//end class

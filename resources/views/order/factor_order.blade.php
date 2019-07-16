@@ -103,7 +103,7 @@
         <form class="form_data_buyer" action="" method="post">
           {{ csrf_field() }}
          <div class="titr_data_buyer1"><i class="fas fa-info-circle"></i>با دقت اطلاعات را وارد کنید .</div>
-         <div id="ajax_data_buyer2">klklk</div>
+         <div id="ajax_data_buyer2"></div>
          <div class="form-group">
            <label for="name_data_buyer2" class="control-label pull-right  "><i class="fas fa-user-tie i_name_sabt"></i> نام و نام خانوادگی </label>
            <div class="div_data_buyer"><input type="text" class="form-control" onfocus="$('.form-control').css('border-color' , '#fff')" id="name_data_buyer2" placeholder="به فارسی ..." ></div>
@@ -147,7 +147,7 @@
            <button type="button" class="btn btn-succpro" onfocus="$('.form-control').css('border-color' , '#fff')" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
          </div>
          <div class="end_form_data_buyer">
-            <button type="submit" class="btn btn-success btn-block submit_data_buyer2" onclick="">ثبت اطلاعات</button>
+            <button type="button" class="btn btn-success btn-block submit_data_buyer2" onclick="sabtDataBuyer({{$pro_shop->id}})">ثبت اطلاعات</button>
          </div>
        </form>
       </div>

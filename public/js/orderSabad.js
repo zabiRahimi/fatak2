@@ -190,13 +190,11 @@ function chek_add_post(chek,id){
   }
 }
 //اعتبار سنجی و ذخیره اطلاعات خریدار
-$(document).ready(function(){
-							$('.submit_data_buyer2').click(function(e){
-								e.preventDefault();
+function sabtDataBuyer(id) {
 								$.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
 								var mobail=$('#mobail_data_buyer2').val();	var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
 									$.ajax({
-											url: "../../../save_data_buyer2",
+											url: "/../save_data_buyer2/" + id,
 											method: 'post',
 											data: {
 													name: $('#name_data_buyer2').val(),
@@ -211,9 +209,9 @@ $(document).ready(function(){
 											},
 											success: function(data) {
                         $('#ajax_data_buyer2').empty();
-                        $('#sabt_date_buyer2').modal('show');
-                        scroll_form('data_buyer2');
-                        end_buy();
+                        // $('#sabt_date_buyer').modal('show');
+
+                        window.location="/payBuyOrder";
                       },
 											error: function(xhr) {
 													var errors = xhr.responseJSON;
@@ -261,8 +259,8 @@ $(document).ready(function(){
 													}
 											}
 		}, "json");
-  });
-});
+
+}
 //ثبت نهایی سفارش و پرداخت آنلاین
 function end_buy(){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
