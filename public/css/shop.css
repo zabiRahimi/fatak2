@@ -108,6 +108,7 @@
 .dashShHead2 a{font-size: 18px; color: #115303;}
 .NoperfectDaSh{width: 100%;margin: 20px 0; padding: 15px 3px;text-align: center;border: 2px solid #904a11;border-radius: 3px;float: right;}
 .NoperfectDaSh span {font-size: 26px; color:#b16914 ; }
+
 @media (max-width:768px) {
   .dashShHead{padding: 0 6px;}
 }
@@ -137,6 +138,7 @@
 .dashSh_R{width: 220px;margin-left: 5px;background-color: #d4d4d4; float: right;}
 .dashSh_RUl li{font-size: 18px;border-color: #f0f0f0}
 .dashSh_RUl li i{margin-left: 8px;}
+.badgeShop{height: 20px;padding:0 6px;color: #fff;position: absolute;;left:calc(100% - 232px);margin-top: 5px;text-align: center;border-radius: 15px;background-color: #a45326}
 .dashSh_L{width: calc(100% - 225px);padding: 3px 15px;float: left;background-color: #fff;}
 .dashTitrSh,.searchShop{width: 100%;height: 35px;line-height: 35px;padding:0 20px;float: right;font-size: 18px;color: #fff;background-color: #2454a6;border-radius: 3px;text-align: right;}
 .row1,.row3{

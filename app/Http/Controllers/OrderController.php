@@ -615,4 +615,11 @@ public function payBuyOrder(Request $request)
   $proShop_id=$request->cookie('proShop_id');
   return view('order.payBuyOrder',compact('amount','proOrder','buyOrder_id','proShop_id'));
 }
+public function delBuyOrder(Request $request)
+{
+  $id=$request->id;
+  $del=BuyOrder::find($id);
+  $del->delete();
+
+}
   }//end class

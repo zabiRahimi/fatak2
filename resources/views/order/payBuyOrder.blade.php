@@ -22,10 +22,10 @@
       </div>
       <div class="payBuy4">
         <div class="payBuy4_1">
-          <button type="button" class="btn btn-success" name="button">پرداخت آنلاین</button>
+          <button type="button" class="btn btn-success" onclick="toBank({{$amount}},'{{$proOrder}}')">پرداخت آنلاین</button>
         </div>
         <div class="payBuy4_2">
-          <button type="button" class="btn btn-warning" name="button">بعدا خرید می کنم</button>
+          <button type="button" class="btn btn-warning" onclick="delBuyOrder({{$buyOrder_id}})">بعدا خرید می کنم</button>
         </div>
       </div>
 

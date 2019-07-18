@@ -38,6 +38,7 @@ class ShopController extends Controller
 {
   public $stage;
   public $id;
+  public $seller;//نام فروشنده
   public function __construct(Encrypter $encrypter ,Request $request)
   {
     $cookie=$request->cookie('checkLogShop');
@@ -47,6 +48,7 @@ class ShopController extends Controller
     $this->id=$id;
     $user=Shop::find($id);
     $this->stage=$user->stage;
+    $this->seller=$user->seller;
     return $next($request);
       });
       }
@@ -93,12 +95,14 @@ class ShopController extends Controller
   public function dashboard_shop(Request $request)
   {
     $stage=$this->stage;
-    return view('shop.dashboard_shop',compact('stage'));
+    $seller=$this->seller;
+    return view('shop.dashboard_shop',compact('stage','seller'));
   }
   public function perfectDaShop(Request $request)
   {
     $stage=$this->stage;
-    return view('shop.perfectDaShop',compact('stage'));
+    $seller=$this->seller;
+    return view('shop.perfectDaShop',compact('stage','seller'));
   }
   public function sabtShop_2(Save_shop_2 $request)
   {
@@ -126,7 +130,8 @@ class ShopController extends Controller
   {
     $user=Shop::find($this->id);
     $stage=$this->stage;
-    return view('shop.editDaShop',compact('stage','user'));
+    $seller=$this->seller;
+    return view('shop.editDaShop',compact('stage','seller','user'));
   }
   public function editDaShopSave(Save_editShop $request)
   {
@@ -175,6 +180,7 @@ class ShopController extends Controller
     $dateC=$dateA->subDay()->format('Y/n/j');
     $date30=$dateA->subDay(30)->format('Y/n/j');
     $stage=$this->stage;
+    $seller=$this->seller;
     $id=$this->id;
     $date=$request->date;
     $date1=$request->cookie('date1');
@@ -232,7 +238,7 @@ class ShopController extends Controller
     if(!empty($search_proA)){$search_pro='محصول '.$search_proA;}else { $search_pro='همه محصولات' ;  }
     $city=$search_cityA;
     $proShop=proShop::where('shop_id',$id)->get();
-    return view('shop.newOrderShop',compact('stage','newOrder','proShop','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
+    return view('shop.newOrderShop',compact('stage','seller','newOrder','proShop','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
   }
   public function searchSortDateShop(Request $request)
   {
@@ -267,9 +273,10 @@ class ShopController extends Controller
   public function newOrderShopOne(Request $request)
   {
     $stage=$this->stage;
+    $seller=$this->seller;
     $id=$request->id;
     $newOrderOne=Order::find($id);
-    return view('shop.newOrderShopOne',compact('stage','newOrderOne'));
+    return view('shop.newOrderShopOne',compact('stage','seller','newOrderOne'));
   }
   public function proShop(Save_proShop $request)
   {
@@ -319,6 +326,7 @@ class ShopController extends Controller
   public function buyProShop(Request $request)
   {
     $stage=$this->stage;
+    $seller=$this->seller;
     $id=$this->id;
     $codeBuyProSh=$request->cookie('codeBuyProShC');
     $nameBuyProSh=$request->cookie('nameBuyProShC');
@@ -338,7 +346,7 @@ class ShopController extends Controller
       $search= 'همه محصولات';
       $noRecord='all';
     }
-    return view('shop.buyProShop',compact('stage','proShop','search','noRecord'));
+    return view('shop.buyProShop',compact('stage','seller','proShop','search','noRecord'));
   }
   public function codeBuyProShop(Save_codeBuyProShop $request)
   {
@@ -362,7 +370,7 @@ class ShopController extends Controller
     $pro_id=$request->pro_id;
     $buyer=BuyOrder::find($buyer_id);
     $pro=ProShop::find($pro_id);
-    return view('shop.buyProShopOne',compact('stage','buyer','pro'));
+    return view('shop.buyProShopOne',compact('stage','seller','buyer','pro'));
   }
   public function uplodImgProSh(Request $request){
     //اعتبار سنجی
@@ -380,6 +388,7 @@ class ShopController extends Controller
   public function oldOrderShop(Request $request)
   {
     $stage=$this->stage;
+    $seller=$this->seller;
     $id=$this->id;
     $codeOldOrSh=$request->cookie('codeOldOrShC');
     $nameOldOrSh=$request->cookie('nameOldOrShC');
@@ -401,7 +410,7 @@ class ShopController extends Controller
 
     }
 
-    return view('shop.oldOrderShop',compact('stage','proShop','search','noRecord'));
+    return view('shop.oldOrderShop',compact('stage','seller','proShop','search','noRecord'));
   }
   public function codeOldOrderShop(Save_codeOldOrderShop $request)
   {
@@ -424,10 +433,11 @@ class ShopController extends Controller
     $id_order=$request->id1;
     $id_proShop=$request->id2;
     $stage=$this->stage;
+    $seller=$this->seller;
     $oldOrderOne=Order::find($id_order);
     $proShopOne=proShop::find($id_proShop);
     $proImg=Picture_shop::where('pro_shop_id', $id_proShop)->first();
-    return view('shop.oldOrderShopOne',compact('stage','oldOrderOne','proShopOne','proImg','id_order','id_proShop'));
+    return view('shop.oldOrderShopOne',compact('stage','seller','oldOrderOne','proShopOne','proImg','id_order','id_proShop'));
   }
   public function editProShop(Save_editProShop $request)
   {
@@ -470,12 +480,13 @@ class ShopController extends Controller
   public function sabtErsalShop(Request $request)
   {
     $stage=$this->stage;
+    $seller=$this->seller;
     $order_id=$request->order_id;
     $proShop=proShop::where('order_id',$order_id)->where('stage',2)->first();
     if ($proShop) {
       $buyer=BuyOrder::where('id',$proShop->buyer_id)->first();
     }
-    return view('shop.sabtErsalShop',compact('stage','order_id','proShop','buyer'));
+    return view('shop.sabtErsalShop',compact('stage','seller','order_id','proShop','buyer'));
   }
   public function sabtCodeSh(Save_sabtCodeSh $request)
   {
@@ -503,13 +514,14 @@ class ShopController extends Controller
   public function editErsalShop(Request $request)
   {
     $stage=$this->stage;
+    $seller=$this->seller;
     $order_id=$request->order_id;
     $proShop=proShop::where('stage',3)->get();
     $proShop2=proShop::where('order_id',$order_id)->where('stage',3)->first();
     if ($proShop2) {
       $buyer=BuyOrder::where('id',$proShop2->buyer_id)->first();
     }
-    return view('shop.editErsalShop',compact('stage','order_id','proShop','proShop2','buyer'));
+    return view('shop.editErsalShop',compact('stage','seller','order_id','proShop','proShop2','buyer'));
   }
   public function editCodeSh(Save_sabtCodeSh $request)
   {
@@ -537,11 +549,13 @@ class ShopController extends Controller
   public function pigiryErsalShop(Request $request)
   {
     $stage=$this->stage;
-    return view('shop.pigiryErsalShop',compact('stage'));
+    $seller=$this->seller;
+    return view('shop.pigiryErsalShop',compact('stage','seller'));
   }
   public function backErsalShop(Request $request)
   {
     $stage=$this->stage;
+    $seller=$this->seller;
     $order_id=$request->order_id;
 
     $codeOkBackShop=$request->cookie('codeOkBackShop');
@@ -590,7 +604,7 @@ class ShopController extends Controller
       $buy=BuyOrder::where('order_id',$order_id)->first();
     }
 
-    return view('shop.backErsalShop',compact('stage','proShop','backShop','order_id','proShop2','backShop2','buy','search_pro','sortDate','date1','date2','erorrBackShop'));
+    return view('shop.backErsalShop',compact('stage','seller','proShop','backShop','order_id','proShop2','backShop2','buy','search_pro','sortDate','date1','date2','erorrBackShop'));
   }
   // 30 روزه
   public function SearchAllDateBackShop()
@@ -634,6 +648,7 @@ class ShopController extends Controller
   public function payShop(Request $request)
   {
     $stage=$this->stage;
+    $seller=$this->seller;
     $order_id=$request->order_id;
 
     $codeOkPayShop=$request->cookie('codeOkPayShop');
@@ -680,7 +695,7 @@ class ShopController extends Controller
       $proShop2=ProShop::where('order_id',$order_id)->where('stage','4')->first();
     }
 
-    return view('shop.payShop',compact('stage','proShop','payShop','order_id','proShop2','search_pro','sortDate','date1','date2','erorrPayShop'));
+    return view('shop.payShop',compact('stage','seller','proShop','payShop','order_id','proShop2','search_pro','sortDate','date1','date2','erorrPayShop'));
   }
   public function SearchNamePayShop(Save_namePayShop $request)
   {

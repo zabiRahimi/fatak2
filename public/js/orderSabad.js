@@ -274,14 +274,25 @@ function end_buy(){
   });
 }
 //ارسال قیمت و نام کالا برای درگاه بانک
-function pardakht(price , pro){
-  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-  $.ajax({
-    type:'put',
-    url:'../../pardakht',
-    data: {
-      pro:pro,
-         },
-    success:function(data){
-      alert(data);
-    },});}
+function toBank(price , pro){
+  alert(price)
+  // $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  // $.ajax({
+  //   type:'post',
+  //   url:'../../toBank',
+  //   data: {
+  //     pro:pro,
+  //        },
+  //   success:function(data){
+  //     alert(data);
+  //   },});
+  }
+  function delBuyOrder(id) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'/../delBuyOrder/' + id,
+      success:function(data){
+        window.location="/";
+      },});
+  }
