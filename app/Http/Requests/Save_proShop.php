@@ -70,6 +70,7 @@ class Save_proShop extends FormRequest
           'price'=>'required|numeric',
           'vahed'=>'required',
           'num'=>'nullable|numeric',
+          'dimension' =>'required|numeric' ,
           'vazn'=>'nullable|numeric',
           'vaznPost'=>'required|numeric',
           'pakat'=>'nullable|numeric',

@@ -102,11 +102,11 @@
          <div class="div_form_radio1">
              <div class="div_form_radio2 stamp_orderSabtShD1">
                <label for="dimension_orderSabtSh1" class="control-label pull-right "> بزرگتر از 100 cm</label>
-               <input type="radio" name="dimension_orderSabtSh" id="dimension_orderSabtSh1" value="1">
+               <input type="radio" name="dimension_orderSabtSh" id="dimension_orderSabtSh1" value="2">
              </div>
              <div class="div_form_radio2 stamp_orderSabtShD2">
                <label for="dimension_orderSabtSh2" class="control-label pull-right ">کوچکتر از 100 cm </label>
-               <input type="radio" name="dimension_orderSabtSh" id="dimension_orderSabtSh2" value="0">
+               <input type="radio" name="dimension_orderSabtSh" id="dimension_orderSabtSh2" value="1">
              </div>
          </div>
        </div>

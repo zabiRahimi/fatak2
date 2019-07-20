@@ -473,6 +473,9 @@ function editPasDaShop(id){
               else if(error['vahed']){
                  $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['vahed']+'</div>');
               }
+              else if(error['dimension']){
+                 $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['dimension']+'</div>');
+              }
               else if(error['vazn']){
                  $('#ajax_orderSabtSh').append('<div id="alarm_red">'+error['vazn']+'</div>');
               }
