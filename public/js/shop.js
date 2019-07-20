@@ -436,6 +436,7 @@ function editPasDaShop(id){
                 price:$('#price_orderSabtSh').val(),
                 vahed:$('#vahed_orderSabtSh').val(),
                 num:$('#num_orderSabtSh').val(),
+                dimension:$('input[type=radio][name=dimension_orderSabtSh]:checked').val(),
                 vazn:$('#vazn_orderSabtSh').val(),
                 vaznPost:$('#vaznPost_orderSabtSh').val(),
                 pakat:$('#pakat_orderSabtSh').val(),

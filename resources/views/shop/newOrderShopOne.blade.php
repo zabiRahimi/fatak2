@@ -98,6 +98,19 @@
          <div class="div_form"><input type="text" class="form-control placeholder" id="vazn_orderSabtSh"placeholder="در صورت نیاز ..."></div>
        </div>
        <div class="form-group">
+         <label for="stamp_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh" data-toggle="modal" data-target="#Mstamp_orderSabtSh"></i> ابعاد محصول</label>
+         <div class="div_form_radio1">
+             <div class="div_form_radio2 stamp_orderSabtShD1">
+               <label for="dimension_orderSabtSh1" class="control-label pull-right "> بزرگتر از 100 cm</label>
+               <input type="radio" name="dimension_orderSabtSh" id="dimension_orderSabtSh1" value="1">
+             </div>
+             <div class="div_form_radio2 stamp_orderSabtShD2">
+               <label for="dimension_orderSabtSh2" class="control-label pull-right ">کوچکتر از 100 cm </label>
+               <input type="radio" name="dimension_orderSabtSh" id="dimension_orderSabtSh2" value="0">
+             </div>
+         </div>
+       </div>
+       <div class="form-group">
          <label for="vaznPost_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MvaznPost_orderSabtSh"></i> وزن پستی محصول (گرم)</label>
          <div class="div_form"><input type="text" class="form-control placeholder" id="vaznPost_orderSabtSh"></div>
        </div>
