@@ -17,8 +17,7 @@ class Pro_adController extends Controller
   }
 public function uplod_img_pro(Request $request){
   //اعتبار سنجی
-  //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب ما بایت است . دقت شود
-  //مگا بایت
+  //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب مگا بایت است . دقت شود
   $this->validate($request, [
         'file' => 'required|mimes:jpeg,jpg,png|max:3000',
 

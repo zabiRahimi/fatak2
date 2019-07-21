@@ -65,6 +65,7 @@ Route::get('/rahnamaCh','ChannelController@rahnamaCh')->middleware(['cheklogin_c
 Route::get('/pageloginShop','ShopController@pageloginShop');//ok
 Route::post('/sabtShop_1','ShopController@sabtShop_1');//ok
 Route::post('/loginShop','ShopController@loginShop');//ok!!
+Route::get('/logoutShop','ShopController@logoutShop');//ok
 Route::get('/dashboard_shop','ShopController@dashboard_shop')->middleware(['chekloginShop' ]);;//ok
 Route::get('/perfectDaShop','ShopController@perfectDaShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/sabtShop_2','ShopController@sabtShop_2');//ok!!
@@ -134,12 +135,14 @@ Route::post('/delBuyOrder/{id}', 'OrderController@delBuyOrder')->where('id', '[0
 
 
 //قسمت مدیریت management
-Route::get('/management', 'Admin\ManagementController@show');//ok
-Route::get('/pro_admin', 'Admin\Pro_adController@show');//ok!!
+Route::get('/management', 'Admin\ManagementController@page_login');//ok
+Route::post('/loginManage', 'Admin\ManagementController@loginManage');//ok
+
+Route::get('/pro_admin', 'Admin\Pro_adController@show')->middleware(['chekloginManeg']);//ok!!
 Route::post('/uplod_img_pro', 'Admin\Pro_adController@uplod_img_pro');//ok
-Route::get('/article_admin', 'Admin\Pro_adController@show');//ok!!
-Route::get('/add_pro', 'Admin\Pro_adController@add_pro');//ok
+Route::get('/article_admin', 'Admin\Pro_adController@show')->middleware(['chekloginManeg']);//ok!!
+Route::get('/add_pro', 'Admin\Pro_adController@add_pro')->middleware(['chekloginManeg']);//ok
 Route::post('/save_add_pro1', 'Admin\Pro_adController@save_add_pro1');//ok
-Route::get('/edit_pro/{id}', 'Admin\Pro_adController@edit_pro');//ok!!
+Route::get('/edit_pro/{id}', 'Admin\Pro_adController@edit_pro')->middleware(['chekloginManeg']);//ok!!
 Route::post('/save_edit_pro1', 'Admin\Pro_adController@save_edit_pro1');//ok
-Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro');//ok
+Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro')->middleware(['chekloginManeg']);//ok

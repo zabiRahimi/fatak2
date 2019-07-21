@@ -1,0 +1,27 @@
+/* page_login.php */
+.login1{
+  width: 100%;
+  float: right;
+}
+.login2{
+  width: 360px;
+  margin: 100px calc((100% - 360px) / 2);
+  padding: 7px;
+  float: right;
+  background-color: #dbf5e9;
+}
+.ajaxLoginManage{
+  width: 100%;
+  margin: 3px 0;
+  padding: 3px;
+  float: right;
+}
+.form_btn1{
+  width: 100%;
+  margin: 2px 0;
+  padding: 3px;
+  float: right;
+}
+.form_btn1 button{
+  width: 100%;
+}

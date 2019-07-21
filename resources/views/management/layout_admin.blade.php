@@ -19,6 +19,7 @@
         <link href='\froala\css\froala_style.min.css' rel='stylesheet' type='text/css' />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
         <link href="\css\admin\main_admin.css" rel="stylesheet" type="text/css">
+        <link href="\css\admin\management.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\header_admin.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\pro_admin.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\add_pro.css" rel="stylesheet" type="text/css">
@@ -26,18 +27,18 @@
         <link href="\css\admin\one_edit_pro.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <header>
+        {{-- <header>
           @include('management.header_admin')
-        </header>
+        </header> --}}
 
         <div class="content" id="pjax">
           @yield('content')
 
         </div>
 
-        <footer>
+        {{-- <footer>
 
-        </footer>
+        </footer> --}}
         <script type="text/javascript" src="..\..\js\app.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
