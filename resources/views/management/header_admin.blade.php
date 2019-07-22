@@ -1,6 +1,15 @@
 
   <div class="header_ad_titr">
-    <h4>مدیریت فاتک</h4>
+    <div class="header_ad_titr1">
+
+    </div>
+    <div class="header_ad_titr2">
+      <h4>مدیریت فاتک</h4>
+    </div>
+    <div class="header_ad_titr3">
+      <span>خروج</span>
+    </div>
+
   </div>
   <ul class="header_ad_ul">
     <a href="/management" class="a_pjax"><li>خانه</li></a>

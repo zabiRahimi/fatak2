@@ -16,21 +16,21 @@ function captcha(){
 }
 
 function loginManage() {
-  alert(455)
   $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
       url: "../../loginManage",
       method: 'post',
       data: {
-          name:$('#name_manage_log').val(),
+          nameKarbary:$('#name_manage_log').val(),
           pas: $('#pas_manage_log').val(),
           amniat: $('#amniat_manage_log').val(),
 
       },
       success: function(data) {
 
-        document.getElementByClass("loginFormManage").reset();
+        document.getElementById("loginFormManage").reset();
         $('.ajaxLoginManage').html('');
+        window.location="/dashbordAdmin";
           },
       error: function(xhr) {
         captcha();

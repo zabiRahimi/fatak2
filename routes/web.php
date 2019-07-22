@@ -137,6 +137,8 @@ Route::post('/delBuyOrder/{id}', 'OrderController@delBuyOrder')->where('id', '[0
 //قسمت مدیریت management
 Route::get('/management', 'Admin\ManagementController@page_login');//ok
 Route::post('/loginManage', 'Admin\ManagementController@loginManage');//ok
+Route::get('/dashbordAdmin', 'Admin\ManagementController@dashbordAdmin')->middleware(['chekloginManeg']);//ok!!
+
 
 Route::get('/pro_admin', 'Admin\Pro_adController@show')->middleware(['chekloginManeg']);//ok!!
 Route::post('/uplod_img_pro', 'Admin\Pro_adController@uplod_img_pro');//ok

@@ -5,9 +5,9 @@
 @section('content')
   <div class="login1">
     <div class="login2">
-      <form class="loginFormManage"  method="post">
+      <form class="loginFormManage" id="loginFormManage" method="post">
         {{ csrf_field() }}
-        <div class="ajaxLoginManage">sdfsdf</div>
+        <div class="ajaxLoginManage"></div>
         <div class="form-group ">
           <label for="_addpro1_admin" class="control-label pull-right  ">نام کاربری</label>
           <div class="div_data_buyer"><input type="text" class="form-control"  id="name_manage_log"  ></div>
