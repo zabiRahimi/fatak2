@@ -57,9 +57,15 @@ class ManagementController extends Controller
   }
   public function logoutManeg(){
     Cookie::queue('checkLogManeg', '',time() - 3600);
-    return redirect('/');
+    // return redirect('/');
+    return redirect('/logoutManeg');
   }
-    public function dashbordAdmin(Request $request){
+  public function dashbordAdmin(Request $request){
       return view('management.dashbordAdmin');
     }
-}
+  public function modiranAdmin(Request $request)
+  {
+    return view('management.modiranAdmin');
+  }
+
+}//end class

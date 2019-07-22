@@ -137,6 +137,7 @@ Route::post('/delBuyOrder/{id}', 'OrderController@delBuyOrder')->where('id', '[0
 //قسمت مدیریت management
 Route::get('/management', 'Admin\ManagementController@page_login');//ok
 Route::post('/loginManage', 'Admin\ManagementController@loginManage');//ok
+Route::get('/logoutManeg', 'Admin\ManagementController@logoutManeg')->middleware(['chekloginManeg']);//ok!!
 Route::get('/dashbordAdmin', 'Admin\ManagementController@dashbordAdmin')->middleware(['chekloginManeg']);//ok!!
 
 
@@ -148,3 +149,4 @@ Route::post('/save_add_pro1', 'Admin\Pro_adController@save_add_pro1');//ok
 Route::get('/edit_pro/{id}', 'Admin\Pro_adController@edit_pro')->middleware(['chekloginManeg']);//ok!!
 Route::post('/save_edit_pro1', 'Admin\Pro_adController@save_edit_pro1');//ok
 Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro')->middleware(['chekloginManeg']);//ok
+Route::get('/modiranAdmin', 'Admin\ManagementController@modiranAdmin')->middleware(['chekloginManeg']);//ok!!

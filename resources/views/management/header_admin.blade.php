@@ -1,13 +1,13 @@
 
   <div class="header_ad_titr">
     <div class="header_ad_titr1">
-
+      ,
     </div>
     <div class="header_ad_titr2">
       <h4>مدیریت فاتک</h4>
     </div>
     <div class="header_ad_titr3">
-      <span>خروج</span>
+      <span class="hATSpan1" onclick="window.location='/logoutManeg'"><i class="fas fa-sign-out-alt"></i> خروج</span>
     </div>
 
   </div>
@@ -19,5 +19,6 @@
     <a href="#" class="a_pjax"><li>فروشندگان</li></a>
     <a href="#" class="a_pjax"><li>آمار</li></a>
     <a href="#" class="a_pjax"><li>شکایات و انتقادات</li></a>
+    <a href="/modiranAdmin" class="a_pjax"><li>مدیران</li></a>
     <a href="#" class="a_pjax"><li>سایت</li></a>
   </ul>
