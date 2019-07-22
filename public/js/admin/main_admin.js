@@ -38,3 +38,16 @@ function loginManage() {
       }
 }, "json");
 }
+function adModirManeg() {
+  $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+      url: "../../adModirManeg",
+      method: 'post',
+
+      success: function(data) {
+
+        $('#ajaxModirManeg').html(data);
+          },
+
+}, "json");
+}

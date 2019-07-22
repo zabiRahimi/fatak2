@@ -3,13 +3,22 @@
   مدیریت :: محصولات
 @endsection
 @section('content')
-  <div class="pro_ad">
-    <div class="pro_ad_titr">
-      <h5>مدیریت محصولات</h5>
+  <div class="contentDash2">
+    <div class="contentDash2_titr">
+      محصولات
     </div>
-    <div class="pro_ad_body">
-      <div class="pro_ad_body_r">
-        <ul class="ul_pro_r">
+    <div class="contentDash2_body">
+      <div class="contentDash2_body_r">
+        <a href="#" class="a_pjax_pro1"><span class="titrCBR">مدیریت محصولات</span> </a>
+        <a href="/add_pro" class="apjaxpro"><span class="titrCBR">اضافه کردن محصول</span> </a><!-- نکته : بجهت نمایش ادیتور کد از پی جکس استفاده نشده است -->
+        <a href="/all_edit_pro" class="apjaxpro"><span class="titrCBR">ویرایش محصولات</span> </a>
+        <a href="#" class="apjaxpro"><span class="titrCBR">محصولات سفارش شده</span><span class="badgeCBR">2</span> </a>
+        <a href="#" class="apjaxpro"><span class="titrCBR">محصولات ثبت شده</span><span class="badgeCBR">8</span> </a>
+        <a href="#" class="apjaxpro"><span class="titrCBR">محصولات ارسال شده</span><span class="badgeCBR">452</span> </a>
+        <a href="#" class="apjaxpro"><span class="titrCBR">محصولات تحویل داده شده</span><span class="badgeCBR">547</span> </a>
+        <a href="#" class="apjaxpro"><span class="titrCBR">محصولات ارجاع شده</span><span class="badgeCBR">48</span> </a>
+        <a href="#" class="apjaxpro"><span class="titrCBR">مرجوعی تسویه شده</span><span class="badgeCBR">96</span> </a>
+        {{-- <ul class="ul_pro_r">
           <a href="#" class="a_pjax_pro1"> <li onclick="show_div('pro_all')">مدیریت محصولات</li></a>
           <a href="/add_pro" > <li>اضافه کردن محصول</li></a><!-- نکته : بجهت نمایش ادیتور کد از پی جکس استفاده نشده است -->
           <a href="/all_edit_pro" class="apjaxpro"><li >ویرایش محصولات</li></a>
@@ -19,10 +28,10 @@
           <a href="#" class="apjaxpro"> <li on/click="show_div('add_pro')">محصولات تحویل داده شده</li></a>
           <a href="#" class="apjaxpro"> <li on/click="show_div('add_pro')">محصولات ارجاع شده</li></a>
           <a href="#" class="apjaxpro"> <li on/click="show_div('add_pro')">مرجوعی تسویه شده</li></a>
-        </ul>
+        </ul> --}}
       </div>
-      <div class="pro_ad_body_l" id="pjax_pro">
-        
+      <div class="contentDash2_body_l" id="pjax_pro">
+
         @yield('show_pro')
 
       </div>

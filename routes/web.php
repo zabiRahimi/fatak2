@@ -150,3 +150,4 @@ Route::get('/edit_pro/{id}', 'Admin\Pro_adController@edit_pro')->middleware(['ch
 Route::post('/save_edit_pro1', 'Admin\Pro_adController@save_edit_pro1');//ok
 Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro')->middleware(['chekloginManeg']);//ok
 Route::get('/modiranAdmin', 'Admin\ManagementController@modiranAdmin')->middleware(['chekloginManeg']);//ok!!
+Route::post('/adModirManeg', 'Admin\ManagementController@adModirManeg')->middleware(['chekloginManeg']);//ok!!

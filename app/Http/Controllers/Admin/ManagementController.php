@@ -67,5 +67,9 @@ class ManagementController extends Controller
   {
     return view('management.modiranAdmin');
   }
+  public function adModirManeg(Request $request)
+  {
+    return view('management.adModirManeg');
+  }
 
 }//end class
