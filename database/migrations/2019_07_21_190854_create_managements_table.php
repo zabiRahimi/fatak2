@@ -16,6 +16,7 @@ class CreateManagementsTable extends Migration
         Schema::create('managements', function (Blueprint $table) {
           $table->increments('id');
           $table->string('name',25);
+          $table->string('mobail',12);
           $table->string('karbary',10)->unique();
           $table->string('pas',60);
           $table->smallInteger('access');

@@ -22,7 +22,7 @@ a{cursor: pointer;}
 
 body{
   width: 100%;
-
+  min-width: 950px;
   font-family: "b koodak", Arial, Helvetica, sans-serif;
   direction:rtl;
   text-align: right;
@@ -58,7 +58,7 @@ display:inline;
 .contentDash2_body_r{width: 210px;height: 100%; float: right;text-align: right;background-color: #cfcfcf;overflow:auto;}
 .contentDash2_body_r a{width: 100%;height: 37px;line-height: 37px;color: #07488c;text-decoration: none;padding:0 7px 0 2px;float: right;border-bottom: 1px solid #ededed;}
 .contentDash2_body_r a:hover{background-color: #e4e4e4;}
-.titrCBR{width: calc(100% - 50px);float: right;}
+.titrCBR{width: calc(100% - 50px);float: right;color: #07488c;}
 .badgeCBR{width: auto;height: 20px; line-height: 20px;margin-top: 7px;padding: 0 5px;font-size: 12px;background-color: #f1f1f1;border: 1px solid #7c9ab9;border-radius: 17px;float: left;text-align: center;}
 .fixed{position: fixed;top: 0;}
 .contentDash2_body_l{width: calc(100% - 210px);height: 100%;padding: 0 5px;float: left;text-align: center;}
@@ -77,6 +77,42 @@ display:inline;
 .ul_pro_r li:hover{
   background-color: #e4e4e4;
 } */
+
+.add_pro{width: 98%; margin: 0 1%;height: 35px;line-height: 35px;font-size: 16px;padding: 0 12px;float: right; text-align: right; background-color: #dfdfdf; border-radius: 3px;}
+.add_pro2{width: 98%; margin: 7px 1%;float: right;text-align: right;}
+.add_pro_form1{width: 100%;float: right;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
+.textAll{width: 48%; height: 45px;line-height: 42px;padding: 3px 3px;margin: 6px 1%;float: right;background-color: #d5dade;border-radius: 3px;}
+.textAll label{width: 40%; float: right;}
+.textAll input , .textAll select{width: 60%; float: right;}
+.mavad_all_addpro1_admin label{width: 100%;float: right;}
+.mavad_addpro1_admin{width: 19%; margin: 2px 0.5%; float: right;}
+.textareaEditor{width: 98%; margin: 6px 1%;padding:3px 7px; float: right;background-color: #d5dade;border-radius: 3px;}
+.img_add_pro{width: 14.666%; height: 115px;margin: 3px 1%; padding: 2px 0;text-align: center; float: left; background-color: #d7e9ed; overflow: hidden; border: 1px solid #c1c1c1; border-radius: 3px;}
+.img_add_pro img{width: 100%; height: 115px;}
+.img_add_pro2{float: right;}
+.form_img_add_pro{width: 100%; height: 120px; padding-top: 5px;float: right; margin: 6px 0 4px; background-color:#f2fbff;border-radius: 2px;}
+.sabt_form_addPro{width: 98%; margin: 13px 1% 4px; padding: 4px 0;float: right;text-align: center; background-color: #f1f1f1; border-radius: 4px;}
+.sabt_form_addPro button{width: 300px;}
+.ajax_formaddpro1_admin{width: 100%;float: right;}
+.ajax_addpro1_img{
+  width: 1px;height: 1px; overflow: hidden;font-size: 1px; color:#ffffff; background-color: #ffffff;
+}
+.div_show_addprou {width: 60%;float: right; background-color: #ac93c2}
+.div_show_addprou input{width: 10%;float: right;margin-top: 15px;}
+
+.div_show_addprou label{width: 90%;float: right;text-align: left;padding-left: 15px;}
+
+.div_show_addpro_1{width: 50%;float: right; }
+.div_show_addpro_1 label{color: #056200;}
+.div_show_addpro_2{width: 50%;float: right; }
+.div_show_addpro_2 label{color: #784108;}
+
+.modal_h_img_add_pro{ line-height: 0; }
+.modal_h_img_add_pro span{ font-size: 34px;color: #a10000;}
+.titr_modal_img_addpro{width: 100%; height: 40px;line-height: 40px;float: right; border-radius: 3px; background-color: #e9e9e9;}
+.footer_modal_img_add_pro{width: 100%; float: right; margin:0 0 6px 0;text-align: center;}
+.footer_modal_img_add_pro button{width: 110px;color: #a10000;}
+
 
 /* page_login.php */
 .login1{
