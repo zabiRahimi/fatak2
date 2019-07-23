@@ -9,6 +9,7 @@ use Illuminate\Contracts\Encryption\Encrypter;
 use App\Models\Admin\Management;
 
 use App\Http\Requests\Save_login_manage;
+use App\Http\Requests\Save_modirSabt_admin;
 use Cookie;
 use DB;
 use Illuminate\Support\Facades\Hash;
@@ -38,5 +39,8 @@ class ModirAdminController extends Controller
   {
     return view('management.adModirManeg');
   }
-  
+  public function modirAdminSabt(Save_modirSabt_admin $request)
+  {
+    // code...
+  }
 }//end class

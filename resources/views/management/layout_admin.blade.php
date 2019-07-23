@@ -34,7 +34,7 @@
 
         </div>
 
-        
+
         <script type="text/javascript" src="..\..\js\app.js"></script>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
@@ -43,6 +43,7 @@
         <script type='text/javascript' src='\froala\js\froala_editor.pkgd.min.js'></script>
         <script type="text/javascript" src="\js\admin\main_admin.js"></script>
         <script type="text/javascript" src="\js\admin\pro_admin.js"></script>
+        <script type="text/javascript" src="\js\admin\modir_admin.js"></script>
         <script type="text/javascript">
            $(function() { $('textarea').froalaEditor() });
            $(document).pjax('.a_pjax' , '#pjax');
