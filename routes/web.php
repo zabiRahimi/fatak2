@@ -153,3 +153,6 @@ Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middlewa
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['chekloginManeg']);//ok!!
 Route::post('/modirAdminSabt', 'Admin\ModirAdminController@modirAdminSabt');//ok
 Route::get('/edModirManeg', 'Admin\ModirAdminController@edModirManeg')->middleware(['chekloginManeg']);//ok!!
+Route::get('/edModirManegOne/{idModir}', 'Admin\ModirAdminController@edModirManegOne')->middleware(['chekloginManeg'])->where('idModir', '[0-9]+');//ok!!
+Route::post('/editModirManeg', 'Admin\ModirAdminController@editModirManeg');//ok
+Route::post('/editPasModirManeg', 'Admin\ModirAdminController@editPasModirManeg');//ok

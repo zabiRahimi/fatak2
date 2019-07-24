@@ -63,6 +63,8 @@ display:inline;
 .fixed{position: fixed;top: 0;}
 .contentDash2_body_l{width: calc(100% - 210px);height: 100%;padding: 0 5px;float: left;text-align: center;}
 .CDBMTitr{width: 100%;height: 40px;line-height: 41px;margin-bottom: 5px;padding:0 12px;text-align: right;font-size: 18px;float: right;background-color: #02787c;color: #fff;border-radius: 3px;}
+.CDBMBody{width: 100%;padding:12px;float: right;border: 1px solid #bebbbb;border-radius: 3px;}
+
 /* .ul_pro_r{margin-right: 0; padding-right: 0;}
 .ul_pro_r a{color: #07367d;text-decoration: none; font-size: 16px;}
 .ul_pro_r li{
@@ -79,7 +81,7 @@ display:inline;
 } */
 /* #### form #### */
 
-.formAdmin{width: 100%;float: right;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
+.formAdmin{width: 100%;float: right;margin-bottom: 35px;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
 .ajax_form_admin{width: 98%;margin: 0 1%;float: right;}
 .placeholder:-moz-placeholder,.placeholder::-moz-placeholder{color:#d3d5ec;opacity: 0.9;}
 .placeholder:focus:-moz-placeholder,.placeholder:focus::-moz-placeholder{opacity: 0.4;}
@@ -128,3 +130,34 @@ display:inline;
 .form_btn1 button{
   width: 100%;
 }
+/* modirAdmin.php , edModirManeg.php */
+.rowListEMM,.rowListEMM_b{
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  margin: 3px 0 0;
+  float: right;
+  color: #063236;
+  background-color: #81c6cc;
+  border: 1px solid #43767a;
+  border-radius: 3px 3px 0 0;
+}
+.rowListEMM_b{
+  margin-top: 0;
+  background-color: #fff;
+  border: 1px solid #c2c7c7;
+  border-top: none;
+  border-radius:0;
+  cursor: pointer;
+}
+.rowListEMM_b:hover{background-color: #aed8fa;}
+.classBg1{background-color: #fff;}
+.classBg2{background-color: #dfdede;}
+.rowListEMM_1{width: 6%;height:30px ;border-left: 1px solid #43767a;display: inline-block;float: right;}
+.rowListEMM_2{width: 6%;height:30px ;border-left: 1px solid #43767a;display: inline-block;float: right;}
+.rowListEMM_3{width: 25%;height:30px ;border-left: 1px solid #43767a;display: inline-block;float: right;}
+.rowListEMM_4{width: 23%;height:30px ;border-left: 1px solid #43767a;display: inline-block;float: right;}
+.rowListEMM_5{width: 15%;height:30px ;border-left: 1px solid #43767a;display: inline-block;float: right;}
+.rowListEMM_6{width: 25%;height:30px ;display: inline-block;float: right;}
+.classColor1{color: #025b0b;}
+.classColor2{color: #753c0d;}

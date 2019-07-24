@@ -64,13 +64,9 @@ class ManagementController extends Controller
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
       return view('management.dashbordAdmin',compact('id','nameModir','access'));
     }
-  public function modiranAdmin(Request $request)
+  public function adModirManegOne(Request $request)
   {
-    return view('management.modiranAdmin');
-  }
-  public function adModirManeg(Request $request)
-  {
-    return view('management.adModirManeg');
+    return view('management.adModirManegOne');
   }
 
 }//end class

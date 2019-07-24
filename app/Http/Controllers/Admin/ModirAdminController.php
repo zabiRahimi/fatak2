@@ -10,6 +10,8 @@ use App\Models\Admin\Management;
 
 use App\Http\Requests\Save_login_manage;
 use App\Http\Requests\Save_modirSabt_admin;
+use App\Http\Requests\Save_modirEdit_admin;
+use App\Http\Requests\Save_modirEditPas_admin;
 use Cookie;
 use DB;
 use Illuminate\Support\Facades\Hash;
@@ -63,5 +65,36 @@ class ModirAdminController extends Controller
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $modiran=Management::get();
     return view('management.edModirManeg',compact('id','nameModir','access','modiran'));
+  }
+  public function edModirManegOne(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $idModir=$request->idModir;
+    $modir=Management::find($idModir);
+    return view('management.edModirManegOne',compact('id','nameModir','access','modir'));
+  }
+  public function editModirManeg(Save_modirEdit_admin $request)
+  {
+    $id=$request->id;
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=Management::find($id);
+    $add->name=$request->name;
+    $add->karbary=$request->karbary;
+    $add->mobail=$request->mobail;
+    $add->access=$request->access;
+    $add->updated_at=$date;
+    $add->show=$request->show;
+    $add->save();
+  }
+  public function editPasModirManeg(Save_modirEditPas_admin $request)
+  {
+    $id=$request->id;
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=Management::find($id);
+    $add->pas=Hash::make($request->pas);
+
+    $add->save();.
   }
 }//end class
