@@ -31,19 +31,15 @@
   <div class="form-group  textAll">
     <label for="pas_modir_admin" class="control-label pull-right  ">سطح دسترسی </label>
     <select class="form-control" name="" id="access_modir_admin">
-      <option value="">انتخاب کنید</option>
-      <option value="100">100 گرم</option>
-      <option value="200">200 گرم</option>
-      <option value="300">300 گرم</option>
-      <option value="400">400 گرم</option>
-      <option value="500">500 گرم</option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
-      <option value=""></option>
+      <option value="no">انتخاب کنید</option>
+      <option value="1">مدیر عامل</option>
+      <option value="2">مدیر</option>
+      <option value="3">حسابدار</option>
+      <option value="4">ناظر</option>
+      <option value="5">ویرایشگر</option>
+      <option value="6">نویسنده A</option>
+      <option value="7">نویسنده B</option>
+      <option value="8">نویسنده C</option>
     </select>
   </div>
   <div class="form-group  textAll">

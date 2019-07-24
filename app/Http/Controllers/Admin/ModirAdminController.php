@@ -13,34 +13,55 @@ use App\Http\Requests\Save_modirSabt_admin;
 use Cookie;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use Hekmatinasser\Verta\Verta;//تاریخ جلالی
+
 class ModirAdminController extends Controller
 {
-  public $stage;
-  public $id;
+  public $id ,$nameModir,$access ;
   public function __construct(Encrypter $encrypter ,Request $request)
   {
-    // $cookie=$request->cookie('checkLogManeg');
-    // if(!empty($cookie)){
-    // $this->middleware(function ($request, $next){
-    // $id = $request->cookie('checkLogManeg');
-    // $this->id=$id;
-    // $user=Channel::find($id);
-    // $this->stage=$user->stage;
-    // return $next($request);
-    //   });
-    //   }
+    $cookie=$request->cookie('checkLogManeg');
+    if(!empty($cookie)){
+    $this->middleware(function ($request, $next){
+    $id = $request->cookie('checkLogManeg');
+    $this->id=$id;
+    $user=Management::find($id);
+    $this->nameModir=$user->name;
+    $this->access=$user->access;
+    return $next($request);
+      });
+      }
   }
 
   public function modiranAdmin(Request $request)
   {
-    return view('management.modiranAdmin');
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    return view('management.modiranAdmin',compact('id','nameModir','access'));
   }
   public function adModirManeg(Request $request)
   {
-    return view('management.adModirManeg');
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    return view('management.adModirManeg',compact('id','nameModir','access'));
   }
   public function modirAdminSabt(Save_modirSabt_admin $request)
   {
-    // code...
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=new Management();
+    $add->name=$request->name;
+    $add->karbary=$request->karbary;
+    $add->mobail=$request->mobail;
+    $add->pas=Hash::make($request->pas);
+    $add->access=$request->access;
+    $add->created_at=$date;
+    $add->updated_at=$date;
+    $add->show=$request->show;
+    $add->save();
+  }
+  public function edModirManeg(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $modiran=Management::get();
+    return view('management.edModirManeg',compact('id','nameModir','access','modiran'));
   }
 }//end class

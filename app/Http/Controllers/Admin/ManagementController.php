@@ -16,20 +16,20 @@ use Illuminate\Support\Facades\Hash;
 
 class ManagementController extends Controller
 {
-  public $stage;
-  public $id;
+  public $id ,$nameModir,$access ;
   public function __construct(Encrypter $encrypter ,Request $request)
   {
-    // $cookie=$request->cookie('checkLogManeg');
-    // if(!empty($cookie)){
-    // $this->middleware(function ($request, $next){
-    // $id = $request->cookie('checkLogManeg');
-    // $this->id=$id;
-    // $user=Channel::find($id);
-    // $this->stage=$user->stage;
-    // return $next($request);
-    //   });
-    //   }
+    $cookie=$request->cookie('checkLogManeg');
+    if(!empty($cookie)){
+    $this->middleware(function ($request, $next){
+    $id = $request->cookie('checkLogManeg');
+    $this->id=$id;
+    $user=Management::find($id);
+    $this->nameModir=$user->name;
+    $this->access=$user->access;
+    return $next($request);
+      });
+      }
   }
 
   public function page_login(Request $request)
@@ -38,22 +38,22 @@ class ManagementController extends Controller
   }
 
   public function loginManage(Save_login_manage $request ){
-    Cookie::queue('checkLogManeg', 12);//موقتی می باشد .
-    // $nameKarbary=$request->nameKarbary;
-    // $pas=$request->pas;
-    // $add=Management::where('karbary',$nameKarbary)->first();
-    // if(!empty($add)){
-    //   if (Hash::check($pas, $add['pas']))
-    //   {
-    //     $id=$add['id'];
-    //     Cookie::queue('check_log_channel', $id);
-    //   }else{
-    //     return response()->json(['errors' => ['no_karbar' => ['موبایل و یا رمز عبور اشتباه است .']]], 422);
-    //   }
-    // }
-    //   else{
-    //     return response()->json(['errors' => ['no_karbar' => ['موبایل و یا رمز عبور اشتباه است .']]], 422);
-    //   }
+    $nameKarbary=$request->nameKarbary;
+    $pas=$request->pas;
+    $add=Management::where('karbary',$nameKarbary)->where('show', 1)->first();
+    if(!empty($add)){
+      if (Hash::check($pas, $add['pas']))
+      {
+        $id=$add['id'];
+        Cookie::queue('checkLogManeg', $id);
+
+      }else{
+        return response()->json(['errors' => ['no_karbar' => ['اطلاعات اشتباه است .']]], 422);
+      }
+    }
+      else{
+        return response()->json(['errors' => ['no_karbar' => ['اطلاعات اشتباه است .']]], 422);
+      }
   }
   public function logoutManeg(){
     Cookie::queue('checkLogManeg', '',time() - 3600);
@@ -61,7 +61,8 @@ class ManagementController extends Controller
     return redirect('/logoutManeg');
   }
   public function dashbordAdmin(Request $request){
-      return view('management.dashbordAdmin');
+      $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+      return view('management.dashbordAdmin',compact('id','nameModir','access'));
     }
   public function modiranAdmin(Request $request)
   {

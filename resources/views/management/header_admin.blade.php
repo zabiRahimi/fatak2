@@ -1,7 +1,11 @@
 
   <div class="header_ad_titr">
     <div class="header_ad_titr1">
-      ,
+      <span class="HeaderATS">
+      <span class="HeaderATS1"> کاربر : </span><span class="HeaderATS2">{{$nameModir}}</span>
+      <span class="HeaderATS3"> کد : </span><span class="HeaderATS4">{{$id . 'md'}}</span>
+      <a href="#" class="HeaderATA"><i class="fas fa-user-tie"></i>  پروفایل</a>
+      </span>
     </div>
     <div class="header_ad_titr2">
       <h4>مدیریت فاتک</h4>

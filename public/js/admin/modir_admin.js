@@ -1,5 +1,7 @@
 
 function modirAdminSabt() {
+  access=$('#access_modir_admin').val();
+  alert()
   var mobail=$('#mobail_modir_admin').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
   // asd= $('#karbary_modir_admin').val()
   // alert(asd)
