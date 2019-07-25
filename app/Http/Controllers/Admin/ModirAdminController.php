@@ -96,11 +96,11 @@ class ModirAdminController extends Controller
     $add->pas=Hash::make($request->pas);
     $add->save();
   }
-  public function showProfileMagen(Request $request)
+  public function showProfileManeg(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $modir=Management::find($id);
-    return view('management.showProfileMagen',compact('id','nameModir','access','modir'));
+    return view('management.showProfileManeg',compact('id','nameModir','access','modir'));
   }
   public function editModirManeg2(Save_modirEdit_admin $request)
   {

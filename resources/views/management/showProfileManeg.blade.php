@@ -1,4 +1,4 @@
-@extends('management.modiranAdmin')
+@extends('management.profileManeg')
 @section('title')
   مدیریت :: پروفایل
 @endsection
@@ -6,7 +6,7 @@
 
 
 <div class="CDBMTitr">
-  پروفایل من
+  ویرایش پروفایل
 </div>
 <form class="formAdmin" action="" id="edit_modir_form2"  method="post">
   {{ csrf_field() }}

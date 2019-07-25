@@ -3,7 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Encryption\Encrypter;
+use Cookie;
+use DB;
+use App\Models\Admin\Management;
 use App\Models\Admin\Imgpro;
 use App\Models\Pro;
 use App\Models\PicturePro;
@@ -11,9 +16,25 @@ use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای
 use App\Http\Requests\Save_edit_pro_admin;
 class Pro_adController extends Controller
 {
+  public $id ,$nameModir,$access ;
+  public function __construct(Encrypter $encrypter ,Request $request)
+  {
+    $cookie=$request->cookie('checkLogManeg');
+    if(!empty($cookie)){
+    $this->middleware(function ($request, $next){
+    $id = $request->cookie('checkLogManeg');
+    $this->id=$id;
+    $user=Management::find($id);
+    $this->nameModir=$user->name;
+    $this->access=$user->access;
+    return $next($request);
+      });
+      }
+  }
   public function show(Request $request){
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $show_img=Imgpro::where('show' , 1)->get();
-    return view('management.pro_admin.pro_admin' , compact('show_img'));
+    return view('management.pro_admin.pro_admin' , compact('id','nameModir','access','show_img'));
   }
 public function uplod_img_pro(Request $request){
   //اعتبار سنجی
@@ -35,7 +56,8 @@ public function uplod_img_pro(Request $request){
 
 }
 public function add_pro(){
-  return view('management.pro_admin.add_pro_admin');
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  return view('management.pro_admin.add_pro_admin',compact('id','nameModir','access'));
 }
 public function save_add_pro1(Save_add_pro_admin $request){
 
@@ -86,10 +108,16 @@ public function save_add_pro1(Save_add_pro_admin $request){
   $picture->save();
 
 }
-public function edit_pro(Request $request ,$id){
-  $pro=pro::find($id);
-  $img=PicturePro::where('pro_id' , $id)->first();
-  return view('management.pro_admin.one_edit_pro_admin', compact('pro' , 'img'));
+public function all_edit_pro(Request $request ){
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $pro=pro::get();
+  return view('management.pro_admin.all_edit_pro_admin', compact('id','nameModir','access','pro'));
+}
+public function edit_pro(Request $request ,$id2){
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $pro=pro::find($id2);
+  $img=PicturePro::where('pro_id' , $id2)->first();
+  return view('management.pro_admin.one_edit_pro_admin', compact('id','nameModir','access','pro' , 'img'));
 
 }
 public function save_edit_pro1(Save_edit_pro_admin $request){
@@ -141,8 +169,5 @@ public function save_edit_pro1(Save_edit_pro_admin $request){
   $picture->save();
 
 }
-public function all_edit_pro(Request $request ){
-  $pro=pro::get();
-  return view('management.pro_admin.all_edit_pro_admin', compact('pro'));
-}
-}
+
+}//end class
