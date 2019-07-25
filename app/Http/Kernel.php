@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'cheklogin_channel' => \App\Http\Middleware\Check_login_channelMiddleware::class,
         'chekloginShop' => \App\Http\Middleware\CheckLoginShopMiddleware::class,
         'chekloginManeg' => \App\Http\Middleware\CheckLogManegMiddleware::class,
+        'CheckLeader' => \App\Http\Middleware\CheckLeaderMiddleware::class,
 
     ];
 

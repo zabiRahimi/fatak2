@@ -94,7 +94,36 @@ class ModirAdminController extends Controller
     $date=$date1->format('Y/n/j');
     $add=Management::find($id);
     $add->pas=Hash::make($request->pas);
-
-    $add->save();.
+    $add->save();
+  }
+  public function showProfileMagen(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $modir=Management::find($id);
+    return view('management.showProfileMagen',compact('id','nameModir','access','modir'));
+  }
+  public function editModirManeg2(Save_modirEdit_admin $request)
+  {
+    $id=$request->id;
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=Management::find($id);
+    $add->name=$request->name;
+    $add->karbary=$request->karbary;
+    $add->mobail=$request->mobail;
+    $add->updated_at=$date;
+    $add->save();
+  }
+  public function editPasModirManeg2(Save_modirEditPas_admin $request)
+  {
+    $oldPas=$request->oldPas;
+    $add=Management::find($this->id);
+      if (Hash::check($oldPas, $add['pas']))
+      {
+        $add->pas=Hash::make($request->pas);
+        $add->save();
+      }else{
+        return response()->json(['errors' => ['no_pas' => ['رمز فعلی اشتباه است .']]], 422);
+      }
   }
 }//end class

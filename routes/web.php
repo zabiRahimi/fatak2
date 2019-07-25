@@ -149,10 +149,15 @@ Route::post('/save_add_pro1', 'Admin\Pro_adController@save_add_pro1');//ok
 Route::get('/edit_pro/{id}', 'Admin\Pro_adController@edit_pro')->middleware(['chekloginManeg']);//ok!!
 Route::post('/save_edit_pro1', 'Admin\Pro_adController@save_edit_pro1');//ok
 Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro')->middleware(['chekloginManeg']);//ok
-Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['chekloginManeg']);//ok!!
-Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['chekloginManeg']);//ok!!
+
+Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
+Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!
 Route::post('/modirAdminSabt', 'Admin\ModirAdminController@modirAdminSabt');//ok
-Route::get('/edModirManeg', 'Admin\ModirAdminController@edModirManeg')->middleware(['chekloginManeg']);//ok!!
-Route::get('/edModirManegOne/{idModir}', 'Admin\ModirAdminController@edModirManegOne')->middleware(['chekloginManeg'])->where('idModir', '[0-9]+');//ok!!
+Route::get('/edModirManeg', 'Admin\ModirAdminController@edModirManeg')->middleware(['CheckLeader']);//ok!!
+Route::get('/edModirManegOne/{idModir}', 'Admin\ModirAdminController@edModirManegOne')->middleware(['CheckLeader'])->where('idModir', '[0-9]+');//ok!!
 Route::post('/editModirManeg', 'Admin\ModirAdminController@editModirManeg');//ok
 Route::post('/editPasModirManeg', 'Admin\ModirAdminController@editPasModirManeg');//ok
+
+Route::get('/showProfileMagen', 'Admin\ModirAdminController@showProfileMagen')->middleware(['chekloginManeg']);//ok!!
+Route::post('/editModirManeg2', 'Admin\ModirAdminController@editModirManeg2');//ok
+Route::post('/editPasModirManeg2', 'Admin\ModirAdminController@editPasModirManeg2');//ok

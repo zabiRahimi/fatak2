@@ -45,7 +45,9 @@ class ManagementController extends Controller
       if (Hash::check($pas, $add['pas']))
       {
         $id=$add['id'];
+        $access2=$add['access'];
         Cookie::queue('checkLogManeg', $id);
+        Cookie::queue('checkModir', $access2);
 
       }else{
         return response()->json(['errors' => ['no_karbar' => ['اطلاعات اشتباه است .']]], 422);
@@ -57,6 +59,7 @@ class ManagementController extends Controller
   }
   public function logoutManeg(){
     Cookie::queue('checkLogManeg', '',time() - 3600);
+    Cookie::queue('checkModir', '',time() - 3600);
     // return redirect('/');
     return redirect('/logoutManeg');
   }
@@ -64,9 +67,6 @@ class ManagementController extends Controller
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
       return view('management.dashbordAdmin',compact('id','nameModir','access'));
     }
-  public function adModirManegOne(Request $request)
-  {
-    return view('management.adModirManegOne');
-  }
+  
 
 }//end class

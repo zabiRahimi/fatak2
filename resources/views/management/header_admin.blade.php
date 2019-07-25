@@ -4,7 +4,7 @@
       <span class="HeaderATS">
       <span class="HeaderATS1"> کاربر : </span><span class="HeaderATS2">{{$nameModir}}</span>
       <span class="HeaderATS3"> کد : </span><span class="HeaderATS4">{{$id . 'md'}}</span>
-      <a href="#" class="HeaderATA"><i class="fas fa-user-tie"></i>  پروفایل</a>
+      <a href="/showProfileMagen" class="HeaderATA"><i class="fas fa-user-tie"></i>  پروفایل</a>
       </span>
     </div>
     <div class="header_ad_titr2">
@@ -23,6 +23,8 @@
     <a href="#" class="a_pjax"><li>فروشندگان</li></a>
     <a href="#" class="a_pjax"><li>آمار</li></a>
     <a href="#" class="a_pjax"><li>شکایات و انتقادات</li></a>
-    <a href="/modiranAdmin" class="a_pjax"><li>مدیران</li></a>
+    @if ($access==1)
+      <a href="/modiranAdmin" class="a_pjax"><li>مدیران</li></a>
+    @endif
     <a href="#" class="a_pjax"><li>سایت</li></a>
   </ul>

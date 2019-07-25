@@ -27,21 +27,21 @@
     $retVal = ($value->show==1) ? "فعال" : 'غیر فعال' ;//هم ریختگی فارسی
     $classColor = ($value->show==1) ? 'classColor1' : 'classColor2';
     switch ($value->access) {
-      case '1':$access='مدیر عامل';  break;
-      case '2':$access='مدیر';  break;
-      case '3':$access='حسابدار';  break;
-      case '4':$access='ناظر';  break;
-      case '5':$access='ویرایشگر';  break;
-      case '6':$access='نویسنده A';  break;
-      case '7':$access='نویسنده B';  break;
-      case '8':$access='نویسنده C';  break;
+      case '1':$access2='مدیر عامل';  break;
+      case '2':$access2='مدیر';  break;
+      case '3':$access2='حسابدار';  break;
+      case '4':$access2='ناظر';  break;
+      case '5':$access2='ویرایشگر';  break;
+      case '6':$access2='نویسنده A';  break;
+      case '7':$access2='نویسنده B';  break;
+      case '8':$access2='نویسنده C';  break;
     }
     @endphp
       <div class="rowListEMM_b {{$classBg}}" onclick="window.location='edModirManegOne/{{$value->id}}'">
         <span class="rowListEMM_1">{{$r}}</span>
         <span class="rowListEMM_2">{{$value->id}}</span>
         <span class="rowListEMM_3">{{$value->name}}</span>
-        <span class="rowListEMM_4">{{$access}}</span>
+        <span class="rowListEMM_4">{{$access2}}</span>
         <span class="rowListEMM_5 {{$classColor}}">{{$retVal}}</span>
         <span class="rowListEMM_6 ">{{$value->mobail}}</span>
       </div>

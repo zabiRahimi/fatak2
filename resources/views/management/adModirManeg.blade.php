@@ -34,12 +34,10 @@
       <option value="no">انتخاب کنید</option>
       <option value="1">مدیر عامل</option>
       <option value="2">مدیر</option>
-      <option value="3">حسابدار</option>
-      <option value="4">ناظر</option>
-      <option value="5">ویرایشگر</option>
-      <option value="6">نویسنده A</option>
-      <option value="7">نویسنده B</option>
-      <option value="8">نویسنده C</option>
+      <option value="3">ناظر</option>
+      <option value="4">ویرایشگر</option>
+      <option value="5">نویسنده</option>
+
     </select>
   </div>
   <div class="form-group  textAll">
