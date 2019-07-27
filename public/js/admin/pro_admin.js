@@ -10,111 +10,7 @@ else{
   $('.pro_ad_body_r').removeClass('fixed');
 }
 });
-// جهت نمایش لینکهای محصولات
-// function show_div(id){
-//   $('.pro_ad_body_l_0').removeClass('div_activ');
-//   $('.pro_ad_body_l_0').addClass('div_none');
-//
-//   $('#'+id).removeClass('div_none');
-//   $('#'+id).addClass('div_activ');
-// }
 
-//تنظیمات دراپ زون برای آپلود عکس محصول
-// var total_photos_counter = 0;
-// Dropzone.options.img_pro = {
-//             maxFilesize: 12,
-//
-//             acceptedFiles: ".jpeg,.jpg,.png,.gif",
-//             addRemoveLinks: true,
-//             timeout: 5000,
-//             success: function(file, response)
-//             {
-//                 console.log(response);
-//             },
-//             error: function(file, response)
-//             {
-//                return false;
-//             }
-    // uploadMultiple: true,
-    // parallelUploads: 2,
-    // maxFilesize: 1,
-    // acceptedFiles: ".jpeg , .jpg , .png",
-    //
-    // addRemoveLinks: true,
-    // dictRemoveFile: 'Remove file',
-    // dictFileTooBig: 'Image is larger than 16MB',
-    // timeout: 10000,
-    // success: function(file, response)
-    //        {
-    //            console.log(response);
-    //        },
-    //        error: function(file, response)
-    //        {
-    //           return false;
-    //        }
-
-    // init: function () {
-    //
-    //     this.on("removedfile", function (file) {
-    //         $.post({
-    //             url: '/images-delete',
-    //             data: {id: file.name, _token: $('[name="_token"]').val()},
-    //             dataType: 'json',
-    //             success: function (data) {
-    //                 total_photos_counter--;
-    //                 $("#counter").text("# " + total_photos_counter);
-    //             }
-    //         });
-    //     });
-    // },
-    // success: function (file, done) {
-    //
-    //     total_photos_counter++;
-    //     $("#counter").text("# " + total_photos_counter);
-    // }
-// };
-// var total_photos_counter = 0;
-// Dropzone.options.myDropzone = {
-//     uploadMultiple: true,
-//     parallelUploads: 2,
-//     maxFilesize: 0.1,
-//     // previewTemplate: document.querySelector('#preview').innerHTML,
-//     // addRemoveLinks: true,
-//     // dictRemoveFile: 'Remove file',
-//     // dictFileTooBig: 'Image is larger than 16MB',
-//     timeout: 10000,
-//     accseptedFiles:".png",
-//
-//     // init: function () {
-//     //     this.on("removedfile", function (file) {
-//     //       $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
-//     //         // $.post({
-//     //         //     url: '/images-delete',
-//     //         //     data: {id: file.name, _token: $('[name="_token"]').val()},
-//     //         //     dataType: 'json',
-//     //         //     success: function (data) {
-//     //         //         total_photos_counter--;
-//     //         //         $("#counter").text("# " + total_photos_counter);
-//     //         //     }
-//     //         // });
-//     //         $.ajax({
-//     // type: "POST",
-//     // url: '/images-delete',
-//     // data: { ld: "Some"},
-//     //             });
-//     //     });
-//     // },
-//     success: function (file, done) {
-//         total_photos_counter++;
-//         $("#counter").text("# " + total_photos_counter);
-//
-//     },
-//     error: function (done) {
-//
-//         $("#counter").text('noooooo');
-//
-//     }
-// };
  Dropzone.options.proAddImg1 = {
 
     parallelUploads: 2,
@@ -122,13 +18,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgAddPro1").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgAddPro1").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgAddPro1").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgAddPro1").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImg1").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_addpro1_img1").html( response );
    },
 
@@ -140,13 +37,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgAddPro2").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgAddPro2").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgAddPro2").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgAddPro2").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImg2").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_addpro1_img2").html( response );
 
    },
@@ -159,13 +57,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgAddPro3").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgAddPro3").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgAddPro3").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgAddPro3").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImg3").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_addpro1_img3").html( response );
 
    },
@@ -178,13 +77,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgAddPro4").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgAddPro4").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgAddPro4").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgAddPro4").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImg4").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_addpro1_img4").html( response );
 
    },
@@ -197,13 +97,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgAddPro5").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgAddPro5").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgAddPro5").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgAddPro5").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImg5").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_addpro1_img5").html( response );
 
    },
@@ -216,13 +117,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgAddPro6").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgAddPro6").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgAddPro6").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgAddPro6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImg6").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_addpro1_img6").html( response );
 
    },
@@ -241,6 +143,7 @@ else{
              seller: $('#seller_addpro1_admin').val(),
              price: $('#price_addpro1_admin').val(),
              old_price: $('#priceold_addpro1_admin').val(),
+             dimension_stamp: $('input[name=dimension_stamp]:checked', '#add_pro_form1').val(),
              gram: $('#vazn_addpro1_admin').val(),
              gram_post: $('#vaznpost_addpro1_admin').val(),
              pakat_price: $('#pakat_addpro1_admin').val(),
@@ -266,79 +169,70 @@ else{
            scroll_form_admin('add_pro_form1');
 
            document.getElementById("add_pro_form1").reset();
-
-           $('#ajax_formaddpro1_admin').empty();
-           $('#ajax_formaddpro1_admin').append('<div id="alarm_green">محصول با موفقیت ذخیره شد</div>');
+           $('#ajax_formaddpro1_admin').html('<div class="alert alert-success">محصول با موفقیت ذخیره شد</div>');
            // scroll_form('data_buyer');
            // end_buy();
 
              //window.location.href  = "/user/{{$user['id']}}";
-             // $('#alarm_register').append('<div id="alarm_green">'+'ثبت نام با موفقیت انجام شد'+'</div>');
+             // $('#alarm_register').append('<div class="alert alert-success">'+'ثبت نام با موفقیت انجام شد'+'</div>');
              },
          error: function(xhr) {
-
-             var errors = xhr.responseJSON;
-
-             var error=errors.errors;
+             var errors = xhr.responseJSON;var error=errors.errors;
 
              scroll_form_admin('add_pro_form1');
-             $('#ajax_formaddpro1_admin').empty();
+
              // $('.form-control').css("border-color" , "#fff");
 
 
               if(error['name']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">نام محصول را وارد کنید </div>');
-                $('#name_data_buyer').css("border-color" , "#c30909");
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">نام محصول را وارد کنید </div>');
              }else if(error['seller']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">فروشنده کالا را انتخاب کنید</div>');
-                $('#mobail_data_buyer').css("border-color" , "#c30909");
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">فروشنده کالا را انتخاب کنید</div>');
              }
              else if(error['price']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">قیمت کالا را وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید.</div>');
-                $('#tel_data_buyer').css("border-color" , "#c30909");
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">قیمت کالا را وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید.</div>');
              }
 
              else if(error['old_price']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">قیمت قبل کالا را به تومان  وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید</div>');
-                $('#email_data_buyer').css("border-color" , "#c30909");
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">قیمت قبل کالا را به تومان  وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید</div>');
+             }
+             else if(error['dimension_stamp']){
+
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">ابعاد محصول را انتخاب کنید</div>');
              }
              else if(error['gram']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">وزن محصول را وارد کنید</div>');
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">وزن محصول را وارد کنید</div>');
 
              }
              else if(error['gram_post']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">وزن پستی کالا را وارد کنید</div>');
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">وزن پستی کالا را وارد کنید</div>');
 
              }
              else if(error['pakat_price']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">قیمت بسته بندی را به تومان وارد کنید ، کلمه (تومان) را ننویستید</div>');
-                $('#codepost_data_buyer').css("border-color" , "#c30909");
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">قیمت بسته بندی را به تومان وارد کنید ، کلمه (تومان) را ننویستید</div>');
              }
              else if(error['dis']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">توضیحات محصول را وارد کنید</div>');
-                $('#address_data_buyer').css("border-color" , "#c30909");
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">توضیحات محصول را وارد کنید</div>');
              }
              else if(error['img1']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">آپلود کردن عکس 1 الزامی است</div>');
-                $('#amniat_data_buyer').css("border-color" , "#c30909");
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">آپلود کردن عکس 1 الزامی است</div>');
              }
              else if(error['show']){
 
-                $('#ajax_formaddpro1_admin').append('<div id="alarm_red">نحوه نمایش محصول در وب سایت را انتخاب کنید .</div>');
-                $('#amniat_data_buyer').css("border-color" , "#c30909");
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">نحوه نمایش محصول در وب سایت را انتخاب کنید .</div>');
              }
              else{
-               $('#ajax_formaddpro1_admin').append('<div id="alarm_red">اخطار : محصول ذخیره نشد !</div>');
-               $('#amniat_data_buyer').css("border-color" , "#c30909");
+               $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">اخطار : محصول ذخیره نشد !</div>');
+
              }
 
 
@@ -353,13 +247,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgEditPro1").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgEditPro1").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgEditPro1").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgEditPro1").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImgE1").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_editpro1_img1").html( response );
    },
 
@@ -371,13 +266,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgEditPro2").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgEditPro2").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgEditPro2").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgEditPro2").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImgE2").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_editpro1_img2").html( response );
 
    },
@@ -390,13 +286,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgEditPro3").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgEditPro3").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgEditPro3").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgEditPro3").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImgE3").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_editpro1_img3").html( response );
 
    },
@@ -409,13 +306,14 @@ else{
     maxFilesize: 3,
     error:function(){
 
-     $("#imgEditPro4").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgEditPro4").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgEditPro4").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgEditPro4").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImgE4").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_editpro1_img4").html( response );
 
    },
@@ -428,13 +326,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgEditPro5").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgEditPro5").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgEditPro5").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgEditPro5").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImgE5").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_editpro1_img5").html( response );
 
    },
@@ -447,13 +346,14 @@ else{
     maxFilesize: 3,
    error:function(){
 
-     $("#imgEditPro6").html('<div id="alarm_red">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+     $("#imgEditPro6").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
    },
    success:function(file , response){
      //آرگومان اول یک شی است
      //آرکومان دوم مقدار بازگشتی از کنترلر است
 
-     $("#imgEditPro6").html('<div id="alarm_green"> عکس با موفقیت آپلود شد </div>');
+     $("#imgEditPro6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+     $("#checkImgE6").html('<i class="fas fa-check Icheck"></i>');
      $("#ajax_editpro1_img6").html( response );
 
    },
@@ -471,6 +371,7 @@ else{
            seller: $('#seller_editpro1_admin').val(),
            price: $('#price_editpro1_admin').val(),
            old_price: $('#priceold_editpro1_admin').val(),
+           dimension_stamp: $('input[name=dimension_stamp]:checked', '#edit_pro_form1').val(),
            gram: $('#vazn_editpro1_admin').val(),
            gram_post: $('#vaznpost_editpro1_admin').val(),
            pakat_price: $('#pakat_editpro1_admin').val(),
@@ -494,87 +395,63 @@ else{
        },
        success: function(data) {
          scroll_form_admin('edit_pro_form1');
-
          document.getElementById("edit_pro_form1").reset();
-
-         $('#ajax_formeditpro1_admin').empty();
-
-
-         // scroll_form('data_buyer');
-         // end_buy();
          var urlpro="/edit_pro/"+ id +"";
            window.location.href  = urlpro;
-            $('#ajax_formeditpro1_admin').append('<div id="alarm_green">محصول با موفقیت ذخیره شد</div>');
-           // $('#alarm_register').append('<div id="alarm_green">'+'ثبت نام با موفقیت انجام شد'+'</div>');
+            $('#ajax_formeditpro1_admin').html('<div class="alert alert-success">محصول با موفقیت ذخیره شد</div>');
            },
        error: function(xhr) {
-
-           var errors = xhr.responseJSON;
-
-           var error=errors.errors;
-
+           var errors = xhr.responseJSON;var error=errors.errors;
            scroll_form_admin('edit_pro_form1');
-           $('#ajax_formeditpro1_admin').empty();
-           // $('.form-control').css("border-color" , "#fff");
-
-
             if(error['name']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">نام محصول را وارد کنید </div>');
-              $('#name_data_buyer').css("border-color" , "#c30909");
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">نام محصول را وارد کنید </div>');
            }else if(error['seller']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">فروشنده کالا را انتخاب کنید</div>');
-              $('#mobail_data_buyer').css("border-color" , "#c30909");
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">فروشنده کالا را انتخاب کنید</div>');
            }
            else if(error['price']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">قیمت کالا را وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید.</div>');
-              $('#tel_data_buyer').css("border-color" , "#c30909");
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">قیمت کالا را وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید.</div>');
            }
 
            else if(error['old_price']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">قیمت قبل کالا را به تومان  وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید</div>');
-              $('#email_data_buyer').css("border-color" , "#c30909");
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">قیمت قبل کالا را به تومان  وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید</div>');
+           }
+           else if(error['dimension_stamp']){
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">ابعاد محصول را انتخاب کنید</div>');
            }
            else if(error['gram']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">وزن محصول را وارد کنید</div>');
-
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">وزن محصول را وارد کنید</div>');
            }
            else if(error['gram_post']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">وزن پستی کالا را وارد کنید</div>');
-
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">وزن پستی کالا را وارد کنید</div>');
            }
            else if(error['pakat_price']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">قیمت بسته بندی را به تومان وارد کنید ، کلمه (تومان) را ننویستید</div>');
-              $('#codepost_data_buyer').css("border-color" , "#c30909");
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">قیمت بسته بندی را به تومان وارد کنید ، کلمه (تومان) را ننویستید</div>');
            }
            else if(error['dis']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">توضیحات محصول را وارد کنید</div>');
-              $('#address_data_buyer').css("border-color" , "#c30909");
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">توضیحات محصول را وارد کنید</div>');
            }
            else if(error['img1']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">آپلود کردن عکس 1 الزامی است</div>');
-              $('#amniat_data_buyer').css("border-color" , "#c30909");
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">آپلود کردن عکس 1 الزامی است</div>');
            }
            else if(error['show']){
-
-              $('#ajax_formeditpro1_admin').append('<div id="alarm_red">نحوه نمایش محصول در وب سایت را انتخاب کنید .</div>');
-              $('#amniat_data_buyer').css("border-color" , "#c30909");
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">نحوه نمایش محصول در وب سایت را انتخاب کنید .</div>');
            }
-
            else{
-             $('#ajax_formeditpro1_admin').append('<div id="alarm_red">اخطار : محصول ذخیره نشد !</div>');
-             $('#amniat_data_buyer').css("border-color" , "#c30909");
+             $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">اخطار : محصول ذخیره نشد !</div>');
            }
-
-
        }
 }, "json");
 }
+function del_img(ajax , div , i) {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../del_imgProAdmin',
+    data: {
+
+         },
+    success:function(){
+      $("#"+ ajax).html('<div class="alert alert-danger"> عکس حذف شد . </div>');
+      $("#"+ div).html('');
+      $("#"+ i).html( '' );
+    },  });}

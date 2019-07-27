@@ -10,67 +10,52 @@
 </div>
 <div class="edit_pro2">
 
-  <form class="edit_pro_form1" action="" id="edit_pro_form1"  method="post">
+  <form class="edit_pro_form1 edit_pro_form1" id="edit_pro_form1"  method="post">
     {{ csrf_field() }}
-    <div class="ajax_formeditpro1_admin" id="ajax_formeditpro1_admin"></div>
+    <div class="ajax_form_admin" id="ajax_formeditpro1_admin"></div>
 
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="_editpro1_admin" class="control-label pull-right  ">نام محصول</label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->name}}"  id="name_editpro1_admin"   ></div>
-
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="seller_editpro1_admin" class="control-label pull-right  "> فروشنده </label>
       <select class="form-control" name="" id="seller_editpro1_admin">
         <option value="">انتخاب کنید</option>
         <option @if ($pro->seller=="fatak") selected @endif value="fatak">فاتک </option>
       </select>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="price_editpro1_admin" class="control-label pull-right  "> قیمت محصول</label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->price}}"  id="price_editpro1_admin" placeholder="به تومان ..." ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="priceold_editpro1_admin" class="control-label pull-right  "> قیمت قبل محصول </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->old_price}}"  id="priceold_editpro1_admin" placeholder="به تومان ..." ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group  textAll">
+      <label  class="control-label pull-right  "> ابعاد محصول <i class="fas fa-star star_form"></i> </label>
+      <div class="divRadio">
+        <label class="labelRadio_R">
+          <span >کمتر100cm</span>
+          <input type="radio" @if ($pro->dimension_stamp==1) checked @endif  name="dimension_stamp" value="1">
+        </label>
+        <label class="labelRadio_L">
+          <span >بیشتر100cm</span>
+          <input type="radio"@if ($pro->dimension_stamp==2) checked @endif  name="dimension_stamp" value="2">
+        </label>
+      </div>
+
+    </div>
+    <div class="form-group textAll">
       <label for="vazn_editpro1_admin" class="control-label pull-right  "> وزن محصول </label>
-      <select class="form-control" name="" id="vazn_editpro1_admin">
-        <option value="">انتخاب کنید</option>
-        <option @if ($pro->gram==100) selected @endif value="100">100 گرم</option>
-        <option @if ($pro->gram==200) selected @endif value="200">200 گرم</option>
-        <option @if ($pro->gram==300) selected @endif value="300">300 گرم</option>
-        <option @if ($pro->gram==400) selected @endif value="400">400 گرم</option>
-        <option @if ($pro->gram==500) selected @endif value="500">500 گرم</option>
-        <option @if ($pro->gram==600) selected @endif value=""></option>
-        <option @if ($pro->gram==700) selected @endif value=""></option>
-        <option @if ($pro->gram==800) selected @endif value=""></option>
-        <option @if ($pro->gram==900) selected @endif value=""></option>
-        <option @if ($pro->gram==1000) selected @endif value=""></option>
-        <option @if ($pro->gram==1100) selected @endif value=""></option>
-        <option @if ($pro->gram==1200) selected @endif value=""></option>
-      </select>
+      <div class="div_data_buyer"><input type="text" class="form-control placeholder" value="{{$pro->gram}}"  id="vazn_editpro1_admin" placeholder="به گرم .." ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="vaznpost_editpro1_admin" class="control-label pull-right  "> وزن پستی محصول </label>
-      <select class="form-control" name="" id="vaznpost_editpro1_admin">
-        <option value="">انتخاب کنید</option>
-        <option @if ($pro->gram_post==100) selected @endif value="100">100 گرم</option>
-        <option @if ($pro->gram_post==200) selected @endif value="200">200 گرم</option>
-        <option @if ($pro->gram_post==300) selected @endif value="300">300 گرم</option>
-        <option @if ($pro->gram_post==400) selected @endif value="400">400 گرم</option>
-        <option @if ($pro->gram_post==500) selected @endif value="500">500 گرم</option>
-        <option @if ($pro->gram_post==600) selected @endif value=""></option>
-        <option @if ($pro->gram_post==7100) selected @endif value=""></option>
-        <option @if ($pro->gram_post==800) selected @endif value=""></option>
-        <option @if ($pro->gram_post==900) selected @endif value=""></option>
-        <option @if ($pro->gram_post==1000) selected @endif value=""></option>
-        <option @if ($pro->gram_post==1100) selected @endif value=""></option>
-        <option @if ($pro->gram_post==1200) selected @endif value=""></option>
-      </select>
+      <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->gram_post}}"  id="vaznpost_editpro1_admin" placeholder="به تومان ..." ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="pakat_editpro1_admin" class="control-label pull-right  "> هزینه بسته بندی </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->pakat_price}}"  id="pakat_editpro1_admin" placeholder="به تومان ..." ></div>
     </div>
@@ -104,19 +89,19 @@
       <div class="mavad_editpro1_admin"><input type="text" class="form-control" value="{{$mavads[18]}}"  id="mavad19_editpro1_admin" placeholder="" ></div>
       <div class="mavad_editpro1_admin"><input type="text" class="form-control" value="{{$mavads[19]}}"  id="mavad20_editpro1_admin" placeholder="" ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="date_m_editpro1_admin" class="control-label pull-right  "> سال تولید </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->date_m}}"  id="date_m_editpro1_admin" placeholder="" ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="date_n_editpro1_admin" class="control-label pull-right  "> انقضا </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->date_n}}"  id="date_n_editpro1_admin" placeholder="" ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="dimension_editpro1_admin" class="control-label pull-right  "> ابعاد </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->dimension}}"  id="dimension_editpro1_admin" placeholder="" ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="sponsor_editpro1_admin" class="control-label pull-right  "> گارانتی </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->sponsor}}" id="sponsor_editpro1_admin" placeholder="" ></div>
     </div>
@@ -128,52 +113,52 @@
       <label for="bake_editpro1_admin" class="control-label pull-right  "> شرایط ارجاع </label>
       <textarea name="name" id="bake_editpro1_admin"><?=$pro->bake?></textarea>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="made_editpro1_admin" class="control-label pull-right  "> سازنده </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->made}}"  id="made_editpro1_admin" placeholder="" ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
+    <div class="form-group textAll">
       <label for="model_editpro1_admin" class="control-label pull-right  "> مدل </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->model}}" id="model_editpro1_admin" placeholder="" ></div>
     </div>
-    <div class="form-group edit_pro_form1_1">
-      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 1 </label>
+    <div class="form-group textAll">
+      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 1 <span id="checkImgE1"> @if ($img->pic_b1)<i class="fas fa-check Icheck"></i> @endif</span></label>
 
       <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#modal_edit_pro_img1" value="انتخاب کنید">
       <div class="ajax_editpro1_img" id="ajax_editpro1_img1">{{$img->pic_b1}}</div>
     </div>
-    <div class="form-group edit_pro_form1_1">
-      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 2</label>
+    <div class="form-group textAll">
+      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 2 <span id="checkImgE2"> @if ($img->pic_b2)<i class="fas fa-check Icheck"></i> @endif</span></label>
 
       <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#modal_edit_pro_img2" value="انتخاب کنید">
       <div class="ajax_editpro1_img" id="ajax_editpro1_img2">{{$img->pic_b2}}</div>
     </div>
-    <div class="form-group edit_pro_form1_1">
-      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 3 </label>
+    <div class="form-group textAll">
+      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 3 <span id="checkImgE3"> @if ($img->pic_b3)<i class="fas fa-check Icheck"></i> @endif</span></label>
 
       <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#modal_edit_pro_img3" value="انتخاب کنید">
       <div class="ajax_editpro1_img" id="ajax_editpro1_img3">{{$img->pic_b3}}</div>
     </div>
-    <div class="form-group edit_pro_form1_1">
-      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 4 </label>
+    <div class="form-group textAll">
+      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 4 <span id="checkImgE4"> @if ($img->pic_b4)<i class="fas fa-check Icheck"></i> @endif</span></label>
 
       <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#modal_edit_pro_img4" value="انتخاب کنید">
       <div class="ajax_editpro1_img" id="ajax_editpro1_img4">{{$img->pic_b4}}</div>
     </div>
-    <div class="form-group edit_pro_form1_1">
-      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 5 </label>
+    <div class="form-group textAll">
+      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 5 <span id="checkImgE5"> @if ($img->pic_b5)<i class="fas fa-check Icheck"></i> @endif</span></label>
 
       <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#modal_edit_pro_img5" value="انتخاب کنید">
       <div class="ajax_editpro1_img" id="ajax_editpro1_img5">{{$img->pic_b5}}</div>
     </div>
-    <div class="form-group edit_pro_form1_1">
-      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 6 </label>
+    <div class="form-group textAll">
+      <label for="img1_editpro1_admin" class="control-label pull-right  "> انتخاب عکس 6 <span id="checkImgE6"> @if ($img->pic_b6)<i class="fas fa-check Icheck"></i> @endif</span></label>
 
       <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#modal_edit_pro_img6" value="انتخاب کنید">
       <div class="ajax_editpro1_img" id="ajax_editpro1_img6">{{$img->pic_b6}}</div>
     </div>
-    <div class="form-group edit_pro_form1_1">
-      <label for="show_editpro1_admin" class="control-label pull-right  "> نحوه نمایش محصول </label>
+    <div class="form-group textAll">
+      {{-- <label for="show_editpro1_admin" class="control-label pull-right  "> نحوه نمایش محصول </label>
       <div class="div_show_editpro">
         <div class="div_show_editpro_1">
           <label for="show_editpro">فعال</label>
@@ -184,6 +169,18 @@
           <input type="radio" class="" @if ($pro->show != 1) checked @endif id="show_editpro_2" name="show1" value="2">
         </div>
 
+      </div> --}}
+
+      <label class="control-label pull-right  "> نحوه نمایش محصول </label>
+      <div class="divRadio">
+        <label class="labelRadio_R">
+          <span >فعال</span>
+          <input type="radio" @if ($pro->show == 1) checked @endif id="show_editpro" name="show1" value="1">
+        </label>
+        <label class="labelRadio_L">
+          <span >غیر فعال</span>
+          <input type="radio" @if ($pro->show != 1) checked @endif id="show_editpro_2" name="show1" value="2">
+        </label>
       </div>
 
     </div>
@@ -231,8 +228,8 @@
         <div class="titr_modal_img_editpro">
            آپلود عکس اول
         </div>
-        <div class="" id="imgEditPro1"></div>
-        <form class="dropzone form_img_edit_pro" id="proEditImg1" action="/uplod_img_pro"  onclick="nm()"  enctype="multipart/form-data" method="post">
+        <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgEditPro1"></div>
+        <form class="dropzone form_img_edit_pro" id="proEditImg1" action="/uplod_img_pro"    enctype="multipart/form-data" method="post">
           {{ csrf_field() }}
           <div class="dz-message">
               <div class="col-xs-8">
@@ -250,6 +247,7 @@
       </div>
       <div class="footer_modal_img_edit_pro">
           <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+          <button type="button" class="btn btn-danger" onclick="del_img('imgEditPro1','ajax_editpro1_img1','checkImgE1')">حذف عکس</button>
       </div>
     </div>
   </div>
@@ -267,8 +265,8 @@
         <div class="titr_modal_img_editpro">
             آپلود عکس دوم
         </div>
-        <div class="" id="imgEditPro2"></div>
-        <form class="dropzone form_img_edit_pro" id="proEditImg2" action="/uplod_img_pro"  onclick="nm()"  enctype="multipart/form-data" method="post">
+        <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgEditPro2"></div>
+        <form class="dropzone form_img_edit_pro" id="proEditImg2" action="/uplod_img_pro"    enctype="multipart/form-data" method="post">
           {{ csrf_field() }}
           <div class="dz-message">
               <div class="col-xs-8">
@@ -285,6 +283,7 @@
       </div>
       <div class="footer_modal_img_edit_pro">
           <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+          <button type="button" class="btn btn-danger" onclick="del_img('imgEditPro2','ajax_editpro1_img2','checkImgE2')">حذف عکس</button>
       </div>
     </div>
   </div>
@@ -302,8 +301,8 @@
         <div class="titr_modal_img_editpro">
           آپلود عکس سوم
         </div>
-        <div class="" id="imgEditPro3"></div>
-        <form class="dropzone form_img_edit_pro" id="proEditImg3" action="/uplod_img_pro"  onclick="nm()"  enctype="multipart/form-data" method="post">
+        <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgEditPro3"></div>
+        <form class="dropzone form_img_edit_pro" id="proEditImg3" action="/uplod_img_pro"    enctype="multipart/form-data" method="post">
           {{ csrf_field() }}
           <div class="dz-message">
               <div class="col-xs-8">
@@ -320,6 +319,7 @@
       </div>
       <div class="footer_modal_img_edit_pro">
           <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+          <button type="button" class="btn btn-danger" onclick="del_img('imgEditPro3','ajax_editpro1_img3','checkImgE3')">حذف عکس</button>
       </div>
     </div>
   </div>
@@ -337,8 +337,8 @@
         <div class="titr_modal_img_editpro">
           آپلود عکس چهارم
         </div>
-        <div class="" id="imgEditPro4"></div>
-        <form class="dropzone form_img_edit_pro" id="proEditImg4" action="/uplod_img_pro"  onclick="nm()"  enctype="multipart/form-data" method="post">
+        <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgEditPro4"></div>
+        <form class="dropzone form_img_edit_pro" id="proEditImg4" action="/uplod_img_pro"    enctype="multipart/form-data" method="post">
           {{ csrf_field() }}
           <div class="dz-message">
               <div class="col-xs-8">
@@ -355,6 +355,7 @@
       </div>
       <div class="footer_modal_img_edit_pro">
           <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+          <button type="button" class="btn btn-danger" onclick="del_img('imgEditPro4','ajax_editpro1_img4','checkImgE4')">حذف عکس</button>
       </div>
     </div>
   </div>
@@ -372,7 +373,7 @@
         <div class="titr_modal_img_editpro">
           آپلود عکس پنچم
         </div>
-        <div class="" id="imgEditPro5"></div>
+        <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgEditPro5"></div>
         <form class="dropzone form_img_edit_pro" id="proEditImg5" action="/uplod_img_pro"   enctype="multipart/form-data" method="post">
           {{ csrf_field() }}
           <div class="dz-message">
@@ -390,6 +391,7 @@
       </div>
       <div class="footer_modal_img_edit_pro">
           <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+          <button type="button" class="btn btn-danger" onclick="del_img('imgEditPro5','ajax_editpro1_img5','checkImgE5')">حذف عکس</button>
       </div>
     </div>
   </div>
@@ -407,8 +409,8 @@
         <div class="titr_modal_img_editpro">
           آپلود عکس ششم
         </div>
-        <div class="" id="imgEditPro6"></div>
-        <form class="dropzone form_img_edit_pro" id="proEditImg6" action="/uplod_img_pro"  onclick="nm()"  enctype="multipart/form-data" method="post">
+        <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgEditPro6"></div>
+        <form class="dropzone form_img_edit_pro" id="proEditImg6" action="/uplod_img_pro"enctype="multipart/form-data" method="post">
           {{ csrf_field() }}
           <div class="dz-message">
               <div class="col-xs-8">
@@ -425,6 +427,7 @@
       </div>
       <div class="footer_modal_img_edit_pro">
           <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+          <button type="button" class="btn btn-danger" onclick="del_img('imgEditPro6','ajax_editpro1_img6','checkImgE6')">حذف عکس</button>
       </div>
     </div>
   </div>

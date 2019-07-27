@@ -68,6 +68,7 @@ public function save_add_pro1(Save_add_pro_admin $request){
   $pro->dis = $request->dis ;
   $pro->price = $request->price ;
   $pro->old_price = $old_price ;
+  $pro->dimension_stamp = $request->dimension_stamp;
   $pro->gram = $request->gram ;
   $pro->gram_post = $request->gram_post ;
   $pro->pakat_price = $request->pakat_price ;
@@ -131,6 +132,7 @@ public function save_edit_pro1(Save_edit_pro_admin $request){
   $edit->dis = $request->dis ;
   $edit->price = $request->price ;
   $edit->old_price = $old_price ;
+  $edit->dimension_stamp = $request->dimension_stamp;
   $edit->gram = $request->gram ;
   $edit->gram_post = $request->gram_post ;
   $edit->pakat_price = $request->pakat_price ;
@@ -169,5 +171,6 @@ public function save_edit_pro1(Save_edit_pro_admin $request){
   $picture->save();
 
 }
-
+public function del_imgProAdmin(Request $request)
+{}
 }//end class

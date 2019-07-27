@@ -28,6 +28,7 @@ class Save_add_pro_admin extends FormRequest
           'seller'=>'required',
           'price'=>'required|numeric|min:3',
           'old_price'=>'nullable|numeric|min:3',
+          'dimension_stamp'=>'required|numeric',
           'gram'=>'required',
           'gram_post'=>'required',
           'pakat_price'=>'required|numeric|min:3',

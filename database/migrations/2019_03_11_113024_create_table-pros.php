@@ -19,6 +19,7 @@ class CreateTablePros extends Migration
             $table->text('dis');
             $table->string('price' , 8);
             $table->string('old_price' , 8)->nullable();
+            $table->boolean('dimension_stamp');
             $table->string('gram' , 8);
             $table->string('gram_post' , 8);
             $table->string('pakat_price' , 8);

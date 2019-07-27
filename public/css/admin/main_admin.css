@@ -82,7 +82,11 @@ display:inline;
 /* #### form #### */
 
 .formAdmin{width: 100%;float: right;margin-bottom: 35px;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
-.ajax_form_admin{width: 98%;margin: 0 1%;float: right;}
+.ajax_form_admin{width: 98%;margin: 0 1%;float: right;text-align: center;}
+.warning_form{width: 98%;margin: 2px 1%;padding: 0 4px;font-size: 12px;float: right;background-color: #f7d9a6;color:#c46604;border-radius: 3px;}
+.warning_form i{position: relative;font-size: 10px;color: #a1340b;}
+.star_form{color: #820000;font-size: 6px;position: relative;top: -5px;right: -3px;}
+.Icheck{color: #196201;margin-right: 15px;position: relative;top: 3px;}
 .placeholder:-moz-placeholder,.placeholder::-moz-placeholder{color:#d3d5ec;opacity: 0.9;}
 .placeholder:focus:-moz-placeholder,.placeholder:focus::-moz-placeholder{opacity: 0.4;}
 .textAll{width: 48%; height: 45px;line-height: 42px;padding: 3px 3px;margin: 6px 1%;float: right;background-color: #d5dade;border-radius: 3px;}

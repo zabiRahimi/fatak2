@@ -28,6 +28,7 @@ class CreateProShopsTable extends Migration
             $table->string('num',7)->nullable();
             $table->string('vazn',8)->nullable();
             $table->string('vaznPost',8)->nullable();
+            $table->boolean('dimension');
             $table->string('pakat',12)->nullable();
             $table->text('dis')->nullable();
             $table->string('dateMake',12)->nullable();
