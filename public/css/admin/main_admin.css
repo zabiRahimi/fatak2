@@ -155,8 +155,8 @@ display:inline;
   cursor: pointer;
 }
 .rowListEMM_b:hover{background-color: #aed8fa;}
-.classBg1{background-color: #fff;}
-.classBg2{background-color: #dfdede;}
+.classBg1{background-color: #fff !important;}
+.classBg2{background-color: #dfdede !important;}
 .rowListEMM_1{width: 6%;height:30px ;border-left: 1px solid #43767a;display: inline-block;float: right;}
 .rowListEMM_2{width: 6%;height:30px ;border-left: 1px solid #43767a;display: inline-block;float: right;}
 .rowListEMM_3{width: 25%;height:30px ;border-left: 1px solid #43767a;display: inline-block;float: right;}

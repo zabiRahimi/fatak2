@@ -12,6 +12,10 @@ use App\Models\Admin\Management;
 use App\Models\Admin\Imgpro;
 use App\Models\Pro;
 use App\Models\PicturePro;
+use App\Models\Order;
+use App\Models\Buy;
+use App\Models\Shop;
+
 use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای کنترلر ادمین در یک پوشه مجزا هست برای کار کردن فرم درخواست باید فایل فرم درخواست را یوز کنیم
 use App\Http\Requests\Save_edit_pro_admin;
 class Pro_adController extends Controller
@@ -173,4 +177,23 @@ public function save_edit_pro1(Save_edit_pro_admin $request){
 }
 public function del_imgProAdmin(Request $request)
 {}
+//نمایش سفرشات خریداری شده
+public function orderBuy(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $buy=Buy::where('stage',2)->get();
+  $pro=Pro::get();
+  $shop=Shop::get();
+  return view('management.pro_admin.orderBuy', compact('id','nameModir','access','buy','pro','shop'));
+
+}
+public function orderBuyOne(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $id_pro=$request->id_pro;
+  $buy=Buy::find($id_pro);
+  $pro=Pro::find($buy->pro_id);
+  $shop=Shop::find($buy->shop_id);
+  return view('management.pro_admin.orderBuyOne', compact('id','nameModir','access','buy','pro','shop'));
+}
 }//end class

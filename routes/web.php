@@ -150,6 +150,8 @@ Route::get('/edit_pro/{id2}', 'Admin\Pro_adController@edit_pro')->middleware(['c
 Route::post('/save_edit_pro1', 'Admin\Pro_adController@save_edit_pro1');//ok
 Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro')->middleware(['chekloginManeg']);//ok
 Route::post('/del_imgProAdmin', 'Admin\Pro_adController@del_imgProAdmin');//ok
+Route::get('/orderBuy', 'Admin\Pro_adController@orderBuy')->middleware(['chekloginManeg']);//ok
+Route::get('/orderBuyOne/{id_pro}', 'Admin\Pro_adController@orderBuyOne')->middleware(['chekloginManeg'])->where('id_pro', '[0-9]+');//ok
 
 Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!

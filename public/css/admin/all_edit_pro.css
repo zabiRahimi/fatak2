@@ -6,7 +6,7 @@
 .all_edit_pro1 .div3{width: 9%;padding-left: 4px;float: left; font-size: 12px;}
 .all_edit_pro1_2 .div2{color: #094d05;}
 .all_edit_pro1_3 .div2{color: #7a0a0a;}
-.all_edit_pro2{width: 98%; margin: 6px 1% 0;height: 200px;font-size: 16px; padding: 5px 4px;float: right; text-align: right; background-color: #fbf9e1; border-radius: 1px;}
+.all_edit_pro2{width: 98%; margin: 6px 1% 0;font-size: 16px; padding: 5px 4px;float: right; text-align: right; background-color: #fbf9e1; border-radius: 1px;}
 .all_edit_pro2_1{width: 100%; height: 35px; line-height: 35px; float: right; background: #98c9c2; border: 1px solid #5e5e5e;float: right;}
 .all_edit_pro2_1_0{height: 34px;padding: 0 2px;text-align: center;float: right; border-left: 1px solid #6f6f6f;}
 .all_edit_pro2_1_0 .span1{ text-align: center;display: inline-block;}
@@ -29,3 +29,11 @@
 .span_no{color: #7a0a0a;}
 .all_edit_pro_edit{width:8%;border-left: none;}
 .all_edit_pro3{}
+
+/* orderBuy.css */
+.orderBuyR1{width: 40px;}
+.orderBuyR2{width: calc( 33% - 40px);}
+.orderBuyR3{width:12%; }
+.orderBuyR4{width:20%;}
+.orderBuyR5{width:20%;}
+.orderBuyR6{width:15%;}

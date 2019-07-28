@@ -12,7 +12,7 @@
         <a href="/pro_admin" class=""><span class="titrCBR">مدیریت محصولات</span> </a>
         <a href="/add_pro" class=""><span class="titrCBR">اضافه کردن محصول</span> </a><!-- نکته : بجهت نمایش ادیتور کد از پی جکس استفاده نشده است -->
         <a href="/all_edit_pro" class=""><span class="titrCBR">ویرایش محصولات</span> </a>
-        <a href="#" class=""><span class="titrCBR">محصولات سفارش شده</span><span class="badgeCBR">2</span> </a>
+        <a href="/orderBuy" class=""><span class="titrCBR">محصولات سفارش شده</span><span class="badgeCBR">2</span> </a>
         <a href="#" class=""><span class="titrCBR">محصولات ثبت شده</span><span class="badgeCBR">8</span> </a>
         <a href="#" class=""><span class="titrCBR">محصولات ارسال شده</span><span class="badgeCBR">452</span> </a>
         <a href="#" class=""><span class="titrCBR">محصولات تحویل داده شده</span><span class="badgeCBR">547</span> </a>
