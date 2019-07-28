@@ -140,6 +140,7 @@ else{
          method: 'post',
          data: {
              name:$('#name_addpro1_admin').val(),
+             vahed:$('#vahed_addpro1_admin').val(),
              seller: $('#seller_addpro1_admin').val(),
              price: $('#price_addpro1_admin').val(),
              old_price: $('#priceold_addpro1_admin').val(),
@@ -187,15 +188,20 @@ else{
               if(error['name']){
 
                 $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">نام محصول را وارد کنید </div>');
-             }else if(error['seller']){
+             }
+             else if(error['vahed']){
+
+                $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">واحد شمارش محصول را انتخاب کنید .</div>');
+             }
+             else if(error['seller']){
 
                 $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">فروشنده کالا را انتخاب کنید</div>');
              }
+
              else if(error['price']){
 
                 $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">قیمت کالا را وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید.</div>');
              }
-
              else if(error['old_price']){
 
                 $('#ajax_formaddpro1_admin').html('<div class="alert alert-danger">قیمت قبل کالا را به تومان  وارد کنید ، از نوشتن کلمه ( تومان ) خودداری کنید</div>');
@@ -368,6 +374,7 @@ else{
        data: {
            id:id,
            name:$('#name_editpro1_admin').val(),
+           vahed:$('#vahed_editpro1_admin').val(),
            seller: $('#seller_editpro1_admin').val(),
            price: $('#price_editpro1_admin').val(),
            old_price: $('#priceold_editpro1_admin').val(),
@@ -405,7 +412,11 @@ else{
            scroll_form_admin('edit_pro_form1');
             if(error['name']){
               $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">نام محصول را وارد کنید </div>');
-           }else if(error['seller']){
+           }
+           else if(error['vahed']){
+              $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">واحد شمارش محصول را انتخاب کنید .</div>');
+           }
+           else if(error['seller']){
               $('#ajax_formeditpro1_admin').html('<div class="alert alert-danger">فروشنده کالا را انتخاب کنید</div>');
            }
            else if(error['price']){

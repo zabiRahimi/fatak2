@@ -15,8 +15,22 @@
     <div class="ajax_form_admin" id="ajax_formeditpro1_admin"></div>
 
     <div class="form-group textAll">
-      <label for="_editpro1_admin" class="control-label pull-right  ">نام محصول</label>
+      <label for="name_editpro1_admin" class="control-label pull-right  ">نام محصول</label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->name}}"  id="name_editpro1_admin"   ></div>
+    </div>
+    <div class="form-group textAll">
+      <label for="vahed_editpro1_admin" class="control-label pull-right  "> واحد شمارش محصول <i class="fas fa-star star_form"></i> </label>
+      <select class="form-control"id="vahed_editpro1_admin">
+        <option value="">انتخاب کنید</option>
+        <option @if ($pro->vahed=="عدد") selected @endif value="عدد">عدد</option>
+        <option @if ($pro->vahed=="کیلو گرم") selected @endif value="کیلو گرم">کیلو گرم</option>
+        <option @if ($pro->vahed=="گرم") selected @endif value="گرم">گرم</option>
+        <option @if ($pro->vahed=="جین") selected @endif value="جین">جین</option>
+        <option @if ($pro->vahed=="گونی") selected @endif value="گونی">گونی</option>
+        <option @if ($pro->vahed=="درجن") selected @endif value="درجن">درجن</option>
+        <option @if ($pro->vahed=="کارتن") selected @endif value="کارتن">کارتن</option>
+        <option @if ($pro->vahed=="سایر") selected @endif value="سایر">سایر</option>
+      </select>
     </div>
     <div class="form-group textAll">
       <label for="seller_editpro1_admin" class="control-label pull-right  "> فروشنده </label>

@@ -69,6 +69,7 @@ public function save_add_pro1(Save_add_pro_admin $request){
   $mavad=json_encode($request->mavad);
   $pro=new Pro();
   $pro->name = $request->name ;
+  $pro->vahed = $request->vahed ;
   $pro->dis = $request->dis ;
   $pro->price = $request->price ;
   $pro->old_price = $old_price ;
@@ -133,6 +134,7 @@ public function save_edit_pro1(Save_edit_pro_admin $request){
   $edit=pro::find($id);
 
   $edit->name = $request->name ;
+  $edit->vahed = $request->vahed ;
   $edit->dis = $request->dis ;
   $edit->price = $request->price ;
   $edit->old_price = $old_price ;

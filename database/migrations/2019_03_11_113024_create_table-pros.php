@@ -16,6 +16,7 @@ class CreateTablePros extends Migration
         Schema::create('Pros', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name' , 70);
+            $table->string('vahed' , 30);
             $table->text('dis');
             $table->string('price' , 8);
             $table->string('old_price' , 8)->nullable();

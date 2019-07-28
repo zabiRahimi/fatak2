@@ -25,6 +25,20 @@
       <div class="div_data_buyer"><input type="text" class="form-control"  id="name_addpro1_admin"  ></div>
     </div>
     <div class="form-group textAll">
+      <label for="vahed_addpro1_admin" class="control-label pull-right  "> واحد شمارش محصول <i class="fas fa-star star_form"></i> </label>
+      <select class="form-control"id="vahed_addpro1_admin">
+        <option value="">انتخاب کنید</option>
+        <option value="عدد">عدد</option>
+        <option value="کیلو گرم">کیلو گرم</option>
+        <option value="گرم">گرم</option>
+        <option value="جین">جین</option>
+        <option value="گونی">گونی</option>
+        <option value="درجن">درجن</option>
+        <option value="کارتن">کارتن</option>
+        <option value="سایر">سایر</option>
+      </select>
+    </div>
+    <div class="form-group textAll">
       <label for="seller_addpro1_admin" class="control-label pull-right  "> فروشنده <i class="fas fa-star star_form"></i> </label>
       <select class="form-control" name="" id="seller_addpro1_admin">
         <option value="">انتخاب کنید</option>

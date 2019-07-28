@@ -25,6 +25,7 @@ class Save_add_pro_admin extends FormRequest
     {
         return [
           'name'=>'required|min:2',
+          'vahed'=>'required',
           'seller'=>'required',
           'price'=>'required|numeric|min:3',
           'old_price'=>'nullable|numeric|min:3',
