@@ -198,4 +198,11 @@ public function orderBuyOne(Request $request)
   $shop=Shop::find($buy->shop_id);
   return view('management.pro_admin.orderBuyOne', compact('id','nameModir','access','buy','pro','shop'));
 }
+public function showShopPro(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $shop_id=$request->shop_id;
+  $shop=Shop::find($shop_id);
+  return view('management.pro_admin.showShopPro', compact('id','nameModir','access','shop'));
+}
 }//end class

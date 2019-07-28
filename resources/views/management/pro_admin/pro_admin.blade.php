@@ -13,10 +13,13 @@
         <a href="/add_pro" class=""><span class="titrCBR">اضافه کردن محصول</span> </a><!-- نکته : بجهت نمایش ادیتور کد از پی جکس استفاده نشده است -->
         <a href="/all_edit_pro" class=""><span class="titrCBR">ویرایش محصولات</span> </a>
         <a href="/orderBuy" class=""><span class="titrCBR">محصولات سفارش شده</span><span class="badgeCBR">2</span> </a>
-        <a href="#" class=""><span class="titrCBR">محصولات ثبت شده</span><span class="badgeCBR">8</span> </a>
-        <a href="#" class=""><span class="titrCBR">محصولات ارسال شده</span><span class="badgeCBR">452</span> </a>
-        <a href="#" class=""><span class="titrCBR">محصولات تحویل داده شده</span><span class="badgeCBR">547</span> </a>
-        <a href="#" class=""><span class="titrCBR">محصولات ارجاع شده</span><span class="badgeCBR">48</span> </a>
+        <a href="#" class=""><span class="titrCBR">ثبت محصول آماده شده</span> </a>
+        <a href="#" class=""><span class="titrCBR">محصولات آماده شده</span><span class="badgeCBR">452</span> </a>
+        <a href="#" class=""><span class="titrCBR">ثبت محصول ارسال شده</span> </a>
+        <a href="#" class=""><span class="titrCBR">محصولات ارسال شده</span><span class="badgeCBR">48</span> </a>
+        <a href="#" class=""><span class="titrCBR">ثبت محصول مرجوعی</span> </a>
+        <a href="#" class=""><span class="titrCBR">محصولات مرجوعی</span><span class="badgeCBR">48</span> </a>
+        <a href="#" class=""><span class="titrCBR">ثبت مرجوعی تسویه شده</span> </a>
         <a href="#" class=""><span class="titrCBR">مرجوعی تسویه شده</span><span class="badgeCBR">96</span> </a>
         {{-- <ul class="ul_pro_r">
           <a href="#" class="a_pjax_pro1"> <li onclick="show_div('pro_all')">مدیریت محصولات</li></a>

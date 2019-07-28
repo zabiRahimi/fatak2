@@ -20,7 +20,7 @@
       </div>
       <div class="buyOneDiv orderDiv orderVahed">
         <div class="buyOneDiv1 orderDivZ0 orderVahed1">تعداد محصول <span class="orderDivSpan">:</span> </div>
-        <div class="buyOneDiv2 orderDivZ orderVahed2">{{$buy->num}} {{$pro->vahed}} </div>
+        <div class="buyOneDiv2 orderDivZ orderVahed2">{{$buy->num_pro}} {{$pro->vahed}} </div>
       </div>
       <div class="buyOneDiv orderDiv orderDate">
         <div class="buyOneDiv1 orderDivZ0 orderDate1">سازنده محصول <span class="orderDivSpan">:</span></div>

@@ -152,6 +152,7 @@ Route::get('/all_edit_pro', 'Admin\Pro_adController@all_edit_pro')->middleware([
 Route::post('/del_imgProAdmin', 'Admin\Pro_adController@del_imgProAdmin');//ok
 Route::get('/orderBuy', 'Admin\Pro_adController@orderBuy')->middleware(['chekloginManeg']);//ok
 Route::get('/orderBuyOne/{id_pro}', 'Admin\Pro_adController@orderBuyOne')->middleware(['chekloginManeg'])->where('id_pro', '[0-9]+');//ok
+Route::get('/showShopPro/{shop_id}', 'Admin\Pro_adController@showShopPro')->middleware(['chekloginManeg'])->where('shop_id', '[0-9]+');//ok
 
 Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!

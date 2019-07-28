@@ -40,8 +40,8 @@
       <div class="all_edit_pro2_1 all_edit_pro3 {{$classBg}} ">
         <div class="all_edit_pro2_1_0 orderBuyR1 ">{{$r}}</div>
         <div class="all_edit_pro2_1_0 orderBuyR2 ">{{$pro2->name}}</div>
-        <div class="all_edit_pro2_1_0 orderBuyR3">{{$buys->num_pro}}</div>
-        <a href="#"><div class="all_edit_pro2_1_0 orderBuyR4">{{$shop2->shop}}</div></a>
+        <div class="all_edit_pro2_1_0 orderBuyR3">{{$buys->num_pro}} {{$pro2->vahed}}</div>
+        <a href="/showShopPro/{{$shop2->id}}"><div class="all_edit_pro2_1_0 orderBuyR4">{{$shop2->shop}}</div></a>
         <div class="all_edit_pro2_1_0 orderBuyR5">{{$buys->date}} </div>
         <a href="/orderBuyOne/{{$buys->id}}"><div class="all_edit_pro2_1_0 orderBuyR6">مشاهده</div></a>
 
