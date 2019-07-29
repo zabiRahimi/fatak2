@@ -79,6 +79,22 @@
         <div class="buyOneDivP2 buyOneShopPost2"><span>پست {{$buy->post}}</span> </div>
       </div>
     </div>{{-- جهت پرینت --}}
+    <div class="orderAghdam">
+      <button type="button"class="btn btn-success btn-block"onclick=""data-toggle="modal" data-target="#orderAghdamModal">اقدام شود</button>
+    </div>
   </div>
-
+  {{-- modal --}}
+  <div class="modal fade" id="orderAghdamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body orderAghdamModal2 ">
+          <span>آیا اطلاعات را چاپ کرده اید .</span>
+        </div>
+        <div class="orderAghdamModal3">
+            <button type="button" class="btn btn-primary"onclick="orderAghdam({{$buy->id}})" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
+        </div>
+      </div>
+    </div>
+  </div><!--end modal  عکس ششم -->
 @endsection

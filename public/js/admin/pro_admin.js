@@ -489,3 +489,6 @@ function del_img(ajax , div , i) {
           frame1.remove();
       }, 500);
     }
+    function orderAghdam(id) {
+      alert(id)
+    }
