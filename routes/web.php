@@ -158,6 +158,7 @@ Route::get('/proceedPro', 'Admin\Pro_adController@proceedPro')->middleware(['che
 Route::get('/proceedProOne/{id_buy}', 'Admin\Pro_adController@proceedProOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
 Route::post('/delBuyOrderA/{buy_id}', 'Admin\Pro_adController@delBuyOrderA')->where('buy_id', '[0-9]+');//ok
 Route::post('/backOrderBuy/{buy_id}', 'Admin\Pro_adController@backOrderBuy')->where('buy_id', '[0-9]+');//ok
+Route::get('/orderErsalSabt', 'Admin\Pro_adController@orderErsalSabt')->middleware(['chekloginManeg']);//ok
 
 Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!

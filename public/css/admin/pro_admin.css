@@ -31,3 +31,6 @@
 .codeOrder{height: 26px;margin: 2px 10px;padding: 0 10px;display: inline-block;border: 1px solid #a4a4a4;border-radius: 8px;background-color: #bff0f5;color: #616161;}
 .codeOrder1{color: #051960;}
 .codeOrder2{color: #2f0560;}
+.formCodePA{width: 98%; margin: 5px 1%;background-color: #ece6da;}
+.divFormCodePA{width: 350px;margin-right:calc((100% - 350px) / 2) ; }
+.divFormCodePA label{text-align: center;}

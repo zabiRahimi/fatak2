@@ -21,7 +21,7 @@ use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای
 use App\Http\Requests\Save_edit_pro_admin;
 class Pro_adController extends Controller
 {
-  public $id ,$nameModir,$access ;
+  public $id ,$nameModir,$access,$orderNewCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount ;
   public function __construct(Encrypter $encrypter ,Request $request)
   {
     $cookie=$request->cookie('checkLogManeg');
@@ -32,14 +32,21 @@ class Pro_adController extends Controller
     $user=Management::find($id);
     $this->nameModir=$user->name;
     $this->access=$user->access;
+    $this->orderNewCount=Buy::where('stage',2)->count();//سفارشات جدید
+    $this->orderAgdamCount=Buy::where('stage',3)->count();//در دست اقدام
+    $this->orderPostCount=Buy::where('stage',4)->count();//ارسال شده
+    $this->orderDeliverCount=Buy::where('stage',5)->count();//تحویل گرفته شده
+    $this->orderbackCount=Buy::where('stage',6)->count();//مرجوعی
+    $this->orderbackEndCount=Buy::where('stage',7)->count();//مرجوعی تسویه شده
     return $next($request);
       });
       }
   }
   public function show(Request $request){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $show_img=Imgpro::where('show' , 1)->get();
-    return view('management.pro_admin.pro_admin' , compact('id','nameModir','access','show_img'));
+    return view('management.pro_admin.pro_admin' , compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','show_img'));
   }
 public function uplod_img_pro(Request $request){
   //اعتبار سنجی
@@ -62,7 +69,8 @@ public function uplod_img_pro(Request $request){
 }
 public function add_pro(){
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-  return view('management.pro_admin.add_pro_admin',compact('id','nameModir','access'));
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+  return view('management.pro_admin.add_pro_admin',compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount'));
 }
 public function save_add_pro1(Save_add_pro_admin $request){
 
@@ -117,14 +125,16 @@ public function save_add_pro1(Save_add_pro_admin $request){
 }
 public function all_edit_pro(Request $request ){
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
   $pro=pro::get();
-  return view('management.pro_admin.all_edit_pro_admin', compact('id','nameModir','access','pro'));
+  return view('management.pro_admin.all_edit_pro_admin', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','pro'));
 }
 public function edit_pro(Request $request ,$id2){
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
   $pro=pro::find($id2);
   $img=PicturePro::where('pro_id' , $id2)->first();
-  return view('management.pro_admin.one_edit_pro_admin', compact('id','nameModir','access','pro' , 'img'));
+  return view('management.pro_admin.one_edit_pro_admin', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','pro' , 'img'));
 
 }
 public function save_edit_pro1(Save_edit_pro_admin $request){
@@ -184,28 +194,31 @@ public function del_imgProAdmin(Request $request)
 public function orderBuy(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
   $buy=Buy::where('stage',2)->get();
   $pro=Pro::get();
   $shop=Shop::get();
-  return view('management.pro_admin.orderBuy', compact('id','nameModir','access','buy','pro','shop'));
+  return view('management.pro_admin.orderBuy', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 
 }
 public function orderBuyOne(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
   $id_buy=$request->id_buy;
   $buy=Buy::find($id_buy);
   $pro=Pro::find($buy->pro_id);
   $shop=Shop::find($buy->shop_id);
-  return view('management.pro_admin.orderBuyOne', compact('id','nameModir','access','buy','pro','shop'));
+  return view('management.pro_admin.orderBuyOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 }
 public function showShopPro(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
   $page=$request->page;
   $shop_id=$request->shop_id;
   $shop=Shop::find($shop_id);
-  return view('management.pro_admin.showShopPro', compact('id','nameModir','access','shop','page'));
+  return view('management.pro_admin.showShopPro', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','shop','page'));
 }
 public function orderAghdam(Request $request)
 {
@@ -221,20 +234,22 @@ public function orderAghdam(Request $request)
 public function proceedPro(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
   $buy=Buy::where('stage',3)->get();
   $pro=Pro::get();
   $shop=Shop::get();
-  return view('management.pro_admin.proceedPro', compact('id','nameModir','access','buy','pro','shop'));
+  return view('management.pro_admin.proceedPro', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 
 }
 public function proceedProOne(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
   $id_buy=$request->id_buy;
   $buy=Buy::find($id_buy);
   $pro=Pro::find($buy->pro_id);
   $shop=Shop::find($buy->shop_id);
-  return view('management.pro_admin.proceedProOne', compact('id','nameModir','access','buy','pro','shop'));
+  return view('management.pro_admin.proceedProOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 }
 public function delBuyOrderA(Request $request)
 {
@@ -251,5 +266,18 @@ public function backOrderBuy(Request $request)
   $save->stage=2;
   $save->date_up=$date;
   $save->save();
+}
+//ثبت ارسالی ها
+public function orderErsalSabt(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+  // if(!empty($request->id_buy)){
+    $id_buy=3;
+    $buy=Buy::find($id_buy);
+    $pro=Pro::find($buy->pro_id);
+    $shop=Shop::find($buy->shop_id);
+  // }
+  return view('management.pro_admin.orderErsalSabt', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','id_buy','buy','pro','shop'));
 }
 }//end class
