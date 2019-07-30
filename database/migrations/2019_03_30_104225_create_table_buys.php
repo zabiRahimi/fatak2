@@ -35,7 +35,8 @@ class CreateTableBuys extends Migration
             $table->mediumInteger('amount')->nullable();
             $table->string('authority',36)->nullable();
             $table->string('refid',36)->nullable();
-            $table->string('date',15)->nullable();
+            $table->string('date',12)->nullable();
+            $table->string('date_up',12)->nullable();
             $table->string('stage',3)->nullable();
         });
     }

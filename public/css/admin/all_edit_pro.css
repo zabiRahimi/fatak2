@@ -32,8 +32,9 @@
 
 /* orderBuy.css */
 .orderBuyR1{width: 40px;}
-.orderBuyR2{width: calc( 33% - 40px);}
-.orderBuyR3{width:12%; }
-.orderBuyR4{width:20%;}
-.orderBuyR5{width:20%;}
+.orderBuyR2{width: calc( 28% - 40px);}
+.orderBuyR3{width:15%; }
+.orderBuyR4{width:10%;}
+.orderBuyR5{width:17%;}
 .orderBuyR6{width:15%;}
+.orderBuyR7{width:15%;}

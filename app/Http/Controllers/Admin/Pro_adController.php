@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Encryption\Encrypter;
+use Hekmatinasser\Verta\Verta;//تاریخ جلالی
 use Cookie;
 use DB;
 use App\Models\Admin\Management;
@@ -192,8 +193,8 @@ public function orderBuy(Request $request)
 public function orderBuyOne(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-  $id_pro=$request->id_pro;
-  $buy=Buy::find($id_pro);
+  $id_buy=$request->id_buy;
+  $buy=Buy::find($id_buy);
   $pro=Pro::find($buy->pro_id);
   $shop=Shop::find($buy->shop_id);
   return view('management.pro_admin.orderBuyOne', compact('id','nameModir','access','buy','pro','shop'));
@@ -201,8 +202,54 @@ public function orderBuyOne(Request $request)
 public function showShopPro(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $page=$request->page;
   $shop_id=$request->shop_id;
   $shop=Shop::find($shop_id);
-  return view('management.pro_admin.showShopPro', compact('id','nameModir','access','shop'));
+  return view('management.pro_admin.showShopPro', compact('id','nameModir','access','shop','page'));
+}
+public function orderAghdam(Request $request)
+{
+  $buy_id=$request->buy_id;
+  $date1=new Verta();//تاریخ جلالی
+  $date=$date1->format('Y/n/j');
+  $save=Buy::find($buy_id);
+  $save->stage=3;
+  $save->date_up=$date;
+  $save->save();
+}
+// محصولات در دست اقدام
+public function proceedPro(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $buy=Buy::where('stage',3)->get();
+  $pro=Pro::get();
+  $shop=Shop::get();
+  return view('management.pro_admin.proceedPro', compact('id','nameModir','access','buy','pro','shop'));
+
+}
+public function proceedProOne(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $id_buy=$request->id_buy;
+  $buy=Buy::find($id_buy);
+  $pro=Pro::find($buy->pro_id);
+  $shop=Shop::find($buy->shop_id);
+  return view('management.pro_admin.proceedProOne', compact('id','nameModir','access','buy','pro','shop'));
+}
+public function delBuyOrderA(Request $request)
+{
+  $buy_id=$request->buy_id;
+  $del=Buy::find($buy_id);
+  $del->delete();
+}
+public function backOrderBuy(Request $request)
+{
+  $buy_id=$request->buy_id;
+  $date1=new Verta();//تاریخ جلالی
+  $date=$date1->format('Y/n/j');
+  $save=Buy::find($buy_id);
+  $save->stage=2;
+  $save->date_up=$date;
+  $save->save();
 }
 }//end class

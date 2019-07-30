@@ -490,5 +490,68 @@ function del_img(ajax , div , i) {
       }, 500);
     }
     function orderAghdam(id) {
-      alert(id)
-    }
+      $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+      $.ajax({
+        type:'post',
+        url:'../../orderAghdam/' + id,
+        data: {
+
+             },
+        success:function(){
+          $('#ajaxOrderAghdamJs').html('<div class="alert alert-success">عملیات موفق بود .</div>');
+          $('#orderAghdamJs').modal('show');
+          $("#orderAghdamJs").on('hide.bs.modal', function () {
+          window.location.href  = "/orderBuy";
+          });
+
+        },
+        error : function(xhr){
+          $('#ajaxOrderAghdamJs').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+          $('#orderAghdamJs').modal('show');
+        },
+        });
+      }
+      function delBuyOrderA(id , page) {
+        $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+        $.ajax({
+          type:'post',
+          url:'../../delBuyOrderA/' + id,
+          data: {
+
+               },
+          success:function(){
+            $('#ajaxOrderAghdamJs').html('<div class="alert alert-success">عملیات حذف با موفقیت انجام شد .</div>');
+            $('#orderAghdamJs').modal('show');
+            $("#orderAghdamJs").on('hide.bs.modal', function () {
+            window.location.href  = "/" + page;
+            });
+
+          },
+          error : function(xhr){
+            $('#ajaxOrderAghdamJs').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+            $('#orderAghdamJs').modal('show');
+          },
+          });
+        }
+        function backOrderBuy(id, page) {
+          $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+          $.ajax({
+            type:'post',
+            url:'../../backOrderBuy/' + id,
+            data: {
+
+                 },
+            success:function(){
+              $('#ajaxOrderAghdamJs').html('<div class="alert alert-success">عملیات موفق بود .</div>');
+              $('#orderAghdamJs').modal('show');
+              $("#orderAghdamJs").on('hide.bs.modal', function () {
+              window.location.href  = "/" + page;
+              });
+
+            },
+            error : function(xhr){
+              $('#ajaxOrderAghdamJs').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+              $('#orderAghdamJs').modal('show');
+            },
+            });
+          }

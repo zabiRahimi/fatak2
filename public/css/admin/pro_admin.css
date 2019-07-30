@@ -5,7 +5,7 @@
 .btnBack{height: 32px;margin-top:2px; float: left;}
 /* orderBuyOne.php */
 .orderLine{width:99%;margin: 25px 0.5%; float: right;border: 3px solid #032416; border-radius: 3px;}
-.buyOneDivTitr,.buyOne2DivTitr{width:99%;height: 30px;line-height: 30px;margin: 2px 0.5%;padding: 0 20px;float: right;background-color: #047791;border-radius: 3px;color: #fff;}
+.buyOneDivTitr,.buyOne2DivTitr{width:99%;height: 30px;line-height: 28px;margin: 2px 0.5%;padding: 0 20px;float: right;background-color: #047791;border-radius: 3px;color: #fff;}
 .buyOne2DivTitr{background-color:#0b9bbb; }
 .buyOnePrint{float: left;height: 25px;margin-top: 2.5px;line-height: 5px;}
 .buyOneShopPost{width: 99%;margin: 2px 0.5%;float: right;}
@@ -17,9 +17,17 @@
 .orderDivZ0,.orderDivZ{width: 50%; float: right;}
 .orderDivZ , .orderDivZ2{color: #04902e;}
 .orderDivSpan{margin-right: 10px;font-family: sans-serif;}
-.orderAghdam{width: 99%; margin: 12px 0.5% 25px;padding: 5px 100px;height: 55px;border: 1px solid #b6b6b6;border-radius: 3px;float: right;text-align: center;background-color: #f1f6dc;}
-.orderAghdam button{font-size: 18px;}
+.orderAghdam ,.orderAghdamP{width: 99%; margin: 12px 0.5% 25px;padding: 5px 100px;height: 55px;border: 1px solid #b6b6b6;border-radius: 3px;float: right;text-align: center;background-color: #f1f6dc;}
+.orderAghdam button,.orderAghdamP button{font-size: 18px;}
+.orderAghdamP{padding: 5px 20px;}
+.orderAghdamP1 , .orderAghdamP2{width: 200px;}
+.orderAghdamP1{margin-left:4px; }
+.orderAghdamP2{margin-right: 4px;}
 .orderAghdamModal2{height: 180px;color: #882e0d;font-size: 18px;}
-.orderAghdamModal2 span{width: 70%;height: 50px;margin-top: 65px;display: inline-block;padding: 10px 0;border: 1px solid #882e0d; background-color:#ffcbb8;border-radius: 3px;}
+.orderAghdamModal2 span{width: 70%;height: 50px;line-height: 27px;margin-top: 65px;display: inline-block;padding: 10px 0;border: 1px solid #882e0d; background-color:#ffcbb8;border-radius: 3px;}
+.orderAghdamModal2 b{font-size: 22px;margin-left: 6px;}
 .orderAghdamModal3{width: 100%;margin: 5px 0;float: right;}
 .orderAghdamModal3 button{width: 105px;}
+.codeOrder{height: 26px;margin: 2px 10px;padding: 0 10px;display: inline-block;border: 1px solid #a4a4a4;border-radius: 8px;background-color: #bff0f5;color: #616161;}
+.codeOrder1{color: #051960;}
+.codeOrder2{color: #2f0560;}

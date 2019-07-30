@@ -6,7 +6,7 @@
 @section('show_pro')
   <div class="pro_titr">
    مشخصات فروشنده
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBuy';">بازگشت</button>
+   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/{{$page}}';">بازگشت</button>
   </div>
   <div class="pro_body ">
 
