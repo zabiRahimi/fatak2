@@ -10,17 +10,17 @@
   </div>
   <div class="pro_body ">
     <form class="form formAdmin formCodePA" id="form_sabtCodePSh" action="" method="post">
-       <div id="ajax_form_admin"></div>
+       <div class="ajax_form_admin" id="ajax_codePAA"></div>
        {{ csrf_field() }}
        <div class="form-group textAll divFormCodePA">
           <label for="code_sabtCodePSh" class="control-label pull-right ">کد سفارش</label>
-          <div class="div_form"><input type="text" class="form-control placeholder" id="code_sabtCodePSh"placeholder="کد سفارش را وارد کنید .." value=""></div>
+          <div class="div_form"><input type="text" class="form-control placeholder" id="code_ersalOrder"placeholder="کد سفارش را وارد کنید .." value=""></div>
         </div>
         <div class="form-group aivSabtForm">
-          <button type="button" class="btn btn-success" onclick="sabtCodeSh()" >ثبت و جستجو</button>
+          <button type="button" class="btn btn-success" onclick="orderErsalSabt()" >ثبت و جستجو</button>
         </div>
       </form>
-      @if (!empty($id_buy))
+      @if (!empty($buy_id))
         <div class="pro_body ">
             <div class="buyOneDivTitr">
               مشخصات محصول
@@ -98,14 +98,18 @@
 
         </div>
         <form class="form formAdmin formCodePA" id="form_sabtCodeRahgirySh" action="" method="post">
-           <div id="ajax_form_admin"></div>
+           <div class="ajax_form_admin" id="ajax_codeRahgPAA"></div>
            {{ csrf_field() }}
-           <div class="form-group textAll divFormCodePA">
-              <label for="codeR_sabtCodePSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#McodeR_sabtCodePSh"></i> کد رهگیری محموله</label>
-              <div class="div_form"><input type="text" class="form-control placeholder" id="codeR_sabtCodePSh"placeholder="کد رهگیری را وارد کنید .." value=""></div>
+           <div class="form-group textAll ">
+              <label for="codeRahgiryOrder" class="control-label pull-right "> کد رهگیری محموله</label>
+              <div class="div_form"><input type="text" class="form-control placeholder" id="codeRahgiryOrder"placeholder="کد رهگیری را وارد کنید .." value=""></div>
             </div>
+            <div class="form-group textAll ">
+               <label for="datePostOrder" class="control-label pull-right "> تاریخ پست کالا</label>
+               <div class="div_form"><input type="text" class="form-control placeholder" id="datePostOrder"placeholder="فرمت تاریخ 1398/01/01" value=""></div>
+             </div>
             <div class="form-group aivSabtForm">
-              <button type="button" class="btn btn-success" onclick="sabtCodeRahgirySh({{$buy->id}})" >ثبت کد</button>
+              <button type="button" class="btn btn-success" onclick="sabtCodeRahgiryAdmin({{$buy->id}})" >ثبت کد</button>
             </div>
           </form>
 

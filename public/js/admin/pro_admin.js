@@ -555,3 +555,70 @@ function del_img(ajax , div , i) {
             },
             });
           }
+  function orderErsalSabt() {
+    buy_id =$('#code_ersalOrder').val(),
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'get',
+      url:'../../orderErsalSabt/' + buy_id ,
+      success:function(sd){
+        window.location.href  = "/orderErsalSabt/" + buy_id;
+      },
+      error : function(xhr){
+        var errors = xhr.responseJSON;var error=errors.errors;
+        if(error['buy_id']) {
+            $('#ajax_codePAA').html('<div class="alert alert-danger">کد سفارش به صورت عددی می باشد .</div>');
+        }
+        else if (error['no_order']) {
+            $('#ajax_codePAA').html('<div class="alert alert-danger">سفارشی با این کد موجود نیست .</div>');
+        }
+        else if(error['orderNew']) {
+            $('#ajax_codePAA').html('<div class="alert alert-danger">این کد مربوط به یک سفارش جدید است .</div>');
+        }
+        else if(error['ordersabt']) {
+            $('#ajax_codePAA').html('<div class="alert alert-danger">کد رهگیری این سفارش ثبت شده است ، پیگیری کنید . </div>');
+        }
+        else if(error['orderEnd']) {
+            $('#ajax_codePAA').html('<div class="alert alert-danger">این سفارش تحویل داده شده است .</div>');
+        }
+        else if(error['orderback']) {
+            $('#ajax_codePAA').html('<div class="alert alert-danger">این سفارش ، مرجوعی است .</div>');
+        }
+        else if(error['orderbackEnd']) {
+            $('#ajax_codePAA').html('<div class="alert alert-danger">این سفارش ، مرجوعی تسویه شده است . </div>');
+        }
+      },
+      });
+  }
+function sabtCodeRahgiryAdmin(buy_id) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../../sabtCodeRahgiryAdmin',
+      data: {
+        code_rahgiry:$('#codeRahgiryOrder').val(),
+        datePost:$('#datePostOrder').val(),
+        buy_id:buy_id,
+           },
+      success:function(){
+        $('#ajaxOrderAghdamJs').html('<div class="alert alert-success">عملیات موفق بود .</div>');
+        $('#orderAghdamJs').modal('show');
+        $("#orderAghdamJs").on('hide.bs.modal', function () {
+        window.location.href  = "/" + page;
+        });
+
+      },
+      error : function(xhr){
+        var errors = xhr.responseJSON;var error=errors.errors;
+        if(error['buy_id']) {
+            $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">مشکلی رخ داده است .</div>');
+        }
+        else if (error['code_rahgiry']) {
+            $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">کد رهگیری را صحیح وارد کنید .</div>');
+        }
+        else if (error['datePost']) {
+            $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">تاریخ پست کالا را صحیح وارد کنید .</div>');
+        }
+      },
+      });
+    }
