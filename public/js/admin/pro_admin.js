@@ -590,7 +590,7 @@ function del_img(ajax , div , i) {
       },
       });
   }
-function sabtCodeRahgiryAdmin(buy_id) {
+function sabtCodeRahgiryAdmin(buy_id , page) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
@@ -601,9 +601,10 @@ function sabtCodeRahgiryAdmin(buy_id) {
         buy_id:buy_id,
            },
       success:function(){
-        $('#ajaxOrderAghdamJs').html('<div class="alert alert-success">عملیات موفق بود .</div>');
-        $('#orderAghdamJs').modal('show');
-        $("#orderAghdamJs").on('hide.bs.modal', function () {
+        $('#ajax_codeRahgPAA').html('');
+        $('#ajaxOrderOkSabtR').html('<div class="alert alert-success">کد رهگیری با موفقیت ثبت شد .</div>');
+        $('#orderOkSabtR').modal('show');
+        $("#orderOkSabtR").on('hide.bs.modal', function () {
         window.location.href  = "/" + page;
         });
 

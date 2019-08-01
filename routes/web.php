@@ -160,6 +160,8 @@ Route::post('/delBuyOrderA/{buy_id}', 'Admin\Pro_adController@delBuyOrderA')->wh
 Route::post('/backOrderBuy/{buy_id}', 'Admin\Pro_adController@backOrderBuy')->where('buy_id', '[0-9]+');//ok
 Route::get('/orderErsalSabt/{buy_id?}', 'Admin\Pro_adController@orderErsalSabt')->middleware(['chekloginManeg']);//ok
 Route::post('/sabtCodeRahgiryAdmin', 'Admin\Pro_adController@sabtCodeRahgiryAdmin');//ok
+Route::get('/orderErsalShowAll', 'Admin\Pro_adController@orderErsalShowAll')->middleware(['chekloginManeg']);//ok
+Route::get('/orderErsalShowOne/{id_buy}', 'Admin\Pro_adController@orderErsalShowOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
 
 Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!

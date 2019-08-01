@@ -15,7 +15,7 @@
         <a href="/orderBuy" class=""><span class="titrCBR">محصولات سفارش شده</span><span class="badgeCBR">{{$orderNewCount}}</span> </a>
         <a href="/proceedPro" class=""><span class="titrCBR">محصولات در حال اقدام</span><span class="badgeCBR">{{$orderAgdamCount}}</span> </a>
         <a href="/orderErsalSabt" class=""><span class="titrCBR">ثبت محصول ارسال شده</span> </a>
-        <a href="#" class=""><span class="titrCBR">محصولات ارسال شده</span><span class="badgeCBR">{{$orderPostCount}}</span> </a>
+        <a href="/orderErsalShowAll" class=""><span class="titrCBR">محصولات ارسال شده</span><span class="badgeCBR">{{$orderPostCount}}</span> </a>
         <a href="#" class=""><span class="titrCBR">ثبت محصول تحویلی</span> </a>
         <a href="#" class=""><span class="titrCBR">محصولات تحویلی</span><span class="badgeCBR">{{$orderDeliverCount}}</span> </a>
         <a href="#" class=""><span class="titrCBR">ثبت محصول مرجوعی</span> </a>

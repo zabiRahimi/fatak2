@@ -1,12 +1,11 @@
 {{-- all_edit_pro.css --}}
 @extends('management.pro_admin.pro_admin')
  @section('title')
-  مدیریت :: سفارش
+  مدیریت :: ثبت محصول ارسالی
 @endsection
 @section('show_pro')
   <div class="pro_titr">
-   نمایش سفارش
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBuy';">بازگشت</button>
+   ثبت سفارش ارسالی
   </div>
   <div class="pro_body ">
     <form class="form formAdmin formCodePA" id="form_sabtCodePSh" action="" method="post">
@@ -109,7 +108,7 @@
                <div class="div_form"><input type="text" class="form-control placeholder" id="datePostOrder"placeholder="فرمت تاریخ 1398/01/01" value=""></div>
              </div>
             <div class="form-group aivSabtForm">
-              <button type="button" class="btn btn-success" onclick="sabtCodeRahgiryAdmin({{$buy->id}})" >ثبت کد</button>
+              <button type="button" class="btn btn-success" onclick="sabtCodeRahgiryAdmin({{$buy->id}} , 'orderErsalSabt')" >ثبت کد</button>
             </div>
           </form>
 
@@ -117,6 +116,20 @@
 
   </div>
   {{-- modal --}}
+  <div class="modal fade" id="orderOkSabtR" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-xl" role="document">
+      <div class="modal-content">
+        <div class="modal-body orderAghdamModal2 ">
+          <div id="ajaxOrderOkSabtR">
+
+          </div>
+        </div>
+        <div class="orderAghdamModal3">
+            <button type="button" class="btn btn-primary" data-dismiss="modal"  aria-label="Close">متوجه شدم !!</button>
+        </div>
+      </div>
+    </div>
+  </div><!--end modal  -->
 
 
 @endsection

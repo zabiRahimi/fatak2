@@ -320,6 +320,24 @@ public function sabtCodeRahgiryAdmin(SaveRahgiryCodeAd $request)
   $save->date_post=$datePost;
   $save->stage=4;
   $save->save();
-
+}
+public function orderErsalShowAll(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+  $buy=Buy::where('stage',4)->get();
+  $pro=Pro::get();
+  $shop=Shop::get();
+  return view('management.pro_admin.orderErsalShowAll', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+}
+public function orderErsalShowOne(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+  $id_buy=$request->id_buy;
+  $buy=Buy::find($id_buy);
+  $pro=Pro::find($buy->pro_id);
+  $shop=Shop::find($buy->shop_id);
+  return view('management.pro_admin.orderErsalShowOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 }
 }//end class
