@@ -99,7 +99,7 @@
            <div class="div_form"><input type="text" class="form-control placeholder" id="datePostOrder"placeholder="فرمت تاریخ 1398/01/01" value="{{$buy->date_post}}"></div>
          </div>
         <div class="form-group aivSabtForm">
-          <button type="button" class="btn btn-success" onclick="sabtCodeRahgiryAdmin({{$buy->id}} , 'orderErsalSabt')" >تغییر کد</button>
+          <button type="button" class="btn btn-success" onclick="editCodeRahgiryAdmin({{$buy->id}} , 'orderErsalSabt')" >تغییر کد</button>
         </div>
       </form>
     <div class="orderAghdamP">
@@ -112,10 +112,10 @@
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-body orderAghdamModal2 ">
-          <span><b>توجه !!</b> آیا اطلاعات محصول و خریدار را چاپ کرده اید ؟ </span>
+          <span><b>توجه !!</b> آیا می خواهید این سفارش به سفارشات در دست اقدام برگردد؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="orderAghdam({{$buy->id}})" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="SaveEditStageOrderAdmin({{$buy->id}} , 3 , NULL , NULL , 'orderErsalShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>
@@ -128,17 +128,17 @@
           <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="delBuyOrderA({{$buy->id}},'orderBuy')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="delBuyOrderA({{$buy->id}},'orderErsalShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>
     </div>
   </div><!--end modal  -->
-  <div class="modal fade" id="orderAghdamJs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="orderErsalOneJs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-body orderAghdamModal2 ">
-          <div id="ajaxOrderAghdamJs">
+          <div id="ajaxOrderErsalOneJs">
 
           </div>
         </div>
@@ -148,4 +148,5 @@
       </div>
     </div>
   </div><!--end modal  -->
+
 @endsection

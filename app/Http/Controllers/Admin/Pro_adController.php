@@ -21,6 +21,8 @@ use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای
 use App\Http\Requests\Save_edit_pro_admin;
 use App\Http\Requests\SaveCodeOrderAdmin;
 use App\Http\Requests\SaveRahgiryCodeAd;
+use App\Http\Requests\SaveEditRahgiryCodeAd;
+use App\Http\Requests\SaveEditStageOrderAdmin;
 class Pro_adController extends Controller
 {
   public $id ,$nameModir,$access,$orderNewCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount ;
@@ -321,6 +323,19 @@ public function sabtCodeRahgiryAdmin(SaveRahgiryCodeAd $request)
   $save->stage=4;
   $save->save();
 }
+public function editCodeRahgiryAdmin(SaveEditRahgiryCodeAd $request)
+{
+  $buy_id=$request->buy_id;
+  $code_rahgiry=$request->code_rahgiry;
+  $datePost=$request->datePost;
+  $date1=new Verta();//تاریخ جلالی
+  $date=$date1->format('Y/n/j');
+  $save=Buy::find($buy_id);
+  $save->date_up=$date;
+  $save->code_rahgiry=$code_rahgiry;
+  $save->date_post=$datePost;
+  $save->save();
+}
 public function orderErsalShowAll(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
@@ -339,5 +354,64 @@ public function orderErsalShowOne(Request $request)
   $pro=Pro::find($buy->pro_id);
   $shop=Shop::find($buy->shop_id);
   return view('management.pro_admin.orderErsalShowOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+}
+public function editStageOrderAdmin(SaveBackOrderAdmin $request)
+{
+  $buy_id=$request->buy_id;
+
+  $date1=new Verta();//تاریخ جلالی
+  $date=$date1->format('Y/n/j');
+  $save=Buy::find($buy_id);
+  $save->date_up=$date;
+  $save->code_rahgiry=$request->code_rahgiry;
+  $save->date_post=$request->date_post;
+  $save->stage=$request->stage;
+  $save->save();
+}
+public function orderSabtEnd(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+  if(!empty($request->buy_id)){
+    $buy_id=$request->buy_id;
+    $buy=Buy::find($buy_id);
+    if (empty($buy->pro_id)) {
+      return response()->json(['errors' => ['no_order' => [ ]]],422 );
+
+    }elseif($buy->stage==2){
+      //جدید
+      return response()->json(['errors' => ['orderNew' => [ ]]],422 );
+    }
+    elseif($buy->stage==3){
+      //در دست اقدام
+      return response()->json(['errors' => ['orderAghdam' => [ ]]],422 );
+    }
+    elseif($buy->stage==5){
+      //تحویلی
+      return response()->json(['errors' => ['orderEnd' => [ ]]],422 );
+    }
+    elseif($buy->stage==6){
+      //مرجوعی
+      return response()->json(['errors' => ['orderback' => [ ]]],422 );
+    }
+    elseif($buy->stage==7){
+      //مرجوعی تسویه شده
+      return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
+    }
+
+    $pro=Pro::find($buy->pro_id);
+    $shop=Shop::find($buy->shop_id);
+
+  }
+  return view('management.pro_admin.orderSabtEnd', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
+}
+public function orderSabtEndShowAll(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+  $buy=Buy::where('stage',5)->get();
+  $pro=Pro::get();
+  $shop=Shop::get();
+  return view('management.pro_admin.orderErsalShowAll', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 }
 }//end class

@@ -623,3 +623,87 @@ function sabtCodeRahgiryAdmin(buy_id , page) {
       },
       });
     }
+function editCodeRahgiryAdmin(buy_id , page) {
+        $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+        $.ajax({
+          type:'post',
+          url:'../../editCodeRahgiryAdmin',
+          data: {
+            code_rahgiry:$('#codeRahgiryOrder').val(),
+            datePost:$('#datePostOrder').val(),
+            buy_id:buy_id,
+               },
+          success:function(){
+            $('#ajax_codeRahgPAA').html('<div class="alert alert-success">ویرایش با موفقیت انجام شد .</div>');
+
+          },
+          error : function(xhr){
+            var errors = xhr.responseJSON;var error=errors.errors;
+            if(error['buy_id']) {
+                $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">مشکلی رخ داده است .</div>');
+            }
+            else if (error['code_rahgiry']) {
+                $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">کد رهگیری را صحیح وارد کنید .</div>');
+            }
+            else if (error['datePost']) {
+                $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">تاریخ پست کالا را صحیح وارد کنید .</div>');
+            }
+      },
+    });
+  }
+  //تغییر  stage رکورد جهت رفتن به مراحل مختلف
+function editStageOrderAdmin (buy_id , stage , code_rahgiry , date_post  , page){
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../backOrderAdmin',
+    data: {
+      stage:stage,
+      code_rahgiry:code_rahgiry ,
+      date_post:date_post,
+      buy_id:buy_id,
+         },
+    success:function(){
+      $('#ajaxOrderErsalOneJs').html('<div class="alert alert-success">عملیات با موفقیت انجام شد .</div>');
+      $('#orderErsalOneJs').modal('show');
+      $("#orderErsalOneJs").on('hide.bs.modal', function () {
+      window.location.href  = "/" + page;
+    });
+  }
+});
+}
+function orderSabtEnd() {
+  buy_id =$('#code_ersalOrder').val(),
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'get',
+    url:'../../orderSabtEnd/' + buy_id ,
+    success:function(sd){
+      window.location.href  = "/orderSabtEnd/" + buy_id;
+    },
+    error : function(xhr){
+      var errors = xhr.responseJSON;var error=errors.errors;
+      if(error['buy_id']) {
+          $('#ajax_codePAA').html('<div class="alert alert-danger">کد سفارش به صورت عددی می باشد .</div>');
+      }
+      else if (error['no_order']) {
+          $('#ajax_codePAA').html('<div class="alert alert-danger">سفارشی با این کد موجود نیست .</div>');
+      }
+      else if(error['orderNew']) {
+          $('#ajax_codePAA').html('<div class="alert alert-danger">این کد مربوط به یک سفارش جدید است .</div>');
+      }
+      else if(error['orderEnd']) {
+          $('#ajax_codePAA').html('<div class="alert alert-danger">این سفارش قبلا به عنوان سفارش تحویلی ثبت شده است . پیگیری کنید . </div>');
+      }
+      else if(error['orderAghdam']) {
+          $('#ajax_codePAA').html('<div class="alert alert-danger">سفارشی با این کد در دست اقدام است .</div>');
+      }
+      else if(error['orderback']) {
+          $('#ajax_codePAA').html('<div class="alert alert-danger">این سفارش ، مرجوعی است .</div>');
+      }
+      else if(error['orderbackEnd']) {
+          $('#ajax_codePAA').html('<div class="alert alert-danger">این سفارش ، مرجوعی تسویه شده است . </div>');
+      }
+    },
+    });
+}
