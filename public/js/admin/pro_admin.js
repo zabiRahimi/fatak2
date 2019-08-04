@@ -498,16 +498,16 @@ function del_img(ajax , div , i) {
 
              },
         success:function(){
-          $('#ajaxOrderAghdamJs').html('<div class="alert alert-success">عملیات موفق بود .</div>');
-          $('#orderAghdamJs').modal('show');
-          $("#orderAghdamJs").on('hide.bs.modal', function () {
+          $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات موفق بود .</div>');
+          $('#orderModalPro').modal('show');
+          $("#orderModalPro").on('hide.bs.modal', function () {
           window.location.href  = "/orderBuy";
           });
 
         },
         error : function(xhr){
-          $('#ajaxOrderAghdamJs').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
-          $('#orderAghdamJs').modal('show');
+          $('#ajaxOrderModalPro').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+          $('#orderModalPro').modal('show');
         },
         });
       }
@@ -520,16 +520,16 @@ function del_img(ajax , div , i) {
 
                },
           success:function(){
-            $('#ajaxOrderAghdamJs').html('<div class="alert alert-success">عملیات حذف با موفقیت انجام شد .</div>');
-            $('#orderAghdamJs').modal('show');
-            $("#orderAghdamJs").on('hide.bs.modal', function () {
+            $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات حذف با موفقیت انجام شد .</div>');
+            $('#orderModalPro').modal('show');
+            $("#orderModalPro").on('hide.bs.modal', function () {
             window.location.href  = "/" + page;
             });
 
           },
           error : function(xhr){
-            $('#ajaxOrderAghdamJs').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
-            $('#orderAghdamJs').modal('show');
+            $('#ajaxOrderModalPro').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+            $('#orderModalPro').modal('show');
           },
           });
         }
@@ -542,16 +542,16 @@ function del_img(ajax , div , i) {
 
                  },
             success:function(){
-              $('#ajaxOrderAghdamJs').html('<div class="alert alert-success">عملیات موفق بود .</div>');
-              $('#orderAghdamJs').modal('show');
-              $("#orderAghdamJs").on('hide.bs.modal', function () {
+              $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات موفق بود .</div>');
+              $('#orderModalPro').modal('show');
+              $("#orderModalPro").on('hide.bs.modal', function () {
               window.location.href  = "/" + page;
               });
 
             },
             error : function(xhr){
-              $('#ajaxOrderAghdamJs').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
-              $('#orderAghdamJs').modal('show');
+              $('#ajaxOrderModalPro').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+              $('#orderModalPro').modal('show');
             },
             });
           }
@@ -602,9 +602,9 @@ function sabtCodeRahgiryAdmin(buy_id , page) {
            },
       success:function(){
         $('#ajax_codeRahgPAA').html('');
-        $('#ajaxOrderOkSabtR').html('<div class="alert alert-success">کد رهگیری با موفقیت ثبت شد .</div>');
-        $('#orderOkSabtR').modal('show');
-        $("#orderOkSabtR").on('hide.bs.modal', function () {
+        $('#ajaxOrderModalPro').html('<div class="alert alert-success">کد رهگیری با موفقیت ثبت شد .</div>');
+        $('#orderModalPro').modal('show');
+        $("#orderModalPro").on('hide.bs.modal', function () {
         window.location.href  = "/" + page;
         });
 
@@ -656,7 +656,7 @@ function editStageOrderAdmin (buy_id , stage , code_rahgiry , date_post  , page)
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../backOrderAdmin',
+    url:'../../editStageOrderAdmin',
     data: {
       stage:stage,
       code_rahgiry:code_rahgiry ,
@@ -664,9 +664,9 @@ function editStageOrderAdmin (buy_id , stage , code_rahgiry , date_post  , page)
       buy_id:buy_id,
          },
     success:function(){
-      $('#ajaxOrderErsalOneJs').html('<div class="alert alert-success">عملیات با موفقیت انجام شد .</div>');
-      $('#orderErsalOneJs').modal('show');
-      $("#orderErsalOneJs").on('hide.bs.modal', function () {
+      $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات با موفقیت انجام شد .</div>');
+      $('#orderModalPro').modal('show');
+      $("#orderModalPro").on('hide.bs.modal', function () {
       window.location.href  = "/" + page;
     });
   }

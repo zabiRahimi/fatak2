@@ -1,11 +1,11 @@
 {{-- all_edit_pro.css --}}
 @extends('management.pro_admin.pro_admin')
  @section('title')
-  مدیریت :: سفارشات ارسال شده
+  مدیریت :: سفارشات تحویلی
 @endsection
 @section('show_pro')
   <div class="all_edit_pro">
-   نمایش سفارشات ارسالی
+   نمایش سفارشات تحویلی
   </div>
   {{-- <div class="all_edit_pro1">
     <div class="all_edit_pro1_0 all_edit_pro1_1"><div class="div1" >کل محصولات</div><div class="div2">{{count($pro)}} </div> <div class="div3">عدد</div>  </div>
@@ -45,7 +45,7 @@
         <a href="/showShopPro/{{$shop2->id}}/orderErsalShowAll"><div class="all_edit_pro2_1_0 orderErsalR4">{{$shop2->shop}}</div></a>
         <div class="all_edit_pro2_1_0 orderErsalR5">{{$buys->code_rahgiry}}</div>
         <div class="all_edit_pro2_1_0 orderErsalR6">{{$buys->date_post}} </div>
-        <a href="/orderErsalShowOne/{{$buys->id}}"><div class="all_edit_pro2_1_0 orderErsalR7">مشاهده</div></a>
+        <a href="/orderSabtEndShowOne/{{$buys->id}}"><div class="all_edit_pro2_1_0 orderErsalR7">مشاهده</div></a>
 
       </div>
     @endforeach

@@ -166,6 +166,7 @@ Route::get('/orderErsalShowOne/{id_buy}', 'Admin\Pro_adController@orderErsalShow
 Route::post('/editStageOrderAdmin', 'Admin\Pro_adController@editStageOrderAdmin');//ok
 Route::get('/orderSabtEnd/{buy_id?}', 'Admin\Pro_adController@orderSabtEnd')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::get('/orderSabtEndShowAll', 'Admin\Pro_adController@orderSabtEndShowAll')->middleware(['chekloginManeg']);//ok
+Route::get('/orderSabtEndShowOne/{id_buy}', 'Admin\Pro_adController@orderSabtEndShowOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
 
 Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!

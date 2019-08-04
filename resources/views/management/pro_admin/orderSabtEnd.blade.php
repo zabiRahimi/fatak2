@@ -101,18 +101,18 @@
 
         </div>
         <div class="orderAghdam">
-          <button type="button"class="btn btn-success orderAghdam1"onclick="backOrderAdmin({{$buy->id}} , 5 , 'orderSabtEnd')">به عنوان سفارش تحویلی ثبت شود</button>
+          <button type="button"class="btn btn-success orderAghdam1"onclick="editStageOrderAdmin({{$buy->id}} , 5 , {{$buy->code_rahgiry}}, '{{$buy->date_post}}','orderSabtEnd')">به عنوان سفارش تحویلی ثبت شود</button>
         </div>
 
       @endif
 
   </div>
 
-  <div class="modal fade" id="orderErsalOneJs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="orderModalPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-body orderAghdamModal2 ">
-          <div id="ajaxOrderErsalOneJs">
+          <div id="ajaxOrderModalPro">
 
           </div>
         </div>

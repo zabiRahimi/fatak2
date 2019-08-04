@@ -1,12 +1,12 @@
 {{-- all_edit_pro.css --}}
 @extends('management.pro_admin.pro_admin')
  @section('title')
-  مدیریت :: سفارش در حال اقدام
+  مدیریت :: سفارش تحویل شده
 @endsection
 @section('show_pro')
   <div class="pro_titr">
-   نمایش سفارش
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/proceedPro';">بازگشت</button>
+   سفارش تحویلی
+   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderSabtEndShowAll';">بازگشت</button>
   </div>
   <div class="pro_body ">
     <div id="buyOneDivH1">{{-- جهت پرینت --}}
@@ -82,14 +82,23 @@
         <div class="buyOneDiv1 orderDivZ0 orderDate1">تلفن <span class="orderDivSpan">:</span></div>
         <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->tel}}</div>
       </div>
-      <div class="buyOneDivP buyOneShopPost">
-        <div class="buyOneDivP1 buyOneShopPost1">نحوه پست درخواستی </div>
-        <div class="buyOneDivP2 buyOneShopPost2"><span>پست {{$buy->post}}</span> </div>
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">نحوه پست<span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->post}}</div>
       </div>
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">کد رهگیری <span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->code_rahgiry}}</div>
+      </div>
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">تاریخ ثبت تحویلی<span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->date_post}}</div>
+      </div>
+
     </div>{{-- جهت پرینت --}}
     <div class="orderAghdamP">
-      <button type="button"class="btn btn-primary orderAghdamP1"onclick=""data-toggle="modal" data-target="#orderBackModal">به سفارشات جدید برگردد</button>
-      <button type="button"class="btn btn-danger orderAghdamP2"onclick=""data-toggle="modal" data-target="#orderDelModal">از سیستم حذف شود</button>
+      <button type="button"class="btn btn-success orderAghdamP1"onclick=""data-toggle="modal" data-target="#orderAghdamModal">برگشت به سفارشات ارسالی</button>
+      <button type="button"class="btn btn-danger orderAghdamP2"onclick=""data-toggle="modal" data-target="#orderDelModal1">از سیستم حذف شود</button>
     </div>
   </div>
   {{-- modal --}}
@@ -97,36 +106,23 @@
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-body orderAghdamModal2 ">
-          <span><b>توجه !!</b> آیا اطلاعات محصول و خریدار را چاپ کرده اید ؟ </span>
+          <span><b>توجه !!</b>آیا می خواهید این سفارش به سفارشات ارسالی برگردد ؟</span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="orderAghdam({{$buy->id}})" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="editStageOrderAdmin({{$buy->id}} , 4, {{$buy->code_rahgiry}} , '{{$buy->date_post}}' , 'orderSabtEndShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>
     </div>
   </div><!--end modal  -->
-  <div class="modal fade" id="orderBackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-body orderAghdamModal2 ">
-          <span><b>توجه !!</b> آیا می خواهید این محصول به صفحه محصولات سفارش شده برگردد؟</span>
-        </div>
-        <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="backOrderBuy({{$buy->id}},'proceedPro')" data-dismiss="modal"  aria-label="Close">بله</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
-        </div>
-      </div>
-    </div>
-  </div><!--end modal  -->
-  <div class="modal fade" id="orderDelModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="orderDelModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-body orderAghdamModal2 ">
           <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="delBuyOrderA({{$buy->id}},'proceedPro')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="delBuyOrderA({{$buy->id}},'orderSabtEndShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>
@@ -146,4 +142,5 @@
       </div>
     </div>
   </div><!--end modal  -->
+
 @endsection

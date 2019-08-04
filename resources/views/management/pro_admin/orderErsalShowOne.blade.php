@@ -115,7 +115,7 @@
           <span><b>توجه !!</b> آیا می خواهید این سفارش به سفارشات در دست اقدام برگردد؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="SaveEditStageOrderAdmin({{$buy->id}} , 3 , NULL , NULL , 'orderErsalShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="editStageOrderAdmin({{$buy->id}} , 3 , '' , '' , 'orderErsalShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>
@@ -134,11 +134,11 @@
       </div>
     </div>
   </div><!--end modal  -->
-  <div class="modal fade" id="orderErsalOneJs" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="orderModalPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-body orderAghdamModal2 ">
-          <div id="ajaxOrderErsalOneJs">
+          <div id="ajaxOrderModalPro">
 
           </div>
         </div>
