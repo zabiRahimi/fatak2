@@ -590,6 +590,7 @@ public function save_data_buyer2(Save_data_buyer $request){
     $add->post=$request->cookie('postOrder');
     $add->num_pro=$num_pro;
     $add->dis=$request->dis;
+    $add->price_pro=$priceAll;
     $add->price_post=$pricePost;
     $add->scot=$scot;
     $add->paywork=$paywork;

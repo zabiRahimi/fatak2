@@ -18,8 +18,8 @@
         <a href="/orderErsalShowAll" class=""><span class="titrCBR">محصولات ارسال شده</span><span class="badgeCBR">{{$orderPostCount}}</span> </a>
         <a href="/orderSabtEnd" class=""><span class="titrCBR">ثبت محصول تحویلی</span> </a>
         <a href="/orderSabtEndShowAll" class=""><span class="titrCBR">محصولات تحویلی</span><span class="badgeCBR">{{$orderDeliverCount}}</span> </a>
-        <a href="#" class=""><span class="titrCBR">ثبت محصول مرجوعی</span> </a>
-        <a href="#" class=""><span class="titrCBR">محصولات مرجوعی</span><span class="badgeCBR">{{$orderbackCount}}</span> </a>
+        <a href="/orderBackSabt" class=""><span class="titrCBR">ثبت محصول مرجوعی</span> </a>
+        <a href="/orderBackShowAll" class=""><span class="titrCBR">محصولات مرجوعی</span><span class="badgeCBR">{{$orderbackCount}}</span> </a>
         <a href="#" class=""><span class="titrCBR">ثبت مرجوعی تسویه شده</span> </a>
         <a href="#" class=""><span class="titrCBR">مرجوعی تسویه شده</span><span class="badgeCBR">{{$orderbackEndCount}}</span> </a>
         {{-- <ul class="ul_pro_r">

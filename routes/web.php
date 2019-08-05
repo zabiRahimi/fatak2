@@ -167,6 +167,11 @@ Route::post('/editStageOrderAdmin', 'Admin\Pro_adController@editStageOrderAdmin'
 Route::get('/orderSabtEnd/{buy_id?}', 'Admin\Pro_adController@orderSabtEnd')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::get('/orderSabtEndShowAll', 'Admin\Pro_adController@orderSabtEndShowAll')->middleware(['chekloginManeg']);//ok
 Route::get('/orderSabtEndShowOne/{id_buy}', 'Admin\Pro_adController@orderSabtEndShowOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
+Route::get('/orderBackSabt/{buy_id?}', 'Admin\Pro_adController@orderBackSabt')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+Route::post('/orderBackSave', 'Admin\Pro_adController@orderBackSave');//ok
+Route::get('/orderBackShowAll', 'Admin\Pro_adController@orderBackShowAll')->middleware(['chekloginManeg']);//ok
+Route::get('/orderBackShowOne/{buy_id}', 'Admin\Pro_adController@orderBackShowOne')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+Route::post('/orderBackEdit', 'Admin\Pro_adController@orderBackEdit');//ok
 
 Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!

@@ -17,6 +17,7 @@ class CreateTableBuys extends Migration
             $table->increments('id');
             $table->integer('pro_id');
             $table->integer('shop_id');
+            $table->integer('backPro_id')->nullable();
             $table->string('name',100);
             $table->string('mobail' , 13);
             $table->string('tel' , 13)->nullable();
@@ -29,6 +30,7 @@ class CreateTableBuys extends Migration
             $table->smallInteger('num_pro');
             $table->smallInteger('other_pro')->nullable();
             $table->text('dis')->nullable();
+            $table->mediumInteger('price_pro');
             $table->mediumInteger('price_post');
             $table->mediumInteger('scot')->nullable();
             $table->mediumInteger('paywork')->nullable();
