@@ -172,7 +172,9 @@ Route::post('/orderBackSave', 'Admin\Pro_adController@orderBackSave');//ok
 Route::get('/orderBackShowAll', 'Admin\Pro_adController@orderBackShowAll')->middleware(['chekloginManeg']);//ok
 Route::get('/orderBackShowOne/{buy_id}', 'Admin\Pro_adController@orderBackShowOne')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::post('/orderBackEdit', 'Admin\Pro_adController@orderBackEdit');//ok
-
+Route::post('/delOrderBack/{buy_id}/{backPro_id}/{delBuy?}', 'Admin\Pro_adController@delOrderBack')->where('buy_id', '[0-9]+')->where('backPro_id', '[0-9]+')->where('delBuy', '[0-9 , a-z ,A-Z]+');//ok
+Route::get('/orderBackEndShowAll', 'Admin\Pro_adController@orderBackEndShowAll')->middleware(['chekloginManeg']);//ok
+Route::get('/orderBackEndShowOne/{buy_id}', 'Admin\Pro_adController@orderBackEndShowOne')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!
 Route::post('/modirAdminSabt', 'Admin\ModirAdminController@modirAdminSabt');//ok
@@ -183,3 +185,7 @@ Route::post('/editPasModirManeg', 'Admin\ModirAdminController@editPasModirManeg'
 Route::get('/showProfileManeg', 'Admin\ModirAdminController@showProfileManeg')->middleware(['chekloginManeg']);//ok!!
 Route::post('/editModirManeg2', 'Admin\ModirAdminController@editModirManeg2');//ok
 Route::post('/editPasModirManeg2', 'Admin\ModirAdminController@editPasModirManeg2');//ok
+
+// channel admin
+Route::get('/channel_admin', 'Admin\ChannelAdminController@show')->middleware(['chekloginManeg']);//ok!!
+Route::get('/all_edit_channel', 'Admin\Pro_adController@all_edit_channel')->middleware(['chekloginManeg']);//ok

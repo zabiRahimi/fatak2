@@ -1,12 +1,12 @@
 {{-- all_edit_pro.css --}}
 @extends('management.pro_admin.pro_admin')
  @section('title')
-  مدیریت :: سفارش مرجوعی
+  مدیریت :: سفارش مرجوعی تسویه شده
 @endsection
 @section('show_pro')
   <div class="pro_titr">
-   نمایش سفارش مرجوعی
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackShowAll';">بازگشت</button>
+   نمایش سفارش مرجوعی تسویه شده
+   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackEndShowAll';">بازگشت</button>
   </div>
   <div class="pro_body ">
       <div class="buyOneDivTitr">
@@ -81,7 +81,7 @@
         <div class="buyOneDiv2 orderDivZ orderDate2">{{number_format($buy->price_post)}} تومان</div>
       </div>
   </div>
-  <form class="form formAdmin form_sabtOrderBack_admin" id="form_sabtOrderBack_admin" action="" method="post">
+  {{-- <form class="form formAdmin form_sabtOrderBack_admin" id="form_sabtOrderBack_admin" action="" method="post">
      <div class="ajax_form_admin" id="ajax_sabtOrderBack"></div>
      {{ csrf_field() }}
      <div class="form-group textAll ">
@@ -116,7 +116,7 @@
     <div class="orderAghdamP">
       <button type="button"class="btn btn-success orderAghdamP1"onclick=""data-toggle="modal" data-target="#orderAghdamModal">برگشت به سفارشات ارسالی</button>
       <button type="button"class="btn btn-danger orderAghdamP2"onclick=""data-toggle="modal" data-target="#orderDelModal1">از سیستم حذف شود</button>
-    </div>
+    </div> --}}
   {{-- modal --}}
   <div class="modal fade" id="orderAghdamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">

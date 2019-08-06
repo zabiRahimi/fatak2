@@ -827,3 +827,23 @@ function orderBackEdit(backPro_id) {
     },
     });
 }
+//پاک کردن اطلاعات سفارش مرجوعی
+function delOrderBack(buy_id , backPro_id , delBuy,page) {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../delOrderBack/' + buy_id + '/' + backPro_id + '/'+delBuy,
+    data: {
+         },
+    success:function(sd){
+      $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات با موفقیت انجام شد .</div>');
+      $('#orderModalPro').modal('show');
+      $("#orderModalPro").on('hide.bs.modal', function () {
+      window.location.href  = "/"+page;
+      });
+    },
+    error : function(xhr){
+
+    },
+    });
+}

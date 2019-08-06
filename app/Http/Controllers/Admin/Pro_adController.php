@@ -499,7 +499,8 @@ public function orderBackShowAll(Request $request)
   $buy=Buy::where('stage',6)->get();
   $pro=Pro::get();
   $shop=Shop::get();
-  return view('management.pro_admin.orderBackShowAll', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+  $backPro=BackPro::get();
+  return view('management.pro_admin.orderBackShowAll', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
 }
 public function orderBackShowOne(Request $request)
 {
@@ -527,5 +528,45 @@ public function orderBackEdit(SaveOrderBackEdit $request)
   $add->pay_buyer=$request->pay_buyer;
   $add->date_up=$date;
   $add->save();
+}
+public function delOrderBack(Request $request)
+{
+  if ($request->backPro_id) {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $del=BackPro::find($request->backPro_id);
+    $del->delete();
+    if($request->delBuy!='ok'){
+    $edit=Buy::find($request->buy_id);
+    $edit->backPro_id=NULL;
+    $edit->date_up=$date;
+    $edit->stage=4;
+    $edit->save();
+    }else{
+    $edit=Buy::find($request->buy_id);
+    $edit->delete();
+   }
+  }
+}
+public function orderBackEndShowAll(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+  $buy=Buy::where('stage',7)->get();
+  $pro=Pro::get();
+  $shop=Shop::get();
+  $backPro=BackPro::get();
+  return view('management.pro_admin.orderBackEndShowAll', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
+}
+public function orderBackEndShowOne(Request $request)
+{
+  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+  $buy_id=$request->buy_id;
+  $buy=Buy::find($buy_id);
+  $pro=Pro::find($buy->pro_id);
+  $shop=Shop::find($buy->shop_id);
+  $backPro=BackPro::find($buy->backPro_id);
+  return view('management.pro_admin.orderBackEndShowOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
 }
 }//end class

@@ -20,8 +20,8 @@
         <a href="/orderSabtEndShowAll" class=""><span class="titrCBR">محصولات تحویلی</span><span class="badgeCBR">{{$orderDeliverCount}}</span> </a>
         <a href="/orderBackSabt" class=""><span class="titrCBR">ثبت محصول مرجوعی</span> </a>
         <a href="/orderBackShowAll" class=""><span class="titrCBR">محصولات مرجوعی</span><span class="badgeCBR">{{$orderbackCount}}</span> </a>
-        <a href="#" class=""><span class="titrCBR">ثبت مرجوعی تسویه شده</span> </a>
-        <a href="#" class=""><span class="titrCBR">مرجوعی تسویه شده</span><span class="badgeCBR">{{$orderbackEndCount}}</span> </a>
+        {{-- <a href="#" class=""><span class="titrCBR">ثبت مرجوعی تسویه شده</span> </a> --}}
+        <a href="/orderBackEndShowAll" class=""><span class="titrCBR">مرجوعی تسویه شده</span><span class="badgeCBR">{{$orderbackEndCount}}</span> </a>
         {{-- <ul class="ul_pro_r">
           <a href="#" class="a_pjax_pro1"> <li onclick="show_div('pro_all')">مدیریت محصولات</li></a>
           <a href="/add_pro" > <li>اضافه کردن محصول</li></a><!-- نکته : بجهت نمایش ادیتور کد از پی جکس استفاده نشده است -->
