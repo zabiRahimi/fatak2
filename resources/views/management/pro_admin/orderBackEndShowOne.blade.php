@@ -8,7 +8,7 @@
    نمایش سفارش مرجوعی تسویه شده
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackEndShowAll';">بازگشت</button>
   </div>
-  <div class="pro_body ">
+  <div class="div_body ">
       <div class="buyOneDivTitr">
         مشخصات محصول
         <span class="codeOrder">

@@ -7,7 +7,7 @@
   <div class="pro_titr">
    ثبت سفارش ارسالی
   </div>
-  <div class="pro_body ">
+  <div class="div_body ">
     <form class="form formAdmin formCodePA" id="form_sabtCodePSh" action="" method="post">
        <div class="ajax_form_admin" id="ajax_codePAA"></div>
        {{ csrf_field() }}
@@ -20,7 +20,7 @@
         </div>
       </form>
       @if (!empty($buy_id))
-        <div class="pro_body ">
+        <div class="div_body ">
             <div class="buyOneDivTitr">
               مشخصات محصول
               <span class="codeOrder">

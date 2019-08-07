@@ -8,7 +8,7 @@
    مشخصات فروشنده
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/{{$page}}';">بازگشت</button>
   </div>
-  <div class="pro_body ">
+  <div class="div_body">
 
       <div class="buyOneDiv orderDiv orderName">
         <div class="buyOneDiv1 orderDivZ0 orderName1">نام فروشگاه <span class="orderDivSpan">:</span></div>

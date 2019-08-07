@@ -8,7 +8,7 @@
    نمایش سفارش
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBuy';">بازگشت</button>
   </div>
-  <div class="pro_body ">
+  <div class="div_body ">
     <div id="buyOneDivH1">{{-- جهت پرینت --}}
       <div class="buyOneDivTitr">
         مشخصات محصول

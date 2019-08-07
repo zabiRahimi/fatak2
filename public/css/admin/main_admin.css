@@ -89,6 +89,7 @@ display:inline;
 .divSabtForm button{width: 300px;}
 
 /* css content کدهای همگانی قسمت کانتنت */
+.div_body{width: 98%; margin: 7px 1%;border:1px solid #e2e2e2;border-radius: 4px;float: right;text-align: right;}
 .divLine{width:99%;margin: 25px 0.5%; float: right;border: 3px solid #032416; border-radius: 3px;}
 
 
