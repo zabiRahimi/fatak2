@@ -9,7 +9,6 @@
  ویرایش محصول
 </div>
 <div class="div_body">
-
   <form class="edit_pro_form1 edit_pro_form1" id="edit_pro_form1"  method="post">
     {{ csrf_field() }}
     <div class="ajax_form_admin" id="ajax_formeditpro1_admin"></div>

@@ -4,7 +4,7 @@
 @endsection
 @section('show_pro')
 
-<div class="div_titr">
+<div class="div_titr ">
  اضافه کردن محصول
 </div>
 <div class="div_body">
@@ -219,20 +219,7 @@
         </button>
       </div>
       <div class="modal-body ">
-
-        {{-- @if (count($show_img)>0)
-          @foreach ($show_img as  $img)
-            <div class="img_add_pro">
-
-              <img src="img_pro/{{$img->name}}" alt="">
-            </div>
-          @endforeach
-        @else
-            <div class="img_add_pro2">
-              عکسی موجود نیست ، عکس مورد نظر را آپلود نمایید .
-            </div>
-        @endif --}}
-        <div class="titr_modal_img_addpro">
+        <div class=" div_titr ">
            آپلود عکس اول
         </div>
         <div class="ajax_form_admin" style="width:100%; margin:5px 0;" id="imgAddPro1"></div>
