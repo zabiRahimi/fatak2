@@ -188,4 +188,4 @@ Route::post('/editPasModirManeg2', 'Admin\ModirAdminController@editPasModirManeg
 
 // channel admin
 Route::get('/channel_admin', 'Admin\ChannelAdminController@show')->middleware(['chekloginManeg']);//ok!!
-Route::get('/all_edit_channel', 'Admin\Pro_adController@all_edit_channel')->middleware(['chekloginManeg']);//ok
+Route::get('/all_edit_channel', 'Admin\ChannelAdminController@all_edit_channel')->middleware(['chekloginManeg']);//ok

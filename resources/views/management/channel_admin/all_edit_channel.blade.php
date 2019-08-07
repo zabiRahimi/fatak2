@@ -3,7 +3,7 @@
   مدیریت :: نمایش شبکه ها
 @endsection
 @section('show_channel')
-  <div class="all_edit_pro">
+  <div class="add_pro">
    نمایش شبکه های اجتماعی
   </div>
   <div class="all_edit_pro1">

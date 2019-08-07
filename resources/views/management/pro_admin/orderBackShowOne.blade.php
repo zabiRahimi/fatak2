@@ -31,7 +31,7 @@
         <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->date}}</div>
       </div>
 
-    <div class="orderLine"></div>
+    <div class="divLine"></div>
 
       <div class="buyOne2DivTitr">
         مشخصات خریدار
@@ -56,7 +56,7 @@
         <div class="buyOneDiv1 orderDivZ0 orderDate1">کد پستی <span class="orderDivSpan">:</span></div>
         <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->codepost}}</div>
       </div>
-      <div class="orderLine"></div>
+      <div class="divLine"></div>
       <div class="buyOne2DivTitr">
         مشخصات پرداخت
       </div>
@@ -109,7 +109,7 @@
           <div class="div_form"><input type="text" class="form-control placeholder" id="payBuyerBack"placeholder="به تومان ..." value="{{$backPro->pay_buyer}}"></div>
        </div>
 
-      <div class="form-group aivSabtForm">
+      <div class="form-group divSabtForm">
         <button type="button" class="btn btn-success" onclick="orderBackEdit({{$backPro->id}})" >ثبت تغییرات</button>
       </div>
     </form>

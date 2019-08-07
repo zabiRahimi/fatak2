@@ -15,7 +15,7 @@
           <label for="code_sabtCodePSh" class="control-label pull-right ">کد سفارش</label>
           <div class="div_form"><input type="text" class="form-control placeholder" id="code_ersalOrder"placeholder="کد سفارش را وارد کنید .." value=""></div>
         </div>
-        <div class="form-group aivSabtForm">
+        <div class="form-group divSabtForm">
           <button type="button" class="btn btn-success" onclick="orderErsalSabt()" >ثبت و جستجو</button>
         </div>
       </form>
@@ -53,7 +53,7 @@
               <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->date}}</div>
             </div>
 
-          <div class="orderLine"></div>
+          <div class="divLine"></div>
 
             <div class="buyOne2DivTitr">
               مشخصات خریدار
@@ -107,7 +107,7 @@
                <label for="datePostOrder" class="control-label pull-right "> تاریخ پست کالا</label>
                <div class="div_form"><input type="text" class="form-control placeholder" id="datePostOrder"placeholder="فرمت تاریخ 1398/01/01" value=""></div>
              </div>
-            <div class="form-group aivSabtForm">
+            <div class="form-group divSabtForm">
               <button type="button" class="btn btn-success" onclick="sabtCodeRahgiryAdmin({{$buy->id}} , 'orderErsalSabt')" >ثبت کد</button>
             </div>
           </form>

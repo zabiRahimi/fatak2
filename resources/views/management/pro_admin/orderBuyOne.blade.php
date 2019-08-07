@@ -5,7 +5,7 @@
 @endsection
 @section('show_pro')
   <div class="pro_titr">
-   نمایش سفارش 
+   نمایش سفارش
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBuy';">بازگشت</button>
   </div>
   <div class="pro_body ">
@@ -44,7 +44,7 @@
       </div>
     </div>{{-- جهت پرینت --}}
 
-    <div class="orderLine"></div>
+    <div class="divLine"></div>
     <div id="buyOneDivH2">{{-- جهت پرینت --}}
       <div class="buyOne2DivTitr">
         مشخصات خریدار

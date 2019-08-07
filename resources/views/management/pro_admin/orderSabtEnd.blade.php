@@ -53,7 +53,7 @@
               <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->date}}</div>
             </div>
 
-          <div class="orderLine"></div>
+          <div class="divLine"></div>
 
             <div class="buyOne2DivTitr">
               مشخصات خریدار

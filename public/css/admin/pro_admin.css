@@ -4,7 +4,6 @@
 /* دکمه بازگشت */
 .btnBack{height: 32px;margin-top:2px; float: left;}
 /* orderBuyOne.php */
-.orderLine{width:99%;margin: 25px 0.5%; float: right;border: 3px solid #032416; border-radius: 3px;}
 .buyOneDivTitr,.buyOne2DivTitr{width:99%;height: 30px;line-height: 28px;margin: 2px 0.5%;padding: 0 20px;float: right;background-color: #047791;border-radius: 3px;color: #fff;}
 .buyOne2DivTitr{background-color:#0b9bbb; }
 .buyOnePrint{float: left;height: 25px;margin-top: 2.5px;line-height: 5px;}

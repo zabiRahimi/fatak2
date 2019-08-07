@@ -44,7 +44,7 @@
       </div>
     </div>{{-- جهت پرینت --}}
 
-    <div class="orderLine"></div>
+    <div class="divLine"></div>
     <div id="buyOneDivH2">{{-- جهت پرینت --}}
       <div class="buyOne2DivTitr">
         مشخصات خریدار

@@ -47,8 +47,7 @@ display:inline;
 /* carsol_pro_ess */
 .carsol_pro_ess{width: 100%; margin: 5px 0; float: right;}
 /* اخطار فیلذهای فرم */
-#alarm_red{width: 100%; margin: 2px 0 4px; padding: 5px 4px; text-align: center; color: #b80f19; border: 2px solid #b80f19; border-radius: 4px; font-size: 16px;float: right; background-color: #fff;}
-#alarm_green{width: 100%; margin: 2px 0 4px; padding: 5px 4px; text-align: center; color: #01622b; border: 2px solid #01622b; border-radius: 4px; font-size: 16px;float: right; background-color: #fff;}
+
 .div_activ{display: block;}
 .div_none{display: none;}
 /******************* //body *********************/
@@ -65,20 +64,7 @@ display:inline;
 .CDBMTitr{width: 100%;height: 40px;line-height: 41px;margin-bottom: 5px;padding:0 12px;text-align: right;font-size: 18px;float: right;background-color: #02787c;color: #fff;border-radius: 3px;}
 .CDBMBody{width: 100%;padding:12px;float: right;border: 1px solid #bebbbb;border-radius: 3px;}
 
-/* .ul_pro_r{margin-right: 0; padding-right: 0;}
-.ul_pro_r a{color: #07367d;text-decoration: none; font-size: 16px;}
-.ul_pro_r li{
-  height: 35px;
-  line-height: 35px;
-  padding-right: 12px;
-  list-style: none;
-  border-bottom: 1px solid #e4e4e4 ;
-  cursor: pointer;
-  color: #044990;
-}
-.ul_pro_r li:hover{
-  background-color: #e4e4e4;
-} */
+
 /* #### form #### */
 
 .formAdmin{width: 100%;float: right;margin-bottom: 35px;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
@@ -98,13 +84,12 @@ display:inline;
 .labelRadio_L{color: #bb4d1d;background-color:#f9ddd1;}
 .labelRadio_R span,.labelRadio_L span{width: auto;margin: 0;float: none;}
 .labelRadio_R input,.labelRadio_L input{width: auto;position: relative;top: 1px;float: none;}
-
-
 .textareaEditor{width: 98%; margin: 6px 1%;padding:3px 7px; float: right;background-color: #d5dade;border-radius: 3px;}
+.divSabtForm{width: 98%; margin: 13px 1% 4px; padding: 4px 0;float: right;text-align: center; background-color: #f1f1f1; border-radius: 4px;}
+.divSabtForm button{width: 300px;}
 
-.aivSabtForm{width: 98%; margin: 13px 1% 4px; padding: 4px 0;float: right;text-align: center; background-color: #f1f1f1; border-radius: 4px;}
-.aivSabtForm button{width: 300px;}
-
+/* css content کدهای همگانی قسمت کانتنت */
+.divLine{width:99%;margin: 25px 0.5%; float: right;border: 3px solid #032416; border-radius: 3px;}
 
 
 /* page_login.php */
