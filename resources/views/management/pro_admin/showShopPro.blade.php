@@ -4,7 +4,7 @@
   مدیریت :: مشخصات فروشنده
 @endsection
 @section('show_pro')
-  <div class="pro_titr">
+  <div class="div_titr">
    مشخصات فروشنده
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/{{$page}}';">بازگشت</button>
   </div>

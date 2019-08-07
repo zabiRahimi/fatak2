@@ -4,7 +4,7 @@
   مدیریت :: سفارش مرجوعی
 @endsection
 @section('show_pro')
-  <div class="pro_titr">
+  <div class="div_titr">
    نمایش سفارش مرجوعی
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackShowAll';">بازگشت</button>
   </div>

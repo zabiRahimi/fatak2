@@ -4,7 +4,7 @@
   مدیریت :: ثبت محصول تحویل گرفته شده
 @endsection
 @section('show_pro')
-  <div class="pro_titr">
+  <div class="div_titr">
    ثبت سفارش تحویلی
   </div>
   <div class="div_body ">

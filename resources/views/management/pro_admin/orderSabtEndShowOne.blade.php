@@ -4,7 +4,7 @@
   مدیریت :: سفارش تحویل شده
 @endsection
 @section('show_pro')
-  <div class="pro_titr">
+  <div class="div_titr">
    سفارش تحویلی
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderSabtEndShowAll';">بازگشت</button>
   </div>

@@ -4,7 +4,7 @@
   مدیریت :: سفارش در حال اقدام
 @endsection
 @section('show_pro')
-  <div class="pro_titr">
+  <div class="div_titr">
    نمایش سفارش
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/proceedPro';">بازگشت</button>
   </div>

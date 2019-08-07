@@ -4,7 +4,7 @@
   مدیریت :: ثبت محصول ارسالی
 @endsection
 @section('show_pro')
-  <div class="pro_titr">
+  <div class="div_titr">
    ثبت سفارش ارسالی
   </div>
   <div class="div_body ">

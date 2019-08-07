@@ -1,6 +1,4 @@
 
-.pro_titr{width: 98%; margin: 0 1%;height: 36px;line-height: 35px;font-size: 16px; padding: 0 12px;float: right; text-align: right; background-color: #dfdfdf; border-radius: 3px;}
-.pro_body{width: 98%; margin: 7px 1%;border:1px solid #e2e2e2;border-radius: 4px;float: right;text-align: right;}
 /* دکمه بازگشت */
 .btnBack{height: 32px;margin-top:2px; float: left;}
 /* orderBuyOne.php */

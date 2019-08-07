@@ -4,7 +4,7 @@
   مدیریت :: ثبت سفارش مرجوعی
 @endsection
 @section('show_pro')
-  <div class="pro_titr">
+  <div class="div_titr">
    ثبت سفارش مرجوعی
   </div>
   <div class="div_body ">
