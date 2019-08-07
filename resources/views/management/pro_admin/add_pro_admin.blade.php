@@ -4,10 +4,10 @@
 @endsection
 @section('show_pro')
 
-<div class="add_pro">
+<div class="div_titr">
  اضافه کردن محصول
 </div>
-<div class="add_pro2">
+<div class="div_body">
 
   <form class="formAdmin add_pro_form1" action="" id="add_pro_form1"  method="post">
     {{ csrf_field() }}

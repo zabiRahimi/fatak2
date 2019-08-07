@@ -5,10 +5,10 @@
 
 @section('show_pro')
 
-<div class="edit_pro">
+<div class="div_titr">
  ویرایش محصول
 </div>
-<div class="edit_pro2">
+<div class="div_body">
 
   <form class="edit_pro_form1 edit_pro_form1" id="edit_pro_form1"  method="post">
     {{ csrf_field() }}
