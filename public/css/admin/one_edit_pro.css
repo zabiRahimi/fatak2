@@ -1,13 +1,13 @@
 /* **********ویرایش کردن محصول ********** */
 .edit_pro{width: 98%; margin: 0 1%;height: 35px;line-height: 35px;font-size: 16px; padding: 0 12px;float: right; text-align: right; background-color: #dfdfdf; border-radius: 3px;}
 .edit_pro2{width: 98%; margin: 7px 1%;float: right;text-align: right;}
-.edit_pro_form1{width: 100%;float: right;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
-.edit_pro_form1_1{width: 48%; height: 45px;line-height: 42px;padding: 3px 7px;margin: 6px 1%;float: right;background-color: #d5dade;border-radius: 3px;}
+/* .edit_pro_form1{width: 100%;float: right;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;} */
+/* .edit_pro_form1_1{width: 48%; height: 45px;line-height: 42px;padding: 3px 7px;margin: 6px 1%;float: right;background-color: #d5dade;border-radius: 3px;}
 .edit_pro_form1_1 label{width: 25%; float: right;}
-.edit_pro_form1_1 input , .edit_pro_form1_1 select{width: 75%; float: right;}
+.edit_pro_form1_1 input , .edit_pro_form1_1 select{width: 75%; float: right;} */
 .mavad_all_editpro1_admin label{width: 100%;float: right;}
 .mavad_editpro1_admin{width: 19%; margin: 2px 0.5%; float: right;}
-.edit_pro_form1_2{width: 98%; margin: 6px 1%;padding:3px 7px; float: right;background-color: #d5dade;border-radius: 3px;}
+/* .edit_pro_form1_2{width: 99%; margin: 6px 0.5%;padding:3px 7px; float: right;background-color: #d5dade;border-radius: 3px;} */
 .img_edit_pro{width: 14.666%; height: 115px;margin: 3px 1%; padding: 2px 0;text-align: center; float: left; background-color: #d7e9ed; overflow: hidden; border: 1px solid #c1c1c1; border-radius: 3px;}
 .img_edit_pro img{width: 100%; height: 115px;}
 .img_edit_pro2{float: right;}

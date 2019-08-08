@@ -7,9 +7,10 @@
 
 <div class="div_titr">
  ویرایش محصول
+ <button type="button" class="btn btn-primary btnBack" onclick="window.location='/all_edit_pro';">بازگشت</button>
 </div>
 <div class="div_body">
-  <form class="edit_pro_form1 edit_pro_form1" id="edit_pro_form1"  method="post">
+  <form class="formAdmin edit_pro_form1" id="edit_pro_form1"  method="post">
     {{ csrf_field() }}
     <div class="ajax_form_admin" id="ajax_formeditpro1_admin"></div>
 
@@ -72,11 +73,11 @@
       <label for="pakat_editpro1_admin" class="control-label pull-right  "> هزینه بسته بندی </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->pakat_price}}"  id="pakat_editpro1_admin" placeholder="به تومان ..." ></div>
     </div>
-    <div class="fr-view edit_pro_form1_2">
+    <div class="fr-view textareaEditor">
       <label for="dis_editpro1_admin" class="control-label pull-right  "> توضیحات محصول</label>
       <textarea name="name" id="dis_editpro1_admin" >{{$pro->name}}</textarea>
     </div>
-    <div class="form-group edit_pro_form1_2 mavad_all_editpro1_admin">
+    <div class="form-group textareaEditor mavad_all_editpro1_admin">
       <label for="mavad1_editpro1_admin" class="control-label pull-right  ">مواد تشکیل دهنده محصول </label>
       @php
       $mavads=  json_decode($pro->mavad);
@@ -118,11 +119,11 @@
       <label for="sponsor_editpro1_admin" class="control-label pull-right  "> گارانتی </label>
       <div class="div_data_buyer"><input type="text" class="form-control" value="{{$pro->sponsor}}" id="sponsor_editpro1_admin" placeholder="" ></div>
     </div>
-    <div class="fr-view edit_pro_form1_2">
+    <div class="fr-view textareaEditor">
       <label for="term_editpro1_admin" class="control-label pull-right  "> شرایط نگهداری </label>
       <textarea name="name" id="term_editpro1_admin"><?=$pro->term ?></textarea>
     </div>
-    <div class="fr-view edit_pro_form1_2">
+    <div class="fr-view textareaEditor">
       <label for="bake_editpro1_admin" class="control-label pull-right  "> شرایط ارجاع </label>
       <textarea name="name" id="bake_editpro1_admin"><?=$pro->bake?></textarea>
     </div>
@@ -171,19 +172,6 @@
       <div class="ajax_editpro1_img" id="ajax_editpro1_img6">{{$img->pic_b6}}</div>
     </div>
     <div class="form-group textAll">
-      {{-- <label for="show_editpro1_admin" class="control-label pull-right  "> نحوه نمایش محصول </label>
-      <div class="div_show_editpro">
-        <div class="div_show_editpro_1">
-          <label for="show_editpro">فعال</label>
-          <input type="radio" class="" @if ($pro->show == 1) checked @endif id="show_editpro" name="show1" value="1">
-        </div>
-        <div class="div_show_editpro_2">
-          <label for="show_editpro_2">غیر فعال</label>
-          <input type="radio" class="" @if ($pro->show != 1) checked @endif id="show_editpro_2" name="show1" value="2">
-        </div>
-
-      </div> --}}
-
       <label class="control-label pull-right  "> نحوه نمایش محصول </label>
       <div class="divRadio">
         <label class="labelRadio_R">
@@ -212,7 +200,6 @@
       </button>
     </div>
   </form>
-
 </div>
 
 {{-- مودال عکس اول --}}

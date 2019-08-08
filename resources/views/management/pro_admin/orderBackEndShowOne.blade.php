@@ -81,42 +81,6 @@
         <div class="buyOneDiv2 orderDivZ orderDate2">{{number_format($buy->price_post)}} تومان</div>
       </div>
   </div>
-  {{-- <form class="form formAdmin form_sabtOrderBack_admin" id="form_sabtOrderBack_admin" action="" method="post">
-     <div class="ajax_form_admin" id="ajax_sabtOrderBack"></div>
-     {{ csrf_field() }}
-     <div class="form-group textAll ">
-        <label for="codeRahgiryBack" class="control-label pull-right "> کد رهگیری برگشتی</label>
-        <div class="div_form"><input type="text" class="form-control placeholder" id="codeRahgiryBack"placeholder="کد رهگیری را وارد کنید .." value="{{$backPro->code_rahgiry}}"></div>
-      </div>
-      <div class="form-group textAll ">
-         <label for="datePostBack" class="control-label pull-right "> تاریخ پست کالا</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="datePostBack"placeholder="فرمت تاریخ 1398/01/01" value="{{$backPro->date_post}}"></div>
-       </div>
-       <div class="form-group textAll ">
-          <label for="pricePostBack" class="control-label pull-right "> هزینه پست</label>
-          <div class="div_form"><input type="text" class="form-control placeholder" id="pricePostBack"placeholder="به تومان ..." value="{{$backPro->price_post}}"></div>
-       </div>
-       <div class=" add_pro_form1_2">
-         <label for="buyerDisBack" class="control-label pull-right placeholder"> توضیحات مشتری جهت ارجاع <i class="fas fa-star star_form"></i></label>
-         <textarea name="" id="buyerDisBack">{{$backPro->buyer_dis }}</textarea>
-       </div>
-       <div class=" add_pro_form1_2">
-         <label for="technicianDisBack" class="control-label pull-right placeholder">توضیحات کارشناس ارجاع <i class="fas fa-star star_form"></i></label>
-         <textarea name="" id="technicianDisBack">{{$backPro->technician_dis}}</textarea>
-       </div>
-       <div class="form-group textAll ">
-          <label for="payBuyerBack" class="control-label pull-right "> مبلغ پرداخت به مشتری</label>
-          <div class="div_form"><input type="text" class="form-control placeholder" id="payBuyerBack"placeholder="به تومان ..." value="{{$backPro->pay_buyer}}"></div>
-       </div>
-
-      <div class="form-group divSabtForm">
-        <button type="button" class="btn btn-success" onclick="orderBackEdit({{$backPro->id}})" >ثبت تغییرات</button>
-      </div>
-    </form>
-    <div class="orderAghdamP">
-      <button type="button"class="btn btn-success orderAghdamP1"onclick=""data-toggle="modal" data-target="#orderAghdamModal">برگشت به سفارشات ارسالی</button>
-      <button type="button"class="btn btn-danger orderAghdamP2"onclick=""data-toggle="modal" data-target="#orderDelModal1">از سیستم حذف شود</button>
-    </div> --}}
   {{-- modal --}}
   <div class="modal fade" id="orderAghdamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">

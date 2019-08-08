@@ -108,11 +108,11 @@
                 <label for="pricePostBack" class="control-label pull-right "> هزینه پست</label>
                 <div class="div_form"><input type="text" class="form-control placeholder" id="pricePostBack"placeholder="به تومان ..." value=""></div>
              </div>
-             <div class=" add_pro_form1_2">
+             <div class=" textareaEditor">
                <label for="buyerDisBack" class="control-label pull-right placeholder"> توضیحات مشتری جهت ارجاع <i class="fas fa-star star_form"></i></label>
                <textarea name="" id="buyerDisBack"></textarea>
              </div>
-             <div class=" add_pro_form1_2">
+             <div class=" textareaEditor">
                <label for="technicianDisBack" class="control-label pull-right placeholder">توضیحات کارشناس ارجاع <i class="fas fa-star star_form"></i></label>
                <textarea name="" id="technicianDisBack"></textarea>
              </div>

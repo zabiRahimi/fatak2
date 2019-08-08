@@ -80,11 +80,11 @@
       <label for="pakat_addpro1_admin" class="control-label pull-right  ">هزینه بسته بندی <i class="fas fa-star star_form"></i></label>
       <div class="div_data_buyer"><input type="text" class="form-control placeholder"  id="pakat_addpro1_admin" placeholder="به تومان ..." ></div>
     </div>
-    <div class="fr-view add_pro_form1_2">
+    <div class="fr-view textareaEditor">
       <label for="dis_addpro1_admin" class="control-label pull-right placeholder"> توضیحات محصول <i class="fas fa-star star_form"></i></label>
       <textarea name="name" id="dis_addpro1_admin"></textarea>
     </div>
-    <div class="form-group add_pro_form1_2 mavad_all_addpro1_admin">
+    <div class="form-group textareaEditor mavad_all_addpro1_admin">
       <label for="mavad1_addpro1_admin" class="control-label pull-right  ">مواد تشکیل دهنده محصول </label>
       <div class="mavad_addpro1_admin"><input type="text" class="form-control"  id="mavad1_addpro1_admin" placeholder="" ></div>
       <div class="mavad_addpro1_admin"><input type="text" class="form-control"  id="mavad2_addpro1_admin" placeholder="" ></div>
@@ -123,11 +123,11 @@
       <label for="sponsor_addpro1_admin" class="control-label pull-right  "> گارانتی </label>
       <div class="div_data_buyer"><input type="text" class="form-control placeholder"  id="sponsor_addpro1_admin" placeholder="" ></div>
     </div>
-    <div class="fr-view add_pro_form1_2">
+    <div class="fr-view textareaEditor">
       <label for="term_addpro1_admin" class="control-label pull-right  "> شرایط نگهداری </label>
       <textarea name="name" id="term_addpro1_admin"></textarea>
     </div>
-    <div class="fr-view add_pro_form1_2">
+    <div class="fr-view textareaEditor">
       <label for="bake_addpro1_admin" class="control-label pull-right  "> شرایط ارجاع </label>
       <textarea name="name" id="bake_addpro1_admin"></textarea>
 
