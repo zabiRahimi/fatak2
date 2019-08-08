@@ -95,8 +95,9 @@ display:inline;
 .divLine{width:99%;margin: 25px 0.5%; float: right;border: 3px solid #032416; border-radius: 3px;}
 /* دایو تیتر جهت این پوت آمار */
 .div_input{margin: 3px 0 0;font-size: 14px; padding: 0 2px;background-color: #5acb73; border-color:#288b3e; }
-.divRow{width: 100%; margin: 6px 0 0;font-size: 16px; float: right; text-align: right;}
-
+.divRow{width: 100%; margin: 6px 0 10px;font-size: 16px; float: right; text-align: right;}
+.divRow2{width: 100%; height: 35px; line-height: 35px; float: right; background: #98c9c2;border: 1px solid #5e5e5e;}
+.divRow .divRow2:first-child{border-radius: 3px 3px 0 0;}
 
 /* page_login.php */
 .login1{

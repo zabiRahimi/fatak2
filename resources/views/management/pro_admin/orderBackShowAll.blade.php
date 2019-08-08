@@ -8,7 +8,7 @@
    نمایش سفارشات مرجوعی
   </div>
   <div class="divRow">
-    <div class="all_edit_pro2_1">
+    <div class="divRow2">
       <div class="all_edit_pro2_1_0 orderBuyR1"><i class="fas fa-certificate"></i></div>
       <div class="all_edit_pro2_1_0 orderBuyR2">نام محصول</div>
       <div class="all_edit_pro2_1_0 orderErsalR3">کد سفارش</div>
@@ -30,7 +30,7 @@
       $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
 
       @endphp
-      <div class="all_edit_pro2_1 all_edit_pro3 {{$classBg}} ">
+      <div class="divRow2 all_edit_pro3 {{$classBg}} ">
         <div class="all_edit_pro2_1_0 orderBuyR1 ">{{$r}}</div>
         <div class="all_edit_pro2_1_0 orderBuyR2 ">{{$pro2->name}}</div>
         <div class="all_edit_pro2_1_0 orderErsalR3">{{$buys->id}}</div>

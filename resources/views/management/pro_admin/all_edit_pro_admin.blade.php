@@ -17,7 +17,7 @@
 
 
     <div class="divRow">
-      <div class="all_edit_pro2_1">
+      <div class="divRow2">
         <div class="all_edit_pro2_1_0 all_edit_pro_name">نام محصول</div>
         <div class="all_edit_pro2_1_0 all_edit_pro_seller">فروشنده</div>
         <div class="all_edit_pro2_1_0 all_edit_pro_price">قیمت</div>
@@ -27,7 +27,7 @@
         <div class="all_edit_pro2_1_0 all_edit_pro_edit">ویرایش</div>
       </div>
       @foreach ($pro as $pros)
-        <div class="all_edit_pro2_1 all_edit_pro3">
+        <div class="divRow2 all_edit_pro3">
           <div class="all_edit_pro2_1_0 all_edit_pro_name all_edit_pro_name2">{{$pros->name}}</div>
           <a href="#"><div class="all_edit_pro2_1_0 all_edit_pro_seller">{{$pros->seller}}</div></a>
           <div class="all_edit_pro2_1_0 all_edit_pro_price"><span class="span1">{{number_format($pros->price)}}</span> <span class="span2">تومان</span> </div>
