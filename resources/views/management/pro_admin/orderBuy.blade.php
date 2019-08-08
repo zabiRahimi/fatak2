@@ -8,7 +8,7 @@
    نمایش سفارشات
   </div>
   <div class="div_body">
-    <div class="all_edit_pro2">
+    <div class="divRow">
       <div class="all_edit_pro2_1">
         <div class="all_edit_pro2_1_0 orderBuyR1"><i class="fas fa-certificate"></i></div>
         <div class="all_edit_pro2_1_0 orderBuyR2">نام محصول</div>

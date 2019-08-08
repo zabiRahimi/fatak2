@@ -252,7 +252,7 @@
         </button>
       </div>
       <div class="modal-body modal_body_h_login">
-        <div class="titr_modal_img_addpro">
+        <div class="div_titr">
             آپلود عکس دوم
         </div>
         <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgAddPro2"></div>
@@ -284,7 +284,7 @@
         </button>
       </div>
       <div class="modal-body modal_body_h_login">
-        <div class="titr_modal_img_addpro">
+        <div class="div_titr">
           آپلود عکس سوم
         </div>
         <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgAddPro3"></div>
@@ -316,7 +316,7 @@
         </button>
       </div>
       <div class="modal-body modal_body_h_login">
-        <div class="titr_modal_img_addpro">
+        <div class="div_titr">
           آپلود عکس چهارم
         </div>
         <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgAddPro4"></div>
@@ -348,7 +348,7 @@
         </button>
       </div>
       <div class="modal-body modal_body_h_login">
-        <div class="titr_modal_img_addpro">
+        <div class="div_titr">
           آپلود عکس پنچم
         </div>
         <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgAddPro5"></div>
@@ -380,7 +380,7 @@
         </button>
       </div>
       <div class="modal-body modal_body_h_login">
-        <div class="titr_modal_img_addpro">
+        <div class="div_titr">
           آپلود عکس ششم
         </div>
         <div class="ajax_form_admin"style="width:100%; margin:5px 0;" id="imgAddPro6"></div>

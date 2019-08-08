@@ -7,16 +7,7 @@
   <div class="all_edit_pro">
    نمایش سفارشات مرجوعی
   </div>
-  {{-- <div class="all_edit_pro1">
-    <div class="all_edit_pro1_0 all_edit_pro1_1"><div class="div1" >کل محصولات</div><div class="div2">{{count($pro)}} </div> <div class="div3">عدد</div>  </div>
-    <div class="all_edit_pro1_0 all_edit_pro1_2"><div class="div1">محصولات فعال</div><div class="div2">{{count($pro->where('show' , 1))}} </div> <div class="div3">عدد</div> </div>
-    <div class="all_edit_pro1_0 all_edit_pro1_3"><div class="div1">محصولات غیر فعال</div><div class="div2">{{count($pro->where('show' , '!=' , 1))}} </div> <div class="div3">عدد</div> </div>
-    {{-- <div class="all_edit_pro1_0 all_edit_pro1_4"><div class="div1">محصولات پر فروش</div><div class="div2">57896 </div> <div class="div3">عدد</div> </div>
-    <div class="all_edit_pro1_0 all_edit_pro1_5"><div class="div1" >محصولات پر بازدید</div><div class="div2">57896 </div> <div class="div3">عدد</div> </div> --}}
-  {{-- </div> --}}
-
-
-  <div class="all_edit_pro2">
+  <div class="divRow">
     <div class="all_edit_pro2_1">
       <div class="all_edit_pro2_1_0 orderBuyR1"><i class="fas fa-certificate"></i></div>
       <div class="all_edit_pro2_1_0 orderBuyR2">نام محصول</div>

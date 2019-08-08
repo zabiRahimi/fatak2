@@ -4,10 +4,10 @@
 @endsection
 @section('show_pro')
 
-<div class="add_pro">
+<div class="div_titr">
  محصولات در دست اقدام
 </div>
-<div class="all_edit_pro2">
+<div class="divRow">
   <div class="all_edit_pro2_1">
     <div class="all_edit_pro2_1_0 orderBuyR1"><i class="fas fa-certificate"></i></div>
     <div class="all_edit_pro2_1_0 orderBuyR2">نام محصول</div>
