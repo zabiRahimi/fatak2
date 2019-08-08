@@ -9,7 +9,7 @@
   </div>
   <div class="divRow">
     <div class="divRow2">
-      <div class="divRow3 orderBuyR1"><i class="fas fa-certificate"></i></div>
+      <div class="divRow3 rowNumber"><i class="fas fa-certificate"></i></div>
       <div class="divRow3 orderBuyR2">نام محصول</div>
       <div class="divRow3 orderErsalR3">کد سفارش</div>
       <div class="divRow3 orderErsalR4">فروشگاه</div>
@@ -30,7 +30,7 @@
 
       @endphp
       <div class="divRow2 all_edit_pro3 {{$classBg}} ">
-        <div class="divRow3 orderBuyR1 ">{{$r}}</div>
+        <div class="divRow3 rowNumber ">{{$r}}</div>
         <div class="divRow3 orderBuyR2 ">{{$pro2->name}}</div>
         <div class="divRow3 orderErsalR3">{{$buys->id}}</div>
         <a href="/showShopPro/{{$shop2->id}}/orderErsalShowAll"><div class="divRow3 orderErsalR4">{{$shop2->shop}}</div></a>
