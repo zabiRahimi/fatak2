@@ -9,13 +9,13 @@
 </div>
 <div class="divRow">
   <div class="divRow2">
-    <div class="all_edit_pro2_1_0 orderBuyR1"><i class="fas fa-certificate"></i></div>
-    <div class="all_edit_pro2_1_0 orderBuyR2">نام محصول</div>
-    <div class="all_edit_pro2_1_0 orderBuyR3">تعداد</div>
-    <div class="all_edit_pro2_1_0 orderBuyR4">کد سفارش</div>
-    <div class="all_edit_pro2_1_0 orderBuyR5">فروشگاه</div>
-    <div class="all_edit_pro2_1_0 orderBuyR6">تاریخ</div>
-    <div class="all_edit_pro2_1_0 orderBuyR7">مشاهده</div>
+    <div class="divRow3 orderBuyR1"><i class="fas fa-certificate"></i></div>
+    <div class="divRow3 orderBuyR2">نام محصول</div>
+    <div class="divRow3 orderBuyR3">تعداد</div>
+    <div class="divRow3 orderBuyR4">کد سفارش</div>
+    <div class="divRow3 orderBuyR5">فروشگاه</div>
+    <div class="divRow3 orderBuyR6">تاریخ</div>
+    <div class="divRow3 orderBuyR7">مشاهده</div>
 
   </div>
   @php
@@ -30,13 +30,13 @@
 
     @endphp
     <div class="divRow2 all_edit_pro3 {{$classBg}} ">
-      <div class="all_edit_pro2_1_0 orderBuyR1 ">{{$r}}</div>
-      <div class="all_edit_pro2_1_0 orderBuyR2 ">{{$pro2->name}}</div>
-      <div class="all_edit_pro2_1_0 orderBuyR3">{{$buys->num_pro}} {{$pro2->vahed}}</div>
-      <div class="all_edit_pro2_1_0 orderBuyR4">{{$buys->id}}</div>
-      <a href="/showShopPro/{{$shop2->id}}/proceedPro"><div class="all_edit_pro2_1_0 orderBuyR5">{{$shop2->shop}}</div></a>
-      <div class="all_edit_pro2_1_0 orderBuyR6">{{$buys->date}} </div>
-      <a href="/proceedProOne/{{$buys->id}}"><div class="all_edit_pro2_1_0 orderBuyR7">مشاهده</div></a>
+      <div class="divRow3 orderBuyR1 ">{{$r}}</div>
+      <div class="divRow3 orderBuyR2 ">{{$pro2->name}}</div>
+      <div class="divRow3 orderBuyR3">{{$buys->num_pro}} {{$pro2->vahed}}</div>
+      <div class="divRow3 orderBuyR4">{{$buys->id}}</div>
+      <a href="/showShopPro/{{$shop2->id}}/proceedPro"><div class="divRow3 orderBuyR5">{{$shop2->shop}}</div></a>
+      <div class="divRow3 orderBuyR6">{{$buys->date}} </div>
+      <a href="/proceedProOne/{{$buys->id}}"><div class="divRow3 orderBuyR7">مشاهده</div></a>
 
     </div>
   @endforeach

@@ -18,23 +18,32 @@
 
     <div class="divRow">
       <div class="divRow2">
-        <div class="all_edit_pro2_1_0 all_edit_pro_name">نام محصول</div>
-        <div class="all_edit_pro2_1_0 all_edit_pro_seller">فروشنده</div>
-        <div class="all_edit_pro2_1_0 all_edit_pro_price">قیمت</div>
-        <div class="all_edit_pro2_1_0 all_edit_pro_froosh">تعداد فروش</div>
-        <div class="all_edit_pro2_1_0 all_edit_pro_did">تعداد بازدید</div>
-        <div class="all_edit_pro2_1_0 all_edit_pro_show">نمایش</div>
-        <div class="all_edit_pro2_1_0 all_edit_pro_edit">ویرایش</div>
+        <div class="divRow3 rowNumber"><i class="fas fa-certificate"></i></div>
+        <div class="divRow3 all_edit_pro_name">نام محصول</div>
+        <div class="divRow3 all_edit_pro_seller">فروشنده</div>
+        <div class="divRow3 all_edit_pro_price">قیمت</div>
+        <div class="divRow3 all_edit_pro_froosh">تعداد فروش</div>
+        <div class="divRow3 all_edit_pro_did">تعداد بازدید</div>
+        <div class="divRow3 all_edit_pro_show">نمایش</div>
+        <div class="divRow3 all_edit_pro_edit">ویرایش</div>
       </div>
+      @php
+        $r=0;
+      @endphp
       @foreach ($pro as $pros)
-        <div class="divRow2 all_edit_pro3">
-          <div class="all_edit_pro2_1_0 all_edit_pro_name all_edit_pro_name2">{{$pros->name}}</div>
-          <a href="#"><div class="all_edit_pro2_1_0 all_edit_pro_seller">{{$pros->seller}}</div></a>
-          <div class="all_edit_pro2_1_0 all_edit_pro_price"><span class="span1">{{number_format($pros->price)}}</span> <span class="span2">تومان</span> </div>
-          <div class="all_edit_pro2_1_0 all_edit_pro_froosh"><span class="span1">{{number_format($pros->views)}}</span> <span class="span2">فروش</span></div>
-          <div class="all_edit_pro2_1_0 all_edit_pro_did"><span class="span1">{{number_format($pros->views . 45666)}}</span> <span class="span2">بازدید</span></div>
-          <div class="all_edit_pro2_1_0 all_edit_pro_show"> @if ($pros->show==1) <span class="span_ok">فعال</span> @else <span class="span_no">غیر فعال</span> @endif </div>
-          <a href="/edit_pro/{{$pros->id}}"><div class="all_edit_pro2_1_0 all_edit_pro_edit">ویرایش</div></a>
+        @php
+        $r++;
+        $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
+        @endphp
+        <div class="divRow2  {{$classBg}}">
+          <div class="divRow3 rowNumber ">{{$r}}</div>
+          <div class="divRow3 all_edit_pro_name all_edit_pro_name2">{{$pros->name}}</div>
+          <a href="#"><div class="divRow3 all_edit_pro_seller">{{$pros->seller}}</div></a>
+          <div class="divRow3 all_edit_pro_price"><span class="span1">{{number_format($pros->price)}}</span> <span class="span2">تومان</span> </div>
+          <div class="divRow3 all_edit_pro_froosh"><span class="span1">{{number_format($pros->views)}}</span> <span class="span2">فروش</span></div>
+          <div class="divRow3 all_edit_pro_did"><span class="span1">{{number_format($pros->views . 45666)}}</span> <span class="span2">بازدید</span></div>
+          <div class="divRow3 all_edit_pro_show"> @if ($pros->show==1) <span class="span_ok">فعال</span> @else <span class="span_no">غیر فعال</span> @endif </div>
+          <a href="/edit_pro/{{$pros->id}}"><div class="divRow3 all_edit_pro_edit">ویرایش</div></a>
         </div>
       @endforeach
     </div>

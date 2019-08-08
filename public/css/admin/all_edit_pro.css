@@ -4,16 +4,14 @@
 .divE3{width: 9%;padding-left: 4px;float: left; font-size: 12px;}
 .all_edit_pro1_2 .divE2{color: #094d05;}
 .all_edit_pro1_3 .divE2{color: #7a0a0a;}
-.all_edit_pro2_1_0{height: 34px;padding: 0 2px;text-align: center;float: right; border-left: 1px solid #6f6f6f;}
-.all_edit_pro2_1_0 .span1{ text-align: center;display: inline-block;}
-.all_edit_pro2_1_0 .span2{ font-size: 12px;}
+
 .all_edit_pro3{background-color: #fff;}
 .all_edit_pro3_1{background-color: #f7f7f7;}
 .all_edit_pro3:hover{background-color:#c9cbe0; border-bottom: 2px solid #505477;cursor:default;}
-.all_edit_pro_name{width:24.6%;}
+.all_edit_pro_name{width:calc(26.4% - 40px);}
 .all_edit_pro_name2{text-align: right;}
-.all_edit_pro_seller{width:16.4%; }
-.all_edit_pro_price{width:16.4%;}
+.all_edit_pro_seller{width:16%; }
+.all_edit_pro_price{width:15%;}
 .all_edit_pro_price .span1{color: #288b3e;}
 .all_edit_pro_froosh{width:13.2%;}
 .all_edit_pro_froosh .span1{color: #6c3621;}
@@ -27,7 +25,6 @@
 .all_edit_pro3{}
 
 /* orderBuy.css */
-.orderBuyR1{width: 40px;}
 .orderBuyR2{width: calc( 28% - 40px);}
 .orderBuyR3{width:15%; }
 .orderBuyR4{width:10%;}
