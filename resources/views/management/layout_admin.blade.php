@@ -25,6 +25,7 @@
         <link href="\css\admin\add_pro.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\all_edit_pro.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\one_edit_pro.css" rel="stylesheet" type="text/css">
+        <link href="\css\admin\channelAdmin.css" rel="stylesheet" type="text/css">
     </head>
     <body>
 

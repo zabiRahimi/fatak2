@@ -12,11 +12,11 @@
 .all_edit_pro_name2{text-align: right;}
 .all_edit_pro_seller{width:16%; }
 .all_edit_pro_price{width:15%;}
-.all_edit_pro_price .span1{color: #288b3e;}
+.all_edit_pro_price .spanRow1{color: #288b3e;}
 .all_edit_pro_froosh{width:13.2%;}
-.all_edit_pro_froosh .span1{color: #6c3621;}
+.all_edit_pro_froosh .spanRow1{color: #6c3621;}
 .all_edit_pro_did{width:13.2%;}
-.all_edit_pro_did .span1{color: #18287a;}
+.all_edit_pro_did .spanRow1{color: #18287a;}
 
 .all_edit_pro_show{width:8.2%;}
 .span_ok{color: #094d05;}

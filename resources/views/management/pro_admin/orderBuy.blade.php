@@ -17,7 +17,6 @@
         <div class="divRow3 orderBuyR5">فروشگاه</div>
         <div class="divRow3 orderBuyR6">تاریخ</div>
         <div class="divRow3 orderBuyR7">مشاهده</div>
-
       </div>
       @php
         $r=0;

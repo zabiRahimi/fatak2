@@ -212,19 +212,6 @@
         </button>
       </div>
       <div class="modal-body ">
-
-        {{-- @if (count($show_img)>0)
-          @foreach ($show_img as  $img)
-            <div class="img_edit_pro">
-
-              <img src="img_pro/{{$img->name}}" alt="">
-            </div>
-          @endforeach
-        @else
-            <div class="img_edit_pro2">
-              عکسی موجود نیست ، عکس مورد نظر را آپلود نمایید .
-            </div>
-        @endif --}}
         <div class="titr_modal_img_editpro">
            آپلود عکس اول
         </div>

@@ -1,0 +1,17 @@
+/* all_edit_channel.php */
+.all_edit_cha1_0{width: 26%; height: 32px;line-height: 32px; margin: 1px 0.5%; padding: 0 6px;background-color: #fff; border-radius: 3px;float: right;}
+.divAEC1{width: 60%;float: right;}
+.divAEC2{width: 29%; padding-right:; text-align: center;float: right;}
+.divAEC3{width: 9%;padding-left: 4px;float: left; font-size: 12px;}
+.all_edit_cha1_2 .divAEC2{color: #094d05;}
+.all_edit_cha1_3 .divAEC2{color: #7a0a0a;}
+
+.aECA_name{width:calc(30% - 40px);}
+.aECA_name2{text-align: right;}
+.aECA_date{width:15%;}
+.aECA_buy{width:15%; }
+.aECA_buy .spanRow1{color:#096307 ;}
+.aECA_bazdid{width:15%;}
+.aECA_bazdid .spanRow1{color: #154571;}
+.aECA_show{width:12%;}
+.aECA_edit{width:13%;}

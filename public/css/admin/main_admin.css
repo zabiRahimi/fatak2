@@ -99,8 +99,8 @@ display:inline;
 .divRow2{width: 100%; height: 35px; line-height: 35px; float: right; background: #98c9c2;border: 1px solid #5e5e5e;}
 .divRow .divRow2:first-child{border-radius: 3px 3px 0 0;}
 .divRow3{height: 34px;padding: 0 2px;text-align: center;float: right; border-left: 1px solid #6f6f6f;}
-.divRow3 .span1{ text-align: center;display: inline-block;}
-.divRow3 .span2{ font-size: 12px;}
+.spanRow1{text-align: center;display: inline-block;}
+.spanRow2{font-size: 12px;}
 .rowNumber{width: 40px;}
 .classBg1{background-color: #fff !important;}
 .classBg2{background-color: #dfdede !important;}

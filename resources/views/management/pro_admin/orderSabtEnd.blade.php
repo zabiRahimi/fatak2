@@ -15,7 +15,7 @@
           <label for="code_sabtCodePSh" class="control-label pull-right ">کد سفارش</label>
           <div class="div_form"><input type="text" class="form-control placeholder" id="code_ersalOrder"placeholder="کد سفارش را وارد کنید .." value=""></div>
         </div>
-        <div class="form-group aivSabtForm">
+        <div class="form-group divSabtForm">
           <button type="button" class="btn btn-success" onclick="orderSabtEnd()" >ثبت و جستجو</button>
         </div>
       </form>
