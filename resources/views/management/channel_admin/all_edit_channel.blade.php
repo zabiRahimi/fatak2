@@ -21,6 +21,8 @@
       <div class="divRow3 aECA_date">تاریخ ثبت</div>
       <div class="divRow3 aECA_buy">تعداد خرید</div>
       <div class="divRow3 aECA_bazdid">تعداد بازدید</div>
+      <div class="divRow3 aECA_data">اطلاعات</div>
+
       <div class="divRow3 aECA_show">نمایش</div>
       <div class="divRow3 aECA_edit">ویرایش</div>
 
@@ -40,8 +42,10 @@
         <div class="divRow3 aECA_date">{{$channels->date_ad}}</div>
         <div class="divRow3 aECA_buy"><span class="spanRow1">{{number_format($channels->views)}}</span> <span class="spanRow2">خرید</span></div>
         <div class="divRow3 aECA_bazdid"><span class="spanRow1">{{number_format($channels->views . 45666)}}</span> <span class="spanRow2">بازدید</span></div>
+        <div class="divRow3 aECA_data">@if ($channels->stage==1) <span class="span_no">ناقص</span> @else <span class="span_ok">کامل</span> @endif</div>
+
         <div class="divRow3 aECA_show"> @if ($channels->show==1) <span class="span_ok">فعال</span> @else <span class="span_no">غیر فعال</span> @endif </div>
-        <a href="/edit_pro/{{$channels->id}}"><div class="divRow3 aECA_edit">ویرایش</div></a>
+        <a href="/showOne_ChannelAdmin/{{$channels->id}}"><div class="divRow3 aECA_edit">ویرایش</div></a>
 
       </div>
     @endforeach

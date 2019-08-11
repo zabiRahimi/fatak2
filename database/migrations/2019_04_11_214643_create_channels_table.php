@@ -30,9 +30,9 @@ class CreateChannelsTable extends Migration
             $table->string('master',60)->nullable();
             $table->string('bank',50)->nullable();
             $table->integer('income')->nullable();
-            $table->date('date_up_income')->nullable();
-            $table->date('date_ad');
-            $table->date('date_up');
+            $table->string('date_up_income',14)->nullable();
+            $table->string('date_ad',14);
+            $table->string('date_up',14);
             $table->boolean('stage');
             $table->boolean('show');
         });

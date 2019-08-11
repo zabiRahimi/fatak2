@@ -6,12 +6,13 @@
 .all_edit_cha1_2 .divAEC2{color: #094d05;}
 .all_edit_cha1_3 .divAEC2{color: #7a0a0a;}
 
-.aECA_name{width:calc(30% - 40px);}
+.aECA_name{width:calc(29% - 40px);}
 .aECA_name2{text-align: right;}
-.aECA_date{width:15%;}
-.aECA_buy{width:15%; }
-.aECA_buy .spanRow1{color:#096307 ;}
-.aECA_bazdid{width:15%;}
+.aECA_date{width:13%;}
+.aECA_buy{width:14%; }
+.aECA_buy .spanRow1{color:#096307;}
+.aECA_bazdid{width:14%;}
 .aECA_bazdid .spanRow1{color: #154571;}
-.aECA_show{width:12%;}
-.aECA_edit{width:13%;}
+.aECA_data{width:10%;}
+.aECA_show{width:10%;}
+.aECA_edit{width:10%;}

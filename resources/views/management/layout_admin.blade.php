@@ -45,8 +45,9 @@
         <script type="text/javascript" src="\js\admin\main_admin.js"></script>
         <script type="text/javascript" src="\js\admin\pro_admin.js"></script>
         <script type="text/javascript" src="\js\admin\modir_admin.js"></script>
+        <script type="text/javascript" src="\js\admin\channel_admin.js"></script>
         <script type="text/javascript">
-           $(function() { $('textarea').froalaEditor() });
+           $(function() { $('.editor').froalaEditor() });
            $(document).pjax('.a_pjax' , '#pjax');
            $(document).pjax('.apjaxpro' , '#pjax_pro');
            $(function () {  $('[data-toggle="tooltip"]').tooltip()});

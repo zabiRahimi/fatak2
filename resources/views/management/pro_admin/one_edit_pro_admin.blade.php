@@ -75,7 +75,7 @@
     </div>
     <div class="fr-view textareaEditor">
       <label for="dis_editpro1_admin" class="control-label pull-right  "> توضیحات محصول</label>
-      <textarea name="name" id="dis_editpro1_admin" >{{$pro->name}}</textarea>
+      <textarea class="editor"name="name" id="dis_editpro1_admin" >{{$pro->name}}</textarea>
     </div>
     <div class="form-group textareaEditor mavad_all_editpro1_admin">
       <label for="mavad1_editpro1_admin" class="control-label pull-right  ">مواد تشکیل دهنده محصول </label>
@@ -121,11 +121,11 @@
     </div>
     <div class="fr-view textareaEditor">
       <label for="term_editpro1_admin" class="control-label pull-right  "> شرایط نگهداری </label>
-      <textarea name="name" id="term_editpro1_admin"><?=$pro->term ?></textarea>
+      <textarea class="editor"name="name" id="term_editpro1_admin"><?=$pro->term ?></textarea>
     </div>
     <div class="fr-view textareaEditor">
       <label for="bake_editpro1_admin" class="control-label pull-right  "> شرایط ارجاع </label>
-      <textarea name="name" id="bake_editpro1_admin"><?=$pro->bake?></textarea>
+      <textarea class="editor"name="name" id="bake_editpro1_admin"><?=$pro->bake?></textarea>
     </div>
     <div class="form-group textAll">
       <label for="made_editpro1_admin" class="control-label pull-right  "> سازنده </label>

@@ -82,7 +82,7 @@
     </div>
     <div class="fr-view textareaEditor">
       <label for="dis_addpro1_admin" class="control-label pull-right placeholder"> توضیحات محصول <i class="fas fa-star star_form"></i></label>
-      <textarea name="name" id="dis_addpro1_admin"></textarea>
+      <textarea name="name" class="editor" id="dis_addpro1_admin"></textarea>
     </div>
     <div class="form-group textareaEditor mavad_all_addpro1_admin">
       <label for="mavad1_addpro1_admin" class="control-label pull-right  ">مواد تشکیل دهنده محصول </label>
@@ -125,11 +125,11 @@
     </div>
     <div class="fr-view textareaEditor">
       <label for="term_addpro1_admin" class="control-label pull-right  "> شرایط نگهداری </label>
-      <textarea name="name" id="term_addpro1_admin"></textarea>
+      <textarea name="name"class="editor" id="term_addpro1_admin"></textarea>
     </div>
     <div class="fr-view textareaEditor">
       <label for="bake_addpro1_admin" class="control-label pull-right  "> شرایط ارجاع </label>
-      <textarea name="name" id="bake_addpro1_admin"></textarea>
+      <textarea name="name"class="editor" id="bake_addpro1_admin"></textarea>
 
     </div>
     <div class="form-group textAll">

@@ -64,7 +64,9 @@ display:inline;
 .CDBMTitr{width: 100%;height: 40px;line-height: 41px;margin-bottom: 5px;padding:0 12px;text-align: right;font-size: 18px;float: right;background-color: #02787c;color: #fff;border-radius: 3px;}
 .CDBMBody{width: 100%;padding:12px;float: right;border: 1px solid #bebbbb;border-radius: 3px;}
 
-
+/* استالهای شهر و استان */
+.cityOff{display: none;}
+.cityShow{display: block; color: #020647}
 /* #### form #### */
 
 .formAdmin{width: 100%;float: right;margin-bottom: 35px;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
@@ -78,6 +80,9 @@ display:inline;
 .textAll{width: 49%; height: 45px;line-height: 42px;padding: 3px 5px;margin: 6px 0.5%;float: right;background-color: #d5dade;border-radius: 3px;}
 .textAll label{width: 40%; float: right;}
 .textAll input , .textAll select{width: 60%; float: right;}
+.textEmail{width: 99%;}
+.textEmail label{width: 19.5%;}
+.textEmail input{width: 80.5%;}
 .divRadio {width: 60%;float: right; }
 .labelRadio_R,.labelRadio_L{width: 49% !important;height:37px ;margin: 1px 0.5% 0;float: right;text-align: center;border: 1px solid ;border-radius: 4px;cursor: pointer;}
 .labelRadio_R{color: #017d0d;background-color:#caf4ce;}
@@ -85,6 +90,7 @@ display:inline;
 .labelRadio_R span,.labelRadio_L span{width: auto;margin: 0;float: none;}
 .labelRadio_R input,.labelRadio_L input{width: auto;position: relative;top: 1px;float: none;}
 .textareaEditor{width: 99%; margin: 6px 0.5%;padding:3px 7px; float: right;background-color: #d5dade;border-radius: 3px;}
+.textarea{width: 100%;padding: 3px 10px;}
 .divSabtForm{width: 98%; margin: 13px 1% 4px; padding: 4px 0;float: right;text-align: center; background-color: #f1f1f1; border-radius: 4px;}
 .divSabtForm button{width: 300px;}
 

@@ -110,11 +110,11 @@
              </div>
              <div class=" textareaEditor">
                <label for="buyerDisBack" class="control-label pull-right placeholder"> توضیحات مشتری جهت ارجاع <i class="fas fa-star star_form"></i></label>
-               <textarea name="" id="buyerDisBack"></textarea>
+               <textarea class="editor"name="" id="buyerDisBack"></textarea>
              </div>
              <div class=" textareaEditor">
                <label for="technicianDisBack" class="control-label pull-right placeholder">توضیحات کارشناس ارجاع <i class="fas fa-star star_form"></i></label>
-               <textarea name="" id="technicianDisBack"></textarea>
+               <textarea class="editor"name="" id="technicianDisBack"></textarea>
              </div>
              <div class="form-group textAll ">
                 <label for="payBuyerBack" class="control-label pull-right "> مبلغ پرداخت به مشتری</label>
