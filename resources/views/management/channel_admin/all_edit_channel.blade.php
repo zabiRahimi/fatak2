@@ -36,13 +36,17 @@
       $r++;
       $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
       @endphp
+      @php
+        $countViwe=$ch_view->where('channel_id', $channels->id)->count();
+        $countBuy=$ch_view->where('channel_id', $channels->id)->where('lot_ch' ,'!=',null)->count();
+      @endphp
       <div class="divRow2 {{$classBg}}">
         <div class="divRow3 rowNumber ">{{$r}}</div>
         <div class="divRow3 aECA_name aECA_name2">{{$channels->name}}</div>
-        <div class="divRow3 aECA_code">{{$channels->id}}2545</div>
+        <div class="divRow3 aECA_code"><span class="spanRow1">{{number_format($channels->id)}}</span></div>
         <div class="divRow3 aECA_date">{{$channels->date_ad}}</div>
-        <div class="divRow3 aECA_buy"><span class="spanRow1">{{number_format($channels->views)}}</span> <span class="spanRow2">خرید</span></div>
-        <div class="divRow3 aECA_bazdid"><span class="spanRow1">{{number_format($channels->views . 45666)}}</span> <span class="spanRow2">بازدید</span></div>
+        <div class="divRow3 aECA_buy"><span class="spanRow1">{{number_format($countBuy)}}</span> <span class="spanRow2">خرید</span></div>
+        <div class="divRow3 aECA_bazdid"><span class="spanRow1">{{number_format($countViwe)}}</span> <span class="spanRow2">بازدید</span></div>
         <div class="divRow3 aECA_data">@if ($channels->stage==1) <span class="span_no">ناقص</span> @else <span class="span_ok">کامل</span> @endif</div>
 
         <div class="divRow3 aECA_show"> @if ($channels->show==1) <span class="span_ok">فعال</span> @else <span class="span_no">غیر فعال</span> @endif </div>

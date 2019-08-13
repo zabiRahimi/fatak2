@@ -193,3 +193,5 @@ Route::get('/showOne_ChannelAdmin/{channel_id}', 'Admin\ChannelAdminController@s
 Route::post('/edit1_ChannelAdmin', 'Admin\ChannelAdminController@edit1_ChannelAdmin');//ok
 Route::post('/edit2_ChannelAdmin', 'Admin\ChannelAdminController@edit2_ChannelAdmin');//ok
 Route::post('/editPas_channelAdmin', 'Admin\ChannelAdminController@editPas_channelAdmin');//ok
+Route::get('/all_act_channel', 'Admin\ChannelAdminController@all_act_channel')->middleware(['chekloginManeg']);//ok
+Route::get('/all_rank_channel', 'Admin\ChannelAdminController@all_rank_channel')->middleware(['chekloginManeg']);//ok

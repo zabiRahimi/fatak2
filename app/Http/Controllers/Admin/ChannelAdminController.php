@@ -12,6 +12,8 @@ use Cookie;
 use DB;
 use App\Models\Admin\Management;
 use App\Models\Channel;
+use App\Models\Ch_view;//بازدیدها و خریدهای شبکه
+use App\Models\Income;
 use App\Http\Requests\Save_editDaChSave;
 use App\Http\Requests\SaveEdit2_ChannelAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
@@ -43,12 +45,15 @@ class ChannelAdminController extends Controller
   public function all_edit_channel(Request $request ){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $channel=Channel::get();
-    return view('management.channel_admin.all_edit_channel', compact('id','nameModir','access','channel'));
+    $ch_view=Ch_view::get();
+
+    return view('management.channel_admin.all_edit_channel', compact('id','nameModir','access','channel','ch_view'));
   }
   public function showOne_ChannelAdmin(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $channel=Channel::find($request->channel_id);
+
     return view('management.channel_admin.showOne_ChannelAdmin', compact('id','nameModir','access','channel'));
   }
   //ویرایش و ثبت اطلاعات کامل شبکه
@@ -92,5 +97,25 @@ class ChannelAdminController extends Controller
     $add->pas=Hash::make($request->pas);
     $add->date_up=$date;
     $add->save();
+  }
+
+  public function all_act_channel(Request $request)
+  {
+    //کارکرد شبکه ها
+    //تکمیل نشده است
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $channel=Channel::find($request->channel_id);
+
+    return view('management.channel_admin.all_act_channel', compact('id','nameModir','access','channel'));
+  }
+
+  public function all_rank_channel(Request $request)
+  {
+    //رتبه شبکه ها
+    //تکمیل نشده است
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $channel=Channel::find($request->channel_id);
+
+    return view('management.channel_admin.all_rank_channel', compact('id','nameModir','access','channel'));
   }
 }//end class
