@@ -1,10 +1,10 @@
 @extends('management.shop_admin.shop_admin')
  @section('title')
-  مدیریت :: رتبه شبکه
+  مدیریت :: رتبه فروشگاه
 @endsection
 @section('show_shop')
   <div class="div_titr">
-   نمایش رتبه شبکه
+   نمایش رتبه فروشگاه
   </div>
 
 

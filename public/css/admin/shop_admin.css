@@ -1,0 +1,19 @@
+/* all_edit_shop.php */
+.all_edit_shop1_0{width: 26%; height: 32px;line-height: 32px; margin: 1px 0.5%; padding: 0 6px;background-color: #fff; border-radius: 3px;float: right;}
+.divAES1{width: 60%;float: right;}
+.divAES2{width: 29%; padding-right:; text-align: center;float: right;}
+.divAES3{width: 9%;padding-left: 4px;float: left; font-size: 12px;}
+.all_edit_shop1_2 .divAES2{color: #094d05;}
+.all_edit_shop1_3 .divAES2{color: #7a0a0a;}
+.aECA_row{cursor: pointer;}
+.aESA_shop{width:calc(28% - 40px);}
+.aESA_shop2{color: #030945;}
+.aESA_seller{width:23%;}
+.aESA_seller2{padding-right: 5px;text-align: right;}
+.aESA_code{width: 7%;}
+.aESA_code .spanRow1{color:#154571;}
+.aESA_date{width:12%;}
+.aESA_sale{width:12%; }
+.aESA_sale .spanRow1{color:#096307;}
+.aESA_data{width:9%;}
+.aESA_show{width:9%;}

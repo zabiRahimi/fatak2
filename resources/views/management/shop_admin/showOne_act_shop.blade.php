@@ -1,10 +1,10 @@
 @extends('management.shop_admin.shop_admin')
  @section('title')
-  مدیریت :: عملکرد شبکه
+  مدیریت :: عملکرد فروشگاه
 @endsection
 @section('show_shop')
   <div class="div_titr">
-   نمایش عملکرد شبکه
+   نمایش عملکرد فروشگاه
   </div>
 
 

@@ -20,7 +20,7 @@
     <a href="/pro_admin" class=""><li>محصولات</li></a>
     <a href="/article_admin" class="a_pjax"><li>مقالات</li></a>
     <a href="/channel_admin" class=""><li>شبکه اجتماعی</li></a>
-    <a href="#" class="a_pjax"><li>فروشندگان</li></a>
+    <a href="/shop_admin" class="a_pjax"><li>فروشندگان</li></a>
     <a href="#" class="a_pjax"><li>آمار</li></a>
     <a href="#" class="a_pjax"><li>شکایات و انتقادات</li></a>
     @if ($access==1)

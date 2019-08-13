@@ -195,3 +195,13 @@ Route::post('/edit2_ChannelAdmin', 'Admin\ChannelAdminController@edit2_ChannelAd
 Route::post('/editPas_channelAdmin', 'Admin\ChannelAdminController@editPas_channelAdmin');//ok
 Route::get('/all_act_channel', 'Admin\ChannelAdminController@all_act_channel')->middleware(['chekloginManeg']);//ok
 Route::get('/all_rank_channel', 'Admin\ChannelAdminController@all_rank_channel')->middleware(['chekloginManeg']);//ok
+
+// shop admin
+Route::get('/shop_admin', 'Admin\ShopAdminController@show')->middleware(['chekloginManeg']);//ok!!
+Route::get('/all_edit_shop', 'Admin\ShopAdminController@all_edit_shop')->middleware(['chekloginManeg']);//ok
+Route::get('/showOne_shopAdmin/{shop_id}', 'Admin\ShopAdminController@showOne_shopAdmin')->middleware(['chekloginManeg'])->where('shop_id', '[0-9]+');//ok
+Route::post('/edit1_shopAdmin', 'Admin\ShopAdminController@edit1_shopAdmin');//ok
+Route::post('/edit2_shopAdmin', 'Admin\ShopAdminController@edit2_shopAdmin');//ok
+Route::post('/editPas_shopAdmin', 'Admin\ShopAdminController@editPas_shopAdmin');//ok
+Route::get('/all_act_shop', 'Admin\ShopAdminController@all_act_shop')->middleware(['chekloginManeg']);//ok
+Route::get('/all_rank_shop', 'Admin\ShopAdminController@all_rank_shop')->middleware(['chekloginManeg']);//ok

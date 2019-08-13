@@ -1,18 +1,18 @@
 @extends('management.layoutDashAdmin')
 @section('title')
-  مدیریت :: فروشگاها
+  مدیریت :: شبکه های اجتماعی
 @endsection
 @section('contentDash')
   <div class="contentDash2">
     <div class="contentDash2_titr">
-      فروشگاه
+      شبکه اجتماعی
     </div>
     <div class="contentDash2_body">
       <div class="contentDash2_body_r">
-        <a href="/shop_admin" class=""><span class="titrCBR">مدیریت فروشگاها</span> </a>
-        <a href="/all_edit_shop" class=""><span class="titrCBR">ویرایش فروشگاها</span> </a>
-        <a href="/all_act_shop" class=""><span class="titrCBR">کارکرد فروشگاها</span> </a>
-        <a href="/all_rank_shop" class=""><span class="titrCBR">رتبه فروشگاها</span> </a>
+        <a href="/channel_admin" class=""><span class="titrCBR">مدیریت شبکه های اجتماعی</span> </a>
+        <a href="/all_edit_channel" class=""><span class="titrCBR">ویرایش شبکه های اجتماعی</span> </a>
+        <a href="/all_act_channel" class=""><span class="titrCBR">کارکرد شبکه های اجتماعی</span> </a>
+        <a href="/all_rank_channel" class=""><span class="titrCBR">رتبه شبکه های اجتماعی</span> </a>
 
         {{-- <ul class="ul_pro_r">
           <a href="#" class="a_pjax_pro1"> <li onclick="show_div('pro_all')">مدیریت محصولات</li></a>
@@ -28,7 +28,7 @@
       </div>
       <div class="contentDash2_body_l" id="pjax_pro">
 
-        @yield('show_shop')
+        @yield('show_channel')
 
       </div>
     </div>
