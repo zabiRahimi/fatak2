@@ -75,7 +75,7 @@
     <label for="pas_modir_admin_e" class="control-label pull-right  ">رمز جدید</label>
     <div class="div_data_buyer"><input type="text" class="form-control placeholder"  id="pas_modir_admin_e"  ></div>
   </div>
-  <div class="aivSabtForm">
+  <div class="divSabtForm">
     <button type="button" class="btn btn-success"onclick="editPasModirManeg({{$modir->id}})">تغییر رمز</button>
   </div>
 

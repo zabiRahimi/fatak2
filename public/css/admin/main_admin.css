@@ -69,7 +69,7 @@ display:inline;
 .cityShow{display: block; color: #020647}
 /* #### form #### */
 
-.formAdmin{width: 100%;float: right;margin-bottom: 35px;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
+.formAdmin{width: 100%;float: right;margin:5px 0 35px;padding: 6px 0; border: 1px solid #dedede; border-radius: 3px;}
 .ajax_form_admin{width: 98%;margin: 0 1%;float: right;text-align: center;}
 .warning_form{width: 98%;margin: 2px 1%;padding: 0 4px;font-size: 12px;float: right;background-color: #f7d9a6;color:#c46604;border-radius: 3px;}
 .warning_form i{position: relative;font-size: 10px;color: #a1340b;}
@@ -99,6 +99,9 @@ display:inline;
 .btnBack{height: 32px;margin-top:2px; float: left;}
 .div_body{width: 100%; margin: 7px 0; padding: 3px;border:1px solid #b9b9b9;border-radius: 4px;float: right;text-align: right;}
 .divLine{width:99%;margin: 25px 0.5%; float: right;border: 3px solid #032416; border-radius: 3px;}
+.span_code{height: 26px;line-height:26px; margin: 6px 10px;padding: 0 10px;display: inline-block;border: 1px solid #a4a4a4;border-radius: 8px;background-color: #bff0f5;color: #616161;}
+.span_code1{color: #051960;}
+.span_code2{color: #2f0560;}
 /* دایو تیتر جهت این پوت آمار */
 .div_input{margin: 3px 0 0;font-size: 14px; padding: 0 2px;background-color: #5acb73; border-color:#288b3e; }
 .divRow{width: 100%; margin: 6px 0 10px;font-size: 16px; float: right; text-align: right;}

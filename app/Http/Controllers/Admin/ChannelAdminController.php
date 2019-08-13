@@ -7,12 +7,14 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use Illuminate\Contracts\Encryption\Encrypter;
 use Hekmatinasser\Verta\Verta;//تاریخ جلالی
+use Illuminate\Support\Facades\Hash;
 use Cookie;
 use DB;
 use App\Models\Admin\Management;
 use App\Models\Channel;
 use App\Http\Requests\Save_editDaChSave;
 use App\Http\Requests\SaveEdit2_ChannelAdmin;
+use App\Http\Requests\Save_modirEditPas_admin;
 
 
 class ChannelAdminController extends Controller
@@ -54,7 +56,7 @@ class ChannelAdminController extends Controller
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
-    $save=channel::find($this->id);
+    $save=channel::find($request->id);
     $save->name=$request->name;
     $save->codemly=$request->codemly;
     $save->mobail=$request->mobail;
@@ -76,11 +78,19 @@ class ChannelAdminController extends Controller
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
-    $id=$request->cookie('check_log_channel');
-    $save=channel::find($request->$id);
+    $save=channel::find($request->id);
     $save->name=$request->name;
     $save->mobail=$request->mobail;
     $save->date_up=$date;
     $save->save();
+  }
+  public function editPas_channelAdmin(Save_modirEditPas_admin $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $add=channel::find($request->id);
+    $add->pas=Hash::make($request->pas);
+    $add->date_up=$date;
+    $add->save();
   }
 }//end class

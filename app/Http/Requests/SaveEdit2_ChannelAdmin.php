@@ -27,7 +27,7 @@ class SaveEdit2_ChannelAdmin extends FormRequest
         $id=Request::input('id');
         return [
           'name'=>'required|name|min:5',
-          'mobail'=>'required|mobail|unique:channels,mobail'.$id,
+          'mobail'=>'required|mobail|unique:channels,mobail,'.$id,
         ];
     }
 }

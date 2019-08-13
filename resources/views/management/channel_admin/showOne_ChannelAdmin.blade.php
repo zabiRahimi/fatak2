@@ -6,6 +6,10 @@
 @section('show_channel')
   <div class="div_titr">
     مشاهده و ویرایش شبکه اجتماعی
+    <span class="span_code">
+      <span class="span_code1">کد شبکه :</span>
+      <span class="span_code2">{{$channel->id}}</span>
+    </span>
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/all_edit_channel';">بازگشت</button>
   </div>
   <div class="div_body ">
@@ -38,7 +42,9 @@
          <label for="ostan_editDaChAd" class="control-label pull-right labelCity"><i class="fas fa-map-marker i_form"></i> استان</label>
          <div class="div_formCity">
            <select class="ostan" name="" id="ostan_editDaChAd">
-
+             @empty ($channel->ostan)
+               <option value="" >استان را وارد کنید</option>
+             @endempty
              <option value="اردبیل" onclick="show_city('ostan1')" @if ($channel->ostan=='اردبیل') selected @endif>اردبیل</option>
              <option value="اصفهان" onclick="show_city('ostan2')" @if ($channel->ostan=='اصفهان') selected @endif>اصفهان</option>
              <option value="البرز" onclick="show_city('ostan3')" @if ($channel->ostan=='البرز') selected @endif>البرز</option>
@@ -129,11 +135,33 @@
         @if ($channel->stage==1)
           <button type="button" class="btn btn-success"onclick="edit2_ChannelAdmin({{$channel->id}})"> ثبت تغییرات اطلاعات اولیه</button>
         @endif
-          <button type="button" class="btn btn-success"onclick="">  ثبت تغییرات محصول</button>
+          <button type="button" class="btn btn-success"onclick="edit1_ChannelAdmin({{$channel->id}})">  ثبت تغییرات محصول</button>
      </div>
      {{-- <div class="form-group form_btn">
        <button type="button" class="btn btn-success" onclick="editDaChAdSave({{$channel->id}})" >ثبت</button>
      </div> --}}
+    </form>
+    <div class="divLine"></div>
+    <div class="div_titr">
+      تغییر رمز
+      <span class="span_code">
+        <span class="span_code1">کد شبکه :</span>
+        <span class="span_code2">{{$channel->id}}</span>
+      </span>
+    </div>
+    <br>
+    <form class="formAdmin editPas_channelAdmin" action="" id="editPas_channelAdmin"  method="post">
+      {{ csrf_field() }}
+      <div class="ajax_form_admin" id="ajax_editPaschAd"></div>
+
+      <div class="form-group textAll">
+        <label for="pas_editPaschAd" class="control-label pull-right  ">رمز جدید</label>
+        <div class="div_data_buyer"><input type="text" class="form-control placeholder"  id="pas_editPaschAd"  ></div>
+      </div>
+      <div class="divSabtForm">
+        <button type="button" class="btn btn-success"onclick="editPas_channelAdmin({{$channel->id}})">تغییر رمز</button>
+      </div>
+
     </form>
     {{-- <div class="line_editCh"></div> --}}
 

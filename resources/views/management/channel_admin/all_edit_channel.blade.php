@@ -18,6 +18,7 @@
       <div class="divRow3 rowNumber"><i class="fas fa-certificate"></i></div>
       <div class="divRow3 aECA_name">صاحب شبکه</div>
       {{-- <div class="divRow3 all_edit_pro_seller"></div> --}}
+      <div class="divRow3 aECA_code">کد</div>
       <div class="divRow3 aECA_date">تاریخ ثبت</div>
       <div class="divRow3 aECA_buy">تعداد خرید</div>
       <div class="divRow3 aECA_bazdid">تعداد بازدید</div>
@@ -38,7 +39,7 @@
       <div class="divRow2 {{$classBg}}">
         <div class="divRow3 rowNumber ">{{$r}}</div>
         <div class="divRow3 aECA_name aECA_name2">{{$channels->name}}</div>
-        {{-- <a href="#"><div class="divRow3 all_edit_pro_seller">{{$channels->seller}}</div></a> --}}
+        <div class="divRow3 aECA_code">{{$channels->id}}2545</div>
         <div class="divRow3 aECA_date">{{$channels->date_ad}}</div>
         <div class="divRow3 aECA_buy"><span class="spanRow1">{{number_format($channels->views)}}</span> <span class="spanRow2">خرید</span></div>
         <div class="divRow3 aECA_bazdid"><span class="spanRow1">{{number_format($channels->views . 45666)}}</span> <span class="spanRow2">بازدید</span></div>
