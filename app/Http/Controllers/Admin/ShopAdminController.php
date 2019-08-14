@@ -122,4 +122,12 @@ class ShopAdminController extends Controller
 
     return view('management.shop_admin.all_rank_shop', compact('id','nameModir','access','shop'));
   }
+  public function all_newOrderSA(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $shop=Shop::get();
+    $ch_view=Ch_view::get();
+
+    return view('management.shop_admin.all_newOrderSA', compact('id','nameModir','access','shop','ch_view'));
+  }
 }//end class

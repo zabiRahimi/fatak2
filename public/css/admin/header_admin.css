@@ -18,4 +18,7 @@
 .hATSpan1 i{position: relative; top: 2px; left: 3px;}
 .header_ad_ul{width: 100%;height: 35px;line-height: 35px;padding: 0 6px;background-color: #1271a6; border-radius: 2px;float: right;}
 .header_ad_ul li{min-width: 58px;padding:0 5px;text-align: center;border-left: 1px solid #d1d1d1; color: #e9e9e9; display: inline-block;cursor: pointer;}
-.header_ad_ul li:hover{background-color: #0a5f8f;color: #f68756}
+.header_ad_ul li:hover , .header_ad_ul li:hover .i_HA{background-color: #0a5f8f;color: #f68756}
+.i_HA{font-size: 18px;position: relative;top: 4px;right: 3px; margin-left: 3px;color: #e9e9e9;}
+.header_ad_ul2{display: none;}
+.header_ad_ul li:hover .header_ad_ul2{display:block;margin-top:35px;position: relative;}

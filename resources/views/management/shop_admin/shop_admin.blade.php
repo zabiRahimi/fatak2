@@ -13,6 +13,7 @@
         <a href="/all_edit_shop" class=""><span class="titrCBR">ویرایش فروشگاها</span> </a>
         <a href="/all_act_shop" class=""><span class="titrCBR">کارکرد فروشگاها</span> </a>
         <a href="/all_rank_shop" class=""><span class="titrCBR">رتبه فروشگاها</span> </a>
+        <a href="/all_newOrderSA" class=""><span class="titrCBR">سفارشهای جدید</span> </a>
 
         {{-- <ul class="ul_pro_r">
           <a href="#" class="a_pjax_pro1"> <li onclick="show_div('pro_all')">مدیریت محصولات</li></a>

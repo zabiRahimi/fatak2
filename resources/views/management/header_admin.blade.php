@@ -17,8 +17,17 @@
   </div>
   <ul class="header_ad_ul">
     <a href="/dashbordAdmin" class="a_pjax"><li>خانه</li></a>
-    <a href="/pro_admin" class=""><li>محصولات</li></a>
     <a href="/article_admin" class="a_pjax"><li>مقالات</li></a>
+    <a href="/pro_admin" class=""><li>محصولات</li></a>
+    <li>سفارشات
+        <i class='fas fa-angle-down i_HA' ></i>
+        <ul class="header_ad_ul2">
+          <a href="/pro_admin" class=""><li>سفارش محصولات موجود</li></a>
+          <a href="/pro_admin" class=""><li>سفارش محصولات ناموجود</li></a>
+          <a href="/pro_admin" class=""><li>محصولات</li></a>
+          <a href="/pro_admin" class=""><li>محصولات</li></a>
+        </ul>
+    </li>
     <a href="/channel_admin" class=""><li>شبکه اجتماعی</li></a>
     <a href="/shop_admin" class="a_pjax"><li>فروشندگان</li></a>
     <a href="#" class="a_pjax"><li>آمار</li></a>

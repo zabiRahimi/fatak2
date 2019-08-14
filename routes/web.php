@@ -205,3 +205,4 @@ Route::post('/edit2_shopAdmin', 'Admin\ShopAdminController@edit2_shopAdmin');//o
 Route::post('/editPas_shopAdmin', 'Admin\ShopAdminController@editPas_shopAdmin');//ok
 Route::get('/all_act_shop', 'Admin\ShopAdminController@all_act_shop')->middleware(['chekloginManeg']);//ok
 Route::get('/all_rank_shop', 'Admin\ShopAdminController@all_rank_shop')->middleware(['chekloginManeg']);//ok
+Route::get('/all_newOrderSA', 'Admin\ShopAdminController@all_newOrderSA')->middleware(['chekloginManeg']);//ok
