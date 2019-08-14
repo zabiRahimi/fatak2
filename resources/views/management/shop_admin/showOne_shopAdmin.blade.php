@@ -22,8 +22,12 @@
      </div>
      {{ csrf_field() }}
      <div class="form-group textAll">
-       <label for="name_editDaShopAd" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> نام و نام خانوادگی</label>
-       <div class="div_form"><input type="text" class="form-control" id="name_editDaShopAd" value="{{$shop->name}}"></div>
+       <label for="shop_editDaShopAd" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> نام فروشگاه</label>
+       <div class="div_form"><input type="text" class="form-control" id="shop_editDaShopAd" value="{{$shop->shop}}"></div>
+     </div>
+     <div class="form-group textAll">
+       <label for="seller_editDaShopAd" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> فروشنده</label>
+       <div class="div_form"><input type="text" class="form-control" id="seller_editDaShopAd" value="{{$shop->seller}}"></div>
      </div>
      <div class="form-group textAll">
        <label for="codemly_editDaShopAd" class="control-label pull-right "><i class="fas fa-credit-card i_form"></i>  کد ملی</label>
@@ -32,6 +36,10 @@
      <div class="form-group textAll">
        <label for="mobail_editDaShopAd" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> موبایل</label>
        <div class="div_form"><input type="text" class="form-control" id="mobail_editDaShopAd" value="{{$shop->mobail}}"></div>
+     </div>
+     <div class="form-group textAll">
+       <label for="tel_editDaShopAd" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i> تلفن</label>
+       <div class="div_form"><input type="text" class="form-control" id="tel_editDaShopAd" value="{{$shop->tel}}"></div>
      </div>
      <div class="form-group textAll textEmail">
        <label for="email_editDaShopAd" class="control-label pull-right "><i class="fas fa-at i_form"></i>  ایمیل</label>
@@ -102,6 +110,10 @@
        </div>
      </div>
      <div class="form-group textAll">
+       <label for="codepost_editDaShopAd" class="control-label pull-right "><i class="fas fa-user-tie i_form"></i> کد پستی</label>
+       <div class="div_form"><input type="text" class="form-control" id="codepost_editDaShopAd" value="{{$shop->codepost}}"></div>
+     </div>
+     <div class="form-group textAll">
        <label for="accountNumber_editDaShopAd" class="control-label pull-right "><i class="fas fa-money-check-alt i_form"></i> شماره حساب بانکی</label>
        <div class="div_form"><input type="text" class="form-control" id="accountNumber_editDaShopAd" value="{{$shop->accountNumber}}"></div>
      </div>
@@ -118,24 +130,24 @@
        <div class="div_form"><input type="text" class="form-control" id="bank_editDaShopAd" value="{{$shop->bank}}"></div>
      </div>
      <div class="form-group textAll">
-       <label class="control-label pull-right  "> نحوه نمایش محصول </label>
+       <label class="control-label pull-right  "> فعالیت فروشگاه </label>
        <div class="divRadio">
          <label class="labelRadio_R">
            <span >فعال</span>
-           <input type="radio" @if ($shop->show == 1) checked @endif id="show_editpro" name="show1" value="1">
+           <input type="radio" @if ($shop->show == 1) checked @endif id="show_editpro" name="show_editDaShopAd" value="1">
          </label>
          <label class="labelRadio_L">
            <span >غیر فعال</span>
-           <input type="radio" @if ($shop->show != 1) checked @endif id="show_editpro_2" name="show1" value="2">
+           <input type="radio" @if ($shop->show != 1) checked @endif id="show_editpro_2" name="show_editDaShopAd" value="2">
          </label>
        </div>
 
      </div>
      <div class="divSabtForm">
         @if ($shop->stage==1)
-          <button type="button" class="btn btn-success"onclick="edit2_shopAdmin({{$shop->id}})"> ثبت تغییرات اطلاعات اولیه</button>
+          <button type="button" class="btn btn-info"onclick="edit2_shopAdmin({{$shop->id}})"> ثبت تغییرات اطلاعات اولیه</button>
         @endif
-          <button type="button" class="btn btn-success"onclick="edit1_shopAdmin({{$shop->id}})">  ثبت تغییرات محصول</button>
+          <button type="button" class="btn btn-success"onclick="edit1_shopAdmin({{$shop->id}})">  ثبت تغییرات اطلاعات کلی</button>
      </div>
      {{-- <div class="form-group form_btn">
        <button type="button" class="btn btn-success" onclick="editDaShopAdSave({{$shop->id}})" >ثبت</button>

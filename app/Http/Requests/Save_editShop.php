@@ -80,6 +80,7 @@ class Save_editShop extends FormRequest
           'cart'=>'required|numeric',
           'master'=>'required|name',
           'bank'=>'required|farsi',
+          'show'=>'nullable|numeric',
         ];
     }
 }

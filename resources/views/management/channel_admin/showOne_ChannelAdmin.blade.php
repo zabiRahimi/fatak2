@@ -133,7 +133,7 @@
      </div>
      <div class="divSabtForm">
         @if ($channel->stage==1)
-          <button type="button" class="btn btn-success"onclick="edit2_ChannelAdmin({{$channel->id}})"> ثبت تغییرات اطلاعات اولیه</button>
+          <button type="button" class="btn btn-info"onclick="edit2_ChannelAdmin({{$channel->id}})"> ثبت تغییرات اطلاعات اولیه</button>
         @endif
           <button type="button" class="btn btn-success"onclick="edit1_ChannelAdmin({{$channel->id}})">  ثبت تغییرات محصول</button>
      </div>

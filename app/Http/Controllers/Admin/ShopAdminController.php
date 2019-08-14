@@ -14,9 +14,10 @@ use App\Models\Admin\Management;
 use App\Models\Shop;
 use App\Models\Ch_view;//بازدیدها و خریدهای شبکه
 use App\Models\Income;
-use App\Http\Requests\Save_editDaChSave;
+use App\Http\Requests\Save_editShop;
 use App\Http\Requests\SaveEdit2_shopAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
+// use App\Http\Requests\Save_modirEditPas_admin;
 
 
 class ShopAdminController extends Controller
@@ -57,25 +58,28 @@ class ShopAdminController extends Controller
     return view('management.shop_admin.showOne_shopAdmin', compact('id','nameModir','access','shop'));
   }
   //ویرایش و ثبت اطلاعات کامل شبکه
-  public function edit1_shopAdmin(Save_editDaChSave $request)
+  public function edit1_shopAdmin(Save_editShop $request)
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
     $save=Shop::find($request->id);
-    $save->name=$request->name;
+    $save->shop=$request->shop;
+    $save->seller=$request->seller;
     $save->codemly=$request->codemly;
     $save->mobail=$request->mobail;
+    $save->tel=$request->tel;
     $save->email=$request->email;
     $save->ostan=$request->ostan;
     $save->city=$request->city;
     $save->address=$request->address;
-    // $save->codepost=$request->codepost;
+    $save->codepost=$request->codepost;
     $save->accountNumber=$request->accountNumber;
     $save->cart=$request->cart;
     $save->master=$request->master;
     $save->bank=$request->bank;
     $save->date_up=$date;
     $save->stage=2;
+    $save->show=$request->show;
     $save->save();
   }
   //ویرایش و ثبت اطلاعات اولیه شبکه
@@ -84,7 +88,7 @@ class ShopAdminController extends Controller
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
     $save=Shop::find($request->id);
-    $save->name=$request->name;
+    $save->seller=$request->seller;
     $save->mobail=$request->mobail;
     $save->date_up=$date;
     $save->save();
