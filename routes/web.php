@@ -206,3 +206,5 @@ Route::post('/editPas_shopAdmin', 'Admin\ShopAdminController@editPas_shopAdmin')
 Route::get('/all_act_shop', 'Admin\ShopAdminController@all_act_shop')->middleware(['chekloginManeg']);//ok
 Route::get('/all_rank_shop', 'Admin\ShopAdminController@all_rank_shop')->middleware(['chekloginManeg']);//ok
 Route::get('/all_newOrderSA', 'Admin\ShopAdminController@all_newOrderSA')->middleware(['chekloginManeg']);//ok
+//pro stock admin سفارشات موجود
+Route::get('/order_proStock', 'Admin\OrderStockAdminController@show')->middleware(['chekloginManeg']);//ok!!

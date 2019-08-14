@@ -22,10 +22,8 @@
     <li>سفارشات
         <i class='fas fa-angle-down i_HA' ></i>
         <ul class="header_ad_ul2">
-          <a href="/pro_admin" class=""><li>سفارش محصولات موجود</li></a>
-          <a href="/pro_admin" class=""><li>سفارش محصولات ناموجود</li></a>
-          <a href="/pro_admin" class=""><li>محصولات</li></a>
-          <a href="/pro_admin" class=""><li>محصولات</li></a>
+          <a href="/order_proStock"><li>سفارش محصولات موجود</li></a>
+          <a href="/order_proUnStock"><li>سفارش محصولات ناموجود</li></a>
         </ul>
     </li>
     <a href="/channel_admin" class=""><li>شبکه اجتماعی</li></a>
