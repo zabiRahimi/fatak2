@@ -28,7 +28,7 @@
       </div>
       <div class="contentDash2_body_l" id="pjax_pro">
 
-        @yield('show_stock')
+        @yield('show_stockFatak')
 
       </div>
     </div>

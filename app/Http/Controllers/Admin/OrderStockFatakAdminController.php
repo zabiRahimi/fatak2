@@ -17,7 +17,7 @@ use App\Models\Income;
 use App\Http\Requests\Save_editDaChSave;
 use App\Http\Requests\SaveEdit2_ChannelAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
-class OrderStockAdminController extends Controller
+class OrderStockFatakAdminController extends Controller
 {
   public $id ,$nameModir,$access;
   public function __construct(Encrypter $encrypter ,Request $request)
@@ -38,6 +38,6 @@ class OrderStockAdminController extends Controller
   public function show(Request $request){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     // $show_img=Imgpro::where('show' , 1)->get();
-    return view('management.order_proStock.order_proStock' , compact('id','nameModir','access'));
+    return view('management.order_proStockFatak.order_proStockFatak' , compact('id','nameModir','access'));
   }
 }
