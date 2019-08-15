@@ -24,6 +24,7 @@
         <ul class="header_ad_ul2">
           <a href="/order_proStockFatak"><li>سفارش محصولات موجود fatak</li></a>
           <a href="/order_proStockSayer"><li>سفارش محصولات موجود سایر</li></a>
+          <a href="/all_edit_channel"><li>fghسفارش محصولات موجود سایر</li></a>
           <a href="/order_proUnStock"><li>سفارش محصولات ناموجود</li></a>
         </ul>
     </li>

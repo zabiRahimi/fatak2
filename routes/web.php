@@ -208,3 +208,4 @@ Route::get('/all_rank_shop', 'Admin\ShopAdminController@all_rank_shop')->middlew
 Route::get('/all_newOrderSA', 'Admin\ShopAdminController@all_newOrderSA')->middleware(['chekloginManeg']);//ok
 //pro stock admin سفارشات موجود
 Route::get('/order_proStockFatak', 'Admin\OrderStockFatakAdminController@show')->middleware(['chekloginManeg']);//ok!!
+Route::get('/orderNewPStockF', 'Admin\OrderStockFatakAdminController@orderNewPStockF')->middleware(['chekloginManeg']);//ok!!
