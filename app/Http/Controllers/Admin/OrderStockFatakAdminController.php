@@ -58,14 +58,51 @@ class OrderStockFatakAdminController extends Controller
     return view('management.order_proStockFatak.orderNewPStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 
   }
-  public function orderBuyOne(Request $request)
+  public function orderOneNewPStockF(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-    $id_buy=$request->id_buy;
-    $buy=Buy::find($id_buy);
+    $buy_id=$request->buy_id;
+    $buy=Buy::find($buy_id);
     $pro=Pro::find($buy->pro_id);
     $shop=Shop::find($buy->shop_id);
-    return view('management.pro_admin.orderBuyOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+    return view('management.order_proStockFatak.orderOneNewPStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+  }
+  public function orderAghdamNSF(Request $request)
+  {
+    $buy_id=$request->buy_id;
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $save=Buy::find($buy_id);
+    $save->stage=3;
+    $save->date_up=$date;
+    $save->save();
+  }
+  public function delBuyOrderNSF(Request $request)
+  {
+    $buy_id=$request->buy_id;
+    $del=Buy::find($buy_id);
+    $del->delete();
+  }
+  // محصولات در دست اقدام
+  public function proceedOrderStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $buy=Buy::where('stage',3)->get();
+    $pro=Pro::get();
+    $shop=Shop::get();
+    return view('management.order_proStockFatak.proceedOrderStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+
+  }
+  public function proceedOneOrderStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $buy_id=$request->buy_id;
+    $buy=Buy::find($buy_id);
+    $pro=Pro::find($buy->pro_id);
+    $shop=Shop::find($buy->shop_id);
+    return view('management.order_proStockFatak.proceedOneOrderStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
   }
 }

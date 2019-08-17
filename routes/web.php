@@ -153,10 +153,10 @@ Route::post('/del_imgProAdmin', 'Admin\Pro_adController@del_imgProAdmin');//ok
 Route::get('/orderBuy', 'Admin\Pro_adController@orderBuy')->middleware(['chekloginManeg']);//ok
 Route::get('/orderBuyOne/{id_buy}', 'Admin\Pro_adController@orderBuyOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
 Route::get('/showShopPro/{shop_id}/{page}', 'Admin\Pro_adController@showShopPro')->middleware(['chekloginManeg'])->where('shop_id', '[0-9]+')->where('page', '[0-9 , a-z ,A-Z]+');//ok
-Route::post('/orderAghdam/{buy_id}', 'Admin\Pro_adController@orderAghdam')->where('buy_id', '[0-9]+');//ok
-Route::get('/proceedPro', 'Admin\Pro_adController@proceedPro')->middleware(['chekloginManeg']);//ok
-Route::get('/proceedProOne/{id_buy}', 'Admin\Pro_adController@proceedProOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
-Route::post('/delBuyOrderA/{buy_id}', 'Admin\Pro_adController@delBuyOrderA')->where('buy_id', '[0-9]+');//ok
+// Route::post('/orderAghdam/{buy_id}', 'Admin\Pro_adController@orderAghdam')->where('buy_id', '[0-9]+');//ok
+// Route::get('/proceedPro', 'Admin\Pro_adController@proceedPro')->middleware(['chekloginManeg']);//ok
+// Route::get('/proceedProOne/{id_buy}', 'Admin\Pro_adController@proceedProOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
+// Route::post('/delBuyOrderA/{buy_id}', 'Admin\Pro_adController@delBuyOrderA')->where('buy_id', '[0-9]+');//ok
 Route::post('/backOrderBuy/{buy_id}', 'Admin\Pro_adController@backOrderBuy')->where('buy_id', '[0-9]+');//ok
 Route::get('/orderErsalSabt/{buy_id?}', 'Admin\Pro_adController@orderErsalSabt')->middleware(['chekloginManeg']);//ok
 Route::post('/sabtCodeRahgiryAdmin', 'Admin\Pro_adController@sabtCodeRahgiryAdmin');//ok
@@ -206,6 +206,12 @@ Route::post('/editPas_shopAdmin', 'Admin\ShopAdminController@editPas_shopAdmin')
 Route::get('/all_act_shop', 'Admin\ShopAdminController@all_act_shop')->middleware(['chekloginManeg']);//ok
 Route::get('/all_rank_shop', 'Admin\ShopAdminController@all_rank_shop')->middleware(['chekloginManeg']);//ok
 Route::get('/all_newOrderSA', 'Admin\ShopAdminController@all_newOrderSA')->middleware(['chekloginManeg']);//ok
-//pro stock admin سفارشات موجود
+//pro stock admin سفارشات موجود فروشگاه فاتک
 Route::get('/order_proStockFatak', 'Admin\OrderStockFatakAdminController@show')->middleware(['chekloginManeg']);//ok!!
 Route::get('/orderNewPStockF', 'Admin\OrderStockFatakAdminController@orderNewPStockF')->middleware(['chekloginManeg']);//ok!!
+Route::get('/orderOneNewPStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderOneNewPStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok!!
+Route::post('/orderAghdamNSF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderAghdamNSF')->where('buy_id', '[0-9]+');//ok
+Route::post('/delBuyOrderNSF/{buy_id}', 'Admin\OrderStockFatakAdminController@delBuyOrderNSF')->where('buy_id', '[0-9]+');//ok
+Route::get('/proceedOrderStockF', 'Admin\OrderStockFatakAdminController@proceedOrderStockF')->middleware(['chekloginManeg']);//ok
+Route::get('/proceedOneOrderStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@proceedOneOrderStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+//pro stock admin سفارشات موجود سایر فروشگاهها

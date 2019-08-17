@@ -11,6 +11,7 @@
       <div class="contentDash2_body_r">
         <a href="/order_proStockFatak" class=""><span class="titrCBR">مدیریت سفارش محصولات </span> </a>
         <a href="/orderNewPStockF" class=""><span class="titrCBR">خرید های جدید</span> </a>
+        <a href="/proceedOrderStockF" class=""><span class="titrCBR">خریدهای در حال آماده سازی</span> </a>
 
         {{-- <ul class="ul_pro_r">
           <a href="#" class="a_pjax_pro1"> <li onclick="show_div('pro_all')">مدیریت محصولات</li></a>
