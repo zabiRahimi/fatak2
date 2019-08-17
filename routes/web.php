@@ -162,7 +162,7 @@ Route::post('/backOrderBuy/{buy_id}', 'Admin\Pro_adController@backOrderBuy')->wh
 // Route::post('/sabtCodeRahgiryAdmin', 'Admin\Pro_adController@sabtCodeRahgiryAdmin');//ok
 Route::post('/editCodeRahgiryAdmin', 'Admin\Pro_adController@editCodeRahgiryAdmin');//ok
 // Route::get('/orderErsalShowAll', 'Admin\Pro_adController@orderErsalShowAll')->middleware(['chekloginManeg']);//ok
-Route::get('/orderErsalShowOne/{id_buy}', 'Admin\Pro_adController@orderErsalShowOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
+// Route::get('/orderErsalShowOne/{id_buy}', 'Admin\Pro_adController@orderErsalShowOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
 Route::post('/editStageOrderAdmin', 'Admin\Pro_adController@editStageOrderAdmin');//ok
 Route::get('/orderSabtEnd/{buy_id?}', 'Admin\Pro_adController@orderSabtEnd')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::get('/orderSabtEndShowAll', 'Admin\Pro_adController@orderSabtEndShowAll')->middleware(['chekloginManeg']);//ok
@@ -218,6 +218,7 @@ Route::post('/backOrderNSF/{buy_id}', 'Admin\OrderStockFatakAdminController@back
 Route::get('/orderErsalSabtStockF/{buy_id?}', 'Admin\OrderStockFatakAdminController@orderErsalSabtStockF')->middleware(['chekloginManeg']);//ok
 Route::post('/sabtCodeRahgiryNSF', 'Admin\OrderStockFatakAdminController@sabtCodeRahgiryNSF');//ok
 Route::get('/orderErsalShowAllStockF', 'Admin\OrderStockFatakAdminController@orderErsalShowAllStockF')->middleware(['chekloginManeg']);//ok
+Route::get('/orderErsalShowOneStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderErsalShowOneStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 
 
 //pro stock admin سفارشات موجود سایر فروشگاهها

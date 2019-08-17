@@ -181,4 +181,14 @@ class OrderStockFatakAdminController extends Controller
     $shop=Shop::get();
     return view('management.order_proStockFatak.orderErsalShowAllStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
   }
+  public function orderErsalShowOneStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $buy_id=$request->buy_id;
+    $buy=Buy::find($buy_id);
+    $pro=Pro::find($buy->pro_id);
+    $shop=Shop::find($buy->shop_id);
+    return view('management.order_proStockFatak.orderErsalShowOneStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+  }
 }//end class
