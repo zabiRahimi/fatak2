@@ -20,6 +20,9 @@ use App\Models\Pro;
 use App\Http\Requests\Save_editDaChSave;
 use App\Http\Requests\SaveEdit2_ChannelAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
+use App\Http\Requests\SaveCodeOrderAdmin;
+use App\Http\Requests\SaveRahgiryCodeAd;
+
 class OrderStockFatakAdminController extends Controller
 {
   public $id ,$nameModir,$access,$orderNewCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount;
@@ -45,8 +48,10 @@ class OrderStockFatakAdminController extends Controller
   }
   public function show(Request $request){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+
     // $show_img=Imgpro::where('show' , 1)->get();
-    return view('management.order_proStockFatak.order_proStockFatak' , compact('id','nameModir','access'));
+    return view('management.order_proStockFatak.order_proStockFatak' , compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount'));
   }
   public function orderNewPStockF(Request $request)
   {
@@ -105,4 +110,66 @@ class OrderStockFatakAdminController extends Controller
     $shop=Shop::find($buy->shop_id);
     return view('management.order_proStockFatak.proceedOneOrderStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
   }
-}
+  public function backOrderNSF(Request $request)
+  {
+    $buy_id=$request->buy_id;
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $save=Buy::find($buy_id);
+    $save->stage=2;
+    $save->date_up=$date;
+    $save->save();
+  }
+  //ثبت ارسالی ها
+  public function orderErsalSabtStockF(SaveCodeOrderAdmin $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    if(!empty($request->buy_id)){
+      $buy_id=$request->buy_id;
+      $buy=Buy::find($buy_id);
+      if (empty($buy->pro_id)) {
+        return response()->json(['errors' => ['no_order' => [ ]]],422 );
+
+      }elseif($buy->stage==2){
+        //جدید
+        return response()->json(['errors' => ['orderNew' => [ ]]],422 );
+      }
+      elseif($buy->stage==4){
+        //ارسالی
+        return response()->json(['errors' => ['ordersabt' => [ ]]],422 );
+      }
+      elseif($buy->stage==5){
+        //تحویلی
+        return response()->json(['errors' => ['orderEnd' => [ ]]],422 );
+      }
+      elseif($buy->stage==6){
+        //مرجوعی
+        return response()->json(['errors' => ['orderback' => [ ]]],422 );
+      }
+      elseif($buy->stage==7){
+        //مرجوعی تسویه شده
+        return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
+      }
+
+      $pro=Pro::find($buy->pro_id);
+      $shop=Shop::find($buy->shop_id);
+
+    }
+    return view('management.order_proStockFatak.orderErsalSabtStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
+  }
+  public function sabtCodeRahgiryNSF(SaveRahgiryCodeAd $request)
+  {
+    $buy_id=$request->buy_id;
+    $code_rahgiry=$request->code_rahgiry;
+    $datePost=$request->datePost;
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $save=Buy::find($buy_id);
+    $save->date_up=$date;
+    $save->code_rahgiry=$code_rahgiry;
+    $save->date_post=$datePost;
+    $save->stage=4;
+    $save->save();
+  }
+}//end class

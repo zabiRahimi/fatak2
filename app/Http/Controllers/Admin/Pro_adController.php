@@ -20,8 +20,8 @@ use App\Models\Admin\BackPro;
 
 use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای کنترلر ادمین در یک پوشه مجزا هست برای کار کردن فرم درخواست باید فایل فرم درخواست را یوز کنیم
 use App\Http\Requests\Save_edit_pro_admin;
-use App\Http\Requests\SaveCodeOrderAdmin;
-use App\Http\Requests\SaveRahgiryCodeAd;
+// use App\Http\Requests\SaveCodeOrderAdmin;
+// use App\Http\Requests\SaveRahgiryCodeAd;
 use App\Http\Requests\SaveEditRahgiryCodeAd;
 use App\Http\Requests\SaveEditStageOrderAdmin;
 use App\Http\Requests\SaveOrderBackSave;
@@ -264,68 +264,68 @@ public function showShopPro(Request $request)
 //   $del=Buy::find($buy_id);
 //   $del->delete();
 // }
-public function backOrderBuy(Request $request)
-{
-  $buy_id=$request->buy_id;
-  $date1=new Verta();//تاریخ جلالی
-  $date=$date1->format('Y/n/j');
-  $save=Buy::find($buy_id);
-  $save->stage=2;
-  $save->date_up=$date;
-  $save->save();
-}
-//ثبت ارسالی ها
-public function orderErsalSabt(SaveCodeOrderAdmin $request)
-{
-  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-  if(!empty($request->buy_id)){
-    $buy_id=$request->buy_id;
-    $buy=Buy::find($buy_id);
-    if (empty($buy->pro_id)) {
-      return response()->json(['errors' => ['no_order' => [ ]]],422 );
-
-    }elseif($buy->stage==2){
-      //جدید
-      return response()->json(['errors' => ['orderNew' => [ ]]],422 );
-    }
-    elseif($buy->stage==4){
-      //ارسالی
-      return response()->json(['errors' => ['ordersabt' => [ ]]],422 );
-    }
-    elseif($buy->stage==5){
-      //تحویلی
-      return response()->json(['errors' => ['orderEnd' => [ ]]],422 );
-    }
-    elseif($buy->stage==6){
-      //مرجوعی
-      return response()->json(['errors' => ['orderback' => [ ]]],422 );
-    }
-    elseif($buy->stage==7){
-      //مرجوعی تسویه شده
-      return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
-    }
-
-    $pro=Pro::find($buy->pro_id);
-    $shop=Shop::find($buy->shop_id);
-
-  }
-  return view('management.pro_admin.orderErsalSabt', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
-}
-public function sabtCodeRahgiryAdmin(SaveRahgiryCodeAd $request)
-{
-  $buy_id=$request->buy_id;
-  $code_rahgiry=$request->code_rahgiry;
-  $datePost=$request->datePost;
-  $date1=new Verta();//تاریخ جلالی
-  $date=$date1->format('Y/n/j');
-  $save=Buy::find($buy_id);
-  $save->date_up=$date;
-  $save->code_rahgiry=$code_rahgiry;
-  $save->date_post=$datePost;
-  $save->stage=4;
-  $save->save();
-}
+// public function backOrderBuy(Request $request)
+// {
+//   $buy_id=$request->buy_id;
+//   $date1=new Verta();//تاریخ جلالی
+//   $date=$date1->format('Y/n/j');
+//   $save=Buy::find($buy_id);
+//   $save->stage=2;
+//   $save->date_up=$date;
+//   $save->save();
+// }
+// //ثبت ارسالی ها
+// public function orderErsalSabt(SaveCodeOrderAdmin $request)
+// {
+//   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+//   $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+//   if(!empty($request->buy_id)){
+//     $buy_id=$request->buy_id;
+//     $buy=Buy::find($buy_id);
+//     if (empty($buy->pro_id)) {
+//       return response()->json(['errors' => ['no_order' => [ ]]],422 );
+//
+//     }elseif($buy->stage==2){
+//       //جدید
+//       return response()->json(['errors' => ['orderNew' => [ ]]],422 );
+//     }
+//     elseif($buy->stage==4){
+//       //ارسالی
+//       return response()->json(['errors' => ['ordersabt' => [ ]]],422 );
+//     }
+//     elseif($buy->stage==5){
+//       //تحویلی
+//       return response()->json(['errors' => ['orderEnd' => [ ]]],422 );
+//     }
+//     elseif($buy->stage==6){
+//       //مرجوعی
+//       return response()->json(['errors' => ['orderback' => [ ]]],422 );
+//     }
+//     elseif($buy->stage==7){
+//       //مرجوعی تسویه شده
+//       return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
+//     }
+//
+//     $pro=Pro::find($buy->pro_id);
+//     $shop=Shop::find($buy->shop_id);
+//
+//   }
+//   return view('management.pro_admin.orderErsalSabt', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
+// }
+// public function sabtCodeRahgiryAdmin(SaveRahgiryCodeAd $request)
+// {
+//   $buy_id=$request->buy_id;
+//   $code_rahgiry=$request->code_rahgiry;
+//   $datePost=$request->datePost;
+//   $date1=new Verta();//تاریخ جلالی
+//   $date=$date1->format('Y/n/j');
+//   $save=Buy::find($buy_id);
+//   $save->date_up=$date;
+//   $save->code_rahgiry=$code_rahgiry;
+//   $save->date_post=$datePost;
+//   $save->stage=4;
+//   $save->save();
+// }
 public function editCodeRahgiryAdmin(SaveEditRahgiryCodeAd $request)
 {
   $buy_id=$request->buy_id;

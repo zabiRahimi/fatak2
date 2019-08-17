@@ -158,8 +158,8 @@ Route::get('/showShopPro/{shop_id}/{page}', 'Admin\Pro_adController@showShopPro'
 // Route::get('/proceedProOne/{id_buy}', 'Admin\Pro_adController@proceedProOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
 // Route::post('/delBuyOrderA/{buy_id}', 'Admin\Pro_adController@delBuyOrderA')->where('buy_id', '[0-9]+');//ok
 Route::post('/backOrderBuy/{buy_id}', 'Admin\Pro_adController@backOrderBuy')->where('buy_id', '[0-9]+');//ok
-Route::get('/orderErsalSabt/{buy_id?}', 'Admin\Pro_adController@orderErsalSabt')->middleware(['chekloginManeg']);//ok
-Route::post('/sabtCodeRahgiryAdmin', 'Admin\Pro_adController@sabtCodeRahgiryAdmin');//ok
+// Route::get('/orderErsalSabt/{buy_id?}', 'Admin\Pro_adController@orderErsalSabt')->middleware(['chekloginManeg']);//ok
+// Route::post('/sabtCodeRahgiryAdmin', 'Admin\Pro_adController@sabtCodeRahgiryAdmin');//ok
 Route::post('/editCodeRahgiryAdmin', 'Admin\Pro_adController@editCodeRahgiryAdmin');//ok
 Route::get('/orderErsalShowAll', 'Admin\Pro_adController@orderErsalShowAll')->middleware(['chekloginManeg']);//ok
 Route::get('/orderErsalShowOne/{id_buy}', 'Admin\Pro_adController@orderErsalShowOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
@@ -214,4 +214,9 @@ Route::post('/orderAghdamNSF/{buy_id}', 'Admin\OrderStockFatakAdminController@or
 Route::post('/delBuyOrderNSF/{buy_id}', 'Admin\OrderStockFatakAdminController@delBuyOrderNSF')->where('buy_id', '[0-9]+');//ok
 Route::get('/proceedOrderStockF', 'Admin\OrderStockFatakAdminController@proceedOrderStockF')->middleware(['chekloginManeg']);//ok
 Route::get('/proceedOneOrderStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@proceedOneOrderStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+Route::post('/backOrderNSF/{buy_id}', 'Admin\OrderStockFatakAdminController@backOrderNSF')->where('buy_id', '[0-9]+');//ok
+Route::get('/orderErsalSabtStockF/{buy_id?}', 'Admin\OrderStockFatakAdminController@orderErsalSabtStockF')->middleware(['chekloginManeg']);//ok
+Route::post('/sabtCodeRahgiryNSF', 'Admin\OrderStockFatakAdminController@sabtCodeRahgiryNSF');//ok
+
+
 //pro stock admin سفارشات موجود سایر فروشگاهها

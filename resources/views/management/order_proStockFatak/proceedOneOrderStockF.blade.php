@@ -93,7 +93,7 @@
     </div>
   </div>
   {{-- modal --}}
-  <div class="modal fade" id="orderAghdamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  {{-- <div class="modal fade" id="orderAghdamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
         <div class="modal-body orderAghdamModal2 ">
@@ -105,7 +105,7 @@
         </div>
       </div>
     </div>
-  </div><!--end modal  -->
+  </div><!--end modal  --> --}}
   <div class="modal fade" id="orderBackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
