@@ -22,6 +22,9 @@ use App\Http\Requests\SaveEdit2_ChannelAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
 use App\Http\Requests\SaveCodeOrderAdmin;
 use App\Http\Requests\SaveRahgiryCodeAd;
+use App\Http\Requests\SaveEditRahgiryCodeAd;
+use App\Http\Requests\SaveEditStageOrderAdmin;
+
 
 class OrderStockFatakAdminController extends Controller
 {
@@ -172,6 +175,19 @@ class OrderStockFatakAdminController extends Controller
     $save->stage=4;
     $save->save();
   }
+  public function editCodeRahgiryNSF(SaveEditRahgiryCodeAd $request)
+  {
+    $buy_id=$request->buy_id;
+    $code_rahgiry=$request->code_rahgiry;
+    $datePost=$request->datePost;
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $save=Buy::find($buy_id);
+    $save->date_up=$date;
+    $save->code_rahgiry=$code_rahgiry;
+    $save->date_post=$datePost;
+    $save->save();
+  }
   public function orderErsalShowAllStockF(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
@@ -190,5 +206,17 @@ class OrderStockFatakAdminController extends Controller
     $pro=Pro::find($buy->pro_id);
     $shop=Shop::find($buy->shop_id);
     return view('management.order_proStockFatak.orderErsalShowOneStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+  }
+  public function editStageOrderNSF(SaveEditStageOrderAdmin $request)
+  {
+    $buy_id=$request->buy_id;
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $save=Buy::find($buy_id);
+    $save->date_up=$date;
+    $save->code_rahgiry=$request->code_rahgiry;
+    $save->date_post=$request->date_post;
+    $save->stage=$request->stage;
+    $save->save();
   }
 }//end class

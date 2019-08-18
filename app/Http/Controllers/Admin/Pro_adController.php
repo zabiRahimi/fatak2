@@ -22,8 +22,8 @@ use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای
 use App\Http\Requests\Save_edit_pro_admin;
 // use App\Http\Requests\SaveCodeOrderAdmin;
 // use App\Http\Requests\SaveRahgiryCodeAd;
-use App\Http\Requests\SaveEditRahgiryCodeAd;
-use App\Http\Requests\SaveEditStageOrderAdmin;
+// use App\Http\Requests\SaveEditRahgiryCodeAd;
+// use App\Http\Requests\SaveEditStageOrderAdmin;
 use App\Http\Requests\SaveOrderBackSave;
 use App\Http\Requests\SaveOrderBackEdit;
 class Pro_adController extends Controller
@@ -326,19 +326,19 @@ public function showShopPro(Request $request)
 //   $save->stage=4;
 //   $save->save();
 // }
-public function editCodeRahgiryAdmin(SaveEditRahgiryCodeAd $request)
-{
-  $buy_id=$request->buy_id;
-  $code_rahgiry=$request->code_rahgiry;
-  $datePost=$request->datePost;
-  $date1=new Verta();//تاریخ جلالی
-  $date=$date1->format('Y/n/j');
-  $save=Buy::find($buy_id);
-  $save->date_up=$date;
-  $save->code_rahgiry=$code_rahgiry;
-  $save->date_post=$datePost;
-  $save->save();
-}
+// public function editCodeRahgiryAdmin(SaveEditRahgiryCodeAd $request)
+// {
+//   $buy_id=$request->buy_id;
+//   $code_rahgiry=$request->code_rahgiry;
+//   $datePost=$request->datePost;
+//   $date1=new Verta();//تاریخ جلالی
+//   $date=$date1->format('Y/n/j');
+//   $save=Buy::find($buy_id);
+//   $save->date_up=$date;
+//   $save->code_rahgiry=$code_rahgiry;
+//   $save->date_post=$datePost;
+//   $save->save();
+// }
 // public function orderErsalShowAll(Request $request)
 // {
 //   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
@@ -358,19 +358,19 @@ public function editCodeRahgiryAdmin(SaveEditRahgiryCodeAd $request)
 //   $shop=Shop::find($buy->shop_id);
 //   return view('management.pro_admin.orderErsalShowOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 // }
-public function editStageOrderAdmin(SaveEditStageOrderAdmin $request)
-{
-  $buy_id=$request->buy_id;
-
-  $date1=new Verta();//تاریخ جلالی
-  $date=$date1->format('Y/n/j');
-  $save=Buy::find($buy_id);
-  $save->date_up=$date;
-  $save->code_rahgiry=$request->code_rahgiry;
-  $save->date_post=$request->date_post;
-  $save->stage=$request->stage;
-  $save->save();
-}
+// public function editStageOrderAdmin(SaveEditStageOrderAdmin $request)
+// {
+//   $buy_id=$request->buy_id;
+//
+//   $date1=new Verta();//تاریخ جلالی
+//   $date=$date1->format('Y/n/j');
+//   $save=Buy::find($buy_id);
+//   $save->date_up=$date;
+//   $save->code_rahgiry=$request->code_rahgiry;
+//   $save->date_post=$request->date_post;
+//   $save->stage=$request->stage;
+//   $save->save();
+// }
 public function orderSabtEnd(Request $request)
 {
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;

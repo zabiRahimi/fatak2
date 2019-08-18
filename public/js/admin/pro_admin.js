@@ -623,55 +623,55 @@ function sabtCodeRahgiryAdmin(buy_id , page) {
       },
       });
     }
-function editCodeRahgiryAdmin(buy_id , page) {
-        $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-        $.ajax({
-          type:'post',
-          url:'../../editCodeRahgiryAdmin',
-          data: {
-            code_rahgiry:$('#codeRahgiryOrder').val(),
-            datePost:$('#datePostOrder').val(),
-            buy_id:buy_id,
-               },
-          success:function(){
-            $('#ajax_codeRahgPAA').html('<div class="alert alert-success">ویرایش با موفقیت انجام شد .</div>');
-
-          },
-          error : function(xhr){
-            var errors = xhr.responseJSON;var error=errors.errors;
-            if(error['buy_id']) {
-                $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">مشکلی رخ داده است .</div>');
-            }
-            else if (error['code_rahgiry']) {
-                $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">کد رهگیری را صحیح وارد کنید .</div>');
-            }
-            else if (error['datePost']) {
-                $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">تاریخ پست کالا را صحیح وارد کنید .</div>');
-            }
-      },
-    });
-  }
-  //تغییر  stage رکورد جهت رفتن به مراحل مختلف
-function editStageOrderAdmin (buy_id , stage , code_rahgiry , date_post  , page){
-  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-  $.ajax({
-    type:'post',
-    url:'../../editStageOrderAdmin',
-    data: {
-      stage:stage,
-      code_rahgiry:code_rahgiry ,
-      date_post:date_post,
-      buy_id:buy_id,
-         },
-    success:function(){
-      $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات با موفقیت انجام شد .</div>');
-      $('#orderModalPro').modal('show');
-      $("#orderModalPro").on('hide.bs.modal', function () {
-      window.location.href  = "/" + page;
-    });
-  }
-});
-}
+// function editCodeRahgiryAdmin(buy_id , page) {
+//         $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+//         $.ajax({
+//           type:'post',
+//           url:'../../editCodeRahgiryAdmin',
+//           data: {
+//             code_rahgiry:$('#codeRahgiryOrder').val(),
+//             datePost:$('#datePostOrder').val(),
+//             buy_id:buy_id,
+//                },
+//           success:function(){
+//             $('#ajax_codeRahgPAA').html('<div class="alert alert-success">ویرایش با موفقیت انجام شد .</div>');
+//
+//           },
+//           error : function(xhr){
+//             var errors = xhr.responseJSON;var error=errors.errors;
+//             if(error['buy_id']) {
+//                 $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">مشکلی رخ داده است .</div>');
+//             }
+//             else if (error['code_rahgiry']) {
+//                 $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">کد رهگیری را صحیح وارد کنید .</div>');
+//             }
+//             else if (error['datePost']) {
+//                 $('#ajax_codeRahgPAA').html('<div class="alert alert-danger">تاریخ پست کالا را صحیح وارد کنید .</div>');
+//             }
+//       },
+//     });
+//   }
+//   //تغییر  stage رکورد جهت رفتن به مراحل مختلف
+// function editStageOrderAdmin (buy_id , stage , code_rahgiry , date_post  , page){
+//   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+//   $.ajax({
+//     type:'post',
+//     url:'../../editStageOrderAdmin',
+//     data: {
+//       stage:stage,
+//       code_rahgiry:code_rahgiry ,
+//       date_post:date_post,
+//       buy_id:buy_id,
+//          },
+//     success:function(){
+//       $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات با موفقیت انجام شد .</div>');
+//       $('#orderModalPro').modal('show');
+//       $("#orderModalPro").on('hide.bs.modal', function () {
+//       window.location.href  = "/" + page;
+//     });
+//   }
+// });
+// }
 function orderSabtEnd() {
   buy_id =$('#code_ersalOrder').val(),
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
