@@ -14,7 +14,8 @@
         <a href="/proceedOrderStockF" class=""><span class="titrCBR">سفارشات در حال اقدام</span><span class="badgeCBR">{{$orderAgdamCount}}</span> </a>
         <a href="/orderErsalSabtStockF" class=""><span class="titrCBR">ثبت سفارش ارسال شده</span> </a>
         <a href="/orderErsalShowAllStockF" class=""><span class="titrCBR">سفارشات ارسال شده</span><span class="badgeCBR">{{$orderPostCount}}</span> </a>
-
+        <a href="/orderSabtEndStockF" class=""><span class="titrCBR">ثبت سفارش تحویلی</span> </a>
+        <a href="/orderSabtEndShowAllStockF" class=""><span class="titrCBR">سفارشات تحویلی</span><span class="badgeCBR">{{$orderDeliverCount}}</span> </a>
       </div>
       <div class="contentDash2_body_l" id="pjax_pro">
 
