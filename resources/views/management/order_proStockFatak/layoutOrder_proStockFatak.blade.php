@@ -16,6 +16,10 @@
         <a href="/orderErsalShowAllStockF" class=""><span class="titrCBR">سفارشات ارسال شده</span><span class="badgeCBR">{{$orderPostCount}}</span> </a>
         <a href="/orderSabtEndStockF" class=""><span class="titrCBR">ثبت سفارش تحویلی</span> </a>
         <a href="/orderSabtEndShowAllStockF" class=""><span class="titrCBR">سفارشات تحویلی</span><span class="badgeCBR">{{$orderDeliverCount}}</span> </a>
+        <a href="/orderBackSabtStockF" class=""><span class="titrCBR">ثبت سفارش مرجوعی</span> </a>
+        <a href="/orderBackShowAllStockF" class=""><span class="titrCBR">سفارشات مرجوعی</span><span class="badgeCBR">{{$orderbackCount}}</span> </a>
+        {{-- <a href="#" class=""><span class="titrCBR">ثبت مرجوعی تسویه شده</span> </a> --}}
+        <a href="/orderBackEndShowAllStockF" class=""><span class="titrCBR">مرجوعی تسویه شده</span><span class="badgeCBR">{{$orderbackEndCount}}</span> </a>
       </div>
       <div class="contentDash2_body_l" id="pjax_pro">
 

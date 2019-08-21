@@ -371,62 +371,62 @@ public function showShopPro(Request $request)
 //   $save->stage=$request->stage;
 //   $save->save();
 // }
-public function orderSabtEnd(Request $request)
-{
-  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-  if(!empty($request->buy_id)){
-    $buy_id=$request->buy_id;
-    $buy=Buy::find($buy_id);
-    if (empty($buy->pro_id)) {
-      return response()->json(['errors' => ['no_order' => [ ]]],422 );
-
-    }elseif($buy->stage==2){
-      //جدید
-      return response()->json(['errors' => ['orderNew' => [ ]]],422 );
-    }
-    elseif($buy->stage==3){
-      //در دست اقدام
-      return response()->json(['errors' => ['orderAghdam' => [ ]]],422 );
-    }
-    elseif($buy->stage==5){
-      //تحویلی
-      return response()->json(['errors' => ['orderEnd' => [ ]]],422 );
-    }
-    elseif($buy->stage==6){
-      //مرجوعی
-      return response()->json(['errors' => ['orderback' => [ ]]],422 );
-    }
-    elseif($buy->stage==7){
-      //مرجوعی تسویه شده
-      return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
-    }
-
-    $pro=Pro::find($buy->pro_id);
-    $shop=Shop::find($buy->shop_id);
-
-  }
-  return view('management.pro_admin.orderSabtEnd', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
-}
-public function orderSabtEndShowAll(Request $request)
-{
-  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-  $buy=Buy::where('stage',5)->get();
-  $pro=Pro::get();
-  $shop=Shop::get();
-  return view('management.pro_admin.orderSabtEndShowAll', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
-}
-public function orderSabtEndShowOne(Request $request)
-{
-  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-  $id_buy=$request->id_buy;
-  $buy=Buy::find($id_buy);
-  $pro=Pro::find($buy->pro_id);
-  $shop=Shop::find($buy->shop_id);
-  return view('management.pro_admin.orderSabtEndShowOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
-}
+// public function orderSabtEnd(Request $request)
+// {
+//   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+//   $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+//   if(!empty($request->buy_id)){
+//     $buy_id=$request->buy_id;
+//     $buy=Buy::find($buy_id);
+//     if (empty($buy->pro_id)) {
+//       return response()->json(['errors' => ['no_order' => [ ]]],422 );
+//
+//     }elseif($buy->stage==2){
+//       //جدید
+//       return response()->json(['errors' => ['orderNew' => [ ]]],422 );
+//     }
+//     elseif($buy->stage==3){
+//       //در دست اقدام
+//       return response()->json(['errors' => ['orderAghdam' => [ ]]],422 );
+//     }
+//     elseif($buy->stage==5){
+//       //تحویلی
+//       return response()->json(['errors' => ['orderEnd' => [ ]]],422 );
+//     }
+//     elseif($buy->stage==6){
+//       //مرجوعی
+//       return response()->json(['errors' => ['orderback' => [ ]]],422 );
+//     }
+//     elseif($buy->stage==7){
+//       //مرجوعی تسویه شده
+//       return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
+//     }
+//
+//     $pro=Pro::find($buy->pro_id);
+//     $shop=Shop::find($buy->shop_id);
+//
+//   }
+//   return view('management.pro_admin.orderSabtEnd', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
+// }
+// public function orderSabtEndShowAll(Request $request)
+// {
+//   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+//   $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+//   $buy=Buy::where('stage',5)->get();
+//   $pro=Pro::get();
+//   $shop=Shop::get();
+//   return view('management.pro_admin.orderSabtEndShowAll', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+// }
+// public function orderSabtEndShowOne(Request $request)
+// {
+//   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+//   $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+//   $id_buy=$request->id_buy;
+//   $buy=Buy::find($id_buy);
+//   $pro=Pro::find($buy->pro_id);
+//   $shop=Shop::find($buy->shop_id);
+//   return view('management.pro_admin.orderSabtEndShowOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
+// }
 // ثبت سفارش مرجوعی
 public function orderBackSabt(Request $request)
 {

@@ -167,14 +167,14 @@ Route::post('/backOrderBuy/{buy_id}', 'Admin\Pro_adController@backOrderBuy')->wh
 // Route::get('/orderSabtEnd/{buy_id?}', 'Admin\Pro_adController@orderSabtEnd')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 // Route::get('/orderSabtEndShowAll', 'Admin\Pro_adController@orderSabtEndShowAll')->middleware(['chekloginManeg']);//ok
 // Route::get('/orderSabtEndShowOne/{id_buy}', 'Admin\Pro_adController@orderSabtEndShowOne')->middleware(['chekloginManeg'])->where('id_buy', '[0-9]+');//ok
-Route::get('/orderBackSabt/{buy_id?}', 'Admin\Pro_adController@orderBackSabt')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
-Route::post('/orderBackSave', 'Admin\Pro_adController@orderBackSave');//ok
-Route::get('/orderBackShowAll', 'Admin\Pro_adController@orderBackShowAll')->middleware(['chekloginManeg']);//ok
-Route::get('/orderBackShowOne/{buy_id}', 'Admin\Pro_adController@orderBackShowOne')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
-Route::post('/orderBackEdit', 'Admin\Pro_adController@orderBackEdit');//ok
-Route::post('/delOrderBack/{buy_id}/{backPro_id}/{delBuy?}', 'Admin\Pro_adController@delOrderBack')->where('buy_id', '[0-9]+')->where('backPro_id', '[0-9]+')->where('delBuy', '[0-9 , a-z ,A-Z]+');//ok
-Route::get('/orderBackEndShowAll', 'Admin\Pro_adController@orderBackEndShowAll')->middleware(['chekloginManeg']);//ok
-Route::get('/orderBackEndShowOne/{buy_id}', 'Admin\Pro_adController@orderBackEndShowOne')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+// Route::get('/orderBackSabt/{buy_id?}', 'Admin\Pro_adController@orderBackSabt')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+// Route::post('/orderBackSave', 'Admin\Pro_adController@orderBackSave');//ok
+// Route::get('/orderBackShowAll', 'Admin\Pro_adController@orderBackShowAll')->middleware(['chekloginManeg']);//ok
+// Route::get('/orderBackShowOne/{buy_id}', 'Admin\Pro_adController@orderBackShowOne')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+// Route::post('/orderBackEdit', 'Admin\Pro_adController@orderBackEdit');//ok
+// Route::post('/delOrderBack/{buy_id}/{backPro_id}/{delBuy?}', 'Admin\Pro_adController@delOrderBack')->where('buy_id', '[0-9]+')->where('backPro_id', '[0-9]+')->where('delBuy', '[0-9 , a-z ,A-Z]+');//ok
+// Route::get('/orderBackEndShowAll', 'Admin\Pro_adController@orderBackEndShowAll')->middleware(['chekloginManeg']);//ok
+// Route::get('/orderBackEndShowOne/{buy_id}', 'Admin\Pro_adController@orderBackEndShowOne')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::get('/modiranAdmin', 'Admin\ModirAdminController@modiranAdmin')->middleware(['CheckLeader']);//ok!!
 Route::get('/adModirManeg', 'Admin\ModirAdminController@adModirManeg')->middleware(['CheckLeader']);//ok!!
 Route::post('/modirAdminSabt', 'Admin\ModirAdminController@modirAdminSabt');//ok
@@ -224,5 +224,12 @@ Route::post('/editStageOrderNSF', 'Admin\OrderStockFatakAdminController@editStag
 Route::get('/orderSabtEndStockF/{buy_id?}', 'Admin\OrderStockFatakAdminController@orderSabtEndStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::get('/orderSabtEndShowAllStockF', 'Admin\OrderStockFatakAdminController@orderSabtEndShowAllStockF')->middleware(['chekloginManeg']);//ok
 Route::get('/orderSabtEndShowOneStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderSabtEndShowOneStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
-
+Route::get('/orderBackSabtStockF/{buy_id?}', 'Admin\OrderStockFatakAdminController@orderBackSabtStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+Route::post('/orderBackSaveStockF', 'Admin\OrderStockFatakAdminController@orderBackSaveStockF');//ok
+Route::get('/orderBackShowAllStockF', 'Admin\OrderStockFatakAdminController@orderBackShowAllStockF')->middleware(['chekloginManeg']);//ok
+Route::get('/orderBackShowOneStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderBackShowOneStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+Route::post('/orderBackEditStockF', 'Admin\OrderStockFatakAdminController@orderBackEditStockF');//ok
+Route::post('/delOrderBackStockF/{buy_id}/{backPro_id}/{delBuy?}', 'Admin\OrderStockFatakAdminController@delOrderBackStockF')->where('buy_id', '[0-9]+')->where('backPro_id', '[0-9]+')->where('delBuy', '[0-9 , a-z ,A-Z]+');//ok
+Route::get('/orderBackEndShowAllStockF', 'Admin\OrderStockFatakAdminController@orderBackEndShowAllStockF')->middleware(['chekloginManeg']);//ok
+Route::get('/orderBackEndShowOneStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderBackEndShowOneStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 //pro stock admin سفارشات موجود سایر فروشگاهها
