@@ -8,3 +8,14 @@
 .orderNewPSF6{width:15%;}
 .orderNewPSF7{width:15%;}
 .orderNewPSF_R{cursor: pointer;}
+/* orderBackShowAllStockF */
+.orderBSF1{width: calc( 28% - 40px);}
+.orderBSF1_2{color: #0f3f71;}
+.orderBSF2{width:10%;}
+.orderBSF2_2{color: #06461e;}
+.orderBSF3{width:20%;}
+.orderBSF3_2{color: #032345;}
+.orderBSF4{width:13%;}
+.orderBSF5{width:14%;}
+.orderBSF6{width:15%;}
+.orderBSF_R{cursor: pointer;}
