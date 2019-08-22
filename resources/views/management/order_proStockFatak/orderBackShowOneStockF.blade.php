@@ -6,7 +6,7 @@
 @section('show_stockFatak')
   <div class="div_titr">
    نمایش سفارش مرجوعی
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackShowAll';">بازگشت</button>
+   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackShowAllStockF';">بازگشت</button>
   </div>
   <div class="div_body ">
       <div class="buyOneDivTitr">
@@ -110,7 +110,7 @@
        </div>
 
       <div class="form-group divSabtForm">
-        <button type="button" class="btn btn-success" onclick="orderBackEdit({{$backPro->id}})" >ثبت تغییرات</button>
+        <button type="button" class="btn btn-success" onclick="orderBackEditStockF({{$backPro->id}})" >ثبت تغییرات</button>
       </div>
     </form>
     <div class="orderAghdamP">
@@ -126,7 +126,7 @@
         </div>
         <div class="orderAghdamModal3">
           {{-- editStageOrderAdmin({{$buy->id}} , 4 ,{{$buy->code_rahgiry}}, {{$buy->date_post}} , orderBackShowAll); --}}
-            <button type="button" class="btn btn-primary"onclick="delOrderBack({{$buy->id}},{{$backPro->id}},'','orderBackShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="delOrderBackStockF({{$buy->id}},{{$backPro->id}},'','orderBackShowAllStockF')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>
@@ -139,7 +139,7 @@
           <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="delOrderBack({{$buy->id}},{{$backPro->id}},'ok','orderBackShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="delOrderBackStockF({{$buy->id}},{{$backPro->id}},'ok','orderBackShowAllStockF')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>

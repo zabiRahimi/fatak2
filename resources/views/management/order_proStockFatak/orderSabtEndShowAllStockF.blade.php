@@ -31,7 +31,6 @@
           @php
           $r++;
           $pro2=$pro->find($buys->pro_id);
-          $shop2=$shop->find($buys->shop_id);
           $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
 
           @endphp

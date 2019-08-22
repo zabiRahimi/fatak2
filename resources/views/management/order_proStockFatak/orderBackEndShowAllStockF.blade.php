@@ -7,15 +7,22 @@
   <div class="div_titr">
    نمایش سفارشات مرجوعی تسویه شده
   </div>
+  <div class="div_body">
+  @if (empty($buy[0]['id']))
+    <div class="alert alert-danger">
+      مرجوعی تسویه شده ای موجود نیست .
+    </div>
+  @else
   <div class="divRow">
     <div class="divRow2">
       <div class="divRow3 rowNumber"><i class="fas fa-certificate"></i></div>
-      <div class="divRow3 orderBuyR2">نام محصول</div>
-      <div class="divRow3 orderErsalR3">کد سفارش</div>
-      <div class="divRow3 orderErsalR4">فروشگاه</div>
-      <div class="divRow3 orderErsalR5">کد رهگیری برگشتی</div>
-      <div class="divRow3 orderErsalR6">تاریخ</div>
-      <div class="divRow3 orderErsalR7">مشاهده</div>
+      <div class="divRow3 orderBESFR1">نام محصول</div>
+      <div class="divRow3 orderBESFR2">کد سفارش</div>
+      <div class="divRow3 orderBESFR3">کد رهگیری برگشتی</div>
+      <div class="divRow3 orderBESFR4">تاریخ</div>
+      <div class="divRow3 orderBESFR5">خریدار</div>
+      <div class="divRow3 orderBESFR6">مبلغ پرداختی </div>
+
 
     </div>
     @php
@@ -25,22 +32,22 @@
       @php
       $r++;
       $pro2=$pro->find($buys->pro_id);
-      $shop2=$shop->find($buys->shop_id);
       $backPro2=$backPro->find($buys->backPro_id);
       $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
 
       @endphp
-      <div class="divRow2 all_edit_pro3 {{$classBg}} ">
+      <div class="divRow2  {{$classBg}} orderBESFR_R "onclick="window.location='/orderBackEndShowOneStockF/{{$buys->id}}'">
         <div class="divRow3 rowNumber ">{{$r}}</div>
-        <div class="divRow3 orderBuyR2 ">{{$pro2->name}}</div>
-        <div class="divRow3 orderErsalR3">{{$buys->id}}</div>
-        <a href="/showShopPro/{{$shop2->id}}/orderErsalShowAll"><div class="divRow3 orderErsalR4">{{$shop2->shop}}</div></a>
-        <div class="divRow3 orderErsalR5">{{$backPro2->code_rahgiry}}</div>
-        <div class="divRow3 orderErsalR6">{{$backPro2->date_post}} </div>
-        <a href="/orderBackEndShowOne/{{$buys->id}}"><div class="divRow3 orderErsalR7">مشاهده</div></a>
+        <div class="divRow3 orderBESFR1 orderBESFR1_2">{{$pro2->name}}</div>
+        <div class="divRow3 orderBESFR2 orderBESFR2_2">{{$buys->id}}</div>
+        <div class="divRow3 orderBESFR3 orderBESFR3_3">{{$backPro2->code_rahgiry}}</div>
+        <div class="divRow3 orderBESFR4">{{$backPro2->date_post}} </div>
+        <div class="divRow3 orderBESFR5">{{$buys->name}}</div>
+        <div class="divRow3 orderBESFR6"><span class="spanRow1">{{number_format(13569840)}}</span><span class="spanRow2">تومان</span> </div>
 
       </div>
     @endforeach
   </div>
-
+@endif
+</div>
 @endsection

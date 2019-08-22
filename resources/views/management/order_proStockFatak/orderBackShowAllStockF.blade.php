@@ -7,6 +7,14 @@
   <div class="div_titr">
    نمایش سفارشات مرجوعی
   </div>
+  <div class="div_body">
+    @if (empty($buy[0]['id']))
+      <div class="alert alert-danger">
+        سفارش مرجوعی موجود نیست .
+      </div>
+    @else
+
+
   <div class="divRow">
     <div class="divRow2">
       <div class="divRow3 rowNumber"><i class="fas fa-certificate"></i></div>
@@ -25,7 +33,6 @@
       @php
       $r++;
       $pro2=$pro->find($buys->pro_id);
-      $shop2=$shop->find($buys->shop_id);
       $backPro2=$backPro->find($buys->backPro_id);
       $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
 
@@ -42,5 +49,7 @@
       </div>
     @endforeach
   </div>
+@endif
+</div>
 
 @endsection
