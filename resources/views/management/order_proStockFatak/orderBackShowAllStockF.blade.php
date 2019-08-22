@@ -30,7 +30,7 @@
       $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
 
       @endphp
-      <div class="divRow2  {{$classBg}} orderBSF_R " onclick="window.location='/orderBackShowOne/{{$buys->id}}'">
+      <div class="divRow2  {{$classBg}} orderBSF_R " onclick="window.location='/orderBackShowOneStockF/{{$buys->id}}'">
         <div class="divRow3 rowNumber ">{{$r}}</div>
         <div class="divRow3 orderBSF1 orderBSF1_2 ">{{$pro2->name}}</div>
         <div class="divRow3 orderBSF2 orderBSF2_2">{{$buys->id}}</div>

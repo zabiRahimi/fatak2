@@ -43,7 +43,7 @@ function delBuyOrderNSF(id , page) {
       },
       });
     }
-    function backOrderNSF(id, page) {
+function backOrderNSF(id, page) {
       $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
       $.ajax({
         type:'post',

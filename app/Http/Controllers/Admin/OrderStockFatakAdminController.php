@@ -26,6 +26,7 @@ use App\Http\Requests\SaveCodeOrderAdmin;
 use App\Http\Requests\SaveRahgiryCodeAd;
 use App\Http\Requests\SaveEditRahgiryCodeAd;
 use App\Http\Requests\SaveEditStageOrderAdmin;
+use App\Http\Requests\SaveOrderBackSave;
 
 
 class OrderStockFatakAdminController extends Controller
