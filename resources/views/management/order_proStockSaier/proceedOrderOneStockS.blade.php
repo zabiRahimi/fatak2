@@ -5,8 +5,8 @@
 @endsection
 @section('show_stockSaier')
   <div class="div_titr">
-   نمایش سفارش
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/proceedPro';">بازگشت</button>
+   نمایش سفارش در حال اقدام
+   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/proceedOrderStockS';">بازگشت</button>
   </div>
   <div class="div_body ">
     <div id="buyOneDivH1">{{-- جهت پرینت --}}

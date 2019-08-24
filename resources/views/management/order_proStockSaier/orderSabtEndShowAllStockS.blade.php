@@ -7,6 +7,12 @@
   <div class="div_titr">
    نمایش سفارشات تحویلی
   </div>
+  <div class="div_body">
+    @if (empty($buy[0]['id']))
+      <div class="alert alert-danger">
+        سفارش تحویل شده ای موجود نیست .
+      </div>
+    @else
   <div class="divRow">
     <div class="divRow2">
       <div class="divRow3 rowNumber"><i class="fas fa-certificate"></i></div>
@@ -41,5 +47,6 @@
       </div>
     @endforeach
   </div>
-
+@endif
+</div>
 @endsection
