@@ -1,5 +1,5 @@
 {{-- all_edit_pro.css --}}
-@extends('management.pro_admin.pro_admin')
+@extends('management.order_proStockSaier.layoutOrder_proStockSaier')
  @section('title')
   مدیریت :: سفارشات مرجوعی
 @endsection

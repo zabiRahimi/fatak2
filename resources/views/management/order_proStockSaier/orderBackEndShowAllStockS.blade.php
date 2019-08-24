@@ -1,9 +1,9 @@
 {{-- all_edit_pro.css --}}
-@extends('management.pro_admin.pro_admin')
+@extends('management.order_proStockSaier.layoutOrder_proStockSaier')
  @section('title')
   مدیریت :: سفارشات مرجوعی تسویه شده
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
   <div class="div_titr">
    نمایش سفارشات مرجوعی تسویه شده
   </div>

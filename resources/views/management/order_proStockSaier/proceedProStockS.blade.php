@@ -1,4 +1,4 @@
-@extends('management.pro_admin.pro_admin')
+@extends('management.order_proStockSaier.layoutOrder_proStockSaier')
  @section('title')
   مدیریت :: محصولات در حال اقدام
 @endsection
