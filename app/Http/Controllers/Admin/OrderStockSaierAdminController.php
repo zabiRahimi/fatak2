@@ -63,7 +63,7 @@ class OrderStockSaierAdminController extends Controller
     {
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
       $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-      $buy=Buy::where('stage',2)->where('shop_id' , 1)->get();
+      $buy=Buy::where('stage',2)->where('shop_id' , '!=', 1)->get();
       $pro=Pro::get();
       $shop=Shop::get();
       return view('management.order_proStockSaier.orderNewPStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
@@ -76,7 +76,8 @@ class OrderStockSaierAdminController extends Controller
       $buy_id=$request->buy_id;
       $buy=Buy::find($buy_id);
       $pro=Pro::find($buy->pro_id);
-      return view('management.order_proStockSaier.orderOneNewPStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
+      $shop=Shop::find($buy->shop_id);
+      return view('management.order_proStockSaier.orderOneNewPStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
     }
     public function orderAghdamNSS(Request $request)
     {
@@ -99,9 +100,9 @@ class OrderStockSaierAdminController extends Controller
     {
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
       $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-      $buy=Buy::where('stage',3)->where('shop_id' , 1)->get();
+      $buy=Buy::where('stage',3)->where('shop_id' , '!=' , 1)->get();
       $pro=Pro::get();
-      return view('management.order_proStockSaier.proceedOrderStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
+      return view('management.order_proStockSaier.proceedOrderStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 
     }
     public function proceedOneOrderStockS(Request $request)
@@ -111,7 +112,8 @@ class OrderStockSaierAdminController extends Controller
       $buy_id=$request->buy_id;
       $buy=Buy::find($buy_id);
       $pro=Pro::find($buy->pro_id);
-      return view('management.order_proStockSaier.proceedOneOrderStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
+      $shop=Shop::find($buy->shop_id);
+      return view('management.order_proStockSaier.proceedOneOrderStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
     }
     public function backOrderNSS(Request $request)
     {
@@ -156,9 +158,9 @@ class OrderStockSaierAdminController extends Controller
         }
 
         $pro=Pro::find($buy->pro_id);
-
+        $shop=Shop::find($buy->shop_id);
       }
-      return view('management.order_proStockSaier.orderErsalSabtStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro'));
+      return view('management.order_proStockSaier.orderErsalSabtStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
     }
     public function sabtCodeRahgiryNSS(SaveRahgiryCodeAd $request)
     {
@@ -191,9 +193,9 @@ class OrderStockSaierAdminController extends Controller
     {
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
       $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-      $buy=Buy::where('stage',4)->where('shop_id' , 1)->get();
+      $buy=Buy::where('stage',4)->where('shop_id' , '!=' , 1)->get();
       $pro=Pro::get();
-      return view('management.order_proStockSaier.orderErsalShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
+      return view('management.order_proStockSaier.orderErsalShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
     }
     public function orderErsalShowOneStockS(Request $request)
     {
@@ -202,7 +204,8 @@ class OrderStockSaierAdminController extends Controller
       $buy_id=$request->buy_id;
       $buy=Buy::find($buy_id);
       $pro=Pro::find($buy->pro_id);
-      return view('management.order_proStockSaier.orderErsalShowOneStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
+      $shop=Shop::find($buy->shop_id);
+      return view('management.order_proStockSaier.orderErsalShowOneStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
     }
     public function editStageOrderNSS(SaveEditStageOrderAdmin $request)
     {
@@ -247,17 +250,18 @@ class OrderStockSaierAdminController extends Controller
         }
 
         $pro=Pro::find($buy->pro_id);
+        $shop=Shop::find($buy->shop_id);
 
       }
-      return view('management.order_proStockSaier.orderSabtEndStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro'));
+      return view('management.order_proStockSaier.orderSabtEndStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
     }
   public function orderSabtEndShowAllStockS(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-    $buy=Buy::where('stage',5)->where('shop_id' , 1)->get();
+    $buy=Buy::where('stage',5)->where('shop_id' , '!=' , 1)->get();
     $pro=Pro::get();
-    return view('management.order_proStockSaier.orderSabtEndShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
+    return view('management.order_proStockSaier.orderSabtEndShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
   }
   public function orderSabtEndShowOneStockS(Request $request)
   {
@@ -266,7 +270,8 @@ class OrderStockSaierAdminController extends Controller
     $buy_id=$request->buy_id;
     $buy=Buy::find($buy_id);
     $pro=Pro::find($buy->pro_id);
-    return view('management.order_proStockSaier.orderSabtEndShowOneStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
+    $shop=Shop::find($buy->shop_id);
+    return view('management.order_proStockSaier.orderSabtEndShowOneStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
   }
   // ثبت سفارش مرجوعی
   public function orderBackSabtStockS(Request $request)
@@ -301,9 +306,10 @@ class OrderStockSaierAdminController extends Controller
       }
 
       $pro=Pro::find($buy->pro_id);
+      $shop=Shop::find($buy->shop_id);
 
     }
-    return view('management.order_proStockSaier.orderBackSabtStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro'));
+    return view('management.order_proStockSaier.orderBackSabtStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
   }
   public function orderBackSaveStockS(SaveOrderBackSave $request)
   {
@@ -336,10 +342,10 @@ class OrderStockSaierAdminController extends Controller
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-    $buy=Buy::where('stage',6)->where('shop_id' , 1)->get();
+    $buy=Buy::where('stage',6)->where('shop_id' , '!=' , 1)->get();
     $pro=Pro::get();
     $backPro=BackPro::get();
-    return view('management.order_proStockSaier.orderBackShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','backPro'));
+    return view('management.order_proStockSaier.orderBackShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
   }
   public function orderBackShowOneStockS(Request $request)
   {
@@ -348,8 +354,9 @@ class OrderStockSaierAdminController extends Controller
     $buy_id=$request->buy_id;
     $buy=Buy::find($buy_id);
     $pro=Pro::find($buy->pro_id);
+    $shop=Shop::find($buy->shop_id);
     $backPro=BackPro::find($buy->backPro_id);
-    return view('management.order_proStockSaier.orderBackShowOneStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','backPro'));
+    return view('management.order_proStockSaier.orderBackShowOneStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
   }
   // ویرایش اطلاعات سفارش مرجوعی
   public function orderBackEditStockS(SaveOrderBackEdit $request)
@@ -390,10 +397,10 @@ class OrderStockSaierAdminController extends Controller
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-    $buy=Buy::where('stage',7)->where('shop_id' , 1)->get();
+    $buy=Buy::where('stage',7)->where('shop_id' , '!=' , 1)->get();
     $pro=Pro::get();
     $backPro=BackPro::get();
-    return view('management.order_proStockSaier.orderBackEndShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','backPro'));
+    return view('management.order_proStockSaier.orderBackEndShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
   }
   public function orderBackEndShowOneStockS(Request $request)
   {
@@ -402,7 +409,8 @@ class OrderStockSaierAdminController extends Controller
     $buy_id=$request->buy_id;
     $buy=Buy::find($buy_id);
     $pro=Pro::find($buy->pro_id);
+    $shop=Shop::find($buy->shop_id);
     $backPro=BackPro::find($buy->backPro_id);
-    return view('management.order_proStockSaier.orderBackEndShowOneStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','backPro'));
+    return view('management.order_proStockSaier.orderBackEndShowOneStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
   }
 }// end class

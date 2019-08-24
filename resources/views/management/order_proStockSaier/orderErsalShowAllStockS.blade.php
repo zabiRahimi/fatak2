@@ -35,7 +35,7 @@
         <a href="/showShopPro/{{$shop2->id}}/orderErsalShowAll"><div class="divRow3 orderErsalR4">{{$shop2->shop}}</div></a>
         <div class="divRow3 orderErsalR5">{{$buys->code_rahgiry}}</div>
         <div class="divRow3 orderErsalR6">{{$buys->date_post}} </div>
-        <a href="/orderErsalShowOne/{{$buys->id}}"><div class="divRow3 orderErsalR7">مشاهده</div></a>
+        <a href="/orderErsalShowOneStockS/{{$buys->id}}"><div class="divRow3 orderErsalR7">مشاهده</div></a>
 
       </div>
     @endforeach

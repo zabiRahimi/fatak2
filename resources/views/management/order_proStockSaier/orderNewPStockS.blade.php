@@ -36,7 +36,7 @@
           <div class="divRow3 orderBuyR4">{{$buys->id}}</div>
           <a href="/showShopPro/{{$shop2->id}}/orderBuy"><div class="divRow3 orderBuyR5">{{$shop2->shop}}</div></a>
           <div class="divRow3 orderBuyR6">{{$buys->date}} </div>
-          <a href="/orderBuyOne/{{$buys->id}}"><div class="divRow3 orderBuyR7">مشاهده</div></a>
+          <a href="/orderOneNewPStockS/{{$buys->id}}"><div class="divRow3 orderBuyR7">مشاهده</div></a>
 
         </div>
       @endforeach
