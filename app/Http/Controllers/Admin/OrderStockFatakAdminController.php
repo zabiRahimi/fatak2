@@ -43,12 +43,12 @@ class OrderStockFatakAdminController extends Controller
     $user=Management::find($id);
     $this->nameModir=$user->name;
     $this->access=$user->access;
-    $this->orderNewCount=Buy::where('stage',2)->count();//سفارشات جدید
-    $this->orderAgdamCount=Buy::where('stage',3)->count();//در دست اقدام
-    $this->orderPostCount=Buy::where('stage',4)->count();//ارسال شده
-    $this->orderDeliverCount=Buy::where('stage',5)->count();//تحویل گرفته شده
-    $this->orderbackCount=Buy::where('stage',6)->count();//مرجوعی
-    $this->orderbackEndCount=Buy::where('stage',7)->count();//مرجوعی تسویه شده
+    $this->orderNewCount=Buy::where('stage',2)->where('shop_id' , 1)->count();//سفارشات جدید
+    $this->orderAgdamCount=Buy::where('stage',3)->where('shop_id' , 1)->count();//در دست اقدام
+    $this->orderPostCount=Buy::where('stage',4)->where('shop_id' , 1)->count();//ارسال شده
+    $this->orderDeliverCount=Buy::where('stage',5)->where('shop_id' , 1)->count();//تحویل گرفته شده
+    $this->orderbackCount=Buy::where('stage',6)->where('shop_id' , 1)->count();//مرجوعی
+    $this->orderbackEndCount=Buy::where('stage',7)->where('shop_id' , 1)->count();//مرجوعی تسویه شده
     return $next($request);
       });
       }

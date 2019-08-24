@@ -12,7 +12,6 @@
         <a href="/order_proStockSaier" class=""><span class="titrCBR">مدیریت سفارش محصولات </span> </a>
         <a href="/orderNewPStockS" class=""><span class="titrCBR">سفارشات جدید</span><span class="badgeCBR">{{$orderNewCount}}</span> </a>
         <a href="/proceedOrderStockS" class=""><span class="titrCBR">سفارشات در حال اقدام</span><span class="badgeCBR">{{$orderAgdamCount}}</span> </a>
-        <a href="/orderErsalSabtStockS" class=""><span class="titrCBR">ثبت سفارش ارسال شده</span> </a>
         <a href="/orderErsalShowAllStockS" class=""><span class="titrCBR">سفارشات ارسال شده</span><span class="badgeCBR">{{$orderPostCount}}</span> </a>
         <a href="/orderSabtEndStockS" class=""><span class="titrCBR">ثبت سفارش تحویلی</span> </a>
         <a href="/orderSabtEndShowAllStockS" class=""><span class="titrCBR">سفارشات تحویلی</span><span class="badgeCBR">{{$orderDeliverCount}}</span> </a>

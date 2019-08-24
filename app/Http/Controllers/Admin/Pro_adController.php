@@ -218,15 +218,15 @@ public function orderBuy(Request $request)
 //   $shop=Shop::find($buy->shop_id);
 //   return view('management.pro_admin.orderBuyOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 // }
-public function showShopPro(Request $request)
-{
-  $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-  $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-  $page=$request->page;
-  $shop_id=$request->shop_id;
-  $shop=Shop::find($shop_id);
-  return view('management.pro_admin.showShopPro', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','shop','page'));
-}
+// public function showShopPro(Request $request)
+// {
+//   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+//   $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+//   $page=$request->page;
+//   $shop_id=$request->shop_id;
+//   $shop=Shop::find($shop_id);
+//   return view('management.pro_admin.showShopPro', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','shop','page'));
+// }
 // public function orderAghdam(Request $request)
 // {
 //   $buy_id=$request->buy_id;

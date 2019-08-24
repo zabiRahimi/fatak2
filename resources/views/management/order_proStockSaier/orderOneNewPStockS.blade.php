@@ -6,7 +6,7 @@
 @section('show_stockSaier')
   <div class="div_titr">
    نمایش سفارش
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBuy';">بازگشت</button>
+   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderNewPStockS';">بازگشت</button>
   </div>
   <div class="div_body ">
     <div id="buyOneDivH1">{{-- جهت پرینت --}}
@@ -100,7 +100,7 @@
           <span><b>توجه !!</b> آیا اطلاعات محصول و خریدار را چاپ کرده اید ؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="orderAghdam({{$buy->id}})" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="orderAghdamNSS({{$buy->id}})" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>

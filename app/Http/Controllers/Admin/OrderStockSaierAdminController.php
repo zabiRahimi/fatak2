@@ -42,12 +42,12 @@ class OrderStockSaierAdminController extends Controller
       $user=Management::find($id);
       $this->nameModir=$user->name;
       $this->access=$user->access;
-      $this->orderNewCount=Buy::where('stage',2)->count();//سفارشات جدید
-      $this->orderAgdamCount=Buy::where('stage',3)->count();//در دست اقدام
-      $this->orderPostCount=Buy::where('stage',4)->count();//ارسال شده
-      $this->orderDeliverCount=Buy::where('stage',5)->count();//تحویل گرفته شده
-      $this->orderbackCount=Buy::where('stage',6)->count();//مرجوعی
-      $this->orderbackEndCount=Buy::where('stage',7)->count();//مرجوعی تسویه شده
+      $this->orderNewCount=Buy::where('stage',2)->where('shop_id' , '!=' , 1)->count();//سفارشات جدید
+      $this->orderAgdamCount=Buy::where('stage',3)->where('shop_id' , '!=' , 1)->count();//در دست اقدام
+      $this->orderPostCount=Buy::where('stage',4)->where('shop_id' , '!=' , 1)->count();//ارسال شده
+      $this->orderDeliverCount=Buy::where('stage',5)->where('shop_id' , '!=' , 1)->count();//تحویل گرفته شده
+      $this->orderbackCount=Buy::where('stage',6)->where('shop_id' , '!=' , 1)->count();//مرجوعی
+      $this->orderbackEndCount=Buy::where('stage',7)->where('shop_id' , '!=' , 1)->count();//مرجوعی تسویه شده
       return $next($request);
         });
         }
@@ -89,6 +89,15 @@ class OrderStockSaierAdminController extends Controller
       $save->date_up=$date;
       $save->save();
     }
+    public function showShopProStockS(Request $request)
+    {
+      $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+      $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+      $page=$request->page;
+      $shop_id=$request->shop_id;
+      $shop=Shop::find($shop_id);
+      return view('management.order_proStockSaier.showShopProStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','shop','page'));
+    }
     public function delBuyOrderNSS(Request $request)
     {
       $buy_id=$request->buy_id;
@@ -102,6 +111,8 @@ class OrderStockSaierAdminController extends Controller
       $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
       $buy=Buy::where('stage',3)->where('shop_id' , '!=' , 1)->get();
       $pro=Pro::get();
+      $shop=Shop::get();
+
       return view('management.order_proStockSaier.proceedOrderStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 
     }
@@ -125,43 +136,7 @@ class OrderStockSaierAdminController extends Controller
       $save->date_up=$date;
       $save->save();
     }
-    //ثبت ارسالی ها
-    public function orderErsalSabtStockS(SaveCodeOrderAdmin $request)
-    {
-      $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-      $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-      if(!empty($request->buy_id)){
-        $buy_id=$request->buy_id;
-        $buy=Buy::find($buy_id);
-        if (empty($buy->pro_id)) {
-          return response()->json(['errors' => ['no_order' => [ ]]],422 );
 
-        }elseif($buy->stage==2){
-          //جدید
-          return response()->json(['errors' => ['orderNew' => [ ]]],422 );
-        }
-        elseif($buy->stage==4){
-          //ارسالی
-          return response()->json(['errors' => ['ordersabt' => [ ]]],422 );
-        }
-        elseif($buy->stage==5){
-          //تحویلی
-          return response()->json(['errors' => ['orderEnd' => [ ]]],422 );
-        }
-        elseif($buy->stage==6){
-          //مرجوعی
-          return response()->json(['errors' => ['orderback' => [ ]]],422 );
-        }
-        elseif($buy->stage==7){
-          //مرجوعی تسویه شده
-          return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
-        }
-
-        $pro=Pro::find($buy->pro_id);
-        $shop=Shop::find($buy->shop_id);
-      }
-      return view('management.order_proStockSaier.orderErsalSabtStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
-    }
     public function sabtCodeRahgiryNSS(SaveRahgiryCodeAd $request)
     {
       $buy_id=$request->buy_id;
@@ -399,6 +374,7 @@ class OrderStockSaierAdminController extends Controller
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $buy=Buy::where('stage',7)->where('shop_id' , '!=' , 1)->get();
     $pro=Pro::get();
+    $shop=Shop::get();
     $backPro=BackPro::get();
     return view('management.order_proStockSaier.orderBackEndShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
   }
