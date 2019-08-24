@@ -3,7 +3,7 @@
  @section('title')
   مدیریت :: سفارش مرجوعی تسویه شده
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
   <div class="div_titr">
    نمایش سفارش مرجوعی تسویه شده
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackEndShowAll';">بازگشت</button>

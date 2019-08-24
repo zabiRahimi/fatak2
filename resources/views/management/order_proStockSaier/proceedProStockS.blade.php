@@ -2,7 +2,7 @@
  @section('title')
   مدیریت :: محصولات در حال اقدام
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
 
 <div class="div_titr">
  محصولات در دست اقدام

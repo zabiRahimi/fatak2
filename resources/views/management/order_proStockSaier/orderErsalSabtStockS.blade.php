@@ -3,7 +3,7 @@
  @section('title')
   مدیریت :: ثبت محصول ارسالی
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
   <div class="div_titr">
    ثبت سفارش ارسالی
   </div>

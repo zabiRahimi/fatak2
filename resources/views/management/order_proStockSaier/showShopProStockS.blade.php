@@ -3,7 +3,7 @@
  @section('title')
   مدیریت :: مشخصات فروشنده
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
   <div class="div_titr">
    مشخصات فروشنده
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/{{$page}}';">بازگشت</button>

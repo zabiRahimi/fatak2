@@ -3,7 +3,7 @@
  @section('title')
   مدیریت :: سفارش ارسال شده
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
   <div class="div_titr">
    سفارش ارسال شده
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderErsalShowAll';">بازگشت</button>

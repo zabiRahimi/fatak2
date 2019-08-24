@@ -3,7 +3,7 @@
  @section('title')
   مدیریت :: سفارشات ارسال شده
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
   <div class="div_titr">
    نمایش سفارشات ارسالی
   </div>

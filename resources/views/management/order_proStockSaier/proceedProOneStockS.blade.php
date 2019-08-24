@@ -3,7 +3,7 @@
  @section('title')
   مدیریت :: سفارش در حال اقدام
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
   <div class="div_titr">
    نمایش سفارش
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/proceedPro';">بازگشت</button>

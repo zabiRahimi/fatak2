@@ -3,7 +3,7 @@
  @section('title')
   مدیریت :: سفارش مرجوعی
 @endsection
-@section('show_pro')
+@section('show_stockSaier')
   <div class="div_titr">
    نمایش سفارش مرجوعی
    <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackShowAll';">بازگشت</button>
