@@ -43,28 +43,28 @@ function delBuyOrderNSS(id , page) {
       },
       });
     }
-// function backOrderNSS(id, page) {
-//       $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-//       $.ajax({
-//         type:'post',
-//         url:'../../backOrderNSS/' + id,
-//         data: {
-//
-//              },
-//         success:function(){
-//           $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات موفق بود .</div>');
-//           $('#orderModalPro').modal('show');
-//           $("#orderModalPro").on('hide.bs.modal', function () {
-//           window.location.href  = "/" + page;
-//           });
-//
-//         },
-//         error : function(xhr){
-//           $('#ajaxOrderModalPro').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
-//           $('#orderModalPro').modal('show');
-//         },
-//         });
-//       }
+function backOrderNSS(id, page) {
+      $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+      $.ajax({
+        type:'post',
+        url:'../../backOrderNSS/' + id,
+        data: {
+
+             },
+        success:function(){
+          $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات موفق بود .</div>');
+          $('#orderModalPro').modal('show');
+          $("#orderModalPro").on('hide.bs.modal', function () {
+          window.location.href  = "/" + page;
+          });
+
+        },
+        error : function(xhr){
+          $('#ajaxOrderModalPro').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+          $('#orderModalPro').modal('show');
+        },
+        });
+      }
 
 // function sabtCodeRahgiryNSS(buy_id , page) {
 //           $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});

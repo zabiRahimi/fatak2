@@ -7,3 +7,13 @@
 .orderNewPSS4{width:17%;}
 .orderNewPSS5{width:15%;}
 .orderNewPSS6{width:15%;}
+/* orderErsalShowAllStockS.php */
+.orderErsalPSS1{width: calc( 28% - 40px);}
+.orderErsalPSS1_2{color: #0f3f71;}
+.orderErsalPSS2{width:10%; }
+.orderErsalPSS2_2{color: #0a5336;}
+.orderErsalPSS3{width:15%;}
+.orderErsalPSS4{width:21%;}
+.orderErsalPSS4_2{color: #08325d;}
+.orderErsalPSS5{width:13%;}
+.orderErsalPSS6{width:13%;}

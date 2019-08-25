@@ -237,7 +237,7 @@ Route::get('/order_proStockSaier', 'Admin\OrderStockSaierAdminController@show')-
 Route::get('/showShopProStockS/{shop_id}/{page}', 'Admin\OrderStockSaierAdminController@showShopProStockS')->middleware(['chekloginManeg'])->where('shop_id', '[0-9]+')->where('page', '[0-9 , a-z ,A-Z]+');//ok
 Route::get('/orderNewPStockS', 'Admin\OrderStockSaierAdminController@orderNewPStockS')->middleware(['chekloginManeg']);//ok!!
 Route::get('/orderOneNewPStockS/{buy_id}', 'Admin\OrderStockSaierAdminController@orderOneNewPStockS')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok!!
-Route::post('/orderAghdamNSS/{buy_id}', 'Admin\OrderStockSaierAdminController@orderAghdamNSS')->where('buy_id', '[0-9]+');//ok
+// Route::post('/orderAghdamNSS/{buy_id}', 'Admin\OrderStockSaierAdminController@orderAghdamNSS')->where('buy_id', '[0-9]+');//ok
 Route::post('/delBuyOrderNSS/{buy_id}', 'Admin\OrderStockSaierAdminController@delBuyOrderNSS')->where('buy_id', '[0-9]+');//ok
 Route::get('/proceedOrderStockS', 'Admin\OrderStockSaierAdminController@proceedOrderStockS')->middleware(['chekloginManeg']);//ok
 Route::get('/proceedOrderOneStockS/{buy_id}', 'Admin\OrderStockSaierAdminController@proceedOrderOneStockS')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok

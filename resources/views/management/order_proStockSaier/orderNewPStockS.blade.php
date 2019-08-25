@@ -1,11 +1,11 @@
 {{-- all_edit_pro.css --}}
 @extends('management.order_proStockSaier.layoutOrder_proStockSaier')
  @section('title')
-  مدیریت :: سفارشات
+  مدیریت :: سفارشات جدید
 @endsection
 @section('show_stockSaier')
   <div class="div_titr">
-   نمایش سفارشات
+   نمایش سفارشات جدید
   </div>
   <div class="div_body">
     @if (empty($buy[0]['id']))

@@ -79,16 +79,6 @@ class OrderStockSaierAdminController extends Controller
       $shop=Shop::find($buy->shop_id);
       return view('management.order_proStockSaier.orderOneNewPStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
     }
-    public function orderAghdamNSS(Request $request)
-    {
-      $buy_id=$request->buy_id;
-      $date1=new Verta();//تاریخ جلالی
-      $date=$date1->format('Y/n/j');
-      $save=Buy::find($buy_id);
-      $save->stage=3;
-      $save->date_up=$date;
-      $save->save();
-    }
     public function showShopProStockS(Request $request)
     {
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
@@ -170,6 +160,7 @@ class OrderStockSaierAdminController extends Controller
       $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
       $buy=Buy::where('stage',4)->where('shop_id' , '!=' , 1)->get();
       $pro=Pro::get();
+      $shop=Shop::get();
       return view('management.order_proStockSaier.orderErsalShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
     }
     public function orderErsalShowOneStockS(Request $request)

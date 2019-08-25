@@ -93,19 +93,6 @@
     </div>
   </div>
   {{-- modal --}}
-  {{-- <div class="modal fade" id="orderAghdamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-body orderAghdamModal2 ">
-          <span><b>توجه !!</b> آیا اطلاعات محصول و خریدار را چاپ کرده اید ؟ </span>
-        </div>
-        <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="orderAghdam({{$buy->id}})" data-dismiss="modal"  aria-label="Close">بله</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
-        </div>
-      </div>
-    </div>
-  </div><!--end modal  --> --}}
   <div class="modal fade" id="orderBackModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-xl" role="document">
       <div class="modal-content">
