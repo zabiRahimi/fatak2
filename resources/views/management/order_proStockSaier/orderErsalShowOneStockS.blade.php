@@ -82,26 +82,76 @@
         <div class="buyOneDiv1 orderDivZ0 orderDate1">تلفن <span class="orderDivSpan">:</span></div>
         <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->tel}}</div>
       </div>
-      <div class="buyOneDivP buyOneShopPost">
-        <div class="buyOneDivP1 buyOneShopPost1">نحوه پست درخواستی </div>
-        <div class="buyOneDivP2 buyOneShopPost2"><span>پست {{$buy->post}}</span> </div>
+    </div>{{-- جهت پرینت --}}
+    <div class="divLine"></div>
+    <div id="buyOneDivH2">{{-- جهت پرینت --}}
+      <div class="buyOne2DivTitr">
+        مشخصات فروشنده
+        <span class="codeOrder">
+          <span class="codeOrder1">کد فروشنده :</span>
+          <span class="codeOrder2">{{$shop->id}}</span>
+        </span>
+        <button type="button" class="btn buyOnePrint" onclick="buyOnePrintSh('buyOneDivH2')" >پرینت</button>
+      </div>
+      <div class="buyOneDiv orderDiv orderName">
+        <div class="buyOneDiv1 orderDivZ0 orderName1">نام فروشگاه <span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderName2">{{$shop->shop}}</div>
+      </div>
+      <div class="buyOneDiv orderDiv orderVahed">
+        <div class="buyOneDiv1 orderDivZ0 orderVahed1">فروشنده<span class="orderDivSpan">:</span> </div>
+        <div class="buyOneDiv2 orderDivZ orderVahed2">{{$shop->seller}} </div>
+      </div>
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">موبایل <span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$shop->mobail}}</div>
+      </div>
+      <div class="buyOneDiv orderDiv orderSquad">
+        <div class="buyOneDiv1 orderDivZ0 orderSquad1">تلفن <span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderSquad2">{{$shop->tel}}</div>
+      </div>
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">استان <span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$shop->ostan}}</div>
+      </div>
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">شهر <span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$shop->city}}</div>
+      </div>
+      <div class="buyOneDivA orderDiv2 orderDis">
+        <div class="buyOneDivA1 orderDivZ02 orderDis1">آدرس <span class="orderDivSpan">:</span></div>
+        <div class="buyOneDivA2 orderDivZ2 orderDis2">{{$shop->address}}</div>
+      </div>
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">کد پستی <span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$shop->codepost}}</div>
+      </div>
+
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">رتبه<span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$shop->rank}}</div>
       </div>
     </div>{{-- جهت پرینت --}}
-    <form class="form formAdmin formCodePA" id="form_sabtCodeRahgirySh" action="" method="post">
-       <div class="ajax_form_admin" id="ajax_codeRahgPAA"></div>
-       {{ csrf_field() }}
-       <div class="form-group textAll ">
-          <label for="codeRahgiryOrder" class="control-label pull-right "> کد رهگیری محموله</label>
-          <div class="div_form"><input type="text" class="form-control placeholder" id="codeRahgiryOrder"placeholder="کد رهگیری را وارد کنید .." value="{{$buy->code_rahgiry}}"></div>
-        </div>
-        <div class="form-group textAll ">
-           <label for="datePostOrder" class="control-label pull-right "> تاریخ پست کالا</label>
-           <div class="div_form"><input type="text" class="form-control placeholder" id="datePostOrder"placeholder="فرمت تاریخ 1398/01/01" value="{{$buy->date_post}}"></div>
-         </div>
-        <div class="form-group divSabtForm">
-          <button type="button" class="btn btn-success" onclick="editCodeRahgiryAdmin({{$buy->id}} , 'orderErsalSabt')" >تغییر کد</button>
-        </div>
-      </form>
+    <div class="divLine"></div>
+    <div id="buyOneDivH2">{{-- جهت پرینت --}}
+      <div class="buyOne2DivTitr">
+        مشخصات پست کالا
+        <button type="button" class="btn buyOnePrint" onclick="buyOnePrintSh('buyOneDivH2')" >پرینت</button>
+      </div>
+      <div class="buyOneDiv orderDiv orderName">
+        <div class="buyOneDiv1 orderDivZ0 orderName1">نحوه پست<span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderName2">{{$buy->post}}</div>
+      </div>
+      <div class="buyOneDiv orderDiv orderVahed">
+        <div class="buyOneDiv1 orderDivZ0 orderVahed1">کد رهگیری<span class="orderDivSpan">:</span> </div>
+        <div class="buyOneDiv2 orderDivZ orderVahed2">{{$buy->code_rahgiry}} </div>
+      </div>
+      <div class="buyOneDiv orderDiv orderDate">
+        <div class="buyOneDiv1 orderDivZ0 orderDate1">تاریخ پست<span class="orderDivSpan">:</span></div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->date_post}}</div>
+      </div>
+    </div>{{-- جهت پرینت --}}
+    <div class="divLine"></div>
+
     <div class="orderAghdamP">
       <button type="button"class="btn btn-success orderAghdamP1"onclick=""data-toggle="modal" data-target="#orderAghdamModal">برگشت به سفارشات در دست اقدام</button>
       <button type="button"class="btn btn-danger orderAghdamP2"onclick=""data-toggle="modal" data-target="#orderDelModal1">از سیستم حذف شود</button>
@@ -115,7 +165,7 @@
           <span><b>توجه !!</b> آیا می خواهید این سفارش به سفارشات در دست اقدام برگردد؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="editStageOrderAdmin({{$buy->id}} , 3 , '' , '' , 'orderErsalShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="editStageOrderNSS({{$buy->id}} , 3 , '' , '' , 'orderErsalShowAllStockS')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>
@@ -128,7 +178,7 @@
           <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="delBuyOrderA({{$buy->id}},'orderErsalShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="delBuyOrderNSS({{$buy->id}},'orderErsalShowAllStockS')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>

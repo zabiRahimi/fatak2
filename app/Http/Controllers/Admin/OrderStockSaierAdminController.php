@@ -126,34 +126,6 @@ class OrderStockSaierAdminController extends Controller
       $save->date_up=$date;
       $save->save();
     }
-
-    public function sabtCodeRahgiryNSS(SaveRahgiryCodeAd $request)
-    {
-      $buy_id=$request->buy_id;
-      $code_rahgiry=$request->code_rahgiry;
-      $datePost=$request->datePost;
-      $date1=new Verta();//تاریخ جلالی
-      $date=$date1->format('Y/n/j');
-      $save=Buy::find($buy_id);
-      $save->date_up=$date;
-      $save->code_rahgiry=$code_rahgiry;
-      $save->date_post=$datePost;
-      $save->stage=4;
-      $save->save();
-    }
-    public function editCodeRahgiryNSS(SaveEditRahgiryCodeAd $request)
-    {
-      $buy_id=$request->buy_id;
-      $code_rahgiry=$request->code_rahgiry;
-      $datePost=$request->datePost;
-      $date1=new Verta();//تاریخ جلالی
-      $date=$date1->format('Y/n/j');
-      $save=Buy::find($buy_id);
-      $save->date_up=$date;
-      $save->code_rahgiry=$code_rahgiry;
-      $save->date_post=$datePost;
-      $save->save();
-    }
     public function orderErsalShowAllStockS(Request $request)
     {
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
@@ -227,6 +199,7 @@ class OrderStockSaierAdminController extends Controller
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $buy=Buy::where('stage',5)->where('shop_id' , '!=' , 1)->get();
     $pro=Pro::get();
+    $shop=Shop::get();
     return view('management.order_proStockSaier.orderSabtEndShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
   }
   public function orderSabtEndShowOneStockS(Request $request)
@@ -310,6 +283,7 @@ class OrderStockSaierAdminController extends Controller
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $buy=Buy::where('stage',6)->where('shop_id' , '!=' , 1)->get();
     $pro=Pro::get();
+    $shop=Shop::get();
     $backPro=BackPro::get();
     return view('management.order_proStockSaier.orderBackShowAllStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop','backPro'));
   }

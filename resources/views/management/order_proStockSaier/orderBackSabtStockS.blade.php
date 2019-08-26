@@ -16,7 +16,7 @@
           <div class="div_form"><input type="text" class="form-control placeholder" id="code_ersalOrder"placeholder="کد سفارش را وارد کنید .." value=""></div>
         </div>
         <div class="form-group divSabtForm">
-          <button type="button" class="btn btn-success" onclick="orderBackSabt()" >ثبت و جستجو</button>
+          <button type="button" class="btn btn-success" onclick="orderBackSabtStockS()" >ثبت و جستجو</button>
         </div>
       </form>
       @if (!empty($buy_id))
@@ -122,7 +122,7 @@
              </div>
 
             <div class="form-group divSabtForm">
-              <button type="button" class="btn btn-success" onclick="orderBackSave({{$buy->id}} ,{{$buy->pro_id}} ,{{$buy->shop_id}})" >ثبت اطلاعات</button>
+              <button type="button" class="btn btn-success" onclick="orderBackSaveStockS({{$buy->id}} ,{{$buy->pro_id}} ,{{$buy->shop_id}})" >ثبت اطلاعات</button>
             </div>
           </form>
 

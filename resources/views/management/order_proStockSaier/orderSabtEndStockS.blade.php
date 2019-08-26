@@ -16,7 +16,7 @@
           <div class="div_form"><input type="text" class="form-control placeholder" id="code_ersalOrder"placeholder="کد سفارش را وارد کنید .." value=""></div>
         </div>
         <div class="form-group divSabtForm">
-          <button type="button" class="btn btn-success" onclick="orderSabtEnd()" >ثبت و جستجو</button>
+          <button type="button" class="btn btn-success" onclick="orderSabtEndStockS()" >ثبت و جستجو</button>
         </div>
       </form>
       @if (!empty($buy_id))
@@ -101,7 +101,8 @@
 
         </div>
         <div class="orderAghdam">
-          <button type="button"class="btn btn-success orderAghdam1"onclick="editStageOrderAdmin({{$buy->id}} , 5 , {{$buy->code_rahgiry}}, '{{$buy->date_post}}','orderSabtEnd')">به عنوان سفارش تحویلی ثبت شود</button>
+          {{-- , 5 , {{$buy->code_rahgiry}}, '{{$buy->date_post}}','orderSabtEndStockS' --}}
+          <button type="button"class="btn btn-success orderAghdam1"onclick="editStageOrderNSS({{$buy->id}}, 5 , {{$buy->code_rahgiry}}, '{{$buy->date_post}}','orderSabtEndStockS')">به عنوان سفارش تحویلی ثبت شود</button>
         </div>
 
       @endif

@@ -5,8 +5,8 @@
 @endsection
 @section('show_stockSaier')
   <div class="div_titr">
-   نمایش سفارش مرجوعی
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackShowAll';">بازگشت</button>
+   نمایش سفارش مرجوعی (سایر فروشگاها)
+   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackShowAllStockS';">بازگشت</button>
   </div>
   <div class="div_body ">
       <div class="buyOneDivTitr">

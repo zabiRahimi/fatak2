@@ -243,10 +243,8 @@ Route::get('/proceedOrderStockS', 'Admin\OrderStockSaierAdminController@proceedO
 Route::get('/proceedOrderOneStockS/{buy_id}', 'Admin\OrderStockSaierAdminController@proceedOrderOneStockS')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::post('/backOrderNSS/{buy_id}', 'Admin\OrderStockSaierAdminController@backOrderNSS')->where('buy_id', '[0-9]+');//ok
 // Route::get('/orderErsalSabtStockS/{buy_id?}', 'Admin\OrderStockSaierAdminController@orderErsalSabtStockS')->middleware(['chekloginManeg']);//ok
-Route::post('/sabtCodeRahgiryNSS', 'Admin\OrderStockSaierAdminController@sabtCodeRahgiryNSS');//ok
 Route::get('/orderErsalShowAllStockS', 'Admin\OrderStockSaierAdminController@orderErsalShowAllStockS')->middleware(['chekloginManeg']);//ok
 Route::get('/orderErsalShowOneStockS/{buy_id}','Admin\OrderStockSaierAdminController@orderErsalShowOneStockS')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
-Route::post('/editCodeRahgiryNSS', 'Admin\OrderStockSaierAdminController@editCodeRahgiryNSS');//ok
 Route::post('/editStageOrderNSS', 'Admin\OrderStockSaierAdminController@editStageOrderNSS');//ok
 Route::get('/orderSabtEndStockS/{buy_id?}', 'Admin\OrderStockSaierAdminController@orderSabtEndStockS')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 Route::get('/orderSabtEndShowAllStockS', 'Admin\OrderStockSaierAdminController@orderSabtEndShowAllStockS')->middleware(['chekloginManeg']);//ok
