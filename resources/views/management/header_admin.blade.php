@@ -22,10 +22,12 @@
     <li>سفارشات
         <i class='fas fa-angle-down i_HA' ></i>
         <ul class="header_ad_ul2">
-          <a href="/order_proStockFatak"><li>سفارش محصولات موجود fatak</li></a>
-          <a href="/order_proStockSaier"><li>سفارش محصولات موجود سایر</li></a>
-          <a href="/all_edit_channel"><li>fghسفارش محصولات موجود سایر</li></a>
-          <a href="/order_proUnStock"><li>سفارش محصولات ناموجود</li></a>
+          <a href="/order_proStockFatak"><li>سفارش محصولات ثابت فاتک</li></a>
+          <a href="/order_proUnStockFatak"><li>سفارش محصولات غیر ثابت فاتک</li></a>
+
+          <a href="/order_proStockSaier"><li>سفارش محصولات موجود فروشگاها</li></a>
+          <a href="/order_proUnStockSaier"><li>سفارش محصولات غیر ثابت فروشگاها</li></a>
+
         </ul>
     </li>
     <a href="/channel_admin" class=""><li>شبکه اجتماعی</li></a>

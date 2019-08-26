@@ -5,8 +5,8 @@
 @endsection
 @section('show_stockSaier')
   <div class="div_titr">
-   نمایش سفارش مرجوعی تسویه شده
-   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackEndShowAll';">بازگشت</button>
+   نمایش سفارش مرجوعی تسویه شده (سایر فروشگاها)
+   <button type="button" class="btn btn-primary btnBack" onclick="window.location='/orderBackEndShowAllStockS';">بازگشت</button>
   </div>
   <div class="div_body ">
       <div class="buyOneDivTitr">
@@ -81,46 +81,4 @@
         <div class="buyOneDiv2 orderDivZ orderDate2">{{number_format($buy->price_post)}} تومان</div>
       </div>
   </div>
-  {{-- modal --}}
-  <div class="modal fade" id="orderAghdamModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-body orderAghdamModal2 ">
-          <span><b>توجه !!</b> آیا می خواهید این سفارش را به سفارشات ارسالی باز گردانید ؟ </span>
-        </div>
-        <div class="orderAghdamModal3">
-          {{-- editStageOrderAdmin({{$buy->id}} , 4 ,{{$buy->code_rahgiry}}, {{$buy->date_post}} , orderBackShowAll); --}}
-            <button type="button" class="btn btn-primary"onclick="delOrderBack({{$buy->id}},{{$backPro->id}},'','orderBackShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
-        </div>
-      </div>
-    </div>
-  </div><!--end modal  -->
-  <div class="modal fade" id="orderDelModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-body orderAghdamModal2 ">
-          <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
-        </div>
-        <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="delOrderBack({{$buy->id}},{{$backPro->id}},'ok','orderBackShowAll')" data-dismiss="modal"  aria-label="Close">بله</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
-        </div>
-      </div>
-    </div>
-  </div><!--end modal  -->
-  <div class="modal fade" id="orderModalPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-xl" role="document">
-      <div class="modal-content">
-        <div class="modal-body orderAghdamModal2 ">
-          <div id="ajaxOrderModalPro">
-
-          </div>
-        </div>
-        <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary" data-dismiss="modal"  aria-label="Close">متوجه شدم !!</button>
-        </div>
-      </div>
-    </div>
-  </div><!--end modal  -->
 @endsection
