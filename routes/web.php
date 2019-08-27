@@ -139,8 +139,6 @@ Route::get('/management', 'Admin\ManagementController@page_login');//ok
 Route::post('/loginManage', 'Admin\ManagementController@loginManage');//ok
 Route::get('/logoutManeg', 'Admin\ManagementController@logoutManeg')->middleware(['chekloginManeg']);//ok!!
 Route::get('/dashbordAdmin', 'Admin\ManagementController@dashbordAdmin')->middleware(['chekloginManeg']);//ok!!
-
-
 Route::get('/pro_admin', 'Admin\Pro_adController@show')->middleware(['chekloginManeg']);//ok!!
 Route::post('/uplod_img_pro', 'Admin\Pro_adController@uplod_img_pro');//ok
 Route::get('/article_admin', 'Admin\Pro_adController@show')->middleware(['chekloginManeg']);//ok!!
@@ -232,6 +230,9 @@ Route::post('/orderBackEditStockF', 'Admin\OrderStockFatakAdminController@orderB
 Route::post('/delOrderBackStockF/{buy_id}/{backPro_id}/{delBuy?}', 'Admin\OrderStockFatakAdminController@delOrderBackStockF')->where('buy_id', '[0-9]+')->where('backPro_id', '[0-9]+')->where('delBuy', '[0-9 , a-z ,A-Z]+');//ok
 Route::get('/orderBackEndShowAllStockF', 'Admin\OrderStockFatakAdminController@orderBackEndShowAllStockF')->middleware(['chekloginManeg']);//ok
 Route::get('/orderBackEndShowOneStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderBackEndShowOneStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
+// سفارشات غیر ثابت فاتک Unstock
+Route::get('/order_proUnStockFatak', 'Admin\OrderUnStockFatakAdminController@show')->middleware(['chekloginManeg']);//ok!!
+
 //pro stock admin سفارشات موجود سایر فروشگاهها
 Route::get('/order_proStockSaier', 'Admin\OrderStockSaierAdminController@show')->middleware(['chekloginManeg']);//ok!!
 Route::get('/showShopProStockS/{shop_id}/{page}', 'Admin\OrderStockSaierAdminController@showShopProStockS')->middleware(['chekloginManeg'])->where('shop_id', '[0-9]+')->where('page', '[0-9 , a-z ,A-Z]+');//ok
