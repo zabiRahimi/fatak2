@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Hash;
 use Cookie;
 use DB;
 use App\Models\Admin\Management;
+use App\Models\Order;
 use App\Models\Channel;
 use App\Models\Ch_view;//بازدیدها و خریدهای شبکه
 use App\Models\Income;
@@ -55,8 +56,25 @@ class OrderUnStockFatakAdminController extends Controller
   public function show(Request $request){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-
+    $dateA=new Verta();//تاریخ جلالی
+    $dateB=$dateA->format('Y/n/j');
+    $dateC=$dateA->subDay()->format('Y/n/j');
+    $v=$dateA->subDay(30)->formatJalaliDate();
     // $show_img=Imgpro::where('show' , 1)->get();
-    return view('management.order_proUnStockFatak.order_proUnStockFatak' , compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount'));
+    return view('management.order_proUnStockFatak.order_proUnStockFatak' , compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','v'));
+  }
+  public function orderNewPUnStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+      $dateA=new Verta();//تاریخ جلالی
+      $dateB=$dateA->format('Y/n/j');
+      $dateC=$dateA->subDay()->format('Y/n/j');
+      $date30=$dateA->subDay(30)->format('Y/n/j');
+      $newOrder=Order::whereBetween('date_up' , [$date30,$dateB])->get();
+
+
+    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder'));
+
   }
 }

@@ -232,6 +232,17 @@ Route::get('/orderBackEndShowAllStockF', 'Admin\OrderStockFatakAdminController@o
 Route::get('/orderBackEndShowOneStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderBackEndShowOneStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 // سفارشات غیر ثابت فاتک Unstock
 Route::get('/order_proUnStockFatak', 'Admin\OrderUnStockFatakAdminController@show')->middleware(['chekloginManeg']);//ok!!
+Route::get('/orderNewPUnStockF', 'Admin\OrderUnStockFatakAdminController@orderNewPUnStockF')->middleware(['chekloginManeg']);//ok!!
+
+
+
+
+
+
+
+
+
+
 
 //pro stock admin سفارشات موجود سایر فروشگاهها
 Route::get('/order_proStockSaier', 'Admin\OrderStockSaierAdminController@show')->middleware(['chekloginManeg']);//ok!!

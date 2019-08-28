@@ -28,6 +28,7 @@
         <link href="\css\admin\channelAdmin.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\shop_admin.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\order_proStockFatak.css" rel="stylesheet" type="text/css">
+        <link href="\css\admin\order_proUnStockFatak.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\order_proStockSaier.css" rel="stylesheet" type="text/css">
     </head>
     <body>
@@ -51,6 +52,7 @@
         <script type="text/javascript" src="\js\admin\channel_admin.js"></script>
         <script type="text/javascript" src="\js\admin\shop_admin.js"></script>
         <script type="text/javascript" src="\js\admin\orderNewPStockF.js"></script>
+        <script type="text/javascript" src="\js\admin\orderNewPUnStockF.js"></script>
         <script type="text/javascript" src="\js\admin\orderNewPStockS.js"></script>
         <script type="text/javascript">
            $(function() { $('.editor').froalaEditor() });

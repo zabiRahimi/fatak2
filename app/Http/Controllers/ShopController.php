@@ -52,8 +52,8 @@ class ShopController extends Controller
     $this->stage=$user->stage;
     $this->seller=$user->seller;
     $dateA=new Verta();//تاریخ جلالی
-    $dateB=$dateA->format('Y/n/j');
-    $date30=$dateA->subDay(30)->format('Y/n/j');
+    $dateB=$dateA->formatJalaliDate();
+    $date30=$dateA->subDay(30)->formatJalaliDate();
     $proShop=proShop::where('shop_id',$id)->get();
     $order=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->get();
     $orderNum=0;
@@ -221,9 +221,9 @@ class ShopController extends Controller
     $GLOBALS['proShop2']  =$request->cookie('proShop');
     $search_proA =$request->cookie('proShop');
     $dateA=new Verta();//تاریخ جلالی
-    $dateB=$dateA->format('Y/n/j');
-    $dateC=$dateA->subDay()->format('Y/n/j');
-    $date30=$dateA->subDay(30)->format('Y/n/j');
+    $dateB=$dateA->formatJalaliDate();
+    $dateC=$dateA->subDay()->formatJalaliDate();
+    $date30=$dateA->subDay(30)->formatJalaliDate();
     $stage=$this->stage;
     $seller=$this->seller;
     $orderNum=$this->orderNum;
@@ -273,6 +273,7 @@ class ShopController extends Controller
       }
     }
     else {
+      //
       $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
         $citySeSh=$GLOBALS['citySeSh'];

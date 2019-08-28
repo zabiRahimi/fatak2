@@ -99,9 +99,18 @@ display:inline;
 .btnBack{height: 32px;margin-top:2px; float: left;}
 .div_body{width: 100%; margin: 7px 0; padding: 3px;border:1px solid #b9b9b9;border-radius: 4px;float: right;text-align: right;}
 .divLine{width:99%;margin: 25px 0.5%; float: right;border: 3px solid #032416; border-radius: 3px;}
+.div_map{width: 100%;margin: 0;padding: 0 12px; height: 27px;line-height: 26px; text-align: right;float: right;background-color: #d0e8bb; color:#2a4e0b; border-radius: 4px;font-size: 14px;}
 .span_code{height: 26px;line-height:26px; margin: 6px 10px;padding: 0 10px;display: inline-block;border: 1px solid #a4a4a4;border-radius: 8px;background-color: #bff0f5;color: #616161;}
 .span_code1{color: #051960;}
 .span_code2{color: #2f0560;}
+.div_search{width: 100%;margin: 2px 0;padding: 0;float: right;}
+.byn_search{float: right;margin: 3px 0 0 3px; background-color: #afcbe3;}
+.div_search_form_date{height:36px;line-height:36px;margin: 3px 0 0 3px;float: right;padding: 0 3px;border: 1px solid #bababa; background-color: #d0d0d0;border-radius: 4px;}
+.input_day_date{width: 30px;height: 30px;text-align: center;border-radius: 3px;border: none;}
+.input_month_date{width:30px;height: 30px;text-align: center;border-radius: 3px;border: none;}
+.input_year_date{width:60px;height: 30px;text-align: center;border-radius: 3px;border: none;}
+.btn_date{height: 30px;padding-top: 0;padding-bottom: 0;background-color: #afcbe3;}
+.btn_date i{position: relative;top: 4px;color: #09497e;}
 /* دایو تیتر جهت این پوت آمار */
 .div_input{margin: 3px 0 0;font-size: 14px; padding: 0 2px;background-color: #5acb73; border-color:#288b3e; }
 .divRow{width: 100%; margin: 6px 0 10px;font-size: 16px; float: right; text-align: right;}

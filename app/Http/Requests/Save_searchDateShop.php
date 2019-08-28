@@ -24,8 +24,8 @@ class Save_searchDateShop extends FormRequest
     public function rules()
     {
         return [
-          'date1'=>'required|date_format:Y-m-d',
-          'date2'=>'required|date_format:Y-m-d',
+          'date1'=>'required|jdate:Y/m/d',
+          'date2'=>'required|jdate:Y/m/d',
         ];
     }
 }

@@ -43,7 +43,7 @@ class OrderController extends Controller
     public function sabtOrderSave(Save_order1 $request)
     {
       $date1=new Verta();//تاریخ جلالی
-      $date=$date1->format('Y/n/j');
+      $date=$date1->formatJalaliDate();
       $save=new Order();
       $save->name=$request->namePro;
       $save->squad=$request->squad;

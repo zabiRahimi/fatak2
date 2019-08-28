@@ -23,8 +23,8 @@ class CreateOrdersTable extends Migration
             $table->string('mobail',12);
             $table->string('ostan',30);
             $table->string('city',30);
-            $table->date('date_ad');
-            $table->date('date_up');
+            $table->string('date_ad',14);
+            $table->string('date_up',14);
             $table->boolean('stage');
             $table->boolean('show');
         });

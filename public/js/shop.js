@@ -795,16 +795,17 @@ function SearchPayShop() {
                  }  });
           }
 function searchShop() {
-  var day1=$('#searchShopDay1').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
-  var month1=$('#searchShopMonth1').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
+  var day1=$('#searchShopDay1').val();
+  //var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
+  var month1=$('#searchShopMonth1').val();//var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
   var year1=$('#searchShopYear1').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
-  var day2=$('#searchShopDay2').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
-  var month2=$('#searchShopMont2').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
+  var day2=$('#searchShopDay2').val();//var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
+  var month2=$('#searchShopMont2').val();//var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
   var year2=$('#searchShopYear2').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
 
-  var date1=year1+'-'+month1+'-'+day1;
+  var date1=year1+'/'+month1+'/'+day1;
   // var date1='1360/12/03';
-  var date2=year2+'-'+month2+'-'+day2;
+  var date2=year2+'/'+month2+'/'+day2;
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',

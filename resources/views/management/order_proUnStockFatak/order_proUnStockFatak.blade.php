@@ -9,7 +9,7 @@
 
 
 <div class="div_body">
-
+{{$v}}
 </div>
 
 
