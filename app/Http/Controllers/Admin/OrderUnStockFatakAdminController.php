@@ -68,13 +68,75 @@ class OrderUnStockFatakAdminController extends Controller
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
       $dateA=new Verta();//تاریخ جلالی
-      $dateB=$dateA->format('Y/n/j');
-      $dateC=$dateA->subDay()->format('Y/n/j');
-      $date30=$dateA->subDay(30)->format('Y/n/j');
-      $newOrder=Order::whereBetween('date_up' , [$date30,$dateB])->get();
+      $GLOBALS['today']=$dateA->format('Y/n/j');
+      $GLOBALS['yesterday']=$dateA->subDay()->format('Y/n/j');
+      $GLOBALS['month']=$dateA->subDay(30)->format('Y/n/j');
 
+      $proS=$request->cookie('proSCONPUSF');$GLOBALS['proS']=$request->cookie('proSCONPUSF');
+      $dateDay=$request->cookie('dateSCONPUSF');$GLOBALS['dateDay']=$request->cookie('dateSCONPUSF');
+      $GLOBALS['date1']=$request->cookie('date_1_SCONPUSF');
+      $GLOBALS['date2']=$request->cookie('date_2_SCONPUSF');
 
-    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder'));
+      $odtanAndCity=$request->cookie('ostanAndCityOkSCONPUSF');
+      $GLOBALS['ostan']=$request->cookie('ostanSCONPUSF');
+      $GLOBALS['city']=$request->cookie('citySCONPUSF');
+      if(!empty($proS) or !empty($dateDay) or !empty($odtanAndCitys)){
+
+        $newOrder=Order::where(function($query){
+          $proS=$GLOBALS['proS'];
+          $dateDay=$GLOBALS['dateDay'];
+          $today=$GLOBALS['today'];
+          $yesterday=$GLOBALS['yesterday'];
+          $month=$GLOBALS['month'];
+          $date1=$GLOBALS['date1'];
+          $date2=$GLOBALS['date2'];
+          $ostan=$GLOBALS['ostan'];
+          $city=$GLOBALS['city'];
+         if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
+         if($dateDay=='today' ){$query->where( 'date_up' , $today);}
+         if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
+         if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
+         if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
+         if($ostan!='no' ){$query->where('ostan' ,"like", "%$ostan%");}
+         if($city!='no' ){$query->where('city' ,"like", "%$city%");}
+       })->orderby('date_up', 'DESC')->get();
+
+      }
+      else{
+        // $newOrder=Order::whereBetween('date_up' , [$date30,$dateB])->get();
+      $newOrder=Order::get();
+      }
+
+    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','dateDay'));
 
   }
-}
+  public function pro_searchNPUF(Request $request)
+  {
+    $this->validate($request, ['pro' => 'required',]);
+    Cookie::queue('proSCONPUSF', $request->pro);
+  }
+  public function allPro_searchNPUF(Request $request)
+  {
+    Cookie::queue('proSCONPUSF', '',time() - 3600);
+  }
+  public function date_searchNPUF(Request $request)
+  {
+    $this->validate($request, ['day' => 'required',]);
+    Cookie::queue('dateSCONPUSF', $request->day);
+  }
+  // از تاریخ تا تاریخ
+  public function fromDAte_searchNPUF(Request $request)
+  {
+    $this->validate($request, ['date1' => 'required|jdate:Y/m/d','date2' => 'required|jdate:Y/m/d',]);
+    Cookie::queue('dateSCONPUSF', 'fromDAte');
+    Cookie::queue('date_1_SCONPUSF', $request->date1);
+    Cookie::queue('date_2_SCONPUSF', $request->date2);
+  }
+  public function ostan_searchNPUF(Request $request)
+  {
+    $this->validate($request, ['osatn' => 'required','city' => 'required',]);
+    Cookie::queue('ostanAndCityOkSCONPUSF', 'ok');
+    Cookie::queue('ostanSCONPUSF', $request->osatn);
+    Cookie::queue('citySCONPUSF', $request->city);
+  }
+}//end class
