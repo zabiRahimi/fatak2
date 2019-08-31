@@ -7,7 +7,6 @@
    سفارشات جدید غیر ثابت
   </div>
   <div class="div_body">
-      {{$os}}
       <div class="div_search">
         <button type="button" class="btn byn_search" onclick="allPro_searchNPUF()">همه محصولات</button>
         <div class="div_search_form_date" action="index.html" method="post">
@@ -87,7 +86,14 @@
         </div>
       </div>
       <div class="div_map">
-        سفارشات 30 روز اخیر
+        @if ($mapId)
+          <span>{{$mapId}}</span>
+        @else
+        <span>{{$mapPro}} ,</span>
+        <span> {{$mapDate}} ,</span>
+        <span> {{$mapOstan}} ,</span>
+        <span> {{$mapCity}}</span>
+        @endif
       </div>
       @if (empty($newOrder[0]['id']))
         <div class="div_alert alert alert-danger">

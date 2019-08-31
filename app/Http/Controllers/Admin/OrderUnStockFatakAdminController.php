@@ -65,24 +65,34 @@ class OrderUnStockFatakAdminController extends Controller
   }
   public function orderNewPUnStockF(Request $request)
   {
-    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+      $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+      $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
       $dateA=new Verta();//تاریخ جلالی
       $today=$dateA->format('Y/n/j');$GLOBALS['today']=$dateA->format('Y/n/j');
       $GLOBALS['yesterday']=$dateA->subDay()->format('Y/n/j');
       $month=$dateA->subDay(30)->format('Y/n/j');$GLOBALS['month']=$dateA->subDay(30)->format('Y/n/j');
 
       $order_id=$request->order_id;
+      $mapId = ($order_id) ? 'سفارش با کد'.' '.$order_id : null ;
 
       $proS=$request->cookie('proSCONPUSF');$GLOBALS['proS']=$request->cookie('proSCONPUSF');
+      $mapPro = ($proS) ? 'محصول' . ' ' . $proS : 'همه محصولات' ;
       $dateDay=$request->cookie('dateSCONPUSF');$GLOBALS['dateDay']=$request->cookie('dateSCONPUSF');
       $GLOBALS['date1']=$request->cookie('date_1_SCONPUSF');
       $GLOBALS['date2']=$request->cookie('date_2_SCONPUSF');
-
+      $mapDate = ($proS) ? 'محصول' . ' ' . $proS : 'همه محصولات' ;
+      switch ($dateDay) {
+        case 'all':$mapDate='همه تاریخ ها';break;
+        case 'today':$mapDate='سفارشات امروز';break;
+        case 'yesterday':$mapDate='سفارشات دیروز';break;
+        case 'fromDAte':$mapDate='سفارشات از تاریخ ' . $GLOBALS['date1'] . ' تا ' . $GLOBALS['date2'];break;
+        default:$mapDate='سفارشات 30 روز اخیر';break;
+      }
       $odtanAndCity=$request->cookie('ostanAndCityOkSCONPUSF');
       $GLOBALS['ostan']=$request->cookie('ostanSCONPUSF');
-      $os=$odtanAndCity;////
+      $mapOstan = ($GLOBALS['ostan']) ? 'استان'. ' ' . $GLOBALS['ostan'] : 'همه استان' ;
       $GLOBALS['city']=$request->cookie('citySCONPUSF');
+      $mapCity= ($GLOBALS['city']) ? 'شهر' . ' ' . $GLOBALS['city'] : 'همه شهرها' ;
       if(!empty($order_id)){
         $newOrder=Order::where('id' , $order_id)->get();
       }
@@ -113,7 +123,7 @@ class OrderUnStockFatakAdminController extends Controller
         $newOrder=Order::whereBetween('date_up' , [$month,$today])->orderby('date_up', 'DESC')->get();
       }
 
-    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','os'));
+    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','mapId','mapPro','mapDate','mapOstan','mapCity'));
 
   }
   public function pro_searchNPUF(Request $request)

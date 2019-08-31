@@ -105,3 +105,7 @@ function AllCiyt_searchNPUF() {
     },
     });
 }
+function id_searchNPUF() {
+  var order_id=$('#id_searchNPUF').val();
+  window.location='/orderNewPUnStockF/' +order_id ;
+}
