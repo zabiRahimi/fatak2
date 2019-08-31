@@ -69,11 +69,35 @@ function ostan_searchNPUF() {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../fromDAte_searchNPUF',
+    url:'../../ostan_searchNPUF',
     data: {
-      date1:date1,
-      date2:date2,
+      osatn:$('#searchNPUFOstan').val(),
+      city:$('#searchNPUFCity').val(),
          },
+    success:function(){
+      window.location.href  = "/orderNewPUnStockF";
+    },
+    error : function(xhr){
+    },
+    });
+}
+function AllOstan_searchNPUF() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../AllOstan_searchNPUF',
+    success:function(){
+      window.location.href  = "/orderNewPUnStockF";
+    },
+    error : function(xhr){
+    },
+    });
+}
+function AllCiyt_searchNPUF() {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../../AllCiyt_searchNPUF',
     success:function(){
       window.location.href  = "/orderNewPUnStockF";
     },

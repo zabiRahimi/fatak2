@@ -7,7 +7,7 @@
    سفارشات جدید غیر ثابت
   </div>
   <div class="div_body">
-      {{$dateDay}}
+      {{$os}}
       <div class="div_search">
         <button type="button" class="btn byn_search" onclick="allPro_searchNPUF()">همه محصولات</button>
         <div class="div_search_form_date" action="index.html" method="post">
@@ -15,8 +15,8 @@
           <button type="button" class="btn_date btn" onclick="pro_searchNPUF()"><i class="fas fa-search"></i></button>
         </div>
         <div class="div_search_form_date" action="index.html" method="post">
-          <input type="text" class="input_date input_code_date placeholder" id="" placeholder="کد سفارش">
-          <button type="button" class="btn_date btn"><i class="fas fa-search"></i></button>
+          <input type="text" class="input_date input_code_date placeholder"  id="id_searchNPUF" placeholder="کد سفارش">
+          <button type="button" class="btn_date btn"onclick="id_searchNPUF() "><i class="fas fa-search"></i></button>
         </div>
         </div>
         <div class="div_search">
@@ -41,11 +41,11 @@
          --}}
          </div>
          <div class="div_search">
-         <button type="button" class="btn byn_search">همه استان ها</button>
+         <button type="button" class="btn byn_search" onclick="AllOstan_searchNPUF()">همه استان ها</button>
 
-         <button type="button" class="btn byn_search">همه شهرها</button>
+         <button type="button" class="btn byn_search" onclick="AllCiyt_searchNPUF()  ">همه شهرها</button>
         <div class="div_search_form_date"  method="post">
-            <select class=" select_search_date"id="vahed_addpro1_admin">
+            <select class=" select_search_date"id="searchNPUFOstan">
               <option value="">انتخاب استان</option>
               <option value="اردبیل" onclick="show_city('ostan1');searchOstanShop('اردبیل')">اردبیل</option>
               <option value="اصفهان" onclick="show_city('ostan2');searchOstanShop('اصفهان')">اصفهان</option>
@@ -79,11 +79,11 @@
               <option value="همدان" onclick="show_city('ostan30');searchOstanShop('همدان')">همدان</option>
               <option value="یزد" onclick="show_city('ostan31');searchOstanShop('یزد')">یزد</option>
             </select>
-            <select class=" select_search_date"id="vahed_addpro1_admin">
+            <select class=" select_search_date"id="searchNPUFCity">
               <option value="allCity">همه شهرها</option>
               @include('show_city2')
             </select>
-          <button type="button" class="btn_date btn"><i class="fas fa-search"></i></button>
+          <button type="button" class="btn_date btn" onclick="ostan_searchNPUF()"><i class="fas fa-search"></i></button>
         </div>
       </div>
       <div class="div_map">

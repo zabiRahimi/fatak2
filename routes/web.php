@@ -232,12 +232,14 @@ Route::get('/orderBackEndShowAllStockF', 'Admin\OrderStockFatakAdminController@o
 Route::get('/orderBackEndShowOneStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderBackEndShowOneStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok
 // سفارشات غیر ثابت فاتک Unstock
 Route::get('/order_proUnStockFatak', 'Admin\OrderUnStockFatakAdminController@show')->middleware(['chekloginManeg']);//ok!!
-Route::get('/orderNewPUnStockF', 'Admin\OrderUnStockFatakAdminController@orderNewPUnStockF')->middleware(['chekloginManeg']);//ok!!
+Route::get('/orderNewPUnStockF/{order_id?}', 'Admin\OrderUnStockFatakAdminController@orderNewPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+');//ok!!
 Route::post('/pro_searchNPUF', 'Admin\OrderUnStockFatakAdminController@pro_searchNPUF');//ok
 Route::post('/allPro_searchNPUF', 'Admin\OrderUnStockFatakAdminController@allPro_searchNPUF');//ok
 Route::post('/date_searchNPUF', 'Admin\OrderUnStockFatakAdminController@date_searchNPUF');//ok
 Route::post('/fromDAte_searchNPUF', 'Admin\OrderUnStockFatakAdminController@fromDAte_searchNPUF');//ok
 Route::post('/ostan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@ostan_searchNPUF');//ok
+Route::post('/AllOstan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllOstan_searchNPUF');//ok
+Route::post('/AllCiyt_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllCiyt_searchNPUF');//ok
 
 
 

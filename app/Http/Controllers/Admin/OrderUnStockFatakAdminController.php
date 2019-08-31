@@ -68,9 +68,11 @@ class OrderUnStockFatakAdminController extends Controller
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
       $dateA=new Verta();//تاریخ جلالی
-      $GLOBALS['today']=$dateA->format('Y/n/j');
+      $today=$dateA->format('Y/n/j');$GLOBALS['today']=$dateA->format('Y/n/j');
       $GLOBALS['yesterday']=$dateA->subDay()->format('Y/n/j');
-      $GLOBALS['month']=$dateA->subDay(30)->format('Y/n/j');
+      $month=$dateA->subDay(30)->format('Y/n/j');$GLOBALS['month']=$dateA->subDay(30)->format('Y/n/j');
+
+      $order_id=$request->order_id;
 
       $proS=$request->cookie('proSCONPUSF');$GLOBALS['proS']=$request->cookie('proSCONPUSF');
       $dateDay=$request->cookie('dateSCONPUSF');$GLOBALS['dateDay']=$request->cookie('dateSCONPUSF');
@@ -79,8 +81,12 @@ class OrderUnStockFatakAdminController extends Controller
 
       $odtanAndCity=$request->cookie('ostanAndCityOkSCONPUSF');
       $GLOBALS['ostan']=$request->cookie('ostanSCONPUSF');
+      $os=$odtanAndCity;////
       $GLOBALS['city']=$request->cookie('citySCONPUSF');
-      if(!empty($proS) or !empty($dateDay) or !empty($odtanAndCitys)){
+      if(!empty($order_id)){
+        $newOrder=Order::where('id' , $order_id)->get();
+      }
+      elseif(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
 
         $newOrder=Order::where(function($query){
           $proS=$GLOBALS['proS'];
@@ -96,18 +102,18 @@ class OrderUnStockFatakAdminController extends Controller
          if($dateDay=='today' ){$query->where( 'date_up' , $today);}
          if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
          if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
+         if(empty($dateDay)){$query->whereBetween('date_up' , [$month,$today]);}
          if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
-         if($ostan!='no' ){$query->where('ostan' ,"like", "%$ostan%");}
-         if($city!='no' ){$query->where('city' ,"like", "%$city%");}
+         if(!empty($ostan)){$query->where('ostan' ,"like", "%$ostan%");}
+         if(!empty($city)){$query->where('city' ,"like", "%$city%");}
        })->orderby('date_up', 'DESC')->get();
 
       }
       else{
-        // $newOrder=Order::whereBetween('date_up' , [$date30,$dateB])->get();
-      $newOrder=Order::get();
+        $newOrder=Order::whereBetween('date_up' , [$month,$today])->orderby('date_up', 'DESC')->get();
       }
 
-    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','dateDay'));
+    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','os'));
 
   }
   public function pro_searchNPUF(Request $request)
@@ -134,9 +140,19 @@ class OrderUnStockFatakAdminController extends Controller
   }
   public function ostan_searchNPUF(Request $request)
   {
-    $this->validate($request, ['osatn' => 'required','city' => 'required',]);
+    $this->validate($request, ['osatn' => 'required|farsi','city' => 'nullable|farsi',]);
     Cookie::queue('ostanAndCityOkSCONPUSF', 'ok');
     Cookie::queue('ostanSCONPUSF', $request->osatn);
     Cookie::queue('citySCONPUSF', $request->city);
+  }
+  public function AllOstan_searchNPUF(Request $request)
+  {
+    Cookie::queue('ostanAndCityOkSCONPUSF', '',time() - 3600);
+    Cookie::queue('ostanSCONPUSF','',time() - 3600);
+    Cookie::queue('citySCONPUSF','',time() - 3600);
+  }
+  public function AllCiyt_searchNPUF(Request $request)
+  {
+    Cookie::queue('citySCONPUSF', '',time() - 3600);
   }
 }//end class
