@@ -1,3 +1,122 @@
+Dropzone.options.MimgOONPUSF1 = {
+
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+
+    $("#AimgOONPU1").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    //آرگومان اول یک شی است
+    //آرکومان دوم مقدار بازگشتی از کنترلر است
+
+    $("#AimgOONPU1").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#checkImg1").html('<i class="fas fa-check Icheck"></i>');
+    $("#ajax_addpro1_img1").html( response );
+  },
+
+}
+Dropzone.options.MimgOONPUSF2 = {
+
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+
+    $("#AimgOONPU2").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    //آرگومان اول یک شی است
+    //آرکومان دوم مقدار بازگشتی از کنترلر است
+
+    $("#AimgOONPU2").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#checkImg2").html('<i class="fas fa-check Icheck"></i>');
+    $("#ajax_addpro1_img2").html( response );
+
+  },
+
+}
+Dropzone.options.MimgOONPUSF3 = {
+
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+
+    $("#AimgOONPU3").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    //آرگومان اول یک شی است
+    //آرکومان دوم مقدار بازگشتی از کنترلر است
+
+    $("#AimgOONPU3").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#checkImg3").html('<i class="fas fa-check Icheck"></i>');
+    $("#ajax_addpro1_img3").html( response );
+
+  },
+
+}
+Dropzone.options.MimgOONPUSF4 = {
+
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+
+    $("#AimgOONPU4").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    //آرگومان اول یک شی است
+    //آرکومان دوم مقدار بازگشتی از کنترلر است
+
+    $("#AimgOONPU4").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#checkImg4").html('<i class="fas fa-check Icheck"></i>');
+    $("#ajax_addpro1_img4").html( response );
+
+  },
+
+}
+Dropzone.options.MimgOONPUSF5 = {
+
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+
+    $("#AimgOONPU5").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    //آرگومان اول یک شی است
+    //آرکومان دوم مقدار بازگشتی از کنترلر است
+
+    $("#AimgOONPU5").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#checkImg5").html('<i class="fas fa-check Icheck"></i>');
+    $("#ajax_addpro1_img5").html( response );
+
+  },
+
+}
+Dropzone.options.MimgOONPUSF6 = {
+
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+
+    $("#AimgOONPU6").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    //آرگومان اول یک شی است
+    //آرکومان دوم مقدار بازگشتی از کنترلر است
+
+    $("#AimgOONPU6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#checkImg6").html('<i class="fas fa-check Icheck"></i>');
+    $("#ajax_addpro1_img6").html( response );
+
+  },
+
+}
 function pro_searchNPUF() {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({

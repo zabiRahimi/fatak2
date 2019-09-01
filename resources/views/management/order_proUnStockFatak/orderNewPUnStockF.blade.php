@@ -95,9 +95,13 @@
         <span> {{$mapCity}}</span>
         @endif
       </div>
-      @if (empty($newOrder[0]['id']))
+      @if (empty($newOrder[0]['id']) and $notRecord=='no')
         <div class="div_alert alert alert-danger">
           سفارش جدیدی موجود نیست .
+        </div>
+      @elseif (empty($newOrder[0]['id']) and $notRecord=='ok')
+        <div class="div_alert alert alert-danger">
+          طبق جستجوی شما سفارشی یافت نشد .
         </div>
       @else
     <div class="divRow">
