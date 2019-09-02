@@ -228,3 +228,81 @@ function id_searchNPUF() {
   var order_id=$('#id_searchNPUF').val();
   window.location='/orderNewPUnStockF/' +order_id ;
 }
+function saveOrderNPUF(id) {
+  $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+      url: "../../saveOrderNPUF",
+      method: 'post',
+      data: {
+          id:id,
+          stamp:$('input[name=stamp_OONPUSF]:checked', '#form_OONPUSF').val(),
+          namePro:$('#name_OONPUSF').val(),
+          maker:$('#maker_OONPUSF').val(),
+          brand: $('#brand_OONPUSF').val(),
+          model: $('#model_OONPUSF').val(),
+          price: $('#price_OONPUSF').val(),
+          vahed: $('#vahed_OONPUSF').val() ,
+          num: $('#num_OONPUSF').val(),
+          dimension:$('input[name=dimension_OONPUSF]:checked', '#form_OONPUSF').val(),
+          vazn: $('#vazn_OONPUSF').val(),
+          vaznPost: $('#vaznPost_OONPUSF').val(),
+          pakat: $('#pakat_OONPUSF').val(),
+          dis: $('#dis_OONPUSF').val(),
+          dateMake: $('#dateMake_OONPUSF').val(),
+          dateExpiration: $('#dateExpiration_OONPUSF').val(),
+          term: $('#term_OONPUSF').val(),
+          img1: $('#ajax_imgOONPU1').html(),
+          img2: $('#ajax_imgOONPU2').html(),
+          img3: $('#ajax_imgOONPU3').html(),
+          img4: $('#ajax_imgOONPU4').html(),
+          img5: $('#ajax_imgOONPU5').html(),
+          img6: $('#ajax_imgOONPU6').html(),
+
+      },
+      success: function(data) {
+        scroll_form_admin('form_OONPUSF');
+
+        document.getElementById("form_OONPUSF").reset();
+        $('#ajax_formaddpro1_admin').html('<div class="alert alert-success">محصول با موفقیت ذخیره شد</div>');
+        // scroll_form('data_buyer');
+        // end_buy();
+
+          //window.location.href  = "/user/{{$user['id']}}";
+          // $('#alarm_register').append('<div class="alert alert-success">'+'ثبت نام با موفقیت انجام شد'+'</div>');
+          },
+      error: function(xhr) {
+          var errors = xhr.responseJSON;var error=errors.errors;
+          scroll_form_admin('form_OONPUSF');
+           if(error['stamp']){
+
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">نوع محصول را انتخاب کنید .</div>');
+          }
+          else if(error['namePro']){
+
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">نام محصول را وارد کنید .</div>');
+          }
+          else if(error['price']){
+
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">'+error['price']+'</div>');
+          }
+          else if(error['vahed']){
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">واحد شمارش کالا را انتخاب کنید .</div>');
+          }
+          else if(error['num']){
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">تعداد کالای موجود را به عدد وارد کنید .</div>');
+          }
+          else if(error['dimension']){
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">ابعاد محصول را انتخاب کنید .</div>');
+          }
+          else if(error['vazn']){
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">وزن محصول را به عدد وارد کنید ، از نوشتن کلمه  "گرم" خود داری کنید .</div>');
+          }
+          else if(error['vaznPost']){
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">وزن پستی را وارد کنید ، از نوشتن کلمه " گرم " خود داری کنید .</div>');
+          }
+          else if(error['pakat']){
+             $('#ajax_formOONPUSF').html('<div class="alert alert-danger">هزینه بسته بندی کالا را به عدد وارد کنید . </div>');
+          }
+
+     }}, "json");
+}

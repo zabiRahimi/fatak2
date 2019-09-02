@@ -241,6 +241,7 @@ Route::post('/fromDAte_searchNPUF', 'Admin\OrderUnStockFatakAdminController@from
 Route::post('/ostan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@ostan_searchNPUF');//ok
 Route::post('/AllOstan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllOstan_searchNPUF');//ok
 Route::post('/AllCiyt_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllCiyt_searchNPUF');//ok
+Route::post('/saveOrderNPUF', 'Admin\OrderUnStockFatakAdminController@saveOrderNPUF');//ok
 
 
 

@@ -29,6 +29,8 @@ use App\Http\Requests\SaveEditRahgiryCodeAd;
 use App\Http\Requests\SaveEditStageOrderAdmin;
 use App\Http\Requests\SaveOrderBackSave;
 use App\Http\Requests\SaveOrderBackEdit;
+use App\Http\Requests\Save_proShop;
+use App\Http\Requests\Save_editProShop;
 
 class OrderUnStockFatakAdminController extends Controller
 {
@@ -59,7 +61,7 @@ class OrderUnStockFatakAdminController extends Controller
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->format('Y/n/j');
     $dateC=$dateA->subDay()->format('Y/n/j');
-    $v=$dateA->subDay(30)->formatJalaliDate();
+    $v=$dateA->subDay(30)->format('Y/n/j');
     // $show_img=Imgpro::where('show' , 1)->get();
     return view('management.order_proUnStockFatak.order_proUnStockFatak' , compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','v'));
   }
@@ -171,6 +173,51 @@ class OrderUnStockFatakAdminController extends Controller
     $order_id=$request->order_id;
     $order=Order::find($order_id);
     return view('management.order_proUnStockFatak.orderOneNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','order'));
-
+  }
+  public function saveOrderNPUF(Save_proShop $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $pro=new ProShop();
+    $pro->order_id=$request->id ;
+    $pro->shop_id=1 ;
+    $pro->stamp = $request->stamp ;
+    $pro->name = $request->namePro ;
+    $pro->maker = $request->maker ;
+    $pro->brand = $request->brand ;
+    $pro->model = $request->model ;
+    $pro->price = $request->price ;
+    $pro->vahed = $request->vahed ;
+    $pro->num =(empty($request->num)) ? 1 : $request->num;
+    $pro->vazn = $request->vazn ;
+    $pro->vaznPost = $request->vaznPost ;
+    $pro->dimension = $request->dimension ;
+    $pro->pakat = $request->pakat ;
+    $pro->dis = $request->dis ;
+    $pro->dateMake = $request->dateMake ;
+    $pro->dateExpiration = $request->dateExpiration ;
+    $pro->term = $request->term ;
+    $pro->date_ad = $date ;
+    $pro->date_up = $date ;
+    $pro->stage = 1 ;
+    $pro->show = 1 ;
+    $pro-> save();
+     // اضافه کردن عکسهای محصول
+    $picture=new Picture_shop();
+    $picture->pro_shop_id =$pro->id;
+    $picture->pic_b1 =  $request->img1 ;
+    $picture->pic_b2 =  $request->img2 ;
+    $picture->pic_b3 =  $request->img3 ;
+    $picture->pic_b4 =  $request->img4 ;
+    $picture->pic_b5 =  $request->img5 ;
+    $picture->pic_b6 =  $request->img6 ;
+    $picture->pic_s1 =  $request->img1 ;
+    $picture->pic_s2 =  $request->img2 ;
+    $picture->pic_s3 =  $request->img3 ;
+    $picture->pic_s4 =  $request->img4 ;
+    $picture->pic_s5 =  $request->img5 ;
+    $picture->pic_s6 =  $request->img6 ;
+    $picture->show = 1;
+    $picture->save();
   }
 }//end class

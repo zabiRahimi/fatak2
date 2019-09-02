@@ -63,55 +63,48 @@
         وارد کنید .</div>
 
       </div>
-      <form class="formAdmin" id="form_orderSabtSh" action="" method="post">
-       <div class="warning_form">
-         <i class="fas fa-exclamation-triangle"></i>
-         قیمت ها را به تومان وارد کنید .
-       </div>
-       <div class="warning_form">
-         <i class="fas fa-exclamation-triangle"></i>
-         وزن ها را به گرم وارد کنید .
-       </div>
+      <form class="formAdmin form_OONPUSF" id="form_OONPUSF" action="" method="post">
+       <div class="warning_form"><i class="fas fa-exclamation-triangle"></i> قیمت ها را به تومان وارد کنید . </div>
+       <div class="warning_form"><i class="fas fa-exclamation-triangle"></i> وزن ها را به گرم وارد کنید .</div>
+       <div class="warning_form"><i class="fas fa-exclamation-triangle"></i> تکمیل گزینه های ستاره دار الزامی است . </div>
        {{ csrf_field() }}
-       <div class="ajax_form_admin" id="ajax_formaddpro1_admin"></div>
-
+       <div class="ajax_form_admin" id="ajax_formOONPUSF"></div>
        <div class="form-group  textAll">
          <label for="show_addpro1_admin" class="control-label pull-right  ">نوع محصول  <i class="fas fa-star star_form"></i> </label>
          <div class="divRadio">
            <label class="labelRadio_R">
              <span >اصل محصول</span>
-             <input type="radio" class=""  name="dimension_stamp" value="1">
+             <input type="radio" class=""  name="stamp_OONPUSF" value="1">
            </label>
            <label class="labelRadio_L">
              <span > مشابه محصول</span>
-             <input type="radio" class=""  name="dimension_stamp" value="2">
+             <input type="radio" class=""  name="stamp_OONPUSF" value="2">
            </label>
          </div>
-
        </div>
        <div class="form-group textAll">
          <label for="name_orderSabtSh" class="control-label pull-right "> نام محصول <i class="fas fa-star star_form"></i></label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="name_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="name_OONPUSF"placeholder="الزامی ..."></div>
        </div>
        <div class="form-group textAll">
          <label for="maker_orderSabtSh" class="control-label pull-right ">  سازنده محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="maker_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="maker_OONPUSF"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group textAll">
          <label for="brand_orderSabtSh" class="control-label pull-right ">  برند محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="brand_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="brand_OONPUSF"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group textAll">
          <label for="model_orderSabtSh" class="control-label pull-right "> مدل محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="model_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="model_OONPUSF"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group textAll">
          <label for="price_orderSabtSh" class="control-label pull-right "> قیمت محصول (تومان) <i class="fas fa-star star_form"></i></label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="price_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="price_OONPUSF"placeholder="الزامی ..."></div>
        </div>
        <div class="form-group textAll">
          <label for="vahed_addpro1_admin" class="control-label pull-right  "> واحد شمارش محصول <i class="fas fa-star star_form"></i> </label>
-         <select class="form-control"id="vahed_addpro1_admin">
+         <select class="form-control"id="vahed_OONPUSF">
            <option value="">انتخاب کنید</option>
            <option value="عدد">عدد</option>
            <option value="کیلو گرم">کیلو گرم</option>
@@ -125,49 +118,49 @@
        </div>
        <div class="form-group textAll">
          <label for="num_orderSabtSh" class="control-label pull-right "> تعداد کالای موجود</label>
-         <div class="div_form"><input type="number" class="form-control placeholder" id="num_orderSabtSh"min="1" placeholder="اختیاری ..."></div>
-       </div>
-       <div class="form-group textAll">
-         <label for="vazn_orderSabtSh" class="control-label pull-right "> وزن محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="vazn_orderSabtSh"placeholder="در صورت نیاز ..."></div>
+         <div class="div_form"><input type="number" class="form-control placeholder" id="num_OONPUSF"min="1" placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group  textAll">
          <label for="show_addpro1_admin" class="control-label pull-right  "> ابعاد محصول <i class="fas fa-star star_form"></i> </label>
          <div class="divRadio">
            <label class="labelRadio_R">
              <span >کمتر100cm</span>
-             <input type="radio" class=""  name="dimension_stamp" value="1">
+             <input type="radio" class=""  name="dimension_OONPUSF" value="1">
            </label>
            <label class="labelRadio_L">
              <span >بیشتر100cm</span>
-             <input type="radio" class=""  name="dimension_stamp" value="2">
+             <input type="radio" class=""  name="dimension_OONPUSF" value="2">
            </label>
          </div>
-
        </div>
+       <div class="form-group textAll">
+         <label for="vazn_orderSabtSh" class="control-label pull-right "> وزن محصول</label>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="vazn_OONPUSF"placeholder="در صورت نیاز ..."></div>
+       </div>
+
        <div class="form-group textAll">
          <label for="vaznPost_orderSabtSh" class="control-label pull-right "> وزن پستی محصول (گرم) <i class="fas fa-star star_form"></i></label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="vaznPost_orderSabtSh"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="vaznPost_OONPUSF"placeholder="الزامی ..."></div>
        </div>
        <div class="form-group textAll">
-         <label for="pakat_orderSabtSh" class="control-label pull-right ">  هزینه بسته بندی (تومان) <i class="fas fa-star star_form"></i></label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="pakat_orderSabtSh"placeholder="اختیاری ..."></div>
+         <label for="pakat_orderSabtSh" class="control-label pull-right ">  هزینه بسته بندی (تومان) </label>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="pakat_OONPUSF"placeholder="چنانچه بسته بندی هزینه دارد ، الزامی است"></div>
        </div>
        <div class="fr-view textareaEditor">
          <label for="term_addpro1_admin" class="control-label pull-right  ">  توضیح محصول </label>
-         <textarea name="name"class="editor" id="term_addpro1_admin"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید ."></textarea>
+         <textarea name="name"class="editor" id="dis_OONPUSF"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید ."></textarea>
        </div>
        <div class="form-group textAll">
          <label for="dateMake_orderSabtSh" class="control-label pull-right "> تاریخ تولید</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="dateMake_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="dateMake_OONPUSF"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group textAll">
          <label for="dateExpiration_orderSabtSh" class="control-label pull-right "> تاریخ انقضا</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="dateExpiration_orderSabtSh"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="dateExpiration_OONPUSF"placeholder="اختیاری ..."></div>
        </div>
        <div class="fr-view textareaEditor">
          <label for="term_addpro1_admin" class="control-label pull-right  "> شرایط نگهداری </label>
-         <textarea name="name"class="editor" id="term_addpro1_admin"></textarea>
+         <textarea name="name"class="editor" id="term_OONPUSF"></textarea>
        </div>
        <div class="form-group textAll">
          <label for="img1_addpro1_admin" class="control-label pull-right  "> انتخاب عکس 1 <span id="checkImg1"></span></label>
@@ -205,7 +198,7 @@
          <div class="ajax_addpro1_img" id="ajax_imgOONPU6"></div>
        </div>
        <div class="form-group divSabtForm">
-         <button type="button" class="btn btn-success" onclick="proShop({{$order->id}})" >ثبت محصول </button>
+         <button type="button" class="btn btn-success" onclick="saveOrderNPUF({{$order->id}})" >ثبت محصول </button>
        </div>
      </form>
     </div>
@@ -243,10 +236,8 @@
            <div class="ajax_form_admin" style="width:100%; margin:5px 0;" id="AimgOONPU1"></div>
            <div class="proAddImg1">
              <form class="dropzone form_img_add_pro" id="MimgOONPUSF1" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
-               {{ csrf_field() }}
-
-
-                 <div class="dz-message ">
+                 @csrf
+                 <div class=" dz-message ">
                      <div class="col-xs-8">
                          <div class="message ">
                              <p>جهت آپلود عکس این کادر را کلیک کنید</p>
