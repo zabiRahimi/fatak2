@@ -109,7 +109,7 @@ display:inline;
 .div_search_form_date{height:38px;line-height:37px;margin: 3px 0 0 3px;float: right;padding: 0 3px;border: 1px solid #bababa; background-color: #d0d0d0;border-radius: 4px;}
 .input_date{height: 30px;text-align: center;border-radius: 3px;border: none;}
 .input_pro_date{width: 115px;}
-.input_code_date{width: 100px;}
+.input_code_date{width: 70px;}
 .input_day_date{width: 30px;}
 .input_month_date{width:30px;}
 .input_year_date{width:60px;}

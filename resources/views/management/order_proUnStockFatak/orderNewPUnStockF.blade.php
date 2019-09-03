@@ -119,6 +119,8 @@
       @endphp
       @foreach ($newOrder as $newOrders)
         @php
+        $checkOrder=$proShop->where('order_id',$newOrders->id)->first();
+        if($checkOrder){continue;}
         $r++;
         $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
         $date=str_replace('-', '/',$newOrders->date_up );

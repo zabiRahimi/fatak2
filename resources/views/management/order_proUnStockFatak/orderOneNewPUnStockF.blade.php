@@ -204,19 +204,20 @@
     </div>
 
    <!-- Modal موفق بودن ثبت محصول-->
-   <div class="modal fade" id="end_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
+   <div class="modal fade" id="orderModalPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg modal-xl" role="document">
        <div class="modal-content">
-         <div class="modal-body modal_ok">
-           <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
-           <div class="modal_ok2">محصول شما با موفقیت ثبت شد .</div>
+         <div class="modal-body orderAghdamModal2 ">
+           <div id="ajaxOrderModalPro">
+
+           </div>
          </div>
-         <div class=" modal_ok3">
-           <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+         <div class="orderAghdamModal3">
+             <button type="button" class="btn btn-primary" data-dismiss="modal"  aria-label="Close">متوجه شدم !!</button>
          </div>
        </div>
      </div>
-   </div><!--end modal پایان موفقیت ثبت .-->
+   </div><!--end modal  -->
    {{--  --}}
 
 
@@ -250,7 +251,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-danger" onclick="del_img('imgAddPro1','ajax_addpro1_img1','checkImg1')">حذف عکس</button>
+             <button type="button" class="btn btn-danger" onclick="del_imgNPUF('AimgOONPU1','ajax_imgOONPU1','checkImg1')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -282,7 +283,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-danger" onclick="del_img('imgAddPro1','ajax_addpro1_img1','checkImg1')">حذف عکس</button>
+             <button type="button" class="btn btn-danger" onclick="del_imgNPUF('AimgOONPU2','ajax_imgOONPU2','checkImg2')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -314,7 +315,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-danger" onclick="del_img('imgAddPro1','ajax_addpro1_img1','checkImg1')">حذف عکس</button>
+             <button type="button" class="btn btn-danger" onclick="del_imgNPUF('AimgOONPU3','ajax_imgOONPU3','checkImg3')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -346,7 +347,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-danger" onclick="del_img('imgAddPro1','ajax_addpro1_img1','checkImg1')">حذف عکس</button>
+             <button type="button" class="btn btn-danger" onclick="del_imgNPUF('AimgOONPU4','ajax_imgOONPU4','checkImg4')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -378,7 +379,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-danger" onclick="del_img('imgAddPro1','ajax_addpro1_img1','checkImg1')">حذف عکس</button>
+             <button type="button" class="btn btn-danger" onclick="del_imgNPUF('AimgOONPU5','ajax_imgOONPU5','checkImg5')">حذف عکس</button>
          </div>
        </div>
      </div>
@@ -410,7 +411,7 @@
          </div>
          <div class="footer_modal_img_add_pro">
              <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-             <button type="button" class="btn btn-danger" onclick="del_img('imgAddPro1','ajax_addpro1_img1','checkImg1')">حذف عکس</button>
+             <button type="button" class="btn btn-danger" onclick="del_imgNPUF('AimgOONPU6','ajax_imgOONPU6','checkImg6')">حذف عکس</button>
          </div>
        </div>
      </div>

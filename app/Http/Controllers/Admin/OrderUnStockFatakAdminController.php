@@ -18,6 +18,8 @@ use App\Models\Income;
 use App\Models\Buy;
 use App\Models\Shop;
 use App\Models\Pro;
+use App\Models\ProShop;
+use App\Models\Picture_shop;
 use App\Models\Admin\BackPro;
 
 use App\Http\Requests\Save_editDaChSave;
@@ -45,7 +47,18 @@ class OrderUnStockFatakAdminController extends Controller
     $user=Management::find($id);
     $this->nameModir=$user->name;
     $this->access=$user->access;
-    $this->orderNewCount=Buy::where('stage',2)->where('shop_id' , 1)->count();//سفارشات جدید
+    $dateA=new Verta();//تاریخ جلالی
+    $dateB=$dateA->formatJalaliDate();
+    $date30=$dateA->subDay(30)->formatJalaliDate();
+    $proShop=proShop::where('shop_id',$id)->get();
+    $order=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->get();
+    $orderNum=0;
+    foreach ($order as $value) {
+      $checkOrder=$proShop->where('order_id',$value->id)->first();
+      if($checkOrder){continue;}
+      $orderNum++;
+    }
+    $this->orderNewCount=$orderNum;
     $this->orderAgdamCount=Buy::where('stage',3)->where('shop_id' , 1)->count();//در دست اقدام
     $this->orderPostCount=Buy::where('stage',4)->where('shop_id' , 1)->count();//ارسال شده
     $this->orderDeliverCount=Buy::where('stage',5)->where('shop_id' , 1)->count();//تحویل گرفته شده
@@ -80,7 +93,6 @@ class OrderUnStockFatakAdminController extends Controller
       $dateDay=$request->cookie('dateSCONPUSF');$GLOBALS['dateDay']=$request->cookie('dateSCONPUSF');
       $GLOBALS['date1']=$request->cookie('date_1_SCONPUSF');
       $GLOBALS['date2']=$request->cookie('date_2_SCONPUSF');
-      $mapDate = ($proS) ? 'محصول' . ' ' . $proS : 'همه محصولات' ;
       switch ($dateDay) {
         case 'all':$mapDate='همه تاریخ ها';break;
         case 'today':$mapDate='سفارشات امروز';break;
@@ -123,8 +135,8 @@ class OrderUnStockFatakAdminController extends Controller
         $newOrder=Order::whereBetween('date_up' , [$month,$today])->orderby('date_up', 'DESC')->get();
         $notRecord='no';
       }
-
-    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','mapId','mapPro','mapDate','mapOstan','mapCity','notRecord'));
+      $proShop=ProShop::get();
+    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','mapId','mapPro','mapDate','mapOstan','mapCity','notRecord','proShop'));
 
   }
   public function pro_searchNPUF(Request $request)
@@ -219,5 +231,63 @@ class OrderUnStockFatakAdminController extends Controller
     $picture->pic_s6 =  $request->img6 ;
     $picture->show = 1;
     $picture->save();
+  }
+  public function orderSabtPUnStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $dateA=new Verta();//تاریخ جلالی
+    $today=$dateA->format('Y/n/j');$GLOBALS['today']=$dateA->format('Y/n/j');
+    $GLOBALS['yesterday']=$dateA->subDay()->format('Y/n/j');
+    $month=$dateA->subDay(30)->format('Y/n/j');$GLOBALS['month']=$dateA->subDay(30)->format('Y/n/j');
+    $order_id=$request->order_id;
+    $mapId = ($order_id) ? 'سفارش با کد'.' '.$order_id : null ;
+    $proS=$request->cookie('proSCONPUSF');$GLOBALS['proS']=$request->cookie('proSCONPUSF');
+    $mapPro = ($proS) ? 'محصول' . ' ' . $proS : 'همه محصولات' ;
+    $dateDay=$request->cookie('dateSCONPUSF');$GLOBALS['dateDay']=$request->cookie('dateSCONPUSF');
+    $GLOBALS['date1']=$request->cookie('date_1_SCONPUSF');
+    $GLOBALS['date2']=$request->cookie('date_2_SCONPUSF');
+    switch ($dateDay) {
+      case 'all':$mapDate='همه تاریخ ها';break;
+      case 'today':$mapDate='محصولات ثبت شده امروز';break;
+      case 'yesterday':$mapDate='محصولات ثبت شده دیروز';break;
+      case 'fromDAte':$mapDate='محصولات ثبت شده از تاریخ ' . $GLOBALS['date1'] . ' تا ' . $GLOBALS['date2'];break;
+      default:$mapDate='همه تاریخ ها';break;
+    }
+
+    if(!empty($pro_id)){
+      $newOrder=proShop::where('id' , $pro_id)->get();
+      $notRecord='ok';
+    }
+    if(!empty($otder_id)){
+      $newOrder=proShop::where('otder_id' , $otder_id)->get();
+      $notRecord='ok';
+    }
+    elseif(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
+      $notRecord='ok';
+      $newOrder=proShop::where(function($query){
+        $proS=$GLOBALS['proS'];
+        $dateDay=$GLOBALS['dateDay'];
+        $today=$GLOBALS['today'];
+        $yesterday=$GLOBALS['yesterday'];
+        $month=$GLOBALS['month'];
+        $date1=$GLOBALS['date1'];
+        $date2=$GLOBALS['date2'];
+
+       if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
+       if($dateDay=='today' ){$query->where( 'date_up' , $today);}
+       if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
+       if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
+       if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
+
+     })->orderby('date_up', 'DESC')->get();
+    }
+    else{
+      $proShop=proShop::where('shop_id',1)->where('stage',1)->orderby('date_up', 'DESC')->get();
+      $notRecord='no';
+    }
+    $order=Order::get();
+  return view('management.order_proUnStockFatak.orderSabtPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','mapPro','mapId','mapDate','notRecord'));
+
   }
 }//end class

@@ -242,6 +242,7 @@ Route::post('/ostan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@ostan_s
 Route::post('/AllOstan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllOstan_searchNPUF');//ok
 Route::post('/AllCiyt_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllCiyt_searchNPUF');//ok
 Route::post('/saveOrderNPUF', 'Admin\OrderUnStockFatakAdminController@saveOrderNPUF');//ok
+Route::get('/orderSabtPUnStockF/{order_id?}', 'Admin\OrderUnStockFatakAdminController@orderSabtPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+');//ok!!
 
 
 
