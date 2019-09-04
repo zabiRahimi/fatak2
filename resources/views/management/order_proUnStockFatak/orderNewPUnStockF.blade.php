@@ -11,7 +11,7 @@
         <button type="button" class="btn byn_search" onclick="allPro_searchNPUF()">همه محصولات</button>
         <div class="div_search_form_date" action="index.html" method="post">
           <input type="text" class="input_date input_pro_date placeholder" id="pro_searchNPUF" placeholder="نام محصول">
-          <button type="button" class="btn_date btn" onclick="pro_searchNPUF()"><i class="fas fa-search"></i></button>
+          <button type="button" class="btn_date btn" onclick="pro_searchUSF('proSCONPUSF','pro_searchNPUF' , 'orderNewPUnStockF')"><i class="fas fa-search"></i></button>
         </div>
         <div class="div_search_form_date" action="index.html" method="post">
           <input type="text" class="input_date input_code_date placeholder"  id="id_searchNPUF" placeholder="کد سفارش">

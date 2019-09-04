@@ -34,16 +34,17 @@ Dropzone.options.MimgOONPUSF6 = {
   success:function(file , response){  //آرگومان اول یک شی است//آرکومان دوم مقدار بازگشتی از کنترلر است
     $("#AimgOONPU6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');$("#checkImg6").html('<i class="fas fa-check Icheck"></i>');$("#ajax_imgOONPU6").html( response );},
 }
-function pro_searchNPUF() {
+function pro_searchUSF(nameCookie , pro , url) {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../pro_searchNPUF',
+    url:'../../pro_searchUSF',
     data: {
-          pro:$('#pro_searchNPUF').val(),
+          nameCookie:nameCookie,
+          pro:$('#'+pro).val(),
          },
     success:function(){
-      window.location.href  = "/orderNewPUnStockF";
+      window.location.href  = "/" + url;
     },
     error : function(xhr){
     },

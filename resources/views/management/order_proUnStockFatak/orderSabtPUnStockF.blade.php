@@ -6,12 +6,13 @@
   <div class="div_titr">
    سفارشات ثبت شده
   </div>
+  {{$notRecord}}
   <div class="div_body">
       <div class="div_search">
         <button type="button" class="btn byn_search" onclick="allPro_searchSPUF()">همه محصولات</button>
         <div class="div_search_form_date" action="index.html" method="post">
-          <input type="text" class="input_date input_pro_date placeholder" id="pro_searchNPUF" placeholder="نام محصول">
-          <button type="button" class="btn_date btn" onclick="pro_searchNPUF()"><i class="fas fa-search"></i></button>
+          <input type="text" class="input_date input_pro_date placeholder" id="pro_searchSPUF" placeholder="نام محصول">
+          <button type="button" class="btn_date btn" onclick="pro_searchUSF('proSCOSPUSF','pro_searchSPUF' , 'orderSabtPUnStockF')"><i class="fas fa-search"></i></button>
         </div>
         <div class="div_search_form_date" action="index.html" method="post">
           <input type="text" class="input_date input_code_date placeholder"  id="id_searchNPUF" placeholder="کد محصول">

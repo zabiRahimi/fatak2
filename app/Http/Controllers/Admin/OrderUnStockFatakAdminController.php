@@ -139,10 +139,11 @@ class OrderUnStockFatakAdminController extends Controller
     return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','mapId','mapPro','mapDate','mapOstan','mapCity','notRecord','proShop'));
 
   }
-  public function pro_searchNPUF(Request $request)
+  public function pro_searchUSF(Request $request)
   {
-    $this->validate($request, ['pro' => 'required',]);
-    Cookie::queue('proSCONPUSF', $request->pro);
+    $this->validate($request, ['nameCookie'=>'required|alpha_num','pro' => 'required',]);
+    // $request->nameCooke;
+    Cookie::queue($request->nameCookie, $request->pro);
   }
   public function allPro_searchNPUF(Request $request)
   {
@@ -242,7 +243,7 @@ class OrderUnStockFatakAdminController extends Controller
     $month=$dateA->subDay(30)->format('Y/n/j');$GLOBALS['month']=$dateA->subDay(30)->format('Y/n/j');
     $order_id=$request->order_id;
     $mapId = ($order_id) ? 'سفارش با کد'.' '.$order_id : null ;
-    $proS=$request->cookie('proSCONPUSF');$GLOBALS['proS']=$request->cookie('proSCONPUSF');
+    $proS=$request->cookie('proSCOSPUSF');$GLOBALS['proS']=$request->cookie('proSCOSPUSF');
     $mapPro = ($proS) ? 'محصول' . ' ' . $proS : 'همه محصولات' ;
     $dateDay=$request->cookie('dateSCONPUSF');$GLOBALS['dateDay']=$request->cookie('dateSCONPUSF');
     $GLOBALS['date1']=$request->cookie('date_1_SCONPUSF');
@@ -254,31 +255,32 @@ class OrderUnStockFatakAdminController extends Controller
       case 'fromDAte':$mapDate='محصولات ثبت شده از تاریخ ' . $GLOBALS['date1'] . ' تا ' . $GLOBALS['date2'];break;
       default:$mapDate='همه تاریخ ها';break;
     }
-
     if(!empty($pro_id)){
-      $newOrder=proShop::where('id' , $pro_id)->get();
+      $newOrder=proShop::where('id' , $pro_id)->where('shop_id',1)->where('stage',1)->get();
       $notRecord='ok';
     }
     if(!empty($otder_id)){
-      $newOrder=proShop::where('otder_id' , $otder_id)->get();
+      $newOrder=proShop::where('otder_id' , $otder_id)->where('shop_id',1)->where('stage',1)->get();
       $notRecord='ok';
     }
     elseif(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
       $notRecord='ok';
-      $newOrder=proShop::where(function($query){
+      // $proShop=proShop::where('shop_id',1)->where('stage',1)->where( 'name' ,"like", "%$proS%")->orderby('date_up', 'DESC')->get();
+
+      $proShop= proShop::where('shop_id',1)->where('stage',1)->where(function($query){
         $proS=$GLOBALS['proS'];
-        $dateDay=$GLOBALS['dateDay'];
-        $today=$GLOBALS['today'];
-        $yesterday=$GLOBALS['yesterday'];
-        $month=$GLOBALS['month'];
-        $date1=$GLOBALS['date1'];
-        $date2=$GLOBALS['date2'];
+        // $dateDay=$GLOBALS['dateDay'];
+        // $today=$GLOBALS['today'];
+        // $yesterday=$GLOBALS['yesterday'];
+        // $month=$GLOBALS['month'];
+        // $date1=$GLOBALS['date1'];
+        // $date2=$GLOBALS['date2'];
 
        if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
-       if($dateDay=='today' ){$query->where( 'date_up' , $today);}
-       if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
-       if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
-       if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
+       // if($dateDay=='today' ){$query->where( 'date_up' , $today);}
+       // if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
+       // if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
+       // if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
 
      })->orderby('date_up', 'DESC')->get();
     }
@@ -287,7 +289,8 @@ class OrderUnStockFatakAdminController extends Controller
       $notRecord='no';
     }
     $order=Order::get();
-  return view('management.order_proUnStockFatak.orderSabtPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','mapPro','mapId','mapDate','notRecord'));
+    $rtt=$GLOBALS['proS'];
+  return view('management.order_proUnStockFatak.orderSabtPUnStockF', compact('rtt','id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','mapPro','mapId','mapDate','notRecord'));
 
   }
 }//end class

@@ -234,7 +234,7 @@ Route::get('/orderBackEndShowOneStockF/{buy_id}', 'Admin\OrderStockFatakAdminCon
 Route::get('/order_proUnStockFatak', 'Admin\OrderUnStockFatakAdminController@show')->middleware(['chekloginManeg']);//ok!!
 Route::get('/orderNewPUnStockF/{order_id?}', 'Admin\OrderUnStockFatakAdminController@orderNewPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+');//ok!!
 Route::get('/orderOneNewPUnStockF/{order_id}', 'Admin\OrderUnStockFatakAdminController@orderOneNewPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+');//ok!!
-Route::post('/pro_searchNPUF', 'Admin\OrderUnStockFatakAdminController@pro_searchNPUF');//ok
+Route::post('/pro_searchUSF', 'Admin\OrderUnStockFatakAdminController@pro_searchUSF');//ok
 Route::post('/allPro_searchNPUF', 'Admin\OrderUnStockFatakAdminController@allPro_searchNPUF');//ok
 Route::post('/date_searchNPUF', 'Admin\OrderUnStockFatakAdminController@date_searchNPUF');//ok
 Route::post('/fromDAte_searchNPUF', 'Admin\OrderUnStockFatakAdminController@fromDAte_searchNPUF');//ok
