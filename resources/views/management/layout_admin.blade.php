@@ -29,7 +29,6 @@
         <link href="\css\admin\shop_admin.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\order_proStockFatak.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\order_proUnStockFatak.css" rel="stylesheet" type="text/css">
-        <link href="\css\admin\order_sabtPUnStockF.css" rel="stylesheet" type="text/css">
         <link href="\css\admin\order_proStockSaier.css" rel="stylesheet" type="text/css">
     </head>
     <body>

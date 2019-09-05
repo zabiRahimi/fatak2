@@ -38,7 +38,7 @@
         $countViwe=$ch_view->where('shop_id', $shops->id)->count();
         $countBuy=$ch_view->where('shop_id', $shops->id)->where('lot_ch' ,'!=',null)->count();
       @endphp
-      <div class="divRow2 {{$classBg}} aECA_row " onclick="window.location='/showOne_shopAdmin/{{$shops->id}}'">
+      <div class="divRow2 {{$classBg}} pointer " onclick="window.location='/showOne_shopAdmin/{{$shops->id}}'">
         <div class="divRow3 rowNumber ">{{$r}}</div>
         <div class="divRow3 aESA_shop aESA_shop2">{{$shops->shop}}</div>
         <div class="divRow3 aESA_seller aESA_seller2">{{$shops->seller}}</div>

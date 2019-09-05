@@ -50,39 +50,43 @@ function pro_searchUSF(nameCookie , pro , url) {
     },
     });
 }
-function allPro_searchNPUF() {
+function allPro_searchUSF(nameCookie , url) {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../allPro_searchNPUF',
+    url:'../../allPro_searchUSF',
+    data: {
+          nameCookie:nameCookie,
+         },
     success:function(){
-      window.location.href  = "/orderNewPUnStockF";
+      window.location.href  = "/"+url;
     }
     });
 }
-function date_searchNPUF(day) {
+function date_searchUSF(nameCookie,day,url) {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../date_searchNPUF',
+    url:'../../date_searchUSF',
     data: {
+          nameCookie:nameCookie,
           day:day,
          },
     success:function(){
-      window.location.href  = "/orderNewPUnStockF";
+      window.location.href  = "/" + url;
     },
     error : function(xhr){
     },
     });
 }
-function fromDAte_searchNPUF() {
-  var day1=$('#searchNPUFDay1').val();
+function fromDAte_searchUSF(nameCookie,nameCookieD1,nameCookieD2,url,id_day1,id_month1,id_year1,id_day2,id_month2,id_year2) {
+  var day1=$('#'+id_day1).val();
   //var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
-  var month1=$('#searchNPUFMonth1').val();//var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
-  var year1=$('#searchNPUFYear1').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
-  var day2=$('#searchNPUFDay2').val();//var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
-  var month2=$('#searchNPUFMont2').val();//var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
-  var year2=$('#searchNPUFYear2').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
+  var month1=$('#'+id_month1).val();//var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
+  var year1=$('#'+id_year1).val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
+  var day2=$('#'+id_day2).val();//var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
+  var month2=$('#'+id_month2).val();//var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
+  var year2=$('#'+id_year2).val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
 
   var date1=year1+'/'+month1+'/'+day1;
   // var date1='1360/12/03';
@@ -90,13 +94,16 @@ function fromDAte_searchNPUF() {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../fromDAte_searchNPUF',
+    url:'../../fromDAte_searchUSF',
     data: {
+      nameCookie:nameCookie,
+      nameCookieD1:nameCookieD1,
+      nameCookieD2:nameCookieD2,
       date1:date1,
       date2:date2,
          },
     success:function(){
-      window.location.href  = "/orderNewPUnStockF";
+      window.location.href  = "/"+ url;
     },
     error : function(xhr){
     },
@@ -142,9 +149,16 @@ function AllCiyt_searchNPUF() {
     },
     });
 }
-function id_searchNPUF() {
-  var order_id=$('#id_searchNPUF').val();
-  window.location='/orderNewPUnStockF/' +order_id ;
+function id_searchUSF(input , url , stamp) {
+  var id=$('#'+input).val();
+  if(id){
+      if(stamp){window.location='/'+ url + '/' + id + '/' + stamp ;}
+      else{window.location='/'+ url + '/' + id ;}
+  } else{
+      if(stamp==1){alert('لطفا کد محصول را وارد کنید .')}
+      else if(stamp==2){ alert('لطفا کد سفارش را وارد کنید .') }
+      else{ alert('لطفا کد سفارش را وارد کنید .') }
+    }
 }
 function saveOrderNPUF(id) {
   $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});

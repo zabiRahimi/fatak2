@@ -235,14 +235,14 @@ Route::get('/order_proUnStockFatak', 'Admin\OrderUnStockFatakAdminController@sho
 Route::get('/orderNewPUnStockF/{order_id?}', 'Admin\OrderUnStockFatakAdminController@orderNewPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+');//ok!!
 Route::get('/orderOneNewPUnStockF/{order_id}', 'Admin\OrderUnStockFatakAdminController@orderOneNewPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+');//ok!!
 Route::post('/pro_searchUSF', 'Admin\OrderUnStockFatakAdminController@pro_searchUSF');//ok
-Route::post('/allPro_searchNPUF', 'Admin\OrderUnStockFatakAdminController@allPro_searchNPUF');//ok
-Route::post('/date_searchNPUF', 'Admin\OrderUnStockFatakAdminController@date_searchNPUF');//ok
-Route::post('/fromDAte_searchNPUF', 'Admin\OrderUnStockFatakAdminController@fromDAte_searchNPUF');//ok
+Route::post('/allPro_searchUSF', 'Admin\OrderUnStockFatakAdminController@allPro_searchUSF');//ok
+Route::post('/date_searchUSF', 'Admin\OrderUnStockFatakAdminController@date_searchUSF');//ok
+Route::post('/fromDAte_searchUSF', 'Admin\OrderUnStockFatakAdminController@fromDAte_searchUSF');//ok
 Route::post('/ostan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@ostan_searchNPUF');//ok
 Route::post('/AllOstan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllOstan_searchNPUF');//ok
 Route::post('/AllCiyt_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllCiyt_searchNPUF');//ok
 Route::post('/saveOrderNPUF', 'Admin\OrderUnStockFatakAdminController@saveOrderNPUF');//ok
-Route::get('/orderSabtPUnStockF/{order_id?}', 'Admin\OrderUnStockFatakAdminController@orderSabtPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+');//ok!!
+Route::get('/orderSabtPUnStockF/{order_id?}/{stamp?}', 'Admin\OrderUnStockFatakAdminController@orderSabtPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+')->where('stamp', '[0-9]+');//ok!!
 
 
 

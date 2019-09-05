@@ -95,6 +95,7 @@ display:inline;
 .divSabtForm button{width: 300px;}
 
 /* css content کدهای همگانی قسمت کانتنت */
+.pointer{cursor: pointer;}
 .div_titr{width: 100%;margin: 0;padding: 0 12px; height: 37px;line-height: 36px; text-align: right;float: right;background-color: #cdcdcd;border-radius: 4px;border: 1px solid #aaa7a7; }
 .btnBack{height: 32px;margin-top:2px; float: left;}
 .div_body{width: 100%; margin: 7px 0; padding: 3px;border:1px solid #b9b9b9;border-radius: 4px;float: right;text-align: right;}

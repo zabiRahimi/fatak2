@@ -8,21 +8,21 @@
   </div>
   <div class="div_body">
       <div class="div_search">
-        <button type="button" class="btn byn_search" onclick="allPro_searchNPUF()">همه محصولات</button>
+        <button type="button" class="btn byn_search" onclick="allPro_searchUSF('proSCONPUSF','orderNewPUnStockF')">همه محصولات</button>
         <div class="div_search_form_date" action="index.html" method="post">
           <input type="text" class="input_date input_pro_date placeholder" id="pro_searchNPUF" placeholder="نام محصول">
           <button type="button" class="btn_date btn" onclick="pro_searchUSF('proSCONPUSF','pro_searchNPUF' , 'orderNewPUnStockF')"><i class="fas fa-search"></i></button>
         </div>
         <div class="div_search_form_date" action="index.html" method="post">
           <input type="text" class="input_date input_code_date placeholder"  id="id_searchNPUF" placeholder="کد سفارش">
-          <button type="button" class="btn_date btn"onclick="id_searchNPUF() "><i class="fas fa-search"></i></button>
+          <button type="button" class="btn_date btn"onclick="id_searchUSF('id_searchNPUF' , 'orderNewPUnStockF') "><i class="fas fa-search"></i></button>
         </div>
         </div>
         <div class="div_search">
-        <button type="button" class="btn byn_search"onclick="date_searchNPUF('all')">همه تاریخ ها</button>
-        <button type="button" class="btn byn_search" onclick="date_searchNPUF('month')">30 روز اخیر</button>
-        <button type="button" class="btn byn_search"onclick="date_searchNPUF('today')">امروز</button>
-        <button type="button" class="btn byn_search"onclick="date_searchNPUF('yesterday')">دیروز</button>
+        <button type="button" class="btn byn_search"onclick="date_searchUSF('dateSCONPUSF','all', 'orderNewPUnStockF')">همه تاریخ ها</button>
+        <button type="button" class="btn byn_search" onclick="date_searchUSF('dateSCONPUSF','month', 'orderNewPUnStockF')">30 روز اخیر</button>
+        <button type="button" class="btn byn_search"onclick="date_searchUSF('dateSCONPUSF','today', 'orderNewPUnStockF')">امروز</button>
+        <button type="button" class="btn byn_search"onclick="date_searchUSF('dateSCONPUSF','yesterday', 'orderNewPUnStockF')">دیروز</button>
           <div class="div_search_form_date" action="index.html" method="post">
             <span>از تاریخ</span>
             <input type="text" class="input_date input_day_date placeholder" id="searchNPUFDay1" placeholder="روز">
@@ -32,16 +32,11 @@
             <input type="text" class="input_date input_day_date placeholder" id="searchNPUFDay2" placeholder="روز">
             <input type="text" class="input_date input_month_date placeholder" id="searchNPUFMont2" placeholder="ماه">
             <input type="text" class="input_date input_year_date placeholder" id="searchNPUFYear2" placeholder="سال">
-            <button type="button" class="btn_date btn"onclick="fromDAte_searchNPUF()"><i class="fas fa-search"></i></button>
+            <button type="button" class="btn_date btn"onclick="fromDAte_searchUSF('dateSCONPUSF','date1SCONPUSF','date2SCONPUSF','orderNewPUnStockF','searchNPUFDay1','searchNPUFMonth1','searchNPUFYear1','searchNPUFDay2','searchNPUFMont2','searchNPUFYear2')"><i class="fas fa-search"></i></button>
           </div>
-        {{-- <button type="button" class="btn byn_search">امروز</button>
-        <button type="button" class="btn byn_search">امروز</button>
-        <button type="button" class="btn byn_search">امروز</button>
-         --}}
          </div>
          <div class="div_search">
          <button type="button" class="btn byn_search" onclick="AllOstan_searchNPUF()">همه استان ها</button>
-
          <button type="button" class="btn byn_search" onclick="AllCiyt_searchNPUF()  ">همه شهرها</button>
         <div class="div_search_form_date"  method="post">
             <select class=" select_search_date"id="searchNPUFOstan">
@@ -125,7 +120,7 @@
         $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
         $date=str_replace('-', '/',$newOrders->date_up );
         @endphp
-        <div class="divRow2 orderNewPSF_R {{$classBg}} " onclick="window.location='/orderOneNewPUnStockF/{{$newOrders->id}}'">
+        <div class="divRow2 pointer {{$classBg}} " onclick="window.location='/orderOneNewPUnStockF/{{$newOrders->id}}'">
           <div class="divRow3 rowNumber ">{{$r}}</div>
           <div class="divRow3 orderNewUnS1 orderNewUnS1_2">{{$newOrders->name}}</div>
           <div class="divRow3 orderNewUnS2"><span>{{$newOrders->num}}</span> <span>{{$newOrders->vahed}}</span> </div>

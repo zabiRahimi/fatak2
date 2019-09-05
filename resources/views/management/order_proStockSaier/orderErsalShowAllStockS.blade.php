@@ -34,7 +34,7 @@
       $shop2=$shop->find($buys->shop_id);
       $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
       @endphp
-      <div class="divRow2 all_edit_pro3 {{$classBg}} ">
+      <div class="divRow2 {{$classBg}} ">
         <div class="divRow3 rowNumber ">{{$r}}</div>
         <div class="divRow3 orderErsalPSS1 orderErsalPSS1_2">{{$pro2->name}}</div>
         <div class="divRow3 orderErsalPSS2 orderErsalPSS2_2">{{$buys->id}}</div>
