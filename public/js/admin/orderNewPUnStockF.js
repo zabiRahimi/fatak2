@@ -275,14 +275,14 @@ function del_imgNPUF(ajax , div , i) {
     success:function(){
       $("#"+ ajax).html('<div class="alert alert-danger"> عکس حذف شد . </div>');$("#"+ div).html('');$("#"+ i).html( '' );
     },  });}
-function editOrderSPUF(id) {
+function editOrderSPUF(pro_id,id) {
   $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
-      url: "../../editOrderSPUF",
+      url: "../../editOrderSPUF/"+pro_id,
       method: 'post',
       data: {
           id:id,
-          stamp:$('input[name=stamp_OOSPUSF]:checked', '#form_OONPUSF').val(),
+          stamp:$('input[name=stamp_OOSPUSF]:checked', '#form_OOSPUSF').val(),
           namePro:$('#name_OOSPUSF').val(),
           maker:$('#maker_OOSPUSF').val(),
           brand: $('#brand_OOSPUSF').val(),
@@ -290,7 +290,7 @@ function editOrderSPUF(id) {
           price: $('#price_OOSPUSF').val(),
           vahed: $('#vahed_OOSPUSF').val() ,
           num: $('#num_OOSPUSF').val(),
-          dimension:$('input[name=dimension_OONPUSF]:checked', '#form_OOSPUSF').val(),
+          dimension:$('input[name=dimension_OOSPUSF]:checked', '#form_OOSPUSF').val(),
           vazn: $('#vazn_OOSPUSF').val(),
           vaznPost: $('#vaznPost_OOSPUSF').val(),
           pakat: $('#pakat_OOSPUSF').val(),

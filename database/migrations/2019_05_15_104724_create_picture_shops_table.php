@@ -16,7 +16,7 @@ class CreatePictureShopsTable extends Migration
         Schema::create('picture_shops', function (Blueprint $table) {
           $table->increments('id');
           $table->mediumInteger('pro_shop_id')->index()->unsigned();
-          $table->foreign('pro_shop_id')->references('id')->on('pro_shops')->onDelete('cascade')->onUpdate('cascade');
+          $table->foreign('pro_shop_id')->references('id')->on('pro_shops')->onDelete('cascade')->onUpdate('cascade')->unique();
           $table->string('pic_b1' , 35)->nullable();
           $table->string('pic_b2' , 35)->nullable();
           $table->string('pic_b3' , 35)->nullable();

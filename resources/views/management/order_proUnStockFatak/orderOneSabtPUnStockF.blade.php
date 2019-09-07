@@ -105,15 +105,15 @@
        <div class="form-group textAll">
          <label for="vahed_addpro1_admin" class="control-label pull-right  "> واحد شمارش محصول <i class="fas fa-star star_form"></i> </label>
          <select class="form-control"id="vahed_OOSPUSF">
-           <option value="">انتخاب کنید</option>
-           <option value="عدد">عدد</option>
-           <option value="کیلو گرم">کیلو گرم</option>
-           <option value="گرم">گرم</option>
-           <option value="جین">جین</option>
-           <option value="گونی">گونی</option>
-           <option value="درجن">درجن</option>
-           <option value="کارتن">کارتن</option>
-           <option value="سایر">سایر</option>
+           <option value="" >انتخاب کنید</option>
+           <option value="عدد"@if($proShop->vahed=='عدد')selected @endif>عدد</option>
+           <option value="کیلو گرم"@if($proShop->vahed=='کیلو گرم')selected @endif>کیلو گرم</option>
+           <option value="گرم"@if($proShop->vahed=='گرم')selected @endif>گرم</option>
+           <option value="جین"@if($proShop->vahed=='جین')selected @endif>جین</option>
+           <option value="گونی"@if($proShop->vahed=='گونی')selected @endif>گونی</option>
+           <option value="درجن"@if($proShop->vahed=='درجن')selected @endif>درجن</option>
+           <option value="کارتن"@if($proShop->vahed=='کارتن')selected @endif>کارتن</option>
+           <option value="سایر"@if($proShop->vahed=='سایر')selected @endif>سایر</option>
          </select>
        </div>
        <div class="form-group textAll">
@@ -198,7 +198,7 @@
          <div class="ajax_addpro1_img" id="ajax_imgOOSPU6">{{$picture_shops->pic_b6}}</div>
        </div>
        <div class="form-group divSabtForm">
-         <button type="button" class="btn btn-success" onclick="editOrderSPUF({{$order->id}})" >ثبت محصول </button>
+         <button type="button" class="btn btn-success" onclick="editOrderSPUF({{$proShop->id}},{{$order->id}})" >ثبت محصول </button>
        </div>
      </form>
     </div>

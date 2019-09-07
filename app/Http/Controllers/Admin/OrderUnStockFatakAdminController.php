@@ -36,7 +36,7 @@ use App\Http\Requests\Save_editProShop;
 
 class OrderUnStockFatakAdminController extends Controller
 {
-  public $id ,$nameModir,$access,$orderNewCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount;
+  public $id ,$nameModir,$access,$orderNewCount,$orderSabtCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount;
   public function __construct(Encrypter $encrypter ,Request $request)
   {
     $cookie=$request->cookie('checkLogManeg');
@@ -50,7 +50,7 @@ class OrderUnStockFatakAdminController extends Controller
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->formatJalaliDate();
     $date30=$dateA->subDay(30)->formatJalaliDate();
-    $proShop=proShop::where('shop_id',$id)->get();
+    $proShop=proShop::where('shop_id',1)->get();
     $order=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->get();
     $orderNum=0;
     foreach ($order as $value) {
@@ -59,6 +59,7 @@ class OrderUnStockFatakAdminController extends Controller
       $orderNum++;
     }
     $this->orderNewCount=$orderNum;
+    $this->orderSabtCount=ProShop::where('shop_id',1)->where('stage' , 1)->count();//در دست اقدام
     $this->orderAgdamCount=Buy::where('stage',3)->where('shop_id' , 1)->count();//در دست اقدام
     $this->orderPostCount=Buy::where('stage',4)->where('shop_id' , 1)->count();//ارسال شده
     $this->orderDeliverCount=Buy::where('stage',5)->where('shop_id' , 1)->count();//تحویل گرفته شده
@@ -306,7 +307,7 @@ class OrderUnStockFatakAdminController extends Controller
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
-    $pro=ProShop::find();
+    $pro=ProShop::find($request->pro_id);
     $pro->order_id=$request->id ;
     $pro->shop_id=1 ;
     $pro->stamp = $request->stamp ;
@@ -331,7 +332,7 @@ class OrderUnStockFatakAdminController extends Controller
     $pro->show = 1 ;
     $pro-> save();
      // اضافه کردن عکسهای محصول
-    $picture=new Picture_shop();
+    $picture=Picture_shop::where('pro_shop_id',$pro->id)->first();
     $picture->pro_shop_id =$pro->id;
     $picture->pic_b1 =  $request->img1 ;
     $picture->pic_b2 =  $request->img2 ;
