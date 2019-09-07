@@ -291,6 +291,62 @@ class OrderUnStockFatakAdminController extends Controller
     }
     $order=Order::get();
   return view('management.order_proUnStockFatak.orderSabtPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','mapPro','mapId','mapDate','notRecord'));
-
+  }
+  public function orderOneSabtPUnStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $pro_id=$request->pro_id;
+    $proShop=ProShop::find($pro_id);
+    $order=Order::find($proShop->order_id);
+    $picture_shops=Picture_shop::where('pro_shop_id',$proShop->id)->first();
+    return view('management.order_proUnStockFatak.orderOneSabtPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','picture_shops'));
+  }
+  public function editOrderSPUF(Save_proShop $request)
+  {
+    $date1=new Verta();//تاریخ جلالی
+    $date=$date1->format('Y/n/j');
+    $pro=ProShop::find();
+    $pro->order_id=$request->id ;
+    $pro->shop_id=1 ;
+    $pro->stamp = $request->stamp ;
+    $pro->name = $request->namePro ;
+    $pro->maker = $request->maker ;
+    $pro->brand = $request->brand ;
+    $pro->model = $request->model ;
+    $pro->price = $request->price ;
+    $pro->vahed = $request->vahed ;
+    $pro->num =(empty($request->num)) ? 1 : $request->num;
+    $pro->vazn = $request->vazn ;
+    $pro->vaznPost = $request->vaznPost ;
+    $pro->dimension = $request->dimension ;
+    $pro->pakat = $request->pakat ;
+    $pro->dis = $request->dis ;
+    $pro->dateMake = $request->dateMake ;
+    $pro->dateExpiration = $request->dateExpiration ;
+    $pro->term = $request->term ;
+    $pro->date_ad = $date ;
+    $pro->date_up = $date ;
+    $pro->stage = 1 ;
+    $pro->show = 1 ;
+    $pro-> save();
+     // اضافه کردن عکسهای محصول
+    $picture=new Picture_shop();
+    $picture->pro_shop_id =$pro->id;
+    $picture->pic_b1 =  $request->img1 ;
+    $picture->pic_b2 =  $request->img2 ;
+    $picture->pic_b3 =  $request->img3 ;
+    $picture->pic_b4 =  $request->img4 ;
+    $picture->pic_b5 =  $request->img5 ;
+    $picture->pic_b6 =  $request->img6 ;
+    $picture->pic_s1 =  $request->img1 ;
+    $picture->pic_s2 =  $request->img2 ;
+    $picture->pic_s3 =  $request->img3 ;
+    $picture->pic_s4 =  $request->img4 ;
+    $picture->pic_s5 =  $request->img5 ;
+    $picture->pic_s6 =  $request->img6 ;
+    $picture->show = 1;
+    $picture->save();
+    return $pro->id;
   }
 }//end class

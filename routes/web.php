@@ -243,6 +243,8 @@ Route::post('/AllOstan_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllO
 Route::post('/AllCiyt_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllCiyt_searchNPUF');//ok
 Route::post('/saveOrderNPUF', 'Admin\OrderUnStockFatakAdminController@saveOrderNPUF');//ok
 Route::get('/orderSabtPUnStockF/{order_id?}/{stamp?}', 'Admin\OrderUnStockFatakAdminController@orderSabtPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+')->where('stamp', '[0-9]+');//ok!!
+Route::get('/orderOneSabtPUnStockF/{pro_id}', 'Admin\OrderUnStockFatakAdminController@orderOneSabtPUnStockF')->middleware(['chekloginManeg'])->where('pro_id', '[0-9]+');//ok!!
+Route::post('/editOrderSPUF', 'Admin\OrderUnStockFatakAdminController@editOrderSPUF');//ok
 
 
 

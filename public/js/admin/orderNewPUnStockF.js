@@ -34,6 +34,42 @@ Dropzone.options.MimgOONPUSF6 = {
   success:function(file , response){  //آرگومان اول یک شی است//آرکومان دوم مقدار بازگشتی از کنترلر است
     $("#AimgOONPU6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');$("#checkImg6").html('<i class="fas fa-check Icheck"></i>');$("#ajax_imgOONPU6").html( response );},
 }
+Dropzone.options.MimgOOSPUSF1 = {
+   parallelUploads: 2, acceptedFiles:".png , .jpg , .jpeg", maxFilesize: 3,
+  error:function(){$("#AimgOOSPU1").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');  },
+  success:function(file , response){//آرگومان اول یک شی است  //آرکومان دوم مقدار بازگشتی از کنترلر است
+    $("#AimgOOSPU1").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');$("#checkImg1").html('<i class="fas fa-check Icheck"></i>');$("#ajax_imgOOSPU1").html( response );},
+}
+Dropzone.options.MimgOOSPUSF2 = {
+   parallelUploads: 2,acceptedFiles:".png , .jpg , .jpeg",maxFilesize: 3,
+  error:function(){  $("#AimgOOSPU2").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');},
+  success:function(file , response){  //آرگومان اول یک شی است//آرکومان دوم مقدار بازگشتی از کنترلر است
+    $("#AimgOOSPU2").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');$("#checkImg2").html('<i class="fas fa-check Icheck"></i>');$("#ajax_imgOOSPU2").html( response );},
+}
+Dropzone.options.MimgOOSPUSF3 = {
+   parallelUploads: 2,acceptedFiles:".png , .jpg , .jpeg",maxFilesize: 3,
+  error:function(){$("#AimgOOSPU3").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');},
+  success:function(file , response){//آرگومان اول یک شی است//آرکومان دوم مقدار بازگشتی از کنترلر است
+    $("#AimgOOSPU3").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');$("#checkImg3").html('<i class="fas fa-check Icheck"></i>');$("#ajax_imgOOSPU3").html( response );},
+}
+Dropzone.options.MimgOOSPUSF4 = {
+  parallelUploads: 2,acceptedFiles:".png , .jpg , .jpeg",maxFilesize: 3,
+  error:function(){$("#AimgOOSPU4").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');},
+  success:function(file , response){//آرگومان اول یک شی است//آرکومان دوم مقدار بازگشتی از کنترلر است
+    $("#AimgOOSPU4").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');$("#checkImg4").html('<i class="fas fa-check Icheck"></i>');$("#ajax_imgOOSPU4").html( response );},
+}
+Dropzone.options.MimgOOSPUSF5 = {
+   parallelUploads: 2, acceptedFiles:".png , .jpg , .jpeg",maxFilesize: 3,
+  error:function(){$("#AimgOOSPU5").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');},
+  success:function(file , response){//آرگومان اول یک شی است//آرکومان دوم مقدار بازگشتی از کنترلر است
+    $("#AimgOOSPU5").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');$("#checkImg5").html('<i class="fas fa-check Icheck"></i>');$("#ajax_imgOOSPU5").html( response );},
+}
+Dropzone.options.MimgOOSPUSF6 = {
+   parallelUploads: 2,acceptedFiles:".png , .jpg , .jpeg", maxFilesize: 3,
+  error:function(){$("#AimgOOSPU6").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');},
+  success:function(file , response){  //آرگومان اول یک شی است//آرکومان دوم مقدار بازگشتی از کنترلر است
+    $("#AimgOOSPU6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');$("#checkImg6").html('<i class="fas fa-check Icheck"></i>');$("#ajax_imgOOSPU6").html( response );},
+}
 function pro_searchUSF(nameCookie , pro , url) {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
@@ -239,3 +275,76 @@ function del_imgNPUF(ajax , div , i) {
     success:function(){
       $("#"+ ajax).html('<div class="alert alert-danger"> عکس حذف شد . </div>');$("#"+ div).html('');$("#"+ i).html( '' );
     },  });}
+function editOrderSPUF(id) {
+  $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+      url: "../../editOrderSPUF",
+      method: 'post',
+      data: {
+          id:id,
+          stamp:$('input[name=stamp_OOSPUSF]:checked', '#form_OONPUSF').val(),
+          namePro:$('#name_OOSPUSF').val(),
+          maker:$('#maker_OOSPUSF').val(),
+          brand: $('#brand_OOSPUSF').val(),
+          model: $('#model_OOSPUSF').val(),
+          price: $('#price_OOSPUSF').val(),
+          vahed: $('#vahed_OOSPUSF').val() ,
+          num: $('#num_OOSPUSF').val(),
+          dimension:$('input[name=dimension_OONPUSF]:checked', '#form_OOSPUSF').val(),
+          vazn: $('#vazn_OOSPUSF').val(),
+          vaznPost: $('#vaznPost_OOSPUSF').val(),
+          pakat: $('#pakat_OOSPUSF').val(),
+          dis: $('#dis_OOSPUSF').val(),
+          dateMake: $('#dateMake_OOSPUSF').val(),
+          dateExpiration: $('#dateExpiration_OOSPUSF').val(),
+          term: $('#term_OOSPUSF').val(),
+          img1: $('#ajax_imgOOSPU1').html(),
+          img2: $('#ajax_imgOOSPU2').html(),
+          img3: $('#ajax_imgOOSPU3').html(),
+          img4: $('#ajax_imgOOSPU4').html(),
+          img5: $('#ajax_imgOOSPU5').html(),
+          img6: $('#ajax_imgOOSPU6').html(),
+
+      },
+      success: function(data) {
+        scroll_form_admin('form_OOSPUSF');
+        document.getElementById("form_OOSPUSF").reset();
+        $('#ajax_formOOSPUSF').html(' ');
+        $('#ajaxOrderModalPro').html('<div class="alert alert-success">تغییرات با موفقیت ثبت شد .</div>');
+        $('#orderModalPro').modal('show');
+        $("#orderModalPro").on('hide.bs.modal', function () {
+        window.location.href  = "/orderOneSabtPUnStockF/" + data;
+        });
+        },
+      error: function(xhr) {
+          var errors = xhr.responseJSON;var error=errors.errors;
+          scroll_form_admin('form_OOSPUSF');
+           if(error['stamp']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">نوع محصول را انتخاب کنید .</div>');
+          }
+          else if(error['namePro']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">نام محصول را وارد کنید .</div>');
+          }
+          else if(error['price']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">'+error['price']+'</div>');
+          }
+          else if(error['vahed']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">واحد شمارش کالا را انتخاب کنید .</div>');
+          }
+          else if(error['num']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">تعداد کالای موجود را به عدد وارد کنید .</div>');
+          }
+          else if(error['dimension']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">ابعاد محصول را انتخاب کنید .</div>');
+          }
+          else if(error['vazn']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">وزن محصول را به عدد وارد کنید ، از نوشتن کلمه  "گرم" خود داری کنید .</div>');
+          }
+          else if(error['vaznPost']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">وزن پستی را وارد کنید ، از نوشتن کلمه " گرم " خود داری کنید .</div>');
+          }
+          else if(error['pakat']){
+             $('#ajax_formOOSPUSF').html('<div class="alert alert-danger">هزینه بسته بندی کالا را به عدد وارد کنید . </div>');
+          }
+     }}, "json");
+}
