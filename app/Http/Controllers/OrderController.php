@@ -595,7 +595,8 @@ public function save_data_buyer2(Save_data_buyer $request){
     $add->scot=$scot;
     $add->paywork=$paywork;
     $add->amount=$amount;
-    $add->date=$date;
+    $add->date_ad=$date;
+    $add->date_up=$date;
     $add->stage=0;
     $add-> save();
     if(!empty($add->id)){

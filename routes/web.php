@@ -204,11 +204,13 @@ Route::post('/editPas_shopAdmin', 'Admin\ShopAdminController@editPas_shopAdmin')
 Route::get('/all_act_shop', 'Admin\ShopAdminController@all_act_shop')->middleware(['chekloginManeg']);//ok
 Route::get('/all_rank_shop', 'Admin\ShopAdminController@all_rank_shop')->middleware(['chekloginManeg']);//ok
 Route::get('/all_newOrderSA', 'Admin\ShopAdminController@all_newOrderSA')->middleware(['chekloginManeg']);//ok
+//عملیات بر روی خریدها و سفارشات ثابت و غیر ثابت
+Route::post('/orderAghdamAdmin/{buy_id}/{stampBuy}', 'Admin\ManagementController@orderAghdamAdmin')->where('buy_id', '[0-9]+')->where('stampBuy', '[0-9]+');//ok
+
 //pro stock admin سفارشات موجود فروشگاه فاتک
 Route::get('/order_proStockFatak', 'Admin\OrderStockFatakAdminController@show')->middleware(['chekloginManeg']);//ok!!
 Route::get('/orderNewPStockF', 'Admin\OrderStockFatakAdminController@orderNewPStockF')->middleware(['chekloginManeg']);//ok!!
 Route::get('/orderOneNewPStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderOneNewPStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok!!
-Route::post('/orderAghdamNSF/{buy_id}', 'Admin\OrderStockFatakAdminController@orderAghdamNSF')->where('buy_id', '[0-9]+');//ok
 Route::post('/delBuyOrderNSF/{buy_id}', 'Admin\OrderStockFatakAdminController@delBuyOrderNSF')->where('buy_id', '[0-9]+');//ok
 Route::get('/proceedOrderStockF', 'Admin\OrderStockFatakAdminController@proceedOrderStockF')->middleware(['chekloginManeg']);//ok
 Route::get('/proceedOneOrderStockF/{buy_id}', 'Admin\OrderStockFatakAdminController@proceedOneOrderStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok

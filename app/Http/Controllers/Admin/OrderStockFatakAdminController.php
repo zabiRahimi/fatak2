@@ -78,16 +78,16 @@ class OrderStockFatakAdminController extends Controller
     $pro=Pro::find($buy->pro_id);
     return view('management.order_proStockFatak.orderOneNewPStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
   }
-  public function orderAghdamNSF(Request $request)
-  {
-    $buy_id=$request->buy_id;
-    $date1=new Verta();//تاریخ جلالی
-    $date=$date1->format('Y/n/j');
-    $save=Buy::find($buy_id);
-    $save->stage=3;
-    $save->date_up=$date;
-    $save->save();
-  }
+  // public function orderAghdamNSF(Request $request)
+  // {
+  //   $buy_id=$request->buy_id;
+  //   $date1=new Verta();//تاریخ جلالی
+  //   $date=$date1->format('Y/n/j');
+  //   $save=Buy::find($buy_id);
+  //   $save->stage=3;
+  //   $save->date_up=$date;
+  //   $save->save();
+  // }
   public function delBuyOrderNSF(Request $request)
   {
     $buy_id=$request->buy_id;

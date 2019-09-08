@@ -40,7 +40,7 @@
           <div class="divRow3 orderBuyUnSF2">{{$buyOrders->num_pro}} {{$pro2->vahed}}</div>
           <div class="divRow3 orderBuyUnSF3 orderBuyUnSF3_2">{{$pro2->id}}</div>
           <div class="divRow3 orderBuyUnSF4 orderBuyUnSF4_2">{{$buyOrders->id}}</div>
-          <div class="divRow3 orderBuyUnSF5">{{$buyOrders->date}}</div>
+          <div class="divRow3 orderBuyUnSF5">{{str_replace('-', '/',$buyOrders->date_up )}}</div>
           <div class="divRow3 orderBuyUnSF6">{{$buyOrders->name}} </div>
           <div class="divRow3 orderBuyUnSF7">{{$buyOrders->ostan}}</div>
         </div>

@@ -39,7 +39,7 @@
         </div>
         <div class="buyOneDiv orderDiv orderDate">
           <div class="buyOneDiv1 orderDivZ0 orderDate1">تاریخ خرید <span class="orderDivSpan">:</span></div>
-          <div class="buyOneDiv2 orderDivZ orderDate2">{{$buyer->date}}</div>
+          <div class="buyOneDiv2 orderDivZ orderDate2">{{$buyer->date_up}}</div>
         </div>
       </div>{{-- جهت پرینت --}}
 

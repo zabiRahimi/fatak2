@@ -40,7 +40,7 @@
       </div>
       <div class="buyOneDiv orderDiv orderDate">
         <div class="buyOneDiv1 orderDivZ0 orderDate1">تاریخ خرید <span class="orderDivSpan">:</span></div>
-        <div class="buyOneDiv2 orderDivZ orderDate2">{{$buyOrder->date}}</div>
+        <div class="buyOneDiv2 orderDivZ orderDate2">{{str_replace('-', '/',$buyOrder->date_up )}}</div>
       </div>
     </div>{{-- جهت پرینت --}}
 
@@ -100,7 +100,7 @@
           <span><b>توجه !!</b> آیا اطلاعات محصول و خریدار را چاپ کرده اید ؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="orderAghdamNSF({{$buyOrder->id}})" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="orderAghdamAdmin({{$buyOrder->id}},2,'orderBuyUnStockF')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>

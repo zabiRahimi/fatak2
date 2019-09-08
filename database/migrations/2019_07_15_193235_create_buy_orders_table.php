@@ -35,7 +35,8 @@ class CreateBuyOrdersTable extends Migration
           $table->mediumInteger('amount')->nullable();
           $table->string('authority',36)->nullable();
           $table->string('refid',36)->nullable();
-          $table->string('date',15)->nullable();
+          $table->date('date_ad')->nullable();
+          $table->date('date_up')->nullable();
           $table->string('stage',3)->nullable();
         });
     }

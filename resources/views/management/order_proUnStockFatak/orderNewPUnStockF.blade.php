@@ -117,8 +117,7 @@
         $checkOrder=$proShop->where('order_id',$newOrders->id)->first();
         if($checkOrder){continue;}
         $r++;
-        $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
-        $date=str_replace('-', '/',$newOrders->date_up );
+        $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;;
         @endphp
         <div class="divRow2 pointer {{$classBg}} " onclick="window.location='/orderOneNewPUnStockF/{{$newOrders->id}}'">
           <div class="divRow3 rowNumber ">{{$r}}</div>
@@ -127,7 +126,7 @@
           <div class="divRow3 orderNewUnS3 orderNewUnS3_2">{{$newOrders->id}}</div>
           <div class="divRow3 orderNewUnS4">{{$newOrders->ostan}}</div>
           <div class="divRow3 orderNewUnS5">{{$newOrders->city}} </div>
-          <div class="divRow3 orderNewUnS6">{{$date}}</div>
+          <div class="divRow3 orderNewUnS6">{{str_replace('-', '/',$newOrders->date_up )}}</div>
         </div>
       @endforeach
     </div>

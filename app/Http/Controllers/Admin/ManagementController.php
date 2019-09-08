@@ -5,9 +5,12 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Contracts\Encryption\Encrypter;
+use Hekmatinasser\Verta\Verta;//تاریخ جلالی
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Management;
+use App\Models\Buy;
+use App\Models\BuyOrder;
 
 use App\Http\Requests\Save_login_manage;
 use Cookie;
@@ -67,6 +70,20 @@ class ManagementController extends Controller
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
       return view('management.dashbordAdmin',compact('id','nameModir','access'));
     }
-  
+    public function orderAghdamAdmin(Request $request)
+    {
+      $buy_id=$request->buy_id;
+      $stampBuy=$request->stampBuy;
+      $date1=new Verta();//تاریخ جلالی
+      $date=$date1->format('Y/n/j');
+      if ($stampBuy==1) {//محصول خریداری شده ثابت
+        $save=Buy::find($buy_id);
+      }elseif ($stampBuy==2) {//محصول خریدری شده غیر ثابت
+        $save=BuyOrder::find($buy_id);
+      }
+      $save->stage=3;
+      $save->date_up=$date;
+      $save->save();
+    }
 
 }//end class
