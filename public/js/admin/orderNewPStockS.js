@@ -1,9 +1,9 @@
 
-function orderAghdamNSS(id) {//اقدام تهیه و ارسال سفارش موجود فروشگاه فاتک
+function orderAghdamAdmin(id,stampBuy,url) {//اقدام تهیه و ارسال سفارش موجود فروشگاه فاتک
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../orderAghdamNSS/' + id,
+    url:'../../orderAghdamAdmin/' + id + '/' + stampBuy,
     data: {
 
          },
@@ -11,7 +11,7 @@ function orderAghdamNSS(id) {//اقدام تهیه و ارسال سفارش مو
       $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات موفق بود .</div>');
       $('#orderModalPro').modal('show');
       $("#orderModalPro").on('hide.bs.modal', function () {
-      window.location.href  = "/orderNewPStockS";
+      window.location.href  = "/" + url;
       });
 
     },
@@ -21,6 +21,28 @@ function orderAghdamNSS(id) {//اقدام تهیه و ارسال سفارش مو
     },
     });
   }
+  // function orderAghdamNSS(id) {//اقدام تهیه و ارسال سفارش موجود فروشگاه فاتک
+  //   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  //   $.ajax({
+  //     type:'post',
+  //     url:'../../orderAghdamNSS/' + id ,
+  //     data: {
+  //
+  //          },
+  //     success:function(){
+  //       $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات موفق بود .</div>');
+  //       $('#orderModalPro').modal('show');
+  //       $("#orderModalPro").on('hide.bs.modal', function () {
+  //       window.location.href  = "/orderNewPStockS";
+  //       });
+  //
+  //     },
+  //     error : function(xhr){
+  //       $('#ajaxOrderModalPro').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+  //       $('#orderModalPro').modal('show');
+  //     },
+  //     });
+  //   }
 function delBuyOrderNSS(id , page) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({

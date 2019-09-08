@@ -19,3 +19,14 @@
 .orderSabtUnS4{width:10%;}
 .orderSabtUnS5{width:15%;}
 .orderSabtUnS6{width:15%;}
+/* orderBuyUnStockF.blade.php */
+.orderBuyUnSF1{width: calc( 28% - 40px);}
+.orderBuyUnSF1_2{color: #051249;}
+.orderBuyUnSF2{width:12%;}
+.orderBuyUnSF3{width:10%;}
+.orderBuyUnSF3_2{color: #051249;}
+.orderBuyUnSF4{width:8%;}
+.orderBuyUnSF4_2{color: #004b67;}
+.orderBuyUnSF5{width:12%;}
+.orderBuyUnSF6{width:15%;}
+.orderBuyUnSF7{width:15%;}

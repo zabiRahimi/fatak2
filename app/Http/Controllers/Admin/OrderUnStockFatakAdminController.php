@@ -16,6 +16,7 @@ use App\Models\Channel;
 use App\Models\Ch_view;//بازدیدها و خریدهای شبکه
 use App\Models\Income;
 use App\Models\Buy;
+use App\Models\BuyOrder;
 use App\Models\Shop;
 use App\Models\Pro;
 use App\Models\ProShop;
@@ -36,7 +37,7 @@ use App\Http\Requests\Save_editProShop;
 
 class OrderUnStockFatakAdminController extends Controller
 {
-  public $id ,$nameModir,$access,$orderNewCount,$orderSabtCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount;
+  public $id ,$nameModir,$access,$orderNewCount,$orderSabtCount,$orderBuyCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount;
   public function __construct(Encrypter $encrypter ,Request $request)
   {
     $cookie=$request->cookie('checkLogManeg');
@@ -59,7 +60,8 @@ class OrderUnStockFatakAdminController extends Controller
       $orderNum++;
     }
     $this->orderNewCount=$orderNum;
-    $this->orderSabtCount=ProShop::where('shop_id',1)->where('stage' , 1)->count();//در دست اقدام
+    $this->orderSabtCount=ProShop::where('shop_id',1)->where('stage' , 1)->count();//محصول ثبت شده
+    $this->orderBuyCount=BuyOrder::where('shop_id' , 1)->where('stage',2)->count();//در دست اقدام
     $this->orderAgdamCount=Buy::where('stage',3)->where('shop_id' , 1)->count();//در دست اقدام
     $this->orderPostCount=Buy::where('stage',4)->where('shop_id' , 1)->count();//ارسال شده
     $this->orderDeliverCount=Buy::where('stage',5)->where('shop_id' , 1)->count();//تحویل گرفته شده
@@ -71,18 +73,18 @@ class OrderUnStockFatakAdminController extends Controller
   }
   public function show(Request $request){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->format('Y/n/j');
     $dateC=$dateA->subDay()->format('Y/n/j');
     $v=$dateA->subDay(30)->format('Y/n/j');
     // $show_img=Imgpro::where('show' , 1)->get();
-    return view('management.order_proUnStockFatak.order_proUnStockFatak' , compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','v'));
+    return view('management.order_proUnStockFatak.order_proUnStockFatak' , compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','v'));
   }
   public function orderNewPUnStockF(Request $request)
   {
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-      $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+      $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
       $dateA=new Verta();//تاریخ جلالی
       global $today;$today=$dateA->format('Y/n/j');
       global $yesterday;$yesterday=$dateA->subDay()->format('Y/n/j');
@@ -137,7 +139,7 @@ class OrderUnStockFatakAdminController extends Controller
         $notRecord='no';
       }
       $proShop=ProShop::get();
-    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','mapId','mapPro','mapDate','mapOstan','mapCity','notRecord','proShop'));
+    return view('management.order_proUnStockFatak.orderNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','newOrder','mapId','mapPro','mapDate','mapOstan','mapCity','notRecord','proShop'));
   }
   public function pro_searchUSF(Request $request)
   {
@@ -183,10 +185,10 @@ class OrderUnStockFatakAdminController extends Controller
   public function orderOneNewPUnStockF(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $order_id=$request->order_id;
     $order=Order::find($order_id);
-    return view('management.order_proUnStockFatak.orderOneNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','order'));
+    return view('management.order_proUnStockFatak.orderOneNewPUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','order'));
   }
   public function saveOrderNPUF(Save_proShop $request)
   {
@@ -237,7 +239,7 @@ class OrderUnStockFatakAdminController extends Controller
   public function orderSabtPUnStockF(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $dateA=new Verta();//تاریخ جلالی
     global $today;$today=$dateA->format('Y/n/j');
     global $yesterday;$yesterday=$dateA->subDay()->format('Y/n/j');
@@ -291,17 +293,17 @@ class OrderUnStockFatakAdminController extends Controller
       $notRecord='no';
     }
     $order=Order::get();
-  return view('management.order_proUnStockFatak.orderSabtPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','mapPro','mapId','mapDate','notRecord'));
+  return view('management.order_proUnStockFatak.orderSabtPUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','mapPro','mapId','mapDate','notRecord'));
   }
   public function orderOneSabtPUnStockF(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-    $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $pro_id=$request->pro_id;
     $proShop=ProShop::find($pro_id);
     $order=Order::find($proShop->order_id);
     $picture_shops=Picture_shop::where('pro_shop_id',$proShop->id)->first();
-    return view('management.order_proUnStockFatak.orderOneSabtPUnStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','picture_shops'));
+    return view('management.order_proUnStockFatak.orderOneSabtPUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','picture_shops'));
   }
   public function editOrderSPUF(Save_proShop $request)
   {
@@ -349,5 +351,22 @@ class OrderUnStockFatakAdminController extends Controller
     $picture->show = 1;
     $picture->save();
     return $pro->id;
+  }
+  public function orderBuyUnStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $buyOrder=BuyOrder::where('stage',2)->where('shop_id' , 1)->get();
+    $proShop=ProShop::get();
+    return view('management.order_proUnStockFatak.orderBuyUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buyOrder','proShop'));
+  }
+  public function orderOneBuyUnStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $buy_id=$request->buy_id;
+    $buyOrder=BuyOrder::find($buy_id);
+    $proShop=ProShop::find($buyOrder->proShop_id);
+    return view('management.order_proUnStockFatak.orderOneBuyUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buyOrder','proShop'));
   }
 }//end class

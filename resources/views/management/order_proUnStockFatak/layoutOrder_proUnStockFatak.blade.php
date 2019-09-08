@@ -11,7 +11,8 @@
       <div class="contentDash2_body_r">
         <a href="/order_proStockFatak" class=""><span class="titrCBR">مدیریت سفارش محصولات </span> </a>
         <a href="/orderNewPUnStockF" class=""><span class="titrCBR">سفارشات جدید</span><span class="badgeCBR">{{$orderNewCount}}</span> </a>
-        <a href="/orderSabtPUnStockF" class=""><span class="titrCBR">سفارشات ثبت شده</span><span class="badgeCBR">{{$orderNewCount}}</span> </a>
+        <a href="/orderSabtPUnStockF" class=""><span class="titrCBR">سفارشات ثبت شده</span><span class="badgeCBR">{{$orderSabtCount}}</span> </a>
+        <a href="/orderBuyUnStockF" class=""><span class="titrCBR">سفارشات خریداری شده</span><span class="badgeCBR">{{$orderBuyCount}}</span> </a>
         <a href="/proceedOrderStockF" class=""><span class="titrCBR">سفارشات در حال اقدام</span><span class="badgeCBR">{{$orderAgdamCount}}</span> </a>
         <a href="/orderErsalSabtStockF" class=""><span class="titrCBR">ثبت سفارش ارسال شده</span> </a>
         <a href="/orderErsalShowAllStockF" class=""><span class="titrCBR">سفارشات ارسال شده</span><span class="badgeCBR">{{$orderPostCount}}</span> </a>

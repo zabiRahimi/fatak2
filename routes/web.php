@@ -244,7 +244,10 @@ Route::post('/AllCiyt_searchNPUF', 'Admin\OrderUnStockFatakAdminController@AllCi
 Route::post('/saveOrderNPUF', 'Admin\OrderUnStockFatakAdminController@saveOrderNPUF');//ok
 Route::get('/orderSabtPUnStockF/{order_id?}/{stamp?}', 'Admin\OrderUnStockFatakAdminController@orderSabtPUnStockF')->middleware(['chekloginManeg'])->where('order_id', '[0-9]+')->where('stamp', '[0-9]+');//ok!!
 Route::get('/orderOneSabtPUnStockF/{pro_id}', 'Admin\OrderUnStockFatakAdminController@orderOneSabtPUnStockF')->middleware(['chekloginManeg'])->where('pro_id', '[0-9]+');//ok!!
+Route::get('/orderOneSabtPUnStockF/{pro_id}', 'Admin\OrderUnStockFatakAdminController@orderOneSabtPUnStockF')->middleware(['chekloginManeg'])->where('pro_id', '[0-9]+');//ok!!
 Route::post('/editOrderSPUF/{pro_id}', 'Admin\OrderUnStockFatakAdminController@editOrderSPUF')->where('pro_id', '[0-9]+');//ok
+Route::get('/orderBuyUnStockF', 'Admin\OrderUnStockFatakAdminController@orderBuyUnStockF')->middleware(['chekloginManeg']);//ok!!
+Route::get('/orderOneBuyUnStockF/{buy_id}', 'Admin\OrderUnStockFatakAdminController@orderOneBuyUnStockF')->middleware(['chekloginManeg'])->where('buy_id', '[0-9]+');//ok!!
 
 
 
