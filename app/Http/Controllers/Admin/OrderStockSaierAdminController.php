@@ -88,12 +88,12 @@ class OrderStockSaierAdminController extends Controller
       $shop=Shop::find($shop_id);
       return view('management.order_proStockSaier.showShopProStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','shop','page'));
     }
-    public function delBuyOrderNSS(Request $request)
-    {
-      $buy_id=$request->buy_id;
-      $del=Buy::find($buy_id);
-      $del->delete();
-    }
+    // public function delBuyOrderNSS(Request $request)
+    // {
+    //   $buy_id=$request->buy_id;
+    //   $del=Buy::find($buy_id);
+    //   $del->delete();
+    // }
     // محصولات در دست اقدام
     public function proceedOrderStockS(Request $request)
     {

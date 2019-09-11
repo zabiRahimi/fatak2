@@ -113,7 +113,7 @@
           <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="delBuyOrderNSF({{$buyOrder->id}},'orderNewPStockF')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="delBuyOrderAdmin({{$buyOrder->id}},2,'orderNewPUnStockF')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>

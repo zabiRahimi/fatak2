@@ -100,7 +100,7 @@
           <span><b>توجه !!</b> آیا می خواهید این محصول به صفحه محصولات سفارش شده برگردد؟</span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="backOrderNSF({{$buy->id}},'proceedOrderStockF')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="delBuyOrderAdmin({{$buy->id}},1,'proceedOrderStockF')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>

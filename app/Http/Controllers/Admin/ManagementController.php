@@ -85,5 +85,15 @@ class ManagementController extends Controller
       $save->date_up=$date;
       $save->save();
     }
-
+    public function delBuyOrderAdmin(Request $request)
+    {
+      $buy_id=$request->buy_id;
+      $stampDel=$request->stampDel;
+      if ($stampDel==1) {//حذف محصول ثابت
+        $del=Buy::find($buy_id);
+      }elseif ($stampDel==2) {//حذف محصول غیر ثابت
+        $del=BuyOrder::find($buy_id);
+      }
+      $del->delete();
+    }
 }//end class

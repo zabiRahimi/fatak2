@@ -369,4 +369,62 @@ class OrderUnStockFatakAdminController extends Controller
     $proShop=ProShop::find($buyOrder->proShop_id);
     return view('management.order_proUnStockFatak.orderOneBuyUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buyOrder','proShop'));
   }
+  public function proceedOrderUnStockF(Request $request)
+  {
+    $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
+    $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
+    $dateA=new Verta();//تاریخ جلالی
+    global $today;$today=$dateA->format('Y/n/j');
+    global $yesterday;$yesterday=$dateA->subDay()->format('Y/n/j');
+    global $month;$month=$dateA->subDay(30)->format('Y/n/j');
+    $order_id=$request->order_id;
+    $stamp=$request->stamp;
+    $mapId =  null ;
+    $mapId =  null ;
+    global $proS;$proS=$request->cookie('proSCOSPUSF');
+    $mapPro = ($proS) ? 'محصول' . ' ' . $proS : 'همه محصولات' ;
+    global $dateDay;$dateDay=$request->cookie('dateSCOSPUSF');
+    global $date1;$date1=$request->cookie('date1SCOSPUSF');
+    global $date2;$date2=$request->cookie('date2SCOSPUSF');
+    switch ($dateDay) {
+      case 'all':$mapDate='همه تاریخ ها';break;
+      case 'today':$mapDate='محصولات ثبت شده امروز';break;
+      case 'yesterday':$mapDate='محصولات ثبت شده دیروز';break;
+      case 'fromDAte':$mapDate='محصولات ثبت شده از تاریخ ' . $date1. ' تا ' . $date2;break;
+      default:$mapDate='همه تاریخ ها';break;
+    }
+    if(!empty($order_id) and $stamp==1 ){
+      $proShop=proShop::where('id' , $order_id)->where('shop_id',1)->where('stage',1)->get();
+      $notRecord='ok';
+      $mapId =  'محصول با کد'.' '.$order_id ;
+    }
+    elseif(!empty($order_id) and $stamp==2){
+      $proShop=proShop::where('order_id' , $order_id)->where('shop_id',1)->where('stage',1)->get();
+      $notRecord='ok';
+      $mapId = 'سفارش با کد'.' '.$order_id ;
+    }
+    elseif(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
+      $notRecord='ok';
+      $proShop= proShop::where('shop_id',1)->where('stage',1)->where(function($query){
+        global $proS;
+        global $dateDay;
+        global $today;
+        global $yesterday;
+        global $month;
+        global $date1;
+        global $date2;
+       if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
+       if($dateDay=='today' ){$query->where( 'date_up' , $today);}
+       if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
+       if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
+       if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
+     })->orderby('date_up', 'DESC')->get();
+    }
+    else{
+      $proShop=proShop::where('shop_id',1)->where('stage',1)->orderby('date_up', 'DESC')->get();
+      $notRecord='no';
+    }
+    $order=Order::get();
+  return view('management.order_proUnStockFatak.proceedOrderUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','mapPro','mapId','mapDate','notRecord'));
+  }
 }//end class

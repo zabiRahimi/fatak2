@@ -91,3 +91,23 @@ function orderAghdamAdmin(id,stampBuy,url) {//اقدام تهیه و ارسال 
     },
     });
   }
+function delBuyOrderAdmin(id ,stampDel, page) {
+      $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+      $.ajax({
+        type:'post',
+        url:'../../delBuyOrderAdmin/' + id + '/' + stampDel,
+        data: {
+             },
+        success:function(){
+          $('#ajaxOrderModalPro').html('<div class="alert alert-success">عملیات حذف با موفقیت انجام شد .</div>');
+          $('#orderModalPro').modal('show');
+          $("#orderModalPro").on('hide.bs.modal', function () {
+          window.location.href  = "/" + page;
+          });
+        },
+        error : function(xhr){
+          $('#ajaxOrderModalPro').html('<div class="alert alert-danger">عملیات نا موفق بود .</div>');
+          $('#orderModalPro').modal('show');
+        },
+        });
+      }

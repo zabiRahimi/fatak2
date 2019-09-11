@@ -86,7 +86,7 @@
         <div class="buyOneDiv1 orderDivZ0 orderDate1">نحوه پست <span class="orderDivSpan">:</span></div>
         <div class="buyOneDiv2 orderDivZ orderDate2">{{$buy->post}}</div>
       </div>
-      
+
     </div>{{-- جهت پرینت --}}
     <div class="divLine"></div>
     <div id="buyOneDivH2">{{-- جهت پرینت --}}
@@ -148,7 +148,7 @@
           <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
         </div>
         <div class="orderAghdamModal3">
-            <button type="button" class="btn btn-primary"onclick="delBuyOrderNSS({{$buy->id}},'orderNewPStockS')" data-dismiss="modal"  aria-label="Close">بله</button>
+            <button type="button" class="btn btn-primary"onclick="delBuyOrderAdmin({{$buy->id}},1,'orderNewPStockS')" data-dismiss="modal"  aria-label="Close">بله</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
         </div>
       </div>

@@ -13,7 +13,7 @@
         <a href="/orderNewPUnStockF" class=""><span class="titrCBR">سفارشات جدید</span><span class="badgeCBR">{{$orderNewCount}}</span> </a>
         <a href="/orderSabtPUnStockF" class=""><span class="titrCBR">سفارشات ثبت شده</span><span class="badgeCBR">{{$orderSabtCount}}</span> </a>
         <a href="/orderBuyUnStockF" class=""><span class="titrCBR">سفارشات خریداری شده</span><span class="badgeCBR">{{$orderBuyCount}}</span> </a>
-        <a href="/proceedOrderStockF" class=""><span class="titrCBR">سفارشات در حال اقدام</span><span class="badgeCBR">{{$orderAgdamCount}}</span> </a>
+        <a href="/proceedOrderUnStockF" class=""><span class="titrCBR">سفارشات در حال اقدام</span><span class="badgeCBR">{{$orderAgdamCount}}</span> </a>
         <a href="/orderErsalSabtStockF" class=""><span class="titrCBR">ثبت سفارش ارسال شده</span> </a>
         <a href="/orderErsalShowAllStockF" class=""><span class="titrCBR">سفارشات ارسال شده</span><span class="badgeCBR">{{$orderPostCount}}</span> </a>
         <a href="/orderSabtEndStockF" class=""><span class="titrCBR">ثبت سفارش تحویلی</span> </a>

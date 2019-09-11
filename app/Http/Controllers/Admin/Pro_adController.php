@@ -258,12 +258,7 @@ public function orderBuy(Request $request)
 //   $shop=Shop::find($buy->shop_id);
 //   return view('management.pro_admin.proceedProOne', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
 // }
-// public function delBuyOrderA(Request $request)
-// {
-//   $buy_id=$request->buy_id;
-//   $del=Buy::find($buy_id);
-//   $del->delete();
-// }
+
 // public function backOrderBuy(Request $request)
 // {
 //   $buy_id=$request->buy_id;
