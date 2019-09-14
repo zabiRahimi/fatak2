@@ -25,6 +25,7 @@ class CreateOrdersTable extends Migration
             $table->string('city',30);
             $table->string('date_ad',14);
             $table->string('date_up',14);
+            $table->json('id_proShop')->nullable();
             $table->boolean('stage');
             $table->boolean('show');
         });

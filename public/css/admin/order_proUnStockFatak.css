@@ -30,3 +30,14 @@
 .orderBuyUnSF5{width:12%;}
 .orderBuyUnSF6{width:15%;}
 .orderBuyUnSF7{width:15%;}
+/* proceedOrderUnStockF.php */
+.orderProceedUnSF1{width: calc( 28% - 40px);}
+.orderProceedUnSF1_2{color: #051249;}
+.orderProceedUnSF2{width:12%;}
+.orderProceedUnSF3{width:10%;}
+.orderProceedUnSF3_2{color: #051249;}
+.orderProceedUnSF4{width:8%;}
+.orderProceedUnSF4_2{color: #004b67;}
+.orderProceedUnSF5{width:12%;}
+.orderProceedUnSF6{width:15%;}
+.orderProceedUnSF7{width:15%;}

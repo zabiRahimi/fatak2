@@ -338,8 +338,9 @@ class ShopController extends Controller
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
+    $order_id=$request->id;
     $pro=new ProShop();
-    $pro->order_id=$request->id ;
+    $pro->order_id=$order_id;
     $pro->shop_id=$this->id ;
     $pro->stamp = $request->stamp ;
     $pro->name = $request->namePro ;
@@ -379,6 +380,12 @@ class ShopController extends Controller
     $picture->pic_s6 =  $request->img6 ;
     $picture->show = 1;
     $picture->save();
+    //اضافه کردن آیدی محصول به رکورد سفارش مشتری
+    $order=Order::find($order_id);
+    $id_proShop=  json_decode($order->id_proShop);
+    $id_proShop[]=$pro->id;
+    $order->id_proShop=json_encode($id_proShop);
+    $order->save();
   }
   public function buyProShop(Request $request)
   {
@@ -834,5 +841,19 @@ class ShopController extends Controller
     Cookie::queue('codeOkPayShop', 'ok');
     return $code;
   }
+public function searchProSStock(Request $request)
+{
+  return view('shop.searchProSStock');
+}
+public function searchProSUnStock(Request $request)
+{
+  $id=$this->id;
+  $this->validate($request, [
+        'pro' => 'required|alpha_dash',
+    ]);
+  $pro=$request->pro;
+  $proShop=proShop::where('shop_id',$id)->where('show',1)->where( 'name' ,"like", "%$pro%")->get();
 
+  return view('shop.searchProSUnStock',compact('proShop'));
+}
 }//end class

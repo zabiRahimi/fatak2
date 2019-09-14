@@ -84,13 +84,20 @@ class OrderController extends Controller
     public function showOrder(Request $request)
     {
       $order_id=$request->order_id;
-      $pro=ProShop::where('order_id' , $order_id)->get();
-      $pro_count=ProShop::where('order_id' , $order_id)->count();
-      $shop_count=ProShop::where('order_id' , $order_id)->distinct()->count('shop_id');
+      $order=Order::find($order_id);
+      $id_proShop=json_decode($order->id_proShop);
+      $pro=ProShop::get();
+      $pro_count=count($id_proShop);//تعداد محصولات
+      foreach ($id_proShop as $value) {//تعین تعداد فروشگاه
+        $idShop=ProShop::find($value);
+        $shop_count1[]=$idShop->shop_id;
+      }
+      $shop_count1=array_unique($shop_count1);//حذف عناصر تکراری از آرایه
+      $shop_count=count($shop_count1);//تعداد فروشنده ها
 
       $img=Picture_shop::first();
       $shop=Shop::first();
-      return view('order.showOrder',compact('pro','img','shop','pro_count','shop_count'));
+      return view('order.showOrder',compact('pro','img','shop','pro_count','shop_count','id_proShop'));
     }
     public function showOneOrder(Request $request)
     {

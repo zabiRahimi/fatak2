@@ -338,6 +338,32 @@
 .orderDivSpan{margin-right: 10px;font-family: sans-serif;}
 .orderOk{width: 99%;margin: 10px 0.5%;padding: 10px;float: right;text-align: center;border: 2px solid #085821;border-radius: 3px;color: #093e13;}
 .orderOk a{color: #bcc607;font-size: 18px;}
+.order_div_g1{width: 99%;margin: 2px 0.5%;padding:2px 10px;float: right;text-align: center;}
+.order_div_g1 button{width: 300px;padding: 7px 3px;background-color: #2b3e93;border: none;color: #fff;border-radius: 4px;}
+.order_div_g1 button:hover{background-color: #4e62bb;color: #fff;cursor: pointer;}
+.order_div_g1 button span{color: #bf4b60;}
+.order_div_g1 button:hover span{color: #fbcae0;}
+@media (max-width:360px){
+  .order_div_g1{width: 100%;margin: 2px 0;padding:2px 0;float: right;text-align: center;}
+  .order_div_g1 button{width: 100%;}
+  }
+.orderDivH{display: none;}
+.orderDivSh{display:block;}
+.order_div_stock , .order_div_unStock{width: 100%;margin: 15px 0;float: right;padding: 12px 0; border: 1px solid #808080;border-radius: 3px;}
+.orderDivInput1{float: right;margin: 2px;padding: 6px 8px;background-color: #d9d9d9;border-radius: 4px;}
+.orderDivInput1 button{cursor: pointer;}
+.iODI{position: relative;top: 3px; color: #190d77;}
+.orderDivSPSS{width: 100%;float: right;}
+.divOrderRow1 , .divOrderRow2{width: 99%;height: 35px;line-height: 35px;margin: 0 0.5%;float: right;background-color: #dbdddc;border: 1px solid #bfbfbf; border-radius: 3px 3px 0 0;}
+.divOrderRow2{background-color: #fff;border-radius: 0;border-top: none;cursor: pointer;}
+.divOrderRow2:hover{background: #7ec0cf;}
+.divOrderRow1 div, .divOrderRow2 div{float: right;padding: 0 2px; text-align: center;border-left:1px solid #bfbfbf; }
+.divOrderSPR{width: 28px; }
+.divOrderSP1{width: calc(40% - 28px);}
+.divOrderSP2{width: 20%;}
+.divOrderSP3{width:20%;}
+.divOrderSP3 span{font-size: 12px;}
+.divOrderSP4{width:20%;}
 .stamp_orderSabtShD1{color: #057546;}
 .stamp_orderSabtShD2{color: #3e6204;}
 
@@ -373,8 +399,8 @@
   .oldOrderA{color:#000;}
   .oldOrderName_1{color: #2658a2}
   .oldOrder_1{border-radius: 0;border-top: none;}
-  .color1{background-color: #e2dfdf;}
-  .color2{background-color: #d0d0d0;}
+  .color1{background-color: #e4eef2;}
+  .color2{background-color: #fff;}
   .oldOrder_1:hover, .oldOrder_1:hover .oldOrderName_1{cursor: pointer;background-color: #618fd4;color: #fff;}
   @media (max-width:500px){
     .oldOrder,.oldOrder_1{font-size: 12px;}

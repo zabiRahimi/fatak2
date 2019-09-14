@@ -185,17 +185,17 @@ function AllCiyt_searchNPUF() {
     },
     });
 }
-function id_searchUSF(input , url , stamp) {
-  var id=$('#'+input).val();
-  if(id){
-      if(stamp){window.location='/'+ url + '/' + id + '/' + stamp ;}
-      else{window.location='/'+ url + '/' + id ;}
-  } else{
-      if(stamp==1){alert('لطفا کد محصول را وارد کنید .')}
-      else if(stamp==2){ alert('لطفا کد سفارش را وارد کنید .') }
-      else{ alert('لطفا کد سفارش را وارد کنید .') }
-    }
-}
+// function id_searchUSF(input , url , stamp) {
+//   var id=$('#'+input).val();
+//   if(id){
+//       if(stamp){window.location='/'+ url + '/' + id + '/' + stamp ;}
+//       else{window.location='/'+ url + '/' + id ;}
+//   } else{
+//       if(stamp==1){alert('لطفا کد محصول را وارد کنید .')}
+//       else if(stamp==2){ alert('لطفا کد سفارش را وارد کنید .') }
+//       else{ alert('لطفا کد سفارش را وارد کنید .') }
+//     }
+// }
 function saveOrderNPUF(id) {
   $.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({

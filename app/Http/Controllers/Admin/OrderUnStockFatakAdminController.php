@@ -394,11 +394,12 @@ class OrderUnStockFatakAdminController extends Controller
       default:$mapDate='همه تاریخ ها';break;
     }
     if(!empty($order_id) and $stamp==1 ){
-      $proShop=proShop::where('id' , $order_id)->where('shop_id',1)->where('stage',1)->get();
+      $buyOrder=BuyOrder::where('id' , $order_id)->where('stage',3)->where('shop_id' , 1)->get();
       $notRecord='ok';
       $mapId =  'محصول با کد'.' '.$order_id ;
     }
     elseif(!empty($order_id) and $stamp==2){
+      $buyOrder=BuyOrder::where('id' , $order_id)->where('stage',3)->where('shop_id' , 1)->get();
       $proShop=proShop::where('order_id' , $order_id)->where('shop_id',1)->where('stage',1)->get();
       $notRecord='ok';
       $mapId = 'سفارش با کد'.' '.$order_id ;
@@ -421,10 +422,12 @@ class OrderUnStockFatakAdminController extends Controller
      })->orderby('date_up', 'DESC')->get();
     }
     else{
-      $proShop=proShop::where('shop_id',1)->where('stage',1)->orderby('date_up', 'DESC')->get();
+      $buyOrder=BuyOrder::where('stage',3)->where('shop_id' , 1)->get();
+
+
       $notRecord='no';
     }
-    $order=Order::get();
-  return view('management.order_proUnStockFatak.proceedOrderUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','order','mapPro','mapId','mapDate','notRecord'));
+    $proShop=proShop::get();
+  return view('management.order_proUnStockFatak.proceedOrderUnStockF', compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','proShop','buyOrder','mapPro','mapId','mapDate','notRecord'));
   }
 }//end class

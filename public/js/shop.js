@@ -6,6 +6,10 @@ function show_form_shop_log(clases) {
    $('.shop_ghanon_society_log3').css('display', 'none');
   $('.'+clases).css('display', 'block');
 }
+function div_active(class1){
+  $('.orderDivH').removeClass('orderDivSh');
+  $('.'+class1).addClass('orderDivSh');
+}
 // ثبت ابتدایی تامین کننده
 function sabtShop_1(){
   var mobail=$('#mobail_shopsabt1').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
@@ -1095,4 +1099,44 @@ function SearchDateSortBackShop() {
       // $('#ajax_sabtCodePSh').empty();
       window.location.href  = "/backErsalShop";
     },  });
+}
+function searchProSStock() {
+  var pro = $('#sProSStock').val();
+  if (pro) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../../searchProSStock',
+      data: {
+        pro:pro,
+           },
+      success:function(data){
+
+         $('#ajax_searchProSStock').html(data);
+        // window.location.href  = "/newOrderShop/"+sortdate;
+      },
+       });
+  }
+  else{alert('نام محصول را وارد کنید .')}
+
+}
+function searchProSUnStock() {
+  var pro = $('#sProSUnStock').val();
+  if (pro) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../../searchProSUnStock',
+      data: {
+        pro:pro,
+           },
+      success:function(data){
+
+         $('#ajax_searchProSUnStock').html(data);
+        // window.location.href  = "/newOrderShop/"+sortdate;
+      },
+       });
+  }
+  else{alert('نام محصول را وارد کنید .')}
+
 }

@@ -31,9 +31,47 @@
       </div>
       <div class="orderOk">
         {{-- <a href="#"><button type="button" class="btn btn-primary btn-block">  ثبت فروش این محصول </button></a> --}}
-        چنانچه قادر به تهیه  و فروش این محصول و یا مشابه این محصول هستید ،  اطلاعات محصول خود را در فرم زیر
-        وارد کنید .
+        چنانچه قادر به تهیه  و فروش این محصول و یا مشابه این محصول هستید ،  یکی از گزینه
+        های زیر را انتخاب نمایید .
       </div>
+      <div class="order_div_g1">
+        <button type="button"onclick="div_active('order_div_stock')">این محصول را قبلا به عنوان <span>محصول ثابت</span> ثبت کرده ام</button>
+      </div>
+      <div class="order_div_stock orderDivH">
+        <div class="orderDivInput1">
+          <input type="text" class="placeholder" id="sProSStock" value="" placeholder="نام محصول">
+          <button type="button" name="button" onclick="searchProSStock()"><i class='fas fa-search iODI'></i></button>
+        </div>
+        <div class="orderDivInput1">
+          <input type="text" class="placeholder" id="" value="" placeholder="کد محصول">
+          <button type="button" name="button"><i class='fas fa-search iODI'></i></button>
+        </div>
+        <div class="orderDivSPSS" id="ajax_searchProSStock">
+
+        </div>
+      </div>
+      <div class="order_div_g1"onclick="div_active('order_div_unStock')">
+        <button type="button">این محصول را قبلا به عنوان <span>محصول غیر ثابت</span> ثبت کرده ام </button>
+      </div>
+      <div class="order_div_unStock orderDivH">
+        <div class="orderDivInput1">
+          <input type="text" class="placeholder" id="sProSUnStock" value="" placeholder="نام محصول">
+          <button type="button" name="button" onclick="searchProSUnStock()"><i class='fas fa-search iODI'></i></button>
+        </div>
+        <div class="orderDivInput1">
+          <input type="text" class="placeholder" id="" value="" placeholder="کد محصول">
+          <button type="button" name="button"><i class='fas fa-search iODI'></i></button>
+        </div>
+        <div class="orderDivSPSS" id="ajax_searchProSUnStock">
+
+        </div>
+      </div>
+      <div class="order_div_g1"onclick="div_active('order_div_new')">
+        <button type="button">ثبت محصول جدید</button>
+      </div>
+
+
+      <div class="order_div_new orderDivH ">
       <form class="form form_orderSabtSh" id="form_orderSabtSh" action="" method="post">
        <div class="form_titr"><i class="fas fa-info-circle"></i> ثبت محصول </div>
        <div class="formTitrShop">
@@ -172,6 +210,7 @@
          <button type="button" class="btn btn-success" onclick="proShop({{$newOrderOne->id}})" >ثبت</button>
        </div>
      </form>
+     </div>
     </div>
 
    <!-- Modal موفق بودن ثبت محصول-->
