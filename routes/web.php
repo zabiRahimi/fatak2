@@ -92,6 +92,7 @@ Route::post('/nameBuyProShop','ShopController@nameBuyProShop');//ok!!
 Route::post('/allBuyProShop','ShopController@allBuyProShop');//ok!!
 Route::post('/searchProSStock','ShopController@searchProSStock');//ok!!
 Route::post('/searchProSUnStock','ShopController@searchProSUnStock');//ok!!
+Route::post('/searchIdSUnStock','ShopController@searchIdSUnStock');//ok!!
 
 Route::get('/sabtErsalShop/{order_id?}','ShopController@sabtErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/sabtCodeSh','ShopController@sabtCodeSh');//ok!!

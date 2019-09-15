@@ -1122,6 +1122,8 @@ function searchProSStock() {
 }
 function searchProSUnStock() {
   var pro = $('#sProSUnStock').val();
+  $('#sIdSUnStock').val('');
+  $('#ajax_searchProSUnStock').html('');
   if (pro) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
@@ -1138,5 +1140,27 @@ function searchProSUnStock() {
        });
   }
   else{alert('نام محصول را وارد کنید .')}
+
+}
+function searchIdSUnStock() {
+  var pro_id = $('#sIdSUnStock').val();
+  $('#sProSUnStock').val('');
+  $('#ajax_searchProSUnStock').html('');
+  if (pro_id) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../../searchIdSUnStock',
+      data: {
+        pro_id:pro_id,
+           },
+      success:function(data){
+
+         $('#ajax_searchProSUnStock').html(data);
+        // window.location.href  = "/newOrderShop/"+sortdate;
+      },
+       });
+  }
+  else{alert('کد محصول را وارد کنید .')}
 
 }

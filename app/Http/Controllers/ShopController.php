@@ -853,7 +853,18 @@ public function searchProSUnStock(Request $request)
     ]);
   $pro=$request->pro;
   $proShop=proShop::where('shop_id',$id)->where('show',1)->where( 'name' ,"like", "%$pro%")->get();
-
-  return view('shop.searchProSUnStock',compact('proShop'));
+  $check=1;
+  return view('shop.searchProSUnStock',compact('proShop','check'));
+}
+public function searchIdSUnStock(Request $request)
+{
+  $id=$this->id;
+  $this->validate($request, [
+        'pro_id' => 'required|numeric',
+    ]);
+  $pro_id=$request->pro_id;
+  $proShop=proShop::where('id',$pro_id)->where('shop_id',$id)->where('show',1)->first();
+  $check=2;
+  return view('shop.searchProSUnStock',compact('proShop','check'));
 }
 }//end class

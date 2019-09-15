@@ -359,9 +359,9 @@
 .divOrderRow2:hover{background: #7ec0cf;}
 .divOrderRow1 div, .divOrderRow2 div{float: right;padding: 0 2px; text-align: center;border-left:1px solid #bfbfbf; }
 .divOrderSPR{width: 28px; }
-.divOrderSP1{width: calc(40% - 28px);}
-.divOrderSP2{width: 20%;}
-.divOrderSP3{width:20%;}
+.divOrderSP1{width: calc(43% - 28px);}
+.divOrderSP2{width: 13%;}
+.divOrderSP3{width:24%;}
 .divOrderSP3 span{font-size: 12px;}
 .divOrderSP4{width:20%;}
 .stamp_orderSabtShD1{color: #057546;}
@@ -369,6 +369,12 @@
 
 @media (max-width:470px){
   .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
+  .divOrderRow1 , .divOrderRow2{font-size: 12px;}
+  .divOrderSP1{width: calc(53% - 28px);}
+  .divOrderSP2{width: 16%;}
+  .divOrderSP3{display: none;}
+  .divOrderSP3 span{font-size: 12px;}
+  .divOrderSP4{width:31%;}
   }
   /* ********** */
   .modal_h_img_add_pro{ line-height: 0; }

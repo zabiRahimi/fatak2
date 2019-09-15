@@ -40,11 +40,11 @@
       <div class="order_div_stock orderDivH">
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sProSStock" value="" placeholder="نام محصول">
-          <button type="button" name="button" onclick="searchProSStock()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchProSStock()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivInput1">
-          <input type="text" class="placeholder" id="" value="" placeholder="کد محصول">
-          <button type="button" name="button"><i class='fas fa-search iODI'></i></button>
+          <input type="text" class="placeholder" id="sIdSStock" value="" placeholder="کد محصول">
+          <button type="button" onclick=""><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivSPSS" id="ajax_searchProSStock">
 
@@ -56,11 +56,11 @@
       <div class="order_div_unStock orderDivH">
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sProSUnStock" value="" placeholder="نام محصول">
-          <button type="button" name="button" onclick="searchProSUnStock()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchProSUnStock()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivInput1">
-          <input type="text" class="placeholder" id="" value="" placeholder="کد محصول">
-          <button type="button" name="button"><i class='fas fa-search iODI'></i></button>
+          <input type="text" class="placeholder" id="sIdSUnStock" value="" placeholder="کد محصول">
+          <button type="button" onclick="searchIdSUnStock()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivSPSS" id="ajax_searchProSUnStock">
 
