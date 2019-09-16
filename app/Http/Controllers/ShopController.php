@@ -518,7 +518,7 @@ class ShopController extends Controller
     $proImg=Picture_shop::where('pro_shop_id', $id_proShop)->first();
     return view('shop.oldOrderShopOne',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','oldOrderOne','proShopOne','proImg','id_order','id_proShop'));
   }
-  public function editProShop(Save_editProShop $request)
+  public function editProShopUnStock(Save_editProShop $request)
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
@@ -864,7 +864,8 @@ public function searchIdSUnStock(Request $request)
     ]);
   $pro_id=$request->pro_id;
   $proShop=proShop::where('id',$pro_id)->where('shop_id',$id)->where('show',1)->first();
+  $picture_shop=Picture_shop::where('pro_shop_id', $proShop->id)->first();
   $check=2;
-  return view('shop.searchProSUnStock',compact('proShop','check'));
+  return view('shop.searchProSUnStock',compact('proShop','check','picture_shop'));
 }
 }//end class

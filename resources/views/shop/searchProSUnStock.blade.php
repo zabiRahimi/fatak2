@@ -22,7 +22,7 @@
       $color="color2";
     }
      ?>
-    <div class="divOrderRow2 {{$color}}">
+    <div class="divOrderRow2 {{$color}}"onclick="searchIdSUnStock({{$value->id}})">
       <div class="divOrderSPR">{{$r}}</div>
       <div class="divOrderSP1">{{$value->name}}</div>
       <div class="divOrderSP2">{{$value->id}}</div>
@@ -37,50 +37,50 @@
       محصولی مطابق با جستجوی شما یافت نشد .
     </div>
   @else
-    <form class="form form_orderSabtSh" id="form_orderSabtSh" action="" method="post">
+    <form class="form form_orderPSUS" id="form_orderPSUS" action="" method="post">
      <div class="form_titr"><i class="fas fa-info-circle"></i> ثبت محصول </div>
      <div class="formTitrShop">
          <span>راهنما !!</span> چنانچه بر روی علامت <i class="fas fa-info-circle "></i>هر یک از کادرها کلیک کنید ، راهنمای مربوط به همان کادر را مشاهده خواهید کرد .
      </div>
-     <div id="ajax_orderSabtSh"></div>
+     <div id="ajax_orderPSUS"></div>
      {{ csrf_field() }}
      <div class="form-group">
-       <label for="stamp_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh" data-toggle="modal" data-target="#Mstamp_orderSabtSh"></i> نوع محصول</label>
+       <label for="stamp_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS" data-toggle="modal" data-target="#Mstamp_orderPSUS"></i> نوع محصول</label>
        <div class="div_form_radio1">
-           <div class="div_form_radio2 stamp_orderSabtShD1">
-             <label for="stamp_orderSabtSh1" class="control-label pull-right "> اصل محصول</label>
-             <input type="radio" name="stamp_orderSabtSh" id="stamp_orderSabtSh1"@if ($proShop->stamp==1) checked @endif value="1">
+           <div class="div_form_radio2 stamp_orderPSUSD1">
+             <label for="stamp_orderPSUS1" class="control-label pull-right "> اصل محصول</label>
+             <input type="radio" name="stamp_orderPSUS" id="stamp_orderPSUS1"@if ($proShop->stamp==1) checked @endif value="1">
            </div>
-           <div class="div_form_radio2 stamp_orderSabtShD2">
-             <label for="stamp_orderSabtSh2" class="control-label pull-right "> مشابه محصول</label>
-             <input type="radio" name="stamp_orderSabtSh" id="stamp_orderSabtSh2"@if ($proShop->stamp==2) checked @endif value="2">
+           <div class="div_form_radio2 stamp_orderPSUSD2">
+             <label for="stamp_orderPSUS2" class="control-label pull-right "> مشابه محصول</label>
+             <input type="radio" name="stamp_orderPSUS" id="stamp_orderPSUS2"@if ($proShop->stamp==2) checked @endif value="2">
            </div>
        </div>
      </div>
      <div class="form-group">
-       <label for="name_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mname_orderSabtSh"></i> نام محصول</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->name}}" id="name_orderSabtSh"></div>
+       <label for="name_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mname_orderPSUS"></i> نام محصول</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->name}}" id="name_orderPSUS"></div>
      </div>
      <div class="form-group">
-       <label for="maker_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mmaker_orderSabtSh"></i>  سازنده محصول</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->maker}}" id="maker_orderSabtSh"placeholder="اختیاری ..."></div>
+       <label for="maker_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mmaker_orderPSUS"></i>  سازنده محصول</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->maker}}" id="maker_orderPSUS"placeholder="اختیاری ..."></div>
      </div>
      <div class="form-group">
-       <label for="brand_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mbrand_orderSabtSh"></i>  برند محصول</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->brand}}" id="brand_orderSabtSh"placeholder="اختیاری ..."></div>
+       <label for="brand_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mbrand_orderPSUS"></i>  برند محصول</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->brand}}" id="brand_orderPSUS"placeholder="اختیاری ..."></div>
      </div>
      <div class="form-group">
-       <label for="model_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mmodel_orderSabtSh"></i> مدل محصول</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->model}}" id="model_orderSabtSh"placeholder="اختیاری ..."></div>
+       <label for="model_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mmodel_orderPSUS"></i> مدل محصول</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->model}}" id="model_orderPSUS"placeholder="اختیاری ..."></div>
      </div>
      <div class="form-group">
-       <label for="price_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mprice_orderSabtSh"></i> قیمت محصول (تومان)</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->price}}" id="price_orderSabtSh"></div>
+       <label for="price_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mprice_orderPSUS"></i> قیمت محصول (تومان)</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->price}}" id="price_orderPSUS"></div>
      </div>
      <div class="form-group">
-       <label for="vahed_sabtOrder" class="control-label pull-right"><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا</label>
+       <label for="vahed_sabtOrder" class="control-label pull-right"><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا</label>
        <div class="div_form">
-         <select class="select squad_sabtOrder" id="vahed_orderSabtSh" name="" >
+         <select class="select squad_sabtOrder" id="vahed_orderPSUS" name="" >
            <option value="">انتخاب کنید</option>
            <option value="عدد">عدد</option>
            <option value="بسته">بسته</option>
@@ -93,87 +93,105 @@
        </div>
      </div>
      <div class="form-group">
-       <label for="num_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mnum_orderSabtSh"></i> تعداد کالای موجود</label>
-       <div class="div_form"><input type="number" class="form-control placeholder"value="{{$proShop->num}}" id="num_orderSabtSh"min="1" placeholder="اختیاری ..."></div>
+       <label for="num_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mnum_orderPSUS"></i> تعداد کالای موجود</label>
+       <div class="div_form"><input type="number" class="form-control placeholder"value="{{$proShop->num}}" id="num_orderPSUS"min="1" placeholder="اختیاری ..."></div>
      </div>
      <div class="form-group">
-       <label for="vazn_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mvazn_orderSabtSh"></i> وزن محصول</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->vazn}}" id="vazn_orderSabtSh"placeholder="در صورت نیاز ..."></div>
+       <label for="vazn_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mvazn_orderPSUS"></i> وزن محصول</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->vazn}}" id="vazn_orderPSUS"placeholder="در صورت نیاز ..."></div>
      </div>
      <div class="form-group">
-       <label for="stamp_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh" data-toggle="modal" data-target="#Mstamp_orderSabtSh"></i> ابعاد محصول</label>
+       <label for="stamp_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS" data-toggle="modal" data-target="#Mstamp_orderPSUS"></i> ابعاد محصول</label>
        <div class="div_form_radio1">
-           <div class="div_form_radio2 stamp_orderSabtShD1">
-             <label for="dimension_orderSabtSh1" class="control-label pull-right "> بزرگتر از 100 cm</label>
-             <input type="radio" name="dimension_orderSabtSh"@if ($proShop->dimension==1) checked @endif id="dimension_orderSabtSh1" value="2">
+           <div class="div_form_radio2 stamp_orderPSUSD1">
+             <label for="dimension_orderPSUS1" class="control-label pull-right "> بزرگتر از 100 cm</label>
+             <input type="radio" name="dimension_orderPSUS"@if ($proShop->dimension==1) checked @endif id="dimension_orderPSUS1" value="2">
            </div>
-           <div class="div_form_radio2 stamp_orderSabtShD2">
-             <label for="dimension_orderSabtSh2" class="control-label pull-right ">کوچکتر از 100 cm </label>
-             <input type="radio" name="dimension_orderSabtSh"@if ($proShop->dimension==1) checked @endif  id="dimension_orderSabtSh2" value="1">
+           <div class="div_form_radio2 stamp_orderPSUSD2">
+             <label for="dimension_orderPSUS2" class="control-label pull-right ">کوچکتر از 100 cm </label>
+             <input type="radio" name="dimension_orderPSUS"@if ($proShop->dimension==1) checked @endif  id="dimension_orderPSUS2" value="1">
            </div>
        </div>
      </div>
      <div class="form-group">
-       <label for="vaznPost_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MvaznPost_orderSabtSh"></i> وزن پستی محصول (گرم)</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->vaznPost}}" id="vaznPost_orderSabtSh"></div>
+       <label for="vaznPost_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#MvaznPost_orderPSUS"></i> وزن پستی محصول (گرم)</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->vaznPost}}" id="vaznPost_orderPSUS"></div>
      </div>
      <div class="form-group">
-       <label for="pakat_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mpakat_orderSabtSh"></i>  هزینه بسته بندی (تومان)</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->pakat}}" id="pakat_orderSabtSh"placeholder="اختیاری ..."></div>
+       <label for="pakat_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mpakat_orderPSUS"></i>  هزینه بسته بندی (تومان)</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->pakat}}" id="pakat_orderPSUS"placeholder="اختیاری ..."></div>
      </div>
      <div class="form-group">
-       <label for="dis_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mdis_orderSabtSh"></i> توضیح محصول</label>
+       <label for="dis_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mdis_orderPSUS"></i> توضیح محصول</label>
        <div class="div_formTextarea">
-         <textarea name="name" class="placeholder" id="dis_orderSabtSh"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید .">{{$proShop->dis}}</textarea>
+         <textarea name="name" class="placeholder" id="dis_orderPSUS"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید .">{{$proShop->dis}}</textarea>
        </div>
      </div>
      <div class="form-group">
-       <label for="dateMake_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MdateMake_orderSabtSh"></i> تاریخ تولید</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->dateMake}}" id="dateMake_orderSabtSh"placeholder="اختیاری ..."></div>
+       <label for="dateMake_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#MdateMake_orderPSUS"></i> تاریخ تولید</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->dateMake}}" id="dateMake_orderPSUS"placeholder="اختیاری ..."></div>
      </div>
      <div class="form-group">
-       <label for="dateExpiration_orderSabtSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#MdateExpiration_orderSabtSh"></i> تاریخ انقضا</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->dateExpiration}}" id="dateExpiration_orderSabtSh"placeholder="اختیاری ..."></div>
+       <label for="dateExpiration_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#MdateExpiration_orderPSUS"></i> تاریخ انقضا</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->dateExpiration}}" id="dateExpiration_orderPSUS"placeholder="اختیاری ..."></div>
      </div>
      <div class="form-group">
-       <label for="term_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mterm_orderSabtSh"></i> شرایط نگهداری</label>
+       <label for="term_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mterm_orderPSUS"></i> شرایط نگهداری</label>
        <div class="div_formTextarea">
-         <textarea name="name" class=" placeholder" id="term_orderSabtSh"placeholder="اختیاری ...">{{$proShop->term}}</textarea>
+         <textarea name="name" class=" placeholder" id="term_orderPSUS"placeholder="اختیاری ...">{{$proShop->term}}</textarea>
        </div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img1_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg1_orderSabtSh"></i> عکس 1 <span id="Iimg1_orderSabtSh"></span></label>
-       <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg1" value="انتخاب کنید"></div>
-       <div class="imgHidden" id="Aimg1_orderSabtSh"></div>
+       <label for="img1_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg1_orderPSUS"></i> عکس 1 <span id="Iimg1_orderPSUS">@if (!empty($picture_shop->pic_b1)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+       <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg1" value="انتخاب کنید"></div>
+       <div class="imgHidden" id="Aimg1_orderPSUS"></div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img2_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg0_orderSabtSh"></i> عکس 2 <span id="Iimg2_orderSabtSh"></span></label>
-      <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg2" value="انتخاب کنید"></div>
-       <div class="imgHidden" id="Aimg2_orderSabtSh"></div>
+       <label for="img2_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 2 <span id="Iimg2_orderPSUS">@if (!empty($picture_shop->pic_b2)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+      <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg2" value="انتخاب کنید"></div>
+       <div class="imgHidden" id="Aimg2_orderPSUS"></div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img3_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg0_orderSabtSh"></i> عکس 3 <span id="Iimg3_orderSabtSh"></span></label>
-      <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg3" value="انتخاب کنید"></div>
-       <div class="imgHidden" id="Aimg3_orderSabtSh"></div>
+       <label for="img3_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 3 <span id="Iimg3_orderPSUS">@if (!empty($picture_shop->pic_b3)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+      <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg3" value="انتخاب کنید"></div>
+       <div class="imgHidden" id="Aimg3_orderPSUS"></div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img4_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg0_orderSabtSh"></i> عکس 4 <span id="Iimg4_orderSabtSh"></span></label>
-      <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg4" value="انتخاب کنید"></div>
-       <div class="imgHidden" id="Aimg4_orderSabtSh"></div>
+       <label for="img4_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 4 <span id="Iimg4_orderPSUS">@if (!empty($picture_shop->pic_b4)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+      <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg4" value="انتخاب کنید"></div>
+       <div class="imgHidden" id="Aimg4_orderPSUS"></div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img5_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg0_orderSabtSh"></i> عکس 5 <span id="Iimg5_orderSabtSh"></span></label>
-       <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg5" value="انتخاب کنید"></div>
-       <div class="imgHidden" id="Aimg5_orderSabtSh"></div>
+       <label for="img5_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 5 <span id="Iimg5_orderPSUS">@if (!empty($picture_shop->pic_b5)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+       <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg5" value="انتخاب کنید"></div>
+       <div class="imgHidden" id="Aimg5_orderPSUS"></div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img6_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg0_orderSabtSh"></i> عکس 6 <span id="Iimg6_orderSabtSh"></span> </label>
-       <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg6" value="انتخاب کنید"></div>
-       <div class="imgHidden" id="Aimg6_orderSabtSh"></div>
+       <label for="img6_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 6 <span id="Iimg6_orderPSUS">@if (!empty($picture_shop->pic_b6)) <i class="fas fa-check Icheck"></i> @endif</span> </label>
+       <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg6" value="انتخاب کنید"></div>
+       <div class="imgHidden" id="Aimg6_orderPSUS"></div>
      </div>
      <div class="form-group form_btn">
-       <button type="button" class="btn btn-success" onclick="proShop({{$proShop->id}})" >ثبت</button>
+       <button type="button" class="btn btn-success" onclick="proShop({{$proShop->id}})" >ثبت و اعمال تغییرات</button>
      </div>
    </form>
   @endif
 @endif
+<!-- Modal موفق بودن ثبت محصول-->
+<div class="modal fade" id="end_orderPSUS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body modal_ok">
+        <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
+        <div class="modal_ok2">محصول شما با موفقیت ثبت شد .</div>
+      </div>
+      <div class=" modal_ok3">
+        <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
+      </div>
+    </div>
+  </div>
+</div><!--end modal پایان موفقیت ثبت .-->
+{{--
+ نکته بیسار مهم : مودال های عکس در صفحه زیر قرار دارند
+ newOrderShopOne.blade.php
+ --}}

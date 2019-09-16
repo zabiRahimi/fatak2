@@ -95,7 +95,10 @@ display:inline;
 .captcha_form button {padding: 4px; background-color: #6da7e0;}
 .captcha_form i {position: relative;top: 3px;font-size: 20px;}
 .form_btn{text-align: center;margin-top: 5px; padding: 4px 3px;}
-.form_btn button {width: 140px;font-size: 18px;}
+.form_btn button {width: 160px;font-size: 18px;}
+.ajax_form{width: 99%;margin: 0 0.5%;float: right;text-align: center;}
+.ajax_form_modal{width: 100%;margin: 5px 0;float: right;text-align: center;}
+
 /* آپلود عکس تگ پنهان */
 .imgHidden{  width: 1px;height: 1px; overflow: hidden;font-size: 1px; color:#ffffff; background-color: #ffffff;}
 @media(max-width:440px){

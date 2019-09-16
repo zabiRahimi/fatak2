@@ -84,7 +84,7 @@ Route::get('/oldOrderShopOne/{id1}/{id2}','ShopController@oldOrderShopOne')->mid
 Route::post('/codeOldOrderShop','ShopController@codeOldOrderShop');//ok!!
 Route::post('/nameOldOrderShop','ShopController@nameOldOrderShop');//ok!!
 Route::post('/allOldOrderShop','ShopController@allOldOrderShop');//ok!!
-Route::post('/editProShop','ShopController@editProShop');//ok!!
+Route::post('/editProShopUnStock','ShopController@editProShopUnStock');//ok!!
 Route::get('/buyProShop','ShopController@buyProShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/buyProShopOne/{buyer_id}/{pro_id}','ShopController@buyProShopOne')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/codeBuyProShop','ShopController@codeBuyProShop');//ok!!
