@@ -10,7 +10,7 @@ use App\Models\Picture_shop;
 use App\Models\BuyOrder;
 use App\Models\PayShop;
 use App\Models\BackErsalShop;
-
+use App\Models\StampProOrder;
 
 use App\Http\Requests\Save_shop_1;
 use App\Http\Requests\Save_shop_2;
@@ -63,10 +63,10 @@ class ShopController extends Controller
       $orderNum++;
     }
     $this->orderNum=$orderNum;
-    $this->oldOrderNum=ProShop::where('shop_id',$id)->where('stage',1)->count();
-    $this->buyOrderNum=ProShop::where('shop_id',$id)->where('stage',2)->count();
-    $this->payOrderNum=ProShop::where('shop_id',$id)->where('stage',4)->whereBetween('date_up', [$date30 , $dateB])->count();
-    $this->backOrderNum=ProShop::where('shop_id',$id)->where('stage',3)->count();
+    $this->oldOrderNum=ProShop::where('shop_id',$id)->count();
+    $this->buyOrderNum=ProShop::where('shop_id',$id)->count();
+    $this->payOrderNum=ProShop::where('shop_id',$id)->whereBetween('date_up', [$date30 , $dateB])->count();
+    $this->backOrderNum=ProShop::where('shop_id',$id)->count();
     return $next($request);
       });
       }
@@ -523,7 +523,6 @@ class ShopController extends Controller
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
     $pro=ProShop::find($request->id);
-    $pro->stamp = $request->stamp ;
     $pro->name = $request->namePro ;
     $pro->maker = $request->maker ;
     $pro->brand = $request->brand ;
@@ -555,6 +554,20 @@ class ShopController extends Controller
     $picture->pic_s5 =  $request->img5 ;
     $picture->pic_s6 =  $request->img6 ;
     $picture->save();
+    //اضافه کردن رکوردهای stampProOrder
+    if ($request->new==1) {
+      $stampProOrder=new StampProOrder();
+      $stampProOrder->order_id=$request->order_id;
+      $stampProOrder->proShop_id=$pro;
+      $stampProOrder->shop_id=$this->id;
+
+    } else {
+      $stampProOrder=StampProOrder::where('order_id',$request->order_id )->first();
+    }
+    $stampProOrder->stamp=$request->stamp;
+    $stampProOrder->price=$request->priceFOrder;
+    $stampProOrder->disSeller=$request->disSeller;
+    $stampProOrder->save();
   }
   public function sabtErsalShop(Request $request)
   {

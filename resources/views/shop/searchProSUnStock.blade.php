@@ -78,6 +78,10 @@
        <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->price}}" id="price_orderPSUS"></div>
      </div>
      <div class="form-group">
+       <label for="price_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mprice_orderPSUS"></i> قیمت برای این سفارش</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="" id="price_orderPSUS"placeholder="اختیاری!!ممکن است برای این مشتری قیمت خاصی داشته باشید."></div>
+     </div>
+     <div class="form-group">
        <label for="vahed_sabtOrder" class="control-label pull-right"><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا</label>
        <div class="div_form">
          <select class="select squad_sabtOrder" id="vahed_orderPSUS" name="" >
@@ -128,6 +132,12 @@
        </div>
      </div>
      <div class="form-group">
+       <label for="dis_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mdis_orderPSUS"></i>توضیح برای این سفارش</label>
+       <div class="div_formTextarea">
+         <textarea name="name" class="placeholder" id="dis_orderPSUS"placeholder="اختیاری !! ممکن است برای این مشتری توضیح خاصی داشته باشید .">{{$proShop->dis}}</textarea>
+       </div>
+     </div>
+     <div class="form-group">
        <label for="dateMake_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#MdateMake_orderPSUS"></i> تاریخ تولید</label>
        <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->dateMake}}" id="dateMake_orderPSUS"placeholder="اختیاری ..."></div>
      </div>
@@ -172,7 +182,7 @@
        <div class="imgHidden" id="Aimg6_orderPSUS"></div>
      </div>
      <div class="form-group form_btn">
-       <button type="button" class="btn btn-success" onclick="proShop({{$proShop->id}})" >ثبت و اعمال تغییرات</button>
+       <button type="button" class="btn btn-success" onclick="editProShopUnStock({{$proShop->id}})" >ثبت و اعمال تغییرات</button>
      </div>
    </form>
   @endif

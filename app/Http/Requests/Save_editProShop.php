@@ -64,18 +64,20 @@ class Save_editProShop extends FormRequest
          return [
            'id' =>'required|numeric' ,
            'id_img' =>'required|numeric' ,
-           'stamp' =>'required|numeric' ,
+           'stamp' =>'required|numeric' ,//در جدول stampProOrders ذخیره می شود .
            'namePro'=>'required',
            'maker'=>'nullable',
            'brand'=>'nullable',
            'model'=>'nullable',
            'price'=>'required|numeric',
+           'priceFOrder'=>'nullable|numeric',//قیمت برای یک مشتری خاص این مقدار در جدول stampProOrders ذخیره می شود .
            'vahed'=>'required',
            'num'=>'nullable|numeric',
            'vazn'=>'nullable|numeric',
            'vaznPost'=>'required|numeric',
            'pakat'=>'nullable|numeric',
            'dis'=>'nullable',
+           'disSeller'=>'nullable',//توضیح برای یک مشتری خاص این مقدار در جدول stampProOrders ذخیره می شود
            'dateMake'=>'nullable',
            'dateExpiration'=>'nullable',
            'term'=>'nullable',

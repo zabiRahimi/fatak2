@@ -570,7 +570,7 @@ Dropzone.options.proEditImg6 = {
     $("#Iimg6_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
     $("#Aimg6_orderEditSh").html( response );
   },  }
-  function editProShopUnStock(id,id_img,id_order,id_proShop) {
+  function editProShopUnStock(id,id_img,id_order) {
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
               type:'post',
