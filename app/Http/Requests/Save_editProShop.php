@@ -62,9 +62,10 @@ class Save_editProShop extends FormRequest
      public function rules()
      {
          return [
-           'id' =>'required|numeric' ,
-           'id_img' =>'required|numeric' ,
-           'stamp' =>'required|numeric' ,//در جدول stampProOrders ذخیره می شود .
+           'pro_id' =>'required|numeric' ,
+           'order_id' =>'required|numeric',
+           'img_id' =>'required|numeric',
+           'stamp' =>'required|numeric',//در جدول stampProOrders ذخیره می شود .
            'namePro'=>'required',
            'maker'=>'nullable',
            'brand'=>'nullable',

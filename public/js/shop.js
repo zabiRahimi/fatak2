@@ -570,7 +570,9 @@ Dropzone.options.proEditImg6 = {
     $("#Iimg6_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
     $("#Aimg6_orderEditSh").html( response );
   },  }
-  function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6) {
+  function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm) {
+      vahed=$('#'+vahed).val()
+    alert(vahed)
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
               type:'post',
@@ -580,13 +582,13 @@ Dropzone.options.proEditImg6 = {
                     order_id:order_id,
                     img_id:img_id,
                     stamp:$('input[type=radio][name='+stamp+']:checked').val(),
-                    namePro:$('#'+name).val(),
+                    namePro:$('#'+namePro).val(),
                     maker:$('#'+maker).val(),
                     brand:$('#'+brand).val(),
                     model:$('#'+model).val(),
                     price:$('#'+price).val(),
                     priceFOrder:$('#'+priceFOrder).val(),
-                    vahed:$('#'+vahed).val(),
+                    vahed:vahed,
                     num:$('#'+num).val(),
                     vazn:$('#'+vazn).val(),
                     dimension:$('input[type=radio][name='+dimension+']:checked').val(),
@@ -605,7 +607,7 @@ Dropzone.options.proEditImg6 = {
                     img6:$('#'+img6).html(),
                    },
               success:function(){
-                $('#ajax_orderEditSh').empty();
+                $('#'+idAjax).empty();
                 document.getElementById("form_orderEditSh").reset();
                 $('#end_orderEditSh').modal('show');
                 $("#end_orderEditSh").on('hide.bs.modal', function () {
@@ -615,28 +617,28 @@ Dropzone.options.proEditImg6 = {
               error: function(xhr) {
                   var errors = xhr.responseJSON;
                   var error=errors.errors;
-                  scroll_form('form_orderEditSh');
-                  $('#ajax_orderEditSh').empty();
+                  $('#'+idAjax).empty();
+                  scroll_form(classForm);
                   if(error['stamp']){
-                     $('#ajax_orderEditSh').append('<div class="alert alert-danger">'+error['stamp']+'</div>');
+                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['stamp']+'</div>');
                   }
                   else if(error['namePro']){
-                     $('#ajax_orderEditSh').append('<div class="alert alert-danger">'+error['namePro']+'</div>');
+                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['namePro']+'</div>');
                   }
                   else if(error['price']){
-                     $('#ajax_orderEditSh').append('<div class="alert alert-danger">'+error['price']+'</div>');
+                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['price']+'</div>');
                   }
                   else if(error['vahed']){
-                     $('#ajax_orderEditSh').append('<div class="alert alert-danger">'+error['vahed']+'</div>');
+                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['vahed']+'</div>');
                   }
                   else if(error['vazn']){
-                     $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['vazn']+'</div>');
+                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['vazn']+'</div>');
                   }
                   else if(error['vaznPost']){
-                     $('#ajax_orderEditSh').append('<div class="alert alert-danger">'+error['vaznPost']+'</div>');
+                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['vaznPost']+'</div>');
                   }
                   else if(error['pakat']){
-                     $('#ajax_orderEditSh').append('<div class="alert alert-danger">'+error['pakat']+'</div>');
+                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['pakat']+'</div>');
                   }
                  }  });
           }
@@ -1188,7 +1190,7 @@ Dropzone.options.proPSUSImg1 = {
     //آرگومان اول یک شی است
     //آرکومان دوم مقدار بازگشتی از کنترلر است
     $("#imgPSUSPro1").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg1_orderPSUS").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg1_orderPSUS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
     $("#Aimg1_orderPSUS").html( response );
   },}
 Dropzone.options.proPSUSImg2 = {
@@ -1200,7 +1202,7 @@ Dropzone.options.proPSUSImg2 = {
   },
   success:function(file , response){
     $("#imgPSUSPro2").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg2_orderPSUS").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg2_orderPSUS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
     $("#Aimg2_orderPSUS").html( response );
   },  }
 Dropzone.options.proPSUSImg3 = {
@@ -1212,7 +1214,7 @@ Dropzone.options.proPSUSImg3 = {
   },
   success:function(file , response){
     $("#imgPSUSPro3").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg3_orderPSUS").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg3_orderPSUS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
     $("#Aimg3_orderPSUS").html( response );
   },  }
 Dropzone.options.proPSUSImg4 = {
@@ -1224,7 +1226,7 @@ Dropzone.options.proPSUSImg4 = {
   },
   success:function(file , response){
     $("#imgPSUSPro4").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg4_orderPSUS").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg4_orderPSUS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
     $("#Aimg4_orderPSUS").html( response );
 },}
 Dropzone.options.proPSUSImg5 = {
@@ -1236,7 +1238,7 @@ Dropzone.options.proPSUSImg5 = {
   },
   success:function(file , response){
     $("#imgPSUSPro5").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg5_orderPSUS").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg5_orderPSUS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
     $("#Aimg5_orderPSUS").html( response );
   },  }
 Dropzone.options.proPSUSImg6 = {
@@ -1248,6 +1250,6 @@ Dropzone.options.proPSUSImg6 = {
   },
   success:function(file , response){
     $("#imgPSUSPro6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg6_orderPSUS").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg6_orderPSUS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
     $("#Aimg6_orderPSUS").html( response );
   },  }

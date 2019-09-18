@@ -42,7 +42,7 @@
      <div class="formTitrShop">
          <span>راهنما !!</span> چنانچه بر روی علامت <i class="fas fa-info-circle "></i>هر یک از کادرها کلیک کنید ، راهنمای مربوط به همان کادر را مشاهده خواهید کرد .
      </div>
-     <div id="ajax_orderPSUS"></div>
+     <div class="ajax_form_modal" id="ajax_orderPSUS"></div>
      {{ csrf_field() }}
      <div class="form-group">
        <label for="stamp_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS" data-toggle="modal" data-target="#Mstamp_orderPSUS"></i> نوع محصول</label>
@@ -86,13 +86,13 @@
        <div class="div_form">
          <select class="select squad_sabtOrder" id="vahed_orderPSUS" name="" >
            <option value="">انتخاب کنید</option>
-           <option value="عدد">عدد</option>
-           <option value="بسته">بسته</option>
-           <option value="کارتن">کارتن</option>
-           <option value="گونی">گونی</option>
-           <option value="گرم">گرم</option>
-           <option value="کیلو گرم">کیلو گرم</option>
-           <option value="جین">جین</option>
+           <option @if ($proShop->vahed=='عدد') selected @endif value="عدد">عدد</option>
+           <option @if ($proShop->vahed=='بسته') selected @endif value="بسته">بسته</option>
+           <option @if ($proShop->vahed=='کارتن') selected @endif value="کارتن">کارتن</option>
+           <option @if ($proShop->vahed=='گونی') selected @endif value="گونی">گونی</option>
+           <option @if ($proShop->vahed=='گرم') selected @endif value="گرم">گرم</option>
+           <option @if ($proShop->vahed=='کیلو گرم') selected @endif value="کیلو گرم">کیلو گرم</option>
+           <option @if ($proShop->vahed=='جین') selected @endif value="جین">جین</option>
          </select>
        </div>
      </div>
@@ -152,38 +152,38 @@
        </div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img1_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg1_orderPSUS"></i> عکس 1 <span id="Iimg1_orderPSUS">@if (!empty($picture_shop->pic_b1)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+       <label for="img1_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg1_orderPSUS"></i> عکس 1 <span id="Iimg1_orderPSUS">@if (!empty($picture_shop->pic_b1))<img src="/img_shop/{{$picture_shop->pic_b1}}" alt=""style="margin-top: 0;" width="40" height="30">@endif</span></label>
        <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg1" value="انتخاب کنید"></div>
        <div class="imgHidden" id="Aimg1_orderPSUS">{{$picture_shop->pic_b1}}</div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img2_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 2 <span id="Iimg2_orderPSUS">@if (!empty($picture_shop->pic_b2)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+       <label for="img2_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 2 <span id="Iimg2_orderPSUS">@if (!empty($picture_shop->pic_b2)) <img src="/img_shop/{{$picture_shop->pic_b2}}" alt=""style="margin-top: 0;" width="40" height="30"> @endif</span></label>
       <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg2" value="انتخاب کنید"></div>
        <div class="imgHidden" id="Aimg2_orderPSUS">{{$picture_shop->pic_b2}}</div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img3_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 3 <span id="Iimg3_orderPSUS">@if (!empty($picture_shop->pic_b3)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+       <label for="img3_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 3 <span id="Iimg3_orderPSUS">@if (!empty($picture_shop->pic_b3))<img src="/img_shop/{{$picture_shop->pic_b3}}" alt=""style="margin-top: 0;" width="40" height="30"> @endif</span></label>
       <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg3" value="انتخاب کنید"></div>
        <div class="imgHidden" id="Aimg3_orderPSUS">{{$picture_shop->pic_b3}}</div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img4_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 4 <span id="Iimg4_orderPSUS">@if (!empty($picture_shop->pic_b4)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+       <label for="img4_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 4 <span id="Iimg4_orderPSUS">@if (!empty($picture_shop->pic_b4))<img src="/img_shop/{{$picture_shop->pic_b4}}" alt=""style="margin-top: 0;" width="40" height="30">@endif</span></label>
       <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg4" value="انتخاب کنید"></div>
        <div class="imgHidden" id="Aimg4_orderPSUS">{{$picture_shop->pic_b4}}</div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img5_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 5 <span id="Iimg5_orderPSUS">@if (!empty($picture_shop->pic_b5)) <i class="fas fa-check Icheck"></i> @endif</span></label>
+       <label for="img5_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 5 <span id="Iimg5_orderPSUS">@if (!empty($picture_shop->pic_b5))<img src="/img_shop/{{$picture_shop->pic_b5}}" alt=""style="margin-top: 0;" width="40" height="30">@endif</span></label>
        <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg5" value="انتخاب کنید"></div>
        <div class="imgHidden" id="Aimg5_orderPSUS">{{$picture_shop->pic_b5}}</div>
      </div>
      <div class="form-group add_pro_form1_1">
-       <label for="img6_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 6 <span id="Iimg6_orderPSUS">@if (!empty($picture_shop->pic_b6)) <i class="fas fa-check Icheck"></i> @endif</span> </label>
+       <label for="img6_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg0_orderPSUS"></i> عکس 6 <span id="Iimg6_orderPSUS">@if (!empty($picture_shop->pic_b6))<img src="/img_shop/{{$picture_shop->pic_b6}}" alt=""style="margin-top: 0;" width="40" height="30">@endif</span> </label>
        <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg6" value="انتخاب کنید"></div>
        <div class="imgHidden" id="Aimg6_orderPSUS">{{$picture_shop->pic_b6}}</div>
      </div>
      <div class="form-group form_btn">
        <button type="button" class="btn btn-success"
-      onclick="editProShopUnStock({{$proShop->id}},{{$order_id}},{{$picture_shop->id}},'stamp_orderPSUS','name_orderPSUS','maker_orderPSUS','brand_orderPSUS','model_orderPSUS','price_orderPSUS','priceFOrder_orderPSUS','vahed_orderPSUS','num_orderPSUS','vazn_orderPSUS','dimension_orderPSUS','vaznPost_orderPSUS','pakat_orderPSUS','dis_orderPSUS','disSeller_orderPSUS','dateMake_orderPSUS','dateExpiration_orderPSUS','term_orderPSUS','Aimg1_orderPSUS','Aimg2_orderPSUS','Aimg3_orderPSUS','Aimg4_orderPSUS','Aimg5_orderPSUS','Aimg6_orderPSUS')" >ثبت و اعمال تغییرات</button>
+      onclick="editProShopUnStock({{$proShop->id}},{{$order_id}},{{$picture_shop->id}},'stamp_orderPSUS','name_orderPSUS','maker_orderPSUS','brand_orderPSUS','model_orderPSUS','price_orderPSUS','priceFOrder_orderPSUS','vahed_orderPSUS','num_orderPSUS','vazn_orderPSUS','dimension_orderPSUS','vaznPost_orderPSUS','pakat_orderPSUS','dis_orderPSUS','disSeller_orderPSUS','dateMake_orderPSUS','dateExpiration_orderPSUS','term_orderPSUS','Aimg1_orderPSUS','Aimg2_orderPSUS','Aimg3_orderPSUS','Aimg4_orderPSUS','Aimg5_orderPSUS','Aimg6_orderPSUS','ajax_orderPSUS','form_orderPSUS')" >ثبت و اعمال تغییرات</button>
      </div>
    </form>
   @endif
