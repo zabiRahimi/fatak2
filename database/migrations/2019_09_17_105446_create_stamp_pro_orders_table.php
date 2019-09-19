@@ -22,8 +22,8 @@ class CreateStampProOrdersTable extends Migration
             $table->integer('price')->nullable();
             $table->text('disSeller')->nullable();
             $table->string('code_rahgiry',70)->unique()->nullable();
-            $table->string('date_ad',14);
-            $table->string('date_up',14);
+            $table->date('date_ad');
+            $table->date('date_up');
             $table->boolean('show');
         });
     }

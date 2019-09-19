@@ -522,7 +522,7 @@ class ShopController extends Controller
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
-    $pro=ProShop::find($request->id);
+    $pro=ProShop::find($request->pro_id);
     $pro->name = $request->namePro ;
     $pro->maker = $request->maker ;
     $pro->brand = $request->brand ;
@@ -539,8 +539,8 @@ class ShopController extends Controller
     $pro->term = $request->term ;
     $pro->date_up = $date ;
     $pro-> save();
-     // اضافه کردن عکسهای محصول
-    $picture=Picture_shop::find($request->id_img);
+    //  // اضافه کردن عکسهای محصول
+    $picture=Picture_shop::find($request->img_id);
     $picture->pic_b1 =  $request->img1 ;
     $picture->pic_b2 =  $request->img2;
     $picture->pic_b3 =  $request->img3 ;
@@ -555,11 +555,12 @@ class ShopController extends Controller
     $picture->pic_s6 =  $request->img6 ;
     $picture->save();
     //اضافه کردن رکوردهای stampProOrder
-    if ($request->new==1) {
+    if ($request->newPro==1) {
       $stampProOrder=new StampProOrder();
       $stampProOrder->order_id=$request->order_id;
-      $stampProOrder->proShop_id=$pro;
+      $stampProOrder->proShop_id=$request->pro_id;
       $stampProOrder->shop_id=$this->id;
+      $stampProOrder->date_ad=$date;
 
     } else {
       $stampProOrder=StampProOrder::where('order_id',$request->order_id )->first();
@@ -567,7 +568,15 @@ class ShopController extends Controller
     $stampProOrder->stamp=$request->stamp;
     $stampProOrder->price=$request->priceFOrder;
     $stampProOrder->disSeller=$request->disSeller;
+    $stampProOrder->date_up=$date;
+    $stampProOrder->show=1;
     $stampProOrder->save();
+    // //اضافه کردن این محصول به رکورد سفارش مشتری
+    $order=Order::find($request->order_id);
+    $id_proShop=json_decode($order->id_proShop);
+    $id_proShop[]=$request->pro_id;
+    $order->id_proShop=json_encode($id_proShop);
+    $order->save();
   }
   public function sabtErsalShop(Request $request)
   {

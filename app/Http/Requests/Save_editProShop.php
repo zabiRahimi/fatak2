@@ -88,6 +88,7 @@ class Save_editProShop extends FormRequest
            'img4'=>'nullable',
            'img5'=>'nullable',
            'img6'=>'nullable',
+           'newPro'=>'nullable|numeric',
          ];
      }
  }

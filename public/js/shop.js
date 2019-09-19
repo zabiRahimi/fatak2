@@ -570,9 +570,8 @@ Dropzone.options.proEditImg6 = {
     $("#Iimg6_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
     $("#Aimg6_orderEditSh").html( response );
   },  }
-  function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm) {
-      vahed=$('#'+vahed).val()
-    alert(vahed)
+  function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url,newPro) {
+            //هنگام استفاده از این تابع برای محصولاتی که قرار است برای اولین بار به عنوان پشنهاد محصول به مشتری ارائه شود باید مقدار پارامتر newPro  1 قرار داده شود .
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
               type:'post',
@@ -605,13 +604,18 @@ Dropzone.options.proEditImg6 = {
                     img4:$('#'+img4).html(),
                     img5:$('#'+img5).html(),
                     img6:$('#'+img6).html(),
+                    newPro:newPro,
                    },
               success:function(){
                 $('#'+idAjax).empty();
-                document.getElementById("form_orderEditSh").reset();
+                // document.getElementById("form_orderEditSh").reset();
                 $('#end_orderEditSh').modal('show');
                 $("#end_orderEditSh").on('hide.bs.modal', function () {
-                window.location.href  = "/oldOrderShopOne/"+id_order+"/"+id_proShop;
+                  if (newPro==1) {
+                    window.location.href  = "/"+url;
+                  } else {
+                    window.location.href  = "/"+url+"/"+order_id+"/"+pro_id;
+                  }
                 });
               },
               error: function(xhr) {
