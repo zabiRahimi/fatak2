@@ -19,6 +19,7 @@ class Save_editProShop extends FormRequest
      public function validationData() {
         $parametr=$this->all();
         $price=$parametr['price'];
+        $priceFOrder=$parametr['priceFOrder'];
         $num=$parametr['num'];
         $vazn=$parametr['vazn'];
         $vaznPost=$parametr['vaznPost'];
@@ -28,6 +29,11 @@ class Save_editProShop extends FormRequest
         if(!empty($price)and !is_numeric($price)){
           Request::merge([
             'price'=>preg_replace($num_farsi, $num_english, $price),
+          ]);
+        }
+        if(!empty($priceFOrder)and !is_numeric($priceFOrder)){
+          Request::merge([
+            'priceFOrder'=>preg_replace($num_farsi, $num_english, $priceFOrder),
           ]);
         }
         if(!empty($num)and !is_numeric($num)){

@@ -15,7 +15,7 @@ class CreateStampProOrdersTable extends Migration
     {
         Schema::create('stamp_pro_orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumInteger('order_id')->unique();
+            $table->mediumInteger('order_id');
             $table->mediumInteger('proShop_id');
             $table->mediumInteger('shop_id');
             $table->boolean('stamp');

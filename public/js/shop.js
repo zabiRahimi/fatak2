@@ -609,10 +609,10 @@ Dropzone.options.proEditImg6 = {
               success:function(){
                 $('#'+idAjax).empty();
                 // document.getElementById("form_orderEditSh").reset();
-                $('#end_orderEditSh').modal('show');
-                $("#end_orderEditSh").on('hide.bs.modal', function () {
+                $('#end_orderSabtSh').modal('show');
+                $("#end_orderSabtSh").on('hide.bs.modal', function () {
                   if (newPro==1) {
-                    window.location.href  = "/"+url;
+                    window.location.href  = "/"+url+"/"+order_id;
                   } else {
                     window.location.href  = "/"+url+"/"+order_id+"/"+pro_id;
                   }
@@ -623,7 +623,10 @@ Dropzone.options.proEditImg6 = {
                   var error=errors.errors;
                   $('#'+idAjax).empty();
                   scroll_form(classForm);
-                  if(error['stamp']){
+                  if(error['checkPro']){
+                     $('#'+idAjax).html('<div class="alert alert-danger">شما این محصول را قبلا به این مشتری پیشنهاد داده اید .</div>');
+                  }
+                  else if(error['stamp']){
                      $('#'+idAjax).html('<div class="alert alert-danger">'+error['stamp']+'</div>');
                   }
                   else if(error['namePro']){

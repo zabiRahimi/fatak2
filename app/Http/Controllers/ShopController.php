@@ -520,6 +520,10 @@ class ShopController extends Controller
   }
   public function editProShopUnStock(Save_editProShop $request)
   {
+    $checkAddPro=StampProOrder::where('order_id', $request->order_id)->where('proShop_id', $request->pro_id)->where('shop_id', $this->id)->first();
+    if(!empty($checkAddPro)){
+      return response()->json(['errors' => ['checkPro' => ['']]], 422);
+    }
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
     $pro=ProShop::find($request->pro_id);
@@ -889,9 +893,14 @@ public function searchIdSUnStock(Request $request)
     ]);
   $pro_id=$request->pro_id;
   $order_id=$request->order_id;
-  $proShop=proShop::where('id',$pro_id)->where('shop_id',$id)->where('show',1)->first();
-  $picture_shop=Picture_shop::where('pro_shop_id', $proShop->id)->first();
+  $checkPro=StampProOrder::where('order_id', $order_id)->where('proShop_id', $pro_id)->where('shop_id', $id)->first();
+  if (!empty($checkPro)) {
+    $checkPro2='no';
+  } else {
+    $proShop=proShop::where('id',$pro_id)->where('shop_id',$id)->where('show',1)->first();
+    $picture_shop=Picture_shop::where('pro_shop_id', $proShop->id)->first();
+  }
   $check=2;
-  return view('shop.searchProSUnStock',compact('proShop','check','picture_shop','order_id'));
+  return view('shop.searchProSUnStock',compact('proShop','check','checkPro2','picture_shop','order_id'));
 }
 }//end class

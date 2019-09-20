@@ -32,7 +32,12 @@
   @endforeach
 @endif
 @elseif ($check==2)
-  @if (empty($proShop->id))
+  @if ($checkPro2=='no')
+    <div class="alert alert-danger">
+      شما این محصول را قبلا به این مشتری معرفی کرده اید جهت مشاهده و ویرایش به صفحه سفارشات ثبت
+      شده مراجعه کنید .
+    </div>
+  @elseif (empty($proShop->id))
     <div class="alert alert-danger">
       محصولی مطابق با جستجوی شما یافت نشد .
     </div>
@@ -78,8 +83,8 @@
        <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->price}}" id="price_orderPSUS"></div>
      </div>
      <div class="form-group">
-       <label for="price_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mprice_orderPSUS"></i> قیمت برای این سفارش</label>
-       <div class="div_form"><input type="text" class="form-control placeholder"value="" id="price_orderPSUS"placeholder="اختیاری!!ممکن است برای این مشتری قیمت خاصی داشته باشید."></div>
+       <label for="priceFOrder_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mprice_orderPSUS"></i> قیمت برای این سفارش</label>
+       <div class="div_form"><input type="text" class="form-control placeholder"value="" id="priceFOrder_orderPSUS"placeholder="اختیاری!!ممکن است برای این مشتری قیمت خاصی داشته باشید."></div>
      </div>
      <div class="form-group">
        <label for="vahed_sabtOrder" class="control-label pull-right"><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا</label>
@@ -184,7 +189,7 @@
      <div class="form-group form_btn">
        <button type="button" class="btn btn-success"
       onclick="editProShopUnStock({{$proShop->id}},{{$order_id}},{{$picture_shop->id}},'stamp_orderPSUS','name_orderPSUS','maker_orderPSUS','brand_orderPSUS','model_orderPSUS','price_orderPSUS','priceFOrder_orderPSUS','vahed_orderPSUS','num_orderPSUS','vazn_orderPSUS','dimension_orderPSUS','vaznPost_orderPSUS','pakat_orderPSUS','dis_orderPSUS','disSeller_orderPSUS','dateMake_orderPSUS','dateExpiration_orderPSUS','term_orderPSUS','Aimg1_orderPSUS','Aimg2_orderPSUS','Aimg3_orderPSUS','Aimg4_orderPSUS','Aimg5_orderPSUS','Aimg6_orderPSUS',
-      'ajax_orderPSUS','form_orderPSUS','searchProSUnStock',1)" >ثبت و اعمال تغییرات</button>
+      'ajax_orderPSUS','form_orderPSUS','newOrderShopOne',1)" >ثبت و اعمال تغییرات</button>
      </div>
    </form>
   @endif
