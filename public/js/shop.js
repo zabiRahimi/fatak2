@@ -428,70 +428,78 @@ function editPasDaShop(id){
         $("#"+ i).html( '' );
       },  });}
 
-  function proShop(id) {
+  function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url) {
         $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
         $.ajax({
           type:'post',
           url:'../proShop',
           data: {
-                id:id,
-                stamp:$('input[type=radio][name=stamp_orderSabtSh]:checked').val(),
-                namePro:$('#name_orderSabtSh').val(),
-                maker:$('#maker_orderSabtSh').val(),
-                brand:$('#brand_orderSabtSh').val(),
-                model:$('#model_orderSabtSh').val(),
-                price:$('#price_orderSabtSh').val(),
-                vahed:$('#vahed_orderSabtSh').val(),
-                num:$('#num_orderSabtSh').val(),
-                dimension:$('input[type=radio][name=dimension_orderSabtSh]:checked').val(),
-                vazn:$('#vazn_orderSabtSh').val(),
-                vaznPost:$('#vaznPost_orderSabtSh').val(),
-                pakat:$('#pakat_orderSabtSh').val(),
-                dis:$('#dis_orderSabtSh').val(),
-                dateMake:$('#dateMake_orderSabtSh').val(),
-                dateExpiration:$('#dateExpiration_orderSabtSh').val(),
-                term:$('#term_orderSabtSh').val(),
-                img1:$('#Aimg1_orderSabtSh').html(),
-                img2:$('#Aimg2_orderSabtSh').html(),
-                img3:$('#Aimg3_orderSabtSh').html(),
-                img4:$('#Aimg4_orderSabtSh').html(),
-                img5:$('#Aimg5_orderSabtSh').html(),
-                img6:$('#Aimg6_orderSabtSh').html(),
+                order_id:order_id,
+                stamp:$('input[type=radio][name='+stamp+']:checked').val(),
+                namePro:$('#'+namePro).val(),
+                maker:$('#'+maker).val(),
+                brand:$('#'+brand).val(),
+                model:$('#'+model).val(),
+                price:$('#'+price).val(),
+                priceFOrder:$('#'+priceFOrder).val(),
+                vahed:$('#'+vahed).val(),
+                num:$('#'+num).val(),
+                vazn:$('#'+vazn).val(),
+                dimension:$('input[type=radio][name='+dimension+']:checked').val(),
+                vaznPost:$('#'+vaznPost).val(),
+                pakat:$('#'+pakat).val(),
+                dis:$('#'+dis).val(),
+                disSeller:$('#'+disSeller).val(),
+                dateMake:$('#'+dateMake).val(),
+                dateExpiration:$('#'+dateExpiration).val(),
+                term:$('#'+term).val(),
+                img1:$('#'+img1).html(),
+                img2:$('#'+img2).html(),
+                img3:$('#'+img3).html(),
+                img4:$('#'+img4).html(),
+                img5:$('#'+img5).html(),
+                img6:$('#'+img6).html(),
                },
           success:function(){
-            $('#ajax_orderSabtSh').empty();
-            document.getElementById("form_orderSabtSh").reset();
+            $('#'+idAjax).empty();
             $('#end_orderSabtSh').modal('show');
+            $("#end_orderSabtSh").on('hide.bs.modal', function () {
+              if (order_id) {
+                window.location.href  = "/"+url+"/"+order_id;
+              } else {
+                window.location.href  = "/"+url;
+              }
+            });
           },
           error: function(xhr) {
-              var errors = xhr.responseJSON;
-              var error=errors.errors;
-              scroll_form('form_orderSabtSh');
-              $('#ajax_orderSabtSh').empty();
-              if(error['stamp']){
-                 $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['stamp']+'</div>');
-              }
-              else if(error['namePro']){
-                 $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['namePro']+'</div>');
-              }
-              else if(error['price']){
-                 $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['price']+'</div>');
-              }
-              else if(error['vahed']){
-                 $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['vahed']+'</div>');
-              }
-              else if(error['dimension']){
-                 $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['dimension']+'</div>');
-              }
-              else if(error['vazn']){
-                 $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['vazn']+'</div>');
-              }
-              else if(error['vaznPost']){
-                 $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['vaznPost']+'</div>');
-              }
-              else if(error['pakat']){
-                 $('#ajax_orderSabtSh').append('<div class="alert alert-danger">'+error['pakat']+'</div>');
-              }
+            var errors = xhr.responseJSON;
+            var error=errors.errors;
+            $('#'+idAjax).empty();
+            scroll_form(classForm);
+            if(error['stamp']){
+               $('#'+idAjax).html('<div class="alert alert-danger">نوع محصول را انتخاب کنید</div>');
+            }
+            else if(error['namePro']){
+               $('#'+idAjax).html('<div class="alert alert-danger">'+error['namePro']+'</div>');
+            }
+            else if(error['price']){
+               $('#'+idAjax).html('<div class="alert alert-danger">'+error['price']+'</div>');
+            }
+            else if(error['vahed']){
+               $('#'+idAjax).html('<div class="alert alert-danger">'+error['vahed']+'</div>');
+            }
+            else if(error['vazn']){
+               $('#'+idAjax).html('<div class="alert alert-danger">'+error['vazn']+'</div>');
+            }
+            else if(error['dimension']){
+               $('#'+idAjax).html('<div class="alert alert-danger">'+error['dimension']+'</div>');
+            }
+            else if(error['vaznPost']){
+               $('#'+idAjax).html('<div class="alert alert-danger">'+error['vaznPost']+'</div>');
+            }
+            else if(error['pakat']){
+               $('#'+idAjax).html('<div class="alert alert-danger">'+error['pakat']+'</div>');
+            }
              }  });
       }
 
@@ -608,7 +616,6 @@ Dropzone.options.proEditImg6 = {
                    },
               success:function(){
                 $('#'+idAjax).empty();
-                // document.getElementById("form_orderEditSh").reset();
                 $('#end_orderSabtSh').modal('show');
                 $("#end_orderSabtSh").on('hide.bs.modal', function () {
                   if (newPro==1) {

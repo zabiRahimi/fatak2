@@ -18,6 +18,7 @@ class Save_proShop extends FormRequest
     public function validationData() {
        $parametr=$this->all();
        $price=$parametr['price'];
+       $priceFOrder=$parametr['priceFOrder'];
        $num=$parametr['num'];
        $vazn=$parametr['vazn'];
        $vaznPost=$parametr['vaznPost'];
@@ -27,6 +28,11 @@ class Save_proShop extends FormRequest
        if(!empty($price)and !is_numeric($price)){
          Request::merge([
            'price'=>preg_replace($num_farsi, $num_english, $price),
+         ]);
+       }
+       if(!empty($priceFOrder)and !is_numeric($priceFOrder)){
+         Request::merge([
+           'priceFOrder'=>preg_replace($num_farsi, $num_english, $priceFOrder),
          ]);
        }
        if(!empty($num)and !is_numeric($num)){
@@ -61,20 +67,22 @@ class Save_proShop extends FormRequest
     public function rules()
     {
         return [
-          'id' =>'required|numeric' ,
-          'stamp' =>'required|numeric' ,
+          'order_id' =>'nullable|numeric',
+          'stamp' =>'required_with:order_id|numeric',//در جدول stampProOrders ذخیره می شود .
           'namePro'=>'required',
           'maker'=>'nullable',
           'brand'=>'nullable',
           'model'=>'nullable',
           'price'=>'required|numeric',
+          'priceFOrder'=>'nullable|numeric',//قیمت برای یک مشتری خاص این مقدار در جدول stampProOrders ذخیره می شود .
           'vahed'=>'required',
           'num'=>'nullable|numeric',
-          'dimension' =>'required|numeric' ,
           'vazn'=>'nullable|numeric',
           'vaznPost'=>'required|numeric',
+          'dimension'=>'required|numeric',
           'pakat'=>'nullable|numeric',
           'dis'=>'nullable',
+          'disSeller'=>'nullable',//توضیح برای یک مشتری خاص این مقدار در جدول stampProOrders ذخیره می شود
           'dateMake'=>'nullable',
           'dateExpiration'=>'nullable',
           'term'=>'nullable',
