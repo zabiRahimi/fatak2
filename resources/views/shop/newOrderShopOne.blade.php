@@ -219,7 +219,7 @@
        <div class="modal-content">
          <div class="modal-body modal_ok">
            <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
-           <div class="modal_ok2">محصول شما با موفقیت ثبت شد .</div>
+           <div class="modal_ok2">محصول شما با موفقیت ثبت شد . توجه فرمایید :: شما می توانید در همین صفحه محصولات دیگری نیز به این مشتری معرفی نمایید .</div>
          </div>
          <div class=" modal_ok3">
            <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>

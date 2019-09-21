@@ -288,8 +288,8 @@ class ShopController extends Controller
     if(!empty($search_cityA)&& $search_cityA!='allCity'){$search_city='شهر '.$search_cityA;}else { $search_city='همه شهرها' ;  }
     if(!empty($search_proA)){$search_pro='محصول '.$search_proA;}else { $search_pro='همه محصولات' ;  }
     $city=$search_cityA;
-    $proShop=proShop::where('shop_id',$id)->get();
-    return view('shop.newOrderShop',compact('stage','seller','orderNum','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','newOrder','proShop','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
+    $stampProOrder=StampProOrder::where('shop_id',$id)->get();
+    return view('shop.newOrderShop',compact('stage','seller','orderNum','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','newOrder','stampProOrder','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
   }
   public function searchSortDateShop(Request $request)
   {
@@ -323,6 +323,7 @@ class ShopController extends Controller
   }
   public function newOrderShopOne(Request $request)
   {
+
     $stage=$this->stage;
     $seller=$this->seller;
     $orderNum=$this->orderNum;
@@ -332,7 +333,7 @@ class ShopController extends Controller
     $backOrderNum=$this->backOrderNum;
     $id=$request->id;
     $newOrderOne=Order::find($id);
-    return view('shop.newOrderShopOne',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','newOrderOne'));
+    return view('shop.newOrderShopOne',compact('shop_id','stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','newOrderOne'));
   }
   public function proShop(Save_proShop $request)
   {
@@ -881,8 +882,9 @@ public function searchProSUnStock(Request $request)
   $pro=$request->pro;
   $order_id=$request->order_id;
   $proShop=proShop::where('shop_id',$id)->where('show',1)->where( 'name' ,"like", "%$pro%")->get();
+  $stampProOrder=StampProOrder::where('order_id' , $order_id)->where('shop_id' , $id)->get();
   $check=1;
-  return view('shop.searchProSUnStock',compact('proShop','check','order_id'));
+  return view('shop.searchProSUnStock',compact('proShop','check','order_id','stampProOrder'));
 }
 public function searchIdSUnStock(Request $request)
 {
@@ -898,7 +900,7 @@ public function searchIdSUnStock(Request $request)
     $checkPro2='no';
   } else {
     $proShop=proShop::where('id',$pro_id)->where('shop_id',$id)->where('show',1)->first();
-    $picture_shop=Picture_shop::where('pro_shop_id', $proShop->id)->first();
+    if (!empty($proShop->id)) {$picture_shop=Picture_shop::where('pro_shop_id', $proShop->id)->first();}
   }
   $check=2;
   return view('shop.searchProSUnStock',compact('proShop','check','checkPro2','picture_shop','order_id'));

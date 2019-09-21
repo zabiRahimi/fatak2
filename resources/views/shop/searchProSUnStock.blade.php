@@ -16,6 +16,10 @@
   @endphp
   @foreach ($proShop as $value)
     <?php $r++;
+    $checkPro=$stampProOrder->where('proShop_id',$value->id)->first();
+    if (!empty($checkPro)) {
+     continue;
+    }
     if ($r%2==0) {
       $color='color1';
     }else {
@@ -32,7 +36,7 @@
   @endforeach
 @endif
 @elseif ($check==2)
-  @if ($checkPro2=='no')
+  @if (!empty($checkPro2))
     <div class="alert alert-danger">
       شما این محصول را قبلا به این مشتری معرفی کرده اید جهت مشاهده و ویرایش به صفحه سفارشات ثبت
       شده مراجعه کنید .
@@ -50,7 +54,7 @@
      <div class="ajax_form_modal" id="ajax_orderPSUS"></div>
      {{ csrf_field() }}
      <div class="form-group">
-       <label for="stamp_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS" data-toggle="modal" data-target="#Mstamp_orderPSUS"></i> نوع محصول</label>
+       <label for="stamp_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS" data-toggle="modal" data-target="#Mstamp_orderPSUS"></i> نوع محصول <i class="fas fa-star star_form"></i></label>
        <div class="div_form_radio1">
            <div class="div_form_radio2 stamp_orderPSUSD1">
              <label for="stamp_orderPSUS1" class="control-label pull-right "> اصل محصول</label>
@@ -63,7 +67,7 @@
        </div>
      </div>
      <div class="form-group">
-       <label for="name_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mname_orderPSUS"></i> نام محصول</label>
+       <label for="name_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mname_orderPSUS"></i> نام محصول <i class="fas fa-star star_form"></i></label>
        <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->name}}" id="name_orderPSUS"></div>
      </div>
      <div class="form-group">
@@ -79,7 +83,7 @@
        <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->model}}" id="model_orderPSUS"placeholder="اختیاری ..."></div>
      </div>
      <div class="form-group">
-       <label for="price_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mprice_orderPSUS"></i> قیمت محصول (تومان)</label>
+       <label for="price_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mprice_orderPSUS"></i> قیمت محصول (تومان) <i class="fas fa-star star_form"></i></label>
        <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->price}}" id="price_orderPSUS"></div>
      </div>
      <div class="form-group">
@@ -87,7 +91,7 @@
        <div class="div_form"><input type="text" class="form-control placeholder"value="" id="priceFOrder_orderPSUS"placeholder="اختیاری!!ممکن است برای این مشتری قیمت خاصی داشته باشید."></div>
      </div>
      <div class="form-group">
-       <label for="vahed_sabtOrder" class="control-label pull-right"><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا</label>
+       <label for="vahed_sabtOrder" class="control-label pull-right"><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا <i class="fas fa-star star_form"></i></label>
        <div class="div_form">
          <select class="select squad_sabtOrder" id="vahed_orderPSUS" name="" >
            <option value="">انتخاب کنید</option>
@@ -110,7 +114,7 @@
        <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->vazn}}" id="vazn_orderPSUS"placeholder="در صورت نیاز ..."></div>
      </div>
      <div class="form-group">
-       <label for="stamp_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS" data-toggle="modal" data-target="#Mstamp_orderPSUS"></i> ابعاد محصول</label>
+       <label for="stamp_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS" data-toggle="modal" data-target="#Mstamp_orderPSUS"></i> ابعاد محصول <i class="fas fa-star star_form"></i></label>
        <div class="div_form_radio1">
            <div class="div_form_radio2 stamp_orderPSUSD1">
              <label for="dimension_orderPSUS1" class="control-label pull-right "> بزرگتر از 100 cm</label>
@@ -123,7 +127,7 @@
        </div>
      </div>
      <div class="form-group">
-       <label for="vaznPost_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#MvaznPost_orderPSUS"></i> وزن پستی محصول (گرم)</label>
+       <label for="vaznPost_orderPSUS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#MvaznPost_orderPSUS"></i> وزن پستی محصول (گرم) <i class="fas fa-star star_form"></i></label>
        <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->vaznPost}}" id="vaznPost_orderPSUS"></div>
      </div>
      <div class="form-group">
@@ -194,20 +198,7 @@
    </form>
   @endif
 @endif
-<!-- Modal موفق بودن ثبت محصول-->
-<div class="modal fade" id="end_orderPSUS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body modal_ok">
-        <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
-        <div class="modal_ok2">محصول شما با موفقیت ثبت شد .</div>
-      </div>
-      <div class=" modal_ok3">
-        <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
-      </div>
-    </div>
-  </div>
-</div><!--end modal پایان موفقیت ثبت .-->
+
 {{--
  نکته بیسار مهم : مودال های عکس در صفحه زیر قرار دارند
  newOrderShopOne.blade.php

@@ -76,7 +76,7 @@
       @endphp
       @foreach ($newOrder as $value)
         <?php
-        $checkOrder=$proShop->where('order_id',$value->id)->first();
+        $checkOrder=$stampProOrder->where('order_id',$value->id)->first();
 
         if($checkOrder){continue;}
          $r++;
