@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-    
+
       Validator::extend('mobail', function($attribute, $value, $parameters, $validator) {
         return preg_match('/^09[0-9]{9}$/', $value);
       });
@@ -37,6 +37,9 @@ class AppServiceProvider extends ServiceProvider
       });
       Validator::extend('address', function($attribute, $value, $parameters, $validator) {
         return preg_match('/^[\p{Arabic}\d?_?،?,?\-?\/?\s?]{2,}$/u', $value);
+      });
+      Validator::extend('imgName', function($attribute, $value, $parameters, $validator) {
+        return preg_match('/^[0-9]{5,}[A-Za-z_\-0-9]{2,}\.[A-Za-z]{2,6}$/', $value);
       });
     }
 

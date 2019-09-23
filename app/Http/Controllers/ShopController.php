@@ -458,7 +458,7 @@ class ShopController extends Controller
     //اعتبار سنجی
     //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب مگا بایت است . دقت شود
     $this->validate($request, [
-          'file' => 'required|mimes:jpeg,jpg,png|max:3000',
+          'file' => 'required|file|image|mimes:jpeg,jpg,png|max:1000',
       ]);
     $file=$request->file('file');
     $name= time() . $file->getClientOriginalName();
@@ -466,7 +466,15 @@ class ShopController extends Controller
     return "$name";
   }
   public function del_imgShop(Request $request)
-  {}
+  {
+    $this->validate($request, ['nameImg' => 'required|imgName',]);
+    $nameImg=$request->nameImg;
+    $checkFile = 'img_shop/' . $nameImg;// get file path from table
+    if(file_exists($checkFile)) // make sure it exits inside the folder
+    {
+      unlink($checkFile); // delete file/image
+    }
+  }
   public function oldOrderShop(Request $request)
   {
     $stage=$this->stage;

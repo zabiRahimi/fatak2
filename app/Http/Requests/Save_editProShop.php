@@ -87,13 +87,13 @@ class Save_editProShop extends FormRequest
            'disSeller'=>'nullable',//توضیح برای یک مشتری خاص این مقدار در جدول stampProOrders ذخیره می شود
            'dateMake'=>'nullable',
            'dateExpiration'=>'nullable',
-           'term'=>'nullable',
-           'img1'=>'nullable',
-           'img2'=>'nullable',
-           'img3'=>'nullable',
-           'img4'=>'nullable',
-           'img5'=>'nullable',
-           'img6'=>'nullable',
+           'term'=>'nullable|imgName',
+           'img1'=>'nullable|imgName',
+           'img2'=>'nullable|imgName',
+           'img3'=>'nullable|imgName',
+           'img4'=>'nullable|imgName',
+           'img5'=>'nullable|imgName',
+           'img6'=>'nullable|imgName',
            'newPro'=>'nullable|numeric',
          ];
      }
