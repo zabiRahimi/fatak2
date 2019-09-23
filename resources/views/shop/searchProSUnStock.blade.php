@@ -160,6 +160,8 @@
          <textarea name="name" class=" placeholder" id="term_orderPSUS"placeholder="اختیاری ...">{{$proShop->term}}</textarea>
        </div>
      </div>
+     {{-- یک تگ هیدن جهت ذخیره ایدی جدول عکسها برای حذف ستون عکس --}}
+     <div class="imgHidden" id="id_img_orderPSUS">{{$picture_shop->id}}</div>
      <div class="form-group add_pro_form1_1">
        <label for="img1_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mimg1_orderPSUS"></i> عکس 1 <span id="Iimg1_orderPSUS">@if (!empty($picture_shop->pic_b1))<img src="/img_shop/{{$picture_shop->pic_b1}}" alt=""style="margin-top: 0;" width="40" height="30">@endif</span></label>
        <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPSUSProImg1" value="انتخاب کنید"></div>

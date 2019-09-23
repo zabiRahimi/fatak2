@@ -413,19 +413,23 @@ function editPasDaShop(id){
 
       $("#Aimg6_orderSabtSh").html( response );
     },  }
-  function del_img(ajax , div , i) {
+  function del_img(ajax , div , i,id_img,pic_b,pic_s) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
       url:'../../del_imgShop',
       data: {
         nameImg:$("#"+ div).html(),
+        id_img:$("#"+ id_img).html(),
+        cell_imgB:pic_b,
+        cell_imgS:pic_s,
            },
       success:function(){
         $("#"+ ajax).html('<div class="alert alert-danger"> عکس حذف شد . </div>');
         $("#"+ div).html('');
         $("#"+ i).html( '' );
-      },  });}
+      },  });
+  }
   function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url) {
         $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
         $.ajax({

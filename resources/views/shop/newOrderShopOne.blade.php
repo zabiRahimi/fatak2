@@ -14,7 +14,7 @@
       </div>
       <div class="orderDiv orderDate">
         <div class="orderDivZ0 orderDate1">تاریخ ثبت <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ orderDate2">{{$newOrderOne->date_ad}}</div>
+        <div class="orderDivZ orderDate2">{{str_replace('-', '/',$newOrderOne->date_ad )}}</div>
       </div>
       <div class="orderDiv orderSquad">
         <div class="orderDivZ0 orderSquad1">دسته محصول <span class="orderDivSpan">:</span></div>
@@ -27,6 +27,14 @@
       <div class="orderDiv2 orderDis">
         <div class="orderDivZ02 orderDis1">توضیح مشتری <span class="orderDivSpan">:</span></div>
         <div class="orderDivZ2 orderDis2">{{$newOrderOne->dis}}</div>
+      </div>
+      <div class="orderDiv orderSquad">
+        <div class="orderDivZ0 orderSquad1">استان مشتری <span class="orderDivSpan">:</span></div>
+        <div class="orderDivZ orderSquad2">{{$newOrderOne->ostan}}</div>
+      </div>
+      <div class="orderDiv orderVahed">
+        <div class="orderDivZ0 orderVahed1">شهر مشتری<span class="orderDivSpan">:</span> </div>
+        <div class="orderDivZ orderVahed2">{{$newOrderOne->city}} </div>
       </div>
       <div class="orderOk">
         {{-- <a href="#"><button type="button" class="btn btn-primary btn-block">  ثبت فروش این محصول </button></a> --}}
@@ -184,7 +192,7 @@
        <div class="form-group add_pro_form1_1">
          <label for="img1_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg1_orderSabtSh"></i> عکس 1 <span id="Iimg1_orderSabtSh"></span></label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg1" value="انتخاب کنید"></div>
-         <div class="" id="Aimg1_orderSabtSh"></div>
+         <div class="imgHidden" id="Aimg1_orderSabtSh"></div>
        </div>
        <div class="form-group add_pro_form1_1">
          <label for="img2_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg0_orderSabtSh"></i> عکس 2 <span id="Iimg2_orderSabtSh"></span></label>
@@ -359,7 +367,7 @@
         <div class="proPSUSImg1"><form class="dropzone form_img_add_pro" id="proPSUSImg1" action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message "><div class="col-xs-8"><div class="message "><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div></div>
         <div class="footer_modal_img_add_pro">
         <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro1','Aimg1_orderPSUS','Iimg1_orderPSUS')">حذف عکس</button>
+        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro1','Aimg1_orderPSUS','Iimg1_orderPSUS','id_img_orderPSUS','pic_b1','pic_s1')">حذف عکس</button>
   </div></div></div></div><!--end modal عکس اول-->
    {{-- مودال عکس دوم --}}
    <div class="modal fade" id="MPSUSProImg2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -367,7 +375,7 @@
     <div class="ajax_form_modal" id="imgPSUSPro2"></div><form class="dropzone form_img_add_pro" id="proPSUSImg2" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
         <div class="footer_modal_img_add_pro">
         <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro2','Aimg2_orderPSUS','Iimg2_orderPSUS')">حذف عکس</button>
+        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro2','Aimg2_orderPSUS','Iimg2_orderPSUS','id_img_orderPSUS','pic_b2','pic_s2')">حذف عکس</button>
     </div></div></div></div>
    {{-- مودال عکس سوم--}}
    <div class="modal fade" id="MPSUSProImg3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -375,20 +383,20 @@
     <div class="ajax_form_modal" id="imgPSUSPro3"></div><form class="dropzone form_img_add_pro" id="proPSUSImg3"action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
         <div class="footer_modal_img_add_pro">
         <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro3','Aimg3_orderPSUS','Iimg3_orderPSUS')">حذف عکس</button>
+        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro3','Aimg3_orderPSUS','Iimg3_orderPSUS','id_img_orderPSUS','pic_b3','pic_s3')">حذف عکس</button>
     </div></div></div></div><!--end modal عکس سوم-->
    {{--  مودال عکس چهارم --}}
   <div class="modal fade"id="MPSUSProImg4"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس چهارم</div>
      <div class="ajax_form_modal" id="imgPSUSPro4"></div><form class="dropzone form_img_add_pro" id="proPSUSImg4" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div> </div></form></div><div class="footer_modal_img_add_pro">
      <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-     <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro4','Aimg4_orderPSUS','Iimg4_orderPSUS')">حذف عکس</button>
+     <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro4','Aimg4_orderPSUS','Iimg4_orderPSUS','id_img_orderPSUS','pic_b4','pic_s4')">حذف عکس</button>
    </div></div></div></div><!--end modal عکس چهارم-->
    {{--  مودال عکس  پنجم --}}
   <div class="modal fade"id="MPSUSProImg5"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس پنچم</div>
       <div class="ajax_form_modal" id="imgPSUSPro5"></div>
       <form class="dropzone form_img_add_pro" id="proPSUSImg5" action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
       <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-      <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro5','Aimg5_orderPSUS','Iimg5_orderPSUS')">حذف عکس</button>
+      <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro5','Aimg5_orderPSUS','Iimg5_orderPSUS','id_img_orderPSUS','pic_b5','pic_s5')">حذف عکس</button>
    </div></div></div></div><!--end modal عکس پنحم-->
    {{--   مودال عکس ششم --}}
    <div class="modal fade" id="MPSUSProImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -396,6 +404,6 @@
     <div class="ajax_form_modal" id="imgPSUSPro6"></div><form class="dropzone form_img_add_pro" id="proPSUSImg6" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
     <div class="footer_modal_img_add_pro">
     <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-    <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro6','Aimg6_orderPSUS','Iimg6_orderPSUS')">حذف عکس</button>
+    <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro6','Aimg6_orderPSUS','Iimg6_orderPSUS','id_img_orderPSUS','pic_b6','pic_s6')">حذف عکس</button>
   </div></div></div></div><!--end modal  عکس ششم -->
 @endsection

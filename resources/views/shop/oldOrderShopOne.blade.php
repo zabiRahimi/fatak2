@@ -18,7 +18,7 @@
       </div>
       <div class="orderDiv orderDate">
         <div class="orderDivZ0 orderDate1">تاریخ ثبت <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ orderDate2">{{$oldOrderOne->date_ad}}</div>
+        <div class="orderDivZ orderDate2">{{str_replace('-', '/',$oldOrderOne->date_ad )}}</div>
       </div>
       <div class="orderDiv orderSquad">
         <div class="orderDivZ0 orderSquad1">دسته محصول <span class="orderDivSpan">:</span></div>
@@ -31,6 +31,14 @@
       <div class="orderDiv2 orderDis">
         <div class="orderDivZ02 orderDis1">توضیح مشتری <span class="orderDivSpan">:</span></div>
         <div class="orderDivZ2 orderDis2">{{$oldOrderOne->dis}}</div>
+      </div>
+      <div class="orderDiv orderVahed">
+        <div class="orderDivZ0 orderVahed1">استان مشتری <span class="orderDivSpan">:</span> </div>
+        <div class="orderDivZ orderVahed2">{{$oldOrderOne->ostan}} </div>
+      </div>
+      <div class="orderDiv orderVahed">
+        <div class="orderDivZ0 orderVahed1">شهر مشتری <span class="orderDivSpan">:</span> </div>
+        <div class="orderDivZ orderVahed2">{{$oldOrderOne->city}}</div>
       </div>
       <div class="orderLine"></div>
       <form class="form form_orderEditSh" id="form_orderEditSh" action="" method="post">

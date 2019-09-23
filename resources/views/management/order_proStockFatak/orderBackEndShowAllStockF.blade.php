@@ -22,8 +22,6 @@
       <div class="divRow3 orderBESFR4">تاریخ</div>
       <div class="divRow3 orderBESFR5">خریدار</div>
       <div class="divRow3 orderBESFR6">مبلغ پرداختی </div>
-
-
     </div>
     @php
       $r=0;
@@ -34,7 +32,6 @@
       $pro2=$pro->find($buys->pro_id);
       $backPro2=$backPro->find($buys->backPro_id);
       $classBg = ($r % 2 == 0) ? 'classBg2' : 'classBg1' ;
-
       @endphp
       <div class="divRow2  {{$classBg}} orderBESFR_R "onclick="window.location='/orderBackEndShowOneStockF/{{$buys->id}}'">
         <div class="divRow3 rowNumber ">{{$r}}</div>

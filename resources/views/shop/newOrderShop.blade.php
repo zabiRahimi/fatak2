@@ -95,7 +95,7 @@
               <span>{{$value->num}}</span>
               <span>{{$value->vahed}}</span>
             </div>
-            <div class="newOrderDate_1">{{$value->date_up}}</div>
+            <div class="newOrderDate_1">{{str_replace('-', '/',$value->date_up )}}</div>
           </div>
         </a>
       @endforeach

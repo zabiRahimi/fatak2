@@ -79,8 +79,8 @@
           <div class="oldOrder_1 {{$color}}">
             <div class="oldOrderRwo_1 ">{{$r}}</div>
             <div class="oldOrderName_1">{{$value->name}}</div>
-            <div class="oldOrderVahed_1">{{$value->date_ad}}</div>
-            <div class="oldOrderDate_1">{{$value->date_up}}</div>
+            <div class="oldOrderVahed_1">{{str_replace('-', '/',$value->date_ad )}}</div>
+            <div class="oldOrderDate_1">{{str_replace('-', '/',$value->date_ad )}}</div>
           </div>
         </a>
       @endforeach

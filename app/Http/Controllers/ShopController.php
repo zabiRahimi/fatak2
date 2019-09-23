@@ -53,12 +53,12 @@ class ShopController extends Controller
     $this->seller=$user->seller;
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->formatJalaliDate();
+    $datec=$dateA->subDay()->formatJalaliDate();
     $date30=$dateA->subDay(30)->formatJalaliDate();
-    $proShop=proShop::where('shop_id',$id)->get();
     $order=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->get();
     $orderNum=0;
     foreach ($order as $value) {
-      $checkOrder=$proShop->where('order_id',$value->id)->first();
+      $checkOrder=StampProOrder::where('order_id',$value->id)->where('shop_id',$id)->first();
       if($checkOrder){continue;}
       $orderNum++;
     }
@@ -222,6 +222,7 @@ class ShopController extends Controller
     $search_proA =$request->cookie('proShop');
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->formatJalaliDate();
+
     $dateC=$dateA->subDay()->formatJalaliDate();
     $date30=$dateA->subDay(30)->formatJalaliDate();
     $stage=$this->stage;
@@ -467,12 +468,20 @@ class ShopController extends Controller
   }
   public function del_imgShop(Request $request)
   {
-    $this->validate($request, ['nameImg' => 'required|imgName',]);
+    $this->validate($request, ['nameImg' => 'required|imgName','id_img' => 'nullable|numeric','cell_imgB' => 'required_with:id_img|alpha_dash','cell_imgS' => 'required_with:id_img|alpha_dash']);
     $nameImg=$request->nameImg;
     $checkFile = 'img_shop/' . $nameImg;// get file path from table
     if(file_exists($checkFile)) // make sure it exits inside the folder
     {
       unlink($checkFile); // delete file/image
+      if(!empty($request->id_img)){
+        $cell_imgB=$request->cell_imgB;
+        $cell_imgS=$request->cell_imgS;
+        $delCellImg=Picture_shop::find($request->id_img);
+        $delCellImg->$cell_imgB=null;
+        $delCellImg->$cell_imgS=null;
+        $delCellImg->save();
+      }
     }
   }
   public function oldOrderShop(Request $request)
