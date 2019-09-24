@@ -97,7 +97,8 @@
               <span>{{$value->num}}</span>
               <span>{{$value->vahed}}</span>
             </div>
-            <div class="newOrderDate_1">{{str_replace('-', '/',$value->date_up )}}</div>
+            <div class="newOrderDate_1">{{verta($value->date_up)->format('H:i:s Y/n/j ')}}</div>
+            {{-- str_replace('-', '/',$value->date_up ) --}}
           </div>
         </a>
       @endforeach

@@ -840,8 +840,11 @@ function searchShop() {
     type:'post',
     url:'../../searchShop',
     data: {
-      date1:date1,
-      date2:date2,
+      // date1:date1,
+      // date2:date2,
+      day1:day1,
+      month1:month1,
+      year1:year1,
          },
     success:function(data){
       // $('#ajax_sabtCodePSh').empty();
@@ -892,6 +895,7 @@ function searchAdvancedShop() {
       pro:$('#pro_searchAdvancedShop').val(),
       date1:date1,
       date2:date2,
+
          },
     success:function(data){
 

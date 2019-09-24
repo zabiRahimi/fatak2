@@ -224,6 +224,10 @@ class ShopController extends Controller
     $dateA=new Verta();//تاریخ جلالی
     $today=$dateA->today();
     $today=$today->timestamp;
+
+    $yesterday=$dateA->yesterday();
+    $yesterday=$yesterday->timestamp;
+
     $dateNew=$dateA->timestamp;
     $dateB=$dateA->timestamp;
     $dateC = $dateA->yesterday()->timestamp;
@@ -239,7 +243,17 @@ class ShopController extends Controller
     $id=$this->id;
     $date=$request->date;
     $date1=$request->cookie('date1');
-    $date2=$request->cookie('date2');
+    // $date1=str_replace('-', ',',$date1 );
+    // $date1=Verta::createJalali($date1);
+    // $date1=$date1->timestamp;
+    // $date2=str_replace('/', ',',$request->cookie('date2') );
+    $y=1398;
+    $m=7;
+    $d=2;
+    $date2=Verta::createJalali($y,$m,$d);
+
+    $date2=$date2->timestamp;
+
     $sortDate=$request->cookie('sortdate');
     if ($date=='today' or $sortDate=='today') {
        $newOrder=Order::where('stage',1)->whereBetween('date_up', [$today, $dateNew])->where(function($query){
@@ -253,7 +267,7 @@ class ShopController extends Controller
       $search_order='سفارشات امروز';
     }
     elseif ($date=='yesterday' or $sortDate=='yesterday') {
-      $newOrder=Order::where('stage',1)->where('date_up' , $dateC)->where(function($query){
+      $newOrder=Order::where('stage',1)->whereBetween('date_up', [$yesterday, $today -1])->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
         $citySeSh=$GLOBALS['citySeSh'];
         $proShop2=$GLOBALS['proShop2'];
@@ -308,8 +322,11 @@ class ShopController extends Controller
   }
   public function searchShop(Save_searchDateShop $request)
   {
-    $date1=$request->date1;
-    $date2=$request->date2;
+    $day1=$request->day1;
+    $month1=$request->month1;
+    $year1=$request->year1;
+    $date1=Verta::createJalali($year1,$month1,$day1);
+    $date1=$date1->timestamp;
     Cookie::queue('date1', $date1);
     Cookie::queue('date2', $date2);
     Cookie::queue('sortdate', 'slicing');
