@@ -3,7 +3,9 @@
   سفارشات جدید
 @endsection
 @section('dash_content')
-
+  {{$v}}
+  <br>
+  {{$v2}}
   @if ($stage==1)
     <div class="NoperfectDaSh">
       <span>توجه :</span>

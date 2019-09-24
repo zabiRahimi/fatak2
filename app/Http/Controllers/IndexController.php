@@ -41,7 +41,7 @@ class IndexController extends Controller
       $date1=new Verta();//تاریخ جلالی
       $date=$date1->format('Y/n/j');
       //دیروز
-      $dateD1=$date1->subDay()->format('Y/n/j');
+      $dateD1=$date1->yesterday()->format('Y/n/j');
       //پریروز
       $dateD2=$date1->subDays(2)->format('Y/n/j');
       $check_ip=Check_ip::where('ip',$ip)->where('date' , $date)->first();

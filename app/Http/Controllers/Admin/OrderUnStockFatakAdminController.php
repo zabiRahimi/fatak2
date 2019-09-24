@@ -76,7 +76,7 @@ class OrderUnStockFatakAdminController extends Controller
     $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->format('Y/n/j');
-    $dateC=$dateA->subDay()->format('Y/n/j');
+    $dateC=$dateA->yesterday()->format('Y/n/j');
     $v=$dateA->subDay(30)->format('Y/n/j');
     // $show_img=Imgpro::where('show' , 1)->get();
     return view('management.order_proUnStockFatak.order_proUnStockFatak' , compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','v'));
@@ -87,7 +87,7 @@ class OrderUnStockFatakAdminController extends Controller
       $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
       $dateA=new Verta();//تاریخ جلالی
       global $today;$today=$dateA->format('Y/n/j');
-      global $yesterday;$yesterday=$dateA->subDay()->format('Y/n/j');
+      global $yesterday;$yesterday=$dateA->yesterday()->format('Y/n/j');
       global $month;$month=$dateA->subDay(30)->format('Y/n/j');
       $order_id=$request->order_id;
       $mapId = ($order_id) ? 'سفارش با کد'.' '.$order_id : null ;
@@ -242,7 +242,7 @@ class OrderUnStockFatakAdminController extends Controller
     $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $dateA=new Verta();//تاریخ جلالی
     global $today;$today=$dateA->format('Y/n/j');
-    global $yesterday;$yesterday=$dateA->subDay()->format('Y/n/j');
+    global $yesterday;$yesterday=$dateA->yesterday()->format('Y/n/j');
     global $month;$month=$dateA->subDay(30)->format('Y/n/j');
     $order_id=$request->order_id;
     $stamp=$request->stamp;
@@ -375,7 +375,7 @@ class OrderUnStockFatakAdminController extends Controller
     $orderNewCount=$this->orderNewCount;$orderSabtCount=$this->orderSabtCount;$orderBuyCount=$this->orderBuyCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
     $dateA=new Verta();//تاریخ جلالی
     global $today;$today=$dateA->format('Y/n/j');
-    global $yesterday;$yesterday=$dateA->subDay()->format('Y/n/j');
+    global $yesterday;$yesterday=$dateA->yesterday()->format('Y/n/j');
     global $month;$month=$dateA->subDay(30)->format('Y/n/j');
     $order_id=$request->order_id;
     $stamp=$request->stamp;

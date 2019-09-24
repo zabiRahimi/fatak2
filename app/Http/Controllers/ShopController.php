@@ -52,9 +52,10 @@ class ShopController extends Controller
     $this->stage=$user->stage;
     $this->seller=$user->seller;
     $dateA=new Verta();//تاریخ جلالی
-    $dateB=$dateA->formatJalaliDate();
-    $datec=$dateA->subDay()->formatJalaliDate();
-    $date30=$dateA->subDay(30)->formatJalaliDate();
+    // $dateB=$dateA->formatJalaliDate();
+    $dateB=$dateA->timestamp;
+    $date30=$dateA->subDay(30);
+    $date30=$date30->timestamp;
     $order=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->get();
     $orderNum=0;
     foreach ($order as $value) {
@@ -221,10 +222,13 @@ class ShopController extends Controller
     $GLOBALS['proShop2']  =$request->cookie('proShop');
     $search_proA =$request->cookie('proShop');
     $dateA=new Verta();//تاریخ جلالی
-    $dateB=$dateA->formatJalaliDate();
-
-    $dateC=$dateA->subDay()->formatJalaliDate();
-    $date30=$dateA->subDay(30)->formatJalaliDate();
+    $today=$dateA->today();
+    $today=$today->timestamp;
+    $dateNew=$dateA->timestamp;
+    $dateB=$dateA->timestamp;
+    $dateC = $dateA->yesterday()->timestamp;
+    $date30=$dateA->subDay(30);
+    $date30=$date30->timestamp;
     $stage=$this->stage;
     $seller=$this->seller;
     $orderNum=$this->orderNum;
@@ -238,7 +242,7 @@ class ShopController extends Controller
     $date2=$request->cookie('date2');
     $sortDate=$request->cookie('sortdate');
     if ($date=='today' or $sortDate=='today') {
-       $newOrder=Order::where('stage',1)->where('date_up',$dateB)->where(function($query){
+       $newOrder=Order::where('stage',1)->whereBetween('date_up', [$today, $dateNew])->where(function($query){
         $ostanSeSh=$GLOBALS['ostanSeSh'];
         $citySeSh=$GLOBALS['citySeSh'];
         $proShop2=$GLOBALS['proShop2'];
@@ -290,7 +294,12 @@ class ShopController extends Controller
     if(!empty($search_proA)){$search_pro='محصول '.$search_proA;}else { $search_pro='همه محصولات' ;  }
     $city=$search_cityA;
     $stampProOrder=StampProOrder::where('shop_id',$id)->get();
-    return view('shop.newOrderShop',compact('stage','seller','orderNum','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','newOrder','stampProOrder','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
+    // $v2= time();
+    $v1 = new Verta();
+    $v=$v1->timestamp;
+    $v2=$v1->today();
+    $v2=$v2->timestamp;
+    return view('shop.newOrderShop',compact('v','v2','stage','seller','orderNum','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','newOrder','stampProOrder','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
   }
   public function searchSortDateShop(Request $request)
   {
@@ -718,7 +727,7 @@ class ShopController extends Controller
 
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->format('Y/n/j');
-    $dateC=$dateA->subDay()->format('Y/n/j');
+    $dateC=$dateA->yesterday()->format('Y/n/j');
     $date30=$dateA->subDay(30)->format('Y/n/j');
     $date1=$request->cookie('date1BackShop');
     $date2=$request->cookie('date2BackShop');
@@ -816,7 +825,7 @@ class ShopController extends Controller
 
     $dateA=new Verta();//تاریخ جلالی
     $dateB=$dateA->format('Y/n/j');
-    $dateC=$dateA->subDay()->format('Y/n/j');
+    $dateC=$dateA->yesterday()->format('Y/n/j');
     $date30=$dateA->subDay(30)->format('Y/n/j');
     $date1=$request->cookie('date1PayShop');
     $date2=$request->cookie('date2PayShop');

@@ -53,8 +53,8 @@ class OrderController extends Controller
       $save->mobail=$request->mobail;
       $save->ostan=$request->ostan;
       $save->city=$request->city;
-      $save->date_ad=$date;
-      $save->date_up=$date;
+      $save->date_ad=time();
+      $save->date_up=time();
       $save->stage=1;
       $save->show=1;
       $save->Save();
