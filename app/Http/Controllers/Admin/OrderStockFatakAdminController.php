@@ -18,7 +18,6 @@ use App\Models\Buy;
 use App\Models\Shop;
 use App\Models\Pro;
 use App\Models\Admin\BackPro;
-
 use App\Http\Requests\Save_editDaChSave;
 use App\Http\Requests\SaveEdit2_ChannelAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
@@ -28,8 +27,6 @@ use App\Http\Requests\SaveEditRahgiryCodeAd;
 use App\Http\Requests\SaveEditStageOrderAdmin;
 use App\Http\Requests\SaveOrderBackSave;
 use App\Http\Requests\SaveOrderBackEdit;
-
-
 class OrderStockFatakAdminController extends Controller
 {
   public $id ,$nameModir,$access,$orderNewCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount;
@@ -56,8 +53,6 @@ class OrderStockFatakAdminController extends Controller
   public function show(Request $request){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-
-    // $show_img=Imgpro::where('show' , 1)->get();
     return view('management.order_proStockFatak.order_proStockFatak' , compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount'));
   }
   public function orderNewPStockF(Request $request)
@@ -67,7 +62,6 @@ class OrderStockFatakAdminController extends Controller
     $buy=Buy::where('stage',2)->where('shop_id' , 1)->get();
     $pro=Pro::get();
     return view('management.order_proStockFatak.orderNewPStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
-
   }
   public function orderOneNewPStockF(Request $request)
   {
@@ -93,7 +87,6 @@ class OrderStockFatakAdminController extends Controller
     $buy=Buy::where('stage',3)->where('shop_id' , 1)->get();
     $pro=Pro::get();
     return view('management.order_proStockFatak.proceedOrderStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro'));
-
   }
   public function proceedOneOrderStockF(Request $request)
   {
@@ -124,7 +117,6 @@ class OrderStockFatakAdminController extends Controller
       $buy=Buy::find($buy_id);
       if (empty($buy->pro_id)) {
         return response()->json(['errors' => ['no_order' => [ ]]],422 );
-
       }elseif($buy->stage==2){
         //جدید
         return response()->json(['errors' => ['orderNew' => [ ]]],422 );
@@ -145,9 +137,7 @@ class OrderStockFatakAdminController extends Controller
         //مرجوعی تسویه شده
         return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
       }
-
       $pro=Pro::find($buy->pro_id);
-
     }
     return view('management.order_proStockFatak.orderErsalSabtStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro'));
   }
@@ -236,9 +226,7 @@ class OrderStockFatakAdminController extends Controller
         //مرجوعی تسویه شده
         return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
       }
-
       $pro=Pro::find($buy->pro_id);
-
     }
     return view('management.order_proStockFatak.orderSabtEndStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro'));
   }
@@ -269,7 +257,6 @@ public function orderBackSabtStockF(Request $request)
     $buy=Buy::find($buy_id);
     if (empty($buy->pro_id)) {
       return response()->json(['errors' => ['no_order' => [ ]]],422 );
-
     }elseif($buy->stage==2){
       //جدید
       return response()->json(['errors' => ['orderNew' => [ ]]],422 );
@@ -290,9 +277,7 @@ public function orderBackSabtStockF(Request $request)
       //مرجوعی تسویه شده
       return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
     }
-
     $pro=Pro::find($buy->pro_id);
-
   }
   return view('management.order_proStockFatak.orderBackSabtStockF', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro'));
 }
@@ -321,7 +306,6 @@ public function orderBackSaveStockF(SaveOrderBackSave $request)
   $add2->date_up=$date;
   $add2->stage=6;
   $add2->save();
-
 }
 public function orderBackShowAllStockF(Request $request)
 {

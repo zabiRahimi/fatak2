@@ -34,12 +34,10 @@ class ManagementController extends Controller
       });
       }
   }
-
   public function page_login(Request $request)
   {
     return view('management.page_login');
   }
-
   public function loginManage(Save_login_manage $request ){
     $nameKarbary=$request->nameKarbary;
     $pas=$request->pas;

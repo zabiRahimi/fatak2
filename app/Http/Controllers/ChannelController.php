@@ -35,7 +35,6 @@ class ChannelController extends Controller
         });
         }
     }
-
     public function page_login(Request $request)
     {
       return view('channel.login_channel');
@@ -97,7 +96,6 @@ class ChannelController extends Controller
       $save->ostan=$request->ostan;
       $save->city=$request->city;
       $save->address=$request->address;
-      // $save->codepost=$request->codepost;
       $save->accountNumber=$request->accountNumber;
       $save->cart=$request->cart;
       $save->master=$request->master;
@@ -124,7 +122,6 @@ class ChannelController extends Controller
       $save->ostan=$request->ostan;
       $save->city=$request->city;
       $save->address=$request->address;
-      // $save->codepost=$request->codepost;
       $save->accountNumber=$request->accountNumber;
       $save->cart=$request->cart;
       $save->master=$request->master;
@@ -134,7 +131,6 @@ class ChannelController extends Controller
     }
     public function editPasDaCh(Save_editPasDaCh $request)
     {
-
       $pas=$request->pasOld;
       $add=Channel::find($this->id);
       // if(!empty($add)){
@@ -145,10 +141,6 @@ class ChannelController extends Controller
         }else{
           return response()->json(['errors' => ['no_pas' => ['رمز فعلی اشتباه است .']]], 422);
         }
-      // }
-      //   else{
-      //     return response()->json(['errors' => ['no_karbar' => ['موبایل و یا رمز عبور اشتباه است .']]], 422);
-      //   }
     }
     public function warnCh(Request $request)
     {
@@ -175,10 +167,8 @@ class ChannelController extends Controller
       $buy=Ch_view::where('channel_id', $this->id)->where('lot_ch' ,'!=',null)->get();
       $buy_month=Ch_view::where('channel_id', $this->id)->where('lot_ch' ,'!=',null)->whereBetween('date', [$dateStart, $dateEnd])->get();
       $buy_monthPast=Ch_view::where('channel_id', $this->id)->where('lot_ch' ,'!=',null)->whereBetween('date', [$startMonthPast, $endMonthPast])->count();
-
       $view_month=Ch_view::where('channel_id', $this->id)->whereBetween('date', [$dateStart, $dateEnd])->get();
       $count_view_monthPast=Ch_view::where('channel_id', $this->id)->whereBetween('date', [$startMonthPast, $endMonthPast])->count();
-
       $count_buy=count($buy);
       $count_buy_month=count($buy_month);
       $count=count($ch);
@@ -212,7 +202,6 @@ class ChannelController extends Controller
       $count_view_month=Ch_view::whereBetween('date', [$startMonthPast, $endMonthPast])->count();
       //تعداد بازدیدهای ماه گذشته من
       $count_view_month_my=Ch_view::where('channel_id', $this->id)->whereBetween('date', [$startMonthPast, $endMonthPast])->count();
-
       $month_income=Income::where('stage', '2')->first();
       //ارزش بازدید ماه گذشته
       if($month_income && !empty($count_view_month)){
@@ -238,7 +227,6 @@ class ChannelController extends Controller
       $noDefray_my=$allIncome_my->income-$defray_my;
       //پردرآمد ترینها
       $superIncomeCh=Channel::orderBy('income','desc')->get();
-
       $all_income=Income::where('stage', '!=','1')->sum('channel');
       $stage=$this->stage;
       return view('channel.incomeChMy', compact('id','stage','view_income_month','view_income_month_my','price_buy_month_my','allIncomeMonth_my','allIncome_my','defray_my','noDefray_my','month_income','all_income','superIncomeCh'));

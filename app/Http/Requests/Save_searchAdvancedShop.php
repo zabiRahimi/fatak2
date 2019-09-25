@@ -44,8 +44,12 @@ class Save_searchAdvancedShop extends FormRequest
           'ostan'=>'nullable',
           'city'=>'nullable',
           'pro'=>'nullable',
-          'date1'=>'nullable',
-          'date2'=>'nullable',
+          'day1'=>'nullable|numeric|min:1|max:31',
+          'month1'=>'nullable|numeric|min:1|max:12',
+          'year1'=>'nullable|numeric|min:1390|max:1490',
+          'day2'=>'nullable|numeric|min:1|max:31',
+          'month2'=>'nullable|numeric|min:1|max:12',
+          'year2'=>'nullable|numeric|min:1390|max:1490',
         ];
     }
 }

@@ -22,7 +22,6 @@ use App\Models\Pro;
 use App\Models\ProShop;
 use App\Models\Picture_shop;
 use App\Models\Admin\BackPro;
-
 use App\Http\Requests\Save_editDaChSave;
 use App\Http\Requests\SaveEdit2_ChannelAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
@@ -34,7 +33,6 @@ use App\Http\Requests\SaveOrderBackSave;
 use App\Http\Requests\SaveOrderBackEdit;
 use App\Http\Requests\Save_proShop;
 use App\Http\Requests\Save_editProShop;
-
 class OrderUnStockFatakAdminController extends Controller
 {
   public $id ,$nameModir,$access,$orderNewCount,$orderSabtCount,$orderBuyCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount;
@@ -78,7 +76,6 @@ class OrderUnStockFatakAdminController extends Controller
     $dateB=$dateA->format('Y/n/j');
     $dateC=$dateA->yesterday()->format('Y/n/j');
     $v=$dateA->subDay(30)->format('Y/n/j');
-    // $show_img=Imgpro::where('show' , 1)->get();
     return view('management.order_proUnStockFatak.order_proUnStockFatak' , compact('id','nameModir','access','orderNewCount','orderSabtCount','orderBuyCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','v'));
   }
   public function orderNewPUnStockF(Request $request)
@@ -115,15 +112,7 @@ class OrderUnStockFatakAdminController extends Controller
       elseif(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
         $notRecord='ok';
         $newOrder=Order::where(function($query){
-          global $proS;
-          global $dateDay;
-          global $today;
-          global $yesterday;
-          global $month;
-          global $date1;
-          global $date2;
-          global $ostan;
-          global $city;
+          global $proS;global $dateDay;global $today;global $yesterday;global $month;global $date1;global $date2;global $ostan;global $city;
          if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
          if($dateDay=='today' ){$query->where( 'date_up' , $today);}
          if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
@@ -144,7 +133,6 @@ class OrderUnStockFatakAdminController extends Controller
   public function pro_searchUSF(Request $request)
   {
     $this->validate($request, ['nameCookie'=>'required|alpha_num','pro' => 'required',]);
-    // $request->nameCooke;
     Cookie::queue($request->nameCookie, $request->pro);
   }
   public function allPro_searchUSF(Request $request)
@@ -273,19 +261,12 @@ class OrderUnStockFatakAdminController extends Controller
     elseif(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
       $notRecord='ok';
       $proShop= proShop::where('shop_id',1)->where('stage',1)->where(function($query){
-        global $proS;
-        global $dateDay;
-        global $today;
-        global $yesterday;
-        global $month;
-        global $date1;
-        global $date2;
+        global $proS;global $dateDay;global $today;global $yesterday;global $month;global $date1;global $date2;
        if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
        if($dateDay=='today' ){$query->where( 'date_up' , $today);}
        if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
        if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
        if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
-
      })->orderby('date_up', 'DESC')->get();
     }
     else{
@@ -407,13 +388,7 @@ class OrderUnStockFatakAdminController extends Controller
     elseif(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
       $notRecord='ok';
       $proShop= proShop::where('shop_id',1)->where('stage',1)->where(function($query){
-        global $proS;
-        global $dateDay;
-        global $today;
-        global $yesterday;
-        global $month;
-        global $date1;
-        global $date2;
+        global $proS;global $dateDay;global $today;global $yesterday;global $month;global $date1;global $date2;
        if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
        if($dateDay=='today' ){$query->where( 'date_up' , $today);}
        if($dateDay=='yesterday' ){$query->where( 'date_up' , $yesterday);}
@@ -423,8 +398,6 @@ class OrderUnStockFatakAdminController extends Controller
     }
     else{
       $buyOrder=BuyOrder::where('stage',3)->where('shop_id' , 1)->get();
-
-
       $notRecord='no';
     }
     $proShop=proShop::get();

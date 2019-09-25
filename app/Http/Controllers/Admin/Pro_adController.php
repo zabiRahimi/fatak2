@@ -17,13 +17,8 @@ use App\Models\Order;
 use App\Models\Buy;
 use App\Models\Shop;
 use App\Models\Admin\BackPro;
-
 use App\Http\Requests\Save_add_pro_admin;//نکته مهم چون فایلهای کنترلر ادمین در یک پوشه مجزا هست برای کار کردن فرم درخواست باید فایل فرم درخواست را یوز کنیم
 use App\Http\Requests\Save_edit_pro_admin;
-// use App\Http\Requests\SaveCodeOrderAdmin;
-// use App\Http\Requests\SaveRahgiryCodeAd;
-// use App\Http\Requests\SaveEditRahgiryCodeAd;
-// use App\Http\Requests\SaveEditStageOrderAdmin;
 use App\Http\Requests\SaveOrderBackSave;
 use App\Http\Requests\SaveOrderBackEdit;
 class Pro_adController extends Controller
@@ -72,7 +67,6 @@ public function uplod_img_pro(Request $request){
   $imagpros->show=1;
   $imagpros-> save();
   return "$name";
-
 }
 public function add_pro(){
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
@@ -102,12 +96,10 @@ public function save_add_pro1(Save_add_pro_admin $request){
   $pro->bake = $request->bake ;
   $pro->made = $request->made ;
   $pro->model = $request->model ;
-
   $pro->views =1 ;
   $pro->seller = $request->seller ;
   $pro->show =  $request->show ;
   $pro-> save();
-
    // اضافه کردن عکسهای محصول
   $picture=new PicturePro();
   $picture->pro_id =$pro->id;
@@ -118,17 +110,13 @@ public function save_add_pro1(Save_add_pro_admin $request){
   $picture->pic_b4 = (empty($request->img4)) ? NULL : $request->img4 ;
   $picture->pic_b5 = (empty($request->img5)) ? NULL : $request->img5 ;
   $picture->pic_b6 = (empty($request->img6)) ? NULL : $request->img6 ;
-
   $picture->pic_s2 = (empty($request->img2)) ? NULL : $request->img2 ;
   $picture->pic_s3 = (empty($request->img3)) ? NULL : $request->img3 ;
   $picture->pic_s4 = (empty($request->img4)) ? NULL : $request->img4 ;
   $picture->pic_s5 = (empty($request->img5)) ? NULL : $request->img5 ;
   $picture->pic_s6 = (empty($request->img6)) ? NULL : $request->img6 ;
   $picture->show = 1;
-
-  // $pro->picture_pros()->save($picture);
   $picture->save();
-
 }
 public function all_edit_pro(Request $request ){
   $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
@@ -142,15 +130,12 @@ public function edit_pro(Request $request ,$id2){
   $pro=pro::find($id2);
   $img=PicturePro::where('pro_id' , $id2)->first();
   return view('management.pro_admin.one_edit_pro_admin', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','pro' , 'img'));
-
 }
 public function save_edit_pro1(Save_edit_pro_admin $request){
-
   $old_price = (empty($request->old_price)) ? NULL : $request->old_price ;
   $mavad=json_encode($request->mavad);
   $id=$request->id;
   $edit=pro::find($id);
-
   $edit->name = $request->name ;
   $edit->vahed = $request->vahed ;
   $edit->dis = $request->dis ;
@@ -169,12 +154,10 @@ public function save_edit_pro1(Save_edit_pro_admin $request){
   $edit->bake = $request->bake ;
   $edit->made = $request->made ;
   $edit->model = $request->model ;
-
   $edit->views =1 ;
   $edit->seller = $request->seller ;
   $edit->show = $request->show;
   $edit-> save();
-
   //  //اضافه کردن عکسهای محصول
   $picture=PicturePro::where('pro_id' , $id)->first();
   $picture->pro_id =$id;
@@ -185,7 +168,6 @@ public function save_edit_pro1(Save_edit_pro_admin $request){
   $picture->pic_b4 = (empty($request->img4)) ? NULL : $request->img4 ;
   $picture->pic_b5 = (empty($request->img5)) ? NULL : $request->img5 ;
   $picture->pic_b6 = (empty($request->img6)) ? NULL : $request->img6 ;
-
   $picture->pic_s2 = (empty($request->img2)) ? NULL : $request->img2 ;
   $picture->pic_s3 = (empty($request->img3)) ? NULL : $request->img3 ;
   $picture->pic_s4 = (empty($request->img4)) ? NULL : $request->img4 ;
@@ -193,7 +175,6 @@ public function save_edit_pro1(Save_edit_pro_admin $request){
   $picture->pic_s6 = (empty($request->img6)) ? NULL : $request->img6 ;
   $picture->show = 1;
   $picture->save();
-
 }
 public function del_imgProAdmin(Request $request)
 {}
@@ -206,7 +187,6 @@ public function orderBuy(Request $request)
   $pro=Pro::get();
   $shop=Shop::get();
   return view('management.pro_admin.orderBuy', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
-
 }
 // public function orderBuyOne(Request $request)
 // {

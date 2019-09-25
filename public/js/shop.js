@@ -827,36 +827,28 @@ function searchShop() {
   var day1=$('#searchShopDay1').val();
   //var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
   var month1=$('#searchShopMonth1').val();//var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
-  var year1=$('#searchShopYear1').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
-  var day2=$('#searchShopDay2').val();//var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
-  var month2=$('#searchShopMont2').val();//var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
-  var year2=$('#searchShopYear2').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
+  var year1=$('#searchShopYear1').val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
+  var day2=$('#searchShopDay2').val();
+  var month2=$('#searchShopMont2').val();
+  var year2=$('#searchShopYear2').val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
 
-  var date1=year1+'/'+month1+'/'+day1;
-  // var date1='1360/12/03';
-  var date2=year2+'/'+month2+'/'+day2;
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
     url:'../../searchShop',
     data: {
-      // date1:date1,
-      // date2:date2,
       day1:day1,
       month1:month1,
       year1:year1,
+      day2:day2,
+      month2:month2,
+      year2:year2,
          },
     success:function(data){
-      // $('#ajax_sabtCodePSh').empty();
       window.location.href  = "/newOrderShop/slicing";
     },
     error: function(xhr) {
-      // window.location.href  = "/sabtErsalShop";
-
-        var errors = xhr.responseJSON;
-        var error=errors.errors;
-
-
+      alert('لطفا بازه زمانی را صحیح وارد کنید .')
        }  });
 }
 function searchSortDateShop(sortdate) {
@@ -877,10 +869,10 @@ function searchSortDateShop(sortdate) {
 function searchAdvancedShop() {
   var day1=$('#day1_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
   var month1=$('#month1_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
-  var year1=$('#year1_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
+  var year1=$('#year1_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
   var day2=$('#day2_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
   var month2=$('#month2_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
-  var year2=$('#year2_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
+  var year2=$('#year2_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
   if (day1&month1&year1){var date1=year1+'-'+month1+'-'+day1;} else {var date1=0;};
   if (day2&month2&year2){var date1=year2+'-'+month2+'-'+day2;} else {var date2=0;};
 // let uu=$('#pro_searchAdvancedShop').val();
@@ -1017,10 +1009,10 @@ function SearchAllNamePayShop() {
 function SearchDateSortPayShop() {
   var day1=$('#day1_payShop').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
   var month1=$('#month1_payShop').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
-  var year1=$('#year1_payShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
+  var year1=$('#year1_payShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
   var day2=$('#day2_payShop').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
   var month2=$('#month2_payShop').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
-  var year2=$('#year2_payShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
+  var year2=$('#year2_payShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
 
   var date1=year1+'-'+month1+'-'+day1;
   var date2=year2+'-'+month2+'-'+day2;
@@ -1109,10 +1101,10 @@ function SearchBackShop() {
 function SearchDateSortBackShop() {
   var day1=$('#day1_backShop').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
   var month1=$('#month1_backShop').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
-  var year1=$('#year1_backShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){year1 = 13 + year1;}
+  var year1=$('#year1_backShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
   var day2=$('#day2_backShop').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
   var month2=$('#month2_backShop').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
-  var year2=$('#year2_backShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){year2 = 13 + year2;}
+  var year2=$('#year2_backShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
 
   var date1=year1+'-'+month1+'-'+day1;
   var date2=year2+'-'+month2+'-'+day2;

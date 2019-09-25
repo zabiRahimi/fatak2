@@ -34,7 +34,6 @@ class ModirAdminController extends Controller
       });
       }
   }
-
   public function modiranAdmin(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;

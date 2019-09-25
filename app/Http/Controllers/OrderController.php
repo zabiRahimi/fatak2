@@ -72,9 +72,7 @@ class OrderController extends Controller
         return response()->json(['errors' => ['no_mobail' => ['با این شماره موبایل تا کنون محصولی سفارش داده نشده است ، لطفا شماره موبایلی که هنگام سفارش محصول ثبت کردید را وارد کنید .']]], 422);
 
       }
-
     return view('order.proList',compact('pro'));
-
     }
     public function searchOrderSave(Save_searchOrderSave $request)
     {
@@ -94,7 +92,6 @@ class OrderController extends Controller
       }
       $shop_count1=array_unique($shop_count1);//حذف عناصر تکراری از آرایه
       $shop_count=count($shop_count1);//تعداد فروشنده ها
-
       $img=Picture_shop::first();
       $shop=Shop::first();
       return view('order.showOrder',compact('pro','img','shop','pro_count','shop_count','id_proShop'));
@@ -103,8 +100,6 @@ class OrderController extends Controller
     {
       $id=$request->id;
       $show_pro=ProShop::find($id);
-
-
       $pic_pro=Picture_shop::where('pro_shop_id',$id)->first();
       $shop=Shop::find($show_pro->shop_id);
       return view('order.showOneOrder',compact('show_pro','pic_pro','shop'));
@@ -167,36 +162,25 @@ class OrderController extends Controller
           // سفارشی
           $sefarshi=Post::find(1);
         }
-
           // امانت
           $amanat=Post::find(3);
-
-
         // پیشتاز
         $pishtaz=Post::find(5);
-
       }
       else{
         // غیر استان
         if ($show_pro->vaznPost <= 2000) {
           // سفارشی
           $sefarshi=Post::find(2);
-
         }
-
           // امانت
           $amanat=Post::find(4);
-
-
         // پیشتاز
         $pishtaz=Post::find(6);
-
-
       }
       if($gram != 'not'){
         $priceSefarshi=$sefarshi->$gram + $show_pro->pakat;
         $priceAmanat=$sefarshi->$gram + $show_pro->pakat;
-
         $pricePishtaz=$pishtaz->$gram + $show_pro->pakat;
       }else{$priceSefarshi=0;$pricePishtaz=0;}
       Cookie::queue('priceAmanat', $priceAmanat);
@@ -215,7 +199,6 @@ class OrderController extends Controller
       $show_pro=ProShop::find($id);
       $shop=Shop::find($show_pro->shop_id);
       $order=Order::find($show_pro->order_id);
-
       do {
         // code...
         $i=$num ;
@@ -523,7 +506,6 @@ class OrderController extends Controller
       Cookie::queue('priceSefarshi', $priceSefarshi);
       Cookie::queue('priceAmanat', $priceAmanat);
       // Cookie::queue('pricePishtaz', '' , time() - 3600 );
-
       Cookie::queue('pricePishtaz', $pricePishtaz);
       // $pricePishtaz=0;
       $data=[$priceSefarshi,$priceAmanat,$pricePishtaz];
@@ -534,7 +516,6 @@ class OrderController extends Controller
       $id=$request->id;
       $num=$request->num;
       $post=$request->post;
-
       $pro_shop=ProShop::find($id);
       $shop=Shop::find($pro_shop->shop_id);
       $order=Order::find($pro_shop->order_id);
@@ -556,15 +537,12 @@ class OrderController extends Controller
         case 'company4':$post2=$postName->company4;$price_post=0; break;
         case 'company5':$post2=$postName->company5;$price_post=0; break;
         case 'company6':$post2=$postName->company6;$price_post=0; break;
-
       }
       $payWork=($price + $price_post) * 2 / 100 + 2000;
       $allPrice= $price + $price_post + $payWork;
       Cookie::queue('postOrder', $post2);
       Cookie::queue('pricePostOrder', $price_post);
       Cookie::queue('numProOrder', $num);
-
-    // $r=540;
       return view('order.factor_order',compact('id','post','shop','order','num','pro_shop','price','post2','price_post','payWork','allPrice'));
     }
     //ذخیره اطلاعات خریدار
@@ -629,6 +607,5 @@ public function delBuyOrder(Request $request)
   $id=$request->id;
   $del=BuyOrder::find($id);
   $del->delete();
-
 }
   }//end class

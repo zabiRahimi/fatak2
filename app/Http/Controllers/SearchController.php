@@ -9,15 +9,12 @@ class SearchController extends Controller
 {
   public function search(Request $request)
      {
-
      		 $record_pro =Pro::search($request->search_matn)->get();
          $record_ess=Essay::search($request->search_matn)->get();
          $count_record_pro= count($record_pro);
          $count_record_ess=count($record_ess);
-
          return view('search', compact('record_pro' , 'count_record_pro' , 'record_ess' , 'count_record_ess' ));
      }
-
 // public function search(Request $request)
 // {
 //     // First we define the error message we are going to show if no keywords

@@ -17,9 +17,6 @@ use App\Models\Income;
 use App\Http\Requests\Save_editShop;
 use App\Http\Requests\SaveEdit2_shopAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
-// use App\Http\Requests\Save_modirEditPas_admin;
-
-
 class ShopAdminController extends Controller
 {
   public $id ,$nameModir,$access;
@@ -33,28 +30,24 @@ class ShopAdminController extends Controller
     $user=Management::find($id);
     $this->nameModir=$user->name;
     $this->access=$user->access;
-
     return $next($request);
       });
       }
   }
   public function show(Request $request){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
-    // $show_img=Imgpro::where('show' , 1)->get();
     return view('management.shop_admin.shop_admin' , compact('id','nameModir','access'));
   }
   public function all_edit_shop(Request $request ){
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $shop=Shop::get();
     $ch_view=Ch_view::get();
-
     return view('management.shop_admin.all_edit_shop', compact('id','nameModir','access','shop','ch_view'));
   }
   public function showOne_shopAdmin(Request $request)
   {
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $shop=Shop::find($request->shop_id);
-
     return view('management.shop_admin.showOne_shopAdmin', compact('id','nameModir','access','shop'));
   }
   //ویرایش و ثبت اطلاعات کامل شبکه
@@ -102,24 +95,20 @@ class ShopAdminController extends Controller
     $add->date_up=$date;
     $add->save();
   }
-
   public function all_act_shop(Request $request)
   {
     //کارکرد شبکه ها
     //تکمیل نشده است
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $shop=Shop::find($request->shop_id);
-
     return view('management.shop_admin.all_act_shop', compact('id','nameModir','access','shop'));
   }
-
   public function all_rank_shop(Request $request)
   {
     //رتبه شبکه ها
     //تکمیل نشده است
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $shop=Shop::find($request->shop_id);
-
     return view('management.shop_admin.all_rank_shop', compact('id','nameModir','access','shop'));
   }
   public function all_newOrderSA(Request $request)
@@ -127,7 +116,6 @@ class ShopAdminController extends Controller
     $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
     $shop=Shop::get();
     $ch_view=Ch_view::get();
-
     return view('management.shop_admin.all_newOrderSA', compact('id','nameModir','access','shop','ch_view'));
   }
 }//end class

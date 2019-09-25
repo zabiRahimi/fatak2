@@ -18,7 +18,6 @@ use App\Models\Buy;
 use App\Models\Shop;
 use App\Models\Pro;
 use App\Models\Admin\BackPro;
-
 use App\Http\Requests\Save_editDaChSave;
 use App\Http\Requests\SaveEdit2_ChannelAdmin;
 use App\Http\Requests\Save_modirEditPas_admin;
@@ -28,7 +27,6 @@ use App\Http\Requests\SaveEditRahgiryCodeAd;
 use App\Http\Requests\SaveEditStageOrderAdmin;
 use App\Http\Requests\SaveOrderBackSave;
 use App\Http\Requests\SaveOrderBackEdit;
-
 class OrderStockSaierAdminController extends Controller
 {
     public $id ,$nameModir,$access,$orderNewCount,$orderAgdamCount,$orderPostCount,$orderDeliverCount,$orderbackCount,$orderbackEndCount;
@@ -55,8 +53,6 @@ class OrderStockSaierAdminController extends Controller
     public function show(Request $request){
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;
       $orderNewCount=$this->orderNewCount;$orderAgdamCount=$this->orderAgdamCount;$orderPostCount=$this->orderPostCount;$orderDeliverCount=$this->orderDeliverCount;$orderbackCount=$this->orderbackCount;$orderbackEndCount=$this->orderbackEndCount;
-
-      // $show_img=Imgpro::where('show' , 1)->get();
       return view('management.order_proStockSaier.order_proStockSaier' , compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount'));
     }
     public function orderNewPStockS(Request $request)
@@ -67,7 +63,6 @@ class OrderStockSaierAdminController extends Controller
       $pro=Pro::get();
       $shop=Shop::get();
       return view('management.order_proStockSaier.orderNewPStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
-
     }
     public function orderOneNewPStockS(Request $request)
     {
@@ -102,9 +97,7 @@ class OrderStockSaierAdminController extends Controller
       $buy=Buy::where('stage',3)->where('shop_id' , '!=' , 1)->get();
       $pro=Pro::get();
       $shop=Shop::get();
-
       return view('management.order_proStockSaier.proceedOrderStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy','pro','shop'));
-
     }
     public function proceedOrderOneStockS(Request $request)
     {
@@ -165,7 +158,6 @@ class OrderStockSaierAdminController extends Controller
         $buy=Buy::find($buy_id);
         if (empty($buy->pro_id)) {
           return response()->json(['errors' => ['no_order' => [ ]]],422 );
-
         }elseif($buy->stage==2){
           //جدید
           return response()->json(['errors' => ['orderNew' => [ ]]],422 );
@@ -186,10 +178,8 @@ class OrderStockSaierAdminController extends Controller
           //مرجوعی تسویه شده
           return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
         }
-
         $pro=Pro::find($buy->pro_id);
         $shop=Shop::find($buy->shop_id);
-
       }
       return view('management.order_proStockSaier.orderSabtEndStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
     }
@@ -222,7 +212,6 @@ class OrderStockSaierAdminController extends Controller
       $buy=Buy::find($buy_id);
       if (empty($buy->pro_id)) {
         return response()->json(['errors' => ['no_order' => [ ]]],422 );
-
       }elseif($buy->stage==2){
         //جدید
         return response()->json(['errors' => ['orderNew' => [ ]]],422 );
@@ -243,10 +232,8 @@ class OrderStockSaierAdminController extends Controller
         //مرجوعی تسویه شده
         return response()->json(['errors' => ['orderbackEnd' => [ ]]],422 );
       }
-
       $pro=Pro::find($buy->pro_id);
       $shop=Shop::find($buy->shop_id);
-
     }
     return view('management.order_proStockSaier.orderBackSabtStockS', compact('id','nameModir','access','orderNewCount','orderAgdamCount','orderPostCount','orderDeliverCount','orderbackCount','orderbackEndCount','buy_id','buy','pro','shop'));
   }
@@ -275,7 +262,6 @@ class OrderStockSaierAdminController extends Controller
     $add2->date_up=$date;
     $add2->stage=6;
     $add2->save();
-
   }
   public function orderBackShowAllStockS(Request $request)
   {

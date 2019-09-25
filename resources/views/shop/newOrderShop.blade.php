@@ -3,9 +3,6 @@
   سفارشات جدید
 @endsection
 @section('dash_content')
-  {{$v}}
-  <br>
-  {{$v2}}
   @if ($stage==1)
     <div class="NoperfectDaSh">
       <span>توجه :</span>
@@ -35,9 +32,7 @@
         <input type="text"class="searchInputShop searchInput2Shop"id="searchShopDay2" placeholder="روز">
         <input type="text"class="searchInputShop searchInput2Shop"id="searchShopMont2" placeholder="ماه">
         <input type="text"class="searchInputShop searchInput3Shop"id="searchShopYear2" placeholder="سال">
-
         <a  class="apjax searchAShop" onclick="searchShop()"><i class="fas fa-search"></i></a>
-
       </span>
       {{-- جهت کامپیوتر --}}
       <button type="button" class="btn searchShopBtn_pc"data-toggle="modal" data-target="#modalSearchShop">پیشرفته</button>
@@ -45,13 +40,10 @@
     <div class="dashLBodySh">
       <div class="searchMapShop">
         <span class="searchMap1Shop">{{$search_pro}}</span> , <span class="searchMap2Shop">{{$search_ostan}}</span> , <span class="searchMap3Shop">{{$search_city}}</span> ,
-        @if ($sortDate=='slicing')
-          از تاریخ <span class="searchMap4Shop">{{$date1}}</span> تا <span class="searchMap5Shop">{{$date2}}</span>
+        @if ($sortDate=='slicing')  از تاریخ <span class="searchMap4Shop">{{verta($date1)->format('Y/n/j')}}</span> تا <span class="searchMap5Shop">{{verta($date2)->format('Y/n/j')}}</span>
         @else
           <span class="searchMap6Shop">{{$search_order}}</span>
         @endif
-
-
       </div>
       @if (empty($newOrder[0]->id))
         <div class="divNoR0wShop">
@@ -97,7 +89,7 @@
               <span>{{$value->num}}</span>
               <span>{{$value->vahed}}</span>
             </div>
-            <div class="newOrderDate_1">{{verta($value->date_up)->format('H:i:s Y/n/j ')}}</div>
+            <div class="newOrderDate_1">{{verta($value->date_up)->format('Y/n/j')}}</div>
             {{-- str_replace('-', '/',$value->date_up ) --}}
           </div>
         </a>

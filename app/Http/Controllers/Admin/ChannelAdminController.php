@@ -69,7 +69,6 @@ class ChannelAdminController extends Controller
     $save->ostan=$request->ostan;
     $save->city=$request->city;
     $save->address=$request->address;
-    // $save->codepost=$request->codepost;
     $save->accountNumber=$request->accountNumber;
     $save->cart=$request->cart;
     $save->master=$request->master;
