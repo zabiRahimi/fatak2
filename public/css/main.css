@@ -161,3 +161,29 @@ display:inline;
 /* @media (min-width:myPx) {
 .menu_small_1 , .menu_small_2{display: none;}
 } */
+.div_search_c{width: 100%;margin: 2px 0;padding: 0;float: right;}
+.btn_search_c{height: 32px;line-height: 20px;float: right;margin: 3px 0 0 3px;padding: 0 7px;background-color: #afcbe3;}
+.div_search_form_date_c{height:32px;line-height:30px;margin: 3px 0 0 3px;float: right;padding: 0 3px;border: 1px solid #bababa; background-color: #d0d0d0;border-radius: 4px;}
+.div_search_form_date_c2{margin: 3px 0 0 3px;float: right;padding: 0 3px;border: 1px solid #bababa; background-color: #d0d0d0;border-radius: 4px;}
+.div_search_c2{height:30px;line-height:29px; margin-right: 2px;float: right;text-align: right;}
+
+
+.input_date_c{height: 26px;text-align: center;border-radius: 3px;border: none;}
+.input_pro_date_c{width: 115px;}
+.input_code_date_c{width: 70px;}
+.input_day_date_c{width: 30px;}
+.input_month_date_c{width:30px;}
+.input_year_date_c{width:45px;}
+.btn_date_c{height: 26px;margin-top: 2px;padding: 0 4px;background-color: #afcbe3;}
+.btn_date_c i{position: relative;top: 3px;color: #09497e;}
+/* .div_search_form_date2{height:36px;line-height:36px;margin: 3px 0 0 3px;float: right;padding: 0 3px;border: 1px solid #bababa; background-color: #d0d0d0;border-radius: 4px;} */
+.select_search_date_c{margin-left: 15px;float: right;}
+@media(max-width:375px){
+  .div_search_c,.btn_search_c{font-size: 12px;}
+  .btn_search_c{padding: 0 5px;}
+  .input_pro_date_c{width: 105px;}
+  .div_search_form_date_c2{width: 195px;}
+  .div_search_c2{width: 100%;}
+  .div_search_c2 span{display: inline-block;width: 40px;text-align: center;}
+  .div_search_c2 select{width: 145px;}
+}
