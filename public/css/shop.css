@@ -239,7 +239,6 @@
 .pro_searchShop,.osatn_searchShop,.city_searchShop{width: 120px; margin: 2px ;display: inline-block;float: right;}
 .M_searchSpanShop10{width: 100%;margin: 5px 0; padding: 2px 5px;float: right;text-align: center;}
 .M_searchSpanShop10 button{width: 70%;background-color: #09660a;}
-.searchMapShop{width: 100%;margin: 5px 0 3px;padding: 1px 10px 0;border: 1px solid #548e64;border-radius: 4px;float:right; background-color:#ccf5d7;font-size: 12px; }
 .searchMap4Shop,.searchMap5Shop{margin: 0 3px;direction: ltr; display: inline-block;}
 .placeholder{color:#000;}
 .placeholder_price{color: #00440f;}
@@ -309,25 +308,30 @@
 }
 .perfectDaShOk{text-align: center;margin: 25px 0 ;padding: 20px 4px;border: 2px solid #286767;border-radius: 3px;}
 /* newOrderShop.php */
+.newOrderAll{width: 100%;float: right; overflow: scroll; overflow-y: hidden;}
 .newOrder,.newOrder_1{width: 100%;height: 30px;line-height: 29px;float: right;background-color: #e0e0e0;border: 1px solid #383838; border-radius: 3px 3px 0 0;}
 .newOrder{border-bottom-width: 2px;background-color: #4a91b9;color: #fff;}
-.newOrderRwo,.newOrderName,.newOrderVahed,.newOrderDate,.newOrderRwo_1,.newOrderName_1,.newOrderVahed_1,.newOrderDate_1{float: right;border-left: 1px solid #4d565e;text-align: center;}
+.newOrderRwo,.newOrderName,.newOrderVahed,.newOrderOstan,.newOrderCity,.newOrderDate,.newOrderRwo_1,.newOrderName_1,.newOrderVahed_1,.newOrderOstan_1,.newOrderCity_1,.newOrderDate_1{float: right;border-left: 1px solid #4d565e;text-align: center;}
 .newOrderRwo,.newOrderRwo_1{width: 40px;}
-.newOrderName,.newOrderName_1{width: calc(50% - 40px);}
-.newOrderVahed,.newOrderVahed_1{width:25%;}
-.newOrderDate,.newOrderDate_1{width:25%;border-left: none;}
+.newOrderName,.newOrderName_1{width: calc(30% - 40px);}
+.newOrderVahed,.newOrderVahed_1{width:15%;}
+.newOrderOstan,.newOrderOstan_1{width:20%;}
+.newOrderCity,.newOrderCity_1{width:20%;}
+.newOrderDate,.newOrderDate_1{width:15%;border-left: none;}
 .newOrderA{color:#000;}
 .newOrderName_1{color: #2658a2}
 .newOrder_1{border-radius: 0;border-top: none;}
 .color1{background-color: #e2dfdf;}
 .color2{background-color: #d0d0d0;}
 .newOrder_1:hover, .newOrder_1:hover .newOrderName_1{cursor: pointer;background-color: #618fd4;color: #fff;}
-@media (max-width:500px){
-  .newOrder,.newOrder_1{font-size: 12px;}
+@media (max-width:550px){
+  .newOrder,.newOrder_1{width: 550px;font-size: 12px;}
   .newOrderRwo,.newOrderRwo_1{width: 23px;}
-  .newOrderName,.newOrderName_1{width: calc(48% - 23px);}
-  .newOrderDate,.newOrderDate_1{width:27%;border-left: none;}
-  .newOrderRwo_1,.newOrderVahed_1,.newOrderDate_1{font-size: 10px;}
+  .newOrderName,.newOrderName_1{width: calc(32.5% - 23px);font-size: 14px;}
+  /* .newOrderDate,.newOrderDate_1{width:27%;border-left: none;} */
+  .newOrderDate,.newOrderDate_1{width:12.5%;border-left: none;}
+
+  .newOrderRwo_1,.newOrderVahed_1,.newOrderDate_1{font-size: 12px;}
   }
 /* newOrderShopOne.php */
 .newOrderOneBut{float: left; height: 30px;margin-top: 5px;}

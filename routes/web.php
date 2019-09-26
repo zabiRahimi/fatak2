@@ -118,6 +118,13 @@ Route::post('/SearchAllDatePayShop','ShopController@SearchAllDatePayShop');//ok!
 Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
 Route::post('/del_imgShop','ShopController@del_imgShop');//ok!!
 
+Route::post('/pro_searchC','ShopController@pro_searchC');//ok
+Route::post('/allPro_searchC','ShopController@allPro_searchC');//ok
+Route::post('/date_searchC', 'ShopController@date_searchC');//ok
+Route::post('/fromDAte_searchC','ShopController@fromDAte_searchC');//ok
+Route::post('/ostan_searchC','ShopController@ostan_searchC');//ok
+Route::post('/AllOstan_searchC','ShopController@AllOstan_searchC');//ok
+Route::post('/AllCity_searchC','ShopController@AllCity_searchC');//ok
 //ثبت سفارش محصول ناموجود
 Route::get('/sabtOrder','OrderController@sabtOrder');//ok!!
 Route::post('/sabtOrderSave','OrderController@sabtOrderSave');//ok!!

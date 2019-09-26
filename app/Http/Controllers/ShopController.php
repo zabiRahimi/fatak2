@@ -187,67 +187,167 @@ class ShopController extends Controller
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
     return view('shop.warningShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum'));
   }
+
+  // public function newOrderShop(Request $request)
+  // {
+  //   global $ostanSeSh;$ostanSeSh=$request->cookie('osatnShop');$search_ostanA =$ostanSeSh;
+  //   global $citySeSh;$citySeSh=$request->cookie('cityShop');$search_cityA =$citySeSh;
+  //   global $proShop2;$proShop2=$request->cookie('proShop');$search_proA =$proShop2;
+  //   $dateA=new Verta();//تاریخ جلالی
+  //   $today=$dateA->today();$today=$today->timestamp;
+  //   $yesterday=$dateA->yesterday();$yesterday=$yesterday->timestamp;
+  //   $dateNew=$dateA->timestamp;
+  //   $dateB=$dateA->timestamp;
+  //   $dateC = $dateA->yesterday()->timestamp;
+  //   $date30=$dateA->subDay(30);$date30=$date30->timestamp;
+  //   $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
+  //   $date=$request->date;
+  //   $date1=(integer)$request->cookie('date1');
+  //   $date2=(integer)$request->cookie('date2');
+  //   $sortDate=$request->cookie('sortdate');
+  //   if ($date=='today' or $sortDate=='today') {
+  //      $newOrder=Order::where('stage',1)->whereBetween('date_up', [$today, $dateNew])->where(function($query){
+  //     global $ostanSeSh;global $citySeSh;global $proShop2;
+  //       if(!empty($ostanSeSh) && $ostanSeSh!=='allOstan' ){$query->where('ostan', $ostanSeSh);}
+  //       if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
+  //       if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
+  //     })->orderby('date_up', 'DESC')->get();
+  //     $search_order='سفارشات امروز';
+  //   }
+  //   elseif ($date=='yesterday' or $sortDate=='yesterday') {
+  //     $newOrder=Order::where('stage',1)->whereBetween('date_up', [$yesterday, $today -1])->where(function($query){
+  //       global $ostanSeSh;global $citySeSh;global $proShop2;
+  //       if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
+  //       if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
+  //       if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
+  //     })->orderby('date_up', 'DESC')->get();
+  //     $search_order='سفارشات دیروز';
+  //   }
+  //   elseif ($date=='slicing' or $sortDate=='slicing') {
+  //     if (!empty($date1) && !empty($date2)) {
+  //       $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date1, $date2])->where(function($query){
+  //         global $ostanSeSh;global $citySeSh;global $proShop2;
+  //         if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
+  //         if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
+  //         if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
+  //       })->orderby('date_up', 'DESC')->get();
+  //     }
+  //   }
+  //   else {
+  //     $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->where(function($query){
+  //       global $ostanSeSh;global $citySeSh;global $proShop2;
+  //       if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
+  //       if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
+  //       if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
+  //     })->orderby('date_up', 'DESC')->get();
+  //     $search_order='سفارشات 30 روز اخیر';
+  //   }
+  //   if(!empty($search_ostanA)&& $search_ostanA!='allOstan'){$search_ostan='استان '.$search_ostanA;}else { $search_ostan='همه استانها' ;  }
+  //   if(!empty($search_cityA)&& $search_cityA!='allCity'){$search_city='شهر '.$search_cityA;}else { $search_city='همه شهرها' ;  }
+  //   if(!empty($search_proA)){$search_pro='محصول '.$search_proA;}else { $search_pro='همه محصولات' ;  }
+  //   $city=$search_cityA;
+  //   $stampProOrder=StampProOrder::where('shop_id',$id)->get();
+  //   return view('shop.newOrderShop',compact('stage','seller','orderNum','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','newOrder','stampProOrder','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
+  // }
+
+
   public function newOrderShop(Request $request)
   {
-    global $ostanSeSh;$ostanSeSh=$request->cookie('osatnShop');$search_ostanA =$ostanSeSh;
-    global $citySeSh;$citySeSh=$request->cookie('cityShop');$search_cityA =$citySeSh;
-    global $proShop2;$proShop2=$request->cookie('proShop');$search_proA =$proShop2;
-    $dateA=new Verta();//تاریخ جلالی
-    $today=$dateA->today();$today=$today->timestamp;
-    $yesterday=$dateA->yesterday();$yesterday=$yesterday->timestamp;
-    $dateNew=$dateA->timestamp;
-    $dateB=$dateA->timestamp;
-    $dateC = $dateA->yesterday()->timestamp;
-    $date30=$dateA->subDay(30);$date30=$date30->timestamp;
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
-    $date=$request->date;
-    $date1=(integer)$request->cookie('date1');
-    $date2=(integer)$request->cookie('date2');
-    $sortDate=$request->cookie('sortdate');
-    if ($date=='today' or $sortDate=='today') {
-       $newOrder=Order::where('stage',1)->whereBetween('date_up', [$today, $dateNew])->where(function($query){
-      global $ostanSeSh;global $citySeSh;global $proShop2;
-        if(!empty($ostanSeSh) && $ostanSeSh!=='allOstan' ){$query->where('ostan', $ostanSeSh);}
-        if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
-        if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
-      })->orderby('date_up', 'DESC')->get();
-      $search_order='سفارشات امروز';
-    }
-    elseif ($date=='yesterday' or $sortDate=='yesterday') {
-      $newOrder=Order::where('stage',1)->whereBetween('date_up', [$yesterday, $today -1])->where(function($query){
-        global $ostanSeSh;global $citySeSh;global $proShop2;
-        if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
-        if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
-        if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
-      })->orderby('date_up', 'DESC')->get();
-      $search_order='سفارشات دیروز';
-    }
-    elseif ($date=='slicing' or $sortDate=='slicing') {
-      if (!empty($date1) && !empty($date2)) {
-        $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date1, $date2])->where(function($query){
-          global $ostanSeSh;global $citySeSh;global $proShop2;
-          if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
-          if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
-          if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
-        })->orderby('date_up', 'DESC')->get();
+      $dateA=new Verta();//تاریخ جلالی
+      global $today;$today=$dateA->today();$today=$today->timestamp;
+      global $yesterday;$yesterday=$dateA->yesterday();$yesterday=$yesterday->timestamp;
+      global $month;$month=$dateA->subDay(30);$month=$month->timestamp;
+      global $dateNew;$dateNew=$dateA->timestamp;
+      global $proS;$proS=$request->cookie('proSNOS');
+      $mapPro = ($proS) ? 'سفارش' . ' ' . $proS : 'همه سفارش ها' ;
+      global $dateDay;$dateDay=$request->cookie('dateSNOS');
+      global $date1;$date1=(integer)$request->cookie('date1SNOS');
+      global $date2;$date2=(integer)$request->cookie('date2SNOS');
+      switch ($dateDay) {
+        case 'all':$mapDate='همه تاریخ ها';break;
+        case 'today':$mapDate='امروز';break;
+        case 'yesterday':$mapDate='دیروز';break;
+        case 'fromDAte':$mapDate='از تاریخ ' . Verta($date1)->format('y/m/d')  . ' تا ' . Verta($date2)->format('y/m/d') ;break;
+        default:$mapDate='30 روز اخیر';break;
       }
-    }
-    else {
-      $newOrder=Order::where('stage',1)->whereBetween('date_up', [$date30 , $dateB])->where(function($query){
-        global $ostanSeSh;global $citySeSh;global $proShop2;
-        if(!empty($ostanSeSh) && $ostanSeSh != 'allOstan' ){$query->where('ostan', $ostanSeSh);}
-        if(!empty($citySeSh) && $citySeSh != 'allCity' ){$query->where('city', $citySeSh);}
-        if(!empty($proShop2) ){$query->where( 'name' ,"like", "%$proShop2%");}
-      })->orderby('date_up', 'DESC')->get();
-      $search_order='سفارشات 30 روز اخیر';
-    }
-    if(!empty($search_ostanA)&& $search_ostanA!='allOstan'){$search_ostan='استان '.$search_ostanA;}else { $search_ostan='همه استانها' ;  }
-    if(!empty($search_cityA)&& $search_cityA!='allCity'){$search_city='شهر '.$search_cityA;}else { $search_city='همه شهرها' ;  }
-    if(!empty($search_proA)){$search_pro='محصول '.$search_proA;}else { $search_pro='همه محصولات' ;  }
-    $city=$search_cityA;
-    $stampProOrder=StampProOrder::where('shop_id',$id)->get();
-    return view('shop.newOrderShop',compact('stage','seller','orderNum','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','newOrder','stampProOrder','search_order','date1','date2','sortDate','search_ostan','search_city','search_pro','search_proA','search_ostanA','city'));
+      $odtanAndCity=$request->cookie('ostanAndCitySNOS');
+      global $ostan;$ostan=$request->cookie('ostanSNOS');
+      $mapOstan = ($ostan) ? 'استان'. ' ' . $ostan : 'همه استان ها' ;
+      global $city;$city=$request->cookie('citySNOS');
+      $mapCity= ($city) ? 'شهر' . ' ' . $city : 'همه شهرها' ;
+
+      if(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
+        $notRecord='ok';
+        $newOrder=Order::where(function($query){
+          global $proS;global $dateDay;global $dateNew;global $today;global $yesterday;global $month;global $date1;global $date2;global $ostan;global $city;
+         if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
+         if($dateDay=='today' ){$query->whereBetween('date_up', [$today, $dateNew]);}
+         if($dateDay=='yesterday' ){$query->whereBetween('date_up', [$yesterday, $today -1]);}
+         if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
+         if(empty($dateDay)){$query->whereBetween('date_up' , [$month,$today]);}
+         if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
+         if(!empty($ostan)){$query->where('ostan' ,"like", "%$ostan%");}
+         if(!empty($city)){$query->where('city' ,"like", "%$city%");}
+       })->orderby('date_up', 'DESC')->get();
+      }
+      else{
+        $newOrder=Order::whereBetween('date_up' , [$month,$today])->orderby('date_up', 'DESC')->get();
+        $notRecord='no';
+      }
+      $stampProOrder=StampProOrder::where('shop_id',$id)->get();
+    return view('shop.newOrderShop', compact('stage','seller','orderNum','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','buy','pro','newOrder','mapId','mapPro','mapDate','mapOstan','mapCity','notRecord','stampProOrder'));
   }
+  public function pro_searchC(Request $request)
+  {
+    $this->validate($request, ['nameCookie'=>'required|alpha_num','pro' => 'required',]);
+    Cookie::queue($request->nameCookie, $request->pro);
+  }
+  public function allPro_searchC(Request $request)
+  {
+    $this->validate($request, ['nameCookie'=>'required|alpha_num',]);
+    Cookie::queue($request->nameCookie, '',time() - 3600);
+  }
+  public function date_searchC(Request $request)
+  {
+    $this->validate($request, ['nameCookie'=>'required|alpha_num','day' => 'required',]);
+    Cookie::queue($request->nameCookie, $request->day);
+  }
+  // از تاریخ تا تاریخ
+  public function fromDAte_searchC(Save_searchDateShop $request)
+  {
+    Cookie::queue($request->nameCookie, 'fromDAte');
+    $day1=$request->day1;$month1=$request->month1;$year1=$request->year1;
+    $day2=$request->day2;$month2=$request->month2;$year2=$request->year2;
+    $date1=Verta::createJalali($year1,$month1,$day1,0,0,0);$date1=$date1->timestamp;
+    $date2=Verta::createJalali($year2,$month2,$day2,23,59,59);$date2=$date2->timestamp ;
+    Cookie::queue($request->nameCookieD1, $date1);
+    Cookie::queue($request->nameCookieD2, $date2);
+  }
+  public function ostan_searchC(Request $request)
+  {
+    $this->validate($request, ['nameCookieOstanAndCity'=>'required|alpha_num','nameCookieOstan'=>'required|alpha_num','nameCookieCity'=>'required|alpha_num','osatn' => 'required|farsi','city' => 'nullable|farsi',]);
+    Cookie::queue($request->nameCookieOstanAndCity, 'ok');
+    Cookie::queue($request->nameCookieOstan, $request->osatn);
+    Cookie::queue($request->nameCookieCity, $request->city);
+  }
+  public function AllOstan_searchC(Request $request)
+  {
+    $this->validate($request, ['nameCookieOstanAndCity'=>'required|alpha_num','nameCookieOstan'=>'required|alpha_num','nameCookieCity'=>'required|alpha_num',]);
+
+    Cookie::queue($request->nameCookieOstanAndCity, '',time() - 3600);
+    Cookie::queue($request->nameCookieOstan,'',time() - 3600);
+    Cookie::queue($request->nameCookieCity,'',time() - 3600);
+  }
+  public function AllCity_searchC(Request $request)
+  {
+    $this->validate($request, ['nameCookieCity'=>'required|alpha_num',]);
+    Cookie::queue($request->nameCookieCity, '',time() - 3600);
+  }
+
+
+
+
   public function searchSortDateShop(Request $request)
   {
     $sortDate=$request->sortdate;

@@ -1265,3 +1265,133 @@ Dropzone.options.proPSUSImg6 = {
     $("#Iimg6_orderPSUS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
     $("#Aimg6_orderPSUS").html( response );
   },  }
+
+
+  function pro_searchUSF(nameCookie , pro , url) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'/pro_searchC',
+      data: {
+            nameCookie:nameCookie,
+            pro:$('#'+pro).val(),
+           },
+      success:function(){
+        window.location.href  = "/" + url;
+      },
+      error : function(xhr){
+        alert('نام سفارش را وراد کنید .')
+      },
+      });
+  }
+  function allPro_searchUSF(nameCookie , url) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'/allPro_searchC',
+      data: {
+            nameCookie:nameCookie,
+           },
+      success:function(){
+        window.location.href  = "/"+url;
+      }
+      });
+  }
+  function date_searchC(nameCookie,day,url) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../../date_searchC',
+      data: {
+            nameCookie:nameCookie,
+            day:day,
+           },
+      success:function(){
+        window.location.href  = "/" + url;
+      },
+      error : function(xhr){
+      },
+      });
+  }
+  function fromDAte_searchC(nameCookie,nameCookieD1,nameCookieD2,url,id_day1,id_month1,id_year1,id_day2,id_month2,id_year2) {
+    var day1=$('#'+id_day1).val();
+    var month1=$('#'+id_month1).val();
+    var year1=$('#'+id_year1).val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
+    var day2=$('#'+id_day2).val();
+    var month2=$('#'+id_month2).val();
+    var year2=$('#'+id_year2).val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../../fromDAte_searchC',
+      data: {
+        nameCookie:nameCookie,
+        nameCookieD1:nameCookieD1,
+        nameCookieD2:nameCookieD2,
+        day1:day1,
+        month1:month1,
+        year1:year1,
+        day2:day2,
+        month2:month2,
+        year2:year2,
+           },
+      success:function(){
+        window.location.href  = "/"+ url;
+      },
+      error : function(xhr){
+        alert('بازه زمانی را صحیح وارد کنید .')
+      },
+      });
+  }
+  function ostan_searchC(nameCookieOstanAndCity,nameCookieOstan,nameCookieCity,url,osatn,city) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../../ostan_searchC',
+      data: {
+        nameCookieOstanAndCity:nameCookieOstanAndCity,
+        nameCookieOstan:nameCookieOstan,
+        nameCookieCity:nameCookieCity,
+        osatn:$('#' + osatn).val(),
+        city:$('#' + city).val(),
+           },
+      success:function(){
+        window.location.href  = "/" + url;
+      },
+      error : function(xhr){
+        alert('استان را وارد کنید .')
+      },
+      });
+  }
+  function AllOstan_searchC(nameCookieOstanAndCity,nameCookieOstan,nameCookieCity,url){
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'/AllOstan_searchC',
+      data: {
+        nameCookieOstanAndCity:nameCookieOstanAndCity,
+        nameCookieOstan:nameCookieOstan,
+        nameCookieCity:nameCookieCity,
+           },
+      success:function(){
+        window.location.href  = "/" + url;
+      },
+      error : function(xhr){
+      },
+      });
+  }
+  function AllCity_searchC(nameCookieCity , url) {
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({
+      type:'post',
+      url:'../../AllCity_searchC',
+      data: {
+        nameCookieCity:nameCookieCity,
+           },
+      success:function(){
+        window.location.href  = "/" + url;
+      },
+      error : function(xhr){
+      },
+      });
+  }

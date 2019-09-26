@@ -39,43 +39,38 @@
     {{-- </div> --}}
 
     <div class="div_search_c">
-      <button type="button" class="btn btn_search_c" onclick="allPro_searchUSF('proSCONPUSF','orderNewPUnStockF')">همه محصولات</button>
+      <button type="button" class="btn btn_search_c" onclick="allPro_searchUSF('proSNOS' , 'newOrderShop')">همه سفارشات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
-        <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchNPUF" placeholder="نام محصول">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchUSF('proSCONPUSF','pro_searchNPUF' , 'orderNewPUnStockF')"><i class="fas fa-search"></i></button>
-      </div>
-      <div class="div_search_form_date_c" action="index.html" method="post">
-        <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchNPUF" placeholder="کد سفارش">
-        <button type="button" class="btn_date_c btn"onclick="id_searchUSF('id_searchNPUF' , 'orderNewPUnStockF') "><i class="fas fa-search"></i></button>
-      </div>
+        <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchNOS" placeholder="نام سفارش">
+        <button type="button" class="btn_date_c btn" onclick="pro_searchUSF('proSNOS' , 'pro_searchNOS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
       </div>
       <div class="div_search_c">
-      <button type="button" class="btn btn_search_c"onclick="date_searchUSF('dateSCONPUSF','all', 'orderNewPUnStockF')">همه تاریخ ها</button>
-      <button type="button" class="btn btn_search_c" onclick="date_searchUSF('dateSCONPUSF','month', 'orderNewPUnStockF')">30 روز اخیر</button>
-      <button type="button" class="btn btn_search_c"onclick="date_searchUSF('dateSCONPUSF','today', 'orderNewPUnStockF')">امروز</button>
-      <button type="button" class="btn btn_search_c"onclick="date_searchUSF('dateSCONPUSF','yesterday', 'orderNewPUnStockF')">دیروز</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateSNOS','all','newOrderShop')">همه تاریخ ها</button>
+      <button type="button" class="btn btn_search_c" onclick="date_searchC('dateSNOS','month','newOrderShop')">30 روز اخیر</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateSNOS','today','newOrderShop')">امروز</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateSNOS','yesterday','newOrderShop')">دیروز</button>
         <div class="div_search_form_date_c2" action="index.html" method="post">
           <div class="div_search_c2">
             <span>از تاریخ</span>
-            <input type="text" class="input_date_c input_day_date_c placeholder" id="searchNPUFDay1" placeholder="روز">
-            <input type="text" class="input_date_c input_month_date_c placeholder" id="searchNPUFMonth1" placeholder="ماه">
-            <input type="text" class="input_date_c input_year_date_c placeholder" id="searchNPUFYear1" placeholder="سال">
+            <input type="text" class="input_date_c input_day_date_c placeholder" id="seNOSDay1" placeholder="روز">
+            <input type="text" class="input_date_c input_month_date_c placeholder" id="seNOSMonth1" placeholder="ماه">
+            <input type="text" class="input_date_c input_year_date_c placeholder" id="seNOSYear1" placeholder="سال">
           </div>
           <div class="div_search_c2">
             <span>تا</span>
-            <input type="text" class="input_date_c input_day_date_c placeholder" id="searchNPUFDay2" placeholder="روز">
-            <input type="text" class="input_date_c input_month_date_c placeholder" id="searchNPUFMont2" placeholder="ماه">
-            <input type="text" class="input_date_c input_year_date_c placeholder" id="searchNPUFYear2" placeholder="سال">
-            <button type="button" class="btn_date_c btn"onclick="fromDAte_searchUSF('dateSCONPUSF','date1SCONPUSF','date2SCONPUSF','orderNewPUnStockF','searchNPUFDay1','searchNPUFMonth1','searchNPUFYear1','searchNPUFDay2','searchNPUFMont2','searchNPUFYear2')"><i class="fas fa-search"></i></button>
+            <input type="text" class="input_date_c input_day_date_c placeholder" id="seNOSDay2" placeholder="روز">
+            <input type="text" class="input_date_c input_month_date_c placeholder" id="seNOSMont2" placeholder="ماه">
+            <input type="text" class="input_date_c input_year_date_c placeholder" id="seNOSYear2" placeholder="سال">
+            <button type="button" class="btn_date_c btn"onclick="fromDAte_searchC('dateSNOS','date1SNOS','date2SNOS','newOrderShop','seNOSDay1','seNOSMonth1','seNOSYear1','seNOSDay2','seNOSMont2','seNOSYear2')"><i class="fas fa-search"></i></button>
           </div>
         </div>
        </div>
        <div class="div_search_c">
-       <button type="button" class="btn btn_search_c" onclick="AllOstan_searchNPUF()">همه استان ها</button>
-       <button type="button" class="btn btn_search_c" onclick="AllCiyt_searchNPUF()  ">همه شهرها</button>
+       <button type="button" class="btn btn_search_c" onclick="AllOstan_searchC('ostanAndCitySNOS','ostanSNOS','citySNOS','newOrderShop')">همه استان ها</button>
+       <button type="button" class="btn btn_search_c" onclick="AllCity_searchC('citySNOS' , 'newOrderShop')">همه شهرها</button>
       <div class="div_search_form_date_c2"  method="post">
         <div class="div_search_c2">
-          <select class=" select_search_date_c"id="searchNPUFOstan">
+          <select class=" select_search_date_c"id="seNOSOstan">
             <option value="">انتخاب استان</option>
             <option value="اردبیل" onclick="show_city('ostan1');searchOstanShop('اردبیل')">اردبیل</option>
             <option value="اصفهان" onclick="show_city('ostan2');searchOstanShop('اصفهان')">اصفهان</option>
@@ -111,25 +106,33 @@
           </select>
         </div>
         <div class="div_search_c2">
-          <select class=" select_search_date_c"id="searchNPUFCity">
+          <select class=" select_search_date_c"id="seNOSCity">
             <option value="allCity">همه شهرها</option>
             @include('show_city2')
           </select>
-        <button type="button" class="btn_date_c btn" onclick="ostan_searchNPUF()"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="ostan_searchC('ostanAndCitySNOS','ostanSNOS','citySNOS','newOrderShop','seNOSOstan','seNOSCity')"><i class="fas fa-search"></i></button>
       </div>
 
       </div>
     </div>
 
     <div class="dashLBodySh">
-      <div class="searchMapShop">
+      {{-- <div class="searchMapShop">
         <span class="searchMap1Shop">{{$search_pro}}</span> , <span class="searchMap2Shop">{{$search_ostan}}</span> , <span class="searchMap3Shop">{{$search_city}}</span> ,
         @if ($sortDate=='slicing')  از تاریخ <span class="searchMap4Shop">{{verta($date1)->format('Y/n/j')}}</span> تا <span class="searchMap5Shop">{{verta($date2)->format('Y/n/j')}}</span>
         @else
           <span class="searchMap6Shop">{{$search_order}}</span>
         @endif
+      </div> --}}
+      <div class="div_map_c">
+
+        <span>{{$mapPro}} ,</span>
+        <span> {{$mapDate}} ,</span>
+        <span> {{$mapOstan}} ,</span>
+        <span> {{$mapCity}}</span>
+
       </div>
-      @if (empty($newOrder[0]->id))
+      {{-- @if (empty($newOrder[0]->id))
         <div class="divNoR0wShop">
           @if ($sortDate=='all')
             در یک ماه اخیر سفارشی ثبت نشده است .
@@ -141,11 +144,24 @@
             در بازه زمانی مورد نظر شما سفارشی ثبت نشده است .
           @endif
         </div>
+      @else --}}
+      @if (empty($newOrder[0]['id']) and $notRecord=='no')
+        <div class="div_alert alert alert-danger">
+          سفارش جدیدی موجود نیست .
+        </div>
+      @elseif (empty($newOrder[0]['id']) and $notRecord=='ok')
+        <div class="div_alert alert alert-danger">
+          طبق جستجوی شما سفارشی یافت نشد .
+        </div>
       @else
+      <div class="newOrderAll">
+
       <div class="newOrder">
         <div class="newOrderRwo"><i class="fas fa-certificate"></i></div>
         <div class="newOrderName">نام محصول</div>
         <div class="newOrderVahed">واحد</div>
+        <div class="newOrderOstan">استان</div>
+        <div class="newOrderCity">شهر</div>
         <div class="newOrderDate">تاریخ</div>
       </div>
       @php
@@ -173,11 +189,14 @@
               <span>{{$value->num}}</span>
               <span>{{$value->vahed}}</span>
             </div>
+            <div class="newOrderOstan_1">{{$value->ostan}}</div>
+            <div class="newOrderCity_1">{{$value->city}}</div>
             <div class="newOrderDate_1">{{verta($value->date_up)->format('Y/n/j')}}</div>
             {{-- str_replace('-', '/',$value->date_up ) --}}
           </div>
         </a>
       @endforeach
+    </div>
 
     @endif
     </div>
@@ -197,7 +216,7 @@
      </div>
    </div><!--end modal پایان موفقیت ثبت .-->
    <!-- Modal پیشرفته-->
-   <div class="modal fade" id="modalSearchShop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   {{-- <div class="modal fade" id="modalSearchShop" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-body ">
@@ -270,5 +289,5 @@
          </div>
        </div>
      </div>
-   </div><!--end modalپیشرفته.-->
+   </div><!--end modalپیشرفته.--> --}}
 @endsection

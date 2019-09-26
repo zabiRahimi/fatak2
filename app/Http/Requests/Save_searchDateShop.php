@@ -67,6 +67,9 @@ class Save_searchDateShop extends FormRequest
     public function rules()
     {
         return [
+          'nameCookie'=>'required|alpha_num',
+          'nameCookieD1'=>'required|alpha_num',
+          'nameCookieD2'=>'required|alpha_num',
           'day1'=>'required|numeric|min:1|max:31',
           'month1'=>'required|numeric|min:1|max:12',
           'year1'=>'required|numeric|min:1390|max:1490',
