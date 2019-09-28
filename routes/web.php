@@ -75,9 +75,9 @@ Route::post('/editPasDaShop','ShopController@editPasDaShop');//ok!!
 Route::get('/warningShop','ShopController@warningShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/newOrderShop/{date?}','ShopController@newOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/newOrderShopOne/{id}','ShopController@newOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
-Route::post('/searchShop','ShopController@searchShop');//ok!!
-Route::post('/searchSortDateShop','ShopController@searchSortDateShop');//ok!!
-Route::post('/searchAdvancedShop','ShopController@searchAdvancedShop');//ok!!
+// Route::post('/searchShop','ShopController@searchShop');//ok!!
+// Route::post('/searchSortDateShop','ShopController@searchSortDateShop');//ok!!
+// Route::post('/searchAdvancedShop','ShopController@searchAdvancedShop');//ok!!
 Route::post('/proShop','ShopController@proShop');//ok!!
 Route::get('/oldOrderShop','ShopController@oldOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/oldOrderShopOne/{id1}/{id2}','ShopController@oldOrderShopOne')->middleware(['chekloginShop' ]);//ok!!

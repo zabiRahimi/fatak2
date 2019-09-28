@@ -597,7 +597,7 @@ Dropzone.options.proEditImg6 = {
                     model:$('#'+model).val(),
                     price:$('#'+price).val(),
                     priceFOrder:$('#'+priceFOrder).val(),
-                    vahed:vahed,
+                    vahed:$('#'+vahed).val(),
                     num:$('#'+num).val(),
                     vazn:$('#'+vazn).val(),
                     dimension:$('input[type=radio][name='+dimension+']:checked').val(),
@@ -823,79 +823,77 @@ function SearchPayShop() {
 
                  }  });
           }
-function searchShop() {
-  var day1=$('#searchShopDay1').val();
-  //var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
-  var month1=$('#searchShopMonth1').val();//var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
-  var year1=$('#searchShopYear1').val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
-  var day2=$('#searchShopDay2').val();
-  var month2=$('#searchShopMont2').val();
-  var year2=$('#searchShopYear2').val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
-
-  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-  $.ajax({
-    type:'post',
-    url:'../../searchShop',
-    data: {
-      day1:day1,
-      month1:month1,
-      year1:year1,
-      day2:day2,
-      month2:month2,
-      year2:year2,
-         },
-    success:function(data){
-      window.location.href  = "/newOrderShop/slicing";
-    },
-    error: function(xhr) {
-      alert('لطفا بازه زمانی را صحیح وارد کنید .')
-       }  });
-}
-function searchSortDateShop(sortdate) {
-  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-  $.ajax({
-    type:'post',
-    url:'../../searchSortDateShop',
-    data: {
-      sortdate:sortdate,
-         },
-    success:function(data){
-
-      // $('#ajax_sabtCodePSh').empty();
-      window.location.href  = "/newOrderShop/"+sortdate;
-    },
-     });
-}
-function searchAdvancedShop() {
-  var day1=$('#day1_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
-  var month1=$('#month1_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
-  var year1=$('#year1_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
-  var day2=$('#day2_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
-  var month2=$('#month2_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
-  var year2=$('#year2_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
-  if (day1&month1&year1){var date1=year1+'-'+month1+'-'+day1;} else {var date1=0;};
-  if (day2&month2&year2){var date1=year2+'-'+month2+'-'+day2;} else {var date2=0;};
-// let uu=$('#pro_searchAdvancedShop').val();
-//   alert(uu)
-  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-  $.ajax({
-    type:'post',
-    url:'../../searchAdvancedShop',
-    data: {
-      ostan:$('#ostan_searchAdvancedShop option:selected').val(),
-      city:$('#city_searchAdvancedShop option:selected').val(),
-      pro:$('#pro_searchAdvancedShop').val(),
-      date1:date1,
-      date2:date2,
-
-         },
-    success:function(data){
-
-      // $('#ajax_sabtCodePSh').empty();
-      window.location.href  = "/newOrderShop";
-    },
-     });
-}
+// function searchShop() {
+//   var day1=$('#searchShopDay1').val();
+//   var month1=$('#searchShopMonth1').val();
+//   var year1=$('#searchShopYear1').val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
+//   var day2=$('#searchShopDay2').val();
+//   var month2=$('#searchShopMont2').val();
+//   var year2=$('#searchShopYear2').val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
+//   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+//   $.ajax({
+//     type:'post',
+//     url:'../../searchShop',
+//     data: {
+//       day1:day1,
+//       month1:month1,
+//       year1:year1,
+//       day2:day2,
+//       month2:month2,
+//       year2:year2,
+//          },
+//     success:function(data){
+//       window.location.href  = "/newOrderShop/slicing";
+//     },
+//     error: function(xhr) {
+//       alert('لطفا بازه زمانی را صحیح وارد کنید .')
+//        }  });
+// }
+// function searchSortDateShop(sortdate) {
+//   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+//   $.ajax({
+//     type:'post',
+//     url:'../../searchSortDateShop',
+//     data: {
+//       sortdate:sortdate,
+//          },
+//     success:function(data){
+//
+//       // $('#ajax_sabtCodePSh').empty();
+//       window.location.href  = "/newOrderShop/"+sortdate;
+//     },
+//      });
+// }
+// function searchAdvancedShop() {
+//   var day1=$('#day1_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(day1)){day1 = 0 + day1;}
+//   var month1=$('#month1_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(month1)){month1 = 0 + month1;}
+//   var year1=$('#year1_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year1)){if(year1>16){year1 = 13 + year1;}else{year1 = 14 + year1;}}
+//   var day2=$('#day2_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(day2)){day2 = 0 + day2;}
+//   var month2=$('#month2_searchAdvancedShop').val();var check =/^[0-9]{1}$/;if(check.test(month2)){month2 = 0 + month2;}
+//   var year2=$('#year2_searchAdvancedShop').val();var check =/^[0-9]{2}$/;if(check.test(year2)){if(year2>16){year2 = 13 + year2;}else{year2 = 14 + year2;}}
+//   if (day1&month1&year1){var date1=year1+'-'+month1+'-'+day1;} else {var date1=0;};
+//   if (day2&month2&year2){var date1=year2+'-'+month2+'-'+day2;} else {var date2=0;};
+// // let uu=$('#pro_searchAdvancedShop').val();
+// //   alert(uu)
+//   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+//   $.ajax({
+//     type:'post',
+//     url:'../../searchAdvancedShop',
+//     data: {
+//       ostan:$('#ostan_searchAdvancedShop option:selected').val(),
+//       city:$('#city_searchAdvancedShop option:selected').val(),
+//       pro:$('#pro_searchAdvancedShop').val(),
+//       date1:date1,
+//       date2:date2,
+//
+//          },
+//     success:function(data){
+//
+//       // $('#ajax_sabtCodePSh').empty();
+//       window.location.href  = "/newOrderShop";
+//     },
+//      });
+// }
 function codeOldOrderShop() {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({

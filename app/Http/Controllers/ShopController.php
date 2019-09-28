@@ -334,7 +334,6 @@ class ShopController extends Controller
   public function AllOstan_searchC(Request $request)
   {
     $this->validate($request, ['nameCookieOstanAndCity'=>'required|alpha_num','nameCookieOstan'=>'required|alpha_num','nameCookieCity'=>'required|alpha_num',]);
-
     Cookie::queue($request->nameCookieOstanAndCity, '',time() - 3600);
     Cookie::queue($request->nameCookieOstan,'',time() - 3600);
     Cookie::queue($request->nameCookieCity,'',time() - 3600);
@@ -344,42 +343,38 @@ class ShopController extends Controller
     $this->validate($request, ['nameCookieCity'=>'required|alpha_num',]);
     Cookie::queue($request->nameCookieCity, '',time() - 3600);
   }
-
-
-
-
-  public function searchSortDateShop(Request $request)
-  {
-    $sortDate=$request->sortdate;
-    Cookie::queue('sortdate', $sortDate);
-  }
-  public function searchShop(Save_searchDateShop $request)
-  {
-    $day1=$request->day1;$month1=$request->month1;$year1=$request->year1;
-    $day2=$request->day2;$month2=$request->month2;$year2=$request->year2;
-    $date1=Verta::createJalali($year1,$month1,$day1,0,0,0);$date1=$date1->timestamp;
-    $date2=Verta::createJalali($year2,$month2,$day2,23,59,59);$date2=$date2->timestamp ;
-    Cookie::queue('date1', $date1);
-    Cookie::queue('date2', $date2);
-    Cookie::queue('sortdate', 'slicing');
-  }
-  public function searchAdvancedShop(Save_searchAdvancedShop $request)
-  {
-    $ostan=$request->ostan;
-    $city=$request->city;
-    $pro=$request->pro;
-    $date1=$request->date1;
-    $date2=$request->date2;
-    Cookie::queue('osatnShop', $ostan);
-    Cookie::queue('cityShop', $city);
-    Cookie::queue('proShop', $pro);
-    if (!empty($date1)) {
-      Cookie::queue('date1', $date1);
-    }
-    if (!empty($date2)) {
-      Cookie::queue('date2', $date2);
-    }
-  }
+  // public function  (Request $request)
+  // {
+  //   $sortDate=$request->sortdate;
+  //   Cookie::queue('sortdate', $sortDate);
+  // }
+  // public function searchShop(Save_searchDateShop $request)
+  // {
+  //   $day1=$request->day1;$month1=$request->month1;$year1=$request->year1;
+  //   $day2=$request->day2;$month2=$request->month2;$year2=$request->year2;
+  //   $date1=Verta::createJalali($year1,$month1,$day1,0,0,0);$date1=$date1->timestamp;
+  //   $date2=Verta::createJalali($year2,$month2,$day2,23,59,59);$date2=$date2->timestamp ;
+  //   Cookie::queue('date1', $date1);
+  //   Cookie::queue('date2', $date2);
+  //   Cookie::queue('sortdate', 'slicing');
+  // }
+  // public function searchAdvancedShop(Save_searchAdvancedShop $request)
+  // {
+  //   $ostan=$request->ostan;
+  //   $city=$request->city;
+  //   $pro=$request->pro;
+  //   $date1=$request->date1;
+  //   $date2=$request->date2;
+  //   Cookie::queue('osatnShop', $ostan);
+  //   Cookie::queue('cityShop', $city);
+  //   Cookie::queue('proShop', $pro);
+  //   if (!empty($date1)) {
+  //     Cookie::queue('date1', $date1);
+  //   }
+  //   if (!empty($date2)) {
+  //     Cookie::queue('date2', $date2);
+  //   }
+  // }
   public function newOrderShopOne(Request $request)
   {
     $id=$request->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;

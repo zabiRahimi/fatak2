@@ -118,7 +118,7 @@
        <div class="div_form_radio1">
            <div class="div_form_radio2 stamp_orderPSUSD1">
              <label for="dimension_orderPSUS1" class="control-label pull-right "> بزرگتر از 100 cm</label>
-             <input type="radio" name="dimension_orderPSUS"@if ($proShop->dimension==1) checked @endif id="dimension_orderPSUS1" value="2">
+             <input type="radio" name="dimension_orderPSUS"@if ($proShop->dimension==2) checked @endif id="dimension_orderPSUS1" value="2">
            </div>
            <div class="div_form_radio2 stamp_orderPSUSD2">
              <label for="dimension_orderPSUS2" class="control-label pull-right ">کوچکتر از 100 cm </label>

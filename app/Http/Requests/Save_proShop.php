@@ -85,7 +85,7 @@ class Save_proShop extends FormRequest
           'disSeller'=>'nullable',//توضیح برای یک مشتری خاص این مقدار در جدول stampProOrders ذخیره می شود
           'dateMake'=>'nullable',
           'dateExpiration'=>'nullable',
-          'term'=>'nullable|imgName',
+          'term'=>'nullable',
           'img1'=>'nullable|imgName',
           'img2'=>'nullable|imgName',
           'img3'=>'nullable|imgName',
