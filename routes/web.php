@@ -73,6 +73,8 @@ Route::get('/editDaShop','ShopController@editDaShop')->middleware(['chekloginSho
 Route::post('/editDaShopSave','ShopController@editDaShopSave');//ok!!
 Route::post('/editPasDaShop','ShopController@editPasDaShop');//ok!!
 Route::get('/warningShop','ShopController@warningShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/sabtProStockShop','ShopController@sabtProStockShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/sabtProUnStockShop','ShopController@sabtProUnStockShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/newOrderShop/{date?}','ShopController@newOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/newOrderShopOne/{id}','ShopController@newOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
 // Route::post('/searchShop','ShopController@searchShop');//ok!!

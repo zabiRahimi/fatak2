@@ -24,6 +24,7 @@
         <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchNOS" placeholder="نام سفارش">
         <button type="button" class="btn_date_c btn" onclick="pro_searchUSF('proSNOS' , 'pro_searchNOS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
       </div>
+      </div>
       <div class="div_search_c">
       <button type="button" class="btn btn_search_c"onclick="date_searchC('dateSNOS','all','newOrderShop')">همه تاریخ ها</button>
       <button type="button" class="btn btn_search_c" onclick="date_searchC('dateSNOS','month','newOrderShop')">30 روز اخیر</button>

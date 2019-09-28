@@ -187,7 +187,16 @@ class ShopController extends Controller
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
     return view('shop.warningShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum'));
   }
-
+  public function sabtProStockShop(Request $request)
+  {
+    $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
+    return view('shop.sabtProStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum'));
+  }
+  public function sabtProUnStockShop(Request $request)
+  {
+    $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
+    return view('shop.sabtProUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum'));
+  }
   // public function newOrderShop(Request $request)
   // {
   //   global $ostanSeSh;$ostanSeSh=$request->cookie('osatnShop');$search_ostanA =$ostanSeSh;
