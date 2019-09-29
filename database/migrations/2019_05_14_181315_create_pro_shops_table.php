@@ -34,7 +34,9 @@ class CreateProShopsTable extends Migration
             $table->string('dateMake',12)->nullable();
             $table->string('dateExpiration',12)->nullable();
             $table->text('term')->nullable();
-            // $table->string('codeRahgiry',60)->unique()->nullable();
+            $table->smallInteger('offerOrder')->nullable();
+            $table->smallInteger('bazdid')->nullable();
+            $table->smallInteger('numBuy')->nullable();
             $table->date('date_ad');
             $table->date('date_up');
             // $table->tinyInteger('stage');

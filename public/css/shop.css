@@ -200,6 +200,34 @@
   }
 }
 .perfectDaShOk{text-align: center;margin: 25px 0 ;padding: 20px 4px;border: 2px solid #286767;border-radius: 3px;}
+/* showProUnStockShop.php */
+.showProUSSAll{width: 100%;float: right; overflow: scroll; overflow-y: hidden;}
+.showProUSS{width: 100%;height: 30px;line-height: 29px;float: right;background-color: #e0e0e0;border: 1px solid #383838; border-radius: 3px 3px 0 0;}
+.showProUSS{border-bottom-width: 2px;background-color: #4a91b9;color: #fff;}
+.showProUSSRwo,.showProUSSName,.showProUSSECode,.showProUSSPrice,.showProUSSOrder,.showProUSSDate{float: right;border-left: 1px solid #4d565e;text-align: center;}
+.showProUSSRwo{width: 40px;}
+.showProUSSName{width: calc(30% - 40px);}
+.showProUSSECode{width:15%;}
+.showProUSSPrice{width:21%;}
+.showProUSSPrice span{margin-right: 5px;color: #133e08;font-size: 12px;}
+.showProUSSOrder{width:17%;}
+.showProUSSOrder span{margin-right: 5px;color: #575656;font-size: 12px;}
+.showProUSSDate{width:17%;border-left: none;}
+.showProUSSA{color:#000;}
+.showProUSS_1{border-radius: 0;border-top: none;color:#141414;}
+.showProUSSName_1{color: #2658a2}
+
+.color1{background-color: #e2dfdf;}
+.color2{background-color: #d0d0d0;}
+.showProUSS_1:hover, .showProUSS_1:hover .showProUSSName_1{cursor: pointer;background-color: #618fd4;color: #fff;}
+@media (max-width:550px){
+  .showProUSS{width: 550px;font-size: 12px;}
+  .showProUSSRwo{width: 23px;}
+  .showProUSSName{width: calc(32.5% - 23px);font-size: 14px;}
+  .showProUSSOrder{width:14%;}
+  .showProUSSDate{width:16.5%;border-left: none;}
+  .showProUSSRwo_1,.showProUSSVahed_1,.showProUSSDate_1{font-size: 12px;}
+  }
 /* newOrderShop.php */
 .newOrderAll{width: 100%;float: right; overflow: scroll; overflow-y: hidden;}
 .newOrder,.newOrder_1{width: 100%;height: 30px;line-height: 29px;float: right;background-color: #e0e0e0;border: 1px solid #383838; border-radius: 3px 3px 0 0;}

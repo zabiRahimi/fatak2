@@ -33,23 +33,23 @@
       <div class="div_map_c">
         <span>{{$mapPro}} </span>
       </div>
-      @if (empty($proShop[0]['id']))
+      @if (empty($proShop[0]['id']) and $notRecord=='ok')
         <div class="div_alert alert alert-danger">
-          سفارش جدیدی موجود نیست .
+          تا کنون هیچ محصول غیر ثابتی ثبت نشده است .
         </div>
-      @elseif (empty($proShop[0]['id']) )
+      @elseif (empty($proShop[0]['id']) and $notRecord=='no')
         <div class="div_alert alert alert-danger">
-          طبق جستجوی شما سفارشی یافت نشد .
+          طبق جستجوی شما محصولی یافت نشد .
         </div>
       @else
-      <div class="newOrderAll">
-      <div class="newOrder">
-        <div class="newOrderRwo"><i class="fas fa-certificate"></i></div>
-        <div class="newOrderName">نام محصول</div>
-        <div class="newOrderVahed">کد محصول</div>
-        <div class="newOrderOstan">قیمت</div>
-        <div class="newOrderCity">پیشنهاد به مشتری</div>
-        <div class="newOrderDate">تاریخ ثبت</div>
+      <div class="showProUSSAll">
+      <div class="showProUSS">
+        <div class="showProUSSRwo"><i class="fas fa-certificate"></i></div>
+        <div class="showProUSSName">نام محصول</div>
+        <div class="showProUSSECode">کد محصول</div>
+        <div class="showProUSSPrice">قیمت (تومان)</div>
+        <div class="showProUSSOrder">پیشنهاد به مشتری</div>
+        <div class="showProUSSDate">تاریخ ثبت</div>
       </div>
       @php
         $r=0;
@@ -65,16 +65,16 @@
            $color="color2";
          }
         ?>
-        <a href="/newOrderShopOne/{{$value->id}}" class="newOrderA">
-          <div class="newOrder_1 {{$color}}">
-            <div class="newOrderRwo_1 ">{{$r}}</div>
-            <div class="newOrderName_1">{{$value->name}}</div>
-            <div class="newOrderVahed_1">
-              <span>{{$value->id}}</span>
+        <a href="/newOrderShopOne/{{$value->id}}" class="showProUSSA">
+          <div class="showProUSS showProUSS_1 {{$color}}">
+            <div class="showProUSSRwo  ">{{$r}}</div>
+            <div class="showProUSSName showProUSSName_1">{{$value->name}}</div>
+            <div class="showProUSSECode">
+              {{$value->id}}
             </div>
-            <div class="newOrderOstan_1">{{$value->price}}</div>
-            <div class="newOrderCity_1">0</div>
-            <div class="newOrderDate_1">{{verta($value->date_up)->format('Y/n/j')}}</div>
+            <div class="showProUSSPrice">{{$value->price}} <span>تومان</span> </div>
+            <div class="showProUSSOrder">{{$value->offerOrder}} <span>مورد</span></div>
+            <div class="showProUSSDate">{{verta($value->date_up)->format('Y/n/j')}}</div>
           </div>
         </a>
       @endforeach

@@ -201,19 +201,23 @@ class ShopController extends Controller
   {
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
     $pro_id=$request->pro_id;
+    $proS=$request->cookie('proSPUSS');
+    $mapPro = ($proS) ? 'محصول ' . ' ' . $proS : 'همه محصولات' ;
+
     if (!empty($pro_id)) {
       $proShop=ProShop::where('id', $pro_id)->where('shop_id', $id)->where('show', 1)->get();
       $mapPro = 'محصول با کد' . $pro_id;
+      $notRecord='no';
+    }elseif(!empty($proS)){
+        $notRecord='no';
+        $proShop=ProShop::where('shop_id', $id)->where( 'name' ,"like", "%$proS%")->where('show', 1)->get();
+      }
+      else{
+        $proShop=ProShop::where('shop_id', $id)->where('show', 1)->get();
+        $notRecord='ok';
+      }
 
-    }elseif(!empty($pro_name)){
-      $proShop=ProShop::where('shop_id', $id)->where('show', 1)->get();
-      $mapPro = 'pro';
-    }
-    else{
-      $proShop=ProShop::where('shop_id', $id)->where('show', 1)->get();
-      $mapPro = 'همه محصولات';
-    }
-    return view('shop.showProUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','proShop','mapPro'));
+    return view('shop.showProUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','proShop','mapPro','notRecord'));
   }
   // public function newOrderShop(Request $request)
   // {
@@ -430,6 +434,8 @@ class ShopController extends Controller
     $pro->dateMake = $request->dateMake ;
     $pro->dateExpiration = $request->dateExpiration ;
     $pro->term = $request->term ;
+    if(!empty($order_id)){$pro->offerOrder = 1
+       ;}
     $pro->date_ad = $date ;
     $pro->date_up = $date ;
     $pro->show = 1 ;
@@ -613,6 +619,7 @@ class ShopController extends Controller
     $pro->dateMake = $request->dateMake ;
     $pro->dateExpiration = $request->dateExpiration ;
     $pro->term = $request->term ;
+    $pro->offerOrder= ($pro->offerOrder) + 1;
     $pro->date_up = $date ;
     $pro-> save();
     //  // اضافه کردن عکسهای محصول
