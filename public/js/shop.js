@@ -413,6 +413,86 @@ function editPasDaShop(id){
 
       $("#Aimg6_orderSabtSh").html( response );
     },  }
+    // sabtProUnStockShop.php
+    Dropzone.options.proPUSSImg1 = {
+       parallelUploads: 2,
+       acceptedFiles:".png , .jpg , .jpeg",
+       maxFilesize: 3,
+      error:function(){
+        $("#imgPUSSPro1").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+      },
+      success:function(file , response){
+        //آرگومان اول یک شی است
+        //آرکومان دوم مقدار بازگشتی از کنترلر است
+        $("#imgPUSSPro1").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+        $("#Iimg1_proPUSS").html('<i class="fas fa-check Icheck"></i>');
+        $("#Aimg1_proPUSS").html( response );
+      },}
+    Dropzone.options.proPUSSImg2 = {
+       parallelUploads: 2,
+       acceptedFiles:".png , .jpg , .jpeg",
+       maxFilesize: 3,
+      error:function(){
+        $("#imgPUSSPro2").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+      },
+      success:function(file , response){
+        $("#imgPUSSPro2").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+        $("#Iimg2_proPUSS").html('<i class="fas fa-check Icheck"></i>');
+
+        $("#Aimg2_proPUSS").html( response );
+      },  }
+    Dropzone.options.proPUSSImg3 = {
+       parallelUploads: 2,
+       acceptedFiles:".png , .jpg , .jpeg",
+       maxFilesize: 3,
+      error:function(){
+        $("#imgPUSSPro3").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+      },
+      success:function(file , response){
+        $("#imgPUSSPro3").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+        $("#Iimg3_proPUSS").html('<i class="fas fa-check Icheck"></i>');
+
+        $("#Aimg3_proPUSS").html( response );
+      },  }
+    Dropzone.options.proPUSSImg4 = {
+       parallelUploads: 2,
+       acceptedFiles:".png , .jpg , .jpeg",
+       maxFilesize: 3,
+      error:function(){
+        $("#imgPUSSPro4").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+      },
+      success:function(file , response){
+        $("#imgPUSSPro4").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+        $("#Iimg4_proPUSS").html('<i class="fas fa-check Icheck"></i>');
+
+        $("#Aimg4_proPUSS").html( response );
+    },}
+    Dropzone.options.proPUSSImg5 = {
+       parallelUploads: 2,
+       acceptedFiles:".png , .jpg , .jpeg",
+       maxFilesize: 3,
+      error:function(){
+        $("#imgPUSSPro5").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+      },
+      success:function(file , response){
+        $("#imgPUSSPro5").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+        $("#Iimg5_proPUSS").html('<i class="fas fa-check Icheck"></i>');
+
+        $("#Aimg5_proPUSS").html( response );
+      },  }
+    Dropzone.options.proPUSSImg6 = {
+       parallelUploads: 2,
+       acceptedFiles:".png , .jpg , .jpeg",
+       maxFilesize: 3,
+      error:function(){
+        $("#imgPUSSPro6").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+      },
+      success:function(file , response){
+        $("#imgPUSSPro6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+        $("#Iimg6_proPUSS").html('<i class="fas fa-check Icheck"></i>');
+
+        $("#Aimg6_proPUSS").html( response );
+      },  }
   function del_img(ajax , div , i,id_img,pic_b,pic_s) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
@@ -431,6 +511,7 @@ function editPasDaShop(id){
       },  });
   }
   function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url) {
+        if (priceFOrder != 'not') {var priceFOrder2 = $('#'+priceFOrder).val()}else{var priceFOrder2=null;}
         $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
         $.ajax({
           type:'post',
@@ -443,7 +524,7 @@ function editPasDaShop(id){
                 brand:$('#'+brand).val(),
                 model:$('#'+model).val(),
                 price:$('#'+price).val(),
-                priceFOrder:$('#'+priceFOrder).val(),
+                priceFOrder:priceFOrder2,
                 vahed:$('#'+vahed).val(),
                 num:$('#'+num).val(),
                 vazn:$('#'+vazn).val(),
@@ -1264,8 +1345,18 @@ Dropzone.options.proPSUSImg6 = {
     $("#Aimg6_orderPSUS").html( response );
   },  }
 
-
-  function pro_searchUSF(nameCookie , pro , url) {
+  function id_searchC(input , url , stamp) {
+    var id=$('#'+input).val();
+    if(id){
+        if(stamp){window.location='/'+ url + '/' + id + '/' + stamp ;}
+        else{window.location='/'+ url + '/' + id ;}
+    } else{
+        if(stamp==1){alert('لطفا کد محصول را وارد کنید .')}
+        else if(stamp==2){ alert('لطفا کد سفارش را وارد کنید .') }
+        else{ alert('لطفا کد سفارش را وارد کنید .') }
+      }
+  }
+  function pro_searchC(nameCookie , pro , url) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
@@ -1282,7 +1373,7 @@ Dropzone.options.proPSUSImg6 = {
       },
       });
   }
-  function allPro_searchUSF(nameCookie , url) {
+  function allpro_searchC(nameCookie , url) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',

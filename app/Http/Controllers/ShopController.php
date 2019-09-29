@@ -197,6 +197,24 @@ class ShopController extends Controller
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
     return view('shop.sabtProUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum'));
   }
+  public function showProUnStockShop(Request $request)
+  {
+    $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;
+    $pro_id=$request->pro_id;
+    if (!empty($pro_id)) {
+      $proShop=ProShop::where('id', $pro_id)->where('shop_id', $id)->where('show', 1)->get();
+      $mapPro = 'محصول با کد' . $pro_id;
+
+    }elseif(!empty($pro_name)){
+      $proShop=ProShop::where('shop_id', $id)->where('show', 1)->get();
+      $mapPro = 'pro';
+    }
+    else{
+      $proShop=ProShop::where('shop_id', $id)->where('show', 1)->get();
+      $mapPro = 'همه محصولات';
+    }
+    return view('shop.showProUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum','backOrderNum','proShop','mapPro'));
+  }
   // public function newOrderShop(Request $request)
   // {
   //   global $ostanSeSh;$ostanSeSh=$request->cookie('osatnShop');$search_ostanA =$ostanSeSh;

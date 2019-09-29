@@ -19,10 +19,10 @@
       سفارشات جدید
     </div>
     <div class="div_search_c">
-      <button type="button" class="btn btn_search_c" onclick="allPro_searchUSF('proSNOS' , 'newOrderShop')">همه سفارشات</button>
+      <button type="button" class="btn btn_search_c" onclick="allpro_searchC('proSNOS' , 'newOrderShop')">همه سفارشات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchNOS" placeholder="نام سفارش">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchUSF('proSNOS' , 'pro_searchNOS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proSNOS' , 'pro_searchNOS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
       </div>
       </div>
       <div class="div_search_c">
@@ -153,19 +153,5 @@
     @endif
     </div>
   @endif
-   <!-- Modal موفق بودن ثبت ابتدایی کانال-->
-   <div class="modal fade" id="end_perfectDaSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-body modal_ok">
-           <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
-           <div class="modal_ok2">تکمیل اطلاعات انجام شد . شما هم اکنون می توانید سفارشهای مشتریان را مشاهده کنید  .</div>
-         </div>
-         <div class=" modal_ok3">
-           <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
-         </div>
-       </div>
-     </div>
-   </div><!--end modal پایان موفقیت ثبت .-->
 
 @endsection
