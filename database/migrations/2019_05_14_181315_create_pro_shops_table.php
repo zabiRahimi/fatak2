@@ -37,8 +37,8 @@ class CreateProShopsTable extends Migration
             $table->smallInteger('offerOrder')->nullable();
             $table->smallInteger('bazdid')->nullable();
             $table->smallInteger('numBuy')->nullable();
-            $table->date('date_ad');
-            $table->date('date_up');
+            $table->integer('date_ad');
+            $table->integer('date_up');
             // $table->tinyInteger('stage');
             $table->boolean('show');
         });

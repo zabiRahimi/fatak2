@@ -73,7 +73,7 @@
               {{$value->id}}
             </div>
             <div class="showProUSSPrice">{{$value->price}} <span>تومان</span> </div>
-            <div class="showProUSSOrder">{{$value->offerOrder}} <span>مورد</span></div>
+            <div class="showProUSSOrder">@if ($value->offerOrder) {{$value->offerOrder}} <span>مورد</span>@else 0 @endif</div>
             <div class="showProUSSDate">{{verta($value->date_up)->format('Y/n/j')}}</div>
           </div>
         </a>

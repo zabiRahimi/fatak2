@@ -298,6 +298,39 @@
   .divOrderSP3 span{font-size: 12px;}
   .divOrderSP4{width:31%;}
   }
+  /* oldOrderShop.php */
+  .orderOSUSAll{width: 100%;float: right; overflow: scroll; overflow-y: hidden;}
+  .orderOSUS{width: 100%;height: 30px;line-height: 29px;float: right;background-color: #e0e0e0;border: 1px solid #383838; border-radius: 3px 3px 0 0;}
+  .orderOSUS{border-bottom-width: 2px;background-color: #4a91b9;color: #fff;}
+  .orderOSUS_1{border-radius: 0;border-top: none; color: #171717;}
+  .orderOSUSRwo,.orderOSUSName,.orderOSUSCode1,.orderOSUSOrder,.orderOSUSCode2,.orderOSUSPrice,.orderOSUSCity,.orderOSUSDate{float: right;border-left: 1px solid #4d565e;text-align: center;}
+  .orderOSUSRwo{width: 35px;}
+  .orderOSUSName{width: calc(26% - 52px);}
+  .orderOSUSName_1{color: #045380;}
+  .orderOSUSCode1{width:35px;}
+  .orderOSUSOrder{width:calc(25% - 53px);}
+  /* .orderOSUSCode2 span{margin-right: 5px;color: #133e08;font-size: 12px;} */
+  .orderOSUSCode2{width:35px;}
+  /* .showProUSSOrder span{margin-right: 5px;color: #575656;font-size: 12px;} */
+  .orderOSUSPrice{width:15%;}
+  .orderOSUSCity{width:21%;}
+  .orderOSUSDate{width:13%;border-left: none;}
+  .color1{background-color: #e2dfdf;}
+  .color2{background-color: #d0d0d0;}
+  .orderOSUS_1:hover, .orderOSUS_1:hover .orderOSUSName_1 {cursor: pointer;background-color: #618fd4;color: #fff;}
+  @media (max-width:675px){
+    .orderOSUS{width: 600px;font-size: 12px;}
+    .orderOSUSRwo{width: 25px;}
+    .orderOSUSName{width: calc(26% - 25px);font-size: 14px;}
+    .orderOSUSCode1{width:25px;}
+    .orderOSUSOrder{width:calc(28% - 50px);}
+    /* .orderOSUSCode2 span{margin-right: 5px;color: #133e08;font-size: 12px;} */
+    .orderOSUSCode2{width:25px;}
+    .orderOSUSPrice{width:13%;}
+    .orderOSUSCity{width:19%;}
+    .orderOSUSDate{width:13%;border-left: none;}
+    .showProUSSRwo_1,.showProUSSVahed_1,.showProUSSDate_1{font-size: 12px;}
+    }
   /* ********** */
   .modal_h_img_add_pro{ line-height: 0; }
   .modal_h_img_add_pro span{ font-size: 34px;color: #a10000;}
