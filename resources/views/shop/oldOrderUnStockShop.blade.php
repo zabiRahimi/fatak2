@@ -19,12 +19,28 @@
       سفارشات ثبت شده
     </div>
     <div class="div_search_c">
+      <button type="button" class="btn btn_search_c" onclick="allpro_searchC('proSNOS' , 'newOrderShop')">همه محصولات</button>
+      <div class="div_search_form_date_c" action="index.html" method="post">
+        <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchOOUSS" placeholder="نام محصول">
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proSNOS' , 'pro_searchOOUSS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="div_search_form_date_c" action="index.html" method="post">
+        <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchOOUSS2" placeholder="کد محصول">
+        <button type="button" class="btn_date_c btn"onclick="id_searchC('id_searchOOUSS2' , 'oldOrderUnStockShop',1) "><i class="fas fa-search"></i></button>
+      </div>
+      </div>
+    <div class="div_search_c">
       <button type="button" class="btn btn_search_c" onclick="allpro_searchC('proSNOS' , 'newOrderShop')">همه سفارشات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
-        <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchNOS" placeholder="نام سفارش">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proSNOS' , 'pro_searchNOS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
+        <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchOOUSS" placeholder="نام سفارش">
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proSNOS' , 'pro_searchOOUSS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="div_search_form_date_c" action="index.html" method="post">
+        <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchOOUSS" placeholder="کد سفارش">
+        <button type="button" class="btn_date_c btn"onclick="id_searchC('id_searchOOUSS' , 'oldOrderUnStockShop',2) "><i class="fas fa-search"></i></button>
       </div>
       </div>
+
       <div class="div_search_c">
       <button type="button" class="btn btn_search_c"onclick="date_searchC('dateSNOS','all','newOrderShop')">همه تاریخ ها</button>
       <button type="button" class="btn btn_search_c" onclick="date_searchC('dateSNOS','month','newOrderShop')">30 روز اخیر</button>
@@ -96,8 +112,13 @@
       </div>
     </div>
     <div class="dashLBodySh">
-      <div class="searchMapShop">
-        {{-- {{$search}} --}}
+      <div class="div_map_c">
+        <span>{{$mapPro}} ، </span>{{-- $mapPro --}}
+
+        <span>{{$mapOrder}} ،</span>{{-- $mapOrder  --}}
+        <span> {{'30 روز اخیر'}} ،</span>{{-- $mapDate --}}
+        <span> {{'همه استان ها'}} ،</span>{{-- $mapOstan --}}
+        <span> {{'همه شهرها'}}</span>{{-- $mapCity --}}
       </div>
       @if (empty($proShop[0]->id))
         <div class="divNoR0wShop">
@@ -137,7 +158,7 @@
            $color="color2";
          }
         ?>
-        <a href="/oldOrderShopOne" >
+        <a href="/oldOrderOneUnStockShop" >
           <div class="orderOSUS orderOSUS_1 {{$color}}">
             <div class="orderOSUSRwo">{{$r}}</div>
             <div class="orderOSUSName orderOSUSName_1">{{$proShop->name}}</div>

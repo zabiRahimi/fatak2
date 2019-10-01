@@ -36,7 +36,7 @@
     <a href="/editDaShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide "><span class=""><i class='fas fa-edit'></i> ویرایش اطلاعات</span> </li></a>
     <a href="/warningShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><span class="liMM"><li class="modal_hide "><span class=""><i class="far fa-bell"></i> هشدارها و اخبار</span> </li></span> <span class="badgeShopMob badegW">0</span></a>
     <a href="/newOrderShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><span class="liMM"><li class="modal_hide "><span class=""><i class="fas fa-bolt"></i> سفارشات جدید</span> </li></span><span class="badgeShopMob">{{$orderNum}}</span></a>
-    <a href="/oldOrderShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><span class="liMM"><li class="modal_hide "><span class=""><i class="fas fa-file-invoice"></i> سفارشات ثبت شده</span></li></span> <span class="badgeShopMob">{{$oldOrderNum}}</span></a>
+    <a href="/oldOrderUnStockShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><span class="liMM"><li class="modal_hide "><span class=""><i class="fas fa-file-invoice"></i> سفارشات ثبت شده</span></li></span> <span class="badgeShopMob">{{$oldOrderNum}}</span></a>
     <a href="/buyProShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><span class="liMM"><li class="modal_hide "><span class=""><i class="fas fa-check-circle"></i> محصولات خریداری شده</span> </li></span><span class="badgeShopMob badegM">{{$buyOrderNum}}</span></a>
     <a href="/sabtErsalShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide "><span class=""><i class="far fa-calendar-plus"></i> ثبت ارسال شده ها</span> </li></a>
     <a href="/editErsalShop"class="apjax" onclick="hide_menu_small('dashSh_scroll');"><li class="modal_hide "><span class=""><i class="far fa-edit"></i> ویرایش ارسال شده ها</span> </li></a>
@@ -58,7 +58,7 @@
       <a href="/sabtProUnStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-calendar-plus"></i>ثبت محصول غیر ثابت</span> </li></a>
       <a href="/showProUnStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-circle"></i>محصولات غیر ثابت </span> <span class="badgeShop">{{$proShopNum}}</span></li></a>
       <a href="/newOrderShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-bolt"></i> سفارشات جدید</span> <span class="badgeShop">{{$orderNum}}</span></li></a>
-      <a href="/oldOrderShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-file-invoice"></i> سفارشات ثبت شده </span> <span class="badgeShop">{{$oldOrderNum}}</span></li></a>
+      <a href="/oldOrderUnStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-file-invoice"></i> سفارشات ثبت شده </span> <span class="badgeShop">{{$oldOrderNum}}</span></li></a>
       <a href="/buyProShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-check-circle"></i> محصولات خریداری شده</span> <span class="badgeShop badegM">{{$buyOrderNum}}</span></li></a>
       <a href="/sabtErsalShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-calendar-plus"></i> ثبت ارسال شده ها</span> </li></a>
       <a href="/editErsalShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-edit"></i> ویرایش ارسال شده ها</span> </li></a>

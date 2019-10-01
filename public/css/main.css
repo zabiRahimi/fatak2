@@ -178,7 +178,7 @@ display:inline;
 .btn_date_c i{position: relative;top: 3px;color: #09497e;}
 /* .div_search_form_date2{height:36px;line-height:36px;margin: 3px 0 0 3px;float: right;padding: 0 3px;border: 1px solid #bababa; background-color: #d0d0d0;border-radius: 4px;} */
 .select_search_date_c{margin-left: 15px;float: right;}
-.div_map_c{width: 100%;margin: 0 0 5px;padding: 3px 6px;  text-align: right;float: right;background-color: #d0e8bb; color:#112103; border-radius: 4px;font-size: 14px;}
+.div_map_c{width: 100%;margin: 0 0 5px;padding: 3px 6px;  text-align: right;float: right;background-color: #d0e8bb; color:#112103; border-radius: 4px;font-size: 14px;border: 1px solid #112103; }
 
 @media(max-width:375px){
   .div_search_c,.btn_search_c,.div_map_c{font-size: 12px;}

@@ -82,7 +82,7 @@ Route::get('/newOrderShopOne/{id}','ShopController@newOrderShopOne')->middleware
 // Route::post('/searchSortDateShop','ShopController@searchSortDateShop');//ok!!
 // Route::post('/searchAdvancedShop','ShopController@searchAdvancedShop');//ok!!
 Route::post('/proShop','ShopController@proShop');//ok!!
-Route::get('/oldOrderShop','ShopController@oldOrderShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/oldOrderUnStockShop/{pro_id?}/{stamp?}','ShopController@oldOrderUnStockShop')->middleware(['chekloginShop' ])->where('pro_id', '[0-9]+')->where('stamp', '[0-9]+');//ok!!
 Route::get('/oldOrderShopOne/{id1}/{id2}','ShopController@oldOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/codeOldOrderShop','ShopController@codeOldOrderShop');//ok!!
 Route::post('/nameOldOrderShop','ShopController@nameOldOrderShop');//ok!!

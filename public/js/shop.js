@@ -1356,14 +1356,17 @@ Dropzone.options.proPSUSImg6 = {
         else{ alert('لطفا کد سفارش را وارد کنید .') }
       }
   }
-  function pro_searchC(nameCookie , pro , url) {
+  function pro_searchC(nameCookieCheck,nameCookie , pro , id , url , stamp) {
+    if (id != 'not') {var id = $('#'+id).val()}else{var id2=null;}
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
       url:'/pro_searchC',
       data: {
+            nameCookieCheck:nameCookieCheck,
             nameCookie:nameCookie,
             pro:$('#'+pro).val(),
+            id:id2,
            },
       success:function(){
         window.location.href  = "/" + url;
