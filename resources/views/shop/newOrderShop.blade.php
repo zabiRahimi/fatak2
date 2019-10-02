@@ -19,10 +19,10 @@
       سفارشات جدید
     </div>
     <div class="div_search_c">
-      <button type="button" class="btn btn_search_c" onclick="allpro_searchC('proCheckSNOS','proSNOS' , '' , '' , 'newOrderShop')">همه سفارشات</button>
+      <button type="button" class="btn btn_search_c" onclick="pro_searchC('proCheckSNOS', 'proSNOS', 'all' , '' , '' , 'newOrderShop' , '' )">همه سفارشات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchNOS" placeholder="نام سفارش">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proCheckSNOS', 'proSNOS' , 'pro_searchNOS' , '' , 'newOrderShop' , 1)"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proCheckSNOS', 'proSNOS', 'pro' , 'pro_searchNOS' , '' , 'newOrderShop' , 3)"><i class="fas fa-search"></i></button>
       </div>
       </div>
       <div class="div_search_c">

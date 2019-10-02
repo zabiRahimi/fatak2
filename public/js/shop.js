@@ -1356,8 +1356,9 @@ Dropzone.options.proPSUSImg6 = {
         else{ alert('لطفا کد سفارش را وارد کنید .') }
       }
   }
-  function pro_searchC(nameCookieCheck,nameCookie , pro , id , url , stamp) {
-    if (id != 'not') {var id = $('#'+id).val()}else{var id2=null;}
+  function pro_searchC(nameCookieCheck,nameCookie ,check, pro , id , url , stamp) {
+    if (id) {var id = $('#'+id).val()}else{var id=null;}
+    if (pro) {var pro = $('#'+pro).val()}else{var pro=null;}
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
@@ -1365,30 +1366,42 @@ Dropzone.options.proPSUSImg6 = {
       data: {
             nameCookieCheck:nameCookieCheck,
             nameCookie:nameCookie,
-            pro:$('#'+pro).val(),
-            id:id2,
+            check:check,
+            pro:pro,
+            id:id,
            },
       success:function(){
         window.location.href  = "/" + url;
       },
       error : function(xhr){
-        alert('نام سفارش را وراد کنید .')
+        if (stamp==1) {
+          alert('نام محصول را وارد کنید .')
+        }
+        else if(stamp==2) {
+          alert('کد محصول را وارد کنید .')
+        }
+        else if(stamp==3) {
+          alert('نام سفارش را وراد کنید .')
+        }
+        else if(stamp==4) {
+          alert('کد سفارش را وارد کنید .')
+        }
       },
       });
   }
-  function allpro_searchC(nameCookie , url) {
-    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-    $.ajax({
-      type:'post',
-      url:'/allPro_searchC',
-      data: {
-            nameCookie:nameCookie,
-           },
-      success:function(){
-        window.location.href  = "/"+url;
-      }
-      });
-  }
+  // function allpro_searchC(nameCookie , url) {
+  //   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  //   $.ajax({
+  //     type:'post',
+  //     url:'/allPro_searchC',
+  //     data: {
+  //           nameCookie:nameCookie,
+  //          },
+  //     success:function(){
+  //       window.location.href  = "/"+url;
+  //     }
+  //     });
+  // }
   function date_searchC(nameCookie,day,url) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({

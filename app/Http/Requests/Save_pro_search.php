@@ -35,16 +35,11 @@ class Save_pro_search extends FormRequest
     public function rules()
     {
         return [
-            'nameCookieCheck'=>'required|alpha_num',
-            'nameCookie'=>'required|alpha_num',
+            'nameCookieCheck'=>'required|alpha_dash',
+            'nameCookie'=>'required|alpha_dash',
             'check' => 'required|alpha',
-            'pro' => 'required_if:check,pro',
-            'id' =>'required_if:check,id|numeric',/**
-             * The attributes that aren't mass assignable.
-             *
-             * @var array
-             */
-            protected $guarded = ['properties'];
+            'pro' => 'required_if:check,pro|nullable|alpha_dash',
+            'id' =>'required_if:check,id|nullable|numeric',
         ];
     }
 }

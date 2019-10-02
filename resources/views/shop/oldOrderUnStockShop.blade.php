@@ -19,25 +19,25 @@
       سفارشات ثبت شده
     </div>
     <div class="div_search_c">
-      <button type="button" class="btn btn_search_c" onclick="allpro_searchC('proSNOS' , 'newOrderShop')">همه محصولات</button>
+      <button type="button" class="btn btn_search_c" onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'all' , '' , '' , 'oldOrderUnStockShop' , '' )">همه محصولات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchOOUSS" placeholder="نام محصول">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proSNOS' , 'pro_searchOOUSS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'pro' , 'pro_searchOOUSS' , '' , 'oldOrderUnStockShop' , 1 )"><i class="fas fa-search"></i></button>
       </div>
       <div class="div_search_form_date_c" action="index.html" method="post">
-        <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchOOUSS2" placeholder="کد محصول">
-        <button type="button" class="btn_date_c btn"onclick="id_searchC('id_searchOOUSS2' , 'oldOrderUnStockShop',1) "><i class="fas fa-search"></i></button>
+        <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchOOUSS" placeholder="کد محصول">
+        <button type="button" class="btn_date_c btn"onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'id' , '' , 'id_searchOOUSS' , 'oldOrderUnStockShop' , 2 ) "><i class="fas fa-search"></i></button>
       </div>
       </div>
     <div class="div_search_c">
       <button type="button" class="btn btn_search_c" onclick="allpro_searchC('proSNOS' , 'newOrderShop')">همه سفارشات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
-        <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchOOUSS" placeholder="نام سفارش">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proSNOS' , 'pro_searchOOUSS' , 'newOrderShop')"><i class="fas fa-search"></i></button>
+        <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchOOUSS2" placeholder="نام سفارش">
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'pro' , 'pro_searchOOUSS2' , '' , 'oldOrderUnStockShop' , 3 )"><i class="fas fa-search"></i></button>
       </div>
       <div class="div_search_form_date_c" action="index.html" method="post">
-        <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchOOUSS" placeholder="کد سفارش">
-        <button type="button" class="btn_date_c btn"onclick="id_searchC('id_searchOOUSS' , 'oldOrderUnStockShop',2) "><i class="fas fa-search"></i></button>
+        <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchOOUSS2" placeholder="کد سفارش">
+        <button type="button" class="btn_date_c btn"onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'id' , '' , 'id_searchOOUSS2' , 'oldOrderUnStockShop' , 4 )"><i class="fas fa-search"></i></button>
       </div>
       </div>
 
@@ -151,6 +151,7 @@
             $order=$order->where('id', $value->order_id)->first();
             if($order->stage!=1){continue;}
             $proShop=$proShop->where('id', $value->proShop_id)->first();
+            if(strpos( $proShop->name , 'م') === false){continue;}
          $r++;
          if ($r%2==0) {
            $color='color1';

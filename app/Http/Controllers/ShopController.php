@@ -281,11 +281,11 @@ class ShopController extends Controller
     else{Cookie::queue($request->nameCookie, $request->id);}
   }
 
-  public function allPro_searchC(Request $request)
-  {
-    $this->validate($request, ['nameCookie'=>'required|alpha_num',]);
-    Cookie::queue($request->nameCookie, '',time() - 3600);
-  }
+  // public function allPro_searchC(Request $request)
+  // {
+  //   $this->validate($request, ['nameCookie'=>'required|alpha_num',]);
+  //   Cookie::queue($request->nameCookie, '',time() - 3600);
+  // }
   public function date_searchC(Request $request)
   {
     $this->validate($request, ['nameCookie'=>'required|alpha_num','day' => 'required',]);
@@ -472,8 +472,12 @@ class ShopController extends Controller
     global $yesterday;$yesterday=$dateA->yesterday();$yesterday=$yesterday->timestamp;
     global $month;$month=$dateA->subDay(30);$month=$month->timestamp;
     global $dateNew;$dateNew=$dateA->timestamp;
-    global $proS;$proS=$request->cookie('proSNOS');
-    $mapPro = ($proS) ? 'سفارش' . ' ' . $proS : 'همه سفارش ها' ;
+    global $checkPro;$checkPro=$request->cookie('proCheckOOUSS');
+    global $proS;$proS=$request->cookie('proOOUSS');
+    $mapPro = ($proS) ? 'محصول' . ' ' . $proS : 'همه محصولات' ;
+    global $checkOrder;$checkOrder=$request->cookie('orderCheckOOUSS');
+    global $orderS;$orderS=$request->cookie('orderOOUSS');
+    $mapOrder = ($orderS) ? 'سفارش' . ' ' . $orderS : 'همه سفارش ها' ;
     global $dateDay;$dateDay=$request->cookie('dateSNOS');
     global $date1;$date1=(integer)$request->cookie('date1SNOS');
     global $date2;$date2=(integer)$request->cookie('date2SNOS');
@@ -491,26 +495,38 @@ class ShopController extends Controller
     $mapCity= ($city) ? 'شهر' . ' ' . $city : 'همه شهرها' ;
 
 
-  if(!empty($proS) or !empty($dateDay) or !empty($odtanAndCity)){
+  if(!empty($checkPro) or !empty($checkOrder) or !empty($dateDay) or !empty($odtanAndCity)){
       $notRecord='ok';
-      $newOrder=Order::where(function($query){
-        global $proS;global $dateDay;global $dateNew;global $today;global $yesterday;global $month;global $date1;global $date2;global $ostan;global $city;
-       if(!empty($proS) ){$query->where( 'name' ,"like", "%$proS%");}
+      // $stampProOrder=StampProOrder::where('shop_id', $id)->get();
+
+      $stampProOrder=StampProOrder::where(function($query){
+        global $checkPro;global $proS;global $dateDay;global $dateNew;global $today;global $yesterday;global $month;global $date1;global $date2;global $ostan;global $city;
+        // if($checkPro=='pro' ){$query->where( 'name' ,"like", "%$proS%");}
+       if($checkPro=='id' ){$query->where( 'proShop_id' , $proS);}
        if($dateDay=='today' ){$query->whereBetween('date_up', [$today, $dateNew]);}
        if($dateDay=='yesterday' ){$query->whereBetween('date_up', [$yesterday, $today -1]);}
-       if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
+       // if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
        if(empty($dateDay)){$query->whereBetween('date_up' , [$month,$today]);}
        if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
        if(!empty($ostan)){$query->where('ostan' ,"like", "%$ostan%");}
        if(!empty($city)){$query->where('city' ,"like", "%$city%");}
-     })->orderby('date_up', 'DESC')->get();
+     })->where('shop_id', 1)->get();
+     if ($checkPro=='pro') {
+       $proShop=proShop::where('shop_id',1)->get();
+
+     } else {
+       $proShop=proShop::where('shop_id',1)->get();
+
+     }
+
     }
     else{
       $stampProOrder=StampProOrder::where('shop_id', $id)->get();
       $mapPro='همه محصولات';
       $mapOrder='همه سفارشات';
+      $proShop=proShop::where('shop_id',$id)->get();
     }
-    $proShop=proShop::where('shop_id',$id)->get();
+    // $proShop=proShop::where('shop_id',$id)->get();
     $order=Order::get();
     return view('shop.oldOrderUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop','search','noRecord','stampProOrder','order','mapPro','mapOrder'));
   }

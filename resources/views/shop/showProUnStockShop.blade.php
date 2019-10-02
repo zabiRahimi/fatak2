@@ -1,6 +1,6 @@
 @extends('shop.layoutDashShop')
 @section('title')
-  سفارشات غیر ثابت
+  محصولات غیر ثابت
 @endsection
 @section('dash_content')
   @if ($stage==1)
@@ -16,17 +16,17 @@
     </div>
   @else
     <div class="dashTitrSh">
-      سفارشات غیر ثابت
+      محصولات غیر ثابت
     </div>
     <div class="div_search_c">
-      <button type="button" class="btn btn_search_c" onclick="allpro_searchC('proSPUSS' , 'showProUnStockShop')">همه محصولات</button>
+      <button type="button" class="btn btn_search_c" onclick="pro_searchC('proCheckSPUSS', 'proSPUSS', 'all' , '' , '' , 'showProUnStockShop' , '' )">همه محصولات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchSPUSS" placeholder="نام محصول">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proSPUSS' , 'pro_searchSPUSS' , 'showProUnStockShop')"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proCheckSPUSS', 'proSPUSS', 'pro' , 'pro_searchSPUSS' , '' , 'showProUnStockShop' , 1 )"><i class="fas fa-search"></i></button>
       </div>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchSPUSS" placeholder="کد محصول">
-        <button type="button" class="btn_date_c btn"onclick="id_searchC('id_searchSPUSS' , 'showProUnStockShop',1) "><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn"onclick="pro_searchC('proCheckSPUSS', 'proSPUSS', 'id' , '' , 'id_searchSPUSS' , 'showProUnStockShop' , 2 )"><i class="fas fa-search"></i></button>
       </div>
       </div>
     <div class="dashLBodySh">
