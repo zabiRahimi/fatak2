@@ -65,8 +65,14 @@ class ShopController extends Controller
     }
     $this->orderNum=$orderNum;
     $this->proShopNum=ProShop::where('shop_id',$id)->where('show',1)->count();
-
-    $this->oldOrderNum=ProShop::where('shop_id',$id)->count();
+    $checkOrder2=StampProOrder::where('shop_id',$id)->get();
+    $orderNum2=0;
+    foreach ($checkOrder2 as $value2) {
+      $checkOrder=order::where('id',$value2->order_id)->where('stage',1)->first();
+      if(empty($checkOrder->id)){continue;}
+      $orderNum2++;
+    }
+    $this->oldOrderNum=$orderNum2;
     $this->buyOrderNum=ProShop::where('shop_id',$id)->count();
     $this->payOrderNum=ProShop::where('shop_id',$id)->whereBetween('date_up', [$date30 , $dateB])->count();
     $this->backOrderNum=ProShop::where('shop_id',$id)->count();
@@ -221,7 +227,15 @@ class ShopController extends Controller
       }
     return view('shop.showProUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop','mapPro','notRecord'));
   }
+  public function showProOneUnStockShop(Request $request)
+  {
+    $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proShopNum=$this->proShopNum;
+    $pro_id=$request->pro_id;
 
+    $proShop=ProShop::where('id', $pro_id)->where( 'shop_id' ,$id)->where('show', 1)->first();
+
+    return view('shop.showProOneUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop'));
+  }
 
   public function newOrderShop(Request $request)
   {
@@ -475,12 +489,15 @@ class ShopController extends Controller
     global $checkPro;$checkPro=$request->cookie('proCheckOOUSS');
     global $proS;$proS=$request->cookie('proOOUSS');
     $mapPro = ($proS) ? 'محصول' . ' ' . $proS : 'همه محصولات' ;
+    $namePro = ($proS and $checkPro=='pro') ?  $proS : null ;
     global $checkOrder;$checkOrder=$request->cookie('orderCheckOOUSS');
     global $orderS;$orderS=$request->cookie('orderOOUSS');
     $mapOrder = ($orderS) ? 'سفارش' . ' ' . $orderS : 'همه سفارش ها' ;
-    global $dateDay;$dateDay=$request->cookie('dateSNOS');
-    global $date1;$date1=(integer)$request->cookie('date1SNOS');
-    global $date2;$date2=(integer)$request->cookie('date2SNOS');
+    $nameOrder = ($orderS and $checkOrder=='pro') ?  $orderS : null ;
+
+    global $dateDay;$dateDay=$request->cookie('dateOOUSS');
+    global $date1;$date1=(integer)$request->cookie('date1OOUSS');
+    global $date2;$date2=(integer)$request->cookie('date2OOUSS');
     switch ($dateDay) {
       case 'all':$mapDate='همه تاریخ ها';break;
       case 'today':$mapDate='امروز';break;
@@ -488,34 +505,34 @@ class ShopController extends Controller
       case 'fromDAte':$mapDate='از تاریخ ' . Verta($date1)->format('y/m/d')  . ' تا ' . Verta($date2)->format('y/m/d') ;break;
       default:$mapDate='30 روز اخیر';break;
     }
-    $odtanAndCity=$request->cookie('ostanAndCitySNOS');
-    global $ostan;$ostan=$request->cookie('ostanSNOS');
+    $odtanAndCity=$request->cookie('ostanAndCityOOUSS');
+    $ostan=$request->cookie('ostanOOUSS');
     $mapOstan = ($ostan) ? 'استان'. ' ' . $ostan : 'همه استان ها' ;
-    global $city;$city=$request->cookie('citySNOS');
+    $nameOstan = ($ostan) ?  $ostan : null ;
+    $city=$request->cookie('cityOOUSS');
     $mapCity= ($city) ? 'شهر' . ' ' . $city : 'همه شهرها' ;
+    $nameCity= ($city ) ?  $city : null ;
+
 
 
   if(!empty($checkPro) or !empty($checkOrder) or !empty($dateDay) or !empty($odtanAndCity)){
       $notRecord='ok';
-      // $stampProOrder=StampProOrder::where('shop_id', $id)->get();
 
       $stampProOrder=StampProOrder::where(function($query){
-        global $checkPro;global $proS;global $dateDay;global $dateNew;global $today;global $yesterday;global $month;global $date1;global $date2;global $ostan;global $city;
-        // if($checkPro=='pro' ){$query->where( 'name' ,"like", "%$proS%");}
+      global $checkOrder;global $orderS;global $checkPro;global $proS;global $dateDay;global $dateNew;global $today;global $yesterday;global $month;global $date1;global $date2;
        if($checkPro=='id' ){$query->where( 'proShop_id' , $proS);}
+       if($checkOrder=='id' ){$query->where( 'order_id' , $orderS);}
        if($dateDay=='today' ){$query->whereBetween('date_up', [$today, $dateNew]);}
        if($dateDay=='yesterday' ){$query->whereBetween('date_up', [$yesterday, $today -1]);}
-       // if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
+       if($dateDay=='month' ){$query->whereBetween('date_up' , [$month,$today]);}
        if(empty($dateDay)){$query->whereBetween('date_up' , [$month,$today]);}
        if($dateDay=='fromDAte' ){$query->whereBetween('date_up' , [$date1,$date2]);}
-       if(!empty($ostan)){$query->where('ostan' ,"like", "%$ostan%");}
-       if(!empty($city)){$query->where('city' ,"like", "%$city%");}
-     })->where('shop_id', 1)->get();
+     })->where('shop_id', $id)->get();
      if ($checkPro=='pro') {
-       $proShop=proShop::where('shop_id',1)->get();
+       $proShop=proShop::where('shop_id',$id)->get();
 
      } else {
-       $proShop=proShop::where('shop_id',1)->get();
+       $proShop=proShop::where('shop_id',$id)->get();
 
      }
 
@@ -526,9 +543,8 @@ class ShopController extends Controller
       $mapOrder='همه سفارشات';
       $proShop=proShop::where('shop_id',$id)->get();
     }
-    // $proShop=proShop::where('shop_id',$id)->get();
     $order=Order::get();
-    return view('shop.oldOrderUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop','search','noRecord','stampProOrder','order','mapPro','mapOrder'));
+    return view('shop.oldOrderUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop','search','noRecord','stampProOrder','order','mapPro','mapOrder','namePro','nameOrder','mapDate','mapOstan','mapCity','nameOstan','nameCity'));
   }
   public function codeOldOrderShop(Save_codeOldOrderShop $request)
   {

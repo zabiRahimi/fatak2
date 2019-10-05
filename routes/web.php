@@ -76,6 +76,7 @@ Route::get('/warningShop','ShopController@warningShop')->middleware(['chekloginS
 Route::get('/sabtProStockShop','ShopController@sabtProStockShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/sabtProUnStockShop','ShopController@sabtProUnStockShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/showProUnStockShop','ShopController@showProUnStockShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/showProOneUnStockShop/{pro_id}','ShopController@showProOneUnStockShop')->middleware(['chekloginShop' ])->where('pro_id', '[0-9]+');//ok!!
 Route::get('/newOrderShop/{date?}','ShopController@newOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/newOrderShopOne/{id}','ShopController@newOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
 // Route::post('/searchShop','ShopController@searchShop');//ok!!

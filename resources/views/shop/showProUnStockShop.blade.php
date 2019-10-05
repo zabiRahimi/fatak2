@@ -65,7 +65,7 @@
            $color="color2";
          }
         ?>
-        <a href="/newOrderShopOne/{{$value->id}}" class="showProUSSA">
+        <a href="/showProOneUnStockShop/{{$value->id}}" class="showProUSSA">
           <div class="showProUSS showProUSS_1 {{$color}}">
             <div class="showProUSSRwo  ">{{$r}}</div>
             <div class="showProUSSName showProUSSName_1">{{$value->name}}</div>

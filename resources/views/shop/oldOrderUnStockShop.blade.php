@@ -30,7 +30,7 @@
       </div>
       </div>
     <div class="div_search_c">
-      <button type="button" class="btn btn_search_c" onclick="allpro_searchC('proSNOS' , 'newOrderShop')">همه سفارشات</button>
+      <button type="button" class="btn btn_search_c" onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'all' , '' , '' , 'oldOrderUnStockShop' , '' )">همه سفارشات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchOOUSS2" placeholder="نام سفارش">
         <button type="button" class="btn_date_c btn" onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'pro' , 'pro_searchOOUSS2' , '' , 'oldOrderUnStockShop' , 3 )"><i class="fas fa-search"></i></button>
@@ -42,32 +42,32 @@
       </div>
 
       <div class="div_search_c">
-      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateSNOS','all','newOrderShop')">همه تاریخ ها</button>
-      <button type="button" class="btn btn_search_c" onclick="date_searchC('dateSNOS','month','newOrderShop')">30 روز اخیر</button>
-      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateSNOS','today','newOrderShop')">امروز</button>
-      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateSNOS','yesterday','newOrderShop')">دیروز</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','all','oldOrderUnStockShop')">همه تاریخ ها</button>
+      <button type="button" class="btn btn_search_c" onclick="date_searchC('dateOOUSS','month','oldOrderUnStockShop')">30 روز اخیر</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','today','oldOrderUnStockShop')">امروز</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','yesterday','oldOrderUnStockShop')">دیروز</button>
         <div class="div_search_form_date_c2" action="index.html" method="post">
           <div class="div_search_c2">
             <span>از تاریخ</span>
-            <input type="text" class="input_date_c input_day_date_c placeholder" id="seNOSDay1" placeholder="روز">
-            <input type="text" class="input_date_c input_month_date_c placeholder" id="seNOSMonth1" placeholder="ماه">
-            <input type="text" class="input_date_c input_year_date_c placeholder" id="seNOSYear1" placeholder="سال">
+            <input type="text" class="input_date_c input_day_date_c placeholder" id="seOOUSSDay1" placeholder="روز">
+            <input type="text" class="input_date_c input_month_date_c placeholder" id="seOOUSSMonth1" placeholder="ماه">
+            <input type="text" class="input_date_c input_year_date_c placeholder" id="seOOUSSYear1" placeholder="سال">
           </div>
           <div class="div_search_c2">
             <span>تا</span>
-            <input type="text" class="input_date_c input_day_date_c placeholder" id="seNOSDay2" placeholder="روز">
-            <input type="text" class="input_date_c input_month_date_c placeholder" id="seNOSMont2" placeholder="ماه">
-            <input type="text" class="input_date_c input_year_date_c placeholder" id="seNOSYear2" placeholder="سال">
-            <button type="button" class="btn_date_c btn"onclick="fromDAte_searchC('dateSNOS','date1SNOS','date2SNOS','newOrderShop','seNOSDay1','seNOSMonth1','seNOSYear1','seNOSDay2','seNOSMont2','seNOSYear2')"><i class="fas fa-search"></i></button>
+            <input type="text" class="input_date_c input_day_date_c placeholder" id="seOOUSSDay2" placeholder="روز">
+            <input type="text" class="input_date_c input_month_date_c placeholder" id="seOOUSSMont2" placeholder="ماه">
+            <input type="text" class="input_date_c input_year_date_c placeholder" id="seOOUSSYear2" placeholder="سال">
+            <button type="button" class="btn_date_c btn"onclick="fromDAte_searchC('dateOOUSS','date1OOUSS','date2OOUSS','oldOrderUnStockShop','seOOUSSDay1','seOOUSSMonth1','seOOUSSYear1','seOOUSSDay2','seOOUSSMont2','seOOUSSYear2')"><i class="fas fa-search"></i></button>
           </div>
         </div>
        </div>
        <div class="div_search_c">
-       <button type="button" class="btn btn_search_c" onclick="AllOstan_searchC('ostanAndCitySNOS','ostanSNOS','citySNOS','newOrderShop')">همه استان ها</button>
-       <button type="button" class="btn btn_search_c" onclick="AllCity_searchC('citySNOS' , 'newOrderShop')">همه شهرها</button>
+       <button type="button" class="btn btn_search_c" onclick="AllOstan_searchC('ostanAndCityOOUSS','ostanOOUSS','cityOOUSS','oldOrderUnStockShop')">همه استان ها</button>
+       <button type="button" class="btn btn_search_c" onclick="AllCity_searchC('cityOOUSS' , 'oldOrderUnStockShop')">همه شهرها</button>
       <div class="div_search_form_date_c2"  method="post">
         <div class="div_search_c2">
-          <select class=" select_search_date_c"id="seNOSOstan">
+          <select class=" select_search_date_c"id="seOOUSSOstan">
             <option value="">انتخاب استان</option>
             <option value="اردبیل" onclick="show_city('ostan1');searchOstanShop('اردبیل')">اردبیل</option>
             <option value="اصفهان" onclick="show_city('ostan2');searchOstanShop('اصفهان')">اصفهان</option>
@@ -103,22 +103,21 @@
           </select>
         </div>
         <div class="div_search_c2">
-          <select class=" select_search_date_c"id="seNOSCity">
+          <select class=" select_search_date_c"id="seOOUSSCity">
             <option value="allCity">همه شهرها</option>
             @include('show_city2')
           </select>
-        <button type="button" class="btn_date_c btn" onclick="ostan_searchC('ostanAndCitySNOS','ostanSNOS','citySNOS','newOrderShop','seNOSOstan','seNOSCity')"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="ostan_searchC('ostanAndCityOOUSS','ostanOOUSS','cityOOUSS','oldOrderUnStockShop','seOOUSSOstan','seOOUSSCity')"><i class="fas fa-search"></i></button>
       </div>
       </div>
     </div>
     <div class="dashLBodySh">
       <div class="div_map_c">
         <span>{{$mapPro}} ، </span>{{-- $mapPro --}}
-
         <span>{{$mapOrder}} ،</span>{{-- $mapOrder  --}}
-        <span> {{'30 روز اخیر'}} ،</span>{{-- $mapDate --}}
-        <span> {{'همه استان ها'}} ،</span>{{-- $mapOstan --}}
-        <span> {{'همه شهرها'}}</span>{{-- $mapCity --}}
+        <span> {{$mapDate}} ،</span>{{-- $mapDate --}}
+        <span> {{$mapOstan}} ،</span>{{-- $mapOstan --}}
+        <span> {{$mapCity}}</span>{{-- $mapCity --}}
       </div>
       @if (empty($proShop[0]->id))
         <div class="divNoR0wShop">
@@ -150,8 +149,13 @@
         <?php
             $order=$order->where('id', $value->order_id)->first();
             if($order->stage!=1){continue;}
+            if(!empty($nameOrder) and strpos( $order->name , $nameOrder) === false){continue;}
+            if(!empty($nameOstan) and $order->ostan!=$nameOstan ){continue;}
+            if(!empty($nameCity) and $order->city!=$nameCity ){continue;}
+
             $proShop=$proShop->where('id', $value->proShop_id)->first();
-            if(strpos( $proShop->name , 'م') === false){continue;}
+            if(!empty($namePro) and strpos( $proShop->name , $namePro) === false){continue;}
+            $issetRecord='ok';
          $r++;
          if ($r%2==0) {
            $color='color1';
@@ -159,6 +163,7 @@
            $color="color2";
          }
         ?>
+
         <a href="/oldOrderOneUnStockShop" >
           <div class="orderOSUS orderOSUS_1 {{$color}}">
             <div class="orderOSUSRwo">{{$r}}</div>
@@ -168,10 +173,15 @@
             <div class="orderOSUSCode2">{{$order->id}}</div>
             <div class="orderOSUSPrice">@if ($value->price) {{$value->price}} @else {{$proShop->price}} @endif </div>
             <div class="orderOSUSCity">{{$order->ostan}} , {{$order->city}}</div>
-            <div class="orderOSUSDate">{{$value->date_up}}</div>
+            <div class="orderOSUSDate">{{verta($value->date_up)->format('y/m/d')}}</div>
           </div>
         </a>
       @endforeach
+      @empty ($issetRecord)
+        <div class="alert alert-danger div_alert">
+          طبق جستجوی شما نتیجه ای یافت نشد.
+        </div>
+      @endempty
     </div>
     @endif
     </div>
