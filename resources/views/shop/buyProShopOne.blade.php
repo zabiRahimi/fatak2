@@ -7,7 +7,7 @@
 
     <div class="dashTitrSh">
     مشخصات محصول و خریدار
-      <a href="/buyProShop"><button type="button" class="btn oldOrderOneBut" onclick="">  بازگشت  </button></a>
+      <a href="/buyProShop"><button type="button" class="btn btnBack" onclick="">  بازگشت  </button></a>
     </div>
        {{-- <br /> --}}
 

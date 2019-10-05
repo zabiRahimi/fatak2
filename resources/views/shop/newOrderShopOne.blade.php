@@ -5,7 +5,7 @@
 @section('dash_content')
     <div class="dashTitrSh">
       مشاهده سفارش
-      <a href="/newOrderShop"><button type="button" class="btn newOrderOneBut" onclick="">  بازگشت  </button></a>
+      <a href="/newOrderShop"><button type="button" class="btn btnBack" onclick="">  بازگشت  </button></a>
     </div>
     <div class="dashLBodySh">
       <div class="orderDiv orderName">

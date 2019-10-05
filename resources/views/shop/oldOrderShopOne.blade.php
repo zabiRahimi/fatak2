@@ -6,7 +6,7 @@
 
     <div class="dashTitrSh">
     مشاهده و ویرایش سفارش
-      <a href="/oldOrderShop"><button type="button" class="btn oldOrderOneBut" onclick="">  بازگشت  </button></a>
+      <a href="/oldOrderShop"><button type="button" class="btn btnBack" onclick="">  بازگشت  </button></a>
     </div>
     <div class="dashLBodySh">
       <div class="orderDivTitr">
@@ -291,10 +291,7 @@
                  <div class="dz-message ">
                      <div class="col-xs-8">
                          <div class="message ">
-                            @if ($proImg->pic_b1)
-                              <img src="../../img_shop/{{$proImg->pic_b1}}" width="110" height="100" alt="">
-                            @endif
-                             <p>جهت آپلود عکس این کادر را کلیک کنید</p>
+                            @if ($proImg->pic_b1)<img src="../../img_shop/{{$proImg->pic_b1}}" width="110" height="100" alt="">@endif<p>جهت آپلود عکس این کادر را کلیک کنید</p>
                          </div>
                      </div>
                  </div>

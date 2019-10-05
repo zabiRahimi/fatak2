@@ -134,6 +134,8 @@
 .dashSh_small_1 , .dashSh_small_2{display: none;}
 }
 /* content shop */
+.btnBack{float: left; height: 30px;margin-top: 3px;}
+
 .dashShContent{width: 98%;margin: 5px 1%;padding: 7px 4px;background-color: #f1f1f1; float: right;}
 .dashSh_R{width: 220px;margin-left: 5px;background-color: #d4d4d4; float: right;}
 .dashSh_RUl li{font-size: 18px;border-color: #f0f0f0}
@@ -253,7 +255,6 @@
   .newOrderRwo_1,.newOrderVahed_1,.newOrderDate_1{font-size: 12px;}
   }
 /* newOrderShopOne.php */
-.newOrderOneBut{float: left; height: 30px;margin-top: 5px;}
 .orderDiv{width: 49%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #cfe1f1;}
 .orderDiv2{width: 99%;margin: 2px 0.5%;padding: 0 20px 0 0;background-color: #cfe1f1;float: right;}
 .orderDivZ0,.orderDivZ{width: 50%; float: right;}
@@ -370,7 +371,6 @@
     .oldOrderRwo_1,.oldOrderVahed_1,.oldOrderDate_1{font-size: 10px;}
     }
     /* oldOrderShopOne.php */
-    .oldOrderOneBut{float: left; height: 30px;margin-top: 5px;}
     .orderDivTitr{width:99%;margin: 2px 0.5%;padding: 0 20px;height: 30px;line-height: 30px;float: right;background-color: #047791;border-radius: 3px;color: #fff; }
     .orderDiv{width: 49%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #cfe1f1;}
     .orderDiv2{width: 99%;margin: 2px 0.5%;padding: 0 20px 0 0;background-color: #cfe1f1;float: right;}

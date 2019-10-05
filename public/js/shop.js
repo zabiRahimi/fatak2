@@ -1344,7 +1344,81 @@ Dropzone.options.proPSUSImg6 = {
     $("#Iimg6_orderPSUS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
     $("#Aimg6_orderPSUS").html( response );
   },  }
-
+//showProOneUnStockShop.blade.php
+Dropzone.options.ESPOUSSAddImg1 = {
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+   error:function(){
+    $("#ajaxAESPOUSS1").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    //آرگومان اول یک شی است
+    //آرکومان دوم مقدار بازگشتی از کنترلر است
+    $("#ajaxAESPOUSS1").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#Iimg1_editSPOUSS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
+    $("#Aimg1_editSPOUSS").html( response );
+  },}
+Dropzone.options.ESPOUSSAddImg2 = {
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+    $("#ajaxAESPOUSS2").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    $("#ajaxAESPOUSS2").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#Iimg2_editSPOUSS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
+    $("#Aimg2_editSPOUSS").html( response );
+  },  }
+Dropzone.options.ESPOUSSAddImg3 = {
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+    $("#ajaxAESPOUSS3").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    $("#ajaxAESPOUSS3").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#Iimg3_editSPOUSS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
+    $("#Aimg3_editSPOUSS").html( response );
+  },  }
+Dropzone.options.ESPOUSSAddImg4 = {
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+    $("#ajaxAESPOUSS4").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    $("#ajaxAESPOUSS4").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#Iimg4_editSPOUSS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
+    $("#Aimg4_editSPOUSS").html( response );
+},}
+Dropzone.options.ESPOUSSAddImg5 = {
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+    $("#ajaxAESPOUSS5").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    $("#ajaxAESPOUSS5").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#Iimg5_editSPOUSS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
+    $("#Aimg5_editSPOUSS").html( response );
+  },  }
+Dropzone.options.ESPOUSSAddImg6 = {
+   parallelUploads: 2,
+   acceptedFiles:".png , .jpg , .jpeg",
+   maxFilesize: 3,
+  error:function(){
+    $("#ajaxAESPOUSS6").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+  },
+  success:function(file , response){
+    $("#ajaxAESPOUSS6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    $("#Iimg6_editSPOUSS").html('<img src="/img_shop/'+ response +'" alt=""style="margin-top: 0;" width="40" height="30">');
+    $("#Aimg6_editSPOUSS").html( response );
+  },  }
   function id_searchC(input , url , stamp) {
     var id=$('#'+input).val();
     if(id){

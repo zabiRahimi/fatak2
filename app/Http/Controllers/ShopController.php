@@ -233,8 +233,9 @@ class ShopController extends Controller
     $pro_id=$request->pro_id;
 
     $proShop=ProShop::where('id', $pro_id)->where( 'shop_id' ,$id)->where('show', 1)->first();
-
-    return view('shop.showProOneUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop'));
+    $imgPro=Picture_shop::where('pro_shop_id', $proShop->id)->first();
+    $numShowOrder=StampProOrder::where('proShop_id', $proShop->id)->where('shop_id', $id)->count();
+    return view('shop.showProOneUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop','imgPro','numShowOrder'));
   }
 
   public function newOrderShop(Request $request)

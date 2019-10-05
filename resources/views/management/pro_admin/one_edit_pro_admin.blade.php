@@ -222,10 +222,7 @@
               <div class="col-xs-8">
                   <div class="message">
                     @if ($img->pic_b1)
-                      <img src="/img_pro/{{$img->pic_b1}}" alt=""style="margin-top: -20px;" width="130" height="130">
-                    @else
-                      <p>جهت آپلود عکس این کادر را کلیک کنید</p>
-                    @endif
+                      <img src="/img_pro/{{$img->pic_b1}}" alt=""style="margin-top: -20px;" width="130" height="130">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif
 
                   </div>
               </div>
