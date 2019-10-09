@@ -44,7 +44,7 @@
          <div class="div_form"><input type="text" class="form-control placeholder" value="{{$proShop->price}}" id="price_editSPOUSS"></div>
        </div>
        {{-- <div class="form-group">
-         <label for="priceFOrder_editSPOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mprice_editSPOUSS"></i> قیمت برای این سفارش</label>
+         <label for="priceFOrder_editSPOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mprice_editSPOUSS"></i> قیمت برای این سفارش</label>
          <div class="div_form"><input type="text" class="form-control placeholder"value="{{$proShop->}}" id="priceFOrder_editSPOUSS"placeholder="اختیاری!!ممکن است برای این مشتری قیمت خاصی داشته باشید."></div>
        </div> --}}
        <div class="form-group">
@@ -98,7 +98,7 @@
          </div>
        </div>
        {{-- <div class="form-group">
-         <label for="disSeller_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mdis_editSPOUSS"></i>توضیح برای این سفارش</label>
+         <label for="disSeller_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mdis_editSPOUSS"></i>توضیح برای این سفارش</label>
          <div class="div_formTextarea">
            <textarea name="name" class="placeholder" id="dis_editSPOUSS"placeholder="اختیاری !! ممکن است برای این مشتری توضیح خاصی داشته باشید .">{{$proShop->}} </textarea>
          </div>
@@ -117,47 +117,78 @@
            <textarea name="name" class=" placeholder" id="term_editSPOUSS"placeholder="اختیاری ...">{{$proShop->term}}</textarea>
          </div>
        </div>
+       {{-- یک تگ هیدن جهت ذخیره ایدی جدول عکسها برای حذف ستون عکس --}}
+       <div class="imgHidden" id="id_img_editSPOUSS">{{$imgPro->id}}</div>
        <div class="form-group add_pro_form1_1">
          <label for="img1_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg1_editSPOUSS"></i> عکس 1 <span id="Iimg1_editSPOUSS">@if($imgPro->pic_b1)<img src="/img_shop/{{$imgPro->pic_b1}}"width="40"height="30"> @endif</span></label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg1" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg1_editSPOUSS"></div>
+         <div class="imgHidden" id="Aimg1_editSPOUSS">{{$imgPro->pic_b1}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
          <label for="img2_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 2 <span id="Iimg2_editSPOUSS">@if($imgPro->pic_b2)<img src="/img_shop/{{$imgPro->pic_b2}}"width="40"height="30">@endif</span></label>
         <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg2" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg2_editSPOUSS"></div>
+         <div class="imgHidden" id="Aimg2_editSPOUSS">{{$imgPro->pic_b2}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
          <label for="img3_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 3 <span id="Iimg3_editSPOUSS">@if($imgPro->pic_b3)<img src="/img_shop/{{$imgPro->pic_b3}}"width="40"height="30">@endif</span></label>
         <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg3" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg3_editSPOUSS"></div>
+         <div class="imgHidden" id="Aimg3_editSPOUSS">{{$imgPro->pic_b3}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
          <label for="img4_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 4 <span id="Iimg4_editSPOUSS">@if($imgPro->pic_b4)<img src="/img_shop/{{$imgPro->pic_b4}}"width="40"height="30">@endif</span></label>
         <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg4" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg4_editSPOUSS"></div>
+         <div class="imgHidden" id="Aimg4_editSPOUSS">{{$imgPro->pic_b4}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
          <label for="img5_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 5 <span id="Iimg5_editSPOUSS">@if($imgPro->pic_b5)<img src="/img_shop/{{$imgPro->pic_b5}}"width="40"height="30">@endif</span></label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg5" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg5_editSPOUSS"></div>
+         <div class="imgHidden" id="Aimg5_editSPOUSS">{{$imgPro->pic_b5}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
          <label for="img6_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 6 <span id="Iimg6_editSPOUSS">@if($imgPro->pic_b6)<img src="/img_shop/{{$imgPro->pic_b6}}"width="40"height="30">@endif</span> </label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg6" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg6_editSPOUSS"></div>
+         <div class="imgHidden" id="Aimg6_editSPOUSS">{{$imgPro->pic_b6}}</div>
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success"onclick="proShop({{$proShop->id}},'stamp_editSPOUSS','name_editSPOUSS','maker_editSPOUSS','brand_editSPOUSS','model_editSPOUSS','price_editSPOUSS','priceFOrder_editSPOUSS','vahed_editSPOUSS','num_editSPOUSS','vazn_editSPOUSS','dimension_editSPOUSS','vaznPost_editSPOUSS','pakat_editSPOUSS','dis_editSPOUSS','disSeller_editSPOUSS','dateMake_editSPOUSS','dateExpiration_editSPOUSS','term_editSPOUSS','Aimg1_editSPOUSS','Aimg2_editSPOUSS','Aimg3_editSPOUSS','Aimg4_editSPOUSS','Aimg5_editSPOUSS','Aimg6_editSPOUSS',
-         'ajax_editSPOUSS','form_editSPOUSS','newOrderShopOne')" >ثبت تغییرات</button>
-           <button type="button"class="btn btn-danger orderAghdamP2"onclick=""data-toggle="modal" data-target="#orderDelModal1">حذف محصول</button>
+         <button type="button" class="btn btn-success"onclick="editProShopUnStock({{$proShop->id}},null,{{$imgPro->id}},'stamp_editSPOUSS','name_editSPOUSS','maker_editSPOUSS','brand_editSPOUSS','model_editSPOUSS','price_editSPOUSS','not','vahed_editSPOUSS','num_editSPOUSS','vazn_editSPOUSS','dimension_editSPOUSS','vaznPost_editSPOUSS','pakat_editSPOUSS','dis_editSPOUSS','not','dateMake_editSPOUSS','dateExpiration_editSPOUSS','term_editSPOUSS','Aimg1_editSPOUSS','Aimg2_editSPOUSS','Aimg3_editSPOUSS','Aimg4_editSPOUSS','Aimg5_editSPOUSS','Aimg6_editSPOUSS',
+         'ajax_editSPOUSS','form_editSPOUSS','showProOneUnStockShop','',1)" >ثبت تغییرات</button>
+           <button type="button"class="btn btn-danger orderAghdamP2"onclick="del_proShopCheckOffer({{$numShowOrder}},{{$proShop->id}})">حذف محصول</button>
        </div></form></div></div>
    <!-- Modal موفق بودن ثبت محصول-->
-   <div class="modal fade" id="end_editSPOUSS"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog"role="document"><div class="modal-content"><div class="modal-body modal_ok">
+   <div class="modal fade" id="end_orderSabtSh"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog"role="document"><div class="modal-content"><div class="modal-body modal_ok">
       <div class="modal_ok1"><i class="far fa-check-circle"></i></div>
-      <div class="modal_ok2">محصول شما با موفقیت ثبت شد . توجه فرمایید :: شما می توانید در همین صفحه محصولات دیگری را نیز به این مشتری معرفی نمایید .</div></div><div class=" modal_ok3">
+      <div class="modal_ok2">ویرایش محصول با موفقیت ثبت شد.</div></div><div class=" modal_ok3">
       <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
    </div></div></div></div><!--end modal پایان موفقیت ثبت .-->
+   {{--  --}}
+   <!-- حذف محصول هنگامی که پیشنهاد نشده و فروخته نشده-->
+   <div class="modal fade" id="del_pro1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg modal-xl" role="document">
+       <div class="modal-content">
+         <div class="modal-body orderAghdamModal2 ">
+           <span><b>توجه !!</b> آیا می خواهید این محصول را حذف کنید ؟ </span>
+         </div>
+         <div class="orderAghdamModal3">
+             <button type="button" class="btn btn-primary"onclick="del_proShop1({{$proShop->id}},{{$imgPro->id}},'{{$imgPro->pic_b1}}','{{$imgPro->pic_b2}}','{{$imgPro->pic_b3}}','{{$imgPro->pic_b4}}','{{$imgPro->pic_b5}}','{{$imgPro->pic_b6}}','showProUnStockShop',1)" data-dismiss="modal"  aria-label="Close">بله</button>
+             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
+         </div>
+       </div>
+     </div>
+   </div><!--end modal  -->
+   {{-- حذف محصولی که به مشتری پیشهاد داده شده است  --}}
+   <div class="modal fade" id="del_pro2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg modal-xl" role="document">
+       <div class="modal-content">
+         <div class="modal-body orderAghdamModal2 alertCheckDlePro1">
+           <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
+         </div>
+         <div class="orderAghdamModal3 alertCheckDlePro2">
+             <button type="button" class="btn btn-primary"onclick="del_proShop1({{$proShop->id}},{{$imgPro->id}},'{{$imgPro->pic_b1}}','{{$imgPro->pic_b2}}','{{$imgPro->pic_b3}}','{{$imgPro->pic_b4}}','{{$imgPro->pic_b5}}','{{$imgPro->pic_b6}}','showProUnStockShop',2)" data-dismiss="modal"  aria-label="Close">بله</button>
+             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
+         </div>
+       </div>
+     </div>
+   </div><!--end modal  -->
    {{--  --}}
    <div class="modal fade" id="Mstamp_editSPOUSS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
        <div class="modal-content"><div class="modal-body MRahnama">
@@ -249,42 +280,42 @@
       <div class="ajax_form_modal"id="ajaxAESPOUSS1"></div><div class="ESPOUSSAddImg1">
       <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg1"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message "><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b1)<img src="../../img_shop/{{$imgPro->pic_b1}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div></div><div class="footer_modal_img_add_pro">
         <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS1','Aimg1_editSPOUSS','Iimg1_editSPOUSS')">حذف عکس</button>
+        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS1','Aimg1_editSPOUSS','Iimg1_editSPOUSS','id_img_editSPOUSS','pic_b1','pic_s1')">حذف عکس</button>
     </div></div></div></div><!--end modal عکس اول-->
    {{-- مودال عکس دوم --}}
    <div class="modal fade" id="MAddESPOUSSImg2"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس دوم</div>
       <div class="ajax_form_modal" id="ajaxAESPOUSS2"></div>
       <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg2"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{csrf_field()}}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b2)<img src="../../img_shop/{{$imgPro->pic_b2}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
         <button type="button" class="btn btn-warning"data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS2','Aimg2_editSPOUSS','Iimg2_editSPOUSS')">حذف عکس</button>
+        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS2','Aimg2_editSPOUSS','Iimg2_editSPOUSS','id_img_editSPOUSS','pic_b2','pic_s2')">حذف عکس</button>
    </div></div></div></div><!--end modal عکس دوم-->
    {{-- مودال عکس سوم--}}
    <div class="modal fade"id="MAddESPOUSSImg3"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس سوم</div>
       <div class="ajax_form_modal" id="ajaxAESPOUSS3"></div>
       <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg3" action="/uplodImgProSh" enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b3)<img src="../../img_shop/{{$imgPro->pic_b3}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
         <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS3','Aimg3_editSPOUSS','Iimg3_editSPOUSS')">حذف عکس</button>
+        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS3','Aimg3_editSPOUSS','Iimg3_editSPOUSS','id_img_editSPOUSS'{{$imgPro->id}},'pic_b3','pic_s3')">حذف عکس</button>
    </div></div></div></div><!--end modal عکس سوم-->
    {{--  مودال عکس چهارم --}}
   <div class="modal fade"id="MAddESPOUSSImg4"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس چهارم</div>
       <div class="ajax_form_modal" id="ajaxAESPOUSS4"></div>
       <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg4" action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b4)<img src="../../img_shop/{{$imgPro->pic_b4}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
         <button type="button" class="btn btn-warning"data-dismiss="modal"aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS4','Aimg4_editSPOUSS','Iimg4_editSPOUSS')">حذف عکس</button>
+        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS4','Aimg4_editSPOUSS','Iimg4_editSPOUSS','id_img_editSPOUSS','pic_b4','pic_s4')">حذف عکس</button>
     </div></div></div></div><!--end modal عکس چهارم-->
    {{--  مودال عکس  پنجم --}}
   <div class="modal fade"id="MAddESPOUSSImg5"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس پنچم</div>
       <div class="ajax_form_modal" id="ajaxAESPOUSS5"></div>
       <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg5"action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b5)<img src="../../img_shop/{{$imgPro->pic_b5}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
         <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS5','Aimg5_editSPOUSS','Iimg5_editSPOUSS')">حذف عکس</button>
+        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS5','Aimg5_editSPOUSS','Iimg5_editSPOUSS','id_img_editSPOUSS','pic_b5','pic_s5')">حذف عکس</button>
   </div></div></div></div><!--end modal عکس پنحم-->
    {{--   مودال عکس ششم --}}
    <div class="modal fade" id="MAddESPOUSSImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس ششم</div>
       <div class="ajax_form_modal" id="ajaxAESPOUSS6"></div>
       <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg6"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b6)<img src="../../img_shop/{{$imgPro->pic_b6}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
           <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-          <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS6','Aimg6_editSPOUSS','Iimg6_editSPOUSS')">حذف عکس</button>
+          <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS6','Aimg6_editSPOUSS','Iimg6_editSPOUSS','id_img_editSPOUSS','pic_b6','pic_s6')">حذف عکس</button>
     </div></div></div> </div><!--end modal  عکس ششم -->
 
 @endsection

@@ -14,7 +14,7 @@
       </div>
       <div class="orderDiv orderDate">
         <div class="orderDivZ0 orderDate1">تاریخ ثبت <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ orderDate2">{{str_replace('-', '/',$newOrderOne->date_ad )}}</div>
+        <div class="orderDivZ orderDate2">{{Verta($newOrderOne->date_ad)->format('y/m/d')}}</div>
       </div>
       <div class="orderDiv orderSquad">
         <div class="orderDivZ0 orderSquad1">دسته محصول <span class="orderDivSpan">:</span></div>

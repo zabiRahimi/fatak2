@@ -119,16 +119,9 @@
         <span> {{$mapOstan}} ،</span>{{-- $mapOstan --}}
         <span> {{$mapCity}}</span>{{-- $mapCity --}}
       </div>
-      @if (empty($proShop[0]->id))
-        <div class="divNoR0wShop">
-          {{-- @if ($noRecord=='all')
-            شما تا کنون محصولی برای فروش ثبت نکردید ٍ  یا اینکه محصولات ثبت شده به فروش رسیده اند .
-          @elseif ($noRecord=='code')
-            نتیجه ای برای این کد یافت نشد ، ممکن است این محصول به فروش رفته است .
-          @elseif ($noRecord=='name')
-            محصولی با این نام یافت نشد ، ممکن است این محصول به فروش رفته است .
-          @endif --}}
-        </div>
+      @if (empty($stampProOrder[0]->id))
+        <div class="alert alert-danger div_alert">
+          شما تا کنون محصولی به مشتریان پیشنهاد نداده اید ، یا اینکه محصولات پیشنهادی به فروش رفته اند .
       @else
       <div class="orderOSUSAll">
       <div class="orderOSUS">
@@ -164,7 +157,7 @@
          }
         ?>
 
-        <a href="/oldOrderOneUnStockShop" >
+        <a href="/oldOrderOneUnStockShop/{{$order->id}}/{{$proShop->id}}" >
           <div class="orderOSUS orderOSUS_1 {{$color}}">
             <div class="orderOSUSRwo">{{$r}}</div>
             <div class="orderOSUSName orderOSUSName_1">{{$proShop->name}}</div>

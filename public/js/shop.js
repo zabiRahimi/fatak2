@@ -493,7 +493,7 @@ function editPasDaShop(id){
 
         $("#Aimg6_proPUSS").html( response );
       },  }
-  function del_img(ajax , div , i,id_img,pic_b,pic_s) {
+function del_img(ajax , div , i,id_img,pic_b,pic_s) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
@@ -501,8 +501,8 @@ function editPasDaShop(id){
       data: {
         nameImg:$("#"+ div).html(),
         id_img:$("#"+ id_img).html(),
-        cell_imgB:pic_b,
-        cell_imgS:pic_s,
+        cell_imgB:pic_b,//نام ستون جدوال عکسها
+        cell_imgS:pic_s,//نام ستون جدوال عکسها
            },
       success:function(){
         $("#"+ ajax).html('<div class="alert alert-danger"> عکس حذف شد . </div>');
@@ -510,7 +510,7 @@ function editPasDaShop(id){
         $("#"+ i).html( '' );
       },  });
   }
-  function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url) {
+function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url) {
         if (priceFOrder != 'not') {var priceFOrder2 = $('#'+priceFOrder).val()}else{var priceFOrder2=null;}
         $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
         $.ajax({
@@ -585,6 +585,64 @@ function editPasDaShop(id){
             }
              }  });
       }
+//هنگام حذف محصول بررسی می کند که محصول به مشتری پیشنهاد شده است یا اینکه این محصول خریداری شده است یا نه ؟
+function del_proShopCheckOffer(checkOffer,pro_id){
+  if(checkOffer){
+    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+    $.ajax({type:'post',url:'../checkDel_proShop',
+      data: {
+            pro_id:pro_id,
+           },
+      success:function(data){
+        if (data==0) {
+          var data2='<span><b>توجه !!</b> شما این محصول را به ' + checkOffer + ' مشتری معرفی کرده اید! آیا هنوز می خواهید این محصول را حذف کنید ؟</span>'
+          $('.alertCheckDlePro1').html(data2);
+          $('#del_pro2').modal('show');
+        } else {
+          var data3='<span><b>توجه !!</b> '+ data +' نفر این محصول را خریداری کرده اند ! شما نمی توانید این محصول را از این صفحه حذف کنید .</span>'
+          $('.alertCheckDlePro1').html(data3);
+          $('.alertCheckDlePro2').html('  <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>');
+
+          $('#del_pro2').modal('show');
+        }
+      },
+      error: function(xhr) {}  });
+  }
+  else{
+    $('#del_pro1').modal('show');
+  }
+}
+//حذف محصول هنگامی که به مشتری معرفی نشده و یا فروخته نشده است .
+function del_proShop1(pro_id,img_id,nameImg1,nameImg2,nameImg3,nameImg4,nameImg5,nameImg6,url,buyAOfferCheck){
+/**
+***buyAOfferCheck
+*این پارامتر نوع محصول از لحاظ اینکه محصول فروخنه شده ٰ، پیشنهاد شده و غیرو را مشخص می کند
+*مقدار 1 محصول نه فروخته شده و نه پشنهاد شده است
+*مقدار 2 محصول فقط پشنهاد شده
+*مقدار 3 محصول فروخته شده
+*/
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../del_proShop1',
+    data: {
+      pro_id:pro_id,
+      img_id:img_id,
+      nameImg1:nameImg1,
+      nameImg2:nameImg2,
+      nameImg3:nameImg3,
+      nameImg4:nameImg4,
+      nameImg5:nameImg5,
+      nameImg6:nameImg6,
+      buyAOfferCheck:buyAOfferCheck,
+         },
+    success:function(){
+      window.location.href='/' + url;
+    },
+    error: function(xhr) {
+
+       }  });
+}
 
 // oldOrderShopOne.php
 Dropzone.options.proEditImg1 = {
@@ -598,7 +656,7 @@ Dropzone.options.proEditImg1 = {
     //آرگومان اول یک شی است
     //آرکومان دوم مقدار بازگشتی از کنترلر است
     $("#imgEditPro1").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg1_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg1_orderEditSh").html('<img src="/img_shop/' + response + '"width="40"height="30">');
     $("#Aimg1_orderEditSh").html( response );
   },}
 Dropzone.options.proEditImg2 = {
@@ -610,7 +668,7 @@ Dropzone.options.proEditImg2 = {
   },
   success:function(file , response){
     $("#imgEditPro2").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg2_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg2_orderEditSh").html('<img src="/img_shop/' + response + '"width="40"height="30">');
     $("#Aimg2_orderEditSh").html( response );
   },  }
 Dropzone.options.proEditImg3 = {
@@ -622,7 +680,7 @@ Dropzone.options.proEditImg3 = {
   },
   success:function(file , response){
     $("#imgEditPro3").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg3_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg3_orderEditSh").html('<img src="/img_shop/' + response + '"width="40"height="30">');
     $("#Aimg3_orderEditSh").html( response );
   },  }
 Dropzone.options.proEditImg4 = {
@@ -634,7 +692,7 @@ Dropzone.options.proEditImg4 = {
   },
   success:function(file , response){
     $("#imgEditPro4").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg4_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg4_orderEditSh").html('<img src="/img_shop/' + response + '"width="40"height="30">');
     $("#Aimg4_orderEditSh").html( response );
 },}
 Dropzone.options.proEditImg5 = {
@@ -646,7 +704,7 @@ Dropzone.options.proEditImg5 = {
   },
   success:function(file , response){
     $("#imgEditPro5").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg5_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg5_orderEditSh").html('<img src="/img_shop/' + response + '"width="40"height="30">');
     $("#Aimg5_orderEditSh").html( response );
   },  }
 Dropzone.options.proEditImg6 = {
@@ -658,11 +716,13 @@ Dropzone.options.proEditImg6 = {
   },
   success:function(file , response){
     $("#imgEditPro6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-    $("#Iimg6_orderEditSh").html('<i class="fas fa-check Icheck"></i>');
+    $("#Iimg6_orderEditSh").html('<img src="/img_shop/' + response + '"width="40"height="30">');
     $("#Aimg6_orderEditSh").html( response );
   },  }
-  function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url,newPro) {
+function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url,newPro,checkShowProوcheckOrderAdd) {
             //هنگام استفاده از این تابع برای محصولاتی که قرار است برای اولین بار به عنوان پشنهاد محصول به مشتری ارائه شود باید مقدار پارامتر newPro  1 قرار داده شود .
+            //محصولاتی که صفحه showProOneUnStockShop ویرایش می شوند باید مقدار پارامتر checkShowPro برابر 1 قرار گیرد .
+            if (priceFOrder != 'not') {var priceFOrder = $('#'+priceFOrder).val()}else{var priceFOrder=null;}
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
               type:'post',
@@ -677,7 +737,7 @@ Dropzone.options.proEditImg6 = {
                     brand:$('#'+brand).val(),
                     model:$('#'+model).val(),
                     price:$('#'+price).val(),
-                    priceFOrder:$('#'+priceFOrder).val(),
+                    priceFOrder:priceFOrder,
                     vahed:$('#'+vahed).val(),
                     num:$('#'+num).val(),
                     vazn:$('#'+vazn).val(),
@@ -696,16 +756,23 @@ Dropzone.options.proEditImg6 = {
                     img5:$('#'+img5).html(),
                     img6:$('#'+img6).html(),
                     newPro:newPro,
+                    checkShowPro:checkShowPro,
+                    checkOrderAdd:checkOrderAdd,
                    },
               success:function(){
                 $('#'+idAjax).empty();
                 $('#end_orderSabtSh').modal('show');
                 $("#end_orderSabtSh").on('hide.bs.modal', function () {
+                if (checkShowPro==1) {
+                  window.location.href  = "/"+url+"/"+pro_id;
+                } else {
                   if (newPro==1) {
                     window.location.href  = "/"+url+"/"+order_id;
                   } else {
                     window.location.href  = "/"+url+"/"+order_id+"/"+pro_id;
                   }
+                }
+
                 });
               },
               error: function(xhr) {
@@ -739,7 +806,7 @@ Dropzone.options.proEditImg6 = {
                   }
                  }  });
           }
-  function buyOnePrintSh(content) {
+function buyOnePrintSh(content) {
     var contents = $("#"+content).html();
     var frame1 = $('<iframe />');
     frame1[0].name = "frame1";
@@ -762,7 +829,7 @@ Dropzone.options.proEditImg6 = {
         frame1.remove();
     }, 500);
   }
-  function sabtCodeSh() {
+function sabtCodeSh() {
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
               type:'post',
@@ -794,7 +861,7 @@ Dropzone.options.proEditImg6 = {
                  }  });
           }
 
-  function sabtCodeRahgirySh(id) {
+function sabtCodeRahgirySh(id) {
                     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
                     $.ajax({
                       type:'post',

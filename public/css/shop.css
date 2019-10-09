@@ -202,6 +202,11 @@
   }
 }
 .perfectDaShOk{text-align: center;margin: 25px 0 ;padding: 20px 4px;border: 2px solid #286767;border-radius: 3px;}
+.orderAghdamModal2{width: 100%;float: right;text-align: center;right;color: #882e0d;font-size: 18px;}
+.orderAghdamModal2 span{width: 100%;margin-top: 25px;display: inline-block;padding: 10px 0;border: 1px solid #882e0d; background-color:#ffcbb8;border-radius: 3px;}
+.orderAghdamModal2 b{font-size: 22px;margin-left: 6px;}
+.orderAghdamModal3{width: 100%;margin: 0 0 20px 0;float: right;text-align: center;}
+.orderAghdamModal3 button{width: 105px; margin-top: 3px;}
 /* showProUnStockShop.php */
 .showProUSSAll{width: 100%;float: right; overflow: scroll; overflow-y: hidden;}
 .showProUSS{width: 100%;height: 30px;line-height: 29px;float: right;background-color: #e0e0e0;border: 1px solid #383838; border-radius: 3px 3px 0 0;}

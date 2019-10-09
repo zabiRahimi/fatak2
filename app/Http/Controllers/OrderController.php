@@ -83,6 +83,7 @@ class OrderController extends Controller
     {
       $order_id=$request->order_id;
       $order=Order::find($order_id);
+      if(!empty($order->id_proShop) and count(json_decode($order->id_proShop))>0){
       $id_proShop=json_decode($order->id_proShop);
       $pro=ProShop::get();
       $pro_count=count($id_proShop);//تعداد محصولات
@@ -94,6 +95,7 @@ class OrderController extends Controller
       $shop_count=count($shop_count1);//تعداد فروشنده ها
       $img=Picture_shop::first();
       $shop=Shop::first();
+      }
       return view('order.showOrder',compact('pro','img','shop','pro_count','shop_count','id_proShop'));
     }
     public function showOneOrder(Request $request)

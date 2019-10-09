@@ -210,14 +210,20 @@ class ShopController extends Controller
   {
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proShopNum=$this->proShopNum;
     $pro_id=$request->pro_id;
+    $checkPro=$request->cookie('proCheckSPUSS');
     $proS=$request->cookie('proSPUSS');
-    $mapPro = ($proS) ? 'محصول ' . ' ' . $proS : 'همه محصولات' ;
+    switch ($checkPro) {
+      case 'pro':$mapPro = 'محصول ' . ' ' . $proS; break;
+      case 'id':$mapPro = 'محصول با کد ' . ' ' . $proS;break;
+      default: $mapPro='همه محصولات';break;
+    }
+    // $mapPro = ($proS) ? 'محصول ' . ' ' . $proS : 'همه محصولات' ;
 
-    if (!empty($pro_id)) {
-      $proShop=ProShop::where('id', $pro_id)->where('shop_id', $id)->where('show', 1)->get();
-      $mapPro = 'محصول با کد' . $pro_id;
+    if (!empty($checkPro) and $checkPro=='id') {
+      $proShop=ProShop::where('id', $proS)->where('shop_id', $id)->where('show', 1)->get();
+      // $mapPro = 'محصول با کد' . $pro_id;
       $notRecord='no';
-    }elseif(!empty($proS)){
+    }elseif(!empty($checkPro) and $checkPro=='pro'){
         $notRecord='no';
         $proShop=ProShop::where('shop_id', $id)->where( 'name' ,"like", "%$proS%")->where('show', 1)->get();
       }
@@ -345,8 +351,8 @@ class ShopController extends Controller
   }
   public function proShop(Save_proShop $request)
   {
-    $date1=new Verta();//تاریخ جلالی
-    $date=$date1->format('Y/n/j');
+    // $date1=new Verta();//تاریخ جلالی
+    // $date=$date1->format('Y/n/j');
     $order_id=$request->order_id;
     $pro=new ProShop();
     $pro->shop_id=$this->id ;
@@ -399,11 +405,49 @@ class ShopController extends Controller
       $stampProOrder->stamp=$request->stamp;
       $stampProOrder->price=$request->priceFOrder;
       $stampProOrder->disSeller=$request->disSeller;
-      $stampProOrder->date_ad=$date;
-      $stampProOrder->date_up=$date;
+      $stampProOrder->date_ad=time();
+      $stampProOrder->date_up=time();
       $stampProOrder->show=1;
       $stampProOrder->save();
     }
+  }
+  //حذف محصول غیر ثابتی که نه پیشنهاد داده شده و نه خریداری شده است .
+  public function del_proShop1(Request $request)
+  {
+    $id=$this->id;
+    $this->validate($request,['pro_id'=>'required|numeric','img_id'=>'required|numeric','nameImg1' => 'nullable|imgName','nameImg2' => 'nullable|imgName','nameImg3' => 'nullable|imgName','nameImg4' => 'nullable|imgName','nameImg5' => 'nullable|imgName','nameImg6' => 'nullable|imgName','buyAOfferCheck'=> 'required|numeric',]);
+// متغییر buyAOfferCheck در خود نحوه حذف محصول از لحاظ اینکه محصول خریداری شده و یا پیشنهاد شده و غیرو را ذخیره کرده است
+    $delPro=ProShop::find($request->pro_id);$delPro->delete();
+    $delImg=Picture_shop::find($request->img_id);$delImg->delete();
+    $nameImg1=$request->nameImg1;$nameImg2=$request->nameImg2;$nameImg3=$request->nameImg3;$nameImg4=$request->nameImg4;$nameImg5=$request->nameImg5;$nameImg6=$request->nameImg6;
+    if(!empty($nameImg1)and file_exists('img_shop/'. $nameImg1)){unlink('img_shop/'.$nameImg1);}
+    if(!empty($nameImg2)and file_exists('img_shop/'. $nameImg2)){unlink('img_shop/'.$nameImg2);}
+    if(!empty($nameImg3)and file_exists('img_shop/'. $nameImg3)){unlink('img_shop/'.$nameImg3);}
+    if(!empty($nameImg4)and file_exists('img_shop/'. $nameImg4)){unlink('img_shop/'.$nameImg4);}
+    if(!empty($nameImg5)and file_exists('img_shop/'. $nameImg5)){unlink('img_shop/'.$nameImg5);}
+    if(!empty($nameImg6)and file_exists('img_shop/'. $nameImg6)){unlink('img_shop/'.$nameImg6);}
+    if ($request->buyAOfferCheck==2) {
+      $stampPO=StampProOrder::where('proShop_id',$request->pro_id)->where('shop_id' , $id)->get();
+      foreach ($stampPO as $stampPO2) {
+        $order=Order::find($stampPO2->order_id);
+        $orderArray=  json_decode($order->id_proShop);
+        $key = array_search($request->pro_id, $orderArray);
+          array_splice($orderArray,$key, 1);//حذف یک مقدار از آرایه و همچنین حذف اندیس آن
+        $deal = (count($orderArray)>0) ? json_encode($orderArray) : null ;//چنانچه پس از انجام عملیات آرایه دیگر عضوی نداشت در ستون جدول مقدار تهی را ذخیره می کند
+        $order->id_proShop=$deal;
+        $order->save();
+        $delStampPO=StampProOrder::where('order_id',$order->id)->where('proShop_id',$request->pro_id)->where('shop_id',$id)->first();
+        $delStampPO->delete();
+      }
+    }
+  }
+  //این تابع چک می کند محصولی که کاربر اقدام به حذف آن کرده خریداری شده است یا نه همچنین تعداد خریدار را بر می گرداند
+  public function checkDel_proShop(Request $request)
+  {
+    $this->validate($request,['pro_id'=>'required|numeric']);
+    $id=$this->id;
+    $buyOrder=BuyOrder::where('proShop_id',$request->pro_id)->where('shop_id',$id)->where('stage','!=',0)->count();
+    return $buyOrder;
   }
   public function buyProShop(Request $request)
   {
@@ -461,8 +505,7 @@ class ShopController extends Controller
     $file->move('img_shop' , $name);
     return "$name";
   }
-  public function del_imgShop(Request $request)
-  {
+  public function del_imgShop(Request $request){
     $this->validate($request, ['nameImg' => 'required|imgName','id_img' => 'nullable|numeric','cell_imgB' => 'required_with:id_img|alpha_dash','cell_imgS' => 'required_with:id_img|alpha_dash']);
     $nameImg=$request->nameImg;
     $checkFile = 'img_shop/' . $nameImg;// get file path from table
@@ -563,20 +606,24 @@ class ShopController extends Controller
     Cookie::queue('nameOldOrShC', '');
     Cookie::queue('codeOldOrShC', '');
   }
-  public function oldOrderShopOne(Request $request)
+  public function oldOrderOneUnStockShop(Request $request)
   {
-    $stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proShopNum=$this->proShopNum;
+    $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proShopNum=$this->proShopNum;
     $id_order=$request->id1;$id_proShop=$request->id2;
     $oldOrderOne=Order::find($id_order);
     $proShopOne=proShop::find($id_proShop);
     $proImg=Picture_shop::where('pro_shop_id', $id_proShop)->first();
-    return view('shop.oldOrderShopOne',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','oldOrderOne','proShopOne','proImg','id_order','id_proShop'));
+    $stampProOrder=StampProOrder::where('order_id',$id_order)->where('proShop_id',$id_proShop)->where('shop_id',$id)->first();
+    return view('shop.oldOrderOneUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','oldOrderOne','proShopOne','proImg','id_order','id_proShop','stampProOrder'));
   }
   public function editProShopUnStock(Save_editProShop $request)
   {
-    $checkAddPro=StampProOrder::where('order_id', $request->order_id)->where('proShop_id', $request->pro_id)->where('shop_id', $this->id)->first();
-    if(!empty($checkAddPro)){
-      return response()->json(['errors' => ['checkPro' => ['']]], 422);
+    //چک کردن ویرایش محصولی که از صفحه مشاهده محصولات غیر ثابت در حال ویرایش است .
+    if (empty($request->checkShowPro)) {
+        $checkAddPro=StampProOrder::where('order_id', $request->order_id)->where('proShop_id', $request->pro_id)->where('shop_id', $this->id)->first();
+        if(!empty($checkAddPro)){
+          return response()->json(['errors' => ['checkPro' => ['']]], 422);
+        }
     }
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
@@ -613,6 +660,8 @@ class ShopController extends Controller
     $picture->pic_s5 =  $request->img5 ;
     $picture->pic_s6 =  $request->img6 ;
     $picture->save();
+    //چک کردن ویرایش محصولی که از صفحه مشاهده محصولات غیر ثابت در حال ویرایش است .
+    if (empty($request->checkShowPro)) {
     //اضافه کردن رکوردهای stampProOrder
     if ($request->newPro==1) {
       $stampProOrder=new StampProOrder();
@@ -620,7 +669,6 @@ class ShopController extends Controller
       $stampProOrder->proShop_id=$request->pro_id;
       $stampProOrder->shop_id=$this->id;
       $stampProOrder->date_ad=$date;
-
     } else {
       $stampProOrder=StampProOrder::where('order_id',$request->order_id )->first();
     }
@@ -630,12 +678,23 @@ class ShopController extends Controller
     $stampProOrder->date_up=$date;
     $stampProOrder->show=1;
     $stampProOrder->save();
-    // //اضافه کردن این محصول به رکورد سفارش مشتری
-    $order=Order::find($request->order_id);
-    $id_proShop=json_decode($order->id_proShop);
-    $id_proShop[]=$request->pro_id;
-    $order->id_proShop=json_encode($id_proShop);
-    $order->save();
+    /*
+    **checkOrderAdd
+    **چک می کند که اگر محصول ازقبل به مشتری معرفی شده دوباره معرفی نشود
+    **این پارامتر در صفحه زیر مقدار دهی می شود
+    **oldOrderOneUnStockShop.blade.php
+    **مقدار برابر 1 و در صفحهات دیگر نال می باشد
+    */
+    if (empty($request->checkOrderAdd)) {
+      // //اضافه کردن این محصول به رکورد سفارش مشتری
+      $order=Order::find($request->order_id);
+      $id_proShop=json_decode($order->id_proShop);
+      $id_proShop[]=$request->pro_id;
+      $order->id_proShop=json_encode($id_proShop);
+      $order->save();
+    }
+
+    }
   }
   public function sabtErsalShop(Request $request)
   {

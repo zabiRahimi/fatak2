@@ -18,7 +18,7 @@
       </div>
       <div class="orderDiv orderDate">
         <div class="orderDivZ0 orderDate1">تاریخ ثبت <span class="orderDivSpan">:</span></div>
-        <div class="orderDivZ orderDate2">{{str_replace('-', '/',$oldOrderOne->date_ad )}}</div>
+        <div class="orderDivZ orderDate2">{{Verta($oldOrderOne->date_ad)->format('y/m/d')}}</div>
       </div>
       <div class="orderDiv orderSquad">
         <div class="orderDivZ0 orderSquad1">دسته محصول <span class="orderDivSpan">:</span></div>
@@ -53,11 +53,11 @@
          <div class="div_form_radio1">
              <div class="div_form_radio2 stamp_orderEditShD1">
                <label for="stamp_orderEditSh1" class="control-label pull-right "> اصل محصول</label>
-               <input type="radio" name="stamp_orderEditSh" id="stamp_orderEditSh1" value="1" @if ($proShopOne->stamp==1) checked @endif>
+               <input type="radio" name="stamp_orderEditSh" id="stamp_orderEditSh1" value="1" @if ($stampProOrder->stamp==1) checked @endif>
              </div>
              <div class="div_form_radio2 stamp_orderEditShD2">
                <label for="stamp_orderEditSh2" class="control-label pull-right "> مشابه محصول</label>
-               <input type="radio" name="stamp_orderEditSh" id="stamp_orderEditSh2" value="2" @if ($proShopOne->stamp==2) checked @endif>
+               <input type="radio" name="stamp_orderEditSh" id="stamp_orderEditSh2" value="2" @if ($stampProOrder->stamp==2) checked @endif>
              </div>
          </div>
        </div>
@@ -134,37 +134,38 @@
          </div>
        </div>
        <div class="form-group add_pro_form1_1">
-         <label for="img1_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg1_orderEditSh"></i> عکس 1 <span id="Iimg1_orderEditSh">@if ($proImg->pic_b1)<i class="fas fa-check Icheck"></i> @endif </span></label>
+         <label for="img1_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg1_orderEditSh"></i> عکس 1 <span id="Iimg1_orderEditSh">@if($proImg->pic_b1)<img src="/img_shop/{{$proImg->pic_b1}}"width="40"height="30">@endif</span></label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg1" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg1_orderEditSh">{{$proImg->pic_b1}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
-         <label for="img2_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 2 <span id="Iimg2_orderEditSh">@if ($proImg->pic_b2)<i class="fas fa-check Icheck"></i> @endif </span></label>
+         <label for="img2_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 2 <span id="Iimg2_orderEditSh">@if($proImg->pic_b2)<img src="/img_shop/{{$proImg->pic_b2}}"width="40"height="30">@endif</span></label>
         <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg2" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg2_orderEditSh">{{$proImg->pic_b2}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
-         <label for="img3_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 3 <span id="Iimg3_orderEditSh">@if ($proImg->pic_b3) <i class="fas fa-check Icheck"></i>@endif </span></label>
+         <label for="img3_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 3 <span id="Iimg3_orderEditSh">@if ($proImg->pic_b3)<img src="/img_shop/{{$proImg->pic_b3}}"width="40"height="30">@endif </span></label>
         <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg3" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg3_orderEditSh">{{$proImg->pic_b3}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
-         <label for="img4_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 4 <span id="Iimg4_orderEditSh">@if ($proImg->pic_b4)<i class="fas fa-check Icheck"></i> @endif </span></label>
+         <label for="img4_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 4 <span id="Iimg4_orderEditSh">@if ($proImg->pic_b4)<img src="/img_shop/{{$proImg->pic_b4}}"width="40"height="30"> @endif </span></label>
         <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg4" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg4_orderEditSh">{{$proImg->pic_b4}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
-         <label for="img5_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 5 <span id="Iimg5_orderEditSh">@if ($proImg->pic_b5)<i class="fas fa-check Icheck"></i> @endif </span></label>
+         <label for="img5_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 5 <span id="Iimg5_orderEditSh">@if ($proImg->pic_b5)<img src="/img_shop/{{$proImg->pic_b5}}"width="40"height="30"> @endif </span></label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg5" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg5_orderEditSh">{{$proImg->pic_b5}}</div>
        </div>
        <div class="form-group add_pro_form1_1">
-         <label for="img6_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 6 <span id="Iimg6_orderEditSh"> @if ($proImg->pic_b6)<i class="fas fa-check Icheck"></i> @endif </span> </label>
+         <label for="img6_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mimg0_orderEditSh"></i> عکس 6 <span id="Iimg6_orderEditSh"> @if ($proImg->pic_b6)<img src="/img_shop/{{$proImg->pic_b6}}"width="40"height="30"> @endif </span> </label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg6" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg6_orderEditSh">{{$proImg->pic_b6}}</div>
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success" onclick="editProShop({{$proShopOne->id}},{{$proImg->id}},{{$id_order}},{{$id_proShop}})" >ثبت تغییرات</button>
+         <button type="button" class="btn btn-success" onclick="editProShopUnStock({{$proShopOne->id}},{{$oldOrderOne->id}},{{$proImg->id}},'stamp_orderEditSh','name_orderEditSh','maker_orderEditSh','brand_orderEditSh','model_orderEditSh','price_orderEditSh','not','vahed_orderEditSh','num_orderEditSh','vazn_orderEditSh','dimension_orderEditSh','vaznPost_orderEditSh','pakat_orderEditSh','dis_orderEditSh','not','dateMake_orderEditSh','dateExpiration_orderEditSh','term_orderEditSh','Aimg1_orderEditSh','Aimg2_orderEditSh','Aimg3_orderEditSh','Aimg4_orderEditSh','Aimg5_orderEditSh','Aimg6_orderEditSh',
+         'ajax_orderEditSh','form_orderEditSh','oldOrderOneUnStockShop','',null,1)" >ثبت تغییرات</button>
        </div>
      </form>
     </div>
@@ -265,7 +266,7 @@
        </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
    </div></div></div><!--end modal -->
    <div class="modal fade" id="Mimg0_orderEditSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
+   <div class="modal-content"><div class="modal-body MRahnama ">
            عکس 0
        </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
    </div></div></div><!--end modal -->
@@ -282,7 +283,7 @@
            <div class="titr_modal_img_addpro">
               آپلود عکس اول
            </div>
-           <div class="" id="imgEditPro1"></div>
+           <div class="ajax_form_modal" id="imgEditPro1"></div>
            <div class="proEditImg1">
              <form class="dropzone form_img_add_pro" id="proEditImg1" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
                {{ csrf_field() }}
@@ -319,7 +320,7 @@
            <div class="titr_modal_img_addpro">
                آپلود عکس دوم
            </div>
-           <div class="" id="imgEditPro2"></div>
+           <div class="ajax_form_modal" id="imgEditPro2"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg2" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -354,7 +355,7 @@
            <div class="titr_modal_img_addpro">
              آپلود عکس سوم
            </div>
-           <div class="" id="imgEditPro3"></div>
+           <div class="ajax_form_modal" id="imgEditPro3"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg3" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -389,7 +390,7 @@
            <div class="titr_modal_img_addpro">
              آپلود عکس چهارم
            </div>
-           <div class="" id="imgEditPro4"></div>
+           <div class="ajax_form_modal" id="imgEditPro4"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg4" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -424,7 +425,7 @@
            <div class="titr_modal_img_addpro">
              آپلود عکس پنچم
            </div>
-           <div class="" id="imgEditPro5"></div>
+           <div class="ajax_form_modal" id="imgEditPro5"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg5" action="/uplodImgProSh"   enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
@@ -459,7 +460,7 @@
            <div class="titr_modal_img_addpro">
              آپلود عکس ششم
            </div>
-           <div class="" id="imgEditPro6"></div>
+           <div class="ajax_form_modal" id="imgEditPro6"></div>
            <form class="dropzone form_img_add_pro" id="proEditImg6" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">
              {{ csrf_field() }}
              <div class="dz-message">
