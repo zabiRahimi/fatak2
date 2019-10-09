@@ -1,6 +1,6 @@
 @extends('shop.layoutDashShop')
 @section('title')
-  سفارشات ثبت شده
+  محصولات پیشنهاد شده
 @endsection
 @section('dash_content')
   @if ($stage==1)
@@ -16,7 +16,7 @@
     </div>
   @else
     <div class="dashTitrSh">
-      سفارشات ثبت شده
+      محصولات پیشنهاد شده
     </div>
     <div class="div_search_c">
       <button type="button" class="btn btn_search_c" onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'all' , '' , '' , 'oldOrderUnStockShop' , '' )">همه محصولات</button>

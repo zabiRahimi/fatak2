@@ -70,9 +70,9 @@ class Save_editProShop extends FormRequest
          return [
            // 'checkShowPro'=>'nullable|numeric',
            'pro_id' =>'required|numeric' ,
-           'order_id' =>'required_unless:checkShowPro,1|nullable|numeric',
+           'order_id' =>'required_if:checkInset,1|nullable|numeric',
            'img_id' =>'required|numeric',
-           'stamp' =>'required_unless:checkShowPro,1|nullable|numeric',//در جدول stampProOrders ذخیره می شود .
+           'stamp' =>'required_if:checkAddOrOrderStamp,1,2|nullable|numeric',//در جدول stampProOrders ذخیره می شود .
            'namePro'=>'required',
            'maker'=>'nullable',
            'brand'=>'nullable',
@@ -96,8 +96,8 @@ class Save_editProShop extends FormRequest
            'img5'=>'nullable|imgName',
            'img6'=>'nullable|imgName',
            'newPro'=>'nullable|numeric',
-           'checkShowPro'=>'nullable|numeric'
-           'checkOrderAdd'=>'nullable|numeric'
+           'checkInset'=>'nullable|numeric',
+           'checkAddOrOrderStamp'=>'nullable|numeric',
          ];
      }
  }

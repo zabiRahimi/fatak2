@@ -85,11 +85,12 @@ Route::get('/newOrderShopOne/{id}','ShopController@newOrderShopOne')->middleware
 Route::post('/proShop','ShopController@proShop');//ok!!
 Route::post('/del_proShop1','ShopController@del_proShop1');//ok!!
 Route::post('/checkDel_proShop','ShopController@checkDel_proShop');//ok!!
+Route::post('/del_offerProShop','ShopController@del_offerProShop');//ok!!
 Route::get('/oldOrderUnStockShop/{pro_id?}/{stamp?}','ShopController@oldOrderUnStockShop')->middleware(['chekloginShop' ])->where('pro_id', '[0-9]+')->where('stamp', '[0-9]+');//ok!!
 Route::get('/oldOrderOneUnStockShop/{id1}/{id2}','ShopController@oldOrderOneUnStockShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/codeOldOrderShop','ShopController@codeOldOrderShop');//ok!!
 Route::post('/nameOldOrderShop','ShopController@nameOldOrderShop');//ok!!
-Route::post('/allOldOrderShop','ShopController@allOldOrderShop');//ok!!
+// Route::post('/allOldOrderShop','ShopController@allOldOrderShop');//ok!!
 Route::post('/editProShopUnStock','ShopController@editProShopUnStock');//ok!!
 Route::get('/buyProShop','ShopController@buyProShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/buyProShopOne/{buyer_id}/{pro_id}','ShopController@buyProShopOne')->middleware(['chekloginShop' ]);//ok!!

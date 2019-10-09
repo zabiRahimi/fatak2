@@ -69,9 +69,7 @@
           <div class="showProUSS showProUSS_1 {{$color}}">
             <div class="showProUSSRwo  ">{{$r}}</div>
             <div class="showProUSSName showProUSSName_1">{{$value->name}}</div>
-            <div class="showProUSSECode">
-              {{$value->id}}
-            </div>
+            <div class="showProUSSECode">{{$value->id}}</div>
             <div class="showProUSSPrice">{{$value->price}} <span>تومان</span> </div>
             <div class="showProUSSOrder">@if ($value->offerOrder) {{$value->offerOrder}} <span>مورد</span>@else 0 @endif</div>
             <div class="showProUSSDate">{{verta($value->date_up)->format('Y/n/j')}}</div>

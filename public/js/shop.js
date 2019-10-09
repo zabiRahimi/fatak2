@@ -643,7 +643,30 @@ function del_proShop1(pro_id,img_id,nameImg1,nameImg2,nameImg3,nameImg4,nameImg5
 
        }  });
 }
+function del_offerProShop(pro_id,order_id,url) {
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'/del_offerProShop',
+    data: {
+      pro_id:pro_id,
+      order_id:order_id,
+         },
+    success:function(){
 
+        var data2='<div class="<div class="modal_ok1"><i class="far fa-check-circle"></i></div><div class="modal_ok2">حذف پیشنهاد محصول به مشتری با موفقیت انجام شد</div>'
+        $('.alertCheckDlePro1').html(data2);
+        $('.alertCheckDlePro2').html('  <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>');
+
+        $('#del_OfferPro').modal('show');
+        $("#del_OfferPro").on('hide.bs.modal', function () {
+            window.location.href  = "/"+url;
+        });
+    },
+    error: function(xhr) {
+
+       }  });
+}
 // oldOrderShopOne.php
 Dropzone.options.proEditImg1 = {
    parallelUploads: 2,
@@ -719,7 +742,7 @@ Dropzone.options.proEditImg6 = {
     $("#Iimg6_orderEditSh").html('<img src="/img_shop/' + response + '"width="40"height="30">');
     $("#Aimg6_orderEditSh").html( response );
   },  }
-function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url,newPro,checkShowProوcheckOrderAdd) {
+function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url,checkInset,checkAddOrOrderStamp) {
             //هنگام استفاده از این تابع برای محصولاتی که قرار است برای اولین بار به عنوان پشنهاد محصول به مشتری ارائه شود باید مقدار پارامتر newPro  1 قرار داده شود .
             //محصولاتی که صفحه showProOneUnStockShop ویرایش می شوند باید مقدار پارامتر checkShowPro برابر 1 قرار گیرد .
             if (priceFOrder != 'not') {var priceFOrder = $('#'+priceFOrder).val()}else{var priceFOrder=null;}
@@ -755,18 +778,17 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                     img4:$('#'+img4).html(),
                     img5:$('#'+img5).html(),
                     img6:$('#'+img6).html(),
-                    newPro:newPro,
-                    checkShowPro:checkShowPro,
-                    checkOrderAdd:checkOrderAdd,
+                    checkInset:checkInset,
+                    checkAddOrOrderStamp:checkAddOrOrderStamp,
                    },
               success:function(){
                 $('#'+idAjax).empty();
                 $('#end_orderSabtSh').modal('show');
                 $("#end_orderSabtSh").on('hide.bs.modal', function () {
-                if (checkShowPro==1) {
+                if (checkAddOrOrderStamp==null) {
                   window.location.href  = "/"+url+"/"+pro_id;
                 } else {
-                  if (newPro==1) {
+                  if (checkAddOrOrderStamp==1) {
                     window.location.href  = "/"+url+"/"+order_id;
                   } else {
                     window.location.href  = "/"+url+"/"+order_id+"/"+pro_id;
@@ -1074,16 +1096,16 @@ function nameOldOrderShop() {
                }
      });
 }
-function allOldOrderShop() {
-  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
-  $.ajax({
-    type:'post',
-    url:'../../allOldOrderShop',
-    success:function(data){
-      window.location.href  = "/oldOrderShop";
-    },
-  });
- }
+// function allOldOrderShop() {
+//   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+//   $.ajax({
+//     type:'post',
+//     url:'../../allOldOrderShop',
+//     success:function(data){
+//       window.location.href  = "/oldOrderShop";
+//     },
+//   });
+//  }
 function codeBuyProShop() {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({

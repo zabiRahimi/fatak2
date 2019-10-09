@@ -143,7 +143,7 @@
      <div class="form-group">
        <label for="disSeller_orderPSUS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mdis_orderPSUS"></i>توضیح برای این سفارش</label>
        <div class="div_formTextarea">
-         <textarea name="name" class="placeholder" id="dis_orderPSUS"placeholder="اختیاری !! ممکن است برای این مشتری توضیح خاصی داشته باشید .">{{$proShop->dis}}</textarea>
+         <textarea name="name" class="placeholder" id="disSeller_orderPSUS"placeholder="اختیاری !! ممکن است برای این مشتری توضیح خاصی داشته باشید .">{{$proShop->dis}}</textarea>
        </div>
      </div>
      <div class="form-group">
@@ -195,7 +195,7 @@
      <div class="form-group form_btn">
        <button type="button" class="btn btn-success"
       onclick="editProShopUnStock({{$proShop->id}},{{$order_id}},{{$picture_shop->id}},'stamp_orderPSUS','name_orderPSUS','maker_orderPSUS','brand_orderPSUS','model_orderPSUS','price_orderPSUS','priceFOrder_orderPSUS','vahed_orderPSUS','num_orderPSUS','vazn_orderPSUS','dimension_orderPSUS','vaznPost_orderPSUS','pakat_orderPSUS','dis_orderPSUS','disSeller_orderPSUS','dateMake_orderPSUS','dateExpiration_orderPSUS','term_orderPSUS','Aimg1_orderPSUS','Aimg2_orderPSUS','Aimg3_orderPSUS','Aimg4_orderPSUS','Aimg5_orderPSUS','Aimg6_orderPSUS',
-      'ajax_orderPSUS','form_orderPSUS','newOrderShopOne',1)" >ثبت و اعمال تغییرات</button>
+      'ajax_orderPSUS','form_orderPSUS','newOrderShopOne',1,1)" >ثبت و اعمال تغییرات</button>
      </div>
    </form>
   @endif

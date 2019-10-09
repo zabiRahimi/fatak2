@@ -1,14 +1,19 @@
 @extends('shop.layoutDashShop')
 @section('title')
-  مشاهده و ویرایش سفارش
+  مشاهده و ویرایش محصول پیشنهاد شده
 @endsection
 @section('dash_content')
 
     <div class="dashTitrSh">
-    مشاهده و ویرایش سفارش
-      <a href="/oldOrderShop"><button type="button" class="btn btnBack" onclick="">  بازگشت  </button></a>
+    مشاهده و ویرایش محصول پیشنهاد شده
+      <a href="/oldOrderUnStockShop"><button type="button" class="btn btnBack" onclick="">  بازگشت  </button></a>
     </div>
     <div class="dashLBodySh">
+      @if ($numShowOrder)
+        <div class="alert alert-warning">
+          <strong>توجه :</strong> شما این محصول را در حال حاضر به {{$numShowOrder}} مشتری معرفی کرده اید .
+        </div>
+      @endif
       <div class="orderDivTitr">
         مشخصات سفارش خریدار
       </div>
@@ -46,10 +51,10 @@
        <div class="formTitrShop">
            <span>راهنما !!</span> چنانچه بر روی علامت <i class="fas fa-info-circle "></i>هر یک از کادرها کلیک کنید ، راهنمای مربوط به همان کادر را مشاهده خواهید کرد .
        </div>
-       <div id="ajax_orderEditSh"></div>
+       <div class="ajax_form_modal" id="ajax_orderEditSh"></div>
        {{ csrf_field() }}
        <div class="form-group">
-         <label for="stamp_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh" data-toggle="modal" data-target="#Mstamp_orderEditSh"></i> نوع محصول</label>
+         <label for="stamp_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh" data-toggle="modal" data-target="#Mstamp_orderEditSh"></i> نوع محصول <i class="fas fa-star star_form"></i><span style="font-size: 12px;color:#946304;">(برای این سفارش)</span></label>
          <div class="div_form_radio1">
              <div class="div_form_radio2 stamp_orderEditShD1">
                <label for="stamp_orderEditSh1" class="control-label pull-right "> اصل محصول</label>
@@ -62,8 +67,8 @@
          </div>
        </div>
        <div class="form-group">
-         <label for="name_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mname_orderEditSh"></i> نام محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="name_orderEditSh" value="{{$proShopOne->name}}"></div>
+         <label for="name_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mname_orderEditSh"></i> نام محصول <i class="fas fa-star star_form"></i></label>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="name_orderEditSh" value="{{$proShopOne->name}}"placeholder="الزامی ..."></div>
        </div>
        <div class="form-group">
          <label for="maker_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mmaker_orderEditSh"></i>  سازنده محصول</label>
@@ -78,12 +83,15 @@
          <div class="div_form"><input type="text" class="form-control placeholder" id="model_orderEditSh"placeholder="اختیاری ..." value="{{$proShopOne->model}}"></div>
        </div>
        <div class="form-group">
-         <label for="price_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mprice_orderEditSh"></i> قیمت محصول (تومان)</label>
-         <div class="div_form"><input type="text" class="form-control placeholder_price number" id="price_orderEditSh" value="{{$proShopOne->price}}"></div>
-                          {{-- number_format($proShopOne->price) --}}
+         <label for="price_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mprice_orderEditSh"></i> قیمت محصول (تومان) <i class="fas fa-star star_form"></i></label>
+         <div class="div_form"><input type="text" class="form-control placeholder_price number" id="price_orderEditSh" value="{{$proShopOne->price}}"placeholder="الزامی ... به تومان"></div>
        </div>
        <div class="form-group">
-         <label for="vahed_sabtOrder" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا</label>
+         <label for="priceFOrder_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mprice_orderPSUS"></i> قیمت برای این سفارش(تومان)</label>
+         <div class="div_form"><input type="text" class="form-control placeholder_price number"value="{{$stampProOrder->price}}" id="priceFOrder_orderEditSh"placeholder="اختیاری!!ممکن است برای این مشتری قیمت خاصی داشته باشید."></div>
+       </div>
+       <div class="form-group">
+         <label for="vahed_sabtOrder" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mvahed_sabtOrder"></i> واحد شمارش کالا <i class="fas fa-star star_form"></i></label>
          <div class="div_form">
            <select class="select squad_sabtOrder" id="vahed_orderEditSh" name="" >
              <option value="">انتخاب کنید</option>
@@ -106,17 +114,23 @@
          <div class="div_form"><input type="text" class="form-control placeholder" id="vazn_orderEditSh"placeholder="در صورت نیاز ..."value="{{$proShopOne->vazn}}"></div>
        </div>
        <div class="form-group">
-         <label for="vaznPost_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MvaznPost_orderEditSh"></i> وزن پستی محصول (گرم)</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="vaznPost_orderEditSh"value="{{$proShopOne->vaznPost}}"></div>
+         <label for="vaznPost_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MvaznPost_orderEditSh"></i> وزن پستی محصول (گرم) <i class="fas fa-star star_form"></i></label>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="vaznPost_orderEditSh"value="{{$proShopOne->vaznPost}}"placeholder="الزامی ... به گرم"></div>
        </div>
        <div class="form-group">
-         <label for="pakat_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mpakat_orderEditSh"></i> هزینه بسته بندی (تومان)</label>
+         <label for="pakat_orderEditSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mpakat_orderEditSh"></i> هزینه بسته بندی (تومان) </label>
          <div class="div_form"><input type="text" class="form-control placeholder_price number" id="pakat_orderEditSh"placeholder="اختیاری ... به تومان"value="{{$proShopOne->pakat}}"></div>
        </div>
        <div class="form-group">
          <label for="dis_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mdis_orderEditSh"></i> توضیح محصول</label>
          <div class="div_formTextarea">
            <textarea name="name" class="placeholder" id="dis_orderEditSh"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید .">{{$proShopOne->dis}}</textarea>
+         </div>
+       </div>
+       <div class="form-group">
+         <label for="disSeller_orderEditSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#Mdis_orderEditSh"></i>توضیح برای این سفارش</label>
+         <div class="div_formTextarea">
+           <textarea name="name" class="placeholder" id="disSeller_orderEditSh"placeholder="اختیاری !! ممکن است برای این مشتری توضیح خاصی داشته باشید .">{{$stampProOrder->disSeller}}</textarea>
          </div>
        </div>
        <div class="form-group">
@@ -164,14 +178,15 @@
          <div class="imgHidden" id="Aimg6_orderEditSh">{{$proImg->pic_b6}}</div>
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success" onclick="editProShopUnStock({{$proShopOne->id}},{{$oldOrderOne->id}},{{$proImg->id}},'stamp_orderEditSh','name_orderEditSh','maker_orderEditSh','brand_orderEditSh','model_orderEditSh','price_orderEditSh','not','vahed_orderEditSh','num_orderEditSh','vazn_orderEditSh','dimension_orderEditSh','vaznPost_orderEditSh','pakat_orderEditSh','dis_orderEditSh','not','dateMake_orderEditSh','dateExpiration_orderEditSh','term_orderEditSh','Aimg1_orderEditSh','Aimg2_orderEditSh','Aimg3_orderEditSh','Aimg4_orderEditSh','Aimg5_orderEditSh','Aimg6_orderEditSh',
-         'ajax_orderEditSh','form_orderEditSh','oldOrderOneUnStockShop','',null,1)" >ثبت تغییرات</button>
+         <button type="button" class="btn btn-success" onclick="editProShopUnStock({{$proShopOne->id}},{{$oldOrderOne->id}},{{$proImg->id}},'stamp_orderEditSh','name_orderEditSh','maker_orderEditSh','brand_orderEditSh','model_orderEditSh','price_orderEditSh','priceFOrder_orderEditSh','vahed_orderEditSh','num_orderEditSh','vazn_orderEditSh','dimension_orderEditSh','vaznPost_orderEditSh','pakat_orderEditSh','dis_orderEditSh','disSeller_orderEditSh','dateMake_orderEditSh','dateExpiration_orderEditSh','term_orderEditSh','Aimg1_orderEditSh','Aimg2_orderEditSh','Aimg3_orderEditSh','Aimg4_orderEditSh','Aimg5_orderEditSh','Aimg6_orderEditSh',
+         'ajax_orderEditSh','form_orderEditSh','oldOrderOneUnStockShop',null,2)" >ثبت تغییرات</button>
+         <button type="button"class="btn btn-danger orderAghdamP2"data-toggle="modal" data-target="#del_OfferPro">حذف پیشنهاد محصول</button>
        </div>
      </form>
     </div>
 
    <!-- Modal موفق بودن ثبت محصول-->
-   <div class="modal fade" id="end_orderEditSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal fade" id="end_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
      <div class="modal-dialog" role="document">
        <div class="modal-content">
          <div class="modal-body modal_ok">
@@ -184,6 +199,20 @@
        </div>
      </div>
    </div><!--end modal پایان موفقیت ثبت .-->
+   {{-- هشدار برای حذف پیشنهاد این محصول برای مشتری جاری --}}
+   <div class="modal fade" id="del_OfferPro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg modal-xl" role="document">
+       <div class="modal-content">
+         <div class="modal-body orderAghdamModal2 alertCheckDlePro1">
+           <span><b>توجه !!</b> آیا می خواهید پیشنهاد این محصول به سفارش جاری را حذف کنید ؟ْ </span>
+         </div>
+         <div class="orderAghdamModal3 alertCheckDlePro2">
+             <button type="button" class="btn btn-primary"onclick="del_offerProShop({{$proShopOne->id}},{{$oldOrderOne->id}},'oldOrderUnStockShop')" data-dismiss="modal"  aria-label="Close">بله</button>
+             <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
+         </div>
+       </div>
+     </div>
+   </div><!--end modal  -->
    {{--  --}}
    <div class="modal fade" id="Mstamp_orderEditSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
        <div class="modal-content"><div class="modal-body MRahnama">

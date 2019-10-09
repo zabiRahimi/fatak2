@@ -10,7 +10,7 @@
     <div class="dashLBodySh">
       @if ($numShowOrder)
         <div class="alert alert-warning">
-          <strong>توجه :</strong> شما این محصول را به {{$numShowOrder}} مشتری معرفی کرده اید .
+          <strong>توجه :</strong> شما این محصول را در حال حاضر به {{$numShowOrder}} مشتری معرفی کرده اید .
         </div>
       @endif
 
@@ -151,7 +151,7 @@
        </div>
        <div class="form-group form_btn">
          <button type="button" class="btn btn-success"onclick="editProShopUnStock({{$proShop->id}},null,{{$imgPro->id}},'stamp_editSPOUSS','name_editSPOUSS','maker_editSPOUSS','brand_editSPOUSS','model_editSPOUSS','price_editSPOUSS','not','vahed_editSPOUSS','num_editSPOUSS','vazn_editSPOUSS','dimension_editSPOUSS','vaznPost_editSPOUSS','pakat_editSPOUSS','dis_editSPOUSS','not','dateMake_editSPOUSS','dateExpiration_editSPOUSS','term_editSPOUSS','Aimg1_editSPOUSS','Aimg2_editSPOUSS','Aimg3_editSPOUSS','Aimg4_editSPOUSS','Aimg5_editSPOUSS','Aimg6_editSPOUSS',
-         'ajax_editSPOUSS','form_editSPOUSS','showProOneUnStockShop','',1)" >ثبت تغییرات</button>
+         'ajax_editSPOUSS','form_editSPOUSS','showProOneUnStockShop',null,null)" >ثبت تغییرات</button>
            <button type="button"class="btn btn-danger orderAghdamP2"onclick="del_proShopCheckOffer({{$numShowOrder}},{{$proShop->id}})">حذف محصول</button>
        </div></form></div></div>
    <!-- Modal موفق بودن ثبت محصول-->
