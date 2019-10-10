@@ -80,6 +80,9 @@ function loginShop(){
       document.getElementById("form_shoplog").reset();
       captcha();
       $('#end_shoplog').modal('show');
+      setTimeout(function () {
+        $('#end_shoplog').modal('hide');
+      }, 1500)
       $("#end_shoplog").on('hide.bs.modal', function () {
       window.location.href  = "/dashboard_shop";
       });
@@ -828,6 +831,24 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                   }
                  }  });
           }
+/*
+**پیشنهاد محصولات دیگر در صفحه
+**oldOrderOneUnStockShop
+*/
+function showAddOffer() {
+  $("#ulOOUSS2").toggle();
+  $(".ulOOUSS_i1").toggle();
+  $(".ulOOUSS_i2").toggle();
+  var check=$('.ulOOUSS').attr('data-radius');
+  if(check=='r1'){
+    $(".ulOOUSS li").css('border-radius','4px 4px 0 0');
+    $('.ulOOUSS').attr('data-radius' , 'r2');
+  }else{
+    $(".ulOOUSS li").css('border-radius','4px');
+    $('.ulOOUSS').attr('data-radius' , 'r1');
+  }
+}
+
 function buyOnePrintSh(content) {
     var contents = $("#"+content).html();
     var frame1 = $('<iframe />');

@@ -45,6 +45,14 @@
         <div class="orderDivZ0 orderVahed1">شهر مشتری <span class="orderDivSpan">:</span> </div>
         <div class="orderDivZ orderVahed2">{{$oldOrderOne->city}}</div>
       </div>
+      <ul class="ul_line ulOOUSS" data-radius='r1'>
+        <li onclick="showAddOffer()">پیشنهاد محصول دیگر به این سفارش <i class='fas fa-caret-down ulOOUSS_i1'></i><i class='fas fa-caret-up ulOOUSS_i2'></i></li>
+      </ul>
+      <ul class="ulOOUSS2" id="ulOOUSS2">
+        <li>انتخاب از محصولات ثابت</li>
+        <li>انتخاب از محصولات غیر ثابت</li>
+        <li>ثبت محصول جدید</li>
+      </ul>
       <div class="orderLine"></div>
       <form class="form form_orderEditSh" id="form_orderEditSh" action="" method="post">
        <div class="form_titr"><i class="fas fa-info-circle"></i> مشخصات محصول شما</div>

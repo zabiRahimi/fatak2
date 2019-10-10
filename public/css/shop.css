@@ -337,6 +337,58 @@
     .orderOSUSDate{width:13%;border-left: none;}
     .showProUSSRwo_1,.showProUSSVahed_1,.showProUSSDate_1{font-size: 12px;}
     }
+  /* oldOrderOneUnStockShop */
+  .ulOOUSS{
+    width: 100%;
+    margin-top: 15px;
+    float: right;
+    text-align: center;
+  }
+  .ulOOUSS li{
+    /* height: 30px; */
+    width: 200px;
+    padding: 6px;
+    background-color: #053b73;
+    color: #fafafa;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .ulOOUSS li:hover{
+    background-color: #0652a1;
+    color: #e6e6e6;
+
+  }
+  .ulOOUSS li i{
+    position: relative;
+    top: 4px;
+    right: 2px;
+  }
+  .ulOOUSS_i2{display: none;}
+  .ulOOUSS2{
+    width: 100%;
+    padding: 0;
+    margin:8px 0 0;
+    display: none;
+    float: right;
+    text-align: center;
+  }
+  .ulOOUSS2 li{
+    /* height: 30px; */
+    width: 200px;
+    margin-right: calc(50% - 100px);
+    padding: 6px;
+    background-color: #459df5;
+    color: #000;
+    border-bottom: 1px solid #e8fcf7;
+    cursor: pointer;
+    display: block;
+  }
+  .ulOOUSS2 li:hover{
+    background-color: #8dbeee;
+    color: #000;
+
+
+  }
   /* ********** */
   .modal_h_img_add_pro{ line-height: 0; }
   .modal_h_img_add_pro span{ font-size: 34px;color: #a10000;}
