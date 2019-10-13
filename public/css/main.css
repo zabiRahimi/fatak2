@@ -100,7 +100,63 @@ display:inline;
 .form_btn button {width: 160px;font-size: 18px;}
 .ajax_form{width: 99%;margin: 0 0.5%;float: right;text-align: center;}
 .ajax_form_modal{width: 100%;margin: 5px 0;float: right;text-align: center;}
+.imgForm{
+  width: 100%;
+  margin: 0 0 5px;
+  padding: 6px 2px;
+  float: right;
+  border: 1px solid #c8d2d7;
+  border-radius: 0 0 3px 3px;
+}
+.tImgForm{
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 5px;
+  padding-right: 10px;
+  float: right;
+  background-color: #c8d2d7;
+  border-radius: 3px 3px 0 0;
+}
+.btnImgForm{
+  width: 90px;
+  height: 90px;
+  margin: 2px;
+  text-align: center;
+  float: right;
+  border: 1px dashed #bfbfbf ;
+  background-color: #fff;
+  cursor: pointer;
+}
+.btnImgForm i{
+  position: relative;
+  top: 32px;
+  font-size: 22px;
+}
+.btnImgForm:hover {
+  background-color: #ebfafb;
+}
+.btnImgForm:hover i{
+  color: #48788c;
+}
+.iDElImg{
+  position:absolute;
+  z-index: 10;
+  font-size: 20px;
+  color: #37020f;
+  margin-right: 2px;
+  cursor: pointer;
+}
+.iDElImg:hover{
+  color: #75011d;
 
+}
+.divImgP{
+  width: 90px;
+  height: 90px;
+  float: right;
+  margin: 2px;
+}
 /* آپلود عکس تگ پنهان */
 .imgHidden{  width: 1px;height: 1px; overflow: hidden;font-size: 1px; color:#ffffff; background-color: #ffffff;}
 @media(max-width:440px){

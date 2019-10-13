@@ -15,7 +15,7 @@
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css">
          <link href="\css\main.css" rel="stylesheet" type="text/css">
          <link href="\css\shop.css" rel="stylesheet" type="text/css">
-         
+
     </head>
     <body>
       <img src="http://localhost:8000/img_site/210.gif" class="gif_loding" alt="loding" >
@@ -38,6 +38,8 @@
          <script type="text/javascript" src="\js\main.js"></script>
          <script type="text/javascript" src="\js\city.js"></script>
         <script type="text/javascript" src="\js\shop.js"></script>
+        <script type="text/javascript" src="\js\dropzoneShop.js"></script>
+
         <script type="text/javascript">
            $(document).pjax('.apjax' , '#dashPjax');
            $(function () {  $('[data-toggle="tooltip"]').tooltip()});

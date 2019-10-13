@@ -40,6 +40,7 @@
          <script type="text/javascript" src="\js\main.js"></script>
          <script type="text/javascript" src="\js\city.js"></script>
          <script type="text/javascript" src="\js\login.js"></script>
+         
          <script type="text/javascript">
             $(document).pjax('.a_pjax' , '#pjax');
             $(function () {  $('[data-toggle="tooltip"]').tooltip()});

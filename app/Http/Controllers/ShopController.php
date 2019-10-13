@@ -203,6 +203,7 @@ class ShopController extends Controller
   }
   public function sabtProUnStockShop(Request $request)
   {
+    Cookie::queue('namePic', '',time() - 3600);
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proShopNum=$this->proShopNum;
     return view('shop.sabtProUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum'));
   }
@@ -241,6 +242,10 @@ class ShopController extends Controller
     $proShop=ProShop::where('id', $pro_id)->where( 'shop_id' ,$id)->where('show', 1)->first();
     $imgPro=Picture_shop::where('pro_shop_id', $proShop->id)->first();
     $numShowOrder=StampProOrder::where('proShop_id', $proShop->id)->where('shop_id', $id)->count();
+    for ($i=0; $i <7 ; $i++) {
+      if (empty($imgPro['pic_b'.$r]) {continue;}
+      $picName=[]
+    }
     return view('shop.showProOneUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop','imgPro','numShowOrder'));
   }
 
@@ -349,6 +354,68 @@ class ShopController extends Controller
     $newOrderOne=Order::find($id);
     return view('shop.newOrderShopOne',compact('shop_id','stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','newOrderOne'));
   }
+  // public function proShop(Save_proShop $request)
+  // {
+  //   // $date1=new Verta();//تاریخ جلالی
+  //   // $date=$date1->format('Y/n/j');
+  //   $order_id=$request->order_id;
+  //   $pro=new ProShop();
+  //   $pro->shop_id=$this->id ;
+  //   $pro->name = $request->namePro ;
+  //   $pro->maker = $request->maker ;
+  //   $pro->brand = $request->brand ;
+  //   $pro->model = $request->model ;
+  //   $pro->price = $request->price ;
+  //   $pro->vahed = $request->vahed ;
+  //   $pro->num =(empty($request->num)) ? 1 : $request->num;
+  //   $pro->vazn = $request->vazn ;
+  //   $pro->vaznPost = $request->vaznPost ;
+  //   $pro->dimension = $request->dimension ;
+  //   $pro->pakat = $request->pakat ;
+  //   $pro->dis = $request->dis ;
+  //   $pro->dateMake = $request->dateMake ;
+  //   $pro->dateExpiration = $request->dateExpiration ;
+  //   $pro->term = $request->term ;
+  //   if(!empty($order_id)){$pro->offerOrder = 1 ;}
+  //   $pro->date_ad = time() ;
+  //   $pro->date_up = time() ;
+  //   $pro->show = 1 ;
+  //   $pro-> save();
+  //   $picture=new Picture_shop();// اضافه کردن عکسهای محصول
+  //   $picture->pro_shop_id =$pro->id;
+  //   $picture->pic_b1 =  $request->img1 ;
+  //   $picture->pic_b2 =  $request->img2 ;
+  //   $picture->pic_b3 =  $request->img3 ;
+  //   $picture->pic_b4 =  $request->img4 ;
+  //   $picture->pic_b5 =  $request->img5 ;
+  //   $picture->pic_b6 =  $request->img6 ;
+  //   $picture->pic_s1 =  $request->img1 ;
+  //   $picture->pic_s2 =  $request->img2 ;
+  //   $picture->pic_s3 =  $request->img3 ;
+  //   $picture->pic_s4 =  $request->img4 ;
+  //   $picture->pic_s5 =  $request->img5 ;
+  //   $picture->pic_s6 =  $request->img6 ;
+  //   $picture->show = 1;
+  //   $picture->save();
+  //   if(!empty($order_id)){//اضافه کردن آیدی محصول به رکورد سفارش مشتری
+  //     $order=Order::find($order_id);
+  //     $id_proShop=  json_decode($order->id_proShop);
+  //     $id_proShop[]=(integer) $pro->id;
+  //     $order->id_proShop=json_encode($id_proShop);
+  //     $order->save();
+  //     $stampProOrder=new StampProOrder();//اضافه کردن رکوردهای stampProOrder
+  //     $stampProOrder->order_id=$request->order_id;
+  //     $stampProOrder->proShop_id=$pro->id;
+  //     $stampProOrder->shop_id=$this->id;
+  //     $stampProOrder->stamp=$request->stamp;
+  //     $stampProOrder->price=$request->priceFOrder;
+  //     $stampProOrder->disSeller=$request->disSeller;
+  //     $stampProOrder->date_ad=time();
+  //     $stampProOrder->date_up=time();
+  //     $stampProOrder->show=1;
+  //     $stampProOrder->save();
+  //   }
+  // }
   public function proShop(Save_proShop $request)
   {
     // $date1=new Verta();//تاریخ جلالی
@@ -378,18 +445,21 @@ class ShopController extends Controller
     $pro-> save();
     $picture=new Picture_shop();// اضافه کردن عکسهای محصول
     $picture->pro_shop_id =$pro->id;
-    $picture->pic_b1 =  $request->img1 ;
-    $picture->pic_b2 =  $request->img2 ;
-    $picture->pic_b3 =  $request->img3 ;
-    $picture->pic_b4 =  $request->img4 ;
-    $picture->pic_b5 =  $request->img5 ;
-    $picture->pic_b6 =  $request->img6 ;
-    $picture->pic_s1 =  $request->img1 ;
-    $picture->pic_s2 =  $request->img2 ;
-    $picture->pic_s3 =  $request->img3 ;
-    $picture->pic_s4 =  $request->img4 ;
-    $picture->pic_s5 =  $request->img5 ;
-    $picture->pic_s6 =  $request->img6 ;
+    if(!empty($request->cookie('namePic'))){
+    $nameImg=unserialize($request->cookie('namePic'));
+    $picture->pic_b1 =  (!empty($nameImg[0])) ? $nameImg[0] : null ;
+    $picture->pic_b2 =  (!empty($nameImg[1])) ? $nameImg[1] : null  ;
+    $picture->pic_b3 =  (!empty($nameImg[2])) ? $nameImg[2] : null  ;
+    $picture->pic_b4 =  (!empty($nameImg[3])) ? $nameImg[3] : null  ;
+    $picture->pic_b5 =  (!empty($nameImg[4])) ? $nameImg[4] : null  ;
+    $picture->pic_b6 =  (!empty($nameImg[5])) ? $nameImg[5] : null  ;
+    $picture->pic_s1 =  (!empty($nameImg[0])) ? $nameImg[0] : null  ;
+    $picture->pic_s2 =  (!empty($nameImg[1])) ? $nameImg[1] : null  ;
+    $picture->pic_s3 =  (!empty($nameImg[2])) ? $nameImg[2] : null  ;
+    $picture->pic_s4 =  (!empty($nameImg[3])) ? $nameImg[3] : null  ;
+    $picture->pic_s5 =  (!empty($nameImg[4])) ? $nameImg[4] : null  ;
+    $picture->pic_s6 =  (!empty($nameImg[5])) ? $nameImg[5] : null  ;
+    }
     $picture->show = 1;
     $picture->save();
     if(!empty($order_id)){//اضافه کردن آیدی محصول به رکورد سفارش مشتری
@@ -410,6 +480,7 @@ class ShopController extends Controller
       $stampProOrder->show=1;
       $stampProOrder->save();
     }
+    // Cookie::queue('namePic', '',time() - 3600);
   }
   //حذف محصول غیر ثابتی که نه پیشنهاد داده شده و نه خریداری شده است .
   public function del_proShop1(Request $request)
@@ -513,13 +584,41 @@ class ShopController extends Controller
     //نکته مهم : سایز عکسها در لاراول کیلو بایت می باشد اما در دراپ زون برحسب مگا بایت است . دقت شود
     $this->validate($request, [
           'file' => 'required|file|image|mimes:jpeg,jpg,png|max:1000',
+          // 'cookieImg' => 'required|alpha_dash',
       ]);
     $file=$request->file('file');
     $name= time() . $file->getClientOriginalName();
     $file->move('img_shop' , $name);
+    $nameCookei='namePic';
+    if (empty($request->cookie($nameCookei))) {
+      $nameImg=[$name];
+      Cookie::queue($nameCookei, serialize($nameImg));
+    } else {
+    $nameImg=unserialize($request->cookie($nameCookei));
+    $nameImg[]=$name;
+    Cookie::queue($nameCookei, serialize($nameImg));
+    }
     return "$name";
   }
   public function del_imgShop(Request $request){
+    $this->validate($request, ['nameImg' => 'required|imgName','id_img' => 'nullable|numeric','cell_imgB' => 'required_with:id_img|alpha_dash','cell_imgS' => 'required_with:id_img|alpha_dash']);
+    $nameImg=$request->nameImg;
+    $checkFile = 'img_shop/' . $nameImg;// get file path from table
+    if(file_exists($checkFile)) // make sure it exits inside the folder
+    {
+      unlink($checkFile); // delete file/image
+      if(!empty($request->id_img)){
+        $cell_imgB=$request->cell_imgB;
+        $cell_imgS=$request->cell_imgS;
+        $delCellImg=Picture_shop::find($request->id_img);
+        $delCellImg->$cell_imgB=null;
+        $delCellImg->$cell_imgS=null;
+        $delCellImg->save();
+      }
+    }
+  }
+  public function delimg2(Request $request)
+  {
     $this->validate($request, ['nameImg' => 'required|imgName','id_img' => 'nullable|numeric','cell_imgB' => 'required_with:id_img|alpha_dash','cell_imgS' => 'required_with:id_img|alpha_dash']);
     $nameImg=$request->nameImg;
     $checkFile = 'img_shop/' . $nameImg;// get file path from table

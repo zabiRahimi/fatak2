@@ -110,7 +110,16 @@
            <textarea name="name" class=" placeholder" id="term_proPUSS"placeholder="اختیاری ..."></textarea>
          </div>
        </div>
-       <div class="form-group add_pro_form1_1">
+       <div class="tImgForm">
+         بارگذاری عکس محصول
+       </div>
+       <div class="imgForm" >
+
+         <div class="btnImgForm" onclick="setDropzone('kkk')">
+           <i class='fas fa-camera'></i>
+         </div>
+       </div>
+       {{-- <div class="form-group add_pro_form1_1">
          <label for="img1_proPUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_proPUSS"data-toggle="modal" data-target="#Mimg1_proPUSS"></i> عکس 1 <span id="Iimg1_proPUSS"></span></label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPUSSProImg1" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg1_proPUSS"></div>
@@ -132,16 +141,18 @@
        </div>
        <div class="form-group add_pro_form1_1">
          <label for="img5_proPUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_proPUSS"data-toggle="modal" data-target="#Mimg0_proPUSS"></i> عکس 5 <span id="Iimg5_proPUSS"></span></label>
-         <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPUSSProImg5" value="انتخاب کنید"></div>
+         <div class="div_form"><input type="button" name="" class="form-control btn btn-info" onclick="setDropzone('proPUSSImg6')" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg5_proPUSS"></div>
        </div>
        <div class="form-group add_pro_form1_1">
          <label for="img6_proPUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_proPUSS"data-toggle="modal" data-target="#Mimg0_proPUSS"></i> عکس 6 <span id="Iimg6_proPUSS"></span> </label>
-         <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MPUSSProImg6" value="انتخاب کنید"></div>
+         <div class="div_form"><input type="button" onclick="setDropzone('proPUSSImg6')" class="form-control btn btn-info"   value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg6_proPUSS"></div>
-       </div>
+       </div> --}}
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success"onclick="proShop('','not','name_proPUSS','maker_proPUSS','brand_proPUSS','model_proPUSS','price_proPUSS','not','vahed_proPUSS','num_proPUSS','vazn_proPUSS','dimension_proPUSS','vaznPost_proPUSS','pakat_proPUSS','dis_proPUSS','not','dateMake_proPUSS','dateExpiration_proPUSS','term_proPUSS','Aimg1_proPUSS','Aimg2_proPUSS','Aimg3_proPUSS','Aimg4_proPUSS','Aimg5_proPUSS','Aimg6_proPUSS',
+         {{-- <button type="button" class="btn btn-success"onclick="proShop('','not','name_proPUSS','maker_proPUSS','brand_proPUSS','model_proPUSS','price_proPUSS','not','vahed_proPUSS','num_proPUSS','vazn_proPUSS','dimension_proPUSS','vaznPost_proPUSS','pakat_proPUSS','dis_proPUSS','not','dateMake_proPUSS','dateExpiration_proPUSS','term_proPUSS','Aimg1_proPUSS','Aimg2_proPUSS','Aimg3_proPUSS','Aimg4_proPUSS','Aimg5_proPUSS','Aimg6_proPUSS',
+         'ajax_proPUSS','form_proPUSS','sabtProUnStockShop')" >ثبت</button> --}}
+         <button type="button" class="btn btn-success"onclick="proShop('','not','name_proPUSS','maker_proPUSS','brand_proPUSS','model_proPUSS','price_proPUSS','not','vahed_proPUSS','num_proPUSS','vazn_proPUSS','dimension_proPUSS','vaznPost_proPUSS','pakat_proPUSS','dis_proPUSS','not','dateMake_proPUSS','dateExpiration_proPUSS','term_proPUSS',
          'ajax_proPUSS','form_proPUSS','sabtProUnStockShop')" >ثبت</button>
        </div></form>
     </div>
@@ -189,9 +200,26 @@
      <button type="button" class="btn btn-warning" onclick="del_img('imgPUSSPro5','Aimg5_proPUSS','Iimg5_proPUSS')">حذف عکس</button>
 </div></div></div></div><!--end modal عکس پنحم-->
 {{--   مودال عکس ششم --}}
-<div class="modal fade" id="MPUSSProImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس ششم</div>
-   <div class="ajax_form_modal" id="imgPUSSPro6"></div>
-   <form class="dropzone form_img_add_pro" id="proPUSSImg6"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
+<div class="modal fade" id="MPUSSProImg6"  data-ajaxImg="imgPUSSPro6"data-formImg="proPUSSImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+<div class="modal-body modal_body_h_login ">
+
+       <div class="titr_modal_img_addpro">آپلود عکس ششم</div>
+       {{-- imgPUSSPro6 --}}
+       <div class="ajax_form_modal addIdAjax" id=""></div>
+       {{-- proPUSSImg6 --}}
+       <form  class="form_img_add_pro addIdForm "id="" action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}
+         <div class="dz-message">
+           <div class="col-xs-8">
+             <div class="message">
+               <p>جهت آپلود عکس این کادر را کلیک کنید</p>
+             </div>
+           </div>
+          </div>
+       </form>
+
+ </div>
+ <div class="footer_modal_img_add_pro ajaxFooter">
        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
        <button type="button" class="btn btn-warning" onclick="del_img('imgPUSSPro6','Aimg6_proPUSS','Iimg6_proPUSS')">حذف عکس</button>
- </div></div></div> </div><!--end modal  عکس ششم -->
+ </div>
+</div></div> </div><!--end modal  عکس ششم -->

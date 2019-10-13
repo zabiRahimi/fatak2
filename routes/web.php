@@ -124,6 +124,7 @@ Route::post('/SearchAllDatePayShop','ShopController@SearchAllDatePayShop');//ok!
 
 Route::post('/uplodImgProSh','ShopController@uplodImgProSh');//ok!!
 Route::post('/del_imgShop','ShopController@del_imgShop');//ok!!
+Route::post('/delimg2','ShopController@delimg2');//ok!!
 
 Route::post('/pro_searchC','ShopController@pro_searchC');//ok
 Route::post('/allPro_searchC','ShopController@allPro_searchC');//ok

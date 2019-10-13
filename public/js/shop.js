@@ -483,19 +483,22 @@ function editPasDaShop(id){
 
         $("#Aimg5_proPUSS").html( response );
       },  }
-    Dropzone.options.proPUSSImg6 = {
-       parallelUploads: 2,
-       acceptedFiles:".png , .jpg , .jpeg",
-       maxFilesize: 3,
-      error:function(){
-        $("#imgPUSSPro6").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
-      },
-      success:function(file , response){
-        $("#imgPUSSPro6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
-        $("#Iimg6_proPUSS").html('<i class="fas fa-check Icheck"></i>');
-
-        $("#Aimg6_proPUSS").html( response );
-      },  }
+      // function opr() {
+      //   alert(12)
+      // }
+    // Dropzone.options.proPUSSImg6 = {
+    //    parallelUploads: 2,
+    //    acceptedFiles:".png , .jpg , .jpeg",
+    //    maxFilesize: 3,
+    //   error:function(){
+    //     $("#imgPUSSPro6").html('<div class="alert alert-danger">خطا : عکس آپلود نشد <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+    //   },
+    //   success:function(file , response){
+    //     $("#imgPUSSPro6").html('<div class="alert alert-success"> عکس با موفقیت آپلود شد </div>');
+    //     $("#Iimg6_proPUSS").html('<i class="fas fa-check Icheck"></i>');
+    //
+    //     $("#Aimg6_proPUSS").html( response );
+    //   },  }
 function del_img(ajax , div , i,id_img,pic_b,pic_s) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
@@ -513,7 +516,8 @@ function del_img(ajax , div , i,id_img,pic_b,pic_s) {
         $("#"+ i).html( '' );
       },  });
   }
-function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url) {
+function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,idAjax,classForm,url) {
+  // ,img1,img2,img3,img4,img5,img6
         if (priceFOrder != 'not') {var priceFOrder2 = $('#'+priceFOrder).val()}else{var priceFOrder2=null;}
         $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
         $.ajax({
@@ -539,12 +543,12 @@ function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahe
                 dateMake:$('#'+dateMake).val(),
                 dateExpiration:$('#'+dateExpiration).val(),
                 term:$('#'+term).val(),
-                img1:$('#'+img1).html(),
-                img2:$('#'+img2).html(),
-                img3:$('#'+img3).html(),
-                img4:$('#'+img4).html(),
-                img5:$('#'+img5).html(),
-                img6:$('#'+img6).html(),
+                // img1:$('#'+img1).html(),
+                // img2:$('#'+img2).html(),
+                // img3:$('#'+img3).html(),
+                // img4:$('#'+img4).html(),
+                // img5:$('#'+img5).html(),
+                // img6:$('#'+img6).html(),
                },
           success:function(){
             $('#'+idAjax).empty();
@@ -866,11 +870,7 @@ function buyOnePrintSh(content) {
     frameDoc.document.write(contents);
     frameDoc.document.write('</body></html>');
     frameDoc.document.close();
-    setTimeout(function () {
-        window.frames["frame1"].focus();
-        window.frames["frame1"].print();
-        frame1.remove();
-    }, 500);
+
   }
 function sabtCodeSh() {
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});

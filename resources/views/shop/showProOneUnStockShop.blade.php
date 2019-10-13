@@ -117,8 +117,38 @@
            <textarea name="name" class=" placeholder" id="term_editSPOUSS"placeholder="اختیاری ...">{{$proShop->term}}</textarea>
          </div>
        </div>
+       <div class="tImgForm">
+         بارگذاری عکس محصول
+       </div>
+       <div class="imgForm" >
+
+         <div class="btnImgForm" onclick="setDropzone('kkk')">
+           <i class='fas fa-camera'></i>
+         </div>
+         @php
+           $rr=1;
+         @endphp
+
+         @for ($r=1;$r<7; $r++ )
+           {{-- {{$rr}} --}}
+           @continue(empty($imgPro['pic_b'.$r]))
+           @php
+             $imgClass='imgClass'.$r;
+             $celImgB='pic_b'.$r;
+             $celImgS='pic_s'.$r;
+           @endphp
+           <div class="divImgP {{$imgClass}}" >
+             <i class='fas fa-times iDElImg' onclick="delimg2({{$imgPro['id']}},'{{$celImgB}}','{{$celImgS}}','{{$imgPro[$celImgB]}}','{{$imgClass}}')" ></i>
+             <img  src="/img_shop/{{$imgPro[$celImgB]}}" alt="" width="90" height="90">
+
+           </div>
+           @php
+             $rr++
+           @endphp
+         @endfor
+       </div>
        {{-- یک تگ هیدن جهت ذخیره ایدی جدول عکسها برای حذف ستون عکس --}}
-       <div class="imgHidden" id="id_img_editSPOUSS">{{$imgPro->id}}</div>
+       {{-- <div class="imgHidden" id="id_img_editSPOUSS">{{$imgPro->id}}</div>
        <div class="form-group add_pro_form1_1">
          <label for="img1_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg1_editSPOUSS"></i> عکس 1 <span id="Iimg1_editSPOUSS">@if($imgPro->pic_b1)<img src="/img_shop/{{$imgPro->pic_b1}}"width="40"height="30"> @endif</span></label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg1" value="انتخاب کنید"></div>
@@ -148,7 +178,7 @@
          <label for="img6_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 6 <span id="Iimg6_editSPOUSS">@if($imgPro->pic_b6)<img src="/img_shop/{{$imgPro->pic_b6}}"width="40"height="30">@endif</span> </label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg6" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg6_editSPOUSS">{{$imgPro->pic_b6}}</div>
-       </div>
+       </div> --}}
        <div class="form-group form_btn">
          <button type="button" class="btn btn-success"onclick="editProShopUnStock({{$proShop->id}},null,{{$imgPro->id}},'stamp_editSPOUSS','name_editSPOUSS','maker_editSPOUSS','brand_editSPOUSS','model_editSPOUSS','price_editSPOUSS','not','vahed_editSPOUSS','num_editSPOUSS','vazn_editSPOUSS','dimension_editSPOUSS','vaznPost_editSPOUSS','pakat_editSPOUSS','dis_editSPOUSS','not','dateMake_editSPOUSS','dateExpiration_editSPOUSS','term_editSPOUSS','Aimg1_editSPOUSS','Aimg2_editSPOUSS','Aimg3_editSPOUSS','Aimg4_editSPOUSS','Aimg5_editSPOUSS','Aimg6_editSPOUSS',
          'ajax_editSPOUSS','form_editSPOUSS','showProOneUnStockShop',null,null)" >ثبت تغییرات</button>

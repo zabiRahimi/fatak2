@@ -31,7 +31,7 @@
       <div class="divOrderSP1">{{$value->name}}</div>
       <div class="divOrderSP2">{{$value->id}}</div>
       <div class="divOrderSP3">{{$value->price}} <span>تومان</span> </div>
-      <div class="divOrderSP4">{{str_replace('-', '/',$value->date_up )}}</div>
+      <div class="divOrderSP4">{{Verta($value->data_up)->format('y/m/d')}}</div>
     </div>
   @endforeach
 @endif

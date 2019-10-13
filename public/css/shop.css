@@ -337,58 +337,8 @@
     .orderOSUSDate{width:13%;border-left: none;}
     .showProUSSRwo_1,.showProUSSVahed_1,.showProUSSDate_1{font-size: 12px;}
     }
-  /* oldOrderOneUnStockShop */
-  .ulOOUSS{
-    width: 100%;
-    margin-top: 15px;
-    float: right;
-    text-align: center;
-  }
-  .ulOOUSS li{
-    /* height: 30px; */
-    width: 200px;
-    padding: 6px;
-    background-color: #053b73;
-    color: #fafafa;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .ulOOUSS li:hover{
-    background-color: #0652a1;
-    color: #e6e6e6;
-
-  }
-  .ulOOUSS li i{
-    position: relative;
-    top: 4px;
-    right: 2px;
-  }
-  .ulOOUSS_i2{display: none;}
-  .ulOOUSS2{
-    width: 100%;
-    padding: 0;
-    margin:8px 0 0;
-    display: none;
-    float: right;
-    text-align: center;
-  }
-  .ulOOUSS2 li{
-    /* height: 30px; */
-    width: 200px;
-    margin-right: calc(50% - 100px);
-    padding: 6px;
-    background-color: #459df5;
-    color: #000;
-    border-bottom: 1px solid #e8fcf7;
-    cursor: pointer;
-    display: block;
-  }
-  .ulOOUSS2 li:hover{
-    background-color: #8dbeee;
-    color: #000;
 
 
-  }
   /* ********** */
   .modal_h_img_add_pro{ line-height: 0; }
   .modal_h_img_add_pro span{ font-size: 34px;color: #a10000;}
@@ -427,7 +377,7 @@
     .oldOrderDate,.oldOrderDate_1{width:27%;border-left: none;}
     .oldOrderRwo_1,.oldOrderVahed_1,.oldOrderDate_1{font-size: 10px;}
     }
-    /* oldOrderShopOne.php */
+  /* oldOrderOneUnStockShop */
     .orderDivTitr{width:99%;margin: 2px 0.5%;padding: 0 20px;height: 30px;line-height: 30px;float: right;background-color: #047791;border-radius: 3px;color: #fff; }
     .orderDiv{width: 49%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #cfe1f1;}
     .orderDiv2{width: 99%;margin: 2px 0.5%;padding: 0 20px 0 0;background-color: #cfe1f1;float: right;}
@@ -441,6 +391,89 @@
       .orderDivTitr{font-size: 14px;}
       .orderDiv{width: 99%;height: 45px; line-height: 45px;margin: 2px 0.5%;padding: 0 20px 0 0;float: right; background-color: #a8bdcf;}
       }
+      .ulOOUSS{
+        width: 100%;
+        margin-top: 15px;
+        float: right;
+        text-align: center;
+      }
+      .ulOOUSS li{
+        /* height: 30px; */
+        width: 200px;
+        margin-right: calc(50% - 100px);
+        padding: 6px;
+        float: right;
+        background-color: #053b73;
+        color: #fafafa;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .ulOOUSS li:hover{
+        background-color: #0652a1;
+        color: #e6e6e6;
+      }
+      .ulOOUSS li i{
+        position: relative;
+        top: 4px;
+        right: 2px;
+      }
+      .ulOOUSS_i2{display: none;}
+      .ulOOUSS2{
+        width: 100%;
+        padding: 0;
+        float: right;
+        margin:1px 0 0;
+        display: none;
+        float: right;
+        text-align: center;
+      }
+      .ulOOUSS2 li{
+        width: 200px;
+        margin-right: calc(50% - 100px);
+        padding: 6px;
+        background-color: #459df5;
+        color: #000;
+        border-bottom: 1px solid #e8fcf7;
+        cursor: pointer;
+        display: block;
+      }
+      .ulOOUSS2 li:hover{
+        background-color: #8dbeee;
+        color: #000;
+      }
+      .divOOUSS{
+        width: 100%;
+        margin: 4px 0;
+        padding: 3px 4px;
+        float: right;
+        border: 1px solid #535353;
+        border-radius: 3px;
+
+      }
+      .tDivOOUSS{
+        width: 100%;
+        float: right;
+        margin: 4px 0;
+        padding: 3px 6px;
+        text-align: right;
+        border-radius: 3px;
+        background-color: #9ccacf;
+        color: #030f45;
+      }
+      .BOOUSS{
+        border: 1px solid #18577a;
+        border-radius: 3px;
+        padding-left: 2px;
+        padding-right:2px;
+        background-color: #185b81;
+        color: #fff;
+        cursor: pointer;
+        float: left;
+      }
+      .BOOUSS:hover{
+        background-color: #3982ab;
+      }
+      .SBOOUSS{font-size: 12px;}
 /* buyProShop.blade.php */
 /* buyProShopOne.blade.php */
 .buyOneDivTitr,.buyOne2DivTitr{width:99%;height: 30px;line-height: 30px;margin: 2px 0.5%;padding: 0 20px;float: right;background-color: #047791;border-radius: 3px;color: #fff;}
