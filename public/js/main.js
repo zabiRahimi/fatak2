@@ -1,19 +1,39 @@
 $(document).ready(function(){
-  //لوگوی انتظار
-  var w_doc =  $(document).width();
-  var left_doc =( w_doc - 250)/2;
-  $('.gif_loding').css("left", left_doc + "px");
-  $(window).resize(function(){
-    var w_doc2 =  $(document).width();
-    var left_doc2 =( w_doc2 - 250)/2;
-    $('.gif_loding').css("left", left_doc2 + "px");});
+  $('.loader').hide();//مروط لوگوی انتظار که در حالت عادی غیر فعال است .
+  // //لوگوی انتظار
+  // var w_doc =  $(document).width();
+  // var left_doc =( w_doc - 250)/2;
+  // $('.gif_loding').css("left", left_doc + "px");
+  // $(window).resize(function(){
+  //   var w_doc2 =  $(document).width();
+  //   var left_doc2 =( w_doc2 - 250)/2;
+  //   $('.gif_loding').css("left", left_doc2 + "px");});
     //ثبت بازدید شبکه اجتماعی
     var ch=$('.getid').html();
-    if(ch){
-      $('#modal_bazdidCh').modal('show');
-
-    }
+    if(ch){$('#modal_bazdidCh').modal('show');}
 });//end ready
+/*
+**نمایش نماد انتظار هنگامی که در خواست ایجگس داریم
+*/
+// function showSpinnerAjax(fatheAjax ,loaderClass,opacityClass,spinnerclass){
+//   // alert(loaderClass)
+//   $.ajaxSetup({
+//     beforeSend: function() {
+//       alert(loaderClass)
+//       var height=$('.'+fatheclass).innerHeight();//جهت نماد انتظار
+//       var height2=$('.'+spinnerclass).innerHeight();//جهت نماد انتظار
+//       $('.'+opacityClass).css('height',height);//جهت نماد انتظار
+//       $('.'+spinnerclass).css('margin-top',height/2-height2/2);//جهت نماد انتظار
+//       $('.'+loaderClass).show();
+//     },
+//     complete: function(){
+//        $('.'+loaderClass).hide();
+//     },
+//     success: function() {}
+//   });
+// }
+
+
 function bazdidCh() {
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({

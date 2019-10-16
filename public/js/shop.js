@@ -1,4 +1,26 @@
 
+function setDropzone() {
+$('#MDropzone').modal('show');
+}
+Dropzone.autoDiscover = false;
+           $(".addIdForm").dropzone({
+             parallelUploads: 2,
+             acceptedFiles:".png , .jpg , .jpeg",
+             maxFilesize: 3,
+            error:function(file){
+              this.removeFile(this.files[0]);
+              $(".warningDropzone").html('<div class="alert alert-danger">خطا : عکس آپلود نشد<br>شما نمی توانید برای هر محصول بیشتر از 6 عکس آپلود کنید . <br>فرمت های مجاز : jpg , png <br> حداکثر حجم 3000 کیلوبایت</div>');
+              $("#MDropzone").on('hide.bs.modal', function () {
+              $(".warningDropzone").html('');
+              });
+            },
+            success:function(file , response){
+              this.removeFile(this.files[0]);
+              $('#MDropzone').modal('hide');
+              var imgClass = 'c'+new Date().valueOf();//استفاده از تایم استمپ
+              $(".btnImgForm").after(`<div class="divImgP ` + imgClass + `"><i class="fas fa-times iDElImg" onclick="delimg2(null,null,null,'`+response+`' ,'`+imgClass +`')" ></i><img src="/img_shop/`+ response +`" alt=""style="margin:2px;" width="90" height="90"></div>`);
+            },
+           });
 // نمایش و عدم نمایش فرمهای ورود و ثبت نام
 function show_form_shop_log(clases) {
   $('.shop_sabt_log_log').css('display', 'block');
@@ -499,22 +521,48 @@ function editPasDaShop(id){
     //
     //     $("#Aimg6_proPUSS").html( response );
     //   },  }
-function del_img(ajax , div , i,id_img,pic_b,pic_s) {
+// function del_img(ajax , div , i,id_img,pic_b,pic_s) {
+//     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+//     $.ajax({
+//       type:'post',
+//       url:'../../del_imgShop',
+//       data: {
+//         nameImg:$("#"+ div).html(),
+//         id_img:$("#"+ id_img).html(),
+//         cell_imgB:pic_b,//نام ستون جدوال عکسها
+//         cell_imgS:pic_s,//نام ستون جدوال عکسها
+//            },
+//       success:function(){
+//         $("#"+ ajax).html('<div class="alert alert-danger"> عکس حذف شد . </div>');
+//         $("#"+ div).html('');
+//         $("#"+ i).html( '' );
+//       },  });
+//   }
+  function delimg2(img_id,cell_imgB,cell_imgS,nameImg,imgClass) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
-      url:'../../del_imgShop',
+      url:'../delimg2',
       data: {
-        nameImg:$("#"+ div).html(),
-        id_img:$("#"+ id_img).html(),
-        cell_imgB:pic_b,//نام ستون جدوال عکسها
-        cell_imgS:pic_s,//نام ستون جدوال عکسها
+            img_id:img_id,
+            cell_imgB:cell_imgB,
+            cell_imgS:cell_imgS,
+            nameImg:nameImg,
+           },
+           beforeSend: function() {
+              var height=$('.imgForm').innerHeight();//جهت نماد انتظار
+             var height2=$('.spinnerImg').innerHeight();//جهت نماد انتظار
+              $('.opacityImg').css('height',height);//جهت نماد انتظار
+             $('.spinnerImg').css('margin-top',height/2-height2/2);//جهت نماد انتظار
+             $('.loaderImg').show();
+           },
+           complete: function(){
+              $('.loaderImg').hide();
            },
       success:function(){
-        $("#"+ ajax).html('<div class="alert alert-danger"> عکس حذف شد . </div>');
-        $("#"+ div).html('');
-        $("#"+ i).html( '' );
-      },  });
+        $('.'+imgClass).css('display' , 'none');
+      },
+      error: function(xhr) {}  });
   }
 function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,idAjax,classForm,url) {
   // ,img1,img2,img3,img4,img5,img6

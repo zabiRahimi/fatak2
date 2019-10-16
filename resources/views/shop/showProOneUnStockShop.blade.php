@@ -117,17 +117,22 @@
            <textarea name="name" class=" placeholder" id="term_editSPOUSS"placeholder="اختیاری ...">{{$proShop->term}}</textarea>
          </div>
        </div>
+
        <div class="tImgForm">
          بارگذاری عکس محصول
        </div>
-       <div class="imgForm" >
 
-         <div class="btnImgForm" onclick="setDropzone('kkk')">
+       <div class="imgForm" >{{-- fatheAjax--}}
+         <div class="loader loaderImg " >{{-- loaderAjax --}}
+           <div class="opacityC opacityImg"></div>{{-- opacityAjax --}}
+           <div class="spinner-border text-primary spinnerC spinnerImg" >.</div>{{-- spinnerAjax --}}
+         </div>
+         <div class="btnImgForm" onclick="setDropzone()">
            <i class='fas fa-camera'></i>
          </div>
          @php
            $rr=1;
-         @endphp
+           @endphp
 
          @for ($r=1;$r<7; $r++ )
            {{-- {{$rr}} --}}
@@ -219,6 +224,27 @@
        </div>
      </div>
    </div><!--end modal  -->
+   <div class="modal fade" id="MDropzone"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg modal-xl" role="document">
+       <div class="modal-content"><div class="modal-header">
+     <button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+   <div class="modal-body modal_body_h_login ">
+          <div class="titr_modal_img_addpro">آپلود عکس</div>
+          <div class="ajax_form_modal addIdAjax warningDropzone"></div>
+          <form  class="dropzone form_img_add_pro addIdForm" action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}
+            <div class="dz-message">
+              <div class="col-xs-8">
+                <div class="message">
+                  <p>جهت آپلود عکس این کادر را کلیک کنید</p>
+                </div>
+              </div>
+             </div>
+          </form>
+    </div>
+    <div class="footer_modal_img_add_pro ajaxFooter">
+          <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+    </div>
+  </div></div> </div><!--end modal  عکس -->
    {{--  --}}
    <div class="modal fade" id="Mstamp_editSPOUSS" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
        <div class="modal-content"><div class="modal-body MRahnama">
@@ -305,47 +331,5 @@
            عکس 0
        </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
    </div></div></div><!--end modal -->
-   {{-- مودال عکس اول --}}
-   <div class="modal fade"id="MAddESPOUSSImg1"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><div class="titr_modal_img_addpro">آپلود عکس اول</div>
-      <div class="ajax_form_modal"id="ajaxAESPOUSS1"></div><div class="ESPOUSSAddImg1">
-      <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg1"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message "><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b1)<img src="../../img_shop/{{$imgPro->pic_b1}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS1','Aimg1_editSPOUSS','Iimg1_editSPOUSS','id_img_editSPOUSS','pic_b1','pic_s1')">حذف عکس</button>
-    </div></div></div></div><!--end modal عکس اول-->
-   {{-- مودال عکس دوم --}}
-   <div class="modal fade" id="MAddESPOUSSImg2"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس دوم</div>
-      <div class="ajax_form_modal" id="ajaxAESPOUSS2"></div>
-      <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg2"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{csrf_field()}}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b2)<img src="../../img_shop/{{$imgPro->pic_b2}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning"data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS2','Aimg2_editSPOUSS','Iimg2_editSPOUSS','id_img_editSPOUSS','pic_b2','pic_s2')">حذف عکس</button>
-   </div></div></div></div><!--end modal عکس دوم-->
-   {{-- مودال عکس سوم--}}
-   <div class="modal fade"id="MAddESPOUSSImg3"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس سوم</div>
-      <div class="ajax_form_modal" id="ajaxAESPOUSS3"></div>
-      <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg3" action="/uplodImgProSh" enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b3)<img src="../../img_shop/{{$imgPro->pic_b3}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS3','Aimg3_editSPOUSS','Iimg3_editSPOUSS','id_img_editSPOUSS'{{$imgPro->id}},'pic_b3','pic_s3')">حذف عکس</button>
-   </div></div></div></div><!--end modal عکس سوم-->
-   {{--  مودال عکس چهارم --}}
-  <div class="modal fade"id="MAddESPOUSSImg4"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس چهارم</div>
-      <div class="ajax_form_modal" id="ajaxAESPOUSS4"></div>
-      <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg4" action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b4)<img src="../../img_shop/{{$imgPro->pic_b4}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning"data-dismiss="modal"aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS4','Aimg4_editSPOUSS','Iimg4_editSPOUSS','id_img_editSPOUSS','pic_b4','pic_s4')">حذف عکس</button>
-    </div></div></div></div><!--end modal عکس چهارم-->
-   {{--  مودال عکس  پنجم --}}
-  <div class="modal fade"id="MAddESPOUSSImg5"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس پنچم</div>
-      <div class="ajax_form_modal" id="ajaxAESPOUSS5"></div>
-      <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg5"action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b5)<img src="../../img_shop/{{$imgPro->pic_b5}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS5','Aimg5_editSPOUSS','Iimg5_editSPOUSS','id_img_editSPOUSS','pic_b5','pic_s5')">حذف عکس</button>
-  </div></div></div></div><!--end modal عکس پنحم-->
-   {{--   مودال عکس ششم --}}
-   <div class="modal fade" id="MAddESPOUSSImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس ششم</div>
-      <div class="ajax_form_modal" id="ajaxAESPOUSS6"></div>
-      <form class="dropzone form_img_add_pro" id="ESPOUSSAddImg6"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message">@if ($imgPro->pic_b6)<img src="../../img_shop/{{$imgPro->pic_b6}}"style="margin-top: -20px;" width="110" height="100"alt="">@else<p>جهت آپلود عکس این کادر را کلیک کنید</p>@endif</div></div></div></form></div><div class="footer_modal_img_add_pro">
-          <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-          <button type="button" class="btn btn-warning" onclick="del_img('ajaxAESPOUSS6','Aimg6_editSPOUSS','Iimg6_editSPOUSS','id_img_editSPOUSS','pic_b6','pic_s6')">حذف عکس</button>
-    </div></div></div> </div><!--end modal  عکس ششم -->
 
 @endsection

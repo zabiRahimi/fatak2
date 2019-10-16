@@ -27,6 +27,7 @@ direction:rtl;
 width: 100%;
 }
 .gif_loding{width: 250px;position: fixed; margin: 100px 0 0 0; z-index: 3000;  opacity: 0.9; display: none;}
+/*  */
 .all_khat{width: 100%;  }
 .khat1  , .khat3 {width: 100%; border: 1px solid ;}
 .khat1{border-color: #348c07;}
@@ -107,6 +108,7 @@ display:inline;
   float: right;
   border: 1px solid #c8d2d7;
   border-radius: 0 0 3px 3px;
+  position: relative;/*لازم جهت لگوی انتظار*/
 }
 .tImgForm{
   width: 100%;
