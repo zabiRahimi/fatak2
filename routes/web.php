@@ -79,6 +79,8 @@ Route::get('/showProUnStockShop','ShopController@showProUnStockShop')->middlewar
 Route::get('/showProOneUnStockShop/{pro_id}','ShopController@showProOneUnStockShop')->middleware(['chekloginShop' ])->where('pro_id', '[0-9]+');//ok!!
 Route::get('/newOrderShop/{date?}','ShopController@newOrderShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/newOrderShopOne/{id}','ShopController@newOrderShopOne')->middleware(['chekloginShop' ]);//ok!!
+Route::post('/deleteCookieNamePic','ShopController@deleteCookieNamePic');//ok!!
+
 // Route::post('/searchShop','ShopController@searchShop');//ok!!
 // Route::post('/searchSortDateShop','ShopController@searchSortDateShop');//ok!!
 // Route::post('/searchAdvancedShop','ShopController@searchAdvancedShop');//ok!!

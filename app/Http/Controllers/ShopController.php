@@ -238,7 +238,7 @@ class ShopController extends Controller
   {
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proShopNum=$this->proShopNum;
     $pro_id=$request->pro_id;
-Cookie::queue('namePic', '',time() - 3600);
+    Cookie::queue('namePic', '',time() - 3600);
     $proShop=ProShop::where('id', $pro_id)->where( 'shop_id' ,$id)->where('show', 1)->first();
     $imgPro=Picture_shop::where('pro_shop_id', $proShop->id)->first();
     $numShowOrder=StampProOrder::where('proShop_id', $proShop->id)->where('shop_id', $id)->count();
@@ -355,6 +355,7 @@ Cookie::queue('namePic', '',time() - 3600);
   {
     $id=$request->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proShopNum=$this->proShopNum;
     $newOrderOne=Order::find($id);
+    Cookie::queue('namePic', '',time() - 3600);
     return view('shop.newOrderShopOne',compact('shop_id','stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','newOrderOne'));
   }
   // public function proShop(Save_proShop $request)
@@ -562,7 +563,7 @@ Cookie::queue('namePic', '',time() - 3600);
   public function del_proShop1(Request $request)
   {
     $id=$this->id;
-    $this->validate($request,['pro_id'=>'required|numeric','img_id'=>'required|numeric','nameImg1' => 'nullable|imgName','nameImg2' => 'nullable|imgName','nameImg3' => 'nullable|imgName','nameImg4' => 'nullable|imgName','nameImg5' => 'nullable|imgName','nameImg6' => 'nullable|imgName','buyAOfferCheck'=> 'required|numeric',]);
+    $this->validate($request,['pro_id'=>'required|numeric','img_id'=>'required|numeric','buyAOfferCheck'=> 'required|numeric',]);
 // متغییر buyAOfferCheck در خود نحوه حذف محصول از لحاظ اینکه محصول خریداری شده و یا پیشنهاد شده و غیرو را ذخیره کرده است
     $delPro=ProShop::find($request->pro_id);$delPro->delete();
     $delImg=Picture_shop::find($request->img_id);$delImg->delete();
@@ -573,13 +574,6 @@ Cookie::queue('namePic', '',time() - 3600);
         elseif(file_exists('img_shop/'. $nameImg[$i])){unlink('img_shop/'. $nameImg[$i]);}
       }
     }
-    // $nameImg1=$request->nameImg1;$nameImg2=$request->nameImg2;$nameImg3=$request->nameImg3;$nameImg4=$request->nameImg4;$nameImg5=$request->nameImg5;$nameImg6=$request->nameImg6;
-    // if(!empty($nameImg1)and file_exists('img_shop/'. $nameImg1)){unlink('img_shop/'.$nameImg1);}
-    // if(!empty($nameImg2)and file_exists('img_shop/'. $nameImg2)){unlink('img_shop/'.$nameImg2);}
-    // if(!empty($nameImg3)and file_exists('img_shop/'. $nameImg3)){unlink('img_shop/'.$nameImg3);}
-    // if(!empty($nameImg4)and file_exists('img_shop/'. $nameImg4)){unlink('img_shop/'.$nameImg4);}
-    // if(!empty($nameImg5)and file_exists('img_shop/'. $nameImg5)){unlink('img_shop/'.$nameImg5);}
-    // if(!empty($nameImg6)and file_exists('img_shop/'. $nameImg6)){unlink('img_shop/'.$nameImg6);}
     if ($request->buyAOfferCheck==2) {
       $stampPO=StampProOrder::where('proShop_id',$request->pro_id)->where('shop_id' , $id)->get();
       foreach ($stampPO as $stampPO2) {
@@ -669,7 +663,7 @@ Cookie::queue('namePic', '',time() - 3600);
     if (!empty($request->cookie($nameCookei))) {
         $nameImg=unserialize($request->cookie($nameCookei));
         if(count($nameImg)>5){
-          return response()->json(['errors' => ['no_pas' => ['رمز فعلی اشتباه است .']]], 422);
+          return response()->json(['errors' => ['no_uplod' => ['بیشتر از 6 عکس نمی شود بارکذاری کرد.']]], 422);
         }
     }
     $this->validate($request, [
@@ -689,6 +683,10 @@ Cookie::queue('namePic', '',time() - 3600);
     Cookie::queue($nameCookei, serialize($nameImg));
     }
     return "$name";
+  }
+  public function deleteCookieNamePic()
+  {
+    Cookie::queue('namePic', '',time()- 3600);
   }
   public function del_imgShop(Request $request){
     $this->validate($request, ['nameImg' => 'required|imgName','id_img' => 'nullable|numeric','cell_imgB' => 'required_with:id_img|alpha_dash','cell_imgS' => 'required_with:id_img|alpha_dash']);
@@ -1088,6 +1086,7 @@ Cookie::queue('namePic', '',time() - 3600);
 public function searchProSUnStock(Request $request)
 {
   $id=$this->id;
+  Cookie::queue('namePic', '',time() - 3600);
   $this->validate($request, [
         'pro' => 'required|alpha_dash',
         'order_id' => 'required|numeric',
@@ -1110,9 +1109,18 @@ public function searchIdSUnStock(Request $request)
     $checkPro2='no';
   } else {
     $proShop=proShop::where('id',$pro_id)->where('shop_id',$id)->where('show',1)->first();
-    if (!empty($proShop->id)) {$picture_shop=Picture_shop::where('pro_shop_id', $proShop->id)->first();}
+    if (!empty($proShop->id)) {
+      $imgPro=Picture_shop::where('pro_shop_id', $proShop->id)->first();
+      for ($i=0; $i <7 ; $i++) {
+        if (empty($imgPro['pic_b'.$i])) {continue;}
+        $nameImg[]=$imgPro['pic_b'.$i];
+      }
+      if(!empty($nameImg)){
+        Cookie::queue('namePic', serialize($nameImg));
+      }
+    }
   }
   $check=2;
-  return view('shop.searchProSUnStock',compact('proShop','check','checkPro2','picture_shop','order_id'));
+  return view('shop.searchProSUnStock',compact('proShop','check','checkPro2','picture_shop','order_id','imgPro'));
 }
 }//end class

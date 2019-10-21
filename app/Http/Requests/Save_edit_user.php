@@ -44,7 +44,6 @@ class Save_edit_user extends FormRequest
           'karbary'=>'required|pas|min:4|unique:registers,karbary,'.$id,
           'mobail'=>'required|mobail|unique:registers,mobail,'.$id,
           'email'=>'nullable|email|unique:registers,email,'.$id,
-
         ];
     }
 }

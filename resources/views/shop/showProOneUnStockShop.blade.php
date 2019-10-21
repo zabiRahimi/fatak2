@@ -152,38 +152,6 @@
            @endphp
          @endfor
        </div>
-       {{-- یک تگ هیدن جهت ذخیره ایدی جدول عکسها برای حذف ستون عکس --}}
-       {{-- <div class="imgHidden" id="id_img_editSPOUSS">{{$imgPro->id}}</div>
-       <div class="form-group add_pro_form1_1">
-         <label for="img1_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg1_editSPOUSS"></i> عکس 1 <span id="Iimg1_editSPOUSS">@if($imgPro->pic_b1)<img src="/img_shop/{{$imgPro->pic_b1}}"width="40"height="30"> @endif</span></label>
-         <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg1" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg1_editSPOUSS">{{$imgPro->pic_b1}}</div>
-       </div>
-       <div class="form-group add_pro_form1_1">
-         <label for="img2_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 2 <span id="Iimg2_editSPOUSS">@if($imgPro->pic_b2)<img src="/img_shop/{{$imgPro->pic_b2}}"width="40"height="30">@endif</span></label>
-        <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg2" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg2_editSPOUSS">{{$imgPro->pic_b2}}</div>
-       </div>
-       <div class="form-group add_pro_form1_1">
-         <label for="img3_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 3 <span id="Iimg3_editSPOUSS">@if($imgPro->pic_b3)<img src="/img_shop/{{$imgPro->pic_b3}}"width="40"height="30">@endif</span></label>
-        <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg3" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg3_editSPOUSS">{{$imgPro->pic_b3}}</div>
-       </div>
-       <div class="form-group add_pro_form1_1">
-         <label for="img4_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 4 <span id="Iimg4_editSPOUSS">@if($imgPro->pic_b4)<img src="/img_shop/{{$imgPro->pic_b4}}"width="40"height="30">@endif</span></label>
-        <div class="div_form"> <input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg4" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg4_editSPOUSS">{{$imgPro->pic_b4}}</div>
-       </div>
-       <div class="form-group add_pro_form1_1">
-         <label for="img5_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 5 <span id="Iimg5_editSPOUSS">@if($imgPro->pic_b5)<img src="/img_shop/{{$imgPro->pic_b5}}"width="40"height="30">@endif</span></label>
-         <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg5" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg5_editSPOUSS">{{$imgPro->pic_b5}}</div>
-       </div>
-       <div class="form-group add_pro_form1_1">
-         <label for="img6_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mimg0_editSPOUSS"></i> عکس 6 <span id="Iimg6_editSPOUSS">@if($imgPro->pic_b6)<img src="/img_shop/{{$imgPro->pic_b6}}"width="40"height="30">@endif</span> </label>
-         <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddESPOUSSImg6" value="انتخاب کنید"></div>
-         <div class="imgHidden" id="Aimg6_editSPOUSS">{{$imgPro->pic_b6}}</div>
-       </div> --}}
        <div class="form-group form_btn">
          <button type="button" class="btn btn-success"onclick="editProShopUnStock({{$proShop->id}},null,{{$imgPro->id}},'stamp_editSPOUSS','name_editSPOUSS','maker_editSPOUSS','brand_editSPOUSS','model_editSPOUSS','price_editSPOUSS','not','vahed_editSPOUSS','num_editSPOUSS','vazn_editSPOUSS','dimension_editSPOUSS','vaznPost_editSPOUSS','pakat_editSPOUSS','dis_editSPOUSS','not','dateMake_editSPOUSS','dateExpiration_editSPOUSS','term_editSPOUSS','Aimg1_editSPOUSS','Aimg2_editSPOUSS','Aimg3_editSPOUSS','Aimg4_editSPOUSS','Aimg5_editSPOUSS','Aimg6_editSPOUSS',
          'ajax_editSPOUSS','form_editSPOUSS','showProOneUnStockShop',null,null)" >ثبت تغییرات</button>
@@ -204,7 +172,7 @@
            <span><b>توجه !!</b> آیا می خواهید این محصول را حذف کنید ؟ </span>
          </div>
          <div class="orderAghdamModal3">
-             <button type="button" class="btn btn-primary"onclick="del_proShop1({{$proShop->id}},{{$imgPro->id}},'{{$imgPro->pic_b1}}','{{$imgPro->pic_b2}}','{{$imgPro->pic_b3}}','{{$imgPro->pic_b4}}','{{$imgPro->pic_b5}}','{{$imgPro->pic_b6}}','showProUnStockShop',1)" data-dismiss="modal"  aria-label="Close">بله</button>
+             <button type="button" class="btn btn-primary"onclick="del_proShop1({{$proShop->id}},{{$imgPro->id}},'showProUnStockShop',1)" data-dismiss="modal"  aria-label="Close">بله</button>
              <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
          </div>
        </div>
@@ -218,7 +186,7 @@
            <span><b>توجه !!</b> آیا می خواهید این سفارش را حذف کنید ؟ </span>
          </div>
          <div class="orderAghdamModal3 alertCheckDlePro2">
-             <button type="button" class="btn btn-primary"onclick="del_proShop1({{$proShop->id}},{{$imgPro->id}},'{{$imgPro->pic_b1}}','{{$imgPro->pic_b2}}','{{$imgPro->pic_b3}}','{{$imgPro->pic_b4}}','{{$imgPro->pic_b5}}','{{$imgPro->pic_b6}}','showProUnStockShop',2)" data-dismiss="modal"  aria-label="Close">بله</button>
+             <button type="button" class="btn btn-primary"onclick="del_proShop1({{$proShop->id}},{{$imgPro->id}},'showProUnStockShop',2)" data-dismiss="modal"  aria-label="Close">بله</button>
              <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
          </div>
        </div>

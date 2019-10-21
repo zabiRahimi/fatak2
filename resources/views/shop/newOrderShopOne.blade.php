@@ -42,7 +42,7 @@
         های زیر را انتخاب نمایید .
       </div>
       <div class="order_div_g1">
-        <button type="button"onclick="div_active('order_div_stock')">این محصول را قبلا به عنوان <span>محصول ثابت</span> ثبت کرده ام</button>
+        <button type="button"onclick="div_active('order_div_stock')"> انتخاب محصول از محصولات<span> ثابت</span></button>
       </div>
       <div class="order_div_stock orderDivH">
         <div class="orderDivInput1">
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="order_div_g1"onclick="div_active('order_div_unStock')">
-        <button type="button">این محصول را قبلا به عنوان <span>محصول غیر ثابت</span> ثبت کرده ام </button>
+        <button type="button"> انتخاب محصول از محصولات<span> غیر ثابت</span> </button>
       </div>
       <div class="order_div_unStock orderDivH">
         <div class="orderDivInput1">
@@ -189,7 +189,7 @@
            <textarea name="name" class=" placeholder" id="term_orderSabtSh"placeholder="اختیاری ..."></textarea>
          </div>
        </div>
-       <div class="form-group add_pro_form1_1">
+       {{-- <div class="form-group add_pro_form1_1">
          <label for="img1_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg1_orderSabtSh"></i> عکس 1 <span id="Iimg1_orderSabtSh"></span></label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg1" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg1_orderSabtSh"></div>
@@ -218,9 +218,21 @@
          <label for="img6_orderSabtSh" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderSabtSh"data-toggle="modal" data-target="#Mimg0_orderSabtSh"></i> عکس 6 <span id="Iimg6_orderSabtSh"></span> </label>
          <div class="div_form"><input type="button" name="" class="form-control btn btn-info" data-toggle="modal" data-target="#MAddProImg6" value="انتخاب کنید"></div>
          <div class="imgHidden" id="Aimg6_orderSabtSh"></div>
+       </div> --}}
+       <div class="tImgForm">
+         بارگذاری عکس محصول
+       </div>
+       <div class="imgForm" >
+         <div class="loader loaderImg " >{{-- loaderAjax --}}
+           <div class="opacityC opacityImg"></div>{{-- opacityAjax --}}
+           <div class="spinner-border text-primary spinnerC spinnerImg" >.</div>{{-- spinnerAjax --}}
+         </div>
+         <div class="btnImgForm" onclick="setDropzone()">
+           <i class='fas fa-camera'></i>
+         </div>
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success"onclick="proShop({{$newOrderOne->id}},'stamp_orderSabtSh','name_orderSabtSh','maker_orderSabtSh','brand_orderSabtSh','model_orderSabtSh','price_orderSabtSh','priceFOrder_orderSabtSh','vahed_orderSabtSh','num_orderSabtSh','vazn_orderSabtSh','dimension_orderSabtSh','vaznPost_orderSabtSh','pakat_orderSabtSh','dis_orderSabtSh','disSeller_orderSabtSh','dateMake_orderSabtSh','dateExpiration_orderSabtSh','term_orderSabtSh','Aimg1_orderSabtSh','Aimg2_orderSabtSh','Aimg3_orderSabtSh','Aimg4_orderSabtSh','Aimg5_orderSabtSh','Aimg6_orderSabtSh',
+         <button type="button" class="btn btn-success"onclick="proShop({{$newOrderOne->id}},'stamp_orderSabtSh','name_orderSabtSh','maker_orderSabtSh','brand_orderSabtSh','model_orderSabtSh','price_orderSabtSh','priceFOrder_orderSabtSh','vahed_orderSabtSh','num_orderSabtSh','vazn_orderSabtSh','dimension_orderSabtSh','vaznPost_orderSabtSh','pakat_orderSabtSh','dis_orderSabtSh','disSeller_orderSabtSh','dateMake_orderSabtSh','dateExpiration_orderSabtSh','term_orderSabtSh',
          'ajax_orderSabtSh','form_orderSabtSh','newOrderShopOne')" >ثبت</button>
        </div></form></div></div>
    <!-- Modal موفق بودن ثبت محصول-->
@@ -229,181 +241,190 @@
       <div class="modal_ok2">محصول شما با موفقیت ثبت شد . توجه فرمایید :: شما می توانید در همین صفحه محصولات دیگری را نیز به این مشتری معرفی نمایید .</div></div><div class=" modal_ok3">
       <button type="button" class="btn btn-primary "data-dismiss="modal" aria-label="Close" >متوجه شدم !!</button>
    </div></div></div></div><!--end modal پایان موفقیت ثبت .-->
-   {{--  --}}
-   <div class="modal fade" id="Mstamp_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama">
-           مشابه محصول
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mname_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama">
-           نام محصول
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mmaker_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama">
-         maker
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mbrand_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama">
-           برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است .
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mmodel_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama">
-          مدل
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mprice_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama">
-          قیمت
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mvahed_sabtOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           واحد
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mnum_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-          تعداد
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mvazn_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           وزن
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="MvaznPost_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           وزن پستی
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mpakat_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-          بسته بندی
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mdis_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           توضیح محصول
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="MdateMake_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           تاریخ تولید
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="MdateExpiration_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           تاریخ انقضا
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mterm_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           شرایط نگهداری
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mimg1_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           عکس 1
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   <div class="modal fade" id="Mimg0_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
-       <div class="modal-content"><div class="modal-body MRahnama ">
-           عکس 0
-       </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
-   </div></div></div><!--end modal -->
-   {{-- مودال عکس اول --}}
-   <div class="modal fade"id="MAddProImg1"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><div class="titr_modal_img_addpro">آپلود عکس اول</div>
-      <div class="ajax_form_modal"id="imgAddPro1"></div><div class="proAddImg1">
-      <form class="dropzone form_img_add_pro" id="proAddImg1"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message "><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro1','Aimg1_orderSabtSh','Iimg1_orderSabtSh')">حذف عکس</button>
-    </div></div></div></div><!--end modal عکس اول-->
-   {{-- مودال عکس دوم --}}
-   <div class="modal fade" id="MAddProImg2"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس دوم</div>
-      <div class="ajax_form_modal" id="imgAddPro2"></div>
-      <form class="dropzone form_img_add_pro" id="proAddImg2"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{csrf_field()}}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning"data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro2','Aimg2_orderSabtSh','Iimg2_orderSabtSh')">حذف عکس</button>
-   </div></div></div></div><!--end modal عکس دوم-->
-   {{-- مودال عکس سوم--}}
-   <div class="modal fade"id="MAddProImg3"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس سوم</div>
-      <div class="ajax_form_modal" id="imgAddPro3"></div>
-      <form class="dropzone form_img_add_pro" id="proAddImg3" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro3','Aimg3_orderSabtSh','Iimg3_orderSabtSh')">حذف عکس</button>
-   </div></div></div></div><!--end modal عکس سوم-->
-   {{--  مودال عکس چهارم --}}
-  <div class="modal fade"id="MAddProImg4"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس چهارم</div>
-      <div class="ajax_form_modal" id="imgAddPro4"></div>
-      <form class="dropzone form_img_add_pro" id="proAddImg4" action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning"data-dismiss="modal"aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro4','Aimg4_orderSabtSh','Iimg4_orderSabtSh')">حذف عکس</button>
-    </div></div></div></div><!--end modal عکس چهارم-->
-   {{--  مودال عکس  پنجم --}}
-  <div class="modal fade"id="MAddProImg5"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس پنچم</div>
-      <div class="ajax_form_modal" id="imgAddPro5"></div>
-      <form class="dropzone form_img_add_pro" id="proAddImg5"action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro5','Aimg5_orderSabtSh','Iimg5_orderSabtSh')">حذف عکس</button>
-  </div></div></div></div><!--end modal عکس پنحم-->
-   {{--   مودال عکس ششم --}}
-   <div class="modal fade" id="MAddProImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس ششم</div>
-      <div class="ajax_form_modal" id="imgAddPro6"></div>
-      <form class="dropzone form_img_add_pro" id="proAddImg6"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
-          <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-          <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro6','Aimg6_orderSabtSh','Iimg6_orderSabtSh')">حذف عکس</button>
-    </div></div></div> </div><!--end modal  عکس ششم -->
-   {{--  توجه توجه توجه
-    مودالهای عکس صفحه
-    shop\searchProSUnStock.blade.php --}}
-   {{-- مودال عکس اول --}}
-   <div class="modal fade" id="MPSUSProImg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
-      <div class="modal-body "><div class="titr_modal_img_addpro">  آپلود عکس اول</div>
-        <div class="ajax_form_modal" id="imgPSUSPro1"></div>
-        <div class="proPSUSImg1"><form class="dropzone form_img_add_pro" id="proPSUSImg1" action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message "><div class="col-xs-8"><div class="message "><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div></div>
-        <div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro1','Aimg1_orderPSUS','Iimg1_orderPSUS','id_img_orderPSUS','pic_b1','pic_s1')">حذف عکس</button>
-  </div></div></div></div><!--end modal عکس اول-->
-   {{-- مودال عکس دوم --}}
-   <div class="modal fade" id="MPSUSProImg2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header "><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button> </div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس دوم</div>
-    <div class="ajax_form_modal" id="imgPSUSPro2"></div><form class="dropzone form_img_add_pro" id="proPSUSImg2" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
-        <div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro2','Aimg2_orderPSUS','Iimg2_orderPSUS','id_img_orderPSUS','pic_b2','pic_s2')">حذف عکس</button>
-    </div></div></div></div>
-   {{-- مودال عکس سوم--}}
-   <div class="modal fade" id="MPSUSProImg3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header "><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button> </div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس سوم</div>
-    <div class="ajax_form_modal" id="imgPSUSPro3"></div><form class="dropzone form_img_add_pro" id="proPSUSImg3"action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
-        <div class="footer_modal_img_add_pro">
-        <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-        <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro3','Aimg3_orderPSUS','Iimg3_orderPSUS','id_img_orderPSUS','pic_b3','pic_s3')">حذف عکس</button>
-    </div></div></div></div><!--end modal عکس سوم-->
-   {{--  مودال عکس چهارم --}}
-  <div class="modal fade"id="MPSUSProImg4"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس چهارم</div>
-     <div class="ajax_form_modal" id="imgPSUSPro4"></div><form class="dropzone form_img_add_pro" id="proPSUSImg4" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div> </div></form></div><div class="footer_modal_img_add_pro">
-     <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-     <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro4','Aimg4_orderPSUS','Iimg4_orderPSUS','id_img_orderPSUS','pic_b4','pic_s4')">حذف عکس</button>
-   </div></div></div></div><!--end modal عکس چهارم-->
-   {{--  مودال عکس  پنجم --}}
-  <div class="modal fade"id="MPSUSProImg5"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس پنچم</div>
-      <div class="ajax_form_modal" id="imgPSUSPro5"></div>
-      <form class="dropzone form_img_add_pro" id="proPSUSImg5" action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
-      <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-      <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro5','Aimg5_orderPSUS','Iimg5_orderPSUS','id_img_orderPSUS','pic_b5','pic_s5')">حذف عکس</button>
-   </div></div></div></div><!--end modal عکس پنحم-->
-   {{--   مودال عکس ششم --}}
-   <div class="modal fade" id="MPSUSProImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">   آپلود عکس ششم</div>
-    <div class="ajax_form_modal" id="imgPSUSPro6"></div><form class="dropzone form_img_add_pro" id="proPSUSImg6" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
-    <div class="footer_modal_img_add_pro">
-    <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
-    <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro6','Aimg6_orderPSUS','Iimg6_orderPSUS','id_img_orderPSUS','pic_b6','pic_s6')">حذف عکس</button>
-  </div></div></div></div><!--end modal  عکس ششم -->
+
+
+
 @endsection
+<div class="modal fade" id="MDropzone"   tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+<div class="modal-body modal_body_h_login "><div class="titr_modal_img_addpro">آپلود عکس</div><div class="ajax_form_modal addIdAjax warningDropzone"></div>
+<form  class="dropzone form_img_add_pro addIdForm" action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
+<div class="footer_modal_img_add_pro ajaxFooter"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div></div></div> </div><!--end modal  عکس -->
+
+
+{{--  --}}
+<div class="modal fade" id="Mstamp_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama">
+        مشابه محصول
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mname_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama">
+        نام محصول
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mmaker_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama">
+      maker
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mbrand_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama">
+        برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است . برند تست آزمایشی است .
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mmodel_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama">
+       مدل
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mprice_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama">
+       قیمت
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mvahed_sabtOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        واحد
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mnum_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+       تعداد
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mvazn_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        وزن
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="MvaznPost_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        وزن پستی
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mpakat_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+       بسته بندی
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mdis_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        توضیح محصول
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="MdateMake_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        تاریخ تولید
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="MdateExpiration_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        تاریخ انقضا
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mterm_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        شرایط نگهداری
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mimg1_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        عکس 1
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+<div class="modal fade" id="Mimg0_orderSabtSh" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document">
+    <div class="modal-content"><div class="modal-body MRahnama ">
+        عکس 0
+    </div><div class="footer_modal_img_add_pro"><button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button></div>
+</div></div></div><!--end modal -->
+{{-- مودال عکس اول --}}
+{{-- <div class="modal fade"id="MAddProImg1"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body"><div class="titr_modal_img_addpro">آپلود عکس اول</div>
+   <div class="ajax_form_modal"id="imgAddPro1"></div><div class="proAddImg1">
+   <form class="dropzone form_img_add_pro" id="proAddImg1"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message "><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div></div><div class="footer_modal_img_add_pro">
+     <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+     <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro1','Aimg1_orderSabtSh','Iimg1_orderSabtSh')">حذف عکس</button>
+ </div></div></div></div><!--end modal عکس اول--> --}}
+{{-- مودال عکس دوم --}}
+{{-- <div class="modal fade" id="MAddProImg2"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس دوم</div>
+   <div class="ajax_form_modal" id="imgAddPro2"></div>
+   <form class="dropzone form_img_add_pro" id="proAddImg2"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{csrf_field()}}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
+     <button type="button" class="btn btn-warning"data-dismiss="modal"  aria-label="Close"> خروج </button>
+     <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro2','Aimg2_orderSabtSh','Iimg2_orderSabtSh')">حذف عکس</button>
+</div></div></div></div><!--end modal عکس دوم--> --}}
+{{-- مودال عکس سوم--}}
+{{-- <div class="modal fade"id="MAddProImg3"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس سوم</div>
+   <div class="ajax_form_modal" id="imgAddPro3"></div>
+   <form class="dropzone form_img_add_pro" id="proAddImg3" action="/uplodImgProSh"  onclick="nm()"  enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
+     <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+     <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro3','Aimg3_orderSabtSh','Iimg3_orderSabtSh')">حذف عکس</button>
+</div></div></div></div><!--end modal عکس سوم--> --}}
+{{--  مودال عکس چهارم --}}
+{{-- <div class="modal fade"id="MAddProImg4"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس چهارم</div>
+   <div class="ajax_form_modal" id="imgAddPro4"></div>
+   <form class="dropzone form_img_add_pro" id="proAddImg4" action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
+     <button type="button" class="btn btn-warning"data-dismiss="modal"aria-label="Close"> خروج </button>
+     <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro4','Aimg4_orderSabtSh','Iimg4_orderSabtSh')">حذف عکس</button>
+ </div></div></div></div><!--end modal عکس چهارم--> --}}
+{{--  مودال عکس  پنجم --}}
+{{-- <div class="modal fade"id="MAddProImg5"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس پنچم</div>
+   <div class="ajax_form_modal" id="imgAddPro5"></div>
+   <form class="dropzone form_img_add_pro" id="proAddImg5"action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
+     <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+     <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro5','Aimg5_orderSabtSh','Iimg5_orderSabtSh')">حذف عکس</button>
+</div></div></div></div><!--end modal عکس پنحم--> --}}
+{{--   مودال عکس ششم --}}
+{{-- <div class="modal fade" id="MAddProImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس ششم</div>
+   <div class="ajax_form_modal" id="imgAddPro6"></div>
+   <form class="dropzone form_img_add_pro" id="proAddImg6"action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
+       <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+       <button type="button" class="btn btn-warning" onclick="del_img('imgAddPro6','Aimg6_orderSabtSh','Iimg6_orderSabtSh')">حذف عکس</button>
+ </div></div></div> </div><!--end modal  عکس ششم --> --}}
+ {{--  توجه توجه توجه
+  مودالهای عکس صفحه
+  shop\searchProSUnStock.blade.php --}}
+ {{-- مودال عکس اول --}}
+ {{-- <div class="modal fade" id="MPSUSProImg1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
+    <div class="modal-body "><div class="titr_modal_img_addpro">  آپلود عکس اول</div>
+      <div class="ajax_form_modal" id="imgPSUSPro1"></div>
+      <div class="proPSUSImg1"><form class="dropzone form_img_add_pro" id="proPSUSImg1" action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message "><div class="col-xs-8"><div class="message "><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div></div>
+      <div class="footer_modal_img_add_pro">
+      <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+      <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro1','Aimg1_orderPSUS','Iimg1_orderPSUS','id_img_orderPSUS','pic_b1','pic_s1')">حذف عکس</button>
+</div></div></div></div><!--end modal عکس اول-->
+ {{-- مودال عکس دوم --}}
+ {{-- <div class="modal fade" id="MPSUSProImg2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header "><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button> </div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس دوم</div>
+  <div class="ajax_form_modal" id="imgPSUSPro2"></div><form class="dropzone form_img_add_pro" id="proPSUSImg2" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
+      <div class="footer_modal_img_add_pro">
+      <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+      <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro2','Aimg2_orderPSUS','Iimg2_orderPSUS','id_img_orderPSUS','pic_b2','pic_s2')">حذف عکس</button>
+  </div></div></div></div> --}}
+ {{-- مودال عکس سوم--}}
+ {{-- <div class="modal fade" id="MPSUSProImg3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header "><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button> </div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس سوم</div>
+  <div class="ajax_form_modal" id="imgPSUSPro3"></div><form class="dropzone form_img_add_pro" id="proPSUSImg3"action="/uplodImgProSh"enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
+      <div class="footer_modal_img_add_pro">
+      <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+      <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro3','Aimg3_orderPSUS','Iimg3_orderPSUS','id_img_orderPSUS','pic_b3','pic_s3')">حذف عکس</button>
+  </div></div></div></div><!--end modal عکس سوم--> --}}
+ {{--  مودال عکس چهارم --}}
+{{-- <div class="modal fade"id="MPSUSProImg4"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro"> آپلود عکس چهارم</div>
+   <div class="ajax_form_modal" id="imgPSUSPro4"></div><form class="dropzone form_img_add_pro" id="proPSUSImg4" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div> </div></form></div><div class="footer_modal_img_add_pro">
+   <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+   <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro4','Aimg4_orderPSUS','Iimg4_orderPSUS','id_img_orderPSUS','pic_b4','pic_s4')">حذف عکس</button> --}}
+ {{-- </div></div></div></div><!--end modal عکس چهارم--> --}}
+ {{--  مودال عکس  پنجم --}}
+{{-- <div class="modal fade"id="MPSUSProImg5"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog modal-lg modal-xl"role="document"><div class="modal-content"><div class="modal-header modal_h_login_header"><button type="button"class="close modal_h_img_add_pro"data-dismiss="modal"aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">آپلود عکس پنچم</div>
+    <div class="ajax_form_modal" id="imgPSUSPro5"></div>
+    <form class="dropzone form_img_add_pro" id="proPSUSImg5" action="/uplodImgProSh"enctype="multipart/form-data"method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div><div class="footer_modal_img_add_pro">
+    <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+    <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro5','Aimg5_orderPSUS','Iimg5_orderPSUS','id_img_orderPSUS','pic_b5','pic_s5')">حذف عکس</button>
+ </div></div></div></div><!--end modal عکس پنحم--> --}}
+ {{--   مودال عکس ششم --}}
+ {{-- <div class="modal fade" id="MPSUSProImg6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-xl" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close modal_h_img_add_pro" data-dismiss="modal"  aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body modal_body_h_login"><div class="titr_modal_img_addpro">   آپلود عکس ششم</div>
+  <div class="ajax_form_modal" id="imgPSUSPro6"></div><form class="dropzone form_img_add_pro" id="proPSUSImg6" action="/uplodImgProSh"    enctype="multipart/form-data" method="post">{{ csrf_field() }}<div class="dz-message"><div class="col-xs-8"><div class="message"><p>جهت آپلود عکس این کادر را کلیک کنید</p></div></div></div></form></div>
+  <div class="footer_modal_img_add_pro">
+  <button type="button" class="btn btn-warning" data-dismiss="modal"  aria-label="Close"> خروج </button>
+  <button type="button" class="btn btn-warning" onclick="del_img('imgPSUSPro6','Aimg6_orderPSUS','Iimg6_orderPSUS','id_img_orderPSUS','pic_b6','pic_s6')">حذف عکس</button>
+</div></div></div></div><!--end modal  عکس ششم --> --}}
