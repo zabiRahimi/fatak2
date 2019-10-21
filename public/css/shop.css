@@ -235,15 +235,19 @@
   .showProUSSDate{width:16.5%;border-left: none;}
   .showProUSSRwo_1,.showProUSSVahed_1,.showProUSSDate_1{font-size: 12px;}
   }
+  .setSpinner{
+    width: 100%;
+    float: right;
+    position: relative;
+  }
   .opacityC{
     width: 100%;
-    height: inherit;
-    background-color: #fff;
-    position: absolute;
+    background-color: #6b6b6b;
+    position: fixed;
     z-index: 10;
     top: 0;
     right: 0;
-    opacity: 0.3;
+    opacity: 0.8;
   }
   .spinnerC{
     position:absolute;

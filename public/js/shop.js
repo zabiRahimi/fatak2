@@ -1,4 +1,24 @@
 
+// var height=$('.setSpinner').innerHeight();//جهت نماد انتظار
+// alert(height)
+// var height2=$('.spinnerAll').innerHeight();//جهت نماد انتظار
+// $('.opacityAll').css('height',height);//جهت نماد انتظار
+// $('.spinnerAll').css('margin-top',height/2-height2/2);//جهت نماد انتظار
+// $.ajax({
+//   beforeSend: function() {
+//     alert(45)
+//      var height=$('.setSpinner').innerHeight();//جهت نماد انتظار
+//     var height2=$('.spinnerAll').innerHeight();//جهت نماد انتظار
+//      $('.opacityAll').css('height',height);//جهت نماد انتظار
+//     $('.spinnerAll').css('margin-top',height/2-height2/2);//جهت نماد انتظار
+//     $('.loaderAll').show();
+//   },
+//   complete: function(){
+//      $('.loaderAll').hide();
+//   },
+// success:function(){
+// },
+// });
 function setDropzone() {
 $('#MDropzone').modal('show');
 }
@@ -33,9 +53,23 @@ function div_active(class1){
   $.ajax({
     type:'post',
     url:'../deleteCookieNamePic',//مربوط به پاک کردن کوکی عکسها
+    beforeSend: function() {
+      var height=$('.setSpinner').innerHeight();//جهت نماد انتظار
+      var height2=window.innerHeight;//جهت نماد انتظار
+      var hScroll= $(window).scrollTop();
+      $('.opacityAll').css('height',height);//جهت نماد انتظار
+      $('.spinnerAll').css('top',height2/2 + hScroll);//جهت نماد انتظار
+      $('.loaderAll').show();
+    },
+    complete: function(){
+       $('.loaderAll').hide();
+    },
+    success:function(){
+      $(".loader").hide();
+    },
     });
   $(".imgForm").html('<div class="loader loaderImg " ><div class="opacityC opacityImg"></div><div class="spinner-border text-primary spinnerC spinnerImg" >.</div></div><div class="btnImgForm" onclick="setDropzone()"><i class="fas fa-camera"></i></div>');
-  $(".loader").hide();
+
   $('.orderDivH').removeClass('orderDivSh');
   $('#sProSUnStock').val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
   $('#sIdSUnStock').val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
@@ -605,7 +639,7 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                      $('#'+idAjax).html('<div class="alert alert-danger">شما این محصول را قبلا به این مشتری پیشنهاد داده اید .</div>');
                   }
                   else if(error['stamp']){
-                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['stamp']+'</div>');
+                     $('#'+idAjax).html('<div class="alert alert-danger">لطفا نوع محصول را انتخاب کنید</div>');
                   }
                   else if(error['namePro']){
                      $('#'+idAjax).html('<div class="alert alert-danger">'+error['namePro']+'</div>');
