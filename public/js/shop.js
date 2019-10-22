@@ -71,7 +71,7 @@ function div_active(class1,setTop,proDel,idDel,ajaxDel,formH){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../deleteCookieNamePic',//مربوط به پاک کردن کوکی عکسها
+    url:'../../deleteCookieNamePic',//مربوط به پاک کردن کوکی عکسها
     success:function(){
       $(".loader").hide();
     },
@@ -82,8 +82,13 @@ function div_active(class1,setTop,proDel,idDel,ajaxDel,formH){
   $(idDel).val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
   $(ajaxDel).html('');
   $('.'+class1).addClass('orderDivSh');
-    var hTop=$(setTop).offset().top;
-    $('html, body').animate({scrollTop : hTop - 5},500);
+  if (class1=='divStockOOUS' || class1=='divUnStockOOUS'|| class1=='divNewOOUS') {
+    $(formH).hide();
+  } else {
+    $(formH).show();
+  }
+  var hTop=$(setTop).offset().top;
+  $('html, body').animate({scrollTop : hTop - 5},500);
 }
 // function divActiveOOOUNSS(class1) {
 //   $('.orderDivH').removeClass('orderDivSh');
@@ -422,7 +427,7 @@ function editPasDaShop(id){
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
-      url:'../delimg2',
+      url:'../../delimg2',
       data: {
             img_id:img_id,
             cell_imgB:cell_imgB,

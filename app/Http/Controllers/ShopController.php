@@ -817,10 +817,17 @@ class ShopController extends Controller
     $id_order=$request->id1;$id_proShop=$request->id2;
     $oldOrderOne=Order::find($id_order);
     $proShopOne=proShop::find($id_proShop);
-    $proImg=Picture_shop::where('pro_shop_id', $id_proShop)->first();
+    $imgPro=Picture_shop::where('pro_shop_id', $id_proShop)->first();
     $stampProOrder=StampProOrder::where('order_id',$id_order)->where('proShop_id',$id_proShop)->where('shop_id',$id)->first();
       $numShowOrder=StampProOrder::where('proShop_id', $id_proShop)->where('shop_id', $id)->count();
-    return view('shop.oldOrderOneUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','oldOrderOne','proShopOne','proImg','id_order','id_proShop','stampProOrder','numShowOrder'));
+      for ($i=0; $i <7 ; $i++) {
+        if (empty($imgPro['pic_b'.$i])) {continue;}
+        $nameImg[]=$imgPro['pic_b'.$i];
+      }
+      if(!empty($nameImg)){
+        Cookie::queue('namePic', serialize($nameImg));
+      }
+    return view('shop.oldOrderOneUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','oldOrderOne','proShopOne','imgPro','id_order','id_proShop','stampProOrder','numShowOrder'));
   }
 
     /*
