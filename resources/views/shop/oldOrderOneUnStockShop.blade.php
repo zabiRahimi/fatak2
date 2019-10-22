@@ -6,7 +6,7 @@
 
     <div class="dashTitrSh">
     مشاهده و ویرایش محصول پیشنهاد شده
-      <a href="/oldOrderUnStockShop"><button type="button" class="btn btnBack" onclick="">  بازگشت  </button></a>
+      <a href="/oldOrderUnStockShop"><button type="button" class="btn btn-info btnBack" onclick="">  بازگشت  </button></a>
     </div>
     <div class="dashLBodySh">
       @if ($numShowOrder)
@@ -49,11 +49,11 @@
         <li onclick="showAddOffer()">پیشنهاد محصول دیگر به این سفارش <i class='fas fa-caret-down ulOOUSS_i1'></i><i class='fas fa-caret-up ulOOUSS_i2'></i></li>
       </ul>
       <ul class="ulOOUSS2" id="ulOOUSS2">
-        <li>انتخاب از محصولات ثابت</li>
-        <li>انتخاب از محصولات غیر ثابت</li>
-        <li>ثبت محصول جدید</li>
+        <li onclick="showAddOffer();div_active('divStockOOUS','.divStockOOUS')">انتخاب از محصولات ثابت</li>
+        <li onclick="showAddOffer();div_active('divUnStockOOUS','.divUnStockOOUS')">انتخاب از محصولات غیر ثابت</li>
+        <li onclick="showAddOffer();div_active('divNewOOUS','.divNewOOUS')">ثبت محصول جدید</li>
       </ul>
-      <div class="divOOUSS">
+      <div class="divOOUSS divStockOOUS orderDivH ">
         <button type="button" class="BOOUSS">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proShopOne->name}})</span> </button>
         <div class="tDivOOUSS">انتخاب از محصولات ثابت</div>
         <div class="orderDivInput1">
@@ -66,7 +66,7 @@
         </div>
 
       </div>
-      <div class="divOOUSS">
+      <div class="divOOUSS divUnStockOOUS orderDivH">
         <div class="tDivOOUSS">انتخاب از محصولات غیر ثابت
           <button type="button" class="BOOUSS">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proShopOne->name}})</span> </button>
           {{-- {{$proShopOne->name}} --}}
@@ -81,7 +81,7 @@
         </div>
         <div class="orderDivSPSS" id="ajax_searchProSUnStock"></div>
       </div>
-      <div class="divOOUSS  ">
+      <div class="divOOUSS divNewOOUS orderDivH">
       <form class="form form_newPSabtSh" id="form_newPSabtSh" action="" method="post">
        <div class="form_titr"><i class="fas fa-info-circle"></i>ثبت محصول جدید </div>
        <div class="formTitrShop">
@@ -232,7 +232,7 @@
       </div></form></div>
       <div class="orderLine"></div>
       <form class="form form_orderEditSh" id="form_orderEditSh" action="" method="post">
-       <div class="form_titr"><i class="fas fa-info-circle"></i> مشخصات محصول شما</div>
+       <div class="form_titr"><i class="fas fa-info-circle"></i> مشاهده و ویرایش محصول جاری ({{$proShopOne->name}})</div>
        <div class="formTitrShop">
            <span>راهنما !!</span> چنانچه بر روی علامت <i class="fas fa-info-circle "></i>هر یک از کادرها کلیک کنید ، راهنمای مربوط به همان کادر را مشاهده خواهید کرد .
        </div>

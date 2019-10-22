@@ -26,7 +26,7 @@
       $color="color2";
     }
      ?>
-    <div class="divOrderRow2 {{$color}}"onclick="searchIdSUnStock({{$value->id}},{{$order_id}})">
+    <div class="divOrderRow2 {{$color}}"onclick="searchIdSUnStock({{$value->id}},{{$order_id}});spinner()">
       <div class="divOrderSPR">{{$r}}</div>
       <div class="divOrderSP1">{{$value->name}}</div>
       <div class="divOrderSP2">{{$value->id}}</div>
@@ -47,7 +47,7 @@
     </div>
   @else
     <form class="form form_orderPSUS" id="form_orderPSUS" action="" method="post">
-     <div class="form_titr"><i class="fas fa-info-circle"></i> ثبت محصول </div>
+     <div class="form_titr"><i class="fas fa-info-circle"></i>ویرایش و ثبت پیشنهاد محصول </div>
      <div class="formTitrShop">
          <span>راهنما !!</span> چنانچه بر روی علامت <i class="fas fa-info-circle "></i>هر یک از کادرها کلیک کنید ، راهنمای مربوط به همان کادر را مشاهده خواهید کرد .
      </div>

@@ -48,11 +48,8 @@ function show_form_shop_log(clases) {
    $('.shop_ghanon_society_log3').css('display', 'none');
   $('.'+clases).css('display', 'block');
 }
-function div_active(class1){
-  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+function spinner() {
   $.ajax({
-    type:'post',
-    url:'../deleteCookieNamePic',//مربوط به پاک کردن کوکی عکسها
     beforeSend: function() {
       var height=$('.setSpinner').innerHeight();//جهت نماد انتظار
       var height2=window.innerHeight;//جهت نماد انتظار
@@ -64,18 +61,39 @@ function div_active(class1){
     complete: function(){
        $('.loaderAll').hide();
     },
+  })
+
+}
+function div_active(class1,setTop,proDel,idDel,ajaxDel,formH){
+  /*setTop
+  **موقع مقدار دهی یه پارامتر باید همون موقع آیدی و یا کلاس بودن پارمتر را مشخص کرد
+  */
+  $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
+  $.ajax({
+    type:'post',
+    url:'../deleteCookieNamePic',//مربوط به پاک کردن کوکی عکسها
     success:function(){
       $(".loader").hide();
     },
     });
   $(".imgForm").html('<div class="loader loaderImg " ><div class="opacityC opacityImg"></div><div class="spinner-border text-primary spinnerC spinnerImg" >.</div></div><div class="btnImgForm" onclick="setDropzone()"><i class="fas fa-camera"></i></div>');
-
   $('.orderDivH').removeClass('orderDivSh');
-  $('#sProSUnStock').val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
-  $('#sIdSUnStock').val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
-  $('#ajax_searchProSUnStock').html('');
+  $(proDel).val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
+  $(idDel).val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
+  $(ajaxDel).html('');
   $('.'+class1).addClass('orderDivSh');
+    var hTop=$(setTop).offset().top;
+    $('html, body').animate({scrollTop : hTop - 5},500);
 }
+// function divActiveOOOUNSS(class1) {
+//   $('.orderDivH').removeClass('orderDivSh');
+//   // $('#sProSUnStock').val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
+//   // $('#sIdSUnStock').val('');//خالی کردن این پوت جستجوی محصول غیر ثابت
+//   // $('#ajax_searchProSUnStock').html('');
+//   $('.'+class1).addClass('orderDivSh');
+//     var hTop=$(setTop).offset().top;
+//     $('html, body').animate({scrollTop : hTop - 5},500);
+// }
 // ثبت ابتدایی تامین کننده
 function sabtShop_1(){
   var mobail=$('#mobail_shopsabt1').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
@@ -1101,6 +1119,8 @@ function searchProSUnStock(order_id) {
       success:function(data){
 
          $('#ajax_searchProSUnStock').html(data);
+         var hTop=$('#ajax_searchProSUnStock').offset().top;
+         $('html, body').animate({scrollTop : hTop - 5},800);
         // window.location.href  = "/newOrderShop/"+sortdate;
       },
        });
@@ -1126,8 +1146,9 @@ function searchIdSUnStock(id,order_id) {
         order_id:order_id,
            },
       success:function(data){
-
          $('#ajax_searchProSUnStock').html(data);
+         var hTop=$('#ajax_searchProSUnStock').offset().top;
+         $('html, body').animate({scrollTop : hTop - 5},500);
         // window.location.href  = "/newOrderShop/"+sortdate;
       },
        });

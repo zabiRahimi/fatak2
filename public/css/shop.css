@@ -134,7 +134,7 @@
 .dashSh_small_1 , .dashSh_small_2{display: none;}
 }
 /* content shop */
-.btnBack{float: left; height: 30px;margin-top: 3px;}
+.btnBack{float: left; height: 30px;line-height: 18px;margin-top: 3px;}
 
 .dashShContent{width: 98%;margin: 5px 1%;padding: 7px 4px;background-color: #f1f1f1; float: right;}
 .dashSh_R{width: 220px;margin-left: 5px;background-color: #d4d4d4; float: right;}
@@ -242,12 +242,12 @@
   }
   .opacityC{
     width: 100%;
-    background-color: #6b6b6b;
+    background-color: #fff;
     position: fixed;
     z-index: 10;
     top: 0;
     right: 0;
-    opacity: 0.8;
+    opacity: 0.4;
   }
   .spinnerC{
     position:absolute;

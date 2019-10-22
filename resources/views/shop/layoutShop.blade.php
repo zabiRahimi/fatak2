@@ -19,7 +19,7 @@
 
     </head>
     <body>
-      <img src="http://localhost:8000/img_site/210.gif" class="gif_loding" alt="loding" >
+      {{-- <img src="http://localhost:8000/img_site/210.gif" class="gif_loding" alt="loding" > --}}
 
         <div class="setSpinner">
           <div class=" loader loaderAll " >{{-- loaderAjax --}}
