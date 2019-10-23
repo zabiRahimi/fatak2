@@ -598,9 +598,18 @@ function del_offerProShop(pro_id,order_id,url) {
     error: function(xhr) {
        }  });
 }
-function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,img1,img2,img3,img4,img5,img6,idAjax,classForm,url,checkInset,checkAddOrOrderStamp) {
-            //هنگام استفاده از این تابع برای محصولاتی که قرار است برای اولین بار به عنوان پشنهاد محصول به مشتری ارائه شود باید مقدار پارامتر newPro  1 قرار داده شود .
-            //محصولاتی که صفحه showProOneUnStockShop ویرایش می شوند باید مقدار پارامتر checkShowPro برابر 1 قرار گیرد .
+function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,idAjax,classForm,url,checkInset,checkAddOrEditStamp) {
+            /*
+            **checkInset
+            **هنگامی که این پارامتر مقدار دهی شده باشد متد کنترل چک می کند که محصول جاری به سفارش جاری قبلا معرفی شده یا خیر
+            **در ادامه نحوه مقدار دهی در صفحات ذکر شده
+            **showProOneUnStockShop = null , searchProSUnStock = 1 , oldOrderOneUnStockShop -> in form (form_orderEditOOUSS) = null
+            ×××××
+            **checkAddOrEditStamp
+            **این پارمتر هنگامی مقدار دهی می شود که میخواهیم محصولی را به سفارشی معرفی کنیم یا اینکه محصول معرفی شده را ویرایش کنیم
+            ××در واقع این پارامتر اجازه ایجاد رکورد جدید و یا ویرایش رکورد موجود در جدول اسمپ پرو اوردرز را می دهد ، مقدار دهی پارامتر در صفحات در ادامه ذکر شده است
+            ** showProOneUnStockShop = null ,searchProSUnStock = 1 ,  oldOrderOneUnStockShop -> in form (form_orderEditOOUSS) = 2
+            */
             if (priceFOrder != 'not') {var priceFOrder = $('#'+priceFOrder).val()}else{var priceFOrder=null;}
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
@@ -613,12 +622,6 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                     stamp:$('input[type=radio][name='+stamp+']:checked').val(),
                     namePro:$('#'+namePro).val(),
                     maker:$('#'+maker).val(),
-                    brand:$('#'+brand).val(),
-                    model:$('#'+model).val(),
-                    price:$('#'+price).val(),
-                    priceFOrder:priceFOrder,
-                    vahed:$('#'+vahed).val(),
-                    num:$('#'+num).val(),
                     vazn:$('#'+vazn).val(),
                     dimension:$('input[type=radio][name='+dimension+']:checked').val(),
                     vaznPost:$('#'+vaznPost).val(),
@@ -628,14 +631,8 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                     dateMake:$('#'+dateMake).val(),
                     dateExpiration:$('#'+dateExpiration).val(),
                     term:$('#'+term).val(),
-                    img1:$('#'+img1).html(),
-                    img2:$('#'+img2).html(),
-                    img3:$('#'+img3).html(),
-                    img4:$('#'+img4).html(),
-                    img5:$('#'+img5).html(),
-                    img6:$('#'+img6).html(),
                     checkInset:checkInset,
-                    checkAddOrOrderStamp:checkAddOrOrderStamp,
+                    checkAddOrEditStamp:checkAddOrEditStamp,
                    },
               success:function(){
                 $('#'+idAjax).empty();

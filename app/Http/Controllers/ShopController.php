@@ -488,11 +488,11 @@ class ShopController extends Controller
   }
   public function editProShopUnStock(Save_editProShop $request)
   {
-    //چک کردن ویرایش محصولی که از صفحه مشاهده محصولات غیر ثابت در حال ویرایش است .
+    //در صورت وجود پارامتر چک می کند آیا محصول جاری قبلا به سفارش جاری معرفی شده یا خیر
     if (!empty($request->checkInset)) {
         $checkAddPro=StampProOrder::where('order_id', $request->order_id)->where('proShop_id', $request->pro_id)->where('shop_id', $this->id)->first();
         if(!empty($checkAddPro)){
-          return response()->json(['errors' => ['checkPro' => ['']]], 422);
+          return response()->json(['errors' => ['checkPro' => ['این محصول قبلا به این سفارش معرفی شده است .']]], 422);
         }
     }
     $date1=new Verta();//تاریخ جلالی
@@ -533,10 +533,10 @@ class ShopController extends Controller
     $picture->pic_s6 =  (!empty($nameImg[5])) ? $nameImg[5] : null  ;
     }
     $picture->save();
-    //چک کردن ویرایش محصولی که از صفحه مشاهده محصولات غیر ثابت در حال ویرایش است .
-    if (!empty($request->checkAddOrOrderStamp)) {
-    //اضافه کردن رکوردهای stampProOrder
-    if ($request->checkAddOrOrderStamp==1) {
+    //در صورت وجود پارامتر اجازه کار بر بر روی جدول استمپ پرو اوردرز را می دهد
+    if (!empty($request->checkAddOrEditStamp)) {
+    //چنانچه پارامتر برابر با 1 باشد رکورد جدیدی به جدول استمپ اضافه می کند همچنین آیدی محصول را به رکورد سفارش در جدول اوردر اضافه می کند
+    if ($request->checkAddOrEditStamp==1) {
       // //اضافه کردن این محصول به رکورد سفارش مشتری
       $order=Order::find($request->order_id);
       $id_proShop=json_decode($order->id_proShop);
@@ -549,7 +549,8 @@ class ShopController extends Controller
       $stampProOrder->shop_id=$this->id;
       $stampProOrder->date_ad=time();
     } else {
-      $stampProOrder=StampProOrder::where('order_id',$request->order_id )->first();
+      // چنانچه پارامتر مقداری بغیر از 1 داشت (مقدار 2) رکورد موجود ویرایش می شود 
+      $stampProOrder=StampProOrder::where('order_id',$request->order_id )->where('proShop_id',$request->pro_id)->where('shop_id',$this->id)->first();
     }
     $stampProOrder->stamp=$request->stamp;
     $stampProOrder->price=$request->priceFOrder;

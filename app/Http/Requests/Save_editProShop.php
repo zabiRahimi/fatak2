@@ -89,15 +89,9 @@ class Save_editProShop extends FormRequest
            'dateMake'=>'nullable',
            'dateExpiration'=>'nullable',
            'term'=>'nullable',
-           'img1'=>'nullable|imgName',
-           'img2'=>'nullable|imgName',
-           'img3'=>'nullable|imgName',
-           'img4'=>'nullable|imgName',
-           'img5'=>'nullable|imgName',
-           'img6'=>'nullable|imgName',
            'newPro'=>'nullable|numeric',
            'checkInset'=>'nullable|numeric',
-           'checkAddOrOrderStamp'=>'nullable|numeric',
+           'checkAddOrEditStamp'=>'nullable|numeric',
          ];
      }
  }
