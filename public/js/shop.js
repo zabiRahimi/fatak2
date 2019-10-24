@@ -451,12 +451,11 @@ function editPasDaShop(id){
       }
   }
 function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,idAjax,classForm,url){
-  // ,img1,img2,img3,img4,img5,img6
         if (priceFOrder != 'not') {var priceFOrder2 = $('#'+priceFOrder).val()}else{var priceFOrder2=null;}
         $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
         $.ajax({
           type:'post',
-          url:'../proShop',
+          url:'../../proShop',
           data: {
                 order_id:order_id,
                 stamp:$('input[type=radio][name='+stamp+']:checked').val(),
@@ -604,7 +603,7 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
             **هنگامی که این پارامتر مقدار دهی شده باشد متد کنترل چک می کند که محصول جاری به سفارش جاری قبلا معرفی شده یا خیر
             **در ادامه نحوه مقدار دهی در صفحات ذکر شده
             **showProOneUnStockShop = null , searchProSUnStock = 1 , oldOrderOneUnStockShop -> in form (form_orderEditOOUSS) = null
-            ×××××
+            ******
             **checkAddOrEditStamp
             **این پارمتر هنگامی مقدار دهی می شود که میخواهیم محصولی را به سفارشی معرفی کنیم یا اینکه محصول معرفی شده را ویرایش کنیم
             ××در واقع این پارامتر اجازه ایجاد رکورد جدید و یا ویرایش رکورد موجود در جدول اسمپ پرو اوردرز را می دهد ، مقدار دهی پارامتر در صفحات در ادامه ذکر شده است
@@ -622,6 +621,12 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                     stamp:$('input[type=radio][name='+stamp+']:checked').val(),
                     namePro:$('#'+namePro).val(),
                     maker:$('#'+maker).val(),
+                    brand:$('#'+brand).val(),
+                    model:$('#'+model).val(),
+                    price:$('#'+price).val(),
+                    priceFOrder:priceFOrder,
+                    vahed:$('#'+vahed).val(),
+                    num:$('#'+num).val(),
                     vazn:$('#'+vazn).val(),
                     dimension:$('input[type=radio][name='+dimension+']:checked').val(),
                     vaznPost:$('#'+vaznPost).val(),
@@ -638,10 +643,10 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                 $('#'+idAjax).empty();
                 $('#end_orderSabtSh').modal('show');
                 $("#end_orderSabtSh").on('hide.bs.modal', function () {
-                if (checkAddOrOrderStamp==null) {
+                if (checkAddOrEditStamp==null) {
                   window.location.href  = "/"+url+"/"+pro_id;
                 } else {
-                  if (checkAddOrOrderStamp==1) {
+                  if (checkAddOrEditStamp==1) {
                     window.location.href  = "/"+url+"/"+order_id;
                   } else {
                     window.location.href  = "/"+url+"/"+order_id+"/"+pro_id;
@@ -1105,7 +1110,7 @@ function searchProSStock() {
   else{alert('نام محصول را وارد کنید .')}
 
 }
-function searchProSUnStock(order_id) {
+function searchProSUnStock(order_id,url) {
   var pro = $('#sProSUnStock').val();
   $('#sIdSUnStock').val('');
   $('#ajax_searchProSUnStock').html('');
@@ -1117,6 +1122,7 @@ function searchProSUnStock(order_id) {
       data: {
         pro:pro,
         order_id:order_id,
+        url:url,
            },
       success:function(data){
 
@@ -1130,7 +1136,7 @@ function searchProSUnStock(order_id) {
   else{alert('نام محصول را وارد کنید .')}
 
 }
-function searchIdSUnStock(id,order_id) {
+function searchIdSUnStock(id,order_id,url) {
   if (id) {
     var pro_id =id;
   } else {
@@ -1146,6 +1152,7 @@ function searchIdSUnStock(id,order_id) {
       data: {
         pro_id:pro_id,
         order_id:order_id,
+        url:url,
            },
       success:function(data){
          $('#ajax_searchProSUnStock').html(data);

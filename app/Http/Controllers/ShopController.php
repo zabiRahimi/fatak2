@@ -549,7 +549,7 @@ class ShopController extends Controller
       $stampProOrder->shop_id=$this->id;
       $stampProOrder->date_ad=time();
     } else {
-      // چنانچه پارامتر مقداری بغیر از 1 داشت (مقدار 2) رکورد موجود ویرایش می شود 
+      // چنانچه پارامتر مقداری بغیر از 1 داشت (مقدار 2) رکورد موجود ویرایش می شود
       $stampProOrder=StampProOrder::where('order_id',$request->order_id )->where('proShop_id',$request->pro_id)->where('shop_id',$this->id)->first();
     }
     $stampProOrder->stamp=$request->stamp;
@@ -1098,20 +1098,23 @@ public function searchProSUnStock(Request $request)
   $this->validate($request, [
         'pro' => 'required|alpha_dash',
         'order_id' => 'required|numeric',
+        'url'=> 'required|regex:/^[a-zA-Z0-9_\/]+$/i',
     ]);
   $pro=$request->pro;
   $order_id=$request->order_id;
+  $url=$request->url;
   $proShop=proShop::where('shop_id',$id)->where('show',1)->where( 'name' ,"like", "%$pro%")->get();
   $stampProOrder=StampProOrder::where('order_id' , $order_id)->where('shop_id' , $id)->get();
   $check=1;
-  return view('shop.searchProSUnStock',compact('proShop','check','order_id','stampProOrder'));
+  return view('shop.searchProSUnStock',compact('proShop','check','order_id','stampProOrder','url'));
 }
 public function searchIdSUnStock(Request $request)
 {
   $id=$this->id;
-  $this->validate($request, ['pro_id' => 'required|numeric','order_id' => 'required|numeric',]);
+  $this->validate($request, ['pro_id' => 'required|numeric','order_id' => 'required|numeric','url'=> 'required|regex:/^[a-zA-Z0-9_\/]+$/i',]);
   $pro_id=$request->pro_id;
   $order_id=$request->order_id;
+  $url=$request->url;
   $checkPro=StampProOrder::where('order_id', $order_id)->where('proShop_id', $pro_id)->where('shop_id', $id)->first();
   if (!empty($checkPro)) {
     $checkPro2='no';
@@ -1129,6 +1132,6 @@ public function searchIdSUnStock(Request $request)
     }
   }
   $check=2;
-  return view('shop.searchProSUnStock',compact('proShop','check','checkPro2','picture_shop','order_id','imgPro'));
+  return view('shop.searchProSUnStock',compact('proShop','check','checkPro2','picture_shop','order_id','imgPro','url'));
 }
 }//end class
