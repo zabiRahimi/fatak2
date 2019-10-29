@@ -8,6 +8,7 @@ class CaptchaController extends Controller
 {
   public function refreshCaptcha()
  {
-     return response()->json(['captcha'=> captcha_img()]);
+   // return response()->json(['captcha'=> captcha_img()]);
+     return  captcha_img();
  }
 }

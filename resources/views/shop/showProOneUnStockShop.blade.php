@@ -41,7 +41,7 @@
        </div>
        <div class="form-group">
          <label for="price_editSPOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mprice_editSPOUSS"></i> قیمت محصول (تومان) <i class="fas fa-star star_form"></i></label>
-         <div class="div_form"><input type="text" class="form-control placeholder" value="{{$proShop->price}}" id="price_editSPOUSS"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder_price number" value="{{$proShop->price}}" id="price_editSPOUSS"></div>
        </div>
        {{-- <div class="form-group">
          <label for="priceFOrder_editSPOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mprice_editSPOUSS"></i> قیمت برای این سفارش</label>
@@ -89,7 +89,7 @@
        </div>
        <div class="form-group">
          <label for="pakat_editSPOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mpakat_editSPOUSS"></i>  هزینه بسته بندی (تومان)</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" value="{{$proShop->pakat}}" id="pakat_editSPOUSS"placeholder="اختیاری ..."></div>
+         <div class="div_form"><input type="text" class="form-control placeholder_price" value="{{$proShop->pakat}}" id="pakat_editSPOUSS"placeholder="اختیاری ..."></div>
        </div>
        <div class="form-group">
          <label for="dis_editSPOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_editSPOUSS"data-toggle="modal" data-target="#Mdis_editSPOUSS"></i> توضیح محصول</label>
@@ -153,7 +153,7 @@
          @endfor
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success"onclick="editProShopUnStock({{$proShop->id}},null,{{$imgPro->id}},'stamp_editSPOUSS','name_editSPOUSS','maker_editSPOUSS','brand_editSPOUSS','model_editSPOUSS','price_editSPOUSS','not','vahed_editSPOUSS','num_editSPOUSS','vazn_editSPOUSS','dimension_editSPOUSS','vaznPost_editSPOUSS','pakat_editSPOUSS','dis_editSPOUSS','not','dateMake_editSPOUSS','dateExpiration_editSPOUSS','term_editSPOUSS','Aimg1_editSPOUSS','Aimg2_editSPOUSS','Aimg3_editSPOUSS','Aimg4_editSPOUSS','Aimg5_editSPOUSS','Aimg6_editSPOUSS',
+         <button type="button" class="btn btn-success"onclick="editProShopUnStock({{$proShop->id}},null,{{$imgPro->id}},'stamp_editSPOUSS','name_editSPOUSS','maker_editSPOUSS','brand_editSPOUSS','model_editSPOUSS','price_editSPOUSS','not','vahed_editSPOUSS','num_editSPOUSS','vazn_editSPOUSS','dimension_editSPOUSS','vaznPost_editSPOUSS','pakat_editSPOUSS','dis_editSPOUSS','not','dateMake_editSPOUSS','dateExpiration_editSPOUSS','term_editSPOUSS',
          'ajax_editSPOUSS','form_editSPOUSS','showProOneUnStockShop',null,null)" >ثبت تغییرات</button>
            <button type="button"class="btn btn-danger orderAghdamP2"onclick="del_proShopCheckOffer({{$numShowOrder}},{{$proShop->id}})">حذف محصول</button>
        </div></form></div></div>

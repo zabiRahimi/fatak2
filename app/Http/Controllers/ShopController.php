@@ -248,6 +248,8 @@ class ShopController extends Controller
     }
     if(!empty($nameImg)){
       Cookie::queue('namePic', serialize($nameImg));
+    }else{
+      $nameImg=null;
     }
     return view('shop.showProOneUnStockShop',compact('nameImg','stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proShopNum','backOrderNum','proShop','imgPro','numShowOrder'));
   }
@@ -436,7 +438,7 @@ class ShopController extends Controller
     $pro->num =(empty($request->num)) ? 1 : $request->num;
     $pro->vazn = $request->vazn ;
     $pro->vaznPost = $request->vaznPost ;
-    $pro->dimension = $request->dimension ;
+    $pro->dimension=(integer) $request->dimension ;
     $pro->pakat = $request->pakat ;
     $pro->dis = $request->dis ;
     $pro->dateMake = $request->dateMake ;
@@ -507,12 +509,14 @@ class ShopController extends Controller
     $pro->num =(empty($request->num)) ? 1 : $request->num;
     $pro->vazn = $request->vazn ;
     $pro->vaznPost = $request->vaznPost ;
+    $pro->dimension=(integer) $request->dimension ;
     $pro->pakat = $request->pakat ;
     $pro->dis = $request->dis ;
     $pro->dateMake = $request->dateMake ;
     $pro->dateExpiration = $request->dateExpiration ;
     $pro->term = $request->term ;
-    $pro->offerOrder= ($pro->offerOrder) + 1;
+    if ($request->checkAddOrEditStamp==1) {
+    $pro->offerOrder= ($pro->offerOrder) + 1;}
     $pro->date_up = time() ;
     $pro-> save();
     //  // اضافه کردن عکسهای محصول
@@ -672,7 +676,8 @@ class ShopController extends Controller
           // 'cookieImg' => 'required|alpha_dash',
       ]);
     $file=$request->file('file');
-    $name= time() . $file->getClientOriginalName();
+    $name= time() .  'fatakShop.' . $file->getClientOriginalExtension();
+    // $file->getClientOriginalName()
     $file->move('img_shop' , $name);
 
     if (empty($request->cookie($nameCookei))) {
@@ -727,6 +732,7 @@ class ShopController extends Controller
     $key = array_search($nameImg, $AdelImg);
       array_splice($AdelImg,$key, 1);//حذف یک مقدار از آرایه و همچنین حذف اندیس آن
     (count($AdelImg)>0) ? Cookie::queue('namePic', serialize($AdelImg)) : Cookie::queue('namePic', '' , time() - 3600) ;
+    return $nameImg;
   }
   public function oldOrderUnStockShop(Request $request)
   {

@@ -606,7 +606,7 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
             ******
             **checkAddOrEditStamp
             **این پارمتر هنگامی مقدار دهی می شود که میخواهیم محصولی را به سفارشی معرفی کنیم یا اینکه محصول معرفی شده را ویرایش کنیم
-            ××در واقع این پارامتر اجازه ایجاد رکورد جدید و یا ویرایش رکورد موجود در جدول اسمپ پرو اوردرز را می دهد ، مقدار دهی پارامتر در صفحات در ادامه ذکر شده است
+            ××در واقع این پارامتر اجازه ایجاد رکورد جدید و یا ویرایش رکورد موجود در جدول استمپ پرو اوردرز را می دهد ، مقدار دهی پارامتر در صفحات در ادامه ذکر شده است
             ** showProOneUnStockShop = null ,searchProSUnStock = 1 ,  oldOrderOneUnStockShop -> in form (form_orderEditOOUSS) = 2
             */
             if (priceFOrder != 'not') {var priceFOrder = $('#'+priceFOrder).val()}else{var priceFOrder=null;}
@@ -639,7 +639,7 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                     checkInset:checkInset,
                     checkAddOrEditStamp:checkAddOrEditStamp,
                    },
-              success:function(){
+              success:function(data){
                 $('#'+idAjax).empty();
                 $('#end_orderSabtSh').modal('show');
                 $("#end_orderSabtSh").on('hide.bs.modal', function () {

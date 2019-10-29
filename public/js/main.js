@@ -56,7 +56,7 @@ function captcha(){
     type:'GET',
     url:'/refreshcaptcha',
     success:function(data){
-      $(".captcha4").html(data.captcha);
+      $(".captcha4").html(data);
     }
   });
 }
@@ -130,8 +130,8 @@ function hide_menu_small(clases){
 }
 // تابع فرمت کردن اعداد
 function number_format(number, decimals, decPoint, thousandsSep) {
-    decimals = Math.abs(decimals) || 0;
-    number = parseFloat(number);
+   decimals = Math.abs(decimals) || 0;
+   number = parseFloat(number);
 
     if (!decPoint || !thousandsSep) {
         decPoint = '.';
