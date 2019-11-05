@@ -38,7 +38,7 @@ class Save_pro_search extends FormRequest
             'nameCookieCheck'=>'required|alpha_dash',
             'nameCookie'=>'required|alpha_dash',
             'check' => 'required|alpha',
-            'pro' => 'required_if:check,pro|nullable|alpha_dash',
+            'pro' => 'required_if:check,pro|nullable|allAlfaNumber',
             'id' =>'required_if:check,id|nullable|numeric',
         ];
     }

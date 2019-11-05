@@ -71,7 +71,7 @@
 
  </div>
 
-      @if (empty($proShop[0]->id))
+      @if (empty($pro[0]->id))
 
         <div class="searchDiv500" id="ajax_payShop">
 
@@ -91,7 +91,7 @@
           @php
             $r=0;
           @endphp
-          @foreach ($proShop as $value)
+          @foreach ($pro as $value)
             <?php $r++;
               $value2=$payShop->where('order_id',$value->order_id)->first();
              ?>
@@ -112,8 +112,8 @@
         <div class="editCodeBodyBazSh">
           <button type="button" class="btn" onclick="window.location='/payShop'">بازگشت</button>
         </div>
-        <div class="div3_payShop1"><div class="div3_payShop1_1">کد محصول :</div><div class="div3_payShop1_2">{{$proShop2->id}}</div> </div>
-        <div class="div3_payShop1"><div class="div3_payShop1_1">نام محصول :</div><div class="div3_payShop1_2">{{$proShop2->name}}</div></div>
+        <div class="div3_payShop1"><div class="div3_payShop1_1">کد محصول :</div><div class="div3_payShop1_2">{{$pro2->id}}</div> </div>
+        <div class="div3_payShop1"><div class="div3_payShop1_1">نام محصول :</div><div class="div3_payShop1_2">{{$pro2->name}}</div></div>
         <div class="div3_payShop1"><div class="div3_payShop1_1">خریدار :</div><div class="div3_payShop1_2"></div></div>
         <div class="div3_payShop1"><div class="div3_payShop1_1">تاریخ ارسال :</div><div class="div3_payShop1_2"></div></div>
         <div class="div3_payShop1"><div class="div3_payShop1_1">مبلغ :</div><div class="div3_payShop1_2"></div></div>

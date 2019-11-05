@@ -16,14 +16,14 @@ class CreateStampProOrdersTable extends Migration
         Schema::create('stamp_pro_orders', function (Blueprint $table) {
             $table->increments('id');
             $table->mediumInteger('order_id');
-            $table->mediumInteger('proShop_id');
+            $table->mediumInteger('pro_id');
             $table->mediumInteger('shop_id');
             $table->boolean('stamp');
             $table->integer('price')->nullable();
             $table->text('disSeller')->nullable();
             $table->string('code_rahgiry',70)->unique()->nullable();
-            $table->date('date_ad');
-            $table->date('date_up');
+            $table->integer('date_ad');
+            $table->integer('date_up');
             $table->boolean('show');
         });
     }

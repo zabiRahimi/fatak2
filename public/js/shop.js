@@ -38,7 +38,7 @@ Dropzone.autoDiscover = false;
       this.removeFile(this.files[0]);
       $('#MDropzone').modal('hide');
       var imgClass = 'c'+new Date().valueOf();//استفاده از تایم استمپ
-      $(".btnImgForm").after(`<div class="divImgP ` + imgClass + `"><i class="fas fa-times iDElImg" onclick="delimg2(null,null,null,'`+response+`' ,'`+imgClass +`')" ></i><img src="/img_shop/`+ response +`" alt=""style="margin:2px;" width="90" height="90"></div>`);
+      $(".btnImgForm").after(`<div class="divImgP ` + imgClass + `"><i class="fas fa-times iDElImg" onclick="delimg2(null,null,null,'`+response+`' ,'`+imgClass +`')" ></i><img src="/img_pro/`+ response +`" alt=""style="margin:2px;" width="90" height="90"></div>`);
     },
   });
 // نمایش و عدم نمایش فرمهای ورود و ثبت نام
@@ -450,15 +450,16 @@ function editPasDaShop(id){
       error: function(xhr) {}  });
       }
   }
-function proShop(order_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,idAjax,classForm,url){
+function savePro(order_id,stamp,typePro,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,idAjax,classForm,url){
         if (priceFOrder != 'not') {var priceFOrder2 = $('#'+priceFOrder).val()}else{var priceFOrder2=null;}
         $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
         $.ajax({
           type:'post',
-          url:'../../proShop',
+          url:'../../savePro',
           data: {
                 order_id:order_id,
                 stamp:$('input[type=radio][name='+stamp+']:checked').val(),
+                typePro:typePro,
                 namePro:$('#'+namePro).val(),
                 maker:$('#'+maker).val(),
                 brand:$('#'+brand).val(),
@@ -553,7 +554,7 @@ function del_proShopCheckOffer(checkOffer,pro_id){
   }
 }
 //حذف محصول هنگامی که به مشتری معرفی نشده و یا فروخته نشده است .
-function del_proShop1(pro_id,img_id,url,buyAOfferCheck){
+function del_pro(pro_id,img_id,url,buyAOfferCheck){
 /**
 ***buyAOfferCheck
 *این پارامتر نوع محصول از لحاظ اینکه محصول فروخنه شده ٰ، پیشنهاد شده و غیرو را مشخص می کند
@@ -564,7 +565,7 @@ function del_proShop1(pro_id,img_id,url,buyAOfferCheck){
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../del_proShop1',
+    url:'../del_pro',
     data: {
       pro_id:pro_id,
       img_id:img_id,
@@ -597,7 +598,7 @@ function del_offerProShop(pro_id,order_id,url) {
     error: function(xhr) {
        }  });
 }
-function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,idAjax,classForm,url,checkInset,checkAddOrEditStamp) {
+function editPro(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,priceFOrder,vahed,num,vazn,dimension,vaznPost,pakat,dis,disSeller,dateMake,dateExpiration,term,idAjax,classForm,url,checkInset,checkAddOrEditStamp) {
             /*
             **checkInset
             **هنگامی که این پارامتر مقدار دهی شده باشد متد کنترل چک می کند که محصول جاری به سفارش جاری قبلا معرفی شده یا خیر
@@ -613,7 +614,7 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
             $.ajax({
               type:'post',
-              url:'../../editProShopUnStock',
+              url:'../../editPro',
               data: {
                     pro_id:pro_id,
                     order_id:order_id,
@@ -643,15 +644,16 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                 $('#'+idAjax).empty();
                 $('#end_orderSabtSh').modal('show');
                 $("#end_orderSabtSh").on('hide.bs.modal', function () {
-                if (checkAddOrEditStamp==null) {
-                  window.location.href  = "/"+url+"/"+pro_id;
-                } else {
-                  if (checkAddOrEditStamp==1) {
-                    window.location.href  = "/"+url+"/"+order_id;
-                  } else {
-                    window.location.href  = "/"+url+"/"+order_id+"/"+pro_id;
-                  }
-                }
+                  window.location.href  = url;
+                // if (checkAddOrEditStamp==null) {
+                //   window.location.href  = "/"+url+"/"+pro_id;
+                // } else {
+                //   if (checkAddOrEditStamp==1) {
+                //     window.location.href  = "/"+url+"/"+order_id;
+                //   } else {
+                //     window.location.href  = "/"+url+"/"+order_id+"/"+pro_id;
+                //   }
+                // }
 
                 });
               },
@@ -680,6 +682,9 @@ function editProShopUnStock(pro_id,order_id,img_id,stamp,namePro,maker,brand,mod
                   }
                   else if(error['vaznPost']){
                      $('#'+idAjax).html('<div class="alert alert-danger">'+error['vaznPost']+'</div>');
+                  }
+                  else if(error['dimension']){
+                     $('#'+idAjax).html('<div class="alert alert-danger">'+error['dimension']+'</div>');
                   }
                   else if(error['pakat']){
                      $('#'+idAjax).html('<div class="alert alert-danger">'+error['pakat']+'</div>');
@@ -1110,24 +1115,26 @@ function searchProSStock() {
   else{alert('نام محصول را وارد کنید .')}
 
 }
-function searchProSUnStock(order_id,url) {
-  var pro = $('#sProSUnStock').val();
-  $('#sIdSUnStock').val('');
-  $('#ajax_searchProSUnStock').html('');
-  if (pro) {
+function searchProShop(order_id,url,pro,id,ajax,typePro) {
+  var pro2 = $(pro).val();
+  $(id).val('');
+  $(ajax).html('');
+  if (pro2) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
-      url:'../../searchProSUnStock',
+      url:'../../searchProShop',
       data: {
-        pro:pro,
+        pro:pro2,
         order_id:order_id,
+        typePro:typePro,
         url:url,
+        ajax:ajax,
            },
       success:function(data){
 
-         $('#ajax_searchProSUnStock').html(data);
-         var hTop=$('#ajax_searchProSUnStock').offset().top;
+         $(ajax).html(data);
+         var hTop=$(ajax).offset().top;
          $('html, body').animate({scrollTop : hTop - 5},800);
         // window.location.href  = "/newOrderShop/"+sortdate;
       },
@@ -1136,27 +1143,29 @@ function searchProSUnStock(order_id,url) {
   else{alert('نام محصول را وارد کنید .')}
 
 }
-function searchIdSUnStock(id,order_id,url) {
-  if (id) {
-    var pro_id =id;
+function searchIdShop(pro_id0,order_id,url,pro,id,ajax,typePro) {
+  if (pro_id0) {
+    var pro_id =pro_id0;
   } else {
-    var pro_id = $('#sIdSUnStock').val();
-    $('#sProSUnStock').val('');
+    var pro_id = $(id).val();
+    $(pro).val('');
   }
-  $('#ajax_searchProSUnStock').html('');
+  $(ajax).html('');
   if (pro_id) {
     $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
     $.ajax({
       type:'post',
-      url:'../../searchIdSUnStock',
+      url:'../../searchIdShop',
       data: {
         pro_id:pro_id,
         order_id:order_id,
+        typePro:typePro,
         url:url,
            },
       success:function(data){
-         $('#ajax_searchProSUnStock').html(data);
-         var hTop=$('#ajax_searchProSUnStock').offset().top;
+
+         $(ajax).html(data);
+         var hTop=$(ajax).offset().top;
          $('html, body').animate({scrollTop : hTop - 5},500);
         // window.location.href  = "/newOrderShop/"+sortdate;
       },

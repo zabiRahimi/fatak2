@@ -15,6 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->json('id_pro')->nullable();
             $table->string('name' , 100);
             $table->string('squad',70)->nullable();
             $table->string('vahed',40);
@@ -23,9 +24,8 @@ class CreateOrdersTable extends Migration
             $table->string('mobail',12);
             $table->string('ostan',30);
             $table->string('city',30);
-            $table->string('date_ad',14);
-            $table->string('date_up',14);
-            $table->json('id_proShop')->nullable();
+            $table->integer('date_ad');
+            $table->integer('date_up');
             $table->boolean('stage');
             $table->boolean('show');
         });

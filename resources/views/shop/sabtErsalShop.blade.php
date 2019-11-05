@@ -39,7 +39,7 @@
             </div>
             <div class="sabtCodeBodyPSh">
               <div class="sabtCodeBodyP1Sh">نام محصول :</div>
-              <div class="sabtCodeBodyP2Sh">{{$proShop->name}}</div>
+              <div class="sabtCodeBodyP2Sh">{{$pro->name}}</div>
             </div>
             <div class="sabtCodeBodyPSh">
               <div class="sabtCodeBodyP1Sh">تعداد محصول :</div>
@@ -77,7 +77,7 @@
                 <div class="div_form"><input type="text" class="form-control" id="codeR_sabtCodePSh"placeholder="" value=""></div>
               </div>
               <div class="form-group form_btn">
-                <button type="button" class="btn btn-success" onclick="sabtCodeRahgirySh({{$proShop->id}})" >ثبت کد</button>
+                <button type="button" class="btn btn-success" onclick="sabtCodeRahgirySh({{$pro->id}})" >ثبت کد</button>
               </div>
             </form>
 

@@ -17,10 +17,11 @@ class CreateTableBuys extends Migration
             $table->increments('id');
             $table->integer('pro_id');
             $table->integer('shop_id');
+            $table->string('typeBuy',17)->comment('نوع خرید ، مستقیم یا سفارشی');
             $table->integer('backPro_id')->nullable();
             $table->string('name',100);
-            $table->string('mobail' , 13);
-            $table->string('tel' , 13)->nullable();
+            $table->string('mobail',13);
+            $table->string('tel',13)->nullable();
             $table->string('email',200)->nullable();
             $table->string('ostan',33);
             $table->string('city',33);
@@ -37,9 +38,9 @@ class CreateTableBuys extends Migration
             $table->mediumInteger('amount')->nullable();
             $table->string('authority',36)->nullable();
             $table->string('refid',36)->nullable();
-            $table->string('date',12)->nullable();
-            $table->string('date_up',12)->nullable();
-            $table->string('stage',3)->nullable();
+            $table->integer('date_ad');
+            $table->integer('date_up');
+            $table->string('stage',3);
         });
     }
 

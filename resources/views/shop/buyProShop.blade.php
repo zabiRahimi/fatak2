@@ -42,7 +42,7 @@
       <div class="searchMapShop">
         {{$search}}
       </div>
-      @if (empty($proShop[0]->id))
+      @if (empty($pro[0]->id))
         <div class="divNoR0wShop">
           @if ($noRecord=='all')
             محصول خرید شده جدیدی موجود نیست .
@@ -63,9 +63,9 @@
         $r=0;
 
       @endphp
-      @foreach ($proShop as $value)
+      @foreach ($pro as $value)
         <?php
-        // $checkOrder=$proShop->where('order_id',$value->id)->first();
+        // $checkOrder=$pro->where('order_id',$value->id)->first();
 
         // if($checkOrder){continue;}
          $r++;

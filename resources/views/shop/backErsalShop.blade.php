@@ -71,7 +71,7 @@
 
  </div>
 
-      @if (empty($proShop[0]->id))
+      @if (empty($pro[0]->id))
 
         <div class="searchDiv500" id="ajax_backShop">
 
@@ -91,7 +91,7 @@
           @php
             $r=0;
           @endphp
-          @foreach ($proShop as $value)
+          @foreach ($pro as $value)
             <?php $r++;
               $value2=$backShop->where('order_id',$value->order_id)->first();
              ?>
@@ -112,10 +112,10 @@
         <div class="editCodeBodyBazSh">
           <button type="button" class="btn" onclick="window.location='/backErsalShop'">بازگشت</button>
         </div>
-        <div class="row1"><div class="row2_1">کد محصول :</div><div class="row2_2">{{$proShop2->id}}</div> </div>
-        <div class="row1"><div class="row2_1">نام محصول :</div><div class="row2_2">{{$proShop2->name}}</div></div>
+        <div class="row1"><div class="row2_1">کد محصول :</div><div class="row2_2">{{$pro2->id}}</div> </div>
+        <div class="row1"><div class="row2_1">نام محصول :</div><div class="row2_2">{{$pro2->name}}</div></div>
         <div class="row1"><div class="row2_1">خریدار :</div><div class="row2_2">{{$buy->name}}</div></div>
-        <div class="row1"><div class="row2_1">تاریخ ارسال :</div><div class="row2_2">{{$proShop2->date_up}}</div></div>
+        <div class="row1"><div class="row2_1">تاریخ ارسال :</div><div class="row2_2">{{$pro2->date_up}}</div></div>
         <div class="row3"><div class="row3_1">توضیح خریدار :</div><div class="row3_2">{{$backShop2->buyer_dis}}</div></div>
         <div class="row3"><div class="row3_1">نظر کارشناس :</div><div class="row3_2">{{$backShop2->master_dis}}</div></div>
 

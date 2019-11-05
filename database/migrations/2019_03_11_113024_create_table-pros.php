@@ -14,28 +14,31 @@ class CreateTablePros extends Migration
     public function up()
     {
         Schema::create('Pros', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name' , 70);
-            $table->string('vahed' , 30);
-            $table->text('dis');
-            $table->string('price' , 8);
-            $table->string('old_price' , 8)->nullable();
-            $table->boolean('dimension_stamp');
-            $table->string('gram' , 8);
-            $table->string('gram_post' , 8);
-            $table->string('pakat_price' , 8);
-            $table->string('made' , 60)->nullable();
-            $table->string('model' , 70)->nullable();
-            $table->string('dimension' ,23)->nullable();
-            $table->json('mavad')->nullable();
-            $table->string('date_m' , 30)->nullable();
-            $table->string('date_n' , 30)->nullable();
-            $table->text('term')->nullable();
-            $table->text('bake')->nullable();
-            $table->string('sponsor' , 50)->nullable();
-            $table->string('views' , 8);
-            $table->string('seller' , 60);
-            $table->boolean('show');
+          $table->increments('id');
+          $table->mediumInteger('shop_id');
+          $table->string('typePro',17)->comment('ثابت یا غیر ثابت بودن محصول');
+          $table->string('name',100);
+          $table->string('maker',70)->nullable();
+          $table->string('brand',70)->nullable();
+          $table->string('model',60)->nullable();
+          $table->string('price',12);
+          $table->string('vahed',60);
+          $table->string('num',7)->nullable();
+          $table->string('vazn',8)->nullable();
+          $table->string('vaznPost',8)->nullable();
+          $table->boolean('dimension')->comment('ابعاد');
+          $table->string('pakat',12)->nullable();
+          $table->text('dis')->nullable();
+          $table->string('dateMake',12)->nullable();
+          $table->string('dateExpiration',12)->nullable();
+          $table->text('term')->nullable()->comment('شرایط نگهداری');
+          $table->smallInteger('offerOrder')->nullable()->comment('تعدادپیشنهاد محصول');
+          $table->smallInteger('bazdid')->nullable();
+          $table->smallInteger('numBuy')->nullable()->comment('تعداد فروش محصول');
+          $table->integer('date_ad');
+          $table->integer('date_up');
+          $table->string('seo',5)->comment('مشخص می کند محصول ثابت سئو شده یه خیر');
+          $table->boolean('show');
 
         });
     }

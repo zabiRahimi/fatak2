@@ -144,7 +144,7 @@
             </div>
             <div class="newOrderOstan_1">{{$value->ostan}}</div>
             <div class="newOrderCity_1">{{$value->city}}</div>
-            <div class="newOrderDate_1">{{verta($value->date_up)->format('Y/n/j')}}</div>
+            <div class="newOrderDate_1">{{verta((integer)$value->date_up)->format('Y/n/j')}}</div>
           </div>
         </a>
       @endforeach

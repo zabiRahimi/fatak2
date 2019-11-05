@@ -74,6 +74,9 @@ Route::post('/editDaShopSave','ShopController@editDaShopSave');//ok!!
 Route::post('/editPasDaShop','ShopController@editPasDaShop');//ok!!
 Route::get('/warningShop','ShopController@warningShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/sabtProStockShop','ShopController@sabtProStockShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/showProStockShop','ShopController@showProStockShop')->middleware(['chekloginShop' ]);//ok!!
+Route::get('/showProOneStockShop/{pro_id}','ShopController@showProOneStockShop')->middleware(['chekloginShop' ])->where('pro_id', '[0-9]+');//ok!!
+
 Route::get('/sabtProUnStockShop','ShopController@sabtProUnStockShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/showProUnStockShop','ShopController@showProUnStockShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/showProOneUnStockShop/{pro_id}','ShopController@showProOneUnStockShop')->middleware(['chekloginShop' ])->where('pro_id', '[0-9]+');//ok!!
@@ -84,8 +87,8 @@ Route::post('/deleteCookieNamePic','ShopController@deleteCookieNamePic');//ok!!
 // Route::post('/searchShop','ShopController@searchShop');//ok!!
 // Route::post('/searchSortDateShop','ShopController@searchSortDateShop');//ok!!
 // Route::post('/searchAdvancedShop','ShopController@searchAdvancedShop');//ok!!
-Route::post('/proShop','ShopController@proShop');//ok!!
-Route::post('/del_proShop1','ShopController@del_proShop1');//ok!!
+Route::post('/savePro','ShopController@savePro');//ok!!
+Route::post('/del_pro','ShopController@del_pro');//ok!!
 Route::post('/checkDel_proShop','ShopController@checkDel_proShop');//ok!!
 Route::post('/del_offerProShop','ShopController@del_offerProShop');//ok!!
 Route::get('/oldOrderUnStockShop/{pro_id?}/{stamp?}','ShopController@oldOrderUnStockShop')->middleware(['chekloginShop' ])->where('pro_id', '[0-9]+')->where('stamp', '[0-9]+');//ok!!
@@ -93,15 +96,15 @@ Route::get('/oldOrderOneUnStockShop/{id1}/{id2}','ShopController@oldOrderOneUnSt
 Route::post('/codeOldOrderShop','ShopController@codeOldOrderShop');//ok!!
 Route::post('/nameOldOrderShop','ShopController@nameOldOrderShop');//ok!!
 // Route::post('/allOldOrderShop','ShopController@allOldOrderShop');//ok!!
-Route::post('/editProShopUnStock','ShopController@editProShopUnStock');//ok!!
+Route::post('/editPro','ShopController@editPro');//ok!!
 Route::get('/buyProShop','ShopController@buyProShop')->middleware(['chekloginShop' ]);//ok!!
 Route::get('/buyProShopOne/{buyer_id}/{pro_id}','ShopController@buyProShopOne')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/codeBuyProShop','ShopController@codeBuyProShop');//ok!!
 Route::post('/nameBuyProShop','ShopController@nameBuyProShop');//ok!!
 Route::post('/allBuyProShop','ShopController@allBuyProShop');//ok!!
-Route::post('/searchProSStock','ShopController@searchProSStock');//ok!!
-Route::post('/searchProSUnStock','ShopController@searchProSUnStock');//ok!!
-Route::post('/searchIdSUnStock','ShopController@searchIdSUnStock');//ok!!
+// Route::post('/searchProSStock','ShopController@searchProSStock');//ok!!
+Route::post('/searchProShop','ShopController@searchProShop');//ok!!
+Route::post('/searchIdShop','ShopController@searchIdShop');//ok!!
 
 Route::get('/sabtErsalShop/{order_id?}','ShopController@sabtErsalShop')->middleware(['chekloginShop' ]);//ok!!
 Route::post('/sabtCodeSh','ShopController@sabtCodeSh');//ok!!

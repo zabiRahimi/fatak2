@@ -114,9 +114,9 @@
     <div class="dashLBodySh">
       <div class="div_map_c">
         <span>{{$mapPro}} ، </span>{{-- $mapPro --}}
-        <span>{{$mapOrder}} ،</span>{{-- $mapOrder  --}}
-        <span> {{$mapDate}} ،</span>{{-- $mapDate --}}
-        <span> {{$mapOstan}} ،</span>{{-- $mapOstan --}}
+        <span >{{$mapOrder}} ، </span>{{-- $mapOrder  --}}
+        <span > {{$mapDate}} ، </span>{{-- $mapDate --}}
+        <span > {{$mapOstan}} ، </span>{{-- $mapOstan --}}
         <span> {{$mapCity}}</span>{{-- $mapCity --}}
       </div>
       @if (empty($stampProOrder[0]->id))
@@ -146,8 +146,8 @@
             if(!empty($nameOstan) and $order->ostan!=$nameOstan ){continue;}
             if(!empty($nameCity) and $order->city!=$nameCity ){continue;}
 
-            $proShop=$proShop->where('id', $value->proShop_id)->first();
-            if(!empty($namePro) and strpos( $proShop->name , $namePro) === false){continue;}
+            $pro=$pro->where('id', $value->pro_id)->first();
+            if(!empty($namePro) and strpos( $pro->name , $namePro) === false){continue;}
             $issetRecord='ok';
          $r++;
          if ($r%2==0) {
@@ -157,14 +157,14 @@
          }
         ?>
 
-        <a href="/oldOrderOneUnStockShop/{{$order->id}}/{{$proShop->id}}" >
+        <a href="/oldOrderOneUnStockShop/{{$order->id}}/{{$pro->id}}" >
           <div class="orderOSUS orderOSUS_1 {{$color}}">
             <div class="orderOSUSRwo">{{$r}}</div>
-            <div class="orderOSUSName orderOSUSName_1">{{$proShop->name}}</div>
-            <div class="orderOSUSCode1">{{$proShop->id}}</div>
+            <div class="orderOSUSName orderOSUSName_1">{{$pro->name}}</div>
+            <div class="orderOSUSCode1">{{$pro->id}}</div>
             <div class="orderOSUSOrder">{{$order->name}}</div>
             <div class="orderOSUSCode2">{{$order->id}}</div>
-            <div class="orderOSUSPrice">@if ($value->price) {{$value->price}} @else {{$proShop->price}} @endif </div>
+            <div class="orderOSUSPrice">@if ($value->price) {{$value->price}} @else {{$pro->price}} @endif </div>
             <div class="orderOSUSCity">{{$order->ostan}} , {{$order->city}}</div>
             <div class="orderOSUSDate">{{verta($value->date_up)->format('y/m/d')}}</div>
           </div>

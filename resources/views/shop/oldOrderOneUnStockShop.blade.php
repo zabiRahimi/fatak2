@@ -52,11 +52,11 @@
         <li onclick="showAddOffer();div_active('divStockOOUS','.divStockOOUS','#sProSStock','#sIdSStock','#ajax_searchProSStock','#form_orderEditOOUSS')">انتخاب از محصولات ثابت</li>
         <li onclick="showAddOffer();div_active('divUnStockOOUS','.divUnStockOOUS','#sProSUnStock','#sIdSUnStock','#ajax_searchProSUnStock','#form_orderEditOOUSS')">انتخاب از محصولات غیر ثابت</li>
         <li onclick="showAddOffer();div_active('divNewOOUS','.divNewOOUS','','','#ajax_newPSabtOOUSS','#form_orderEditOOUSS')">ثبت محصول جدید</li>
-        <li onclick="showAddOffer();window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proShopOne->id}}'">محصول جاری ({{$proShopOne->name}})</li>
+        <li onclick="showAddOffer();window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">محصول جاری ({{$proOne->name}})</li>
       </ul>
       <div class="divOOUSS divStockOOUS orderDivH ">
         <div class="tDivOOUSS">انتخاب از محصولات ثابت
-          <button type="button" class="BOOUSS"onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proShopOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proShopOne->name}})</span> </button>
+          <button type="button" class="BOOUSS"onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sProSStock" value="" placeholder="نام محصول ثابت">
@@ -70,23 +70,23 @@
       </div>
       <div class="divOOUSS divUnStockOOUS orderDivH">
         <div class="tDivOOUSS">انتخاب از محصولات غیر ثابت
-          <button type="button" class="BOOUSS" onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proShopOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proShopOne->name}})</span> </button>
-          {{-- {{$proShopOne->name}} --}}
+          <button type="button" class="BOOUSS" onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
+          {{-- {{$proOne->name}} --}}
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sProSUnStock" value="" placeholder="نام محصول غیر ثابت">
-          <button type="button" onclick="searchProSUnStock({{$oldOrderOne->id}},'oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proShopOne->id}}');spinner()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchProSUnStock({{$oldOrderOne->id}},'/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sIdSUnStock" value="" placeholder="کد محصول غیر ثابت">
-          <button type="button" onclick="searchIdSUnStock('',{{$oldOrderOne->id}},'oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proShopOne->id}}');spinner()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchIdSUnStock('',{{$oldOrderOne->id}},'/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivSPSS" id="ajax_searchProSUnStock"></div>
       </div>
       <div class="divOOUSS divNewOOUS orderDivH">
       <form class="form form_newPSabtOOUSS" id="form_newPSabtOOUSS" action="" method="post">
        <div class="form_titr"><i class="fas fa-info-circle"></i>ثبت محصول جدید
-         <button type="button" class="BOOUSS"onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proShopOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proShopOne->name}})</span> </button>
+         <button type="button" class="BOOUSS"onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
 
        </div>
        <div class="formTitrShop">
@@ -158,11 +158,11 @@
         <label for="dimension_newPSabtOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh" data-toggle="modal" data-target="#Mdimension_orderSabtSh"></i> ابعاد محصول <i class="fas fa-star star_form"></i></label>
         <div class="div_form_radio1">
             <div class="div_form_radio2 dimension_orderSabtShD1">
-              <label for="dimension_newPSabtSh1" class="control-label pull-right "> بزرگتر از 100 cm</label>
+              <label for="dimension_newPSabtOOUSS1" class="control-label pull-right "> بزرگتر از 100 cm</label>
               <input type="radio" name="dimension_newPSabtOOUSS" id="dimension_newPSabtOOUSS1" value="2">
             </div>
             <div class="div_form_radio2 stamp_orderSabtShD2">
-              <label for="dimension_newPSabtSh2" class="control-label pull-right ">کوچکتر از 100 cm </label>
+              <label for="dimension_newPSabtOOUSS2" class="control-label pull-right ">کوچکتر از 100 cm </label>
               <input type="radio" name="dimension_newPSabtOOUSS" id="dimension_newPSabtOOUSS2" value="1">
             </div>
         </div>
@@ -219,7 +219,7 @@
       </div></form></div>
       <div class="orderLine"></div>
       <form class="form form_orderEditOOUSS" id="form_orderEditOOUSS" action="" method="post">
-       <div class="form_titr"><i class="fas fa-info-circle"></i> مشاهده و ویرایش محصول جاری ({{$proShopOne->name}})</div>
+       <div class="form_titr"><i class="fas fa-info-circle"></i> مشاهده و ویرایش محصول جاری ({{$proOne->name}})</div>
        <div class="formTitrShop">
            <span>راهنما !!</span> چنانچه بر روی علامت <i class="fas fa-info-circle "></i>هر یک از کادرها کلیک کنید ، راهنمای مربوط به همان کادر را مشاهده خواهید کرد .
        </div>
@@ -240,23 +240,23 @@
        </div>
        <div class="form-group">
          <label for="name_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mname_orderEditOOUSS"></i> نام محصول <i class="fas fa-star star_form"></i></label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="name_orderEditOOUSS" value="{{$proShopOne->name}}"placeholder="الزامی ..."></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="name_orderEditOOUSS" value="{{$proOne->name}}"placeholder="الزامی ..."></div>
        </div>
        <div class="form-group">
          <label for="maker_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mmaker_orderEditOOUSS"></i>  سازنده محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="maker_orderEditOOUSS"placeholder="اختیاری ..." value="{{$proShopOne->maker}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="maker_orderEditOOUSS"placeholder="اختیاری ..." value="{{$proOne->maker}}"></div>
        </div>
        <div class="form-group">
          <label for="brand_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mbrand_orderEditOOUSS"></i>  برند محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="brand_orderEditOOUSS"placeholder="اختیاری ..." value="{{$proShopOne->brand}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="brand_orderEditOOUSS"placeholder="اختیاری ..." value="{{$proOne->brand}}"></div>
        </div>
        <div class="form-group">
          <label for="model_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mmodel_orderEditOOUSS"></i> مدل محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="model_orderEditOOUSS"placeholder="اختیاری ..." value="{{$proShopOne->model}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="model_orderEditOOUSS"placeholder="اختیاری ..." value="{{$proOne->model}}"></div>
        </div>
        <div class="form-group">
          <label for="price_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mprice_orderEditOOUSS"></i> قیمت محصول (تومان) <i class="fas fa-star star_form"></i></label>
-         <div class="div_form"><input type="text" class="form-control placeholder_price number" id="price_orderEditOOUSS" value="{{$proShopOne->price}}"placeholder="الزامی ... به تومان"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder_price number" id="price_orderEditOOUSS" value="{{$proOne->price}}"placeholder="الزامی ... به تومان"></div>
        </div>
        <div class="form-group">
          <label for="priceFOrder_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderPSUS"data-toggle="modal" data-target="#MpriceFOrder_orderEditOOUSS"></i> قیمت برای این سفارش(تومان)</label>
@@ -267,36 +267,49 @@
          <div class="div_form">
            <select class="select squad_sabtOrder" id="vahed_orderEditOOUSS" name="" >
              <option value="">انتخاب کنید</option>
-             <option value="عدد"  @if ($proShopOne->vahed=='عدد') selected @endif >عدد</option>
-             <option value="بسته" @if ($proShopOne->vahed=='بسته') selected @endif >بسته</option>
-             <option value="کارتن" @if ($proShopOne->vahed=='کارتن') selected @endif>کارتن</option>
-             <option value="گونی" @if ($proShopOne->vahed=='گونی') selected @endif>گونی</option>
-             <option value="گرم" @if ($proShopOne->vahed=='گرم') selected @endif>گرم</option>
-             <option value="کیلو گرم" @if ($proShopOne->vahed=='کیلو گرم') selected @endif>کیلو گرم</option>
-             <option value="جین" @if ($proShopOne->vahed=='جین') selected @endif>جین</option>
+             <option value="عدد"  @if ($proOne->vahed=='عدد') selected @endif >عدد</option>
+             <option value="بسته" @if ($proOne->vahed=='بسته') selected @endif >بسته</option>
+             <option value="کارتن" @if ($proOne->vahed=='کارتن') selected @endif>کارتن</option>
+             <option value="گونی" @if ($proOne->vahed=='گونی') selected @endif>گونی</option>
+             <option value="گرم" @if ($proOne->vahed=='گرم') selected @endif>گرم</option>
+             <option value="کیلو گرم" @if ($proOne->vahed=='کیلو گرم') selected @endif>کیلو گرم</option>
+             <option value="جین" @if ($proOne->vahed=='جین') selected @endif>جین</option>
            </select>
          </div>
        </div>
        <div class="form-group">
          <label for="num_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mnum_orderEditOOUSS"></i> تعداد کالای موجود</label>
-         <div class="div_form"><input type="number" class="form-control placeholder" id="num_orderEditOOUSS"min="1" placeholder="اختیاری ..."value="{{$proShopOne->num}}"></div>
+         <div class="div_form"><input type="number" class="form-control placeholder" id="num_orderEditOOUSS"min="1" placeholder="اختیاری ..."value="{{$proOne->num}}"></div>
        </div>
        <div class="form-group">
          <label for="vazn_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mvazn_orderEditOOUSS"></i> وزن محصول</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="vazn_orderEditOOUSS"placeholder="در صورت نیاز ..."value="{{$proShopOne->vazn}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="vazn_orderEditOOUSS"placeholder="در صورت نیاز ..."value="{{$proOne->vazn}}"></div>
+       </div>
+       <div class="form-group">
+         <label for="dimension_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderSabtSh" data-toggle="modal" data-target="#Mdimension_orderSabtSh"></i> ابعاد محصول <i class="fas fa-star star_form"></i></label>
+         <div class="div_form_radio1">
+             <div class="div_form_radio2 dimension_orderSabtShD1">
+               <label for="orderEditOOUSS1" class="control-label pull-right "> بزرگتر از 100 cm</label>
+               <input type="radio" name="dimension_orderEditOOUSS" id="orderEditOOUSS1" value="2"@if ($proOne->dimension == 2) checked @endif>
+             </div>
+             <div class="div_form_radio2 stamp_orderSabtShD2">
+               <label for="orderEditOOUSS2" class="control-label pull-right ">کوچکتر از 100 cm </label>
+               <input type="radio" name="dimension_orderEditOOUSS" id="orderEditOOUSS2"  value="1"@if ($proOne->dimension == 1) checked @endif>
+             </div>
+         </div>
        </div>
        <div class="form-group">
          <label for="vaznPost_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MvaznPost_orderEditOOUSS"></i> وزن پستی محصول (گرم) <i class="fas fa-star star_form"></i></label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="vaznPost_orderEditOOUSS"value="{{$proShopOne->vaznPost}}"placeholder="الزامی ... به گرم"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="vaznPost_orderEditOOUSS"value="{{$proOne->vaznPost}}"placeholder="الزامی ... به گرم"></div>
        </div>
        <div class="form-group">
          <label for="pakat_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mpakat_orderEditOOUSS"></i> هزینه بسته بندی (تومان) </label>
-         <div class="div_form"><input type="text" class="form-control placeholder_price number" id="pakat_orderEditOOUSS"placeholder="اختیاری ... به تومان"value="{{$proShopOne->pakat}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder_price number" id="pakat_orderEditOOUSS"placeholder="اختیاری ... به تومان"value="{{$proOne->pakat}}"></div>
        </div>
        <div class="form-group">
          <label for="dis_orderEditOOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mdis_orderEditOOUSS"></i> توضیح محصول</label>
          <div class="div_formTextarea">
-           <textarea name="name" class="placeholder" id="dis_orderEditOOUSS"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید .">{{$proShopOne->dis}}</textarea>
+           <textarea name="name" class="placeholder" id="dis_orderEditOOUSS"placeholder="اختیاری !! ولی برای درک بهتر از کالای شما بهتر است وارد کنید .">{{$proOne->dis}}</textarea>
          </div>
        </div>
        <div class="form-group">
@@ -307,16 +320,16 @@
        </div>
        <div class="form-group">
          <label for="dateMake_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MdateMake_orderEditOOUSS"></i> تاریخ تولید</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="dateMake_orderEditOOUSS"placeholder="اختیاری ..."value="{{$proShopOne->dateMake}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="dateMake_orderEditOOUSS"placeholder="اختیاری ..."value="{{$proOne->dateMake}}"></div>
        </div>
        <div class="form-group">
          <label for="dateExpiration_orderEditOOUSS" class="control-label pull-right "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#MdateExpiration_orderEditOOUSS"></i> تاریخ انقضا</label>
-         <div class="div_form"><input type="text" class="form-control placeholder" id="dateExpiration_orderEditOOUSS"placeholder="اختیاری ..."value="{{$proShopOne->dateExpiration}}"></div>
+         <div class="div_form"><input type="text" class="form-control placeholder" id="dateExpiration_orderEditOOUSS"placeholder="اختیاری ..."value="{{$proOne->dateExpiration}}"></div>
        </div>
        <div class="form-group">
          <label for="term_orderEditOOUSS" class="control-label pull-right  "><i class="fas fa-info-circle i_form i_orderEditSh"data-toggle="modal" data-target="#Mterm_orderEditOOUSS"></i> شرایط نگهداری</label>
          <div class="div_formTextarea">
-           <textarea name="name" class="placeholder" id="term_orderEditOOUSS"placeholder="اختیاری ...">{{$proShopOne->term}}</textarea>
+           <textarea name="name" class="placeholder" id="term_orderEditOOUSS"placeholder="اختیاری ...">{{$proOne->term}}</textarea>
          </div>
        </div>
        <div class="tImgForm">
@@ -344,7 +357,7 @@
            @endphp
            <div class="divImgP {{$imgClass}}" >
              <i class='fas fa-times iDElImg' onclick="delimg2({{$imgPro['id']}},'{{$celImgB}}','{{$celImgS}}','{{$imgPro[$celImgB]}}','{{$imgClass}}')" ></i>
-             <img  src="/img_shop/{{$imgPro[$celImgB]}}" alt="" width="90" height="90">
+             <img  src="/img_pro/{{$imgPro[$celImgB]}}" alt="" width="90" height="90">
 
            </div>
            @php
@@ -353,8 +366,8 @@
          @endfor
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success" onclick="editProShopUnStock({{$proShopOne->id}},{{$oldOrderOne->id}},{{$imgPro->id}},'stamp_orderEditOOUSS','name_orderEditOOUSS','maker_orderEditOOUSS','brand_orderEditOOUSS','model_orderEditOOUSS','price_orderEditOOUSS','priceFOrder_orderEditOOUSS','vahed_orderEditOOUSS','num_orderEditOOUSS','vazn_orderEditOOUSS','dimension_orderEditOOUSS','vaznPost_orderEditOOUSS','pakat_orderEditOOUSS','dis_orderEditOOUSS','disSeller_orderEditOOUSS','dateMake_orderEditOOUSS','dateExpiration_orderEditOOUSS','term_orderEditOOUSS',
-         'ajax_orderEditOOUSS','form_orderEditOOUSS','oldOrderOneUnStockShop',null,2)" >ثبت تغییرات</button>
+         <button type="button" class="btn btn-success" onclick="editProShopUnStock({{$proOne->id}},{{$oldOrderOne->id}},{{$imgPro->id}},'stamp_orderEditOOUSS','name_orderEditOOUSS','maker_orderEditOOUSS','brand_orderEditOOUSS','model_orderEditOOUSS','price_orderEditOOUSS','priceFOrder_orderEditOOUSS','vahed_orderEditOOUSS','num_orderEditOOUSS','vazn_orderEditOOUSS','dimension_orderEditOOUSS','vaznPost_orderEditOOUSS','pakat_orderEditOOUSS','dis_orderEditOOUSS','disSeller_orderEditOOUSS','dateMake_orderEditOOUSS','dateExpiration_orderEditOOUSS','term_orderEditOOUSS',
+         'ajax_orderEditOOUSS','form_orderEditOOUSS','/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}',null,2)" >ثبت تغییرات</button>
          <button type="button"class="btn btn-danger orderAghdamP2"data-toggle="modal" data-target="#del_OfferPro">حذف پیشنهاد محصول</button>
        </div>
      </form>
@@ -382,7 +395,7 @@
            <span><b>توجه !!</b> آیا می خواهید پیشنهاد این محصول به سفارش جاری را حذف کنید ؟ْ </span>
          </div>
          <div class="orderAghdamModal3 alertCheckDlePro2">
-             <button type="button" class="btn btn-primary"onclick="del_offerProShop({{$proShopOne->id}},{{$oldOrderOne->id}},'oldOrderUnStockShop')" data-dismiss="modal"  aria-label="Close">بله</button>
+             <button type="button" class="btn btn-primary"onclick="del_offerProShop({{$proOne->id}},{{$oldOrderOne->id}},'oldOrderUnStockShop')" data-dismiss="modal"  aria-label="Close">بله</button>
              <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
          </div>
        </div>

@@ -42,7 +42,7 @@
             </div>
             <div class="editCodeBodyPSh">
               <div class="editCodeBodyP1Sh">نام محصول :</div>
-              <div class="editCodeBodyP2Sh">{{$proShop2->name}}</div>
+              <div class="editCodeBodyP2Sh">{{$pro2->name}}</div>
             </div>
             <div class="editCodeBodyPSh">
               <div class="editCodeBodyP1Sh">تعداد محصول :</div>
@@ -77,14 +77,14 @@
              {{ csrf_field() }}
              <div class="form-group">
                 <label for="codeR_editCodePSh" class="control-label pull-right "><i class="fas fa-info-circle i_form i_rahnama"data-toggle="modal" data-target="#McodeR_editCodePSh"></i> کد رهگیری محموله</label>
-                <div class="div_form"><input type="text" class="form-control" id="codeR_editCodePSh"placeholder="" value="{{$proShop2->codeRahgiry}}"></div>
+                <div class="div_form"><input type="text" class="form-control" id="codeR_editCodePSh"placeholder="" value="{{$pro2->codeRahgiry}}"></div>
               </div>
               <div class="form-group form_btn">
-                <button type="button" class="btn btn-success" onclick="editCodeRahgirySh({{$proShop2->id}})" >ویرایش کد رهگیری</button>
+                <button type="button" class="btn btn-success" onclick="editCodeRahgirySh({{$pro2->id}})" >ویرایش کد رهگیری</button>
               </div>
             </form>
         @else
-          @if (empty($proShop[0]->id))
+          @if (empty($pro[0]->id))
             <div class="divNoR0wShop">
               محصول ارسال شده ای موجود نیست .
             </div>
@@ -99,7 +99,7 @@
           @php
             $r=0;
           @endphp
-          @foreach ($proShop as $value)
+          @foreach ($pro as $value)
             <?php $r++;  ?>
             <div class="div2_editCodeSh @if ($r % 2 == 0) bColor2 @else bColor1 @endif "onclick="window.location='/editErsalShop/{{$value->order_id}}'">
               <div class="div_editCodeSh1">{{$r}}</div>

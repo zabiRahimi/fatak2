@@ -14,20 +14,23 @@ class CreateBackProsTable extends Migration
     public function up()
     {
         Schema::create('back_pros', function (Blueprint $table) {
-            $table->increments('id');
-            $table->mediumInteger('buy_id')->unique();
-            $table->mediumInteger('pro_id');
-            $table->mediumInteger('shop_id')->nullable();
-            $table->string('code_rahgiry',70)->unique()->nullable();
-            $table->string('date_post',13)->nullable();
-            $table->mediumInteger('price_post')->nullable();
-            $table->text('buyer_dis')->nullable();//توضیح مشتری
-            $table->text('technician_dis')->nullable();//توضیح کارشناس
-            $table->mediumInteger('pay_buyer')->nullable();//`پرداختی به مشتری`
-            $table->string('date_ad',13)->nullable();
-            $table->string('date_up',13)->nullable();
-            $table->boolean('stage');
-            $table->boolean('show');
+          $table->increments('id');
+          $table->mediumInteger('order_id')->unique()->nullable();
+          $table->mediumInteger('pro_id')->nullable();
+          $table->mediumInteger('shop_id')->nullable();
+          $table->string('code_rahgiry',70)->unique()->nullable();
+          $table->string('undertake_ersal',60)->nullable();
+          $table->string('date_back',13)->nullable();
+          $table->string('undertake_back',60)->nullable();
+          $table->string('price_back',13)->nullable();
+          $table->text('buyer_dis')->nullable();
+          $table->text('master_dis')->nullable();
+          $table->text('loss_dis')->nullable();
+          $table->string('undertake_loss',60)->nullable();
+          $table->string('loss_price',13)->nullable();
+          $table->string('date_ad',13)->nullable();
+          $table->string('date_up',13)->nullable();
+          $table->boolean('show');
         });
     }
 

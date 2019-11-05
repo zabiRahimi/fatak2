@@ -47,11 +47,11 @@
       <div class="order_div_stock orderDivH">
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sProSStock" value="" placeholder="نام محصول ثابت">
-          <button type="button" onclick="searchProSStock()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchProShop({{$newOrderOne->id}},'/newOrderShopOne/{{ $newOrderOne->id }}','#sProSStock','#sIdSStock','#ajax_searchProSStock','ثابت');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sIdSStock" value="" placeholder="کد محصول ثابت">
-          <button type="button" onclick=""><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchIdShop('',{{$newOrderOne->id}},'/newOrderShopOne/{{ $newOrderOne->id }}','#sProSStock','#sIdSStock','#ajax_searchProSStock','ثابت');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivSPSS" id="ajax_searchProSStock">
         </div>
@@ -62,11 +62,11 @@
       <div class="order_div_unStock orderDivH">
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sProSUnStock" value="" placeholder="نام محصول غیر ثابت">
-          <button type="button" onclick="searchProSUnStock({{$newOrderOne->id}});spinner()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchProShop({{$newOrderOne->id}},'/newOrderShopOne/{{ $newOrderOne->id }}','#sProSUnStock','#sIdSUnStock','#ajax_searchProSUnStock','غیر ثابت');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sIdSUnStock" value="" placeholder="کد محصول غیر ثابت">
-          <button type="button" onclick="searchIdSUnStock('',{{$newOrderOne->id}});spinner()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchIdShop('',{{$newOrderOne->id}},'/newOrderShopOne/{{ $newOrderOne->id }}','#sProSUnStock','#sIdSUnStock','#ajax_searchProSUnStock','غیر ثابت');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivSPSS" id="ajax_searchProSUnStock"></div>
       </div>
@@ -201,7 +201,7 @@
          </div>
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success"onclick="proShop({{$newOrderOne->id}},'stamp_orderSabtSh','name_orderSabtSh','maker_orderSabtSh','brand_orderSabtSh','model_orderSabtSh','price_orderSabtSh','priceFOrder_orderSabtSh','vahed_orderSabtSh','num_orderSabtSh','vazn_orderSabtSh','dimension_orderSabtSh','vaznPost_orderSabtSh','pakat_orderSabtSh','dis_orderSabtSh','disSeller_orderSabtSh','dateMake_orderSabtSh','dateExpiration_orderSabtSh','term_orderSabtSh',
+         <button type="button" class="btn btn-success"onclick="savePro({{$newOrderOne->id}},'stamp_orderSabtSh','غیر ثابت','name_orderSabtSh','maker_orderSabtSh','brand_orderSabtSh','model_orderSabtSh','price_orderSabtSh','priceFOrder_orderSabtSh','vahed_orderSabtSh','num_orderSabtSh','vazn_orderSabtSh','dimension_orderSabtSh','vaznPost_orderSabtSh','pakat_orderSabtSh','dis_orderSabtSh','disSeller_orderSabtSh','dateMake_orderSabtSh','dateExpiration_orderSabtSh','term_orderSabtSh',
          'ajax_orderSabtSh','form_orderSabtSh','newOrderShopOne')" >ثبت</button>
        </div></form></div></div>
    <!-- Modal موفق بودن ثبت محصول-->

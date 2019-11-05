@@ -53,10 +53,10 @@
   <div class="dashSh_R">
     <ul class="ul_right dashSh_RUl">
       <a href="/warningShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-bell"></i> هشدارها و اخبار</span> <span class="badgeShop badegW">0</span></li></a>
-      <a href="/sabtProStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-calendar-plus"></i>ثبت محصولات ثابت</span> </li></a>
-      <a href="/showProStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-circle"></i>محصولات ثابت</span> <span class="badgeShop"></span></li></a>
+      <a href="/sabtProStockShop"class=""><li class="modal_hide" onclick=""><span><i class="fas fa-calendar-plus"></i>ثبت محصولات ثابت</span> </li></a>
+      <a href="/showProStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-circle"></i>محصولات ثابت</span> <span class="badgeShop">{{$proStockNum}}</span></li></a>
       <a href="/sabtProUnStockShop"class=""><li class="modal_hide" onclick=""><span><i class="fas fa-calendar-plus"></i>ثبت محصول غیر ثابت</span> </li></a>
-      <a href="/showProUnStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-circle"></i>محصولات غیر ثابت </span> <span class="badgeShop">{{$proShopNum}}</span></li></a>
+      <a href="/showProUnStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="far fa-circle"></i>محصولات غیر ثابت </span> <span class="badgeShop">{{$proUnStockNum}}</span></li></a>
       <a href="/newOrderShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-bolt"></i> سفارشات جدید</span> <span class="badgeShop">{{$orderNum}}</span></li></a>
       <a href="/oldOrderUnStockShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-file-invoice"></i> محصولات پیشنهاد شده </span> <span class="badgeShop">{{$oldOrderNum}}</span></li></a>
       <a href="/buyProShop"class="apjax"><li class="modal_hide" onclick=""><span><i class="fas fa-check-circle"></i> محصولات خریداری شده</span> <span class="badgeShop badegM">{{$buyOrderNum}}</span></li></a>

@@ -33,11 +33,11 @@
       <div class="div_map_c">
         <span>{{$mapPro}} </span>
       </div>
-      @if (empty($proShop[0]['id']) and $notRecord=='ok')
+      @if (empty($pro[0]['id']) and $notRecord=='ok')
         <div class="div_alert alert alert-danger">
           تا کنون هیچ محصول غیر ثابتی ثبت نشده است .
         </div>
-      @elseif (empty($proShop[0]['id']) and $notRecord=='no')
+      @elseif (empty($pro[0]['id']) and $notRecord=='no')
         <div class="div_alert alert alert-danger">
           طبق جستجوی شما محصولی یافت نشد .
         </div>
@@ -54,7 +54,7 @@
       @php
         $r=0;
       @endphp
-      @foreach ($proShop as $value)
+      @foreach ($pro as $value)
         <?php
         // $checkOrder=$stampProOrder->where('order_id',$value->id)->first();
         // if($checkOrder){continue;}
