@@ -5,7 +5,7 @@
 @section('dash_content')
     <div class="dashTitrSh">
     مشاهده محصول غیر ثابت
-      <a href="/showProUnStockShop"><button type="button" class="btn btnBack" onclick="">  بازگشت  </button></a>
+      <a href="/showProUnStockShop"><button type="button" class="btn btn-info btnBack" onclick="">  بازگشت  </button></a>
     </div>
     <div class="dashLBodySh">
       @if ($numShowOrder)

@@ -488,11 +488,12 @@ function savePro(order_id,stamp,typePro,namePro,maker,brand,model,price,priceFOr
             $('#'+idAjax).empty();
             $('#end_orderSabtSh').modal('show');
             $("#end_orderSabtSh").on('hide.bs.modal', function () {
-              if (order_id) {
-                window.location.href  = "/"+url+"/"+order_id;
-              } else {
-                window.location.href  = "/"+url;
-              }
+              // if (order_id) {
+              //   window.location.href  = "/"+url+"/"+order_id;
+              // } else {
+              //   window.location.href  = "/"+url;
+              // }
+              window.location.href  = url;
             });
           },
           error: function(xhr) {
@@ -603,12 +604,12 @@ function editPro(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,pr
             **checkInset
             **هنگامی که این پارامتر مقدار دهی شده باشد متد کنترل چک می کند که محصول جاری به سفارش جاری قبلا معرفی شده یا خیر
             **در ادامه نحوه مقدار دهی در صفحات ذکر شده
-            **showProOneUnStockShop = null , searchProSUnStock = 1 , oldOrderOneUnStockShop -> in form (form_orderEditOOUSS) = null
+            **showProOneUnStockShop = null , searchProSUnStock = 1 , oldOrderOneShop -> in form (form_orderEditOOUSS) = null
             ******
             **checkAddOrEditStamp
             **این پارمتر هنگامی مقدار دهی می شود که میخواهیم محصولی را به سفارشی معرفی کنیم یا اینکه محصول معرفی شده را ویرایش کنیم
             ××در واقع این پارامتر اجازه ایجاد رکورد جدید و یا ویرایش رکورد موجود در جدول استمپ پرو اوردرز را می دهد ، مقدار دهی پارامتر در صفحات در ادامه ذکر شده است
-            ** showProOneUnStockShop = null ,searchProSUnStock = 1 ,  oldOrderOneUnStockShop -> in form (form_orderEditOOUSS) = 2
+            ** showProOneUnStockShop = null ,searchProSUnStock = 1 ,  oldOrderOneShop -> in form (form_orderEditOOUSS) = 2
             */
             if (priceFOrder != 'not') {var priceFOrder = $('#'+priceFOrder).val()}else{var priceFOrder=null;}
             $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
@@ -693,7 +694,7 @@ function editPro(pro_id,order_id,img_id,stamp,namePro,maker,brand,model,price,pr
           }
 /*
 **پیشنهاد محصولات دیگر در صفحه
-**oldOrderOneUnStockShop
+**oldOrderOneShop
 */
 function showAddOffer() {
   $("#ulOOUSS2").toggle();

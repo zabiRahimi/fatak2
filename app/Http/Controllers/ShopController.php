@@ -732,7 +732,7 @@ class ShopController extends Controller
 
     return $nameImg;
   }
-  public function oldOrderUnStockShop(Request $request)
+  public function oldOrderShop(Request $request)
   {
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proStockNum=$this->proStockNum;$proUnStockNum=$this->proUnStockNum;
     $dateA=new Verta();//تاریخ جلالی
@@ -791,7 +791,7 @@ class ShopController extends Controller
       $pro=pro::where('shop_id',$id)->get();
     }
     $order=Order::get();
-    return view('shop.oldOrderUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proStockNum','proUnStockNum','backOrderNum','pro','stampProOrder','order','mapPro','mapOrder','namePro','nameOrder','mapDate','mapOstan','mapCity','nameOstan','nameCity'));
+    return view('shop.oldOrderShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proStockNum','proUnStockNum','backOrderNum','pro','stampProOrder','order','mapPro','mapOrder','namePro','nameOrder','mapDate','mapOstan','mapCity','nameOstan','nameCity'));
   }
 
 
@@ -811,7 +811,7 @@ class ShopController extends Controller
   //   Cookie::queue('nameOldOrShC', '');
   //   Cookie::queue('codeOldOrShC', '');
   // }
-  public function oldOrderOneUnStockShop(Request $request)
+  public function oldOrderOneShop(Request $request)
   {
     $id=$this->id;$stage=$this->stage;$seller=$this->seller;$orderNum=$this->orderNum;$oldOrderNum=$this->oldOrderNum;$buyOrderNum=$this->buyOrderNum;$payOrderNum=$this->payOrderNum;$backOrderNum=$this->backOrderNum;$proStockNum=$this->proStockNum;$proUnStockNum=$this->proUnStockNum;
     $id_order=$request->id1;$id_pro=$request->id2;
@@ -827,14 +827,14 @@ class ShopController extends Controller
       if(!empty($nameImg)){
         Cookie::queue('namePic', serialize($nameImg));
       }
-    return view('shop.oldOrderOneUnStockShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proStockNum','proUnStockNum','backOrderNum','oldOrderOne','proShopOne','imgPro','id_order','id_pro','stampProOrder','numShowOrder'));
+    return view('shop.oldOrderOneShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proStockNum','proUnStockNum','backOrderNum','oldOrderOne','proOne','imgPro','id_order','id_pro','stampProOrder','numShowOrder'));
   }
 
     /*
     **checkOrderAdd
     **چک می کند که اگر محصول ازقبل به مشتری معرفی شده دوباره معرفی نشود
     **این پارامتر در صفحه زیر مقدار دهی می شود
-    **oldOrderOneUnStockShop.blade.php
+    **oldOrderOneShop.blade.php
     **مقدار برابر 1 و در صفحهات دیگر نال می باشد
     */
     // if (!empty($request->checkOrderAdd)) {

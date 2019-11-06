@@ -19,33 +19,33 @@
       محصولات پیشنهاد شده
     </div>
     <div class="div_search_c">
-      <button type="button" class="btn btn_search_c" onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'all' , '' , '' , 'oldOrderUnStockShop' , '' )">همه محصولات</button>
+      <button type="button" class="btn btn_search_c" onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'all' , '' , '' , 'oldOrderShop' , '' )">همه محصولات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchOOUSS" placeholder="نام محصول">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'pro' , 'pro_searchOOUSS' , '' , 'oldOrderUnStockShop' , 1 )"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'pro' , 'pro_searchOOUSS' , '' , 'oldOrderShop' , 1 )"><i class="fas fa-search"></i></button>
       </div>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchOOUSS" placeholder="کد محصول">
-        <button type="button" class="btn_date_c btn"onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'id' , '' , 'id_searchOOUSS' , 'oldOrderUnStockShop' , 2 ) "><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn"onclick="pro_searchC('proCheckOOUSS', 'proOOUSS', 'id' , '' , 'id_searchOOUSS' , 'oldOrderShop' , 2 ) "><i class="fas fa-search"></i></button>
       </div>
       </div>
     <div class="div_search_c">
-      <button type="button" class="btn btn_search_c" onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'all' , '' , '' , 'oldOrderUnStockShop' , '' )">همه سفارشات</button>
+      <button type="button" class="btn btn_search_c" onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'all' , '' , '' , 'oldOrderShop' , '' )">همه سفارشات</button>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_pro_date_c placeholder" id="pro_searchOOUSS2" placeholder="نام سفارش">
-        <button type="button" class="btn_date_c btn" onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'pro' , 'pro_searchOOUSS2' , '' , 'oldOrderUnStockShop' , 3 )"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'pro' , 'pro_searchOOUSS2' , '' , 'oldOrderShop' , 3 )"><i class="fas fa-search"></i></button>
       </div>
       <div class="div_search_form_date_c" action="index.html" method="post">
         <input type="text" class="input_date_c input_code_date_c placeholder"  id="id_searchOOUSS2" placeholder="کد سفارش">
-        <button type="button" class="btn_date_c btn"onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'id' , '' , 'id_searchOOUSS2' , 'oldOrderUnStockShop' , 4 )"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn"onclick="pro_searchC('orderCheckOOUSS', 'orderOOUSS', 'id' , '' , 'id_searchOOUSS2' , 'oldOrderShop' , 4 )"><i class="fas fa-search"></i></button>
       </div>
       </div>
 
       <div class="div_search_c">
-      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','all','oldOrderUnStockShop')">همه تاریخ ها</button>
-      <button type="button" class="btn btn_search_c" onclick="date_searchC('dateOOUSS','month','oldOrderUnStockShop')">30 روز اخیر</button>
-      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','today','oldOrderUnStockShop')">امروز</button>
-      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','yesterday','oldOrderUnStockShop')">دیروز</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','all','oldOrderShop')">همه تاریخ ها</button>
+      <button type="button" class="btn btn_search_c" onclick="date_searchC('dateOOUSS','month','oldOrderShop')">30 روز اخیر</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','today','oldOrderShop')">امروز</button>
+      <button type="button" class="btn btn_search_c"onclick="date_searchC('dateOOUSS','yesterday','oldOrderShop')">دیروز</button>
         <div class="div_search_form_date_c2" action="index.html" method="post">
           <div class="div_search_c2">
             <span>از تاریخ</span>
@@ -58,13 +58,13 @@
             <input type="text" class="input_date_c input_day_date_c placeholder" id="seOOUSSDay2" placeholder="روز">
             <input type="text" class="input_date_c input_month_date_c placeholder" id="seOOUSSMont2" placeholder="ماه">
             <input type="text" class="input_date_c input_year_date_c placeholder" id="seOOUSSYear2" placeholder="سال">
-            <button type="button" class="btn_date_c btn"onclick="fromDAte_searchC('dateOOUSS','date1OOUSS','date2OOUSS','oldOrderUnStockShop','seOOUSSDay1','seOOUSSMonth1','seOOUSSYear1','seOOUSSDay2','seOOUSSMont2','seOOUSSYear2')"><i class="fas fa-search"></i></button>
+            <button type="button" class="btn_date_c btn"onclick="fromDAte_searchC('dateOOUSS','date1OOUSS','date2OOUSS','oldOrderShop','seOOUSSDay1','seOOUSSMonth1','seOOUSSYear1','seOOUSSDay2','seOOUSSMont2','seOOUSSYear2')"><i class="fas fa-search"></i></button>
           </div>
         </div>
        </div>
        <div class="div_search_c">
-       <button type="button" class="btn btn_search_c" onclick="AllOstan_searchC('ostanAndCityOOUSS','ostanOOUSS','cityOOUSS','oldOrderUnStockShop')">همه استان ها</button>
-       <button type="button" class="btn btn_search_c" onclick="AllCity_searchC('cityOOUSS' , 'oldOrderUnStockShop')">همه شهرها</button>
+       <button type="button" class="btn btn_search_c" onclick="AllOstan_searchC('ostanAndCityOOUSS','ostanOOUSS','cityOOUSS','oldOrderShop')">همه استان ها</button>
+       <button type="button" class="btn btn_search_c" onclick="AllCity_searchC('cityOOUSS' , 'oldOrderShop')">همه شهرها</button>
       <div class="div_search_form_date_c2"  method="post">
         <div class="div_search_c2">
           <select class=" select_search_date_c"id="seOOUSSOstan">
@@ -107,7 +107,7 @@
             <option value="allCity">همه شهرها</option>
             @include('show_city2')
           </select>
-        <button type="button" class="btn_date_c btn" onclick="ostan_searchC('ostanAndCityOOUSS','ostanOOUSS','cityOOUSS','oldOrderUnStockShop','seOOUSSOstan','seOOUSSCity')"><i class="fas fa-search"></i></button>
+        <button type="button" class="btn_date_c btn" onclick="ostan_searchC('ostanAndCityOOUSS','ostanOOUSS','cityOOUSS','oldOrderShop','seOOUSSOstan','seOOUSSCity')"><i class="fas fa-search"></i></button>
       </div>
       </div>
     </div>
@@ -157,7 +157,7 @@
          }
         ?>
 
-        <a href="/oldOrderOneUnStockShop/{{$order->id}}/{{$pro->id}}" >
+        <a href="/oldOrderOneShop/{{$order->id}}/{{$pro->id}}" >
           <div class="orderOSUS orderOSUS_1 {{$color}}">
             <div class="orderOSUSRwo">{{$r}}</div>
             <div class="orderOSUSName orderOSUSName_1">{{$pro->name}}</div>

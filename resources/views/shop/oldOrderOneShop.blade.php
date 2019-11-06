@@ -6,7 +6,7 @@
 
     <div class="dashTitrSh">
     مشاهده و ویرایش محصول پیشنهاد شده
-      <a href="/oldOrderUnStockShop"><button type="button" class="btn btn-info btnBack" onclick="">  بازگشت  </button></a>
+      <a href="/oldOrderShop"><button type="button" class="btn btn-info btnBack" onclick="">  بازگشت  </button></a>
     </div>
     <div class="dashLBodySh">
       @if ($numShowOrder)
@@ -52,41 +52,41 @@
         <li onclick="showAddOffer();div_active('divStockOOUS','.divStockOOUS','#sProSStock','#sIdSStock','#ajax_searchProSStock','#form_orderEditOOUSS')">انتخاب از محصولات ثابت</li>
         <li onclick="showAddOffer();div_active('divUnStockOOUS','.divUnStockOOUS','#sProSUnStock','#sIdSUnStock','#ajax_searchProSUnStock','#form_orderEditOOUSS')">انتخاب از محصولات غیر ثابت</li>
         <li onclick="showAddOffer();div_active('divNewOOUS','.divNewOOUS','','','#ajax_newPSabtOOUSS','#form_orderEditOOUSS')">ثبت محصول جدید</li>
-        <li onclick="showAddOffer();window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">محصول جاری ({{$proOne->name}})</li>
+        <li onclick="showAddOffer();window.location.href='/oldOrderOneShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">محصول جاری ({{$proOne->name}})</li>
       </ul>
       <div class="divOOUSS divStockOOUS orderDivH ">
         <div class="tDivOOUSS">انتخاب از محصولات ثابت
-          <button type="button" class="BOOUSS"onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
+          <button type="button" class="BOOUSS"onclick="window.location.href='/oldOrderOneShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sProSStock" value="" placeholder="نام محصول ثابت">
-          <button type="button" onclick="searchProSStock()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchProShop({{$oldOrderOne->id}},'/oldOrderOneShop/{{ $oldOrderOne->id }}/{{$proOne->id}}','#sProSStock','#sIdSStock','#ajax_searchProSStock','ثابت');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sIdSStock" value="" placeholder="کد محصول ثابت">
-          <button type="button" onclick=""><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchIdShop('',{{$oldOrderOne->id}},'/oldOrderOneShop/{{ $oldOrderOne->id }}/{{$proOne->id}}','#sProSStock','#sIdSStock','#ajax_searchProSStock','ثابت');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivSPSS" id="ajax_searchProSStock"></div>
       </div>
       <div class="divOOUSS divUnStockOOUS orderDivH">
         <div class="tDivOOUSS">انتخاب از محصولات غیر ثابت
-          <button type="button" class="BOOUSS" onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
+          <button type="button" class="BOOUSS" onclick="window.location.href='/oldOrderOneShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
           {{-- {{$proOne->name}} --}}
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sProSUnStock" value="" placeholder="نام محصول غیر ثابت">
-          <button type="button" onclick="searchProSUnStock({{$oldOrderOne->id}},'/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}');spinner()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchProShop({{$oldOrderOne->id}},'/oldOrderOneShop/{{ $oldOrderOne->id }}/{{$proOne->id}}','#sProSUnStock','#sIdSUnStock','#ajax_searchProSUnStock','غیر ثابت');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivInput1">
           <input type="text" class="placeholder" id="sIdSUnStock" value="" placeholder="کد محصول غیر ثابت">
-          <button type="button" onclick="searchIdSUnStock('',{{$oldOrderOne->id}},'/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}');spinner()"><i class='fas fa-search iODI'></i></button>
+          <button type="button" onclick="searchIdShop('',{{$oldOrderOne->id}},'/oldOrderOneShop/{{ $oldOrderOne->id }}/{{$proOne->id}}','#sProSUnStock','#sIdSUnStock','#ajax_searchProSUnStock','غیر ثابت');spinner()"><i class='fas fa-search iODI'></i></button>
         </div>
         <div class="orderDivSPSS" id="ajax_searchProSUnStock"></div>
       </div>
       <div class="divOOUSS divNewOOUS orderDivH">
       <form class="form form_newPSabtOOUSS" id="form_newPSabtOOUSS" action="" method="post">
        <div class="form_titr"><i class="fas fa-info-circle"></i>ثبت محصول جدید
-         <button type="button" class="BOOUSS"onclick="window.location.href='/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
+         <button type="button" class="BOOUSS"onclick="window.location.href='/oldOrderOneShop/{{$oldOrderOne->id}}/{{$proOne->id}}'">برگشت <span class="SBOOUSS">به ویرایش محصول جاری ({{$proOne->name}})</span> </button>
 
        </div>
        <div class="formTitrShop">
@@ -214,8 +214,8 @@
         </div>
       </div>
       <div class="form-group form_btn">
-        <button type="button" class="btn btn-success"onclick="proShop({{$oldOrderOne->id}},'stamp_newPSabtOOUSS','name_newPSabtOOUSS','maker_newPSabtOOUSS','brand_newPSabtOOUSS','model_newPSabtOOUSS','price_newPSabtOOUSS','priceFOrder_newPSabtOOUSS','vahed_newPSabtOOUSS','num_newPSabtOOUSS','vazn_newPSabtOOUSS','dimension_newPSabtOOUSS','vaznPost_newPSabtOOUSS','pakat_newPSabtOOUSS','dis_newPSabtOOUSS','disSeller_newPSabtOOUSS','dateMake_newPSabtOOUSS','dateExpiration_newPSabtOOUSS','term_newPSabtOOUSS',
-        'ajax_newPSabtOOUSS','form_newPSabtOOUSS','oldOrderUnStockShop')" >ثبت</button>
+        <button type="button" class="btn btn-success"onclick="savePro({{$oldOrderOne->id}},'stamp_newPSabtOOUSS','غیر ثابت','name_newPSabtOOUSS','maker_newPSabtOOUSS','brand_newPSabtOOUSS','model_newPSabtOOUSS','price_newPSabtOOUSS','priceFOrder_newPSabtOOUSS','vahed_newPSabtOOUSS','num_newPSabtOOUSS','vazn_newPSabtOOUSS','dimension_newPSabtOOUSS','vaznPost_newPSabtOOUSS','pakat_newPSabtOOUSS','dis_newPSabtOOUSS','disSeller_newPSabtOOUSS','dateMake_newPSabtOOUSS','dateExpiration_newPSabtOOUSS','term_newPSabtOOUSS',
+        'ajax_newPSabtOOUSS','form_newPSabtOOUSS','/oldOrderShop')" >ثبت</button>
       </div></form></div>
       <div class="orderLine"></div>
       <form class="form form_orderEditOOUSS" id="form_orderEditOOUSS" action="" method="post">
@@ -366,8 +366,8 @@
          @endfor
        </div>
        <div class="form-group form_btn">
-         <button type="button" class="btn btn-success" onclick="editProShopUnStock({{$proOne->id}},{{$oldOrderOne->id}},{{$imgPro->id}},'stamp_orderEditOOUSS','name_orderEditOOUSS','maker_orderEditOOUSS','brand_orderEditOOUSS','model_orderEditOOUSS','price_orderEditOOUSS','priceFOrder_orderEditOOUSS','vahed_orderEditOOUSS','num_orderEditOOUSS','vazn_orderEditOOUSS','dimension_orderEditOOUSS','vaznPost_orderEditOOUSS','pakat_orderEditOOUSS','dis_orderEditOOUSS','disSeller_orderEditOOUSS','dateMake_orderEditOOUSS','dateExpiration_orderEditOOUSS','term_orderEditOOUSS',
-         'ajax_orderEditOOUSS','form_orderEditOOUSS','/oldOrderOneUnStockShop/{{$oldOrderOne->id}}/{{$proOne->id}}',null,2)" >ثبت تغییرات</button>
+         <button type="button" class="btn btn-success" onclick="editPro({{$proOne->id}},{{$oldOrderOne->id}},{{$imgPro->id}},'stamp_orderEditOOUSS','name_orderEditOOUSS','maker_orderEditOOUSS','brand_orderEditOOUSS','model_orderEditOOUSS','price_orderEditOOUSS','priceFOrder_orderEditOOUSS','vahed_orderEditOOUSS','num_orderEditOOUSS','vazn_orderEditOOUSS','dimension_orderEditOOUSS','vaznPost_orderEditOOUSS','pakat_orderEditOOUSS','dis_orderEditOOUSS','disSeller_orderEditOOUSS','dateMake_orderEditOOUSS','dateExpiration_orderEditOOUSS','term_orderEditOOUSS',
+         'ajax_orderEditOOUSS','form_orderEditOOUSS','/oldOrderOneShop/{{$oldOrderOne->id}}/{{$proOne->id}}',null,2)" >ثبت تغییرات</button>
          <button type="button"class="btn btn-danger orderAghdamP2"data-toggle="modal" data-target="#del_OfferPro">حذف پیشنهاد محصول</button>
        </div>
      </form>
@@ -395,7 +395,7 @@
            <span><b>توجه !!</b> آیا می خواهید پیشنهاد این محصول به سفارش جاری را حذف کنید ؟ْ </span>
          </div>
          <div class="orderAghdamModal3 alertCheckDlePro2">
-             <button type="button" class="btn btn-primary"onclick="del_offerProShop({{$proOne->id}},{{$oldOrderOne->id}},'oldOrderUnStockShop')" data-dismiss="modal"  aria-label="Close">بله</button>
+             <button type="button" class="btn btn-primary"onclick="del_offerProShop({{$proOne->id}},{{$oldOrderOne->id}},'oldOrderShop')" data-dismiss="modal"  aria-label="Close">بله</button>
              <button type="button" class="btn btn-danger" data-dismiss="modal"  aria-label="Close">خیر</button>
          </div>
        </div>

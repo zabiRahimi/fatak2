@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
-use App\Models\ProShop;
+use App\Models\pro;
 use App\Models\Shop;
 use App\Models\StampPost;
-use App\Models\Picture_shop;
+use App\Models\PicturePro;
 use App\Models\Post;
 use App\Models\BuyOrder;
 use App\Http\Requests\Save_order1;
@@ -83,33 +83,33 @@ class OrderController extends Controller
     {
       $order_id=$request->order_id;
       $order=Order::find($order_id);
-      if(!empty($order->id_proShop) and count(json_decode($order->id_proShop))>0){
-      $id_proShop=json_decode($order->id_proShop);
-      $pro=ProShop::get();
-      $pro_count=count($id_proShop);//تعداد محصولات
-      foreach ($id_proShop as $value) {//تعین تعداد فروشگاه
-        $idShop=ProShop::find($value);
+      if(!empty($order->id_pro) and count(json_decode($order->id_pro))>0){
+      $id_pro=json_decode($order->id_pro);
+      $pro=Pro::get();
+      $pro_count=count($id_pro);//تعداد محصولات
+      foreach ($id_pro as $value) {//تعین تعداد فروشگاه
+        $idShop=pro::find($value);
         $shop_count1[]=$idShop->shop_id;
       }
       $shop_count1=array_unique($shop_count1);//حذف عناصر تکراری از آرایه
       $shop_count=count($shop_count1);//تعداد فروشنده ها
-      $img=Picture_shop::first();
+      $img=PicturePro::first();
       $shop=Shop::first();
       }
-      return view('order.showOrder',compact('pro','img','shop','pro_count','shop_count','id_proShop'));
+      return view('order.showOrder',compact('pro','img','shop','pro_count','shop_count','id_pro'));
     }
     public function showOneOrder(Request $request)
     {
       $id=$request->id;
-      $show_pro=ProShop::find($id);
-      $pic_pro=Picture_shop::where('pro_shop_id',$id)->first();
+      $show_pro=pro::find($id);
+      $pic_pro=PicturePro::where('pro_shop_id',$id)->first();
       $shop=Shop::find($show_pro->shop_id);
       return view('order.showOneOrder',compact('show_pro','pic_pro','shop'));
     }
     public function showSabadOrder(Request $request)
     {
       $id=$request->id;
-      $show_pro=ProShop::find($id);
+      $show_pro=pro::find($id);
       $stampPost=StampPost::where('pro_id',$id)->first();
       $shop=Shop::find($show_pro->shop_id);
       $order=Order::find($show_pro->order_id);
@@ -198,7 +198,7 @@ class OrderController extends Controller
       $num=$request->num;
       $num2=$request->num;
       $num3=$request->num;
-      $show_pro=ProShop::find($id);
+      $show_pro=pro::find($id);
       $shop=Shop::find($show_pro->shop_id);
       $order=Order::find($show_pro->order_id);
       do {
@@ -416,7 +416,7 @@ class OrderController extends Controller
     }
     $num3-=$i3;
   } while ($num3 > 0);
-      // $show_pro=ProShop::find($id);
+      // $show_pro=pro::find($id);
       // $stampPost=StampPost::where('pro_id',$id)->first();
       // $shop=Shop::find($show_pro->shop_id);
       // $order=Order::find($show_pro->order_id);
@@ -518,7 +518,7 @@ class OrderController extends Controller
       $id=$request->id;
       $num=$request->num;
       $post=$request->post;
-      $pro_shop=ProShop::find($id);
+      $pro_shop=pro::find($id);
       $shop=Shop::find($pro_shop->shop_id);
       $order=Order::find($pro_shop->order_id);
       $price=$num * $pro_shop->price;
@@ -551,21 +551,21 @@ class OrderController extends Controller
 public function save_data_buyer2(Save_data_buyer $request){
     $num_pro=$request->cookie('numProOrder');
     $pricePost=$request->cookie('pricePostOrder');
-    $proShop_id=$request->id;
-    $proShop=ProShop::find($proShop_id);
+    $pro_id=$request->id;
+    $pro=pro::find($pro_id);
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');
     $scot=0;
-    $priceAll=$num_pro * $proShop->price;
+    $priceAll=$num_pro * $pro->price;
     $paywork=($priceAll + $pricePost) * 2 /100 + 2000;
     $amount=$priceAll + $pricePost + $paywork;
     if(empty($num_pro) or empty($pricePost)){
       return 12;
     }
     $add=new BuyOrder();
-    $add->order_id=$proShop->order_id;
-    $add->proShop_id=$proShop_id;
-    $add->shop_id=$proShop->shop_id;
+    $add->order_id=$pro->order_id;
+    $add->pro_id=$pro_id;
+    $add->shop_id=$pro->shop_id;
     $add->name=$request->name;
     $add->mobail=$request->mobail;//
     $add->tel=$request->tel;//
@@ -588,9 +588,9 @@ public function save_data_buyer2(Save_data_buyer $request){
     $add-> save();
     if(!empty($add->id)){
       Cookie::queue('amountOrder', $amount );
-      Cookie::queue('proOrder', $proShop->name);
+      Cookie::queue('proOrder', $pro->name);
       Cookie::queue('buyOrder_id', $add->id);
-      Cookie::queue('proShop_id', $proShop->id);
+      Cookie::queue('pro_id', $pro->id);
       Cookie::queue('postOrder', '' , time() - 3600);
       Cookie::queue('pricePostOrder', '' , time() - 3600);
       Cookie::queue('numProOrder', '' , time() - 3600);
@@ -601,8 +601,8 @@ public function payBuyOrder(Request $request)
   $amount=$request->cookie('amountOrder');
   $proOrder=$request->cookie('proOrder');
   $buyOrder_id=$request->cookie('buyOrder_id');
-  $proShop_id=$request->cookie('proShop_id');
-  return view('order.payBuyOrder',compact('amount','proOrder','buyOrder_id','proShop_id'));
+  $pro_id=$request->cookie('pro_id');
+  return view('order.payBuyOrder',compact('amount','proOrder','buyOrder_id','pro_id'));
 }
 public function delBuyOrder(Request $request)
 {

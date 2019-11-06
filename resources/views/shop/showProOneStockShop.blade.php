@@ -5,7 +5,7 @@
 @section('dash_content')
     <div class="dashTitrSh">
     مشاهده محصول ثابت
-      <a href="/showProStockShop"><button type="button" class="btn btnBack" onclick="">  بازگشت  </button></a>
+      <a href="/showProStockShop"><button type="button" class="btn btn-info btnBack" onclick="">  بازگشت  </button></a>
     </div>
     <div class="dashLBodySh">
       @if ($numShowOrder)

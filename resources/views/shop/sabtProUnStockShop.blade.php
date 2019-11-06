@@ -124,7 +124,7 @@
        </div>
        <div class="form-group form_btn">
          <button type="button" class="btn btn-success"onclick="savePro('','not','غیر ثابت','name_proPUSS','maker_proPUSS','brand_proPUSS','model_proPUSS','price_proPUSS','not','vahed_proPUSS','num_proPUSS','vazn_proPUSS','dimension_proPUSS','vaznPost_proPUSS','pakat_proPUSS','dis_proPUSS','not','dateMake_proPUSS','dateExpiration_proPUSS','term_proPUSS',
-         'ajax_proPUSS','form_proPUSS','sabtProUnStockShop')" >ثبت</button>
+         'ajax_proPUSS','form_proPUSS','/sabtProUnStockShop')" >ثبت</button>
        </div></form>
     </div>
   @endif
