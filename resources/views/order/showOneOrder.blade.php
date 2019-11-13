@@ -4,17 +4,59 @@
   {{$show_pro->name}}
 @endsection
 @section('content')
+
   <div class="headerOrder">
     <div class="headerOrder_1">مشاهده محصول</div>
     <div class="headerOrder_2">به نام خدا</div>
     <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
   </div>
   <ul class="ul_line headerOrderUl ">
-    <a href="/showOrder/{{$show_pro->order_id}}"><li>بازگشت</li></a>
-    <a href="/"><li>صفحه اصلی</li></a>
-    <li>نحوه فعالیت</li>
+    <li onclick="window.location.href='/showOrder/{{$order_id}}'">بازگشت</li>
+    <li onclick="window.location.href='/'">صفحه اصلی</li>
+    <li>نحوه عملکرد</li>
     <li>قوانین و مقررات</li>
   </ul>
+  <div class="bodyShowPro">
+    <div class="titrShowPro">
+        <h1 >{{$show_pro->name}}</h1>
+        <div class="amarTiterSP">
+          <span> <i class="far fa-eye "></i> {{$show_pro->bazdid}}</span>
+          <span><i class="fas fa-comments "></i> 0</span>
+        </div>
+    </div>
+    <div class="contentShowPro">
+        <div class="upContentSP">
+            <div class="imgUpContentSP">
+                <div class="bigImgUpCSP">
+                  @for ($i=1; $i < 7; $i++)
+                    <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
+                    <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo   'active_img_pro' ;} ?> " >
+                  @endfor
+                </div>
+                <div class="smallImgUpCSP  ">
+                  <div class=" smallImgSlickAll ">
+                    @for ($i=1; $i < 7; $i++)
+                      <?php
+                        $pic_s ='pic_s'.$i;
+                        $b_img_p='b-img-p'.$i;
+                        if(empty($pic_pro->$pic_s)){continue;}
+                      ?>
+                      <div class="smallImgSlickOne">
+                        <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " class=""  onclick="b_img_pro('{{$b_img_p}}')">
+                      </div>
+                    @endfor
+                  </div>
+                </div>
+            </div>
+            <div class="infoUpContentSP">
+
+            </div>
+        </div>
+        <div class="downContentSP">
+
+        </div>
+    </div>
+  </div>
 <div class="contentOrder">
 
 <div class="show_pro_ess" id="show_pro_ess">
@@ -30,49 +72,58 @@
     <div class="show_pro3_1 row" dir="ltr"><div class="show_pro3_2 "><span class=""></span>  <i class="fas fa-comments bn"></i> <!----></div><div class="show_pro3_3 "> <span class="">{{$show_pro->views}}</span> <i class="far fa-eye bn"></i> <!--<span class="pro_span4"></span>--> </div></div>
   </div>
 </div>
+
+
+
+
+
 <div class="show_pro40">
+
+
+
+
   <div class="show_pro5">
-      <div class="small_img_pro5 ">
+      {{-- <div class="small_img_pro5 ">
           <div class="sp5-768 short_img_pro slider">
             @for ($i=1; $i < 7; $i++)
-              <?php
+              < ? php
                 $pic_s ='pic_s'.$i;
                 $b_img_p='b-img-p'.$i;
                 if(empty($pic_pro->$pic_s)){continue;}
               ?>
-              <div class=""><img src="../../img_shop/{{$pic_pro->$pic_s}}" alt="img" class="sp5-768" height="77" onclick="b_img_pro('{{$b_img_p}}')"></div>
+              <div class=""><img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="img" class="sp5-768" height="77" onclick="b_img_pro('{{$b_img_p}}')"></div>
             @endfor
           </div>
-      </div>
+      </div> --}}
       <div class="big_img_pro5">
           <div class="bp5-768">
             @for ($i=1; $i < 7; $i++)
               <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
-              <img src="../../img_shop/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo   'active_img_pro' ;} ?> " height="380">
+              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo   'active_img_pro' ;} ?> " height="380">
             @endfor
           </div>
           <div class="bp5-600">
              @for ($i=1; $i < 7; $i++)
               <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
-              <img src="../../img_shop/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo 'active_img_pro' ;} ?> " height="290">
+              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo 'active_img_pro' ;} ?> " height="290">
             @endfor
           </div>
           <div class="bp5-500">
             @for ($i=1; $i < 7; $i++)
               <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
-              <img src="../../img_shop/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo   'active_img_pro' ;} ?> " height="180">
+              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo   'active_img_pro' ;} ?> " height="180">
             @endfor
           </div>
       </div>
       <div class="show_pro5_end">
-        <div class="sp5-600 short_img_pro2 slider">
+        <div class="sp5-600 short_img_pro21 slider2">
           @for ($i=1; $i < 7; $i++)
             <?php
               $pic_s ='pic_s'.$i;
               $b_img_p='b-img-p'.$i;
               if(empty($pic_pro->$pic_s)){continue;}
             ?>
-            <div class=""><img src="../../img_shop/{{$pic_pro->$pic_s}}" alt="  " class="" height="54" onclick="b_img_pro('{{$b_img_p}}')"></div>
+            <div class=""><img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " class="" height="54" onclick="b_img_pro('{{$b_img_p}}')"></div>
           @endfor
         </div>
       </div>
@@ -84,19 +135,24 @@
               @php
                   if($show_pro->old_price > 0){
                     $percent_price=100- ($show_pro->price * 100)/$show_pro->old_price;
-               }else{$percent_price=0;}
+                   }else{$percent_price=0;}
               @endphp
               <span class="span_pro6_1_3 number">{{round($percent_price).'%'}} </span>
           </div>
           <div class="show_pro6_1_2">
               <span class="span_pro6_1_4">قیمت </span> <span class="number span_pro6_1_5">:</span> <span class="span_pro6_1_6 number"> {{number_format($show_pro->price)}}</span><span class="span_pro6_1_7">تومان</span>
+              {{-- <span class="span_pro6_1_4">قیمت برای شما</span> <span class="number span_pro6_1_5">:</span> <span class="span_pro6_1_6 number"> {{number_format($show_pro->price)}}</span><span class="span_pro6_1_7">تومان</span> --}}
+
           </div>
       </div>
-      <a href="/showSabadOrder/{{$show_pro->id}}">
-        <div class="show_pro6_2" onclick="">
-          <span class="span_pro6_1_8"> <span class="span_pro6_1_9"><i class="fas fa-cart-plus"></i></span> <span class="span_pro6_1_10">خرید </span> </span>
+      {{-- <a href="/showSabadOrder/{{$show_pro->id}}"> --}}
+        {{-- <div class="show_pro6_2" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
+          <span class="span_pro6_1_8 span_pro6_1_8_2"> <span class="span_pro6_1_9"><i class="fas fa-cart-plus"></i></span> <span class="span_pro6_1_10">خرید </span> </span>
+        </div> --}}
+        <div class="divBtnKharid" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
+           <i class="fas fa-cart-plus"></i> <span class="">خـــرید</span>
         </div>
-      </a>
+      {{-- </a> --}}
       <div class="show_pro6_3">
         <span class="sp_pro6_3_1"> <span class="sp_pro6_3_1_1"><i class="fas fa-user-tie"></i></span> <span class="sp_pro6_3_1_1">به جمع فروشندگان ما بپیوندید</span> </span>
         <br>
@@ -134,7 +190,7 @@
       <div class="show_pro8_0 show_pro8_2">
         <div class="made_pro specs_pro">
             <div class="made_pro1">سازنده :</div>
-            <div class="made_pro2">{{$show_pro->made}}</div>
+            <div class="made_pro2">{{$show_pro->maker}}</div>
         </div>
         <div class="model_pro specs_pro">
             <div class="model_pro1">مدل :</div>
@@ -142,7 +198,7 @@
         </div>
         <div class="vazn_pro specs_pro">
             <div class="vazn_pro1">وزن (گرم) :</div>
-            <div class="vazn_pro2">{{$show_pro->gram}} <span class="specs_pro_vahd">gr</span> </div>
+            <div class="vazn_pro2">{{$show_pro->vazn}} <span class="specs_pro_vahd">gr</span> </div>
         </div>
         <div class="dimension_pro specs_pro">
             <div class="dimension_pro1">ابعاد (سانتیمتر) :</div>
@@ -167,11 +223,11 @@
         </div>
         <div class="date_m_pro specs_pro">
             <div class="date_m_pro1">تاریخ تولید :</div>
-            <div class="date_m_pro2">{{$show_pro->date_m}}</div>
+            <div class="date_m_pro2">{{$show_pro->dateMake}}</div>
         </div>
         <div class="date_n_pro specs_pro">
             <div class="date_n_pro1">تاریخ انقضا :</div>
-            <div class="date_n_pro2">{{$show_pro->date_n}}</div>
+            <div class="date_n_pro2">{{$show_pro->dateExpiration}}</div>
         </div>
         <div class="term_pro specs_pro">
             <div class="term_pro1">شرایط نگهداری :</div>

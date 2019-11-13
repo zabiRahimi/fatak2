@@ -144,11 +144,14 @@ arrows:true,
       );
       $(".short_img_pro2").slick({
 
-
-            slidesToShow:2,
+            infinite:true,
+            slidesToShow:4,
             slidesToScroll: 1,
-            arrows:false,
+            // arrows:false,
             centerMode: true,
+            variableWidth: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
             // rtl:true
 
 
@@ -164,5 +167,32 @@ arrows:true,
         }
       },
       ]
+
+});
+      $(".smallImgSlickAll").slick({
+
+            infinite:true,
+            slidesToShow:5,
+            slidesToScroll: 1,
+            // arrows:false,
+            centerMode: true,
+            variableWidth: true,
+            autoplay: true,
+            autoplaySpeed: 2000,
+            // rtl:true
+
+
+            // focusOnSelect: true
+
+      //   responsive: [
+      //     {
+      //     breakpoint: 600,
+      //     settings: {
+      //
+      //     slidesToShow: 1,
+      //     slidesToScroll: 1,
+      //   }
+      // },
+      // ]
 
 });

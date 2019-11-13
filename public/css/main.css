@@ -12,6 +12,31 @@ font-family: 'b yekan';
 
 }
 }
+.setSpinner{
+  width: 100%;
+  float: right;
+  position: relative;
+}
+.opacityC{
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  opacity: 0.4;
+}
+.spinnerC{
+  position:absolute;
+  width: 50PX;
+  height: 50px;
+  margin-right: calc(50% - 25px);
+  z-index: 11;
+  top: 0;
+  right: 0;
+
+}
+
 /* *{
   box-sizing: border-box;
 } */

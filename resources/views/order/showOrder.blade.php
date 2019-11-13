@@ -9,9 +9,10 @@
     <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
   </div>
   <ul class="ul_line headerOrderUl ">
-    <a href="/"><li>صفحه اصلی</li></a>
-    <li>نحوه فعالیت</li>
-    <li>قوانین و مقررات</li>
+    <li onclick="window.location.href='/'">صفحه اصلی</li>
+    <li onclick="window.location.href='/searchOrder'">برگشت</li>
+   <li>نحوه فعالیت</li>
+   <li>قوانین و مقررات</li>
   </ul>
   <div class="contentOrder">
     @if (!empty($pro[0]->id))
@@ -22,16 +23,18 @@
         <span class="span4MapOrder">فروشنده</span>
       </div>
       <div class="proBadyOrder">
-        @foreach ($id_proShop as $value)
+        @foreach ($id_pro as $value)
           @php
           $pro=$pro->find($value);
-          $imgValue=$img->where('pro_shop_id',$pro->id)->first();
+          $imgValue=$img->where('pro_id',$pro->id)->first();
           $shopValue=$shop->where('id',$pro->shop_id)->first();
+          $stampProOrderValue=$stampProOrder->where('pro_id',$pro->id)->where('shop_id',$pro->shop_id)->first();
           @endphp
-          <a href="/showOneOrder/{{$pro->id}}">
+          <a href="/showOneOrder/{{$pro->id}}/{{ $order_id }}">
             <div class="proOrder">
-              <div class="proAllorder proImgOrder"><img src="/img_shop/{{$imgValue->pic_b1}}" width="152" height="125" alt=""> </div>
-              <div class="proAllorder proStampOrder">@if ($pro->stamp==1) <span class="span1StampOrder"> اصل محصول</span> @else <span class="span2StampOrder"> مشابه محصول</span> @endif </div>
+
+              <div class="proAllorder proImgOrder">@if (!empty($imgValue->pic_b1)) <img src="/img_pro/{{$imgValue->pic_b1}}"  alt="fatak"> @else <i class='fas fa-camera' style='font-size:48px;color:#fff'></i> @endif </div>
+              <div class="proAllorder proStampOrder">@if ($stampProOrderValue->stamp==1) <span class="alert alert-success"> اصل محصول</span> @else <span class="alert alert-warning"> مشابه محصول</span> @endif </div>
               <div class="proAllorder proNameOrder">{{$pro->name}}</div>
               <div class="proAllorder proPriceOrder number"><span>{{number_format($pro->price)}}</span><span>تومان</span> </div>
               <div class="proAllorder proShopOrder"><span>فروشنده : </span><span>{{$shopValue->shop}}</span> </div>
@@ -40,8 +43,15 @@
         @endforeach
       </div>
     @else
-      <div class="">
-        فعلا محصولی ثبت نشده است
+      <div class="noProSo">
+        <div class="alert alert-danger right">
+          تاکنون هیچ فروشنده ای محصولی برای پیشنهاد به شما ثبت نکرده است .
+        </div>
+        <div class="alert alert-info right">
+        چنانچه 48 ساعت از ثبت سفارش شما می گذرد با شماره زیر تماس بگیرید .
+        <br>
+        09178023733
+        </div>
       </div>
     @endif
   </div>

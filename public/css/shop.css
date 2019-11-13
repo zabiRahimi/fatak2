@@ -235,7 +235,7 @@
   .showProUSSDate{width:16.5%;border-left: none;}
   .showProUSSRwo_1,.showProUSSVahed_1,.showProUSSDate_1{font-size: 12px;}
   }
-  .setSpinner{
+  /* .setSpinner{
     width: 100%;
     float: right;
     position: relative;
@@ -258,7 +258,7 @@
     top: 0;
     right: 0;
 
-  }
+  } */
 /* newOrderShop.php */
 .newOrderAll{width: 100%;float: right; overflow: scroll; overflow-y: hidden;}
 .newOrder,.newOrder_1{width: 100%;height: 30px;line-height: 29px;float: right;background-color: #e0e0e0;border: 1px solid #383838; border-radius: 3px 3px 0 0;}

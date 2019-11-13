@@ -20,12 +20,15 @@
          <link href="\css\orderSabad.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-      <img src="http://localhost:8000/img_site/210.gif" class="gif_loding" alt="loding" >
-        <div class="">
-        <div class="content">
-          <div class="" >
+      <div class="setSpinner">
+        <div class=" loader loaderAll " >{{-- loaderAjax --}}
+          <div class="opacityC opacityAll"></div>{{-- opacityAjax --}}
+          <div class="spinner-border text-primary spinnerC spinnerAll" >.</div>{{-- spinnerAjax --}}
+        </div>
+        <div class="content contentLayoutOrder">
+
             @yield('content')
-          </div>
+
        </div>
         <footer>
 

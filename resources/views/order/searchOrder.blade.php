@@ -9,7 +9,7 @@
     <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
   </div>
   <ul class="ul_line headerOrderUl ">
-    <li>صفحه اصلی</li>
+    <li onclick="window.location.href='/'">صفحه اصلی</li>
     <li>نحوه فعالیت</li>
     <li>قوانین و مقررات</li>
   </ul>
@@ -21,12 +21,12 @@
        {{ csrf_field() }}
        <div class="form-group">
          <label for="mobail_searchOrder" class="control-label pull-right "><i class="fas fa-mobile-alt i_form"></i>موبایل</label>
-         <div class="div_form"><input type="text" class="form-control" onblur="mobailSearchOrder()" id="mobail_searchOrder" ></div>
+         <div class="div_form"><input type="text" class="form-control" onblur="mobailSearchOrder();spinner()" id="mobail_searchOrder" ></div>
        </div>
        <div class="form-group">
          <label for="pro_searchOrder" class="control-label pull-right "><i class="fas fa-clipboard-list i_form"></i> محصول سفارشی</label>
          <div class="div_form">
-           <select class="select pro_searchOrder" id="pro_searchOrder" name="" >
+           <select class="select pro_searchOrder" id="pro_searchOrder"  name="" >
              <option >انتخاب کنید</option>
              <option >ابتدا موبایل را وارد کنید</option>
 

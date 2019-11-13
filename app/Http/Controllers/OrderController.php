@@ -10,6 +10,8 @@ use App\Models\StampPost;
 use App\Models\PicturePro;
 use App\Models\Post;
 use App\Models\BuyOrder;
+use App\Models\StampProOrder;
+
 use App\Http\Requests\Save_order1;
 use App\Http\Requests\Save_mobail;
 use App\Http\Requests\Save_searchOrderSave;
@@ -81,6 +83,9 @@ class OrderController extends Controller
     }
     public function showOrder(Request $request)
     {
+      // $this->validate($request, ['order_id'=>'required|numeric']);
+      // $this->validate($request, ['order_id'=>'required',]);
+
       $order_id=$request->order_id;
       $order=Order::find($order_id);
       if(!empty($order->id_pro) and count(json_decode($order->id_pro))>0){
@@ -93,18 +98,26 @@ class OrderController extends Controller
       }
       $shop_count1=array_unique($shop_count1);//حذف عناصر تکراری از آرایه
       $shop_count=count($shop_count1);//تعداد فروشنده ها
-      $img=PicturePro::first();
-      $shop=Shop::first();
-      }
-      return view('order.showOrder',compact('pro','img','shop','pro_count','shop_count','id_pro'));
+
+    }else{
+      $pro=null;
+      $pro_count=null;
+      $shop_count=null;
+      $id_pro=null;
+    }
+    $img=PicturePro::first();
+    $shop=Shop::first();
+    $stampProOrder=StampProOrder::where('order_id',$order_id)->get();
+      return view('order.showOrder',compact('pro','img','shop','stampProOrder','order_id','pro_count','shop_count','id_pro'));
     }
     public function showOneOrder(Request $request)
     {
       $id=$request->id;
+      $order_id=$request->order_id;
       $show_pro=pro::find($id);
-      $pic_pro=PicturePro::where('pro_shop_id',$id)->first();
+      $pic_pro=PicturePro::where('pro_id',$id)->first();
       $shop=Shop::find($show_pro->shop_id);
-      return view('order.showOneOrder',compact('show_pro','pic_pro','shop'));
+      return view('order.showOneOrder',compact('show_pro','pic_pro','shop','order_id'));
     }
     public function showSabadOrder(Request $request)
     {

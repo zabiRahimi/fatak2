@@ -12,6 +12,26 @@ $(document).ready(function(){
     var ch=$('.getid').html();
     if(ch){$('#modal_bazdidCh').modal('show');}
 });//end ready
+function spinner() {
+  $.ajax({
+    beforeSend: function() {
+      $('option').hide();//جهت پنهان شدن موقتی آپشنهای تگ سلکت
+      var height=$('.setSpinner').innerHeight();//جهت نماد انتظار
+      var height2=window.innerHeight;//جهت نماد انتظار
+      var hScroll= $(window).scrollTop();
+      $('.opacityAll').css('height',height);//جهت نماد انتظار
+      $('.spinnerAll').css('top',height2/2 + hScroll);//جهت نماد انتظار
+      $('.loaderAll').show();
+
+    },
+    complete: function(){
+       $('.loaderAll').hide();
+       $('option').show();
+
+    },
+  })
+
+}
 /*
 **نمایش نماد انتظار هنگامی که در خواست ایجگس داریم
 */

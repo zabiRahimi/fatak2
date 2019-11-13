@@ -1,5 +1,5 @@
 /* مشترک */
-.headerOrder{width: 99%;height: 45px;line-height: 45px;padding: 0 15px;margin: 1px 0.5% 2px;border-radius: 3px;background-color: #226895;float: right;}
+.headerOrder{width: 100%;height: 45px;line-height: 45px;padding: 0 15px;margin: 1px 0 2px;border-radius: 3px;background-color: #226895;float: right;}
 .headerOrder_1,.headerOrder_2,.headerOrder_3{width: 33%;float: right;color: #fff;}
 .headerOrder_1{text-align: right;}
 .headerOrder_2{text-align: center;line-height: 25px;}
@@ -7,8 +7,16 @@
 .headerOrder_3 span{width: 100%;height: 20px;float: right; }
 .headerOrder_3 a{color: #fff;}
 .headerOrder_3 span:last-child{font-size: 12px;margin-right: 8px;line-height: 28px;}
-.headerOrderUl{width: 99%; height: 40px;line-height: 40px;padding: 0 15px;margin: 1px 0.5% 2px;background-color: #d9d9d9;border-radius: 3px;float: right;text-align: right;}
-.headerOrderUl li{padding:0 8px; border-left: 1px solid ;color: #383838;}
+.headerOrderUl{width: 100%; line-height: 36px;padding: 1px 15px;margin: 1px 0 2px;background-color: #d9d9d9;border-radius: 3px;float: right;text-align: right;}
+.headerOrderUl li{padding:0 8px; border-left: 1px solid ;color: #383838;cursor: pointer;}
+.headerOrderUl li:last-child{border-left: none;}
+.headerOrderUl li:hover{color: #1c6ca6;}
+.contentLayoutOrder{
+  width: 100%;
+  margin: 0;
+  padding: 0 5px;
+  float: right;
+}
 .contentOrder{width: 99%; margin: 3px 0.5%; background-color:#fff;float: right;border-radius: 3px;}
 .mapOrder{width: 99%;height: 30px;line-height: 30px;margin: 0 0.5%;padding:0 15px;background-color: #9bc5d2;border-radius: 4px;float: right;text-align: right;}
 .span1MapOrder,.span3MapOrder{width: 30px; height: 30px;padding: 0;display: inline-block;position: relative;background-color:#c8dbe0;border-radius: 20px;text-align: center;}
@@ -18,19 +26,37 @@
 .proOrder:hover{background-color: #d4f0f2;cursor: pointer;}
 .proAllorder{width: 100%;margin: 2px 0;float: right;text-align: center;}
 
-.proImgOrder{height: 125px;background-color: rgb(214, 129, 73);}
+.proImgOrder{height: 125px;background-color: #d68149;}
+.proImgOrder img{ width: 100%; height: 125px;}
+.proImgOrder i{position: relative; top:35px;}
 .proStampOrder{height: 25px;}
-.proStampOrder span{border: 1px solid ;height: 20px;line-height: 20px;background-color:#fff; font-size: 12px;display: inline-block;padding: 0 20px;border-radius: 6px;}
-.span1StampOrder{color: #718bcd;}
-.span2StampOrder{color: #a16f23;}
+.proStampOrder span{border: 1px solid ;height: 20px;line-height: 20px; font-size: 12px;display: inline-block;padding: 0 20px;border-radius: 6px;}
 .proNameOrder{height: 30px;color: #061d40;font-size: 16px;}
 .proPriceOrder{height: 25px;line-height:16px ;color: #0f3302;font-size: 16px;}
 .proPriceOrder span:last-child{margin-right: 8px;font-size: 12px;}
 .proShopOrder{height: 20px;font-size: 12px;background-color: #f2f2f2;border-radius: 3px;}
 .proShopOrder span:first-child{margin-left: 10px;}
 .proShopOrder span:last-child{margin-right: 10px;position: relative;top: 1.5px;color: #267094;}
+
+@media (max-width:576px){
+  .headerOrderUl{line-height: 28px;padding: 1px 10px;}
+  .headerOrderUl li{padding:0 6px; font-size: 14px;}
+}
+@media (max-width:454px){
+  .headerOrderUl{padding: 0 2px;}
+  .headerOrderUl li{display: inline-block;margin:2px 0; padding:0 3px; border:none; border-radius: 3px; background: #eeeeee;font-size: 12px;}
+  .headerOrderUl li:hover{ background: #fff;}
+}
 @media (max-width:650px){
-  .proOrder{width: 120px;height: 210px;}
+  .proOrder{width: 120px;height: 217px;}
+  .proImgOrder{height: 115px;}
+  .proImgOrder img{ width: 100%; height: 115px;}
+
+  .proNameOrder{height: 25px;color: #061d40;font-size: 14px;}
+
+  .proPriceOrder{height: 20px;line-height:10px ;font-size: 14px;}
+
+  .proAllorder{margin: 0.5px 0;}
 
 }
 @media (min-width:100px){
@@ -94,3 +120,12 @@
   }
 }
 .idOrder{font-size: 18px;margin: 0 4px;padding: 0 5px;border: 1px solid;border-radius: 3px;color: #1d1452;}
+.noProSo{
+  width: 100%;
+  margin: 5px 0;
+  padding: 5px;
+  float: right;
+  border: 1px solid #d6d6d6;
+  border-radius: 3px;
+  text-align: right;
+}

@@ -48,22 +48,22 @@ function show_form_shop_log(clases) {
    $('.shop_ghanon_society_log3').css('display', 'none');
   $('.'+clases).css('display', 'block');
 }
-function spinner() {
-  $.ajax({
-    beforeSend: function() {
-      var height=$('.setSpinner').innerHeight();//جهت نماد انتظار
-      var height2=window.innerHeight;//جهت نماد انتظار
-      var hScroll= $(window).scrollTop();
-      $('.opacityAll').css('height',height);//جهت نماد انتظار
-      $('.spinnerAll').css('top',height2/2 + hScroll);//جهت نماد انتظار
-      $('.loaderAll').show();
-    },
-    complete: function(){
-       $('.loaderAll').hide();
-    },
-  })
-
-}
+// function spinner() {
+//   $.ajax({
+//     beforeSend: function() {
+//       var height=$('.setSpinner').innerHeight();//جهت نماد انتظار
+//       var height2=window.innerHeight;//جهت نماد انتظار
+//       var hScroll= $(window).scrollTop();
+//       $('.opacityAll').css('height',height);//جهت نماد انتظار
+//       $('.spinnerAll').css('top',height2/2 + hScroll);//جهت نماد انتظار
+//       $('.loaderAll').show();
+//     },
+//     complete: function(){
+//        $('.loaderAll').hide();
+//     },
+//   })
+//
+// }
 function div_active(class1,setTop,proDel,idDel,ajaxDel,formH){
   /*setTop
   **موقع مقدار دهی یه پارامتر باید همون موقع آیدی و یا کلاس بودن پارمتر را مشخص کرد
