@@ -49,7 +49,52 @@
                 </div>
             </div>
             <div class="infoUpContentSP">
+                <div class="oldPriceIUCSP">
+                    <span class="oldPriceIUCSP_S1 number">{{number_format($show_pro->old_price)}}</span><span class="oldPriceIUCSP_S2 ">تومان</span>
+                    @php
+                        if($show_pro->old_price > 0){
+                          $percent_price=100- ($show_pro->price * 100)/$show_pro->old_price;
+                         }else{$percent_price=0;}
+                    @endphp
+                    <span class="oldPriceIUCSP_S3 number">{{round($percent_price).'%'}} </span>
+                </div>
+                <div class="priceIUCSP">
+                  @if (empty($stampProOrder->price))
+                    {{-- قیمت اصلی محصول هنگامی که فروشنده هیچ تخفیفی به سفارش دهنده نداده است --}}
+                    <span class="priceIUCSP_s1">قیمت :</span>
+                    <span class="priceIUCSP_s2">{{number_format($show_pro->price)}}</span>
+                    <span class="priceIUCSP_s3">تومان</span>
+                  @else
+                    {{-- قیمت اصلی محصول برای هنگامی که فروشنده به سفارش دهنده تخفیف داده است ، که به صورت فونت کوچکتر و یک خط بر روی آن نمایش داده می شود . --}}
+                    <div class="priceIUCSP_prime">
+                      <span class="priceIUCSP_s1_prime">قیمت :</span>
+                      <span class="priceIUCSP_s2_prime">{{number_format($show_pro->price)}}</span>
+                      <span class="priceIUCSP_s3_prime">تومان</span>
+                    </div>
+                    {{-- نمایش قیمت تخفیف داده شده --}}
+                    <span class="priceIUCSP_s1">قیمت <span class="priceIUCSP_s1_tk" >(تخفیف فقط برای شما)</span>: </span>
+                    <span class="priceIUCSP_s2">{{number_format($stampProOrder->price)}}</span>
+                    <span class="priceIUCSP_s3">تومان</span>
+                  @endif
+                </div>
+                <div class="divBtnKharid" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
+                   <i class="fas fa-cart-plus"></i> <span class="">خـــرید</span>
+                </div>
+                <div class="addSeller">
+                    <span> <i class="fas fa-user-tie addSeller_i"></i> به جمع فروشندگان ما بپیوندید</span>
+                </div>
+                <div class="addChannel">
+                    <span> <i class="fas fa-cloud addChannel_i1"></i> به راحتی از شبکه اجتماعی خود کسب درآمد کنید
+                      <i class="fab fa-whatsapp i_pro63_1"></i><i class="fab fa-telegram i_pro63_2"></i><i class="fab fa-instagram i_pro63_3"></i><i class="i_pro63_4">...</i>
+                      </span>
+                </div>
+                <div class="show_pro6_4"><!-- اشتراک گذاری -->
+                <i class="fas fa-share-alt share_pro" ></i>   <i class="fab fa-twitter-square twit_pro"></i> <i class="fab fa-facebook-square face_pro"></i> <i class="fab fa-google-plus goo_pro"></i> <i class="fab fa-linkedin linked_pro"></i>
 
+                </div>
+                <div class="show_pro6_5">
+                <a   onclick=""><span>فروشنده :</span> <span class="sp_pro6_5_1">{{$shop->shop}}</span></a>
+                </div>
             </div>
         </div>
         <div class="downContentSP">
@@ -95,30 +140,30 @@
             @endfor
           </div>
       </div> --}}
-      <div class="big_img_pro5">
+      {{-- <div class="big_img_pro5">
           <div class="bp5-768">
             @for ($i=1; $i < 7; $i++)
-              <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
-              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo   'active_img_pro' ;} ?> " height="380">
+              < ?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
+              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro < ?php if ($i==1) {echo   'active_img_pro' ;} ?> " height="380">
             @endfor
           </div>
           <div class="bp5-600">
              @for ($i=1; $i < 7; $i++)
-              <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
-              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo 'active_img_pro' ;} ?> " height="290">
+              < ? php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
+              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro < ?php if ($i==1) {echo 'active_img_pro' ;} ?> " height="290">
             @endfor
           </div>
           <div class="bp5-500">
             @for ($i=1; $i < 7; $i++)
-              <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
-              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo   'active_img_pro' ;} ?> " height="180">
+              < ?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
+              <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro < ?php if ($i==1) {echo   'active_img_pro' ;} ?> " height="180">
             @endfor
           </div>
-      </div>
-      <div class="show_pro5_end">
+      </div> --}}
+      {{-- <div class="show_pro5_end">
         <div class="sp5-600 short_img_pro21 slider2">
           @for ($i=1; $i < 7; $i++)
-            <?php
+            < ?php
               $pic_s ='pic_s'.$i;
               $b_img_p='b-img-p'.$i;
               if(empty($pic_pro->$pic_s)){continue;}
@@ -126,7 +171,7 @@
             <div class=""><img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " class="" height="54" onclick="b_img_pro('{{$b_img_p}}')"></div>
           @endfor
         </div>
-      </div>
+      </div> --}}
   </div>
   <div class="show_pro6">
       <div class="show_pro6_1">
@@ -140,7 +185,9 @@
               <span class="span_pro6_1_3 number">{{round($percent_price).'%'}} </span>
           </div>
           <div class="show_pro6_1_2">
-              <span class="span_pro6_1_4">قیمت </span> <span class="number span_pro6_1_5">:</span> <span class="span_pro6_1_6 number"> {{number_format($show_pro->price)}}</span><span class="span_pro6_1_7">تومان</span>
+            <span class="span_pro6_1_4">قیمت </span> <span class="number span_pro6_1_5">:</span> <span class="span_pro6_1_6 number"> {{number_format($show_pro->price)}}</span><span class="span_pro6_1_7">تومان</span>
+
+
               {{-- <span class="span_pro6_1_4">قیمت برای شما</span> <span class="number span_pro6_1_5">:</span> <span class="span_pro6_1_6 number"> {{number_format($show_pro->price)}}</span><span class="span_pro6_1_7">تومان</span> --}}
 
           </div>
@@ -149,11 +196,11 @@
         {{-- <div class="show_pro6_2" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
           <span class="span_pro6_1_8 span_pro6_1_8_2"> <span class="span_pro6_1_9"><i class="fas fa-cart-plus"></i></span> <span class="span_pro6_1_10">خرید </span> </span>
         </div> --}}
-        <div class="divBtnKharid" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
+        {{-- <div class="divBtnKharid" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
            <i class="fas fa-cart-plus"></i> <span class="">خـــرید</span>
-        </div>
+        </div> --}}
       {{-- </a> --}}
-      <div class="show_pro6_3">
+      {{-- <div class="show_pro6_3">
         <span class="sp_pro6_3_1"> <span class="sp_pro6_3_1_1"><i class="fas fa-user-tie"></i></span> <span class="sp_pro6_3_1_1">به جمع فروشندگان ما بپیوندید</span> </span>
         <br>
         <span class="sp_pro6_3_2">
@@ -164,7 +211,7 @@
                 <i class="fab fa-whatsapp i_pro63_1"></i><i class="fab fa-telegram i_pro63_2"></i><i class="fab fa-instagram i_pro63_3"></i><i class="i_pro63_4">...</i>
             </span>
         </span>
-      </div>
+      </div> --}}
 
       <div class="show_pro6_4"><!-- اشتراک گذاری -->
       <i class="fas fa-share-alt share_pro" ></i>   <i class="fab fa-twitter-square twit_pro"></i> <i class="fab fa-facebook-square face_pro"></i> <i class="fab fa-google-plus goo_pro"></i> <i class="fab fa-linkedin linked_pro"></i>

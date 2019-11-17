@@ -111,8 +111,7 @@
                 box-shadow: 0 1px 7px 4px  #8fd989;
                 cursor: pointer;
    }
-.divBtnKharid{width: 170px;padding: 2px;border-radius: 10px;font-size: 22px;float: right;background-color: #119612; color: #fff;box-shadow: 0 1px 7px 4px  #8fd989;cursor: pointer;text-align: center;}
-.divBtnKharid i{position: relative;top: 3px; left: 6px;}
+
 .span_pro6_1_8_2{height: 45px;line-height: 37px;padding: 2px 30px;}
 .span_pro6_1_8:hover{ background-color: #37be38; box-shadow: 0 1px 7px 4px  #3b8835;}
 .span_pro6_1_9{position: relative;top: 3px; margin-left: 6px;}
@@ -467,7 +466,7 @@
 .amarTiterSP span:last-child{padding-right: 1px;border-right: 1px solid #d2cccc;}
 .amarTiterSP i{position: relative;top: 2px;right: 1px;left: 1px;font-size: 14px;}
 .contentShowPro{width: 100%;float: right;}
-.upContentSP{width: 100%;height: 606px;margin: 2px 0 ;float: right;background: #fffbda;}
+.upContentSP{width: 100%;height: 606px;margin: 2px 0 ;float: right;}
 .imgUpContentSP{width: 63%;height: 606px;float: right;}
 .bigImgUpCSP{width: 100%;height: 510px;padding: 5px;float: right;border:1px solid #dbdbdb ;border-radius:3px 3px 0 0; background: #f6f6f6;text-align: center;}
 .bigImgUpCSP img{max-width: 100%;max-height: 100%;}
@@ -475,7 +474,24 @@
 .smallImgSlickAll{width:calc(100% - 60px);height:90px;margin:0 30px;padding:0 2px;float: right;}
 .smallImgSlickOne{width: 100px;height: 90px;line-height: 87px;text-align: center;margin: 0 3px;padding: 2px;background-color: #ececec;}
 .smallImgSlickOne img{max-width: 100%;max-height: 100%;display: inline;cursor: pointer;}
-.infoUpContentSP{width: 37%;height: 606px;float: right;background: #c8e8bc;}
+.infoUpContentSP{width: 37%;height: 606px;padding: 5px 6px;border: 1px solid #dbdbdb ;border-radius:03px; float: right;text-align: right;}
+.oldPriceIUCSP{width: 100%; height: ; float: right;}
+  .oldPriceIUCSP_S1{color: #9e2d14;text-decoration: line-through;font-size: 14px;}
+  .oldPriceIUCSP_S2{font-size: 14px;margin-right: 5px;}
+  .oldPriceIUCSP_S3{padding: 5px;height: 20px;line-height: 12px;position: relative;top: 2px;background-color: #4d8505;color: #fff;border-radius: 3px;display: inline-block;text-align: center;direction: ltr;}
+.priceIUCSP{width: 100%;height: ;float: right;font-size: 22px;background-color: #d8f9e5;}
+  .priceIUCSP_s1{color: #054d75;}
+  .priceIUCSP_s1_tk{font-size: 10px;}
+  .priceIUCSP_s2{color: #030342;font-size: 30px;}
+  .priceIUCSP_s3{color: #054d75;}
+  .priceIUCSP_prime{width: 100%;float: right;font-size: 16px;color: #054d75;text-decoration: line-through;}
+.divBtnKharid{width: 170px;padding: 2px;border-radius: 10px;font-size: 22px;float: right;background-color: #119612; color: #fff;box-shadow: 0 1px 7px 4px  #8fd989;cursor: pointer;text-align: center;}
+.divBtnKharid i{position: relative;top: 3px; left: 6px;}
+.divBtnKharid:hover{background-color:#fff; color:#119612; }
+.addSeller , .addChannel{width: 100%;height: ;float: right;}
+.addSeller span ,.addChannel span{padding: 0 5px;display: inline-block;border: 1px solid #165b94;background-color: #308fbe;color: #fff;border-radius: 5px;cursor: pointer;font-size: 14px;}
+.addSeller span:hover ,.addChannel span:hover{background-color:#b7daec; color: #085398;}
+.addSeller_i,.addSeller_i1{position: relative;top: 3px;left: 3px;}
 .downContentSP{width: 100%;height: 100px;float: right;background: #fcd49e;}
 @media (max-width:1200px) {
   .upContentSP{height: 506px;}

@@ -116,8 +116,9 @@ class OrderController extends Controller
       $order_id=$request->order_id;
       $show_pro=pro::find($id);
       $pic_pro=PicturePro::where('pro_id',$id)->first();
+      $stampProOrder=StampProOrder::where('order_id',$order_id)->where('pro_id',$show_pro->id)->where('shop_id',$show_pro->shop_id)->first();
       $shop=Shop::find($show_pro->shop_id);
-      return view('order.showOneOrder',compact('show_pro','pic_pro','shop','order_id'));
+      return view('order.showOneOrder',compact('show_pro','pic_pro','shop','order_id','stampProOrder'));
     }
     public function showSabadOrder(Request $request)
     {
