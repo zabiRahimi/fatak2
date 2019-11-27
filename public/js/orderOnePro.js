@@ -3,9 +3,9 @@ function b_img_pro(class1){
   $('.'+class1).addClass('active_img_pro');
 }
 
-function pro7_active(class1 , class2){
-  $('.ul_pro7_1 li').removeClass('pro7_active');
-  $('.'+class1).addClass('pro7_active');
+function Explain_active(class1 , class2){
+  $('.Explain_ul li').removeClass('Explain_active');
+  $('.'+class1).addClass('Explain_active');
   $('.show_pro8_0').removeClass('pro8_active');
   $('.'+class2).addClass('pro8_active');
   var h_mavad = $('.mavad_pro').outerHeight();
