@@ -30,7 +30,7 @@
                 <div class="bigImgUpCSP">
                   @for ($i=1; $i < 7; $i++)
                     <?php $pic ='pic_b'.$i; $b_img_p='b-img-p'.$i; ?>
-                    <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro <?php if ($i==1) {echo   'active_img_pro' ;} ?> " >
+                    <img src="../../img_pro/{{$pic_pro->$pic}}" alt="" class=" {{$b_img_p}} big_img_pro @if($i==1) active_img_pro @endif  " >
                   @endfor
                 </div>
                 <div class="smallImgUpCSP  ">
@@ -42,7 +42,7 @@
                         if(empty($pic_pro->$pic_s)){continue;}
                       ?>
                       <div class="smallImgSlickOne">
-                        <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " class=""  onclick="b_img_pro('{{$b_img_p}}')">
+                        <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " onclick="b_img_pro('{{$b_img_p}}')">
                       </div>
                     @endfor
                   </div>
@@ -112,15 +112,20 @@
                   @if (!empty($show_pro->dis))
                     <div class="Explain_matn">
                       {{ $show_pro->dis }}
+                      @if (!empty($stampProOrder->disSeller ))
+                        <div class="disSeller_titr">توضیح فروشنده برای شما</div>
+                        <div class="disSeller_matn">{{$stampProOrder->disSeller}}</div>
+                      @endif
                     </div>
-
                   @else
                     <div class="alert alert-warning right">
                       برای این محصول توضیحی نوشته نشده است .
                     </div>
                   @endif
 
+
                 </div>
+                <div class="Explain_line"></div>
                 <div class="Explain_body Explain_Explain">
                     <div class="Explain_titr">
                         مشخصات کالا
@@ -180,7 +185,7 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="Explain_line"></div>
                 <div class="Explain_body Explain_Explain">
                     <div class="Explain_titr">
                         پرسش و پاسخ
