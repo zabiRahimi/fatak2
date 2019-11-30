@@ -123,10 +123,12 @@ class OrderController extends Controller
     public function showSabadOrder(Request $request)
     {
       $id=$request->id;
+      $order_id=$request->order_id;
       $show_pro=pro::find($id);
       $stampPost=StampPost::where('pro_id',$id)->first();
+      // $stampProOrder=StampProOrder::where
       $shop=Shop::find($show_pro->shop_id);
-      $order=Order::find($show_pro->order_id);
+      $order=Order::find($order_id);
       $gram=$show_pro->vaznPost;
       switch($gram){
         case $gram<501:$gram='g500';break;

@@ -6,14 +6,25 @@ function b_img_pro(class1){
 function Explain_active(class1 , class2){
   $('.Explain_ul li').removeClass('Explain_active');
   $('.'+class1).addClass('Explain_active');
-  $('.show_pro8_0').removeClass('pro8_active');
-  $('.'+class2).addClass('pro8_active');
-  var h_mavad = $('.mavad_pro').outerHeight();
-  var h_term = $('.term_pro').outerHeight();
-  var h_bake = $('.bake_pro').outerHeight();
-  $('.mavad_pro1').css("line-height",h_mavad +"px");
-  $('.term_pro1').css("line-height",h_term +"px");
-  $('.bake_pro1').css("line-height",h_bake +"px");
+  if (class2 == '.Explain_Explain') {
+    $('.showExplain').css('display' , 'none');
+    $('.showExplain_line').css('display' , 'none');
+    $('.Explain_specs').css('display' , 'block');
+    $('.Explain_question').css('display' , 'block');
+    $('.Explain_specs_line').css('display' , 'block');
+    $('.Explain_question_line').css('display' , 'block');
+  }else{
+    $('.showExplain').css('display' , 'block');
+    $('.showExplain_line').css('display' , 'block');
+    var divData=$(class2).html();
+    $('.showExplain').html(divData);
+    $('.Explain_specs').css('display' , 'block');
+    $('.Explain_question').css('display' , 'block');
+    $('.Explain_specs_line').css('display' , 'block');
+    $('.Explain_question_line').css('display' , 'block');
+    $(class2).css('display' , 'none')
+    $(class2 + '_line').css('display' , 'none')
+  }
 }
   //نمایش فرم نظر دادن
  function nazar_pro(){

@@ -77,7 +77,7 @@
                     <span class="priceIUCSP_s3">تومان</span>
                   @endif
                 </div>
-                <div class="divBtnKharid" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
+                <div class="divBtnKharid" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}/{{$stampProOrder->order_id}}'">
                    <i class="fas fa-cart-plus"></i> <span class="">خـــرید</span>
                 </div>
                 <div class="addSeller">
@@ -99,12 +99,14 @@
         <div class="downContentSP">
             {{-- Explain == توضیح دادن --}}
                 <ul class="Explain_ul  ">
-                  <li class="Explain_li1  Explain_active" onclick="Explain_active('Explain_li1' , 'show_pro8_1')">  <i class="fas fa-clipboard-check"></i> توضیحات کالا </li>
-                  <li class="Explain_li2 " onclick="Explain_active('Explain_li2', 'show_pro8_2')"> <i class="fas fa-clipboard-list"></i> مشخصات کالا </li>
+                  <li class="Explain_li1  Explain_active" onclick="Explain_active('Explain_li1' , '.Explain_Explain')">  <i class="fas fa-clipboard-check"></i> توضیحات کالا </li>
+                  <li class="Explain_li2 " onclick="Explain_active('Explain_li2', '.Explain_specs')"> <i class="fas fa-clipboard-list"></i> مشخصات کالا </li>
                   {{-- <li class="li_pro7_3" onclick="Explain_active('Explain_li3', 'show_pro8_3');captcha()"> <span class="span_pro7_0"> <span class="span_pro7_5"><i class="fas fa-comment"></i></span> <span class="span_pro7_6">نظرات کاربران</span> </span></li> --}}
-                  <li class="Explain_li3 " onclick="Explain_active('Explain_li3', 'show_pro8_4');captcha()"> <i class="fas fa-question-circle"></i> پرسش و پاسخ </li>
+                  <li class="Explain_li3 " onclick="Explain_active('Explain_li3', '.Explain_question');"> <i class="fas fa-question-circle"></i> پرسش و پاسخ </li>
                 </ul>
-
+                {{-- این تگ صرفا جهت نمایش دو قسمت مشخصات کالا و پرسش و پاسخ است هنگامی که کاربر دکمه متناظر با آن را فشار می دهد --}}
+                <div class="showExplain Explain_body"></div>
+                <div class="showExplain_line Explain_line"></div>
                 <div class="Explain_body Explain_Explain">
                   <div class="Explain_titr">
                       توضیحات کالا
@@ -122,11 +124,10 @@
                       برای این محصول توضیحی نوشته نشده است .
                     </div>
                   @endif
-
-
                 </div>
-                <div class="Explain_line"></div>
-                <div class="Explain_body Explain_Explain">
+                  {{-- specs = مشخصات --}}
+                <div class="Explain_line Explain_specs_line"></div>
+                <div class="Explain_body Explain_specs">
                     <div class="Explain_titr">
                         مشخصات کالا
                     </div>
@@ -185,8 +186,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="Explain_line"></div>
-                <div class="Explain_body Explain_Explain">
+                <div class="Explain_line Explain_question_line"></div>
+                <div class="Explain_body Explain_question">
                     <div class="Explain_titr">
                         پرسش و پاسخ
                     </div>

@@ -56,6 +56,7 @@
 li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#03695c !important; background-color: #e1eee5;}
 .Explain_ul li i{position: relative; left: 8px;}
 .Explain_li3 i{top: 3px;}
+.showExplain,.showExplain_line,.ExplainHide{display: none;}
 .Explain_body{width: 100%;margin: 3px 0 3px;padding: 3px 6px;border: 1px solid #dbdbdb;border-radius:3px;float: right;text-align: right;}
 .Explain_titr{width: 100%;padding: 2px 6px; margin-bottom: 3px; background-color:#e8e5e5 ; border: 1px solid #c6c6c6;color: #5e5e5e;border-radius: 3px;float:right;font-size: 20px;}
 .Explain_matn{width: 100%;padding: 2px 6px;margin-bottom: 5px;background-color: #f6f6f6;color: #424242;border-radius: 3px;float: right;font-size: 14px;}
