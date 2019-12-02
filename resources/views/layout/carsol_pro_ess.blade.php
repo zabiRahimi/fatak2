@@ -36,7 +36,7 @@
                      @endif
                    </div>
                    <div class="div_in13_4">
-                     <span class="span_in13_1"><i class="fas fa-comments"></i> {{count($pro_nazar->where('pro_id' , $value->id) ) }}  </span> <span class="span_in13_2"><i class="far fa-eye"></i>{{number_format($value->views)}}</span>
+                     <span class="span_in13_1"><i class="fas fa-comments"></i> {{count($pro_nazar->where('pro_id' , $value->id) ) }}  </span> <span class="span_in13_2"><i class="far fa-eye"></i>{{number_format($value->bazdid)}}</span>
                    </div>
                  </div>
                  </a>

@@ -26,11 +26,11 @@ class ProController extends Controller
     //ثبت بازدید
     $nameCookei='sabt'. $id;
     if(empty($request->cookie($nameCookei))){
-      $view= $show_pro->views+1;
-      $show_pro->update(['views'=>$view]);
+      $bazdid= $show_pro->bazdid+1;
+      $show_pro->update(['bazdid'=>$bazdid]);
       Cookie::queue($nameCookei, 'ok');
     }
-    return  view('pro.show_pro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro','count_answer_pro'
+    return  view('pro.show_pro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro'
      ,'num_pro','check'));
   }
   public function sabt_nazar_pro(Save_pro_nazar $request)

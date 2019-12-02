@@ -17,7 +17,7 @@ class IndexController extends Controller
 {
     public function show(Request $request){
       $ch=$request->ch;
-      $pro=Pro::where('show' , 1)->get();
+      $pro=Pro::where('show' , 1)->where('typePro' , 'ثابت')->get();
       $pro_pic=PicturePro::get();
       $pro_nazar=NazarPro::get();
       $count=Pro::where('show' , 1)->count();

@@ -9,7 +9,7 @@
     <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
   </div>
   <ul class="ul_line headerOrderUl ">
-    <a href="/showSabadOrder/{{$id}}"><li>بازگشت</li></a>
+    <a href="/showSabadOrder/{{$id}}/{{$order->id}}"><li>بازگشت</li></a>
     <a href="/"><li>صفحه اصلی</li></a>
 
   </ul>

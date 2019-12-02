@@ -140,14 +140,14 @@
             <div class="mavad_pro2">
 
               <ul>
-                @php
+                {{-- @php
                 $mavads=  json_decode($show_pro->mavad);
                 @endphp
                 @foreach ($mavads as $mavads2)
                   @if ($mavads2!=null)
                     <li>{{$mavads2}}</li>
                   @endif
-                @endforeach
+                @endforeach --}}
               </ul>
             </div>
         </div>

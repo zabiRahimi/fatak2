@@ -174,70 +174,73 @@ class OrderController extends Controller
         case $gram<40001:$gram='g40000';break;
         default:$gram='not';
         }
-        switch ($ostan_id_buyer) {
-          case 'اردبیل':$javar_id=['آذربایجان شرقی','زنجان','گیلان'];break;
-          case 'اصفهان':$javar_id=['چهار محال بختیاری','خراسان جنوبی','سمنان','فارس','قم','کهگیلویه و بویراحمد','لرستان','مرکزی','یزد'];break;
-          case 'البرز':$javar_id=['تهران','قزوین','مازندران','مرکزی'];break;
-          case 'ایلام':$javar_id=['خوزستان',22,'لرستان'];break;
-          case 'آذربایجان شرقی':$javar_id=['اردبیل','آذربایجان غربی','زنجان'];break;
-          case 'آذربایجان غربی':$javar_id=['آذربایجان شرقی','زنجان','کردستان'];break;
-          case 'بوشهر':$javar_id=['خوزستان','فارس','کرمان','کهگیلویه و بویراحمد'];break;
-          case 'تهران':$javar_id=['البرز','سمنان','قم','مازندران','مرکزی'];break;
-          case 'چهار محال بختیاری':$javar_id=['اصفهان','خوزستان','کهگیلویه و بویراحمد','لرستان'];break;
-          case 'خراسان جنوبی':$javar_id=['اصفهان','خراسان رضوی','سمنان','سیستان و بلوچستان','کرمان','یزد'];break;
-          case 'خراسان رضوی':$javar_id=['خراسان جنوبی','خراسان شمالی','سمنان'];break;
-          case 'خراسان شمالی':$javar_id=['خراسان رضوی','سمنان',24];break;
-          case 'خوزستان':$javar_id=['ایلام','بوشهر','چهار محال بختیاری','کهگیلویه و بویراحمد','لرستان'];break;
-          case 'زنجان':$javar_id=['اردبیل','آذربایجان غربی','سمنان','قزوین','کردستان','گیلان',30];break;
-          case 'سمنان':$javar_id=['اصفهان','تهران','خراسان جنوبی','خراسان رضوی','خراسان شمالی','قم',24,'مازندران'];break;
-          case 'سیستان و بلوچستان':$javar_id=['خراسان جنوبی','کرمان',29];break;
-          case 'فارس':$javar_id=['اصفهان','بوشهر','کرمان','کهگیلویه و بویراحمد',29,'یزد'];break;
-          case 'قزوین':$javar_id=['البرز','زنجان','گیلان','مازندران','مرکزی',30];break;
-          case 'قم':$javar_id=['اصفهان','تهران','سمنان','مازندران'];break;
-          case 'کردستان':$javar_id=['آذربایجان غربی','زنجان',22,30];break;
-          case 'کرمان':$javar_id=['خراسان جنوبی','سیستان و بلوچستان','فارس',29,'یزد'];break;
-          case '22':$javar_id=['ایلام','کردستان','لرستان',30];break;
-          case 'کهگیلویه و بویراحمد':$javar_id=['اصفهان','بوشهر','چهار محال بختیاری','خوزستان','فارس'];break;
-          case '24':$javar_id=['اصفهان','سمنان','مازندران'];break;
-          case 'گیلان':$javar_id=['اردبیل','زنجان','قزوین','مازندران'];break;
-          case 'لرستان':$javar_id=['اصفهان','ایلام','چهار محال بختیاری','خوزستان',22,'مرکزی',30];break;
-          case 'مازندران':$javar_id=['البرز','تهران','سمنان','قزوین',24,'گیلان'];break;
-          case 'مرکزی':$javar_id=['اصفهان','البرز','تهران','قزوین','قم','لرستان',30];break;
-          case '29':$javar_id=['بوشهر','سیستان و بلوچستان','فارس','کرمان'];break;
-          case '30':$javar_id=['زنجان','قزوین','کردستان',22,'لرستان','مرکزی'];break;
-          case 'یزد':$javar_id=['اصفهان','خراسان جنوبی','فارس','کرمان'];break;
-        }
-      if ($shop->ostan == $order->ostan) {
-        // هم استانی
-        if ($show_pro->vaznPost <= 2000) {
-          // سفارشی
-          $sefarshi=Post::find(1);
-        }
-          // امانت
-          $amanat=Post::find(3);
-        // پیشتاز
-        $pishtaz=Post::find(5);
-      }
-      else{
-        // غیر استان
-        if ($show_pro->vaznPost <= 2000) {
-          // سفارشی
-          $sefarshi=Post::find(2);
-        }
-          // امانت
-          $amanat=Post::find(4);
-        // پیشتاز
-        $pishtaz=Post::find(6);
-      }
+        // switch ($ostan_id_buyer) {
+        //   case 'اردبیل':$javar_name=['آذربایجان شرقی','زنجان','گیلان'];break;
+        //   case 'اصفهان':$javar_name=['چهار محال بختیاری','خراسان جنوبی','سمنان','فارس','قم','کهگیلویه و بویراحمد','لرستان','مرکزی','یزد'];break;
+        //   case 'البرز':$javar_name=['تهران','قزوین','مازندران','مرکزی'];break;
+        //   case 'ایلام':$javar_name=['خوزستان','کرمانشاه','لرستان'];break;
+        //   case 'آذربایجان شرقی':$javar_name=['اردبیل','آذربایجان غربی','زنجان'];break;
+        //   case 'آذربایجان غربی':$javar_name=['آذربایجان شرقی','زنجان','کردستان'];break;
+        //   case 'بوشهر':$javar_name=['خوزستان','فارس','هرمزگان','کهگیلویه و بویراحمد'];break;
+        //   case 'تهران':$javar_name=['البرز','سمنان','قم','مازندران','مرکزی'];break;
+        //   case 'چهار محال بختیاری':$javar_name=['اصفهان','خوزستان','کهگیلویه و بویراحمد','لرستان'];break;
+        //   case 'خراسان جنوبی':$javar_name=['اصفهان','خراسان رضوی','سمنان','سیستان و بلوچستان','کرمان','یزد'];break;
+        //   case 'خراسان رضوی':$javar_name=['خراسان جنوبی','خراسان شمالی','سمنان'];break;
+        //   case 'خراسان شمالی':$javar_name=['خراسان رضوی','سمنان','گلستان'];break;
+        //   case 'خوزستان':$javar_name=['ایلام','بوشهر','چهار محال بختیاری','کهگیلویه و بویراحمد','لرستان'];break;
+        //   case 'زنجان':$javar_name=['اردبیل','آذربایجان غربی','آذربایجان شرقی','قزوین','کردستان','گیلان','همدان'];break;
+        //   case 'سمنان':$javar_name=['اصفهان','تهران','خراسان جنوبی','خراسان رضوی','خراسان شمالی','قم','گلستان','مازندران'];break;
+        //   case 'سیستان و بلوچستان':$javar_name=['خراسان جنوبی','کرمان','هرمزگان'];break;
+        //   case 'فارس':$javar_name=['اصفهان','بوشهر','کرمان','کهگیلویه و بویراحمد','هرمزگان','یزد'];break;
+        //   case 'قزوین':$javar_name=['البرز','زنجان','گیلان','مازندران','مرکزی','همدان'];break;
+        //   case 'قم':$javar_name=['اصفهان','تهران','سمنان','مرکزی'];break;
+        //   case 'کردستان':$javar_name=['آذربایجان غربی','زنجان','کرمانشاه','همدان'];break;
+        //   case 'کرمان':$javar_name=['خراسان جنوبی','سیستان و بلوچستان','فارس','هرمزگان','یزد'];break;
+        //   case 'کرمانشاه':$javar_name=['ایلام','کردستان','لرستان','همدان'];break;
+        //   case 'کهگیلویه و بویراحمد':$javar_name=['اصفهان','بوشهر','چهار محال بختیاری','خوزستان','فارس'];break;
+        //   case 'گلستان':$javar_name=['خراسان شمالی','سمنان','مازندران'];break;
+        //   case 'گیلان':$javar_name=['اردبیل','زنجان','قزوین','مازندران'];break;
+        //   case 'لرستان':$javar_name=['اصفهان','ایلام','چهار محال بختیاری','خوزستان','کرمانشاه','مرکزی','همدان'];break;
+        //   case 'مازندران':$javar_name=['البرز','تهران','سمنان','قزوین','گلستان','گیلان'];break;
+        //   case 'مرکزی':$javar_name=['اصفهان','البرز','تهران','قزوین','قم','لرستان','همدان'];break;
+        //   case 'هرمزگان':$javar_name=['بوشهر','سیستان و بلوچستان','فارس','کرمان'];break;
+        //   case 'همدان':$javar_name=['زنجان','قزوین','کردستان','کرمانشاه','لرستان','مرکزی'];break;
+        //   case 'یزد':$javar_name=['اصفهان','خراسان جنوبی','فارس','کرمان'];break;
+        // }
+      // if ($shop->ostan == $order->ostan) {
+      //   // هم استانی
+      //   if ($show_pro->vaznPost <= 2000) {
+      //     // سفارشی
+      //     $sefarshi=Post::find(1);
+      //   }
+      //     // امانت
+      //     $amanat=Post::find(3);
+      //   // پیشتاز
+      //   $pishtaz=Post::find(5);
+      // }
+      // else{
+      //   // غیر استان
+      //   if ($show_pro->vaznPost <= 2000) {
+      //     // سفارشی
+      //     $sefarshi=Post::find(2);
+      //   }
+      //     // امانت
+      //     $amanat=Post::find(4);
+      //   // پیشتاز
+      //   $pishtaz=Post::find(6);
+      // }
       if($gram != 'not'){
-        $priceSefarshi=$sefarshi->$gram + $show_pro->pakat;
-        $priceAmanat=$sefarshi->$gram + $show_pro->pakat;
-        $pricePishtaz=$pishtaz->$gram + $show_pro->pakat;
+        // $priceSefarshi=$sefarshi->$gram + $show_pro->pakat;
+        $priceSefarshi=12000;
+        // $priceAmanat=$sefarshi->$gram + $show_pro->pakat;
+        $priceAmanat=25000;
+        // $pricePishtaz=$pishtaz->$gram + $show_pro->pakat;
+        $pricePishtaz=80000;
       }else{$priceSefarshi=0;$pricePishtaz=0;}
       Cookie::queue('priceAmanat', $priceAmanat);
       Cookie::queue('priceSefarshi', $priceSefarshi);
       Cookie::queue('pricePishtaz', $pricePishtaz);
-      return view('order.showSabadOrder',compact('show_pro','shop','stampPost','priceSefarshi','priceAmanat','pricePishtaz'));
+      return view('order.showSabadOrder',compact('show_pro','shop','order_id','stampPost','priceSefarshi','priceAmanat','pricePishtaz'));
     }
     public function end_price_all()  {}
     //حساب کردن قیمت پست کالا هنگامی که کاربر مبادرت به خرید بیش از یک کالا می نمایید .
@@ -565,17 +568,19 @@ class OrderController extends Controller
     public function factor_order(Request $request)
     {
       $id=$request->id;
+      $order_id=$request->order_id;
       $num=$request->num;
       $post=$request->post;
       $pro_shop=pro::find($id);
       $shop=Shop::find($pro_shop->shop_id);
-      $order=Order::find($pro_shop->order_id);
+      $order=Order::find($order_id);
       $price=$num * $pro_shop->price;
       $postName=StampPost::where('order_id',$pro_shop->order_id)->where('shop_id',$pro_shop->shop_id)->where('pro_id',$pro_shop->id)->first();
       switch ($post) {
         case 1:$post2='پست امانت';$price_post=$request->cookie('priceAmanat'); break;
         case 2:$post2='پست سفارشی';$price_post=$request->cookie('priceSefarshi'); break;
         case 3:$post2='پست پیشتاز';$price_post=$request->cookie('pricePishtaz'); break;
+        case 5:$post2='حضوری';$price_post=0;break;
         case 'public1':$post2=$postName->public1;$price_post=0;break;
         case 'public2':$post2=$postName->public2;$price_post=0; break;
         case 'public3':$post2=$postName->public3;$price_post=0; break;

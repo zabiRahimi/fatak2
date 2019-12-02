@@ -180,11 +180,11 @@ function end_price_all(model_post){
 
     },});  }
 //کنترل انتخاب شیوه پست کردن کالا
-function chek_add_post(chek,id){
+function chek_add_post(chek,id,order_id){
   if (chek!=0) {
     var num=$('#ajax_add_cut').html();
     var post=$('input[name="post"]:checked').val();
-    window.location="/factor_order/" + id + "/" + num + "/" + post;
+    window.location="/factor_order/" + id + "/" + order_id + "/" + num + "/" + post;
   } else {
     $('#chek_add_post').modal('show');
   }

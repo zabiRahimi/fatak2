@@ -14,7 +14,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
     <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
   </div>
   <ul class="ul_line headerOrderUl ">
-    <a href="/showOneOrder/{{$show_pro->id}}"><li>بازگشت</li></a>
+    <a href="/showOneOrder/{{$show_pro->id}}/{{$order_id}}"><li>بازگشت</li></a>
     <a href="/"><li>صفحه اصلی</li></a>
     <li>نحوه فعالیت</li>
     <li>قوانین و مقررات</li>
@@ -328,7 +328,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
       <span class="sabad_kh_end_price3">تومان</span>
     </div>
     <div class="sabad_kh_sabt">
-    <a  onclick="chek_add_post($('.sabad_kh_end_price2').html(), {{$show_pro->id}})"  ><button type="button" class="btn btn-success btn-block">ثبت سفارش</button> </a>
+    <a  onclick="chek_add_post($('.sabad_kh_end_price2').html(), {{$show_pro->id}},{{$order_id}})"  ><button type="button" class="btn btn-success btn-block">ثبت سفارش</button> </a>
     </div>
 
 </div><!-- end sabad -->
