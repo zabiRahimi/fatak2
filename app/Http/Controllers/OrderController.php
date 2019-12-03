@@ -9,7 +9,7 @@ use App\Models\Shop;
 use App\Models\StampPost;
 use App\Models\PicturePro;
 use App\Models\Post;
-use App\Models\BuyOrder;
+use App\Models\Buy;
 use App\Models\StampProOrder;
 
 use App\Http\Requests\Save_order1;
@@ -207,35 +207,35 @@ class OrderController extends Controller
         //   case 'همدان':$javar_name=['زنجان','قزوین','کردستان','کرمانشاه','لرستان','مرکزی'];break;
         //   case 'یزد':$javar_name=['اصفهان','خراسان جنوبی','فارس','کرمان'];break;
         // }
-      // if ($shop->ostan == $order->ostan) {
-      //   // هم استانی
-      //   if ($show_pro->vaznPost <= 2000) {
-      //     // سفارشی
-      //     $sefarshi=Post::find(1);
-      //   }
-      //     // امانت
-      //     $amanat=Post::find(3);
-      //   // پیشتاز
-      //   $pishtaz=Post::find(5);
-      // }
-      // else{
-      //   // غیر استان
-      //   if ($show_pro->vaznPost <= 2000) {
-      //     // سفارشی
-      //     $sefarshi=Post::find(2);
-      //   }
-      //     // امانت
-      //     $amanat=Post::find(4);
-      //   // پیشتاز
-      //   $pishtaz=Post::find(6);
-      // }
+      if ($shop->ostan == $order->ostan) {
+        // هم استانی
+        if ($show_pro->vaznPost <= 2000) {
+          // سفارشی
+          $sefarshi=Post::find(1);
+        }
+          // امانت
+          $amanat=Post::find(3);
+        // پیشتاز
+        $pishtaz=Post::find(5);
+      }
+      else{
+        // غیر استان
+        if ($show_pro->vaznPost <= 2000) {
+          // سفارشی
+          $sefarshi=Post::find(2);
+        }
+          // امانت
+          $amanat=Post::find(4);
+        // پیشتاز
+        $pishtaz=Post::find(6);
+      }
       if($gram != 'not'){
-        // $priceSefarshi=$sefarshi->$gram + $show_pro->pakat;
-        $priceSefarshi=12000;
-        // $priceAmanat=$sefarshi->$gram + $show_pro->pakat;
-        $priceAmanat=25000;
-        // $pricePishtaz=$pishtaz->$gram + $show_pro->pakat;
-        $pricePishtaz=80000;
+        $priceSefarshi=$sefarshi->$gram + $show_pro->pakat;
+        // $priceSefarshi=12000;
+        $priceAmanat=$sefarshi->$gram + $show_pro->pakat;
+        // $priceAmanat=25000;
+        $pricePishtaz=$pishtaz->$gram + $show_pro->pakat;
+        // $pricePishtaz=80000;
       }else{$priceSefarshi=0;$pricePishtaz=0;}
       Cookie::queue('priceAmanat', $priceAmanat);
       Cookie::queue('priceSefarshi', $priceSefarshi);
@@ -601,14 +601,15 @@ class OrderController extends Controller
       Cookie::queue('numProOrder', $num);
       return view('order.factor_order',compact('id','post','shop','order','num','pro_shop','price','post2','price_post','payWork','allPrice'));
     }
-    //ذخیره اطلاعات خریدار
-public function save_data_buyer2(Save_data_buyer $request){
+    //ذخیره اطلاعات خریدار محصول سفارشی
+public function save_data_buyerOrder(Save_data_buyer $request){
+  // نکته بسیار مهم : این متد دقیقا مثل متد ذخیره اطلاعات خریدار در کنترلر سبدکنترل عمل می کند و همه چیز آن برابر می باشد و در یک جدول ذخیره می شوند پس هنگام هر گونه تغییرات باید آن متد را نیز در نظر گرفت
     $num_pro=$request->cookie('numProOrder');
     $pricePost=$request->cookie('pricePostOrder');
     $pro_id=$request->id;
     $pro=pro::find($pro_id);
-    $date1=new Verta();//تاریخ جلالی
-    $date=$date1->format('Y/n/j');
+    // $date1=new Verta();//تاریخ جلالی
+    // $date=$date1->format('Y/n/j');
     $scot=0;
     $priceAll=$num_pro * $pro->price;
     $paywork=($priceAll + $pricePost) * 2 /100 + 2000;
@@ -616,7 +617,7 @@ public function save_data_buyer2(Save_data_buyer $request){
     if(empty($num_pro) or empty($pricePost)){
       return 12;
     }
-    $add=new BuyOrder();
+    $add=new Buy();
     $add->order_id=$pro->order_id;
     $add->pro_id=$pro_id;
     $add->shop_id=$pro->shop_id;
@@ -636,8 +637,8 @@ public function save_data_buyer2(Save_data_buyer $request){
     $add->scot=$scot;
     $add->paywork=$paywork;
     $add->amount=$amount;
-    $add->date_ad=$date;
-    $add->date_up=$date;
+    $add->date_ad=time();
+    $add->date_up=time();
     $add->stage=0;
     $add-> save();
     if(!empty($add->id)){

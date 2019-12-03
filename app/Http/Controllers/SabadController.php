@@ -163,6 +163,7 @@ class SabadController extends Controller
        }
        //ذخیره اطلاعات خریدار
    public function save_data_buyer(Save_data_buyer $request){
+     // نکته بسیار مهم : این متد دقیقا مثل متد ذخیره اطلاعات خریدار در کنترلر اوردر کنترل عمل می کند و همه چیز آن برابر می باشد و در یک جدول ذخیره می شوند پس هنگام هر گونه تغییرات باید آن متد را نیز در نظر گرفت
      $name=$request->name;
      $mobail=$request->mobail;
      if(preg_match('/^[0-9]{10}$/', $mobail)){$mobail=0 . $mobail;}
@@ -223,6 +224,10 @@ class SabadController extends Controller
      Cookie::queue('id_pros', '', time() - 3600);
      Cookie::queue('model_post', '', time() - 3600);
    }
+   // Db::transaction(function ()
+   // {
+   //   // code...
+   // })
   }
   //ثبت نهایی خرید و پرداخت آنلاین
   public function end_buy(Request $request){

@@ -52,6 +52,7 @@ class Save_data_buyer extends FormRequest
     public function rules()
     {
         return [
+            'typeBuy' =>'required|name',
             'name'=>'required|name',
             'mobail'=>'required|mobail',
             'tel'=>'nullable|tel',
