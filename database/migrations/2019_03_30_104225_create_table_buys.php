@@ -15,32 +15,13 @@ class CreateTableBuys extends Migration
     {
         Schema::create('Buys', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pro_id');
-            $table->integer('shop_id');
-            $table->string('typeBuy',17)->comment('نوع خرید ، مستقیم یا سفارشی');
-            $table->integer('backPro_id')->nullable();
-            $table->string('name',100);
-            $table->string('mobail',13);
-            $table->string('tel',13)->nullable();
-            $table->string('email',200)->nullable();
-            $table->string('ostan',33);
-            $table->string('city',33);
-            $table->string('codepost',11);
-            $table->text('address');
-            $table->string('post',25);
-            $table->smallInteger('num_pro');
-            $table->smallInteger('other_pro')->nullable();
-            $table->text('dis')->nullable();
-            $table->mediumInteger('price_pro');
-            $table->mediumInteger('price_post');
-            $table->mediumInteger('scot')->nullable();
-            $table->mediumInteger('paywork')->nullable();
-            $table->mediumInteger('amount')->nullable();
-            $table->string('authority',36)->nullable();
-            $table->string('refid',36)->nullable();
-            $table->integer('date_ad');
+            $table->mediumInteger('buyer_id');
+            $table->mediumInteger('pro_id');
+            $table->smallInteger('shop_id');
+            $table->tinyInteger('num_pro');
+            $table->mediumInteger('price_pro')->comment('قیمت واحد کالا در زمان درج ستون ، ممکن است بعد از خرید کالا قیمت محصول تغییر کند ، نباید مقدار این ستون تغییر کند');
             $table->integer('date_up');
-            $table->string('stage',3);
+            $table->boolean('stage');
         });
     }
 

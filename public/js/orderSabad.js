@@ -190,13 +190,14 @@ function chek_add_post(chek,id,order_id){
   }
 }
 //اعتبار سنجی و ذخیره اطلاعات خریدار
-function sabtDataBuyer(id) {
+function sabtDataBuyerOrder(id) {
 								$.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
 								var mobail=$('#mobail_data_buyer2').val();	var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
 									$.ajax({
-											url: "/../save_data_buyer2/" + id,
+											url: "/../save_data_buyerOrder/" + id,
 											method: 'post',
 											data: {
+                          typeBuy:'سفارشی',
 													name: $('#name_data_buyer2').val(),
 													mobail: mobail,
                           tel:$('#tel_data_buyer2').val(),

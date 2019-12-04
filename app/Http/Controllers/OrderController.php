@@ -9,6 +9,7 @@ use App\Models\Shop;
 use App\Models\StampPost;
 use App\Models\PicturePro;
 use App\Models\Post;
+use App\Models\Buyer;
 use App\Models\Buy;
 use App\Models\StampProOrder;
 
@@ -617,10 +618,11 @@ public function save_data_buyerOrder(Save_data_buyer $request){
     if(empty($num_pro) or empty($pricePost)){
       return 12;
     }
-    $add=new Buy();
+    $add=new Buyer();
     $add->order_id=$pro->order_id;
     $add->pro_id=$pro_id;
     $add->shop_id=$pro->shop_id;
+    $add->typeBuy=$request->typeBuy;
     $add->name=$request->name;
     $add->mobail=$request->mobail;//
     $add->tel=$request->tel;//
@@ -650,6 +652,15 @@ public function save_data_buyerOrder(Save_data_buyer $request){
       Cookie::queue('pricePostOrder', '' , time() - 3600);
       Cookie::queue('numProOrder', '' , time() - 3600);
     }
+    // $pro=pro::find($pro_id);
+    $saveBuy=new Buy();
+    $saveBuy->buyer_id=$add->id;
+    $saveBuy->pro_id=;
+    $saveBuy->shop_id=;
+    $saveBuy->num_pro=;
+    $saveBuy->price_pro=;
+    $saveBuy->date_up=time();
+    $saveBuy->stage=1;
 }
 public function payBuyOrder(Request $request)
 {
