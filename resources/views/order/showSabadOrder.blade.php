@@ -20,6 +20,17 @@ namespace App\resource\wiews\pro\show_sabad_pro;
     <li>قوانین و مقررات</li>
   </ul>
 <div class="contentOrder">
+
+  <div class="" style="text-align: left; direction:left;">
+    @foreach ($arrayPro as $key => $value)
+      {{$key}} = <br>
+      (
+      @foreach ($value as $key2 => $value2)
+        {{ $key2 }} = {{$value2}} <br>
+      @endforeach
+      )
+    @endforeach
+  </div>
 <div class="sabad_kh">
         <?php
           // $sum_prise[]=$show_pro->price;
@@ -63,7 +74,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           <div class="sabad_kh_body3">
             <div class="sabad_kh_price1">
               <span class="sabad_kh_price1_1">قیمت واحد</span>
-              <span class="sabad_kh_price1_2 number">{{number_format($show_pro->price)}}</span>
+              <span class="sabad_kh_price1_2 number">{{number_format($price)}}</span>
               <span class="sabad_kh_price1_3">تومان</span>
                 <?php
                 // $shop_id='shop' . $show_pro->id;
@@ -79,19 +90,19 @@ namespace App\resource\wiews\pro\show_sabad_pro;
             </div>
 
             <div class="sabad_kh_num">
-                <span class="sabad_kh_num_add" onclick="num_add_sabad_order('add',{{$show_pro->num}},$('#ajax_add_cut').html(),{{$show_pro->price }},{{$priceSefarshi}},{{$pricePishtaz}},{{$show_pro->id}})"><i class="fas fa-plus"></i></span>
+                <span class="sabad_kh_num_add" onclick="num_add_sabad_order('add',{{$show_pro->num}},$('#ajax_add_cut').html(),{{$price }},{{$priceSefarshi}},{{$pricePishtaz}},{{$show_pro->id}},{{$order_id}})"><i class="fas fa-plus"></i></span>
                 {{-- ; sum_gram_post('add' , {{$show_pro->gram_post }},$('#ajax_add_cut{{$show_pro->id}}').html()) --}}
                 <span class="sabad_kh_num_count">
                   <span class="sabad_kh_num_count2" id="ajax_add_cut">1</span>
                   <span class="sabad_kh_num_count3 num_add_cut2" id="num_add_cut2">عدد</span>
                 </span>
-                <span class="sabad_kh_num_cut" onclick="num_add_sabad_order('cut',{{$show_pro->num }} ,$('#ajax_add_cut').html() ,{{$show_pro->price }},{{$priceSefarshi}},{{$pricePishtaz}},{{$show_pro->id}});"><i class="fas fa-minus"></i></span>
+                <span class="sabad_kh_num_cut" onclick="num_add_sabad_order('cut',{{$show_pro->num }} ,$('#ajax_add_cut').html() ,{{$price }},{{$priceSefarshi}},{{$pricePishtaz}},{{$show_pro->id}},{{$order_id}});"><i class="fas fa-minus"></i></span>
                  {{-- sum_gram_post('cut' , {{$show_pro->gram_post }},$('#ajax_add_cut{{$show_pro->id}}').html()) --}}
 
             </div>
               <div class="sabad_kh_price2">
                 <span class="sabad_kh_price2_1">قیمت مجموع</span>
-                <span class="sabad_kh_price2_2 number" id="ajax_cuont_price">{{ number_format($show_pro->price)}}</span>
+                <span class="sabad_kh_price2_2 number" id="ajax_cuont_price">{{ number_format($price)}}</span>
                 <span class="sabad_kh_price2_3">تومان</span>
 
               </div>
@@ -107,7 +118,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
         <div class="sabad_kh2_1">
           <span class="sabad_kh2_2_1">قیمت کل</span>
           {{-- {{number_format(array_sum($sum_prise))}} --}}
-          <span class="sabad_kh2_2_2 number" id="ajax_price_all_pro">{{number_format($show_pro->price)}}</span>
+          <span class="sabad_kh2_2_2 number" id="ajax_price_all_pro">{{number_format($price)}}</span>
           <span class="hidden" id="ajax_price_all_pro2">{{$show_pro->price}}</span>
           <span class="sabad_kh2_2_3">تومان</span>
           <!--به منظور استفاده از وزن پستی محصول می باشد این تگ مخفی است-->

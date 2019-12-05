@@ -14,6 +14,16 @@
 
   </ul>
   <div class="contentOrder">
+    <div class="" style="text-align: left; direction:left;">
+      @foreach ($arrayPro as $key => $value)
+        {{$key}} = <br>
+        (
+        @foreach ($value as $key2 => $value2)
+          {{ $key2 }} = {{$value2}} <br>
+        @endforeach
+        )
+      @endforeach
+    </div>
 <div class="all_factor">
   @if ($post==5)
     <div class="all_factorHz">
@@ -147,7 +157,7 @@
            <button type="button" class="btn btn-succpro" onfocus="$('.form-control').css('border-color' , '#fff')" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
          </div>
          <div class="end_form_data_buyer">
-            <button type="button" class="btn btn-success btn-block submit_data_buyer2" onclick="sabtDataBuyer({{$pro_shop->id}})">ثبت اطلاعات</button>
+            <button type="button" class="btn btn-success btn-block submit_data_buyer2" onclick="sabtDataBuyerOrder({{$pro_shop->id}},{{$order->id}})">ثبت اطلاعات</button>
          </div>
        </form>
       </div>

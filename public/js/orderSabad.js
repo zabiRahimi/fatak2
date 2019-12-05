@@ -1,6 +1,6 @@
 
 //کم یا زیاد کردن تعداد خرید یک محصول
-function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pishtaz,id){
+function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pishtaz,id,order_id){
 
   if (add_cut=='cut'&&num_buyer==1) {}else{
   if(add_cut=='add'&&num_buyer==num){
@@ -30,7 +30,8 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
      //      },
      success:function(data){
        $('#ajax_add_cut').html(num_buyer);
-       $('#ajax_cuont_price').html(sum_price);
+       // $('#ajax_cuont_price').html(number_format(sum_price));
+       $('#ajax_cuont_price').html(number_format(sum_price));
        $('#ajax_price_all_pro').html(number_format(sum_price));
        $('#ajax_price_all_pro2').html(sum_price);
        $('.sabad_kh_end_price2').html(0);
@@ -41,7 +42,7 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
        // $('.sabad_kh_end_price2').html(0);
        // $('#ajax_sabad_city').val('aval');
        // $('#ajax_sabad_ostan').val('aval');
-       pricePostOrder(id , num_buyer);
+       pricePostOrder(id ,order_id, num_buyer);
      },
      // complete:function(){
      //
@@ -53,12 +54,12 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
  }}
 }
 //مجموع قیمت جدید برای محصولی که کاربر مبادرت به خرید بیشتر از یک کالا نموده
-function pricePostOrder(id , num ){
+function pricePostOrder(id, order_id , num ){
 
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../pricePostOrder/' + id + '/' + num,
+    url:'../../pricePostOrder/' + id + '/' + order_id + '/' + num,
     data: {
          // num: num ,
          // vahed_price: vahed_price,
@@ -190,11 +191,11 @@ function chek_add_post(chek,id,order_id){
   }
 }
 //اعتبار سنجی و ذخیره اطلاعات خریدار
-function sabtDataBuyerOrder(id) {
+function sabtDataBuyerOrder(pro_id, order_id) {
 								$.ajaxSetup({  headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
 								var mobail=$('#mobail_data_buyer2').val();	var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
 									$.ajax({
-											url: "/../save_data_buyerOrder/" + id,
+											url: "/../save_data_buyerOrder/" + pro_id + "/" + order_id ,
 											method: 'post',
 											data: {
                           typeBuy:'سفارشی',
