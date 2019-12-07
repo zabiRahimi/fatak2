@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Exception;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\pro;
@@ -646,6 +646,9 @@ public function save_data_buyerOrder(Save_data_buyer $request){
     if(empty($num_pro) or empty($pricePost)){
       return 12;
     }
+
+    try{
+        DB::beginTransaction();
     $add=new Buyer();
     $add->typeBuy=$request->typeBuy;
     $add->order_id=$order_id;
@@ -691,7 +694,18 @@ public function save_data_buyerOrder(Save_data_buyer $request){
     // $saveBuy->price_pro=4;
     $saveBuy->date_up=time();
     $saveBuy->stage=1;
-    $saveBuy->save();
+    $saveBuy->salve();
+    // if(empty($saveBuy->id)){
+    //   Throw new Execption('no');
+    //
+    // }else{DB::commit();}
+    DB::commit();
+    }
+    catch ( Exception  $e){
+      DB::rollBack();
+      return response()->json(['errors' => ['no_mobail' => ["$e"]]], 422);
+
+    }
 }
 public function payBuyOrder(Request $request)
 {
