@@ -8,4 +8,5 @@ class StampProOrder extends Model
 {
   public $timestamps = false;
   protected $guarded = ['id'];
+
 }

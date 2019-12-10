@@ -131,11 +131,17 @@ class OrderController extends Controller
       $shop=Shop::find($show_pro->shop_id);
       $order=Order::find($order_id);
       $stampProOrder=StampProOrder::where('order_id',$order_id)->where('pro_id',$pro_id)->where('shop_id',$shop->id)->first();
+      // $stampProOrder2=DB::table('stamp_pro_orders')->select('*')->get();;
+      $stampProOrder2=$stampProOrder ->makeHidden(['stamp','show']) -> toArray();
       $price=(!empty($stampProOrder->price)) ? $stampProOrder->price : $show_pro->price ;
-      $arrayProChild=['pro_id'=>$pro_id,'shop_id'=>$shop->id,'num_buy'=>1,'price_pro'=>$price];
+      $show_pro2=$show_pro->makeHidden(['typePro','maker','brand','model','price','vazn','dis','dateMake','dateExpiration','term','offerOrder','bazdid','numBuy','date_ad','date_up','seo','show']) ->toArray();
+      $show_pro2['price']=$price;
+      $show_pro2['num_buy']=1;
+
+      // $arrayProChild=['pro_id'=>$pro_id,'shop_id'=>$shop->id,'num_buy'=>1,'price_pro'=>$price];
 
       if ($request->cookie('dataPro')) {Cookie::queue('dataPro', '' , time() - 3600);}
-      $arrayPro=[$pro_id=>$arrayProChild];
+      $arrayPro=[$pro_id=>$show_pro2];
        Cookie::queue('dataPro',serialize($arrayPro));
        // if ($request->cookie('dataPro')) {
        //    $arrayPro=unserialize( $request->cookie('dataPro'));

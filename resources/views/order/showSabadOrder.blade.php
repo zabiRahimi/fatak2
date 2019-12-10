@@ -22,14 +22,24 @@ namespace App\resource\wiews\pro\show_sabad_pro;
 <div class="contentOrder">
 
   <div class="" style="text-align: left; direction:left;">
-    @foreach ($arrayPro as $key => $value)
-      {{$key}} = <br>
-      (
-      @foreach ($value as $key2 => $value2)
-        {{ $key2 }} = {{$value2}} <br>
-      @endforeach
-      )
+    {{-- {{ $show_pro }} --}}
+    @if (is_array($arrayPro))
+      yes
+    @else
+      no
+    @endif
+    <br>
+    {{-- {{ dd($stampProOrder2) }} --}}
+    @foreach ($arrayPro as $keyp2 => $valuep2)
+
+        {{ $keyp2 }}  <br>
+        @foreach ($valuep2 as $key => $val)
+          {{ $key }} => {{ $val }} <br>
+        @endforeach
+
     @endforeach
+    <br>
+
   </div>
 <div class="sabad_kh">
         <?php
