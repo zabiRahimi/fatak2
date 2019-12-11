@@ -156,12 +156,12 @@ function post_sefareshi(id_ostan , id_city, city){
         $('.sabad_kh_sefareshi2_1').html(data);
     },});}
 //درج هزینه نهایی در سبد خرید
-function end_price_all(model_post){
+function end_price_all(modelPost){
 
-  if(model_post == 1){var price_post = $('#orderAmanat2').html();}
-  else if(model_post== 2){ var price_post= $('#orderSefarshi2').html();}
-  else if(model_post== 3){ var price_post= $('#orderPishtaz2').html();}
-  else if(model_post== 4){ var price_post=0;}
+  if(modelPost == 1){var price_post = $('#orderAmanat2').html();}
+  else if(modelPost== 2){ var price_post= $('#orderSefarshi2').html();}
+  else if(modelPost== 3){ var price_post= $('#orderPishtaz2').html();}
+  else if(modelPost== 4){ var price_post=0;}
   // let payWork = 2000;//کارمزد
   let price_pro=$('#ajax_price_all_pro2').html();
   let price_all1=Number(price_pro) + Number(price_post);
@@ -171,8 +171,9 @@ function end_price_all(model_post){
   $.ajax({
     type:'post',
     url:'/../../end_price_all',
+    data:{modelPost:modelPost},
     success:function(data){
-      if(model_post== 5){
+      if(modelPost== 5){
         $('.sabad_kh_end_price').html('<span class="sabad_kh_end_price_span">شما گزینه دریافت کالا به صورت حضوری را انتخاب نموده اید ، پس از انتخاب دکمه ثبت سفارش آدرس کامل و شماره تماس فروشنده در اختیار شما قرار می گیرد .</span>');
       }
       else{
@@ -185,7 +186,7 @@ function chek_add_post(chek,id,order_id){
   if (chek!=0) {
     var num=$('#ajax_add_cut').html();
     var post=$('input[name="post"]:checked').val();
-    window.location="/factor_order/" + id + "/" + order_id + "/" + num + "/" + post;
+    window.location="/factor_order/";
   } else {
     $('#chek_add_post').modal('show');
   }

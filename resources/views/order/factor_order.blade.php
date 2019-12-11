@@ -9,23 +9,29 @@
     <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
   </div>
   <ul class="ul_line headerOrderUl ">
-    <a href="/showSabadOrder/{{$id}}/{{$order->id}}"><li>بازگشت</li></a>
+    <a href="/showSabadOrder/{{$dataPro['id']}}/{{$order->id}}"><li>بازگشت</li></a>
     <a href="/"><li>صفحه اصلی</li></a>
 
   </ul>
   <div class="contentOrder">
     <div class="" style="text-align: left; direction:left;">
-      @foreach ($arrayPro as $key => $value)
-        {{$key}} = <br>
-        (
-        @foreach ($value as $key2 => $value2)
-          {{ $key2 }} = {{$value2}} <br>
-        @endforeach
-        )
-      @endforeach
+      {{-- @foreach ($dataPro as $key => $value)
+
+          {{ $key }} = {{$value}} <br>
+
+      @endforeach --}}
+      <br>
+      @if (is_array($pricePost))
+        ok
+      @else
+        no
+      @endif
+      امانت = {{ $pricePost[1] }} <br>
+      سقارشی = {{ $pricePost[2] }} <br>
+      پیشتاز = {{ $pricePost[3] }} <br>
     </div>
 <div class="all_factor">
-  @if ($post==5)
+  @if ($modelPost==5)
     <div class="all_factorHz">
       جهت دریافت و خرید کالای خود به آدرس زیر مراجعه فرمایید .
     </div>
@@ -70,7 +76,7 @@
 
          ?>
          <div class="body_factor1 body_factor2 ">
-           <div class="name_pro_factor1">{{$pro_shop->name}}</div><div class="num_pro_factor1">{{$num}} <span class="factor_span">عدد</span> </div><div class="price_factor1 number"><span class="factor_span">قیمت واحد :</span> {{number_format($pro_shop->price) }} <span class="factor_toman2">تومان</span> </div>
+           <div class="name_pro_factor1">{{$dataPro['name']}}</div><div class="num_pro_factor1">{{$dataPro['num_buy']}} <span class="factor_span">عدد</span> </div><div class="price_factor1 number"><span class="factor_span">قیمت واحد :</span> {{number_format($dataPro['price']) }} <span class="factor_toman2">تومان</span> </div>
            <div class="all_price_factor1 number"><span class="factor_span">قیمت :</span> {{number_format($price)}} <span class="factor_toman2">تومان</span> </div>
          </div>
 
@@ -157,7 +163,7 @@
            <button type="button" class="btn btn-succpro" onfocus="$('.form-control').css('border-color' , '#fff')" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
          </div>
          <div class="end_form_data_buyer">
-            <button type="button" class="btn btn-success btn-block submit_data_buyer2" onclick="sabtDataBuyerOrder({{$pro_shop->id}},{{$order->id}})">ثبت اطلاعات</button>
+            <button type="button" class="btn btn-success btn-block submit_data_buyer2" onclick="sabtDataBuyerOrder({{$dataPro['id']}},{{$order->id}})">ثبت اطلاعات</button>
          </div>
        </form>
       </div>

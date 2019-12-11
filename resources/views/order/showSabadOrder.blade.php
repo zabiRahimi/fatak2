@@ -23,19 +23,16 @@ namespace App\resource\wiews\pro\show_sabad_pro;
 
   <div class="" style="text-align: left; direction:left;">
     {{-- {{ $show_pro }} --}}
-    @if (is_array($arrayPro))
+    @if (is_array($dataPro))
       yes
     @else
       no
     @endif
     <br>
     {{-- {{ dd($stampProOrder2) }} --}}
-    @foreach ($arrayPro as $keyp2 => $valuep2)
+    @foreach ($dataPro as $keyp2 => $valuep2)
+          {{ $keyp2 }} => {{ $valuep2 }} <br>
 
-        {{ $keyp2 }}  <br>
-        @foreach ($valuep2 as $key => $val)
-          {{ $key }} => {{ $val }} <br>
-        @endforeach
 
     @endforeach
     <br>
@@ -129,7 +126,7 @@ namespace App\resource\wiews\pro\show_sabad_pro;
           <span class="sabad_kh2_2_1">قیمت کل</span>
           {{-- {{number_format(array_sum($sum_prise))}} --}}
           <span class="sabad_kh2_2_2 number" id="ajax_price_all_pro">{{number_format($price)}}</span>
-          <span class="hidden" id="ajax_price_all_pro2">{{$show_pro->price}}</span>
+          <span class="hidden" id="ajax_price_all_pro2">{{$price}}</span>
           <span class="sabad_kh2_2_3">تومان</span>
           <!--به منظور استفاده از وزن پستی محصول می باشد این تگ مخفی است-->
           {{-- {{array_sum($sum_gram_sabad)}} --}}
