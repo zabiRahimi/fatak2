@@ -272,8 +272,9 @@ class OrderController extends Controller
 
 
     public function end_price_all(Request $request)  {
-      $this->validate($request, ['modelPost'=>'required|numeric']);
-      Cookie::queue('modelPost', $request->modelPost);
+      $this->validate($request, ['modelPost'=>'required|numeric' , 'namePost' =>'required|farsi']);
+      $modelPost=[$request->modelPost , $request->namePost];
+      Cookie::queue('modelPost', serialize($modelPost));
 
     }
     //حساب کردن قیمت پست کالا هنگامی که کاربر مبادرت به خرید بیش از یک کالا می نمایید .
@@ -609,14 +610,14 @@ class OrderController extends Controller
     {
       $dataPro=unserialize($request->cookie('dataPro'));
       $pricePost=unserialize($request->cookie('pricePost'));
-      $modelPost=$request->cookie('modelPost');
+      $modelPost=unserialize($request->cookie('modelPost'));
       // $pro_shop=pro::find($id);
       $shop=Shop::find($dataPro['shop_id']);
       $order=Order::find($dataPro['order_id']);
       $price=$dataPro['num_buy'] * $dataPro['price'];
       $postName=StampPost::where('order_id',$dataPro['order_id'])->where('shop_id',$dataPro['shop_id'])->where('pro_id',$dataPro['id'])->first();
 
-      switch ($modelPost) {
+      switch ($modelPost[0]) {
         case 1:$post2='پست امانت';$price_post=$pricePost[1]; break;
         case 2:$post2='پست سفارشی';$price_post=$pricePost[2]; break;
         case 3:$post2='پست پیشتاز';$price_post=$pricePost[3]; break;
@@ -644,27 +645,22 @@ class OrderController extends Controller
     //ذخیره اطلاعات خریدار محصول سفارشی
 public function save_data_buyerOrder(Save_data_buyer $request){
   // نکته بسیار مهم : این متد دقیقا مثل متد ذخیره اطلاعات خریدار در کنترلر سبدکنترل عمل می کند و همه چیز آن برابر می باشد و در یک جدول ذخیره می شوند پس هنگام هر گونه تغییرات باید آن متد را نیز در نظر گرفت
-    // $num_pro=$request->cookie('numProOrder');
-    // $pricePost=$request->cookie('pricePostOrder');
-    $dataPro=unserialize($request->coolie('dataPro'));
-
-    $pricePost=$request->cookie('pricePost');
-    $pro_id=$request->pro_id;
-    $order_id=$request->order_id;
-    $pro=pro::find($pro_id);
-    // $date1=new Verta();//تاریخ جلالی
-    // $date=$date1->format('Y/n/j');
+    $dataPro=unserialize($request->cookie('dataPro'));
+    $pricePost=unserialize($request->cookie('pricePost'));
+    $modelPost=unserialize($request->cookie('modelPost'));
+    // $pro_id=$request->pro_id;
+    // $order_id=$request->order_id;
+    // $pro=pro::find($pro_id);
     $scot=0;
     $priceAll=$dataPro['num_buy'] * $dataPro['price'] ;
-    $paywork=($priceAll + $pricePost) * 2 /100 + 2000;
-
-    $amount=$priceAll + $pricePost + $paywork;
+    $paywork=($priceAll + $pricePost[$modelPost[0]]) * 2 /100 + 2000;
+    $amount=$priceAll + $pricePost[$modelPost[0]] + $paywork;
 
     try{
         DB::beginTransaction();
     $add=new Buyer();
     $add->typeBuy=$request->typeBuy;
-    $add->order_id=$order_id;
+    $add->order_id=$dataPro['order_id'];
     $add->name=$request->name;
     $add->mobail=$request->mobail;//
     $add->tel=$request->tel;//
@@ -673,8 +669,9 @@ public function save_data_buyerOrder(Save_data_buyer $request){
     $add->city=$request->city;//
     $add->codepost=$request->codepost;//
     $add->address=$request->address;//
-    $add->post=$request->cookie('postOrder');
-    $add->price_post=$pricePost;
+    // $add->post=$request->cookie('postOrder');
+    $add->post=$modelPost[1];
+    $add->price_post=$pricePost[$modelPost[0]];
     $add->price_pro=$priceAll;
     $add->scot=$scot;
     $add->paywork=$paywork;
@@ -684,22 +681,23 @@ public function save_data_buyerOrder(Save_data_buyer $request){
     $add->stage=0;
     $add-> save();
     if(!empty($add->id)){
-      Cookie::queue('amountOrder', $amount );
-      Cookie::queue('proOrder', $pro->name);
-      Cookie::queue('buyOrder_id', $add->id);
-      Cookie::queue('pro_id', $pro->id);
+      // Cookie::queue('amountOrder', $amount );
+      // Cookie::queue('proOrder', $pro->name);
+      // Cookie::queue('buyOrder_id', $add->id);
+      $dataPro['buy_id']=$add->id;
+      // Cookie::queue('pro_id', $pro->id);
       Cookie::queue('postOrder', '' , time() - 3600);
       Cookie::queue('pricePostOrder', '' , time() - 3600);
       Cookie::queue('numProOrder', '' , time() - 3600);
     }
     // $pro=pro::find($pro_id);
-    $arrayPro=unserialize($request->cookie('dataPro'));
+    // $arrayPro=unserialize($request->cookie('dataPro'));
     $saveBuy=new Buy();
     $saveBuy->buyer_id=$add->id;
-    $saveBuy->pro_id=$arrayPro[$pro->id]['pro_id'];
-    $saveBuy->shop_id=$arrayPro[$pro->id]['shop_id'];
-    $saveBuy->num_buy=$arrayPro[$pro->id]['num_buy'];
-    $saveBuy->price_pro=$arrayPro[$pro->id]['price_pro'];
+    $saveBuy->pro_id=$dataPro['id'];
+    $saveBuy->shop_id=$dataPro['shop_id'];
+    $saveBuy->num_buy=$dataPro['num_buy'];
+    $saveBuy->price_pro=$dataPro['price'];
     // $saveBuy->buyer_id=1;
     // $saveBuy->pro_id=1;
     // $saveBuy->shop_id=2;
@@ -707,26 +705,37 @@ public function save_data_buyerOrder(Save_data_buyer $request){
     // $saveBuy->price_pro=4;
     $saveBuy->date_up=time();
     $saveBuy->stage=1;
-    $saveBuy->salve();
+    $saveBuy->save();
     // if(empty($saveBuy->id)){
     //   Throw new Execption('no');
     //
     // }else{DB::commit();}
+    Cookie::queue('dataPro' , serialize($dataPro));
     DB::commit();
+
     }
     catch ( Exception  $e){
       DB::rollBack();
       return response()->json(['errors' => ['no_mobail' => ["$e"]]], 422);
 
     }
+
 }
 public function payBuyOrder(Request $request)
 {
-  $amount=$request->cookie('amountOrder');
-  $proOrder=$request->cookie('proOrder');
-  $buyOrder_id=$request->cookie('buyOrder_id');
-  $pro_id=$request->cookie('pro_id');
-  return view('order.payBuyOrder',compact('amount','proOrder','buyOrder_id','pro_id'));
+  // $amount=$request->cookie('amountOrder');
+  // $proOrder=$request->cookie('proOrder');
+  // $buyOrder_id=$request->cookie('buyOrder_id');
+  // $pro_id=$request->cookie('pro_id');
+  $dataPro=unserialize($request->cookie('dataPro'));
+  $pricePost=unserialize($request->cookie('pricePost'));
+  $modelPost=unserialize($request->cookie('modelPost'));
+  $scot=0;
+  $priceAll=$dataPro['num_buy'] * $dataPro['price'] ;
+  $paywork=($priceAll + $pricePost[$modelPost[0]]) * 2 /100 + 2000;
+  $amount=$priceAll + $pricePost[$modelPost[0]] + $paywork;
+
+  return view('order.payBuyOrder',compact('amount','dataPro'));
 }
 public function delBuyOrder(Request $request)
 {

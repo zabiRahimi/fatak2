@@ -156,7 +156,7 @@ function post_sefareshi(id_ostan , id_city, city){
         $('.sabad_kh_sefareshi2_1').html(data);
     },});}
 //درج هزینه نهایی در سبد خرید
-function end_price_all(modelPost){
+function end_price_all(modelPost , namePost){
 
   if(modelPost == 1){var price_post = $('#orderAmanat2').html();}
   else if(modelPost== 2){ var price_post= $('#orderSefarshi2').html();}
@@ -171,7 +171,7 @@ function end_price_all(modelPost){
   $.ajax({
     type:'post',
     url:'/../../end_price_all',
-    data:{modelPost:modelPost},
+    data:{modelPost:modelPost , namePost},
     success:function(data){
       if(modelPost== 5){
         $('.sabad_kh_end_price').html('<span class="sabad_kh_end_price_span">شما گزینه دریافت کالا به صورت حضوری را انتخاب نموده اید ، پس از انتخاب دکمه ثبت سفارش آدرس کامل و شماره تماس فروشنده در اختیار شما قرار می گیرد .</span>');

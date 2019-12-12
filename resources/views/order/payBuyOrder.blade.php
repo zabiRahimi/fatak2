@@ -8,6 +8,9 @@
     <div class="headerOrder_2">به نام خدا</div>
     <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
   </div>
+  @foreach ($dataPro as $key => $value)
+    {{$key}} => {{$value}} <br>
+  @endforeach
   <div class="contentOrder">
     <div class="payBuyAll">
 
@@ -22,10 +25,10 @@
       </div>
       <div class="payBuy4">
         <div class="payBuy4_1">
-          <button type="button" class="btn btn-success" onclick="toBank({{$amount}},'{{$proOrder}}')">پرداخت آنلاین</button>
+          <button type="button" class="btn btn-success" onclick="toBank({{$amount}},'{{$dataPro['name']}}')">پرداخت آنلاین</button>
         </div>
         <div class="payBuy4_2">
-          <button type="button" class="btn btn-warning" onclick="delBuyOrder({{$buyOrder_id}})">بعدا خرید می کنم</button>
+          <button type="button" class="btn btn-warning" onclick="delBuyOrder({{$dataPro['buy_id']}})">بعدا خرید می کنم</button>
         </div>
       </div>
 

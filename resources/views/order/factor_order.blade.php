@@ -31,7 +31,7 @@
       پیشتاز = {{ $pricePost[3] }} <br>
     </div>
 <div class="all_factor">
-  @if ($modelPost==5)
+  @if ($modelPost[0]==5)
     <div class="all_factorHz">
       جهت دریافت و خرید کالای خود به آدرس زیر مراجعه فرمایید .
     </div>
