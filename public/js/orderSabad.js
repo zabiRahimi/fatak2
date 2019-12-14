@@ -1,6 +1,6 @@
 
 //کم یا زیاد کردن تعداد خرید یک محصول
-function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pishtaz,id,order_id){
+function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pishtaz){
 
   if (add_cut=='cut'&&num_buyer==1) {}else{
   if(add_cut=='add'&&num_buyer==num){
@@ -42,7 +42,7 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
        // $('.sabad_kh_end_price2').html(0);
        // $('#ajax_sabad_city').val('aval');
        // $('#ajax_sabad_ostan').val('aval');
-       pricePostOrder(id ,order_id, num_buyer);
+       pricePostOrder(num_buyer);
      },
      // complete:function(){
      //
@@ -54,16 +54,12 @@ function num_add_sabad_order(add_cut , num ,num_buyer, vahed_price,sefarshi,pish
  }}
 }
 //مجموع قیمت جدید برای محصولی که کاربر مبادرت به خرید بیشتر از یک کالا نموده
-function pricePostOrder(id, order_id , num ){
+function pricePostOrder( num ){
 
   $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
   $.ajax({
     type:'post',
-    url:'../../pricePostOrder/' + id + '/' + order_id + '/' + num,
-    data: {
-         // num: num ,
-         // vahed_price: vahed_price,
-         },
+    url:'../../pricePostOrder/'  + num,
     success:function(data){
       $('#orderSefarshi').html(number_format(data[0]));
       $('#orderSefarshi2').html(data[0]);

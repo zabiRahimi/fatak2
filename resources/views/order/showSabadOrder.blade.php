@@ -97,13 +97,13 @@ namespace App\resource\wiews\pro\show_sabad_pro;
             </div>
 
             <div class="sabad_kh_num">
-                <span class="sabad_kh_num_add" onclick="num_add_sabad_order('add',{{$show_pro->num}},$('#ajax_add_cut').html(),{{$price }},{{$priceSefarshi}},{{$pricePishtaz}},{{$show_pro->id}},{{$order_id}})"><i class="fas fa-plus"></i></span>
+                <span class="sabad_kh_num_add" onclick="num_add_sabad_order('add',{{$show_pro->num}},$('#ajax_add_cut').html(),{{$price }},{{$priceSefarshi}},{{$pricePishtaz}})"><i class="fas fa-plus"></i></span>
                 {{-- ; sum_gram_post('add' , {{$show_pro->gram_post }},$('#ajax_add_cut{{$show_pro->id}}').html()) --}}
                 <span class="sabad_kh_num_count">
                   <span class="sabad_kh_num_count2" id="ajax_add_cut">1</span>
                   <span class="sabad_kh_num_count3 num_add_cut2" id="num_add_cut2">عدد</span>
                 </span>
-                <span class="sabad_kh_num_cut" onclick="num_add_sabad_order('cut',{{$show_pro->num }} ,$('#ajax_add_cut').html() ,{{$price }},{{$priceSefarshi}},{{$pricePishtaz}},{{$show_pro->id}},{{$order_id}});"><i class="fas fa-minus"></i></span>
+                <span class="sabad_kh_num_cut" onclick="num_add_sabad_order('cut',{{$show_pro->num }} ,$('#ajax_add_cut').html() ,{{$price }},{{$priceSefarshi}},{{$pricePishtaz}});"><i class="fas fa-minus"></i></span>
                  {{-- sum_gram_post('cut' , {{$show_pro->gram_post }},$('#ajax_add_cut{{$show_pro->id}}').html()) --}}
 
             </div>

@@ -131,16 +131,17 @@ class OrderController extends Controller
       $shop=Shop::find($show_pro->shop_id);
       $order=Order::find($order_id);
       $stampProOrder=StampProOrder::where('order_id',$order_id)->where('pro_id',$pro_id)->where('shop_id',$shop->id)->first();
-      // $stampProOrder2=DB::table('stamp_pro_orders')->select('*')->get();;
       $stampProOrder2=$stampProOrder ->makeHidden(['stamp','show']) -> toArray();
       $price=(!empty($stampProOrder->price)) ? $stampProOrder->price : $show_pro->price ;
       $dataPro=$show_pro->makeHidden(['typePro','maker','brand','model','price','vazn','dis','dateMake','dateExpiration','term','offerOrder','bazdid','numBuy','date_ad','date_up','seo','show']) ->toArray();
       $dataPro['price']=$price;
       $dataPro['num_buy']=1;
       $dataPro['order_id']=$order_id;
-
+      $dataPro['shop_ostan']=$shop->osatn;
+      $dataPro['shop_city']=$shop->city;
+      $dataPro['order_ostan']=$order->ostan;
+      $dataPro['order_city']=$order->city;
       // $arrayProChild=['pro_id'=>$pro_id,'shop_id'=>$shop->id,'num_buy'=>1,'price_pro'=>$price];
-
       // if ($request->cookie('dataPro')) {Cookie::queue('dataPro', '' , time() - 3600);}
       // نکته : چنانچه چند محصول باشد باید از آرایه دو بعدی اسبفاده شود
        Cookie::queue('dataPro',serialize($dataPro));
@@ -280,14 +281,7 @@ class OrderController extends Controller
     //حساب کردن قیمت پست کالا هنگامی که کاربر مبادرت به خرید بیش از یک کالا می نمایید .
     public function pricePostOrder(Request $request)
     {
-      $id=$request->id;
-      $order_id=$request->order_id;
-      $num=$request->num;
-      $num2=$request->num;
-      $num3=$request->num;
-      $show_pro=pro::find($id);
-      $shop=Shop::find($show_pro->shop_id);
-      $order=Order::find($order_id);
+      $num=$num2=$num3=$request->num;
       $dataPro=unserialize($request->cookie('dataPro'));
       $dataPro['num_buy']=$num;
       Cookie::queue('dataPro' , serialize($dataPro));
@@ -296,8 +290,8 @@ class OrderController extends Controller
         $i=$num ;
       for ($i; $i > 0 ; $i--) {
         // $priceSefarshi=$i;
-        $gram=$i * $show_pro->vaznPost;
-        $gramCheck=$i * $show_pro->vaznPost;
+        $gram=$i * $dataPro['vaznPost'];
+        $gramCheck=$i * $dataPro['vaznPost'];
         switch($gram){
           case $gram<501:$gram='g500';break;
           case $gram<1001:$gram='g1000';break;
@@ -343,16 +337,16 @@ class OrderController extends Controller
           default:$gram='not';
           }
         if($gramCheck <= 2000){
-          if ($shop->ostan == $order->ostan) {
+          if ($dataPro['shop_ostan'] == $dataPro['order_ostan']) {
             // هم استانی
               $sefarshi=Post::find(1);
-              $priceSefarshi1[]=$sefarshi->$gram + $show_pro->pakat;
+              $priceSefarshi1[]=$sefarshi->$gram + $dataPro['pakat'];
               break;
           }
           else{
             // غیر استان
               $sefarshi=Post::find(2);
-              $priceSefarshi1[]=$sefarshi->$gram + $show_pro->pakat;
+              $priceSefarshi1[]=$sefarshi->$gram + $dataPro['pakat'];
               break;
           }
         }
@@ -367,8 +361,8 @@ class OrderController extends Controller
       $i2=$num2 ;
     for ($i2; $i2 > 0 ; $i2--) {
       // $priceSefarshi=$i;
-      $gram=$i2 * $show_pro->vaznPost;
-      $gramCheck2=$i2 * $show_pro->vaznPost;
+      $gram=$i2 * $dataPro['vaznPost'];
+      $gramCheck2=$i2 * $dataPro['vaznPost'];
       switch($gram){
         case $gram<501:$gram='g500';break;
         case $gram<1001:$gram='g1000';break;
@@ -414,16 +408,16 @@ class OrderController extends Controller
         default:$gram='not';
         }
       if($gramCheck2 <= 40000){
-        if ($shop->ostan == $order->ostan) {
+        if ($dataPro['shop_ostan'] == $dataPro['order_ostan']) {
           // هم استانی
             $amanat=Post::find(3);
-            $priceAmanat1[]=$amanat->$gram + $show_pro->pakat;
+            $priceAmanat1[]=$amanat->$gram + $dataPro['pakat'];
             break;
         }
         else{
           // غیر استان
             $amanat=Post::find(4);
-            $priceAmanat1[]=$amanat->$gram + $show_pro->pakat;
+            $priceAmanat1[]=$amanat->$gram + $dataPro['pakat'];
             break;
         }
       }
@@ -439,8 +433,8 @@ class OrderController extends Controller
       $i3=$num3 ;
     for ($i3; $i3 > 0 ; $i3--) {
       // $priceSefarshi=$i;
-      $gram=$i3 * $show_pro->vaznPost;
-      $gramCheck3=$i3 * $show_pro->vaznPost;
+      $gram=$i3 * $dataPro['vaznPost'];
+      $gramCheck3=$i3 * $dataPro['vaznPost'];
       switch($gram){
         case $gram<501:$gram='g500';break;
         case $gram<1001:$gram='g1000';break;
@@ -486,16 +480,16 @@ class OrderController extends Controller
         default:$gram='not';
         }
       if($gramCheck3 <= 8000){
-        if ($shop->ostan == $order->ostan) {
+        if ($dataPro['shop_ostan']== $dataPro['order_ostan']) {
           // هم استانی
             $pishtaz=Post::find(5);
-            $pricePishtaz1[]=$pishtaz->$gram + $show_pro->pakat;
+            $pricePishtaz1[]=$pishtaz->$gram + $dataPro['pakat'];
             break;
         }
         else{
           // غیر استان
             $pishtaz=Post::find(6);
-            $pricePishtaz1[]=$pishtaz->$gram + $show_pro->pakat;
+            $pricePishtaz1[]=$pishtaz->$gram + $dataPro['pakat'];
             break;
         }
       }
@@ -562,7 +556,7 @@ class OrderController extends Controller
       //   case $gram<40001:$gram='g40000';break;
       //   default:$gram='not';
       //   }
-      // if ($shop->ostan == $order->ostan) {
+      // if ($dataPro['shop_ostan'] == $order->ostan) {
       //   // هم استانی
       //   if ($show_pro->vaznPost <= 2000) {
       //     // سفارشی
@@ -606,6 +600,7 @@ class OrderController extends Controller
       $data=[$priceSefarshi,$priceAmanat,$pricePishtaz];
       return $data;
     }
+
     public function factor_order(Request $request)
     {
       $dataPro=unserialize($request->cookie('dataPro'));

@@ -147,7 +147,7 @@ Route::post('/searchOrderSave','OrderController@searchOrderSave');//ok!!
 Route::get('/showOrder/{order_id}','OrderController@showOrder')->where('order_id', '[0-9]+');//ok!!
 Route::get('/showOneOrder/{id}/{order_id}','OrderController@showOneOrder')->where('id', '[0-9]+')->where('order_id', '[0-9]+');//ok!!
 Route::get('/showSabadOrder/{pro_id}/{order_id}','OrderController@showSabadOrder')->where('pro_id', '[0-9]+')->where('order_id', '[0-9]+');//ok!!
-Route::post('/pricePostOrder/{id}/{order_id}/{num}','OrderController@pricePostOrder')->where('id', '[0-9]+')->where('order_id', '[0-9]+')->where('num', '[0-9]+');//ok!!
+Route::post('/pricePostOrder/{num}','OrderController@pricePostOrder')->where('num', '[0-9]+');//ok!!
 Route::post('/end_price_all','OrderController@end_price_all');//ok!!
 
 Route::get('/factor_order','OrderController@factor_order');//ok!!
