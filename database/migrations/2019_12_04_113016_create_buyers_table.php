@@ -18,15 +18,15 @@ class CreateBuyersTable extends Migration
             $table->string('typeBuy',13)->comment('نوع خرید ، مستقیم یا سفارشی');
             $table->mediumInteger('order_id')->nullable()->comment('چنانچه ستون تایپ بای برابر با `سفارشی` بود باید مقدار داشته باشد');
             $table->string('backOrLornPro',13)->nullable()->comment('وضعیت مرجوعی یا مفقودی کالا ، چنانچه کالا ارجاع شود ، در ستون `مرجوعی` درج شود ، چنانچه کالا گم شود در ستون `مفقودی` درج شود');
-            $table->string('name',100);
+            $table->string('name',70);
             $table->string('mobail',13);
             $table->string('tel',13)->nullable();
-            $table->string('email',200)->nullable();
+            $table->string('email',80)->nullable();
             $table->string('ostan',33);
             $table->string('city',33);
             $table->string('codepost',11);
             $table->text('address');
-            $table->string('dis',150)->nullable();
+            $table->string('dis',200)->nullable();
             $table->string('post',25);
             $table->mediumInteger('price_post')->nullable();
             $table->mediumInteger('price_pro');
