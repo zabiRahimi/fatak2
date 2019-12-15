@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Cookie;
 use Illuminate\Http\Request;
 use App\Models\Pro;
+use App\Models\Shop;
 use App\Models\picturePro;
 use App\Models\NazarPro;
 use App\Models\QuestionPro;
@@ -22,6 +23,7 @@ class ProController extends Controller
     $count_question_pro=count($question_pro);
     $answer_pro=AnswerPro::where('pro_id' , $id)->get();
     $check=$request->cookie('check_log');
+    $shop=Shop::find($show_pro->shop_id);
     if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
     //ثبت بازدید
     $nameCookei='sabt'. $id;
@@ -30,8 +32,8 @@ class ProController extends Controller
       $show_pro->update(['bazdid'=>$bazdid]);
       Cookie::queue($nameCookei, 'ok');
     }
-    return  view('pro.show_pro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro'
-     ,'num_pro','check'));
+    return  view('pro.showOnePro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro'
+     ,'num_pro','check','shop'));
   }
   public function sabt_nazar_pro(Save_pro_nazar $request)
   {

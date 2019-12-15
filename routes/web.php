@@ -153,6 +153,7 @@ Route::post('/end_price_all','OrderController@end_price_all');//ok!!
 Route::get('/factor_order','OrderController@factor_order');//ok!!
 Route::post('/save_data_buyerOrder/{pro_id}/{order_id}','OrderController@save_data_buyerOrder')->where('pro_id', '[0-9]+')->where('order_id', '[0-9]+');//ok
 Route::get('/payBuyOrder','OrderController@payBuyOrder');//ok!!
+Route::post('/toBank','OrderController@toBank');//این روت موقتی است و آزمایشی
 Route::post('/delBuyOrder/{id}', 'OrderController@delBuyOrder')->where('id', '[0-9]+');//ok
 
 

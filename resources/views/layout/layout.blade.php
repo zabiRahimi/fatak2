@@ -21,6 +21,7 @@
        <link href="\css\show_pro.css" rel="stylesheet" type="text/css">
        <link href="\css\footer.css" rel="stylesheet" type="text/css">
        <link href="\css\sabad_kharid.css" rel="stylesheet" type="text/css">
+       <link href="\css\pro.css" rel="stylesheet" type="text/css">
 
     </head>
     <body>
@@ -61,11 +62,12 @@ hj
          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
          <script type="text/javascript" src="\js\main.js"></script>
-        <script type="text/javascript" src="\js\slider.js"></script>
+         <script type="text/javascript" src="\js\slider.js"></script>
         <script type="text/javascript" src="\js\show_pro.js"></script>
         <script type="text/javascript" src="\js\sabad_kharid.js"></script>
         <script type="text/javascript" src="\js\city.js"></script>
         <script type="text/javascript" src="\js\login.js"></script>
+        <script type="text/javascript" src="\js\orderOnePro.js"></script>
 
         <script type="text/javascript">
 

@@ -137,7 +137,7 @@ class OrderController extends Controller
       $dataPro['price']=$price;
       $dataPro['num_buy']=1;
       $dataPro['order_id']=$order_id;
-      $dataPro['shop_ostan']=$shop->osatn;
+      $dataPro['shop_ostan']=$shop->ostan;
       $dataPro['shop_city']=$shop->city;
       $dataPro['order_ostan']=$order->ostan;
       $dataPro['order_city']=$order->city;
@@ -650,71 +650,143 @@ public function save_data_buyerOrder(Save_data_buyer $request){
     $priceAll=$dataPro['num_buy'] * $dataPro['price'] ;
     $paywork=($priceAll + $pricePost[$modelPost[0]]) * 2 /100 + 2000;
     $amount=$priceAll + $pricePost[$modelPost[0]] + $paywork;
+    $checkBuy=Buyer::where('order_id',$dataPro['order_id'])->first();
+    //چک می می کند اگر کاربر قبلا اقدام به پر کردن اطلاعات کرده این بار همان  ثبت اطلاعات فبلی را ویرایش کند
+    if (!empty($checkBuy->id)) {
+      try{
+          DB::beginTransaction();
+      $add=Buyer::find($checkBuy->id);
+      $add->typeBuy=$request->typeBuy;
+      $add->order_id=$dataPro['order_id'];
+      $add->name=$request->name;
+      $add->mobail=$request->mobail;//
+      $add->tel=$request->tel;//
+      $add->email=$request->email;//
+      $add->ostan=$request->ostan;//
+      $add->city=$request->city;//
+      $add->codepost=$request->codepost;//
+      $add->address=$request->address;//
+      $add->post=$modelPost[1];
+      $add->price_post=$pricePost[$modelPost[0]];
+      $add->price_pro=$priceAll;
+      $add->scot=$scot;
+      $add->paywork=$paywork;
+      $add->amount=$amount;
+      $add->date_up=time();
+      $add->stage=0;
+      $add-> save();
+      if(!empty($add->id)){
+        $dataPro['buy_id']=$add->id;
+        Cookie::queue('postOrder', '' , time() - 3600);
+        Cookie::queue('pricePostOrder', '' , time() - 3600);
+        Cookie::queue('numProOrder', '' , time() - 3600);
+      }
+      $saveBuy=Buy::where('buyer_id',$add->id)->first();
+      $saveBuy->pro_id=$dataPro['id'];
+      $saveBuy->shop_id=$dataPro['shop_id'];
+      $saveBuy->num_buy=$dataPro['num_buy'];
+      $saveBuy->price_pro=$dataPro['price'];
+      $saveBuy->date_up=time();
+      $saveBuy->stage=1;
+      $saveBuy->save();
+      Cookie::queue('dataPro' , serialize($dataPro));
+      DB::commit();
+      }
+      catch ( Exception  $e){
+              DB::rollBack();
+              return response()->json(['errors' => ['no_mobail' => ["$e"]]], 422);
+            }
+    } else {
+      try{
+          DB::beginTransaction();
+      $add=new Buyer();
+      $add->typeBuy=$request->typeBuy;
+      $add->order_id=$dataPro['order_id'];
+      $add->name=$request->name;
+      $add->mobail=$request->mobail;//
+      $add->tel=$request->tel;//
+      $add->email=$request->email;//
+      $add->ostan=$request->ostan;//
+      $add->city=$request->city;//
+      $add->codepost=$request->codepost;//
+      $add->address=$request->address;//
+      // $add->post=$request->cookie('postOrder');
+      $add->post=$modelPost[1];
+      $add->price_post=$pricePost[$modelPost[0]];
+      $add->price_pro=$priceAll;
+      $add->scot=$scot;
+      $add->paywork=$paywork;
+      $add->amount=$amount;
+      $add->date_ad=time();
+      $add->date_up=time();
+      $add->stage=0;
+      $add-> save();
+      if(!empty($add->id)){
+        // Cookie::queue('amountOrder', $amount );
+        // Cookie::queue('proOrder', $pro->name);
+        // Cookie::queue('buyOrder_id', $add->id);
+        $dataPro['buy_id']=$add->id;
+        // Cookie::queue('pro_id', $pro->id);
+        Cookie::queue('postOrder', '' , time() - 3600);
+        Cookie::queue('pricePostOrder', '' , time() - 3600);
+        Cookie::queue('numProOrder', '' , time() - 3600);
+      }
+      // $pro=pro::find($pro_id);
+      // $arrayPro=unserialize($request->cookie('dataPro'));
+      $saveBuy=new Buy();
+      $saveBuy->buyer_id=$add->id;
+      $saveBuy->pro_id=$dataPro['id'];
+      $saveBuy->shop_id=$dataPro['shop_id'];
+      $saveBuy->num_buy=$dataPro['num_buy'];
+      $saveBuy->price_pro=$dataPro['price'];
+      // $saveBuy->buyer_id=1;
+      // $saveBuy->pro_id=1;
+      // $saveBuy->shop_id=2;
+      // $saveBuy->num_pro=3;
+      // $saveBuy->price_pro=4;
+      $saveBuy->date_up=time();
+      $saveBuy->stage=1;
+      $saveBuy->save();
+      // if(empty($saveBuy->id)){
+      //   Throw new Execption('no');
+      //
+      // }else{DB::commit();}
+      Cookie::queue('dataPro' , serialize($dataPro));
+      DB::commit();
 
-    try{
-        DB::beginTransaction();
-    $add=new Buyer();
-    $add->typeBuy=$request->typeBuy;
-    $add->order_id=$dataPro['order_id'];
-    $add->name=$request->name;
-    $add->mobail=$request->mobail;//
-    $add->tel=$request->tel;//
-    $add->email=$request->email;//
-    $add->ostan=$request->ostan;//
-    $add->city=$request->city;//
-    $add->codepost=$request->codepost;//
-    $add->address=$request->address;//
-    // $add->post=$request->cookie('postOrder');
-    $add->post=$modelPost[1];
-    $add->price_post=$pricePost[$modelPost[0]];
-    $add->price_pro=$priceAll;
-    $add->scot=$scot;
-    $add->paywork=$paywork;
-    $add->amount=$amount;
-    $add->date_ad=time();
-    $add->date_up=time();
-    $add->stage=0;
-    $add-> save();
-    if(!empty($add->id)){
-      // Cookie::queue('amountOrder', $amount );
-      // Cookie::queue('proOrder', $pro->name);
-      // Cookie::queue('buyOrder_id', $add->id);
-      $dataPro['buy_id']=$add->id;
-      // Cookie::queue('pro_id', $pro->id);
-      Cookie::queue('postOrder', '' , time() - 3600);
-      Cookie::queue('pricePostOrder', '' , time() - 3600);
-      Cookie::queue('numProOrder', '' , time() - 3600);
+      }
+    catch ( Exception  $e){
+            DB::rollBack();
+            return response()->json(['errors' => ['no_mobail' => ["$e"]]], 422);
+          }
     }
-    // $pro=pro::find($pro_id);
-    // $arrayPro=unserialize($request->cookie('dataPro'));
-    $saveBuy=new Buy();
-    $saveBuy->buyer_id=$add->id;
-    $saveBuy->pro_id=$dataPro['id'];
-    $saveBuy->shop_id=$dataPro['shop_id'];
-    $saveBuy->num_buy=$dataPro['num_buy'];
-    $saveBuy->price_pro=$dataPro['price'];
-    // $saveBuy->buyer_id=1;
-    // $saveBuy->pro_id=1;
-    // $saveBuy->shop_id=2;
-    // $saveBuy->num_pro=3;
-    // $saveBuy->price_pro=4;
-    $saveBuy->date_up=time();
-    $saveBuy->stage=1;
-    $saveBuy->save();
-    // if(empty($saveBuy->id)){
-    //   Throw new Execption('no');
-    //
-    // }else{DB::commit();}
-    Cookie::queue('dataPro' , serialize($dataPro));
+
+
+
+}
+public function toBank(Request $request)
+{
+  // این یک تابع موقتی و آزمایشی است
+  $dataPro=unserialize($request->cookie('dataPro'));
+  try{
+    DB::beginTransaction();
+    $updateBuyer=Buyer::where('order_id',$dataPro['order_id'])->first();
+    $updateBuyer->stage=2;
+    $updateBuyer->save();
+    $updateBuy=Buy::find($dataPro['buy_id']);
+    $updateBuy->stage=2;
+    $updateBuy->save();
+    $updateOrder=Order::find($dataPro['order_id']);
+    $updateOrder->date_up=time();
+    $updateOrder->stage=2;
+    $updateOrder->save();
     DB::commit();
 
-    }
-    catch ( Exception  $e){
-      DB::rollBack();
-      return response()->json(['errors' => ['no_mobail' => ["$e"]]], 422);
-
-    }
-
+  }
+  catch(Exception  $e){
+    DB::rollBack();
+    return response()->json(['errors' => ['no_mobail' => ["$e"]]], 422);
+  }
 }
 public function payBuyOrder(Request $request)
 {
