@@ -24,7 +24,7 @@ class ProController extends Controller
     $answer_pro=AnswerPro::where('pro_id' , $id)->get();
     $check=$request->cookie('check_log');
     $shop=Shop::find($show_pro->shop_id);
-    if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
+    if(!empty($request->cookie('numProSabad'))){$numProSabad=$request->cookie('numProSabad');}else{$numProSabad=0;}//تعداد محصولات موجود در سبد خرید
     //ثبت بازدید
     $nameCookei='sabt'. $id;
     if(empty($request->cookie($nameCookei))){
@@ -33,7 +33,7 @@ class ProController extends Controller
       Cookie::queue($nameCookei, 'ok');
     }
     return  view('pro.showOnePro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro'
-     ,'num_pro','check','shop'));
+     ,'numProSabad','check','shop'));
   }
   public function sabt_nazar_pro(Save_pro_nazar $request)
   {

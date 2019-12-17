@@ -145,13 +145,13 @@ Route::get('/searchOrder','OrderController@searchOrder');//ok!!
 Route::post('/mobailSearchOrder','OrderController@mobailSearchOrder');//ok!!
 Route::post('/searchOrderSave','OrderController@searchOrderSave');//ok!!
 Route::get('/showOrder/{order_id}','OrderController@showOrder')->where('order_id', '[0-9]+');//ok!!
-Route::get('/showOneOrder/{id}/{order_id}','OrderController@showOneOrder')->where('id', '[0-9]+')->where('order_id', '[0-9]+');//ok!!
-Route::get('/showSabadOrder/{pro_id}/{order_id}','OrderController@showSabadOrder')->where('pro_id', '[0-9]+')->where('order_id', '[0-9]+');//ok!!
+Route::get('/showOneOrder/{id}/{order_id}','OrderController@showOneOrder')->where(['id' => '[0-9]+' , 'order_id' => '[0-9]+']);//ok!!
+Route::get('/showSabadOrder/{pro_id}/{order_id}','OrderController@showSabadOrder')->where(['pro_id'=> '[0-9]+', 'order_id' => '[0-9]+']);//ok!!
 Route::post('/pricePostOrder/{num}','OrderController@pricePostOrder')->where('num', '[0-9]+');//ok!!
 Route::post('/end_price_all','OrderController@end_price_all');//ok!!
 
 Route::get('/factor_order','OrderController@factor_order');//ok!!
-Route::post('/save_data_buyerOrder/{pro_id}/{order_id}','OrderController@save_data_buyerOrder')->where('pro_id', '[0-9]+')->where('order_id', '[0-9]+');//ok
+Route::post('/save_data_buyerOrder/{pro_id}/{order_id}','OrderController@save_data_buyerOrder')->where(['pro_id'=> '[0-9]+', 'order_id' => '[0-9]+']);//ok
 Route::get('/payBuyOrder','OrderController@payBuyOrder');//ok!!
 Route::post('/toBank','OrderController@toBank');//این روت موقتی است و آزمایشی
 Route::post('/delBuyOrder/{id}', 'OrderController@delBuyOrder')->where('id', '[0-9]+');//ok
@@ -227,8 +227,8 @@ Route::get('/all_act_shop', 'Admin\ShopAdminController@all_act_shop')->middlewar
 Route::get('/all_rank_shop', 'Admin\ShopAdminController@all_rank_shop')->middleware(['chekloginManeg']);//ok
 Route::get('/all_newOrderSA', 'Admin\ShopAdminController@all_newOrderSA')->middleware(['chekloginManeg']);//ok
 //عملیات بر روی خریدها و سفارشات ثابت و غیر ثابت
-Route::post('/orderAghdamAdmin/{buy_id}/{stampBuy}', 'Admin\ManagementController@orderAghdamAdmin')->where('buy_id', '[0-9]+')->where('stampBuy', '[0-9]+');//ok
-Route::post('/delBuyOrderAdmin/{buy_id}/{stampDel}', 'Admin\ManagementController@delBuyOrderAdmin')->where('buy_id', '[0-9]+')->where('stampDel', '[0-9]+');//ok
+Route::post('/orderAghdamAdmin/{buy_id}/{stampBuy}', 'Admin\ManagementController@orderAghdamAdmin')->where(['buy_id'=> '[0-9]+','stampBuy'=>'[0-9]+']);//ok
+Route::post('/delBuyOrderAdmin/{buy_id}/{stampDel}', 'Admin\ManagementController@delBuyOrderAdmin')->where(['buy_id'=> '[0-9]+' , 'stampDel'=> '[0-9]+']);//ok
 
 //pro stock admin سفارشات موجود فروشگاه فاتک
 Route::get('/order_proStockFatak', 'Admin\OrderStockFatakAdminController@show')->middleware(['chekloginManeg']);//ok!!

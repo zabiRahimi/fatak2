@@ -172,7 +172,7 @@ arrows:true,
       $(".smallImgSlickAll").slick({
 
             infinite:true,
-            slidesToShow:5,
+            slidesToShow:1,
             slidesToScroll: 1,
             // arrows:false,
             centerMode: true,

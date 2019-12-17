@@ -1,4 +1,4 @@
-{{-- show_pro.css --}}
+{{-- showOnePro.css --}}{{--  مشترک با ShowOnePro.php--}}
 @extends('order.layoutOrder')
 @section('title')
   {{$show_pro->name}}

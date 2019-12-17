@@ -16,7 +16,7 @@
          <link href="\css\main.css" rel="stylesheet" type="text/css">
          <link href="\css\slider.css" rel="stylesheet" type="text/css">
          <link href="\css\order.css" rel="stylesheet" type="text/css">
-         <link href="\css\orderPro.css" rel="stylesheet" type="text/css">
+         <link href="\css\showOnePro.css" rel="stylesheet" type="text/css">
          <link href="\css\orderSabad.css" rel="stylesheet" type="text/css">
     </head>
     <body>

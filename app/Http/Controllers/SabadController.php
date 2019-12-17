@@ -23,13 +23,13 @@ class SabadController extends Controller
         Cookie::queue('id_pros', serialize($idPro));
       }
       Cookie::queue($nameCookei, 'hast');
-      if(empty($request->cookie('numpro'))){
-        Cookie::queue('numpro', 1);
+      if(empty($request->cookie('numProSabad'))){
+        Cookie::queue('numProSabad', 1);
         $num=1;
       }else{
-        $numadd=$request->cookie('numpro')+1;
-        Cookie::queue('numpro', $numadd);
-        $num=$request->cookie('numpro')+1 ;
+        $numadd=$request->cookie('numProSabad')+1;
+        Cookie::queue('numProSabad', $numadd);
+        $num=$request->cookie('numProSabad')+1 ;
       }
       return $num;
     }
@@ -55,19 +55,19 @@ class SabadController extends Controller
           Cookie::queue('vazn' . $key, '', time() - 3600);
           Cookie::queue('pakat' . $key, '', time() - 3600);
         }
-      $num_pro=$request->cookie('numpro');
-      $num_pro--;
-      Cookie::queue('numpro', $num_pro);
+      $numProSabad=$request->cookie('numProSabad');
+      $numProSabad--;
+      Cookie::queue('numProSabad', $numProSabad);
       }
       return redirect('/show_sabad_pro');
     }
     $show_sabad_pro=Pro::get();
     $id_pros=unserialize($request->cookie('id_pros'));
       //جهت اسلایدر محصولات
-    if(!empty($request->cookie('numpro'))){$num_pro=$request->cookie('numpro');}else{$num_pro=0;}
+    if(!empty($request->cookie('numProSabad'))){$numProSabad=$request->cookie('numProSabad');}else{$numProSabad=0;}
     $shop=Shop::get();
     $check=$request->cookie('check_log');
-    return view('pro.show_sabad_pro', compact('show_sabad_pro','id_pros','shop','num_pro','check'));
+    return view('pro.show_sabad_pro', compact('show_sabad_pro','id_pros','shop','numProSabad','check'));
   }
   //کم یا زیاد کردن تعدادخرید یک محصول
   public function num_pro_sabad_add(Request $request){
@@ -150,13 +150,13 @@ class SabadController extends Controller
        //مشاهده فاکتور خرید و ثبت اطلاعات پستی خریدار
    public function show_factor_buy(Request $request){
          $id_pros=unserialize($request->cookie('id_pros'));
-         $num_pro=$request->cookie('numpro');
+         $numProSabad=$request->cookie('numProSabad');
          $factor_buy=$request->cookie('factor_buy');
          if(!empty($id_pros)and!empty($factor_buy)){
          Cookie::queue('factor_buy','',time() - 3600);
          $show_sabad_pro=Pro::get();
          $check=$request->cookie('check_log');
-         return view('pro.factor_buy', compact('id_pros','num_pro','show_sabad_pro','check'));
+         return view('pro.factor_buy', compact('id_pros','numProSabad','show_sabad_pro','check'));
        }else{
          return redirect('/');
        }

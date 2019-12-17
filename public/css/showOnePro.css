@@ -1,7 +1,8 @@
 /* **************************************** */
-/* *********** showOneOrder.php *********** */
+/* *********** showOneOrder.php , showOnePro.php *********** */
 /* 1200 , 992 , 768 , 576 , 454 , 332 */
 .bodyShowPro{width: 100%;margin: 5px 0;padding: 3px;float: right;border: 1px solid #e4e4e4;border-radius: 3px;}
+.bodyShowPro_p{margin-top: -17px;}
 .titrShowPro{width: 100%;height: 40px;line-height: 40px;margin:0 0 2px;padding:0 3px;float: right;background-color:#ededed; border-radius: 3px;}
 .titrShowPro h1{position: relative;top: 6px;right: 4px;display: inline-block;float: right;font-size: 22px;}
 .amarTiterSP{height: 27px;line-height: 27px;margin-top: 6.5px;padding: 0 5px;display: inline-block;float: left;border: 1px solid #dfdfdf;border-radius: 10px; background-color: #fff;color: #3c3c3c;font-size: 12px;}
@@ -10,12 +11,12 @@
 .contentShowPro{width: 100%;float: right;}
 .upContentSP{width: 100%;height: 606px;margin: 2px 0 ;float: right;}
 .imgUpContentSP{width: 63%;height: 606px;float: right;}
-.bigImgUpCSP{width: 100%;height: 510px;padding: 5px;float: right;border:1px solid #dbdbdb ;border-radius:3px 3px 0 0; background: #f6f6f6;text-align: center;}
+.bigImgUpCSP{width: 100%;height: 510px;line-height: 497px;padding: 5px;float: right;border:1px solid #dbdbdb ;border-radius:3px 3px 0 0; background: #f6f6f6;text-align: center;}
 .bigImgUpCSP img{max-width: 100%;max-height: 100%;}
 .big_img_pro{display: none;}
-.active_img_pro{display: block; }
+.active_img_pro{display: inline; }
 .smallImgUpCSP{width: 100%;height: 96px;padding:2px 0;float: right;border:1px solid #dbdbdb ;border-radius:0 0 3px 3px ;background: #fff;direction:ltr;}
-.smallImgSlickAll{width:calc(100% - 60px);height:90px;margin:0 30px;padding:0 2px;float: right;}
+.smallImgSlickAll{width:calc(100% - 60px);height:90px;margin:0 30px;padding:0 2px;float: right;text-align: center;}
 .smallImgSlickOne{width: 100px;height: 90px;line-height: 87px;text-align: center;margin: 0 3px;padding: 2px;background-color: #ececec;}
 .smallImgSlickOne img{max-width: 100%;max-height: 100%;display: inline;cursor: pointer;}
 .infoUpContentSP{width: 37%;height: 606px;padding: 5px 6px;border: 1px solid #dbdbdb ;border-radius:3px; float: right;text-align: right;}
@@ -30,6 +31,7 @@
   .priceIUCSP_s3{color: #054d75;font-size: 22px;}
   .priceIUCSP_prime{width: 100%;float: right;font-size: 16px;color: #054d75;text-decoration: line-through;}
 .divBtnKharid{width: 170px; margin: 35px calc((100% - 170px) / 2) 20px;padding: 2px;border-radius: 10px;font-size: 22px;float: right;background-color: #119612; color: #fff;box-shadow: 0 1px 7px 4px  #8fd989;cursor: pointer;text-align: center;}
+.divBtnKharid_p{width: 200px; margin: 32px calc((100% - 200px) / 2) 17px;padding: 5px 9px 5px 3px;}
 .divBtnKharid i{position: relative;top: 3px; left: 6px;}
 .divBtnKharid:hover{background-color:#fff; color:#119612; }
 .addSeller , .addChannel{width: 100%;margin: 5px 0 0;float: right;}
@@ -79,7 +81,7 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
 @media (max-width:1200px) {
   .upContentSP{height: 506px;}
   .imgUpContentSP{width: 62%;height: 506px;}
-  .bigImgUpCSP{height: 420px;}
+  .bigImgUpCSP{height: 420px;line-height: 407px;}
   .smallImgUpCSP{height: 86px;}
   .smallImgSlickAll{height:80px;}
   .smallImgSlickOne{height:80px;line-height: 77px;}
@@ -89,7 +91,7 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
 @media (max-width:992px) {
   .upContentSP{height: 474px;}
   .imgUpContentSP{width: 59%;height: 474px;}
-  .bigImgUpCSP{height: 385px;}
+  .bigImgUpCSP{height: 385px;line-height: 373px;}
   .smallImgUpCSP{height: 89px;}
   .smallImgSlickAll{height: 81px;}
   .smallImgSlickOne{height: 81px;line-height: 78px;}
@@ -99,12 +101,13 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
   .priceIUCSP_s2{font-size: 24px;}
   .priceIUCSP_s3{font-size: 18px;}
   .divBtnKharid{ margin: 25px calc((100% - 170px) / 2) 15px;}
+  .divBtnKharid_p{width: 200px; margin: 25px calc((100% - 200px) / 2) 15px;}
   .sharingIUCSP{margin: 30px 0 20px;}
 }
 @media (max-width:768px) {
   .upContentSP{height: 374px;}
   .imgUpContentSP{width: 52%;height: 374px;}
-  .bigImgUpCSP{height: 287px;}
+  .bigImgUpCSP{height: 287px;line-height: 274px;}
   .smallImgUpCSP{height: 87px;}
   .smallImgSlickAll{height: 78px;}
   .smallImgSlickOne{width: 90px;height: 78px;line-height: 75px;}
@@ -115,6 +118,7 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
   .priceIUCSP_s2{font-size: 20px;}
   .priceIUCSP_s3{font-size: 14px;}
   .divBtnKharid{margin: 20px calc((100% - 170px) / 2) 15px;}
+  .divBtnKharid_p{width: 200px; margin: 20px calc((100% - 200px) / 2) 15px;}
   .addSeller{padding-top: 10px;}
   .addChannel{padding-bottom: 10px;}
   .addSeller span , .addChannel span{font-size: 12px;}
@@ -136,6 +140,7 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
   .priceIUCSP_s2{font-size: 20px;}
   .priceIUCSP_s3{font-size: 14px;}
   .divBtnKharid{margin: 15px calc((100% - 170px) / 2) 10px;}
+  .divBtnKharid_p{width: 200px; margin: 15px calc((100% - 200px) / 2) 10px;}
   .sharingIUCSP{margin: 10px 0 5px;}
   .Explain_ul li{min-width: 110px;height: 33px;line-height: 28px;margin-top: 2px;padding: 0 4px 0 3px;font-size: 18px;}
   .Explain_ul li i{position: relative; left: 2px;font-size: 16px;}
@@ -149,7 +154,7 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
 }
 @media (max-width:454px) {
   .imgUpContentSP{width: 100%;height: 321px;}
-  .bigImgUpCSP{height: 245px;}
+  .bigImgUpCSP{height: 245px;line-height: 232px;}
   .smallImgUpCSP{height: 76px;}
   .smallImgSlickAll{height: 70px;}
   .smallImgSlickOne{width: 88px;height: 70px;line-height: 67px;}
@@ -168,7 +173,7 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
   .amarTiterSP i{top: 2px;right: 1px;left: 1px;font-size: 12px;}
   .amarTiterSP span:last-child{display: none;}
   .imgUpContentSP{height: 276px;}
-  .bigImgUpCSP{height: 205px;line-height: 205px;}
+  .bigImgUpCSP{height: 205px;line-height: 192px;}
   .smallImgUpCSP{height: 71px;}
   .smallImgSlickAll{width:calc(100% - 40px);height: 65px;margin:0 20px;}
   .smallImgSlickOne{width: 83px;height: 65px;line-height: 62px;}

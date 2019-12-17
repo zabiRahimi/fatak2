@@ -1,22 +1,10 @@
-{{-- show_pro.css --}}
+{{-- showOnePro.css --}}{{-- showOneOrder.php مشترک با --}}
 @extends('layout.layout')
 @section('title')
   {{$show_pro->name}}
 @endsection
 @section('content')
-
-  <div class="headerOrder">
-    <div class="headerOrder_1">مشاهده محصول</div>
-    <div class="headerOrder_2">به نام خدا</div>
-    <div class="headerOrder_3"><span><a href="www.fatak.ir">fatak.ir</a></span> <span>فروشگاه فاتک</span></div>
-  </div>
-  <ul class="ul_line headerOrderUl ">
-    <li onclick="window.location.href='/showOrder'">بازگشت</li>
-    <li onclick="window.location.href='/'">صفحه اصلی</li>
-    <li>نحوه عملکرد</li>
-    <li>قوانین و مقررات</li>
-  </ul>
-  <div class="bodyShowPro">
+  <div class="bodyShowPro bodyShowPro_p">
     <div class="titrShowPro">
         <h1 >{{$show_pro->name}}</h1>
         <div class="amarTiterSP">
@@ -35,16 +23,19 @@
                 </div>
                 <div class="smallImgUpCSP  ">
                   <div class=" smallImgSlickAll ">
-                    @for ($i=1; $i < 7; $i++)
-                      <?php
-                        $pic_s ='pic_s'.$i;
-                        $b_img_p='b-img-p'.$i;
-                        if(empty($pic_pro->$pic_s)){continue;}
-                      ?>
-                      <div class="smallImgSlickOne">
-                        <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " onclick="b_img_pro('{{$b_img_p}}')">
-                      </div>
-                    @endfor
+
+                      @for ($i=1; $i < 7; $i++)
+                        <?php
+                          $pic_s ='pic_s'.$i;
+                          $b_img_p='b-img-p'.$i;
+                          if(empty($pic_pro->$pic_s)){continue;}
+                        ?>
+                        <div class="smallImgSlickOne">
+                          <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " onclick="b_img_pro('{{$b_img_p}}')">
+                        </div>
+                      @endfor
+
+
                   </div>
                 </div>
             </div>
@@ -77,8 +68,8 @@
                     <span class="priceIUCSP_s3">تومان</span>
                   @endif
                 </div>
-                <div class="divBtnKharid" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
-                   <i class="fas fa-cart-plus"></i> <span class="">خـــرید</span>
+                <div class="divBtnKharid divBtnKharid_p" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
+                   <i class="fas fa-cart-plus"></i> <span class="">افزودن به سبد خرید</span>
                 </div>
                 <div class="addSeller">
                     <span> <i class="fas fa-user-tie addSeller_i"></i> به جمع فروشندگان ما بپیوندید</span>

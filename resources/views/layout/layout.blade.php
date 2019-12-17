@@ -18,10 +18,10 @@
        <link href="\css\header.css" rel="stylesheet" type="text/css">
        <link href="\css\index.css" rel="stylesheet" type="text/css">
        <link href="\css\slider.css" rel="stylesheet" type="text/css">
-       <link href="\css\show_pro.css" rel="stylesheet" type="text/css">
+       {{-- <link href="\css\show_pro.css" rel="stylesheet" type="text/css"> --}}
        <link href="\css\footer.css" rel="stylesheet" type="text/css">
        <link href="\css\sabad_kharid.css" rel="stylesheet" type="text/css">
-       <link href="\css\pro.css" rel="stylesheet" type="text/css">
+       <link href="\css\showOnePro.css" rel="stylesheet" type="text/css">
 
     </head>
     <body>
