@@ -92,8 +92,8 @@
                 <ul class="Explain_ul  ">
                   <li class="Explain_li1  Explain_active" onclick="Explain_active('Explain_li1' , '.Explain_Explain')">  <i class="fas fa-clipboard-check"></i> توضیحات کالا </li>
                   <li class="Explain_li2 " onclick="Explain_active('Explain_li2', '.Explain_specs')"> <i class="fas fa-clipboard-list"></i> مشخصات کالا </li>
-                  {{-- <li class="li_pro7_3" onclick="Explain_active('Explain_li3', 'show_pro8_3');captcha()"> <span class="span_pro7_0"> <span class="span_pro7_5"><i class="fas fa-comment"></i></span> <span class="span_pro7_6">نظرات کاربران</span> </span></li> --}}
                   <li class="Explain_li3 " onclick="Explain_active('Explain_li3', '.Explain_question');"> <i class="fas fa-question-circle"></i> پرسش و پاسخ </li>
+                  <li class="Explain_li4" onclick="Explain_active('Explain_li4', 'Explain_userDis');captcha()"> <i class="fas fa-comment"></i> نظرات کاربران</li>
                 </ul>
                 {{-- این تگ صرفا جهت نمایش دو قسمت مشخصات کالا و پرسش و پاسخ است هنگامی که کاربر دکمه متناظر با آن را فشار می دهد --}}
                 <div class="showExplain Explain_body"></div>
