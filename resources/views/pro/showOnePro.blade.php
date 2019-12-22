@@ -194,51 +194,51 @@
 
                           {{-- <div class="question_pro"><i class="far fa-question-circle"></i><h4>پرسش و پاسخ</h4></div> --}}
                           <p class="question_stock"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p>
-                          <form class="form_question_stock" id="form_question_pro" action="" method="post">
-                            <div class="form_question_stock1">ایمیل و موبایل شما منتشر نمی شود</div>
-                            <div id="question_pro"></div>
+                          <form class="formQuestionStock" id="formQuestionStock"method="post">
+                            <div class="NotPropagateEmail">ایمیل و موبایل شما منتشر نمی شود</div>
+                            <div id="questionAjaxStock"></div>
 
                             <div class="form-group">
-                                <label for="name_pro_questions" class="control-label pull-right  ">نام </label>
-                                <div class="mobail_question_pro"><input type="text" class="form-control" id="name_pro_questions"></div>
+                                <label for="nameQuestionsStock" class="control-label pull-right  ">نام </label>
+                                <div class="mobail_question_pro"><input type="text" class="form-control" id="nameQuestionsStock"></div>
                             </div>
                             <div class="form-group">
-                                <label for="mobail_pro_questions" class="control-label pull-right ">موبایل ( اختیاری )</label>
-                                <div class="mobail_question_pro"><input type="text" class="form-control" id="mobail_pro_questions"></div>
+                                <label for="mobailQuestionsStock" class="control-label pull-right ">موبایل ( اختیاری )</label>
+                                <div class="mobail_question_pro"><input type="text" class="form-control" id="mobailQuestionsStock"></div>
                             </div>
                             <div class="form-group">
-                                <label for="email_pro_questions" class="control-label pull-right ">ایمیل ( اختیاری )</label>
-                                <div class="mobail_question_pro"><input type="text" class="form-control" id="email_pro_questions"></div>
+                                <label for="emailQuestionsStock" class="control-label pull-right ">ایمیل ( اختیاری )</label>
+                                <div class="mobail_question_pro"><input type="text" class="form-control" id="emailQuestionsStock"></div>
                             </div>
                             <div class="form-group form-group2">
-                                <label for="question_pro_questions" class="control-label pull-right ">پرسش</label>
-                                <div class="mobail_question_pro"><textarea name="name" class="form-control" id="question_pro_questions" rows="4" cols="80"></textarea></div>
+                                <label for="questionQuestionsStock" class="control-label pull-right ">پرسش</label>
+                                <div class="mobail_question_pro"><textarea name="name" class="form-control" id="questionQuestionsStock" rows="4" cols="80"></textarea></div>
                             </div>
                             <div class="form-group" >
-                                <label for="amniat_pro_questions" class="control-label pull-right ">کد امنیتی </label>
-                                <div class="mobail_question_pro"><input type="text" class="form-control tel placeholder" id="amniat_pro_questions" placeholder="کد امنیتی زیر را وارد کنید ..."  onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+                                <label for="amniatQuestionsStock" class="control-label pull-right ">کد امنیتی </label>
+                                <div class="mobail_question_pro"><input type="text" class="form-control tel placeholder" id="amniatQuestionsStock" placeholder="کد امنیتی زیر را وارد کنید ..."  onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
                             </div>
                             <div class="captcha_question_stock">
                                 <span class="captcha4">{!! captcha_img() !!}</span>
                                 <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
                             </div>
                             <div class="button_question_stock">
-                                <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="sabt_question_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت پرسش</h5></button>
+                                <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="sabtQuestionStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت پرسش</h5></button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
                             </div>
                           </form>
                           {{-- پاسخها --}}
                           <div class="questionAnswer_stock"> <i class="fas fa-list-alt"></i> پرسشهای کاربران و پاسخها</div>
-                          <div class="panel-body question_pro3">
+                          <div class="panel-body questionPanel">
                             @if (count($question_pro)>0)
                             @foreach ($question_pro as  $val_quest)
-                            <div class="pro_question_body">
-                              <div class="pro_question_header">
-                                <i class="fas fa-user-tie pro_ikon_nazar"></i>
-                                <div class="pro_question_header2">
+                            <div class="questionBodyStock">
+                              <div class="questionHeaderStock">
+                                <i class="fas fa-user-tie"></i>
+                                <div class="questionNameDateStock">
                                   <h4>{{$val_quest->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{$val_quest->date}}</h4>
                                 </div>
-                                <i class="fas fa-check-double pro_tik_question"></i>
+                                <i class="fas fa-check-double"></i>
                               </div>
                               <p class="pro_question_matn">{{$val_quest->question}} </p>
                               <div class="pro_question_pasohk" data-toggle="modal" data-target="#pro_question_answer" onclick="question_id({{$val_quest->id}}) ">به این سوال پاسخ دهید</div>
@@ -255,9 +255,7 @@
                                 <p class="pro_pasohk_matn">{{$val_answer->answer}}</p>
                               </div>
                               @endforeach
-
                             </div>
-
                           @endforeach
                           @else
                             <div class="alert alert-warning right">
@@ -273,4 +271,9 @@
   </div>
 
 </div>
+<!--modal ثبت سوال -->
+<div class="modal " id="endQuestionStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
+      <div class="modal-body alert alert-success  alertQuestionSuccess">ممنون !! پرسش شما ثبت شد .</div>
+      <div class="divQuestionModal"><button type="button"  class="btn btn-info " data-dismiss="modal" >متوجه شدم !! </button></div></div></div>
+</div><!--end modal -->
 @endsection

@@ -82,49 +82,50 @@ function Explain_active(class1 , class2){
      }
    });
  }
- function sabt_question_pro(id,name) {
-   var mobail=$('#mobail_pro_questions').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+ function sabtQuestionStock(id,name) {
+   var mobail=$('#mobailQuestionsStock').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'post',
-     url:'/sabt_question_pro',
+     url:'/sabtQuestionStock',
      data: {
           pro_id: id ,
-          name:$('#name_pro_questions').val(),
+          name:$('#nameQuestionsStock').val(),
           mobail:mobail,
-          email:$('#email_pro_questions').val(),
-          question:$('#question_pro_questions').val(),
-          amniat:$('#amniat_pro_questions').val(),
+          email:$('#emailQuestionsStock').val(),
+          question:$('#questionQuestionsStock').val(),
+          amniat:$('#amniatQuestionsStock').val(),
           },
      success:function(data){
-       $('#question_pro').empty();
-       document.getElementById("form_question_pro").reset();
-       $('#end_question_pro').modal('show');
-       $("#end_question_pro").on('hide.bs.modal', function () {
+       $('#questionAjaxStock').empty();
+       document.getElementById("formQuestionStock").reset();
+       $('#endQuestionStock').modal('show');
+       $("#endQuestionStock").on('hide.bs.modal', function () {
        window.location.href  = "/product/" + id + "/" + name;
      });
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
-         scroll_form('.form_question_stock');
-         $('#question_pro').empty();
+         scroll_form('.formQuestionStock');
          $('.form-control').css("border-color" , "#fff");
          captcha();
           if(error['name']){
-            $('#question_pro').append('<div id="alarm_red">'+error['name']+'</div>');
-            $('#name_data_buyer').css("border-color" , "#c30909");
+            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['name']+'</div>');
+            $('#nameQuestionsStock').css("border-color" , "#c30909");
          }else if(error['mobail']){
-            $('#question_pro').append('<div id="alarm_red">'+error['mobail']+'</div>');
+            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['mobail']+'</div>');
+            $('#mobailQuestionsStock').css("border-color" , "#c30909");
+
          }else if(error['email']){
-            $('#question_pro').append('<div id="alarm_red">'+error['email']+'</div>');
-            $('#codepost_data_buyer').css("border-color" , "#c30909");
+            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['email']+'</div>');
+            $('#emailQuestionsStock').css("border-color" , "#c30909");
          }else if(error['question']){
-            $('#question_pro').append('<div id="alarm_red">'+error['question']+'</div>');
-            $('#address_data_buyer').css("border-color" , "#c30909");
+            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['question']+'</div>');
+            $('#questionQuestionsStock').css("border-color" , "#c30909");
          }else if(error['amniat']){
-            $('#question_pro').append('<div id="alarm_red">'+error['amniat']+'</div>');
-            $('#amniat_data_buyer').css("border-color" , "#c30909");
+            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['amniat']+'</div>');
+            $('#amniatQuestionsStock').css("border-color" , "#c30909");
          }
      }
    });

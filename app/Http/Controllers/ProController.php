@@ -49,7 +49,7 @@ class ProController extends Controller
     $add->show=1;
     $add->save();
   }
-  public function sabt_question_pro(Save_pro_question $request)
+  public function sabtQuestionStock(Save_pro_question $request)
   {
     $date1=new Verta();//تاریخ جلالی
     $date=$date1->format('Y/n/j');

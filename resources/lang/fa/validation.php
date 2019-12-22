@@ -187,6 +187,7 @@ return [
       'codePro' => 'کد محصول',
       'codeRahgiry' => 'کد رهگیری پستی',
       'dimension' => 'ابعاد محصول',
+      'question' => 'پرسش',
     ],
 
 ];
