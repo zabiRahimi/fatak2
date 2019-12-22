@@ -124,7 +124,7 @@
        </div>
        <div class="form-group form_btn">
          <button type="button" class="btn btn-success"onclick="savePro('','not','ثابت','name_proPSS','maker_proPSS','brand_proPSS','model_proPSS','price_proPSS','not','vahed_proPSS','num_proPSS','vazn_proPSS','dimension_proPSS','vaznPost_proPSS','pakat_proPSS','dis_proPSS','not','dateMake_proPSS','dateExpiration_proPSS','term_proPSS',
-         'ajax_proPSS','form_proPSS','/sabtProStockShop')" >ثبت</button>
+         'ajax_proPSS','.form_proPSS','/sabtProStockShop')" >ثبت</button>
        </div></form>
     </div>
   @endif

@@ -202,7 +202,7 @@
        </div>
        <div class="form-group form_btn">
          <button type="button" class="btn btn-success"onclick="savePro({{$newOrderOne->id}},'stamp_orderSabtSh','غیر ثابت','name_orderSabtSh','maker_orderSabtSh','brand_orderSabtSh','model_orderSabtSh','price_orderSabtSh','priceFOrder_orderSabtSh','vahed_orderSabtSh','num_orderSabtSh','vazn_orderSabtSh','dimension_orderSabtSh','vaznPost_orderSabtSh','pakat_orderSabtSh','dis_orderSabtSh','disSeller_orderSabtSh','dateMake_orderSabtSh','dateExpiration_orderSabtSh','term_orderSabtSh',
-         'ajax_orderSabtSh','form_orderSabtSh','/newOrderShopOne/{{$newOrderOne->id}}')" >ثبت</button>
+         'ajax_orderSabtSh','.form_orderSabtSh','/newOrderShopOne/{{$newOrderOne->id}}')" >ثبت</button>
        </div></form></div></div>
    <!-- Modal موفق بودن ثبت محصول-->
    <div class="modal fade" id="end_orderSabtSh"tabindex="-1"role="dialog"aria-labelledby="exampleModalLabel"aria-hidden="true"><div class="modal-dialog"role="document"><div class="modal-content"><div class="modal-body modal_ok">

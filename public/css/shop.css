@@ -170,10 +170,7 @@
   padding: 0;
 }
 .row2_2,.row3_2{color: #186106}
-.placeholder{color:#000;}
-.placeholder_price{color: #00440f;}
-.placeholder:-moz-placeholder,.placeholder::-moz-placeholder,.placeholder_price:-moz-placeholder,.placeholder_price::-moz-placeholder{color:#a2a7da;}
-.placeholder:focus:-moz-placeholder,.placeholder:focus::-moz-placeholder,.placeholder_price:focus:-moz-placeholder,.placeholder_price:focus::-moz-placeholder{opacity: 0.4;}
+
 .dashLBodySh{width: 100%;padding:7px 4px;float: right;text-align: right;}
 @media (max-width:950px){
   .dashSh_R{display: none;}

@@ -23,7 +23,7 @@ function register(){
         var errors = xhr.responseJSON;
 
         var error=errors.errors;
-        scroll_form('form_register');
+        scroll_form('.form_register');
         $('#ajax_register').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();

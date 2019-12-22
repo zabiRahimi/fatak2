@@ -36,7 +36,10 @@ font-family: 'b yekan';
   right: 0;
 
 }
-
+.placeholder{color:#000;}
+.placeholder_price{color: #00440f;}
+.placeholder:-moz-placeholder,.placeholder::-moz-placeholder,.placeholder_price:-moz-placeholder,.placeholder_price::-moz-placeholder{color:#a2a7da;font-size: 12px;}
+.placeholder:focus:-moz-placeholder,.placeholder:focus::-moz-placeholder,.placeholder_price:focus:-moz-placeholder,.placeholder_price:focus::-moz-placeholder{opacity: 0.4;}
 /* *{
   box-sizing: border-box;
 } */

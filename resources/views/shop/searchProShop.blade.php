@@ -225,7 +225,7 @@
      <div class="form-group form_btn">
        <button type="button" class="btn btn-success"
       onclick="editPro({{$pro->id}},{{$order_id}},{{$imgPro->id}},'stamp_orderPSUS','name_orderPSUS','maker_orderPSUS','brand_orderPSUS','model_orderPSUS','price_orderPSUS','priceFOrder_orderPSUS','vahed_orderPSUS','num_orderPSUS','vazn_orderPSUS','dimension_orderPSUS','vaznPost_orderPSUS','pakat_orderPSUS','dis_orderPSUS','disSeller_orderPSUS','dateMake_orderPSUS','dateExpiration_orderPSUS','term_orderPSUS',
-      'ajax_orderPSUS','form_orderPSUS','{{$url}}',1,1)" >ثبت پیشنهاد و اعمال تغییرات </button>
+      'ajax_orderPSUS','.form_orderPSUS','{{$url}}',1,1)" >ثبت پیشنهاد و اعمال تغییرات </button>
      </div>
    </form>
   @endif

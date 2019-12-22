@@ -215,7 +215,7 @@
       </div>
       <div class="form-group form_btn">
         <button type="button" class="btn btn-success"onclick="savePro({{$oldOrderOne->id}},'stamp_newPSabtOOUSS','غیر ثابت','name_newPSabtOOUSS','maker_newPSabtOOUSS','brand_newPSabtOOUSS','model_newPSabtOOUSS','price_newPSabtOOUSS','priceFOrder_newPSabtOOUSS','vahed_newPSabtOOUSS','num_newPSabtOOUSS','vazn_newPSabtOOUSS','dimension_newPSabtOOUSS','vaznPost_newPSabtOOUSS','pakat_newPSabtOOUSS','dis_newPSabtOOUSS','disSeller_newPSabtOOUSS','dateMake_newPSabtOOUSS','dateExpiration_newPSabtOOUSS','term_newPSabtOOUSS',
-        'ajax_newPSabtOOUSS','form_newPSabtOOUSS','/oldOrderShop')" >ثبت</button>
+        'ajax_newPSabtOOUSS','.form_newPSabtOOUSS','/oldOrderShop')" >ثبت</button>
       </div></form></div>
       <div class="orderLine"></div>
       <form class="form form_orderEditOOUSS" id="form_orderEditOOUSS" action="" method="post">
@@ -367,7 +367,7 @@
        </div>
        <div class="form-group form_btn">
          <button type="button" class="btn btn-success" onclick="editPro({{$proOne->id}},{{$oldOrderOne->id}},{{$imgPro->id}},'stamp_orderEditOOUSS','name_orderEditOOUSS','maker_orderEditOOUSS','brand_orderEditOOUSS','model_orderEditOOUSS','price_orderEditOOUSS','priceFOrder_orderEditOOUSS','vahed_orderEditOOUSS','num_orderEditOOUSS','vazn_orderEditOOUSS','dimension_orderEditOOUSS','vaznPost_orderEditOOUSS','pakat_orderEditOOUSS','dis_orderEditOOUSS','disSeller_orderEditOOUSS','dateMake_orderEditOOUSS','dateExpiration_orderEditOOUSS','term_orderEditOOUSS',
-         'ajax_orderEditOOUSS','form_orderEditOOUSS','/oldOrderOneShop/{{$oldOrderOne->id}}/{{$proOne->id}}',null,2)" >ثبت تغییرات</button>
+         'ajax_orderEditOOUSS','.form_orderEditOOUSS','/oldOrderOneShop/{{$oldOrderOne->id}}/{{$proOne->id}}',null,2)" >ثبت تغییرات</button>
          <button type="button"class="btn btn-danger orderAghdamP2"data-toggle="modal" data-target="#del_OfferPro">حذف پیشنهاد محصول</button>
        </div>
      </form>

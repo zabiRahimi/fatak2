@@ -123,7 +123,7 @@ function sabtShop_1(){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_shopsabt1');
+        scroll_form('.form_shopsabt1');
         $('#ajax_shopsabt1').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
@@ -177,7 +177,7 @@ function loginShop(){
       $('#ok_edit_user').modal('show');
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_shoplog');
+        scroll_form('.form_shoplog');
         $('#ajax_shoplog').empty();
         $('#amniat_shoplog').val('');
         $('.form-control').css("border-color" , "#fff");
@@ -237,7 +237,7 @@ function sabtShop_2(){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_perfectDaSh');
+        scroll_form('.form_perfectDaSh');
         $('#ajax_perfectDaSh').empty();
         $('.form-control').css("border-color" , "#fff");
         if(error['shop']){
@@ -328,7 +328,7 @@ function editDaShopSave(id){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_editDaShop');
+        scroll_form('.form_editDaShop');
         $('#ajax_editDaShop').empty();
         $('.form-control').css("border-color" , "#fff");
         if(error['shop']){
@@ -405,7 +405,7 @@ function editPasDaShop(id){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_editPasDaShop');
+        scroll_form('.form_editPasDaShop');
         $('#ajax_editPasDaShop').empty();
         $('.form-control').css("border-color" , "#fff");
         if(error['pasOld']){
@@ -746,7 +746,7 @@ function sabtCodeSh() {
 
                   var errors = xhr.responseJSON;
                   var error=errors.errors;
-                  scroll_form('form_sabtCodePSh');
+                  scroll_form('.form_sabtCodePSh');
                   $('#ajax_error_sabtCodePSh').empty();
 
                   if(error['codePro']){
@@ -780,7 +780,7 @@ function sabtCodeRahgirySh(id) {
                       error: function(xhr) {
                           var errors = xhr.responseJSON;
                           var error=errors.errors;
-                          scroll_form('form_sabtCodeRahgirySh');
+                          scroll_form('.form_sabtCodeRahgirySh');
                           $('#ajax_sabtCodeRahgirySh').empty();
                           $('#codeR_sabtCodePSh').val('');
                           if(error['codeRahgiry']){
@@ -803,7 +803,7 @@ function editCodeSh() {
                       error: function(xhr) {
                                   var errors = xhr.responseJSON;
                                   var error=errors.errors;
-                                  scroll_form('form_editCodePSh');
+                                  scroll_form('.form_editCodePSh');
                                   $('#ajax_error_editCodePSh').empty();
                                   if(error['codePro']){
                                      $('#ajax_error_editCodePSh').append('<div class="alert alert-danger">'+error['codePro']+'</div>');
@@ -833,7 +833,7 @@ function editCodeRahgirySh(id) {
            error: function(xhr) {
               var errors = xhr.responseJSON;
               var error=errors.errors;
-              scroll_form('form_editCodeRahgirySh');
+              scroll_form('.form_editCodeRahgirySh');
             $('#ajax_editCodeRahgirySh').empty();
             $('#codeR_editCodePSh').val('');
             if(error['codeRahgiry']){

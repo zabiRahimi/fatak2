@@ -92,7 +92,7 @@
                 <ul class="Explain_ul  ">
                   <li class="Explain_li1  Explain_active" onclick="Explain_active('Explain_li1' , '.Explain_Explain')">  <i class="fas fa-clipboard-check"></i> توضیحات کالا </li>
                   <li class="Explain_li2 " onclick="Explain_active('Explain_li2', '.Explain_specs')"> <i class="fas fa-clipboard-list"></i> مشخصات کالا </li>
-                  <li class="Explain_li3 " onclick="Explain_active('Explain_li3', '.Explain_question');"> <i class="fas fa-question-circle"></i> پرسش و پاسخ </li>
+                  <li class="Explain_li3 " onclick="Explain_active('Explain_li3', '.Explain_question');captcha()"> <i class="fas fa-question-circle"></i> پرسش و پاسخ </li>
                   <li class="Explain_li4" onclick="Explain_active('Explain_li4', 'Explain_userDis');captcha()"> <i class="fas fa-comment"></i> نظرات کاربران</li>
                 </ul>
                 {{-- این تگ صرفا جهت نمایش دو قسمت مشخصات کالا و پرسش و پاسخ است هنگامی که کاربر دکمه متناظر با آن را فشار می دهد --}}
@@ -183,13 +183,89 @@
                         پرسش و پاسخ
                     </div>
                     <div class="Explain_matn">
-                      <p class="question_explain_p"> <i class="fas fa-info-circle"></i><span>در حال حاضر پرسش و پاسخ تنها از طریق تماس تلفنی امکان پذیر است .</span> </p>
-                      <div class="alert alert-danger question_explain_danger right">
-                        <strong>هشدار !</strong> چنانچه غیر حضوری کالا را خریداری می کنید و محصول را از طریق پست و غیرو تحویل می گیرید ، حتما پرداخت وجه کالا را
-                        از طریق درگاه اینترنتی فروشگاه انجام دهید ، در غیر این صورت فروشگاه هیچ تعهدی در قبال کالای خریداری شده شما ندارد .
-                      </div>
-                      <p class="question_explain_p2"><span>تماس با فروشنده کالا :</span> <span class="number">{{$shop->mobail}}</span> </p>
-                      <p class="question_explain_p2"><span>تماس با مدیریت سایت :</span> <span class="number">09178023733</span> </p>
+
+                          {{-- <p class="question_explain_p"> <i class="fas fa-info-circle"></i><span>در حال حاضر پرسش و پاسخ تنها از طریق تماس تلفنی امکان پذیر است .</span> </p>
+                          <div class="alert alert-danger question_explain_danger right">
+                            <strong>هشدار !</strong> چنانچه غیر حضوری کالا را خریداری می کنید و محصول را از طریق پست و غیرو تحویل می گیرید ، حتما پرداخت وجه کالا را
+                            از طریق درگاه اینترنتی فروشگاه انجام دهید ، در غیر این صورت فروشگاه هیچ تعهدی در قبال کالای خریداری شده شما ندارد .
+                          </div>
+                          <p class="question_explain_p2"><span>تماس با فروشنده کالا :</span> <span class="number">{{$shop->mobail}}</span> </p>
+                          <p class="question_explain_p2"><span>تماس با مدیریت سایت :</span> <span class="number">09178023733</span> </p> --}}
+
+                          {{-- <div class="question_pro"><i class="far fa-question-circle"></i><h4>پرسش و پاسخ</h4></div> --}}
+                          <p class="question_stock"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p>
+                          <form class="form_question_stock" id="form_question_pro" action="" method="post">
+                            <div class="form_question_stock1">ایمیل و موبایل شما منتشر نمی شود</div>
+                            <div id="question_pro"></div>
+
+                            <div class="form-group">
+                                <label for="name_pro_questions" class="control-label pull-right  ">نام </label>
+                                <div class="mobail_question_pro"><input type="text" class="form-control" id="name_pro_questions"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobail_pro_questions" class="control-label pull-right ">موبایل ( اختیاری )</label>
+                                <div class="mobail_question_pro"><input type="text" class="form-control" id="mobail_pro_questions"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email_pro_questions" class="control-label pull-right ">ایمیل ( اختیاری )</label>
+                                <div class="mobail_question_pro"><input type="text" class="form-control" id="email_pro_questions"></div>
+                            </div>
+                            <div class="form-group form-group2">
+                                <label for="question_pro_questions" class="control-label pull-right ">پرسش</label>
+                                <div class="mobail_question_pro"><textarea name="name" class="form-control" id="question_pro_questions" rows="4" cols="80"></textarea></div>
+                            </div>
+                            <div class="form-group" >
+                                <label for="amniat_pro_questions" class="control-label pull-right ">کد امنیتی </label>
+                                <div class="mobail_question_pro"><input type="text" class="form-control tel placeholder" id="amniat_pro_questions" placeholder="کد امنیتی زیر را وارد کنید ..."  onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+                            </div>
+                            <div class="captcha_question_stock">
+                                <span class="captcha4">{!! captcha_img() !!}</span>
+                                <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
+                            </div>
+                            <div class="button_question_stock">
+                                <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="sabt_question_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت پرسش</h5></button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
+                            </div>
+                          </form>
+                          {{-- پاسخها --}}
+                          <div class="questionAnswer_stock"> <i class="fas fa-list-alt"></i> پرسشهای کاربران و پاسخها</div>
+                          <div class="panel-body question_pro3">
+                            @if (count($question_pro)>0)
+                            @foreach ($question_pro as  $val_quest)
+                            <div class="pro_question_body">
+                              <div class="pro_question_header">
+                                <i class="fas fa-user-tie pro_ikon_nazar"></i>
+                                <div class="pro_question_header2">
+                                  <h4>{{$val_quest->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{$val_quest->date}}</h4>
+                                </div>
+                                <i class="fas fa-check-double pro_tik_question"></i>
+                              </div>
+                              <p class="pro_question_matn">{{$val_quest->question}} </p>
+                              <div class="pro_question_pasohk" data-toggle="modal" data-target="#pro_question_answer" onclick="question_id({{$val_quest->id}}) ">به این سوال پاسخ دهید</div>
+                              {{-- پاسخهای داده شده --}}
+                              @foreach ($answer_pro->where('question_pro_id' , $val_quest->id) as $val_answer)
+                              <div class="pro_pasohk_body">
+                                <div class="pro_pasohk_header">
+                                  <span>پاسخ از</span>
+                                  <div class="pro_pasohk_header2">
+                                    <h4>{{$val_answer->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{$val_answer->date}}</h4>
+                                  </div>
+                                  <i class="fas fa-check-double pro_tik_pasohk"></i>
+                                </div>
+                                <p class="pro_pasohk_matn">{{$val_answer->answer}}</p>
+                              </div>
+                              @endforeach
+
+                            </div>
+
+                          @endforeach
+                          @else
+                            <div class="alert alert-warning right">
+                              تا کنون سوالی برای این محصول مطرح نشده!!
+                              شما اولین نفری باشید که سوال مطرح میکنید .
+                            </div>
+                          @endif
+                        </div>
                     </div>
                 </div>
         </div>

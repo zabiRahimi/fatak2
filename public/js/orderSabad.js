@@ -215,7 +215,7 @@ function sabtDataBuyerOrder(pro_id, order_id) {
 											error: function(xhr) {
 													var errors = xhr.responseJSON;
 													var error=errors.errors;
-                          scroll_form('form_data_buyer');
+                          scroll_form('.form_data_buyer');
 													$('#ajax_data_buyer2').empty();
                           $('.form-control').css("border-color" , "#fff");
 													captcha();

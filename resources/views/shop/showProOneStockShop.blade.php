@@ -158,7 +158,7 @@
        </div>
        <div class="form-group form_btn">
          <button type="button" class="btn btn-success"onclick="editPro({{$pro->id}},null,{{$imgPro->id}},'stamp_editSPOSS','name_editSPOSS','maker_editSPOSS','brand_editSPOSS','model_editSPOSS','price_editSPOSS','not','vahed_editSPOSS','num_editSPOSS','vazn_editSPOSS','dimension_editSPOSS','vaznPost_editSPOSS','pakat_editSPOSS','dis_editSPOSS','not','dateMake_editSPOSS','dateExpiration_editSPOSS','term_editSPOSS',
-         'ajax_editSPOSS','form_editSPOSS','/showProOneStockShop/{{$pro->id}}',null,null)" >ثبت تغییرات</button>
+         'ajax_editSPOSS','.form_editSPOSS','/showProOneStockShop/{{$pro->id}}',null,null)" >ثبت تغییرات</button>
            <button type="button"class="btn btn-danger orderAghdamP2"onclick="del_proShopCheckOffer({{$numShowOrder}},{{$pro->id}})">حذف محصول</button>
        </div></form></div></div>
    <!-- Modal موفق بودن ثبت محصول-->

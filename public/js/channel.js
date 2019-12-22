@@ -31,7 +31,7 @@ function sabt_channel_1(){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_channelsabt1');
+        scroll_form('.form_channelsabt1');
         $('#ajax_channelsabt1').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
@@ -86,7 +86,7 @@ function login_channel(){
       $('#ok_edit_user').modal('show');
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_channellog');
+        scroll_form('.form_channellog');
         $('#ajax_channellog').empty();
         $('#amniat_channellog').val('');
         $('.form-control').css("border-color" , "#fff");
@@ -142,7 +142,7 @@ function sabt_channel_2(){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_perfectDaCh');
+        scroll_form('.form_perfectDaCh');
         $('#ajax_perfectDaCh').empty();
         $('.form-control').css("border-color" , "#fff");
          if(error['codemly']){
@@ -217,7 +217,7 @@ function editDaChSave(id){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_editDaCh');
+        scroll_form('.form_editDaCh');
         $('#ajax_editDaCh').empty();
         $('.form-control').css("border-color" , "#fff");
         if(error['name']){
@@ -289,7 +289,7 @@ function editPasDaCh(id){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_editPasDaCh');
+        scroll_form('.form_editPasDaCh');
         $('#ajax_editPasDaCh').empty();
         $('.form-control').css("border-color" , "#fff");
         if(error['pasOld']){

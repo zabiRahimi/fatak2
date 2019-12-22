@@ -82,7 +82,7 @@ function captcha(){
 }
 //تنظیم اسکرول فرمها پس از ایجاد خطا و نمایش خطا به کاربر
 function scroll_form(class_form){
-  var h= $('.'+class_form).offset();
+  var h= $(class_form).offset();
   var fixedDiv= $('.fixed').outerHeight();
   if(fixedDiv){
   var hTop=h.top-fixedDiv-12;

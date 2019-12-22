@@ -49,7 +49,7 @@ function pro7_active(class1 , class2){
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
-         scroll_form('form_nazar_pro');
+         scroll_form('.form_nazar_pro');
          $('#alarm_pro_nazar').empty();
          $('.form-control').css("border-color" , "#fff");
          captcha();
@@ -96,7 +96,7 @@ function pro7_active(class1 , class2){
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
-         scroll_form('form_question_pro');
+         scroll_form('.form_question_pro');
          $('#question_pro').empty();
          $('.form-control').css("border-color" , "#fff");
          captcha();
@@ -150,7 +150,7 @@ function pro7_active(class1 , class2){
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
-         scroll_form('form_nazar_pro');
+         scroll_form('.form_nazar_pro');
          $('#alarm_pro_answer').empty();
          $('.form-control').css("border-color" , "#fff");
          captcha();

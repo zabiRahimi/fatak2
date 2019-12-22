@@ -157,13 +157,13 @@ $(document).ready(function(){
 											success: function(data) {
                         $('#ajax_data_buyer').empty();
                         $('#sabt_date_buyer').modal('show');
-                        scroll_form('data_buyer');
+                        scroll_form('.data_buyer');
                         end_buy();
                       },
 											error: function(xhr) {
 													var errors = xhr.responseJSON;
 													var error=errors.errors;
-                          scroll_form('form_data_buyer');
+                          scroll_form('.form_data_buyer');
 													$('#ajax_data_buyer').empty();
                           $('.form-control').css("border-color" , "#fff");
 													captcha();

@@ -27,7 +27,7 @@ function sabtOrderSave(){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-        scroll_form('form_sabtOrder');
+        scroll_form('.form_sabtOrder');
         $('#ajax_sabtOrder').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
