@@ -183,20 +183,10 @@
                         پرسش و پاسخ
                     </div>
                     <div class="Explain_matn">
-
-                          {{-- <p class="question_explain_p"> <i class="fas fa-info-circle"></i><span>در حال حاضر پرسش و پاسخ تنها از طریق تماس تلفنی امکان پذیر است .</span> </p>
-                          <div class="alert alert-danger question_explain_danger right">
-                            <strong>هشدار !</strong> چنانچه غیر حضوری کالا را خریداری می کنید و محصول را از طریق پست و غیرو تحویل می گیرید ، حتما پرداخت وجه کالا را
-                            از طریق درگاه اینترنتی فروشگاه انجام دهید ، در غیر این صورت فروشگاه هیچ تعهدی در قبال کالای خریداری شده شما ندارد .
-                          </div>
-                          <p class="question_explain_p2"><span>تماس با فروشنده کالا :</span> <span class="number">{{$shop->mobail}}</span> </p>
-                          <p class="question_explain_p2"><span>تماس با مدیریت سایت :</span> <span class="number">09178023733</span> </p> --}}
-
-                          {{-- <div class="question_pro"><i class="far fa-question-circle"></i><h4>پرسش و پاسخ</h4></div> --}}
-                          <p class="question_stock"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p>
+                          <p class="questionPStock"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p>
                           <form class="formQuestionStock" id="formQuestionStock"method="post">
                             <div class="NotPropagateEmail">ایمیل و موبایل شما منتشر نمی شود</div>
-                            <div id="questionAjaxStock"></div>
+                            <div id="formQuestionAjaxStock"></div>
 
                             <div class="form-group">
                                 <label for="nameQuestionsStock" class="control-label pull-right  ">نام </label>
@@ -218,11 +208,11 @@
                                 <label for="amniatQuestionsStock" class="control-label pull-right ">کد امنیتی </label>
                                 <div class="mobail_question_pro"><input type="text" class="form-control tel placeholder" id="amniatQuestionsStock" placeholder="کد امنیتی زیر را وارد کنید ..."  onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
                             </div>
-                            <div class="captcha_question_stock">
+                            <div class="captcha">
                                 <span class="captcha4">{!! captcha_img() !!}</span>
                                 <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
                             </div>
-                            <div class="button_question_stock">
+                            <div class="button">
                                 <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="sabtQuestionStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت پرسش</h5></button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
                             </div>
@@ -241,7 +231,7 @@
                                 <i class="fas fa-check-double"></i>
                               </div>
                               <p class="pro_question_matn">{{$val_quest->question}} </p>
-                              <div class="pro_question_pasohk" data-toggle="modal" data-target="#pro_question_answer" onclick="question_id({{$val_quest->id}}) ">به این سوال پاسخ دهید</div>
+                              <div class="pro_question_pasohk" data-toggle="modal" data-target="#modalAnswerStock" onclick="question_id({{$val_quest->id}}) ">پاسخ دهید</div>
                               {{-- پاسخهای داده شده --}}
                               @foreach ($answer_pro->where('question_pro_id' , $val_quest->id) as $val_answer)
                               <div class="pro_pasohk_body">
@@ -275,5 +265,66 @@
 <div class="modal " id="endQuestionStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
       <div class="modal-body alert alert-success  alertQuestionSuccess">ممنون !! پرسش شما ثبت شد .</div>
       <div class="divQuestionModal"><button type="button"  class="btn btn-info " data-dismiss="modal" >متوجه شدم !! </button></div></div></div>
+</div><!--end modal -->
+{{-- modal پاسخ --}}
+<div class="modal fade" id="modalAnswerStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header modalAnswerheaderStock"><h5 class="modal-title ">پاسخ </h5><span aria-hidden="true"data-dismiss="modal" aria-label="Close">&times;</span></div>
+      <div class="modal-body modalAnswerBodyStock">
+         <form class="formAnswerStock" id="form_answer_pro" action="" method="post">
+          <div class="NotPropagateEmail">ایمیل و موبایل شما منتشر نمی شود</div>
+          <div id="alarm_pro_answer"></div>
+          <div class="form-group">
+            <label for="name_pro_answer" class="control-label pull-right  ">نام </label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="name_pro_answer" ></div>
+          </div>
+          <div class="form-group">
+            <label for="mobail_pro_answer" class="control-label pull-right ">موبایل ( اختیاری )</label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="mobail_pro_answer"></div>
+          </div>
+          <div class="form-group">
+            <label for="email_pro_answer" class="control-label pull-right ">ایمیل ( اختیاری )</label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="email_pro_answer"></div>
+          </div>
+          <div class="form-group">
+            <label for="answer_pro_answer" class="control-label pull-right ">پاسخ</label>
+            <div class="mobail_pasohk_pro1"><textarea name="name" class="form-control" id="answer_pro_answer" rows="4" cols="80"></textarea></div>
+          </div>
+          <div class="form-group" >
+            <label for="amniat_pro_answer" class="control-label pull-right ">کد امنیتی </label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control tel" id="amniat_pro_answer" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+          </div>
+          <div class="captcha">
+            <span class="captcha4">{!! captcha_img() !!}</span>
+            <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
+          </div>
+          <div class="button">
+            <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="sabt_answer_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')">ثبت پاسخ</button>
+            <button type="button" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
+          </div>
+        </form>
+      </div>
+      {{-- <div class=" modal-footer-pro-question">
+        <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="sabt_answer_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')">ثبت پاسخ</button>
+        <button type="button" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
+      </div> --}}
+    </div>
+  </div>
+</div><!--end modal -->
+<!--modal ثبت پاسخ-->
+<div class="modal " id="end_answer_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body modal_pro_add_sabad">
+          ممنون !! پاسخ شما ثبت شد .
+      </div>
+      <div class="modal_pro_add_sabad2">
+
+        <button type="button"  class="btn btn-success modal_pro_add_sabad3" data-dismiss="modal" >متوجه شدم !! </button>
+
+
+      </div>
+    </div>
+  </div>
 </div><!--end modal -->
 @endsection

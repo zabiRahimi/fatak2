@@ -97,7 +97,7 @@ function Explain_active(class1 , class2){
           amniat:$('#amniatQuestionsStock').val(),
           },
      success:function(data){
-       $('#questionAjaxStock').empty();
+       $('#formQuestionAjaxStock').empty();
        document.getElementById("formQuestionStock").reset();
        $('#endQuestionStock').modal('show');
        $("#endQuestionStock").on('hide.bs.modal', function () {
@@ -111,20 +111,20 @@ function Explain_active(class1 , class2){
          $('.form-control').css("border-color" , "#fff");
          captcha();
           if(error['name']){
-            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['name']+'</div>');
+            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['name']+'</div>');
             $('#nameQuestionsStock').css("border-color" , "#c30909");
          }else if(error['mobail']){
-            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['mobail']+'</div>');
+            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['mobail']+'</div>');
             $('#mobailQuestionsStock').css("border-color" , "#c30909");
 
          }else if(error['email']){
-            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['email']+'</div>');
+            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['email']+'</div>');
             $('#emailQuestionsStock').css("border-color" , "#c30909");
          }else if(error['question']){
-            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['question']+'</div>');
+            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['question']+'</div>');
             $('#questionQuestionsStock').css("border-color" , "#c30909");
          }else if(error['amniat']){
-            $('#questionAjaxStock').html('<div class="alert alert-danger">'+error['amniat']+'</div>');
+            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['amniat']+'</div>');
             $('#amniatQuestionsStock').css("border-color" , "#c30909");
          }
      }
@@ -152,9 +152,10 @@ function Explain_active(class1 , class2){
      success:function(data){
        $('#alarm_pro_answer').empty();
        document.getElementById("form_answer_pro").reset();
-       $('#pro_question_answer').modal('hide');
+       $('#modalAnswerStock').modal('hide');
        $('#end_answer_pro').modal('show');
        $("#end_answer_pro").on('hide.bs.modal', function () {
+
          $.removeCookie("question");
          window.location.href  = "/product/" + id + "/" + name;
      });
