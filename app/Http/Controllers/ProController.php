@@ -51,22 +51,19 @@ class ProController extends Controller
   }
   public function sabtQuestionStock(Save_pro_question $request)
   {
-    $date1=new Verta();//تاریخ جلالی
-    $date=$date1->format('Y/n/j');
     $add=new QuestionPro();
     $add->pro_id=$request->pro_id;
     $add->name=$request->name;
     $add->mobail=$request->mobail;
     $add->email=$request->email;
     $add->question=$request->question;
-    $add->date=$date;
+    $add->date=time();
     $add->show=1;
     $add->save();
   }
   public function sabt_answer_pro(Save_pro_answer $request)
   {
-    $date1=new Verta();//تاریخ جلالی
-    $date=$date1->format('Y/n/j');
+
     $add=new AnswerPro();
     $add->question_pro_id=$request->question_id;
     $add->pro_id=$request->pro_id;
@@ -74,7 +71,7 @@ class ProController extends Controller
     $add->mobail=$request->mobail;
     $add->email=$request->email;
     $add->answer=$request->answer;
-    $add->date=$date;
+    $add->date=time();
     $add->show=1;
     $add->save();
   }

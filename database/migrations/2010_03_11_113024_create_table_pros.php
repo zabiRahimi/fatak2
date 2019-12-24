@@ -14,8 +14,8 @@ class CreateTablePros extends Migration
     public function up()
     {
         Schema::create('Pros', function (Blueprint $table) {
-          $table->increments('id');
-          $table->mediumInteger('shop_id');
+          $table->bigIncrements('id');
+          $table->bigInteger('shop_id');
           $table->string('typePro',17)->comment('ثابت یا غیر ثابت بودن محصول');
           $table->string('name',100);
           $table->string('maker',70)->nullable();

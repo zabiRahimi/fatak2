@@ -15,7 +15,7 @@ class CreateCheckIpsTable extends Migration
     {
         Schema::create('check_ips', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumInteger('channel_id');
+            $table->integer('channel_id');
             $table->string('ip');
             $table->date('date');
             $table->boolean('show');

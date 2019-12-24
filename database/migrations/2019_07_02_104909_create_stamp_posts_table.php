@@ -15,9 +15,9 @@ class CreateStampPostsTable extends Migration
     {
         Schema::create('stamp_posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumInteger('order_id');
-            $table->mediumInteger('shop_id');
-            $table->mediumInteger('pro_id')->unique();
+            $table->integer('order_id');
+            $table->integer('shop_id');
+            $table->integer('pro_id')->unique();
             $table->boolean('hzoory');
             $table->string('public1',20)->nullable();
             $table->string('public2',20)->nullable();

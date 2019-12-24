@@ -15,7 +15,7 @@ class CreateBackBuysTable extends Migration
     {
         Schema::create('back_buys', function (Blueprint $table) {
           $table->increments('id');
-          $table->mediumInteger('buyer_id');
+          $table->integer('buyer_id');
           $table->string('code_rahgiry',70)->unique()->nullable()->comment('کد رهگیری پستی که توسط مشتری اعلام می شود');
           $table->string('date_back',13)->nullable()->comment('تاریخ پست ارجاعی کالا');
           $table->string('undertake_ersal',60)->nullable()->comment('مشخص می کند چه کسی باید هزینه ارسال اولیه کالا را بپردازد');
@@ -27,8 +27,8 @@ class CreateBackBuysTable extends Migration
           $table->text('loss_dis')->nullable()->comment('نظر کارشناس در مورد ضرر و زیان احتمالی بوجود آمده و اینکه چه کسی باید زیان را بپردازد');
           $table->string('undertake_loss',60)->nullable()->comment('پرداخت کننده زیان احتمالی');
           $table->string('loss_price',13)->nullable()->comment('مبلغ زیان احتمالی');
-          $table->string('date_ad',13)->nullable();
-          $table->string('date_up',13)->nullable();
+          $table->integer('date_ad')->nullable();
+          $table->integer('date_up')->nullable();
           $table->boolean('stage');
         });
     }

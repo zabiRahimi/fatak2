@@ -14,8 +14,8 @@ class CreatePicturePros extends Migration
     public function up()
     {
         Schema::create('Picture_pros', function (Blueprint $table) {
-            $table->increments('id');
-            $table->mediumInteger('pro_id')->index()->unique()->unsigned();
+            $table->bigIncrements('id');
+            $table->bigInteger('pro_id')->index()->unique()->unsigned();
             $table->foreign('pro_id')->references('id')->on('pros')->onDelete('cascade')->onUpdate('cascade');
             $table->string('pic_b1' , 65)->nullable();
             $table->string('pic_b2' , 65)->nullable();

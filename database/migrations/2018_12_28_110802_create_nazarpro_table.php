@@ -14,9 +14,9 @@ class CreateNazarproTable extends Migration
     public function up()
     {
         Schema::create('nazar_pros', function (Blueprint $table) {
-          $table->increments('id');
-          $table->mediumInteger('pro_id')->index()->unsigned();
-          $table->foreign('pro_id')->references('id')->on('pros')->onDelete('cascade')->onUpdate('cascade');
+          $table->bigIncrements('id');
+          $table->bigInteger('pro_id')->index()->unsigned();
+          $table->foreign('pro_id')->references('id')->on('pros');
           $table->string('name' , 50);
           $table->string('mobail' , 13)->nullable();
           $table->string('email' , 150)->nullable();

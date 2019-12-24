@@ -236,7 +236,7 @@
                               <div class="questionHeaderStock">
                                 <i class="fas fa-user-tie"></i>
                                 <div class="questionNameDateStock">
-                                  <h4>{{$val_quest->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{$val_quest->date}}</h4>
+                                  <h4>{{$val_quest->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{verta($val_quest->date)->format('y/m/d')}}</h4>
                                 </div>
                                 <i class="fas fa-check-double"></i>
                               </div>

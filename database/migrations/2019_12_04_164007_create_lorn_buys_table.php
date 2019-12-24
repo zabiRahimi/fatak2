@@ -15,7 +15,7 @@ class CreateLornBuysTable extends Migration
     {
         Schema::create('lorn_buys', function (Blueprint $table) {
             $table->increments('id');
-            $table->mediumInteger('buyer_id');
+            $table->integer('buyer_id');
             $table->string('undertake_ersal',60)->nullable()->comment('مشخص می کند چه کسی باید هزینه ارسال اولیه کالا را بپردازد');
             $table->string('undertake_back',60)->nullable()->comment('مشخص می کند چه کسی باید هزینه پستی ارجاع کالا را بپردازد');
             $table->string('price_back',13)->nullable()->comment('هزینه احتمالی ارجاع کالا');

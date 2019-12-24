@@ -14,15 +14,15 @@ class CreateAnswerProsTable extends Migration
     public function up()
     {
         Schema::create('answer_pros', function (Blueprint $table) {
-          $table->increments('id');
-          $table->mediumInteger('question_pro_id')->index()->unsigned();
+          $table->bigIncrements('id');
+          $table->bigInteger('question_pro_id')->index()->unsigned();
           $table->foreign('question_pro_id')->references('id')->on('question_pros')->onDelete('cascade')->onUpdate('cascade');
-          $table->mediumInteger('pro_id');
+          $table->integer('pro_id');
           $table->string('name' , 50);
           $table->string('mobail' , 13)->nullable();
           $table->string('email' , 150)->nullable();
           $table->text('answer');
-          $table->date('date');
+          $table->integer('date');
           $table->mediumInteger('like')->nullable();
           $table->mediumInteger('unlike')->nullable();
           $table->boolean('show');

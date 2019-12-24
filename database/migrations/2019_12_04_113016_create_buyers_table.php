@@ -16,7 +16,7 @@ class CreateBuyersTable extends Migration
         Schema::create('buyers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('typeBuy',13)->comment('نوع خرید ، مستقیم یا سفارشی');
-            $table->mediumInteger('order_id')->nullable()->comment('چنانچه ستون تایپ بای برابر با `سفارشی` بود باید مقدار داشته باشد');
+            $table->integer('order_id')->nullable()->comment('چنانچه ستون تایپ بای برابر با `سفارشی` بود باید مقدار داشته باشد');
             $table->string('backOrLornPro',13)->nullable()->comment('وضعیت مرجوعی یا مفقودی کالا ، چنانچه کالا ارجاع شود ، در ستون `مرجوعی` درج شود ، چنانچه کالا گم شود در ستون `مفقودی` درج شود');
             $table->string('name',70);
             $table->string('mobail',13);
