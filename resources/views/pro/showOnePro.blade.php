@@ -231,17 +231,17 @@
                                 <i class="fas fa-check-double"></i>
                               </div>
                               <p class="questionMatn">{{$val_quest->question}} </p>
-                              <div class="linkPasohk" data-toggle="modal" data-target="#modalAnswerStock" onclick="question_id({{$val_quest->id}}) ">پاسخ دهید</div>
+                              <div class="linkAnswer" data-toggle="modal" data-target="#modalAnswerStock" onclick="question_id({{$val_quest->id}}) ">پاسخ دهید</div>
                               {{-- پاسخهای داده شده --}}
                               @foreach ($answer_pro->where('question_pro_id' , $val_quest->id) as $val_answer)
-                              <div class="pasohkBodyStock">
-                                <div class="pasohkHeaderStock">
+                              <div class="answerBodyStock">
+                                <div class="answerHeaderStock">
                                   <i class="fas fa-user-tie"></i>
-                                  <div class="pasohkNameDateStock">
+                                  <div class="answerNameDateStock">
                                     <h4>{{$val_answer->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{verta($val_answer->date)->format('y/m/d')}}</h4>
                                   </div>
                                 </div>
-                                <p class="pasohkMatn">{{$val_answer->answer}}</p>
+                                <p class="answerMatn">{{$val_answer->answer}}</p>
                               </div>
                               @endforeach
                             </div>
@@ -269,61 +269,46 @@
 <div class="modal fade" id="modalAnswerStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header modalAnswerheaderStock"><h5 class="modal-title ">پاسخ </h5><span aria-hidden="true"data-dismiss="modal" aria-label="Close">&times;</span></div>
       <div class="modal-body modalAnswerBodyStock">
-         <form class="formAnswerStock" id="form_answer_pro" action="" method="post">
+         <form class="formAnswerStock" id="formAnswerStock" action="" method="post">
           <div class="NotPropagateEmail">ایمیل و موبایل شما منتشر نمی شود</div>
-          <div id="alarm_pro_answer"></div>
+          <div id="formAnswerAjaxStock"></div>
           <div class="form-group">
-            <label for="name_pro_answer" class="control-label pull-right  ">نام </label>
-            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="name_pro_answer" ></div>
+            <label for="nameAnswerStock" class="control-label pull-right  ">نام </label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="nameAnswerStock" ></div>
           </div>
           <div class="form-group">
-            <label for="mobail_pro_answer" class="control-label pull-right ">موبایل ( اختیاری )</label>
-            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="mobail_pro_answer"></div>
+            <label for="mobailAnswerStock" class="control-label pull-right ">موبایل ( اختیاری )</label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="mobailAnswerStock"></div>
           </div>
           <div class="form-group">
-            <label for="email_pro_answer" class="control-label pull-right ">ایمیل ( اختیاری )</label>
-            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="email_pro_answer"></div>
+            <label for="emailAnswerStock" class="control-label pull-right ">ایمیل ( اختیاری )</label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="emailAnswerStock"></div>
           </div>
           <div class="form-group">
-            <label for="answer_pro_answer" class="control-label pull-right ">پاسخ</label>
-            <div class="mobail_pasohk_pro1"><textarea name="name" class="form-control" id="answer_pro_answer" rows="4" cols="80"></textarea></div>
+            <label for="answerAnswerStockr" class="control-label pull-right ">پاسخ</label>
+            <div class="mobail_pasohk_pro1"><textarea name="name" class="form-control" id="answerAnswerStock" rows="4" cols="80"></textarea></div>
           </div>
           <div class="form-group" >
-            <label for="amniat_pro_answer" class="control-label pull-right ">کد امنیتی </label>
-            <div class="mobail_pasohk_pro"><input type="text" class="form-control tel" id="amniat_pro_answer" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+            <label for="amniatAnswerStock" class="control-label pull-right ">کد امنیتی </label>
+            <div class="mobail_pasohk_pro"><input type="text" class="form-control tel" id="amniatAnswerStock" onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
           </div>
           <div class="captcha">
             <span class="captcha4">{!! captcha_img() !!}</span>
             <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
           </div>
           <div class="button">
-            <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="sabt_answer_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')">ثبت پاسخ</button>
+            <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="sabtAnswerStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')">ثبت پاسخ</button>
             <button type="button" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
           </div>
         </form>
       </div>
-      {{-- <div class=" modal-footer-pro-question">
-        <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="sabt_answer_pro({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')">ثبت پاسخ</button>
-        <button type="button" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
-      </div> --}}
     </div>
   </div>
 </div><!--end modal -->
 <!--modal ثبت پاسخ-->
-<div class="modal " id="end_answer_pro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-
-      <div class="modal-body modal_pro_add_sabad">
-          ممنون !! پاسخ شما ثبت شد .
-      </div>
-      <div class="modal_pro_add_sabad2">
-
-        <button type="button"  class="btn btn-success modal_pro_add_sabad3" data-dismiss="modal" >متوجه شدم !! </button>
-
-
-      </div>
-    </div>
-  </div>
+<div class="modal " id="endAnswerStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content"><div class="modal-body alert alert-success  alertQuestionSuccess">ممنون !! پاسخ شما ثبت شد .</div>
+      <div class="divQuestionModal"><button type="button"  class="btn btn-info" data-dismiss="modal" >متوجه شدم !! </button></div>
+    </div></div>
 </div><!--end modal -->
 @endsection

@@ -188,6 +188,7 @@ return [
       'codeRahgiry' => 'کد رهگیری پستی',
       'dimension' => 'ابعاد محصول',
       'question' => 'پرسش',
+      'answer' => 'پاسخ',
     ],
 
 ];

@@ -134,53 +134,53 @@ function Explain_active(class1 , class2){
  function question_id(id) {
    $.cookie("question", id);
  }
- function sabt_answer_pro(id,name) {
-   var mobail=$('#mobail_pro_answer').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+ // ثبت پاسخ به سوال در محصول ثابت
+ function sabtAnswerStock(pro_id,name) {
+   let mobail=$('#mobailAnswerStock').val();const check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'post',
      url:'/sabt_answer_pro',
      data: {
           question_id:$.cookie("question"),
-          pro_id: id ,
-          name:$('#name_pro_answer').val(),
-          mobail:mobail,
-          email:$('#email_pro_answer').val(),
-          answer:$('#answer_pro_answer').val(),
-          amniat:$('#amniat_pro_answer').val(),
+          pro_id ,
+          name:$('#nameAnswerStock').val(),
+          mobail,
+          email:$('#emailAnswerStock').val(),
+          answer:$('#answerAnswerStock').val(),
+          amniat:$('#amniatAnswerStock').val(),
           },
      success:function(data){
-       $('#alarm_pro_answer').empty();
-       document.getElementById("form_answer_pro").reset();
+       $('#formAnswerAjaxStock').empty();
+       document.getElementById("formAnswerStock").reset();
        $('#modalAnswerStock').modal('hide');
-       $('#end_answer_pro').modal('show');
-       $("#end_answer_pro").on('hide.bs.modal', function () {
-
+       $('#endAnswerStock').modal('show');
+       $("#endAnswerStock").on('hide.bs.modal', function () {
          $.removeCookie("question");
-         window.location.href  = "/product/" + id + "/" + name;
+         window.location.href  = "/product/" + pro_id + "/" + name;
      });
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
-         scroll_form('.form_nazar_pro');
-         $('#alarm_pro_answer').empty();
+          $('#modalAnswerStock').scrollTop(0);
          $('.form-control').css("border-color" , "#fff");
          captcha();
           if(error['name']){
-            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['name']+'</div>');
-            $('#name_data_buyer').css("border-color" , "#c30909");
+            $('#formAnswerAjaxStock').html(`<div class="alert alert-danger">${error['name']}</div>`);
+            $('#nameAnswerStock').css("border-color" , "#c30909");
          }else if(error['mobail']){
-            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['mobail']+'</div>');
+            $('#formAnswerAjaxStock').html(`<div class="alert alert-danger">${error['mobail']}</div>`);
+            $('#mobailAnswerStock').css("border-color" , "#c30909");
          }else if(error['email']){
-            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['email']+'</div>');
-            $('#codepost_data_buyer').css("border-color" , "#c30909");
+            $('#formAnswerAjaxStock').html(`<div class="alert alert-danger">${error['email']}</div>`);
+            $('#emailAnswerStock').css("border-color" , "#c30909");
          }else if(error['answer']){
-            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['answer']+'</div>');
-            $('#address_data_buyer').css("border-color" , "#c30909");
+            $('#formAnswerAjaxStock').html(`<div class="alert alert-danger">${error['answer']}</div>`);
+            $('#answerAnswerStock').css("border-color" , "#c30909");
          }else if(error['amniat']){
-            $('#alarm_pro_answer').append('<div id="alarm_red">'+error['amniat']+'</div>');
-            $('#amniat_data_buyer').css("border-color" , "#c30909");
+            $('#formAnswerAjaxStock').html(`<div class="alert alert-danger">${error['amniat']}</div>`);
+            $('#amniatAnswerStock').css("border-color" , "#c30909");
          }
      }
    });
