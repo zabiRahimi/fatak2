@@ -230,19 +230,18 @@
                                 </div>
                                 <i class="fas fa-check-double"></i>
                               </div>
-                              <p class="pro_question_matn">{{$val_quest->question}} </p>
-                              <div class="pro_question_pasohk" data-toggle="modal" data-target="#modalAnswerStock" onclick="question_id({{$val_quest->id}}) ">پاسخ دهید</div>
+                              <p class="questionMatn">{{$val_quest->question}} </p>
+                              <div class="linkPasohk" data-toggle="modal" data-target="#modalAnswerStock" onclick="question_id({{$val_quest->id}}) ">پاسخ دهید</div>
                               {{-- پاسخهای داده شده --}}
                               @foreach ($answer_pro->where('question_pro_id' , $val_quest->id) as $val_answer)
-                              <div class="pro_pasohk_body">
-                                <div class="pro_pasohk_header">
-                                  <span>پاسخ از</span>
-                                  <div class="pro_pasohk_header2">
-                                    <h4>{{$val_answer->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{$val_answer->date}}</h4>
+                              <div class="pasohkBodyStock">
+                                <div class="pasohkHeaderStock">
+                                  <i class="fas fa-user-tie"></i>
+                                  <div class="pasohkNameDateStock">
+                                    <h4>{{$val_answer->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{verta($val_answer->date)->format('y/m/d')}}</h4>
                                   </div>
-                                  <i class="fas fa-check-double pro_tik_pasohk"></i>
                                 </div>
-                                <p class="pro_pasohk_matn">{{$val_answer->answer}}</p>
+                                <p class="pasohkMatn">{{$val_answer->answer}}</p>
                               </div>
                               @endforeach
                             </div>
