@@ -11,8 +11,10 @@ function Explain_active(class1 , class2){
     $('.showExplain_line').css('display' , 'none');
     $('.Explain_specs').css('display' , 'block');
     $('.Explain_question').css('display' , 'block');
+    $('.Explain_nazar').css('display' , 'block');
     $('.Explain_specs_line').css('display' , 'block');
     $('.Explain_question_line').css('display' , 'block');
+    $('.Explain_nazar_line').css('display' , 'block');
   }else{
     $('.showExplain').css('display' , 'block');
     $('.showExplain_line').css('display' , 'block');
@@ -20,8 +22,10 @@ function Explain_active(class1 , class2){
     $('.showExplain').html(divData);
     $('.Explain_specs').css('display' , 'block');
     $('.Explain_question').css('display' , 'block');
+    $('.Explain_nazar').css('display' , 'block');
     $('.Explain_specs_line').css('display' , 'block');
     $('.Explain_question_line').css('display' , 'block');
+    $('.Explain_nazar_line').css('display' , 'block');
     $(class2).css('display' , 'none')
     $(class2 + '_line').css('display' , 'none')
   }

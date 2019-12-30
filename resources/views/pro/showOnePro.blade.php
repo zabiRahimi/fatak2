@@ -93,7 +93,7 @@
                   <li class="Explain_li1  Explain_active" onclick="Explain_active('Explain_li1' , '.Explain_Explain')">  <i class="fas fa-clipboard-check"></i> توضیحات کالا </li>
                   <li class="Explain_li2 " onclick="Explain_active('Explain_li2', '.Explain_specs')"> <i class="fas fa-clipboard-list"></i> مشخصات کالا </li>
                   <li class="Explain_li3 " onclick="Explain_active('Explain_li3', '.Explain_question');captcha()"> <i class="fas fa-question-circle"></i> پرسش و پاسخ </li>
-                  <li class="Explain_li4" onclick="Explain_active('Explain_li4', 'Explain_userDis');captcha()"> <i class="fas fa-comment"></i> نظرات کاربران</li>
+                  <li class="Explain_li4" onclick="Explain_active('Explain_li4', '.Explain_nazar');captcha()"> <i class="fas fa-comment"></i> نظرات کاربران</li>
                 </ul>
                 {{-- این تگ صرفا جهت نمایش دو قسمت مشخصات کالا و پرسش و پاسخ است هنگامی که کاربر دکمه متناظر با آن را فشار می دهد --}}
                 <div class="showExplain Explain_body"></div>
@@ -214,6 +214,84 @@
                             </div>
                             <div class="button">
                                 <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="sabtQuestionStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت پرسش</h5></button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
+                            </div>
+                          </form>
+                          {{-- پاسخها --}}
+                          <div class="questionAnswer_stock"> <i class="fas fa-list-alt"></i> پرسشهای کاربران و پاسخها</div>
+                          <div class="panel-body questionPanel">
+                            @if (count($question_pro)>0)
+                            @foreach ($question_pro as  $val_quest)
+                            <div class="questionBodyStock">
+                              <div class="questionHeaderStock">
+                                <i class="fas fa-user-tie"></i>
+                                <div class="questionNameDateStock">
+                                  <h4>{{$val_quest->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{verta($val_quest->date)->format('y/m/d')}}</h4>
+                                </div>
+                                <i class="fas fa-check-double"></i>
+                              </div>
+                              <p class="questionMatn">{{$val_quest->question}} </p>
+                              <div class="linkAnswer" data-toggle="modal" data-target="#modalAnswerStock" onclick="question_id({{$val_quest->id}}) ">پاسخ دهید</div>
+                              {{-- پاسخهای داده شده --}}
+                              @foreach ($answer_pro->where('question_pro_id' , $val_quest->id) as $val_answer)
+                              <div class="answerBodyStock">
+                                <div class="answerHeaderStock">
+                                  <i class="fas fa-user-tie"></i>
+                                  <div class="answerNameDateStock">
+                                    <h4>{{$val_answer->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{verta($val_answer->date)->format('y/m/d')}}</h4>
+                                  </div>
+                                </div>
+                                <p class="answerMatn">{{$val_answer->answer}}</p>
+                              </div>
+                              @endforeach
+                            </div>
+                          @endforeach
+                          @else
+                            <div class="alert alert-warning right">
+                              تا کنون سوالی برای این محصول مطرح نشده!!
+                              شما اولین نفری باشید که سوال مطرح میکنید .
+                            </div>
+                          @endif
+                        </div>
+                    </div>
+                </div>
+                <div class="Explain_line Explain_nazar_line"></div>
+                <div class="Explain_body Explain_nazar">
+                    <div class="Explain_titr">
+                        نظرات کاربران
+                    </div>
+                    <div class="Explain_matn">
+                          {{-- <p class="questionPStock"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p> --}}
+                          <form class="formNazarStock" id="formNazarStock"method="post">
+                            <div class="NotPropagateEmail">ایمیل و موبایل شما منتشر نمی شود</div>
+                            <div id="formNazarAjaxStock"></div>
+
+                            <div class="form-group">
+                                <label for="nameNazarStock" class="control-label pull-right  ">نام </label>
+                                <div class="mobail_Nazar_pro"><input type="text" class="form-control" id="nameNazarStock"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobailNazarStock" class="control-label pull-right ">موبایل ( اختیاری )</label>
+                                <div class="mobail_Nazar_pro"><input type="text" class="form-control" id="mobailNazarStock"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="emailNazarStock" class="control-label pull-right ">ایمیل ( اختیاری )</label>
+                                <div class="mobail_Nazar_pro"><input type="text" class="form-control" id="emailNazarStock"></div>
+                            </div>
+                            <div class="form-group form-group2">
+                                <label for="questionNazarStock" class="control-label pull-right ">پرسش</label>
+                                <div class="mobail_Nazar_pro"><textarea name="name" class="form-control" id="questionNazarStock" rows="4" cols="80"></textarea></div>
+                            </div>
+                            <div class="form-group" >
+                                <label for="amniatNazarStock" class="control-label pull-right ">کد امنیتی </label>
+                                <div class="mobail_Nazar_pro"><input type="text" class="form-control tel placeholder" id="amniatNazarStock" placeholder="کد امنیتی زیر را وارد کنید ..."  onblur="changeAdadFaToEn('amniat_pro_nazar')"></div>
+                            </div>
+                            <div class="captcha">
+                                <span class="captcha4">{!! captcha_img() !!}</span>
+                                <button type="button" class="btn btn-succpro" onclick="captcha()" id="refresh"><i class="fas fa-sync-alt"></i></button>
+                            </div>
+                            <div class="button">
+                                <button type="button" id="submit_pro_Nazar" class="btn btn-primary btn-block" onclick="sabtNazarStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت نظر</h5></button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
                             </div>
                           </form>
