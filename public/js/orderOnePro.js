@@ -39,49 +39,50 @@ function Explain_active(class1 , class2){
  }
 
 
- function sabt_nazar_pro(id,name) {
-   var mobail=$('#mobail_pro_nazar').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+ function sabtNazarStock(pro_id,name) {
+   let mobail=$('#mobailNazarStock').val();const check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'post',
-     url:'/sabt_nazar_pro',
+     url:'/sabtNazarStock',
      data: {
-          pro_id: id ,
-          name:$('#name_pro_nazar').val(),
-          mobail:mobail,
-          email:$('#email_pro_nazar').val(),
-          nazar:$('#nazar_pro_nazar').val(),
-          amniat:$('#amniat_pro_nazar').val(),
+          pro_id ,
+          name:$('#nameNazarStock').val(),
+          mobail,
+          email:$('#emailNazarStock').val(),
+          nazar:$('#nazarNazarStock').val(),
+          amniat:$('#amniatNazarStock').val(),
           },
      success:function(data){
-       $('#alarm_pro_nazar').empty();
-       document.getElementById("form_nazar_pro").reset();
-       $('#end_nazar_pro').modal('show');
-       $("#end_nazar_pro").on('hide.bs.modal', function () {
-       window.location.href  = "/product/" + id + "/" + name;
+       $('#formNazarAjaxStock').empty();
+       document.getElementById("formNazarStock").reset();
+       $('#endNazarStock').modal('show');
+       $("#endNazarStock").on('hide.bs.modal', function () {
+       window.location.href  = "/product/" + pro_id + "/" + name;
      });
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
-         scroll_form('.form_nazar_pro');
-         $('#alarm_pro_nazar').empty();
+         scroll_form('.formNazarStock');
          $('.form-control').css("border-color" , "#fff");
          captcha();
           if(error['name']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['name']+'</div>');
-            $('#name_data_buyer').css("border-color" , "#c30909");
+            $('#formNazarAjaxStock').html(`<div class="alert alert-danger">${error['name']}</div>`);
+            $('#nameNazarStock').css("border-color" , "#c30909");
          }else if(error['mobail']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['mobail']+'</div>');
+            $('#formNazarAjaxStock').html(`<div class="alert alert-danger">${error['mobail']}</div>`);
+            $('#mobailNazarStock').css("border-color" , "#c30909");
+
          }else if(error['email']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['email']+'</div>');
-            $('#codepost_data_buyer').css("border-color" , "#c30909");
+            $('#formNazarAjaxStock').html(`<div class="alert alert-danger">${error['email']}</div>`);
+            $('#emailNazarStock').css("border-color" , "#c30909");
          }else if(error['nazar']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['nazar']+'</div>');
-            $('#address_data_buyer').css("border-color" , "#c30909");
+            $('#formNazarAjaxStock').html(`<div class="alert alert-danger">${error['nazar']}</div>`);
+            $('#nazarNazarStock').css("border-color" , "#c30909");
          }else if(error['amniat']){
-            $('#alarm_pro_nazar').append('<div id="alarm_red">'+error['amniat']+'</div>');
-            $('#amniat_data_buyer').css("border-color" , "#c30909");
+            $('#formNazarAjaxStock').html(`<div class="alert alert-danger">${error['amniat']}</div>`);
+            $('#amniatNazarStock').css("border-color" , "#c30909");
          }
      }
    });

@@ -35,17 +35,16 @@ class ProController extends Controller
     return  view('pro.showOnePro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro'
      ,'numProSabad','check','shop'));
   }
-  public function sabt_nazar_pro(Save_pro_nazar $request)
+  public function sabtNazarStock(Save_pro_nazar $request)
   {
-    $date1=new Verta();//تاریخ جلالی
-    $date=$date1->format('Y/n/j');
+
     $add=new NazarPro();
     $add->pro_id=$request->pro_id;
     $add->name=$request->name;
     $add->mobail=$request->mobail;
     $add->email=$request->email;
     $add->nazar=$request->nazar;
-    $add->date=$date;
+    $add->date=time();
     $add->show=1;
     $add->save();
   }

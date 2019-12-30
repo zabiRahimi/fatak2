@@ -82,21 +82,21 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
 .questionPStock{width: 700px; margin: 1px calc((100% - 700px) / 2); padding: 0 10px 0 3px;float: right;text-align: justify;border: 1px solid #ecdfe4; border-radius: 4px;}
 .questionPStock i{position: relative; top: 3px; right: 0; margin-left:8px;color: #369034; font-size: 16px;}
 
-.formQuestionStock,.formAnswerStock{width: 700px; margin: 8px calc((100% - 700px) / 2);padding: 2px 5px;float: right; border-radius: 6px; background-color: #eeeeee;}
-.formQuestionStock .NotPropagateEmail ,.formAnswerStock .NotPropagateEmail{width:100%; float: right;margin: 3px 0; background-color: #d7f1ac;font-size: 12px; text-align: center;border-radius: 4px;}
-#formQuestionAjaxStock , #formAnswerAjaxStock{width: 100%;float: right;text-align: right;}
-.formQuestionStock .form-group,.formAnswerStock .form-group{width: 100%;float: right; margin-bottom: 5px; background-color: #ced4d9; padding: 2px 0 2px 2px; border-radius: 3px;}
-.formQuestionStock .form-group label,.formAnswerStock .form-group label{width: 30%;line-height: 13px; float: right;position: relative; top:8px; padding-right: 16px;}
-.formQuestionStock .form-group input,.formAnswerStock .form-group input{width: 70%;height: 30px;  float: right;}
-.formQuestionStock .form-group2 label{width: 100%;height: 18px;line-height: 8px; float: right;position: relative;  padding-right: 16px;}
-.formQuestionStock .form-group2 textarea,.formAnswerStock .form-group textarea{width: 100%; float: right;}
-.formQuestionStock .captcha,.formAnswerStock .captcha{width: 70%; float: left; text-align: center;}
-.formQuestionStock .captcha span,.formAnswerStock .captcha span{display: inline-block;height: 38px;padding: 1px;background-color: #5a8199;}
-.formQuestionStock .captcha button,.formAnswerStock .captcha button{padding: 4px; background-color: #1b75ec;}
-.formQuestionStock .captcha i,.formAnswerStock .captcha i{position: relative;top: 3px;font-size: 20px;}
-.formQuestionStock .button,.formAnswerStock .button{width: 100%; float: right; margin: 3px 0 4px; padding:6px 36px 4px;border-top: 1px outset #d2d2d2;}
-.formQuestionStock .button button:first-child,.formAnswerStock .button button:first-child{ width: auto; height: auto;padding: 5px 30px;float: right;}
-.formQuestionStock .button button:last-child,.formAnswerStock .button button:last-child{ width: auto; height: auto;padding: 5px 20px;float: left;}
+.formQuestionStock,.formAnswerStock,.formNazarStock{width: 700px; margin: 8px calc((100% - 700px) / 2);padding: 2px 5px;float: right; border-radius: 6px; background-color: #eeeeee;}
+.formQuestionStock .NotPropagateEmail ,.formAnswerStock .NotPropagateEmail,.formNazarStock .NotPropagateEmail{width:100%; float: right;margin: 3px 0; background-color: #d7f1ac;font-size: 12px; text-align: center;border-radius: 4px;}
+#formQuestionAjaxStock , #formAnswerAjaxStock, #formNazarAjaxStock{width: 100%;float: right;text-align: right;}
+.formQuestionStock .form-group,.formAnswerStock .form-group,.formNazarStock .form-group{width: 100%;float: right; margin-bottom: 5px; background-color: #ced4d9; padding: 2px 0 2px 2px; border-radius: 3px;}
+.formQuestionStock .form-group label,.formAnswerStock .form-group label,.formNazarStock .form-group label{width: 30%;line-height: 13px; float: right;position: relative; top:8px; padding-right: 16px;}
+.formQuestionStock .form-group input,.formAnswerStock .form-group input,.formNazarStock .form-group input{width: 70%;height: 30px;  float: right;}
+.formQuestionStock .form-group2 label,.formNazarStock .form-group2 label{width: 100%;height: 18px;line-height: 8px; float: right;position: relative;  padding-right: 16px;}
+.formQuestionStock .form-group2 textarea,.formAnswerStock .form-group textarea,.formNazarStock .form-group textarea{width: 100%; float: right;}
+.formQuestionStock .captcha,.formAnswerStock .captcha,.formNazarStock .captcha{width: 70%; float: left; text-align: center;}
+.formQuestionStock .captcha span,.formAnswerStock .captcha span,.formNazarStock .captcha span{display: inline-block;height: 38px;padding: 1px;background-color: #5a8199;}
+.formQuestionStock .captcha button,.formAnswerStock .captcha button,.formNazarStock .captcha button{padding: 4px; background-color: #1b75ec;}
+.formQuestionStock .captcha i,.formAnswerStock .captcha i,.formNazarStock .captcha i{position: relative;top: 3px;font-size: 20px;}
+.formQuestionStock .button,.formAnswerStock .button,.formNazarStock .button{width: 100%; float: right; margin: 3px 0 4px; padding:6px 36px 4px;border-top: 1px outset #d2d2d2;}
+.formQuestionStock .button button:first-child,.formAnswerStock .button button:first-child,.formNazarStock .button button:first-child{ width: auto; height: auto;padding: 5px 30px;float: right;}
+.formQuestionStock .button button:last-child,.formAnswerStock .button button:last-child,.formNazarStock .button button:last-child{ width: auto; height: auto;padding: 5px 20px;float: left;}
 
 .formAnswerStock{width: calc(100% - 6px); margin: 8px 3px;}
 .formAnswerStock .form-group label{width: 100%;height: 12px;line-height:4px;font-size: 14px;text-align: right;}
@@ -111,15 +111,15 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
 
 .questionPanelStock{width: 98%; margin: 2px 1%;float: right;}
 
-.questionBodyStock , .answerBodyStock{width: 100%; padding:0 0 2px;margin-top: 3px; margin-bottom: 6px;border: 1px solid #d4d4d4; border-radius: 4px; float: right; box-shadow: 0 4px 6px -6px #777;}
-.questionHeaderStock ,.answerHeaderStock{width: 100%; height: 28px; margin-bottom: 5px;padding: 0 8px; background-color: #f2f2f2;border-bottom: 1px solid #ececec;border-radius: 4px 4px 0 0 ;  float: right;}
-.questionHeaderStock i:first-child ,.answerHeaderStock i:first-child{float: right; margin:2px;color: #2743c1; font-size: 18px;}
-.questionHeaderStock i:last-child{float: left; margin-top:4px;  color: #7dab88; font-size: 16px;}
-.questionNameDateStock ,.answerNameDateStock{width: auto;height: 21px;margin: 2px 4px 0 0; padding: 0 14px 0.5px; border-radius: 6px; background-color: #f0f0f0; float: right;box-shadow: 0 1px 4px -1px #777;}
-.questionNameDateStock h4,.answerNameDateStock h4{ display: inline; width:initial; position: relative;}
-.questionNameDateStock h4:first-child,.answerNameDateStock h4:first-child{color: #1e886c;font-size: 18px;top: -1px;}
-.questionNameDateStock h4:last-child ,.answerNameDateStock h4:last-child{font-size: 12px;right: 3px;}
-.questionBodyStock .questionMatn ,.answerBodyStock .answerMatn{margin-bottom: 1px;padding: 0 10px 2px; text-align: justify; float: right;}
+.questionBodyStock , .answerBodyStock, .nazarBodyStock{width: 100%; padding:0 0 2px;margin-top: 3px; margin-bottom: 6px;border: 1px solid #d4d4d4; border-radius: 4px; float: right; box-shadow: 0 4px 6px -6px #777;}
+.questionHeaderStock ,.answerHeaderStock,.nazarHeaderStock{width: 100%; height: 28px; margin-bottom: 5px;padding: 0 8px; background-color: #f2f2f2;border-bottom: 1px solid #ececec;border-radius: 4px 4px 0 0 ;  float: right;}
+.questionHeaderStock i:first-child ,.answerHeaderStock i:first-child ,.nazarHeaderStock i:first-child{float: right; margin:2px;color: #2743c1; font-size: 18px;}
+.questionHeaderStock i:last-child,.nazarHeaderStock i:last-child{float: left; margin-top:4px;  color: #7dab88; font-size: 16px;}
+.questionNameDateStock ,.answerNameDateStock,.nazarNameDateStock{width: auto;height: 21px;margin: 2px 4px 0 0; padding: 0 14px 0.5px; border-radius: 6px; background-color: #f0f0f0; float: right;box-shadow: 0 1px 4px -1px #777;}
+.questionNameDateStock h4,.answerNameDateStock h4,.nazarNameDateStock h4{ display: inline; width:initial; position: relative;}
+.questionNameDateStock h4:first-child,.answerNameDateStock h4:first-child,.nazarNameDateStock h4:first-child{color: #1e886c;font-size: 18px;top: -1px;}
+.questionNameDateStock h4:last-child ,.answerNameDateStock h4:last-child,.nazarNameDateStock h4:last-child{font-size: 12px;right: 3px;}
+.questionBodyStock .questionMatn ,.answerBodyStock .answerMatn,.nazarBodyStock .nazarMatn{margin-bottom: 1px;padding: 0 10px 2px; text-align: justify; float: right;}
 .questionBodyStock .linkAnswer{width: 100%; float: left; padding: 1px 3px 6px 6px;text-align: left; color: #4682b3; text-decoration: underline; cursor: pointer;}
 
 .answerBodyStock{width: calc(100% - 8px);margin: 3px 3px;background-color: #f7f7ec;}
@@ -234,7 +234,7 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
   .question_explain_p,.question_explain_p2{width: 100%; margin: 1px 0; }
   .question_explain_danger{width: 100%; margin: 2px 0; padding: 0 3px;}
   .questionPStock{width: 100%; margin: 1px 0; }
-  .formQuestionStock{width: 100%; margin: 8px 0;}
+  .formQuestionStock,.formNazarStock{width: 100%; margin: 8px 0;}
 
 }
 @media (max-width:576px) {
@@ -270,11 +270,11 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
   .explain_row div:first-child , .explain_row div:last-child{width: 100%;}
   .explain_row div:first-child{height: 20px;line-height: 20px;border-radius: 3px 3px 0 0;}
   .explain_row div:last-child{height: auto;min-height: 10px;}
-  .formQuestionStock .form-group label{width: 100%;height: 10px;line-height: 15px; top: 0;}
-  .formQuestionStock .form-group input{width: 100%;}
-  .formQuestionStock .form-group2 label{width: 100%;height: 10px;line-height: 15px; }
-  .formQuestionStock .button,.formAnswerStock .button{ padding:6px 6px 4px;}
-  .formQuestionStock .captcha{width: 100%;}
+  .formQuestionStock .form-group label,.formNazarStock .form-group label{width: 100%;height: 10px;line-height: 15px; top: 0;}
+  .formQuestionStock .form-group input,.formNazarStock .form-group input{width: 100%;}
+  .formQuestionStock .form-group2 label,.formNazarStock .form-group2 label{width: 100%;height: 10px;line-height: 15px; }
+  .formQuestionStock .button,.formAnswerStock .button,.formNazarStock .button{ padding:6px 6px 4px;}
+  .formQuestionStock .captcha,.formNazarStock .captcha{width: 100%;}
 }
 @media (max-width:332px) {
   .titrShowPro{height: 30px;line-height: 30px;}
@@ -298,8 +298,8 @@ li.Explain_active{border-bottom: 6px solid #03695c;border-left: none;color:#0369
   .Explain_ul li{min-width: 70px;height: 29px;line-height: 25px;padding: 0 3px 0 2px; border-bottom-width: 4px;font-size: 14px;}
   .Explain_ul li i{position: relative; left: 1px;font-size: 12px;}
   .explain_row{width: calc(50% - 2px); margin: 2px 1px;}
-  .formQuestionStock .button,.formAnswerStock .button{ padding:6px 3px 4px;}
-  .formQuestionStock .button button:first-child,.formAnswerStock .button button:first-child{ padding: 5px 13px;}
-  .formQuestionStock .button button:last-child,.formAnswerStock .button button:last-child{ padding: 5px 8px;}
+  .formQuestionStock .button,.formAnswerStock .button,.formNazarStock .button{ padding:6px 3px 4px;}
+  .formQuestionStock .button button:first-child,.formAnswerStock .button button:first-child,.formNazarStock .button button:first-child{ padding: 5px 13px;}
+  .formQuestionStock .button button:last-child,.formAnswerStock .button button:last-child,.formNazarStock .button button:last-child{ padding: 5px 8px;}
 
 }

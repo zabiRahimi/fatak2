@@ -185,6 +185,7 @@
                     <div class="Explain_matn">
                           <p class="questionPStock"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p>
                           <form class="formQuestionStock" id="formQuestionStock"method="post">
+                            {{ csrf_field() }}
                             <div class="NotPropagateEmail">ایمیل و موبایل شما منتشر نمی شود</div>
                             <div id="formQuestionAjaxStock"></div>
 
@@ -255,6 +256,7 @@
                         </div>
                     </div>
                 </div>
+                {{-- نظرات کاربران --}}
                 <div class="Explain_line Explain_nazar_line"></div>
                 <div class="Explain_body Explain_nazar">
                     <div class="Explain_titr">
@@ -263,6 +265,7 @@
                     <div class="Explain_matn">
                           {{-- <p class="questionPStock"> <i class="fas fa-info-circle"></i>جهت پاسخ سریع با شماره <span>09178023733</span> تماس بگیرید . و یا اینکه از فرم زیر استفاده کنید . </p> --}}
                           <form class="formNazarStock" id="formNazarStock"method="post">
+                            {{ csrf_field() }}
                             <div class="NotPropagateEmail">ایمیل و موبایل شما منتشر نمی شود</div>
                             <div id="formNazarAjaxStock"></div>
 
@@ -279,8 +282,8 @@
                                 <div class="mobail_Nazar_pro"><input type="text" class="form-control" id="emailNazarStock"></div>
                             </div>
                             <div class="form-group form-group2">
-                                <label for="questionNazarStock" class="control-label pull-right ">پرسش</label>
-                                <div class="mobail_Nazar_pro"><textarea name="name" class="form-control" id="questionNazarStock" rows="4" cols="80"></textarea></div>
+                                <label for="nazarNazarStock" class="control-label pull-right ">نظر</label>
+                                <div class="mobail_Nazar_pro"><textarea name="name" class="form-control" id="nazarNazarStock" rows="4" cols="80"></textarea></div>
                             </div>
                             <div class="form-group" >
                                 <label for="amniatNazarStock" class="control-label pull-right ">کد امنیتی </label>
@@ -292,42 +295,29 @@
                             </div>
                             <div class="button">
                                 <button type="button" id="submit_pro_Nazar" class="btn btn-primary btn-block" onclick="sabtNazarStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت نظر</h5></button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('formNazarStock')"><h5>پاک کن</h5> </button>
                             </div>
                           </form>
-                          {{-- پاسخها --}}
-                          <div class="questionAnswer_stock"> <i class="fas fa-list-alt"></i> پرسشهای کاربران و پاسخها</div>
-                          <div class="panel-body questionPanel">
-                            @if (count($question_pro)>0)
-                            @foreach ($question_pro as  $val_quest)
-                            <div class="questionBodyStock">
-                              <div class="questionHeaderStock">
+                          {{-- نظرات --}}
+                          <div class="questionAnswer_stock"> <i class="fas fa-list-alt"></i>  نظرات</div>
+                          <div class="panel-body nazarPanel">
+                            @if (count($nazar_pro)>0)
+                            @foreach ($nazar_pro as  $nazar)
+                            <div class="nazarBodyStock">
+                              <div class="nazarHeaderStock">
                                 <i class="fas fa-user-tie"></i>
-                                <div class="questionNameDateStock">
-                                  <h4>{{$val_quest->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{verta($val_quest->date)->format('y/m/d')}}</h4>
+                                <div class="nazarNameDateStock">
+                                  <h4>{{$nazar->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{verta($nazar->date)->format('y/m/d')}}</h4>
                                 </div>
                                 <i class="fas fa-check-double"></i>
                               </div>
-                              <p class="questionMatn">{{$val_quest->question}} </p>
-                              <div class="linkAnswer" data-toggle="modal" data-target="#modalAnswerStock" onclick="question_id({{$val_quest->id}}) ">پاسخ دهید</div>
-                              {{-- پاسخهای داده شده --}}
-                              @foreach ($answer_pro->where('question_pro_id' , $val_quest->id) as $val_answer)
-                              <div class="answerBodyStock">
-                                <div class="answerHeaderStock">
-                                  <i class="fas fa-user-tie"></i>
-                                  <div class="answerNameDateStock">
-                                    <h4>{{$val_answer->name}}</h4>&nbsp;&nbsp;&nbsp;&nbsp;<h4>{{verta($val_answer->date)->format('y/m/d')}}</h4>
-                                  </div>
-                                </div>
-                                <p class="answerMatn">{{$val_answer->answer}}</p>
-                              </div>
-                              @endforeach
+                              <p class="nazarMatn">{{$nazar->nazar}} </p>
+
                             </div>
                           @endforeach
                           @else
                             <div class="alert alert-warning right">
-                              تا کنون سوالی برای این محصول مطرح نشده!!
-                              شما اولین نفری باشید که سوال مطرح میکنید .
+                                تا کنون برای این محصول نظری داده نشده !! شما اولین نفر باشید که نظر می دهید .
                             </div>
                           @endif
                         </div>
@@ -348,6 +338,7 @@
   <div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header modalAnswerheaderStock"><h5 class="modal-title ">پاسخ </h5><span aria-hidden="true"data-dismiss="modal" aria-label="Close">&times;</span></div>
       <div class="modal-body modalAnswerBodyStock">
          <form class="formAnswerStock" id="formAnswerStock" action="" method="post">
+           {{ csrf_field() }}
           <div class="NotPropagateEmail">ایمیل و موبایل شما منتشر نمی شود</div>
           <div id="formAnswerAjaxStock"></div>
           <div class="form-group">
@@ -388,5 +379,11 @@
     <div class="modal-content"><div class="modal-body alert alert-success  alertQuestionSuccess">ممنون !! پاسخ شما ثبت شد .</div>
       <div class="divQuestionModal"><button type="button"  class="btn btn-info" data-dismiss="modal" >متوجه شدم !! </button></div>
     </div></div>
+</div><!--end modal -->
+<!--modal ثبت نظر -->
+<div class="modal " id="endNazarStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-body alert alert-success  alertQuestionSuccess"> ممنون !! نظر شما ثبت شد  </div>
+    <div class="divQuestionModal"><button type="button"  class="btn btn-info" data-dismiss="modal" >متوجه شدم !! </button>  </div>
+  </div></div>
 </div><!--end modal -->
 @endsection

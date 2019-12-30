@@ -189,6 +189,7 @@ return [
       'dimension' => 'ابعاد محصول',
       'question' => 'پرسش',
       'answer' => 'پاسخ',
+      'nazar' => 'نظر',
     ],
 
 ];

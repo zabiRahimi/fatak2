@@ -21,7 +21,7 @@ class CreateNazarproTable extends Migration
           $table->string('mobail' , 13)->nullable();
           $table->string('email' , 150)->nullable();
           $table->text('nazar');
-          $table->date('date');
+          $table->integer('date');
           $table->mediumInteger('like')->nullable();
           $table->mediumInteger('unlike')->nullable();
           $table->boolean('show');
