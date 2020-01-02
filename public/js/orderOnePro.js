@@ -232,18 +232,30 @@ function add_pro_sabad(id){
 // footer: 'footer-class'
 // })
              Swal.fire({
-                        html:'<div class="alert alert-success">محصول با موفقیت به سبد خرید اضافه شد !!</div>',
+                        html:'<div class="alert alert-success " id="fgg">محصول با موفقیت به سبد خرید اضافه شد !!</div>',
                         type:'success',
                         showCloseButton: true,
                         showCancelButton: true,
-                        focusConfirm: false,
                         confirmButtonText:"مشاهده سبد خرید" ,
                         cancelButtonText:"خرید محصول دیگر" ,
                         cancelButtonColor:'#0d6394',
-
-
+                        customClass: {
+                        // container: 'container-class',
+                        // popup: 'popup-class',
+                        // header: 'header-class',
+                        // title: 'title-class',
+                        closeButton: 'close-button-class',
+                        // icon: 'icon-class',
+                        // image: 'image-class',
+                        // content: 'content-class',
+                        // input: 'input-class',
+                        // actions: 'actions-class',
+                        // confirmButton: 'confirm-button-class',
+                        // cancelButton: 'cancel-button-class',
+                        // footer: 'footer-class'
+                        }
                       }).then((result) => {if (result.value) {window.location.href=`/show_sabad_pro`;}}
-)
+                    )
          // $('#pro_add_sabad').modal('show');
      },
      error:function(){alert(56)}
