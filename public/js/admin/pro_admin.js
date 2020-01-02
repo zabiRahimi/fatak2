@@ -168,8 +168,7 @@ else{
          },
          success: function(data) {
            scroll_form_admin('add_pro_form1');
-
-           document.getElementById("add_pro_form1").reset();
+           $('#add_pro_form1').trigger('reset');//del form
            $('#ajax_formaddpro1_admin').html('<div class="alert alert-success">محصول با موفقیت ذخیره شد</div>');
            // scroll_form('data_buyer');
            // end_buy();
@@ -402,7 +401,7 @@ else{
        },
        success: function(data) {
          scroll_form_admin('edit_pro_form1');
-         document.getElementById("edit_pro_form1").reset();
+         $('#edit_pro_form1').trigger('reset');//del form
          var urlpro="/edit_pro/"+ id +"";
            window.location.href  = urlpro;
             $('#ajax_formeditpro1_admin').html('<div class="alert alert-success">محصول با موفقیت ذخیره شد</div>');

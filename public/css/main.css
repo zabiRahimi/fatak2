@@ -124,8 +124,8 @@ display:inline;
 .i_rahnama:hover{color: #414141;}
 .i_form{position: relative; margin-left: 10px;}
 .captcha_form {width: 65%; float: left; text-align: center;}
-.captcha_form span {display: inline-block;height: 38px;background-color: #829077; padding: 1px;}
-.captcha_form button {padding: 4px; background-color: #6da7e0;}
+.captcha_form span {width: 122px;height:auto;padding:1px;background-color: #829077; display: inline-block;}
+.captcha_form button {padding:2px 4px; background-color: #6da7e0;}
 .captcha_form i {position: relative;top: 3px;font-size: 20px;}
 .form_btn{text-align: center;margin-top: 5px; padding: 4px 3px;}
 .form_btn button {width: 160px;font-size: 18px;}
@@ -277,3 +277,4 @@ display:inline;
   .div_search_c2 span{display: inline-block;width: 40px;text-align: center;}
   .div_search_c2 select{width: 145px;}
 }
+swal.icon{font-size: 5px ;}

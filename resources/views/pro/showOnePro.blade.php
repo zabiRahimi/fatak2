@@ -68,7 +68,7 @@
                     <span class="priceIUCSP_s3">تومان</span>
                   @endif
                 </div>
-                <div class="divBtnKharid divBtnKharid_p" onclick="window.location.href='/showSabadOrder/{{$show_pro->id}}'">
+                <div class="divBtnKharid divBtnKharid_p" onclick="add_pro_sabad({{$show_pro->id}})">
                    <i class="fas fa-cart-plus"></i> <span class="">افزودن به سبد خرید</span>
                 </div>
                 <div class="addSeller">
@@ -203,7 +203,7 @@
                             </div>
                             <div class="form-group form-group2">
                                 <label for="questionQuestionsStock" class="control-label pull-right ">پرسش</label>
-                                <div class="mobail_question_pro"><textarea name="name" class="form-control" id="questionQuestionsStock" rows="4" cols="80"></textarea></div>
+                                <div class="mobail_question_pro"><textarea name="name" class="form-control" id="questionQuestionsStock" rows="2" cols="80"></textarea></div>
                             </div>
                             <div class="form-group" >
                                 <label for="amniatQuestionsStock" class="control-label pull-right ">کد امنیتی </label>
@@ -215,7 +215,7 @@
                             </div>
                             <div class="button">
                                 <button type="button" id="submit_pro_question" class="btn btn-primary btn-block" onclick="sabtQuestionStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت پرسش</h5></button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('form_nazar_pro')"><h5>پاک کن</h5> </button>
+                                <button type="reset" class="btn btn-danger" ><h5>پاک کن</h5> </button>
                             </div>
                           </form>
                           {{-- پاسخها --}}
@@ -283,7 +283,7 @@
                             </div>
                             <div class="form-group form-group2">
                                 <label for="nazarNazarStock" class="control-label pull-right ">نظر</label>
-                                <div class="mobail_Nazar_pro"><textarea name="name" class="form-control" id="nazarNazarStock" rows="4" cols="80"></textarea></div>
+                                <div class="mobail_Nazar_pro"><textarea name="name" class="form-control" id="nazarNazarStock" rows="2" cols="80"></textarea></div>
                             </div>
                             <div class="form-group" >
                                 <label for="amniatNazarStock" class="control-label pull-right ">کد امنیتی </label>
@@ -295,7 +295,7 @@
                             </div>
                             <div class="button">
                                 <button type="button" id="submit_pro_Nazar" class="btn btn-primary btn-block" onclick="sabtNazarStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')"><h5>ثبت نظر</h5></button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="del_form('formNazarStock')"><h5>پاک کن</h5> </button>
+                                <button type="reset" class="btn btn-danger" ><h5>پاک کن</h5> </button>
                             </div>
                           </form>
                           {{-- نظرات --}}
@@ -355,7 +355,7 @@
           </div>
           <div class="form-group">
             <label for="answerAnswerStockr" class="control-label pull-right ">پاسخ</label>
-            <div class="mobail_pasohk_pro1"><textarea name="name" class="form-control" id="answerAnswerStock" rows="4" cols="80"></textarea></div>
+            <div class="mobail_pasohk_pro1"><textarea name="name" class="form-control" id="answerAnswerStock" rows="2" cols="80"></textarea></div>
           </div>
           <div class="form-group" >
             <label for="amniatAnswerStock" class="control-label pull-right ">کد امنیتی </label>
@@ -367,7 +367,7 @@
           </div>
           <div class="button">
             <button type="button" class="btn btn-primary modal-footer-pro-question1" onclick="sabtAnswerStock({{$show_pro->id}},'{{str_replace(" ","-","$show_pro->name")}}')">ثبت پاسخ</button>
-            <button type="button" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
+            <button type="reset" class="btn btn-secondary modal-footer-pro-question2" data-dismiss="modal">خروج</button>
           </div>
         </form>
       </div>
@@ -385,5 +385,22 @@
   <div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-body alert alert-success  alertQuestionSuccess"> ممنون !! نظر شما ثبت شد  </div>
     <div class="divQuestionModal"><button type="button"  class="btn btn-info" data-dismiss="modal" >متوجه شدم !! </button>  </div>
   </div></div>
+</div><!--end modal -->
+<!--modal پیام اضافه شدن به سبد خرید -->
+<div class="modal " id="pro_add_sabad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-body modal_pro_add_sabad">
+          این محصول با موفقیت به سبد خرید شما اضافه شد !
+      </div>
+      <div class="modal_pro_add_sabad2">
+        <a href="/show_sabad_pro" class="a_pjax" onclick="$('#pro_add_sabad').modal('hide')">
+        <button type="button"  class="btn btn-success modal_pro_add_sabad3" >مشاهده سبد خرید </button>
+      </a>
+        <button type="button" class="btn btn-info modal_pro_add_sabad4" data-dismiss="modal">خرید محصولی دیگر</button>
+      </div>
+    </div>
+  </div>
 </div><!--end modal -->
 @endsection

@@ -23,6 +23,7 @@ function modal_sub_show(class_show=0){
   $('.'+class_show+' ul').css("display","block"  );
   $('.'+class_show).css("color","#c85413"  );
 }
+
 // جستجو
 function search_empty(search_matn=0){
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});

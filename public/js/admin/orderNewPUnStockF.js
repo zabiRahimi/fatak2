@@ -229,7 +229,7 @@ function saveOrderNPUF(id) {
       },
       success: function(data) {
         scroll_form_admin('form_OONPUSF');
-        document.getElementById("form_OONPUSF").reset();
+        $('#form_OONPUSF').trigger('reset');//del form
         $('#ajax_formOONPUSF').html(' ');
         $('#ajaxOrderModalPro').html('<div class="alert alert-success">محصول شما با موقیت ثبت شد . برای مشاهده و ویرایش این محصول به سفارشات ثبت شده بروید .</div>');
         $('#orderModalPro').modal('show');
@@ -308,7 +308,7 @@ function editOrderSPUF(pro_id,id) {
       },
       success: function(data) {
         scroll_form_admin('form_OOSPUSF');
-        document.getElementById("form_OOSPUSF").reset();
+        $('#form_OOSPUSF').trigger('reset');//del form
         $('#ajax_formOOSPUSF').html(' ');
         $('#ajaxOrderModalPro').html('<div class="alert alert-success">تغییرات با موفقیت ثبت شد .</div>');
         $('#orderModalPro').modal('show');

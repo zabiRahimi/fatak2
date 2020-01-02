@@ -14,7 +14,7 @@ function register(){
          },
     success:function(data){
       $('#ajax_register').empty();
-      document.getElementById("form_register").reset();
+      $('#form_register').trigger('reset');//پاک کردن فرم
       $('#modal_h_sabtname').modal('hide');
       $('#end_register').modal('show');
     },
@@ -23,7 +23,7 @@ function register(){
         var errors = xhr.responseJSON;
 
         var error=errors.errors;
-        scroll_form('.form_register');
+        $('.modal').scrollTop(0);
         $('#ajax_register').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
@@ -71,7 +71,7 @@ function login_user(){
          },
     success:function(data){
       $('#ajax_login_user').empty();
-      document.getElementById("form_register").reset();
+      $('#form_h_login_pro').trigger('reset');//پاک کردن فرم
       $('#modal_h_login').modal('hide');
       $('#ok_login').modal('show');
       $("#ok_login").on('hide.bs.modal', function () {
@@ -81,6 +81,7 @@ function login_user(){
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
+        $('.modal').scrollTop(0);
         $('#ajax_login_user').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
@@ -141,3 +142,8 @@ function edit_register(id){
            $('#ajax_edit_register').append('<div id="alarm_red">'+error['email']+'</div>');
            $('#address_data_buyer').css("border-color" , "#c30909");
         }}});}
+// این دستور الزامی است . جهت پاک کردن فرمهای ورود ، فراموشی رمز و فرم ثبت نام هنگام خروج از مودال
+  $(".modal").on('hide.bs.modal', function () {
+    $('.form_h_login_pro').trigger('reset');// del form
+    $('#form_register').trigger('reset');// del form
+  });

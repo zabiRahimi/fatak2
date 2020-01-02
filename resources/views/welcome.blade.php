@@ -190,6 +190,6 @@
         </div>
       </div>
     </div>
-  </div><!--end modal شکایت-->
+  </div><!--end modal -->
 
 @endsection

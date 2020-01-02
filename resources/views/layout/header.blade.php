@@ -166,7 +166,7 @@
       </div>
       <div class="modal-body modal_body_h_login">
 
-         <form class="form_h_login_pro" action="" method="post">
+         <form class="form_h_login_pro" id="form_h_login_pro" action="" method="post">
           <div id="ajax_login_user"></div>
           <div class="form-group">
             <label for="karbary_login_user" class="control-label pull-right  "><i class="fas fa-user-circle i_namekarbary_sabt"></i>  نام کاربری </label>
@@ -231,7 +231,7 @@
           <label for="name_pro_question" class="control-label pull-right  ">نام </label>
           <div class="mobail_pasohk_pro"><input type="text" class="form-control" id="name_pro_question" ></div>
         </div> --}}
-         <form class="form_h_login_pro" action="" method="post">
+         <form class="form_h_login_pro" id="" action="" method="post">
           <div id="pasohk_pro"></div>
           <div class="form-group">
             <label for="name_pro_h_login" class="control-label pull-right  "><i class="fas fa-at i_pas_sabt"></i> ایمیل </label>

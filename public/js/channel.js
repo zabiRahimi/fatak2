@@ -22,7 +22,7 @@ function sabt_channel_1(){
          },
     success:function(data){
       $('#ajax_channelsabt1').empty();
-      document.getElementById("form_channelsabt1").reset();
+      $('#form_channelsabt1').trigger('reset');//پاک کردن فرم
       $('#end_channelsabt1').modal('show');
       $("#end_channelsabt1").on('hide.bs.modal', function () {
       window.location.href  = "/page_login";
@@ -75,7 +75,7 @@ function login_channel(){
          },
     success:function(data){
       $('#ajax_channellog').empty();
-      document.getElementById("form_channellog").reset();
+      $('#form_channellog').trigger('reset');//پاک کردن فرم
       captcha();
       $('#end_channellog').modal('show');
       $("#end_channellog").on('hide.bs.modal', function () {
@@ -133,7 +133,7 @@ function sabt_channel_2(){
          },
     success:function(data){
       $('#ajax_perfectDaCh').empty();
-      document.getElementById("form_perfectDaCh").reset();
+      $('#form_perfectDaCh').trigger('reset');//پاک کردن فرم
       $('#end_perfectDaCh').modal('show');
       $("#end_perfectDaCh").on('hide.bs.modal', function () {
       window.location.href  = "/urlChMy";
@@ -283,7 +283,7 @@ function editPasDaCh(id){
          },
     success:function(){
       $('#ajax_editPasDaCh').empty();
-      document.getElementById("form_editPasDaCh").reset();
+      $('#form_editPasDaCh').trigger('reset');//پاک کردن فرم
       $('#end_editPasDaCh').modal('show');
     },
     error: function(xhr) {

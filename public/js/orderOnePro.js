@@ -30,15 +30,13 @@ function Explain_active(class1 , class2){
     $(class2 + '_line').css('display' , 'none')
   }
 }
-  //نمایش فرم نظر دادن
- function nazar_pro(){
-   var h= $('.ersal_nazar_pro').offset();
-   var fixedDiv= $('.fixed').outerHeight();
-   var hTop=h.top-fixedDiv-12;
-   window.scrollTo(0 ,hTop);
- }
-
-
+ //  //نمایش فرم نظر دادن
+ // function nazar_pro(){
+ //   var h= $('.ersal_nazar_pro').offset();
+ //   var fixedDiv= $('.fixed').outerHeight();
+ //   var hTop=h.top-fixedDiv-12;
+ //   window.scrollTo(0 ,hTop);
+ // }
  function sabtNazarStock(pro_id,name) {
    let mobail=$('#mobailNazarStock').val();const check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
@@ -55,7 +53,7 @@ function Explain_active(class1 , class2){
           },
      success:function(data){
        $('#formNazarAjaxStock').empty();
-       document.getElementById("formNazarStock").reset();
+       $('#formNazarStock').trigger('reset');//del form
        $('#endNazarStock').modal('show');
        $("#endNazarStock").on('hide.bs.modal', function () {
        window.location.href  = "/product/" + pro_id + "/" + name;
@@ -103,7 +101,8 @@ function Explain_active(class1 , class2){
           },
      success:function(data){
        $('#formQuestionAjaxStock').empty();
-       document.getElementById("formQuestionStock").reset();
+       $('#formQuestionStock').trigger('reset');//del form
+       $('#form_sabtOrder').trigger('reset');
        $('#endQuestionStock').modal('show');
        $("#endQuestionStock").on('hide.bs.modal', function () {
        window.location.href  = "/product/" + id + "/" + name;
@@ -157,7 +156,7 @@ function Explain_active(class1 , class2){
           },
      success:function(data){
        $('#formAnswerAjaxStock').empty();
-       document.getElementById("formAnswerStock").reset();
+       $('#formAnswerStock').trigger('reset');//del form
        $('#modalAnswerStock').modal('hide');
        $('#endAnswerStock').modal('show');
        $("#endAnswerStock").on('hide.bs.modal', function () {
@@ -190,6 +189,12 @@ function Explain_active(class1 , class2){
      }
    });
  }
+// دستور زیر الزانی است . جهت پاک کردن محتوای فرم هنگامی که از مودال خارج می شویم
+ $("#modalAnswerStock").on('hide.bs.modal', function () {
+   $('#formAnswerStock').trigger('reset');//del form
+   $('#formAnswerAjaxStock').html('');
+   $('.form-control').css("border-color" , "#fff");
+});
 // اضافه کردن کالا به سبد خرید
 function add_pro_sabad(id){
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
@@ -203,7 +208,43 @@ function add_pro_sabad(id){
        if(data){
          $('#sabad').html(data);
        }
-         $('#pro_add_sabad').modal('show');
+       // Swal.fire({
+       //           title: 'Are you sure?',
+       //           text: 'You will not be able to recover this imaginary file!',
+       //           type: 'warning',
+       //          // showCancelButton: true,
+       //          confirmButtonText: 'Yes, delete it!',
+       //         cancelButtonText: 'No, keep it'
+       //       } )
+//        Swal.fire(customClass: {
+// container: 'container-class',
+// popup: 'popup-class',
+// header: 'header-class',
+// title: 'title-class',
+// closeButton: 'close-button-class',
+// icon: 'icon-class',
+// image: 'image-class',
+// content: 'content-class',
+// input: 'input-class',
+// actions: 'actions-class',
+// confirmButton: 'confirm-button-class',
+// cancelButton: 'cancel-button-class',
+// footer: 'footer-class'
+// })
+             Swal.fire({
+                        html:'<div class="alert alert-success">محصول با موفقیت به سبد خرید اضافه شد !!</div>',
+                        type:'success',
+                        showCloseButton: true,
+                        showCancelButton: true,
+                        focusConfirm: false,
+                        confirmButtonText:"مشاهده سبد خرید" ,
+                        cancelButtonText:"خرید محصول دیگر" ,
+                        cancelButtonColor:'#0d6394',
+
+
+                      }).then((result) => {if (result.value) {window.location.href=`/show_sabad_pro`;}}
+)
+         // $('#pro_add_sabad').modal('show');
      },
      error:function(){alert(56)}
    });

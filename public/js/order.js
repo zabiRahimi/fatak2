@@ -17,7 +17,7 @@ function sabtOrderSave(){
          },
     success:function(data){
       $('#ajax_sabtOrder').empty();
-      document.getElementById("form_sabtOrder").reset();
+      $('#form_sabtOrder').trigger('reset');
       $('.idOrder').html(data);
       $('#end_sabtOrder').modal('show');
       $("#end_sabtOrder").on('hide.bs.modal', function () {

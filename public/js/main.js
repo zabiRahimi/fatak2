@@ -32,6 +32,7 @@ function spinner() {
   })
 
 }
+
 /*
 **نمایش نماد انتظار هنگامی که در خواست ایجگس داریم
 */
@@ -109,14 +110,14 @@ function sabt_shekait(){
          },
     success:function(data){
       $('#alarm_shekait').empty();
-      document.getElementById("form_shekait").reset();
+      $('#form_shekait').trigger('reset');//پاک کردن فرم
       $('#modal_shekait').modal('hide');
       $('#end_shekait').modal('show');
     },
     error: function(xhr) {
         var errors = xhr.responseJSON;
         var error=errors.errors;
-
+        $('.modal').scrollTop(0);
         $('#alarm_shekait').empty();
         $('.form-control').css("border-color" , "#fff");
         captcha();
@@ -138,6 +139,10 @@ function sabt_shekait(){
     }
   });
 }
+// الزامی است . جهت پاک کردن فرم شکایت هنگام خروج از مودال
+$(".modal").on('hide.bs.modal', function () {
+  $('#form_shekait').trigger('reset');//پاک کردن فرم
+});
 /* ******************* ساخت منو کنار باز شونده جهت موبایل***************** */
 function show_menu_small(clases){
   $('body').addClass(clases);

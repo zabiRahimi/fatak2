@@ -92,9 +92,9 @@
 .div_h_sabtname input ,.div_h_login input {width: 100%; float: right; }
 
 .i_name_sabt ,.i_namekarbary_sabt , .i_pas_sabt , .i_mobail_sabt , .i_email_sabt , .i_amniat_sabt{position: relative; margin-left: 10px;}
-.captcha_h_sabtname_form , .captcha_h_login_form{width: 65%; float: left; text-align: center;}
-.captcha_h_sabtname_form span ,.captcha_h_login_form span{display: inline-block;height: 38px;background-color: #829077; padding: 1px;}
-.captcha_h_sabtname_form button ,.captcha_h_login_form button{padding: 4px; background-color: #6da7e0;}
+.captcha_h_sabtname_form , .captcha_h_login_form{width: 65%;height: 32px;float: left; text-align: center;}
+.captcha_h_sabtname_form span ,.captcha_h_login_form span{width: 122px;display: inline-block;height: auto;;background-color: #829077; padding: 1px;}
+.captcha_h_sabtname_form button ,.captcha_h_login_form button{padding:1px 4px; background-color: #6da7e0;}
 .captcha_h_sabtname_form i ,.captcha_h_login_form i{position: relative;top: 3px;font-size: 20px;}
 .modal_body_end_register_1{width: 80px;height: 80px; line-height: 80px;margin: 0 auto 10px;color:#026209; border:2px solid #026209; border-radius: 40px;text-align: center;}
 .modal_body_end_register_2{width: 100%; text-align: center; float: right; color: #026209;font-size: 18px;}

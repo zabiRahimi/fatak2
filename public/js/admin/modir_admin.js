@@ -17,8 +17,7 @@ function modirAdminSabt() {
 
       },
       success: function(data) {
-
-        document.getElementById("add_modir_form").reset();
+        $('#add_modir_form').trigger('reset');//del form
         $('#ajax_FAM_a').html('<div class="alert alert-success">با موفقیت ثبت شد</div>');
           },
       error: function(xhr) {

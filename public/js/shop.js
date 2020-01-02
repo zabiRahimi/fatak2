@@ -114,7 +114,7 @@ function sabtShop_1(){
          },
     success:function(data){
       $('#ajax_shopsabt1').empty();
-      document.getElementById("form_shopsabt1").reset();
+      $('#form_shopsabt1').trigger('reset');//del form
       $('#end_shopsabt1').modal('show');
       $("#end_shopsabt1").on('hide.bs.modal', function () {
       window.location.href  = "/pageloginShop";
@@ -163,7 +163,7 @@ function loginShop(){
          },
     success:function(data){
       $('#ajax_shoplog').empty();
-      document.getElementById("form_shoplog").reset();
+      $('#form_shoplog').trigger('reset');//del form
       captcha();
       $('#end_shoplog').modal('show');
       setTimeout(function () {
@@ -228,7 +228,7 @@ function sabtShop_2(){
          },
     success:function(data){
       $('#ajax_perfectDaSh').empty();
-      document.getElementById("form_perfectDaSh").reset();
+      $('#form_perfectDaSh').trigger('reset');//del form
       $('#end_perfectDaSh').modal('show');
       $("#end_perfectDaSh").on('hide.bs.modal', function () {
       window.location.href  = "/editDaShop";
@@ -399,7 +399,7 @@ function editPasDaShop(id){
          },
     success:function(){
       $('#ajax_editPasDaShop').empty();
-      document.getElementById("form_editPasDaShop").reset();
+      $('#form_editPasDaShop').trigger('reset');//del form
       $('#end_editPasDaShop').modal('show');
     },
     error: function(xhr) {

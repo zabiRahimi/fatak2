@@ -45,8 +45,7 @@ function loginManage() {
 
       },
       success: function(data) {
-
-        document.getElementById("loginFormManage").reset();
+        $('#loginFormManage').trigger('reset');//del form
         $('.ajaxLoginManage').html('');
         window.location="/dashbordAdmin";
           },
