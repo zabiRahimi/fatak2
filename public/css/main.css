@@ -1,3 +1,4 @@
+/* 1200 , 992 , 768 , 576 , 454 , 332 */
 *{
    @font-face {
   font-family: 'b koodak';
@@ -280,4 +281,18 @@ display:inline;
 /* 888888888888888888888888888888&&&&&&&&&&&&& */
 /* ************ مربوط به آلرتها **************** */
 /*                   sweetalert2                           */
-.close-button-class{border:none;color:red;}
+.closeButtonClass{border:none;color:red;}
+@media (max-width:1200px) {}
+@media (max-width:992px) {}
+@media (max-width:768px) {}
+@media (max-width:576px) {
+  .closeButtonClass{font-size: 24px;}
+  .popupClass{width: 280px;padding: 4px;}
+  .iconClass{font-size: 10px;margin: 8px auto 3px;}
+  .contentClass{width: 100%;margin: 12px auto;}
+  .alertClass{margin: 0 auto;padding: 3px ;font-size: 14px;}
+  .actionsClass{margin-top: 2px;padding: 0 3px; }
+  .confirmButtonClass , .cancelButtonClass{padding: 3px 5px;font-size: 14px !important;}
+}
+@media (max-width:454px) {}
+@media (max-width:332px) {}
