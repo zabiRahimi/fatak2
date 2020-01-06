@@ -1,6 +1,6 @@
 function b_img_pro(class1){
   $('.big_img_pro').removeClass('active_img_pro');
-  $('.'+class1).addClass('active_img_pro');
+  $(class1).addClass('active_img_pro');
 }
 
 function Explain_active(class1 , class2){
@@ -18,7 +18,7 @@ function Explain_active(class1 , class2){
   }else{
     $('.showExplain').css('display' , 'block');
     $('.showExplain_line').css('display' , 'block');
-    var divData=$(class2).html();
+    const divData=$(class2).html();
     $('.showExplain').html(divData);
     $('.Explain_specs').css('display' , 'block');
     $('.Explain_question').css('display' , 'block');
@@ -27,16 +27,9 @@ function Explain_active(class1 , class2){
     $('.Explain_question_line').css('display' , 'block');
     $('.Explain_nazar_line').css('display' , 'block');
     $(class2).css('display' , 'none')
-    $(class2 + '_line').css('display' , 'none')
+    $(`${class2}_line`).css('display' , 'none')
   }
 }
- //  //نمایش فرم نظر دادن
- // function nazar_pro(){
- //   var h= $('.ersal_nazar_pro').offset();
- //   var fixedDiv= $('.fixed').outerHeight();
- //   var hTop=h.top-fixedDiv-12;
- //   window.scrollTo(0 ,hTop);
- // }
  function sabtNazarStock(pro_id,name) {
    let mobail=$('#mobailNazarStock').val();const check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
@@ -54,10 +47,23 @@ function Explain_active(class1 , class2){
      success:function(data){
        $('#formNazarAjaxStock').empty();
        $('#formNazarStock').trigger('reset');//del form
-       $('#endNazarStock').modal('show');
-       $("#endNazarStock").on('hide.bs.modal', function () {
-       window.location.href  = "/product/" + pro_id + "/" + name;
-     });
+       Swal.fire({
+            html:`<div class="alert alert-success alertClass">  ممنون !! نظر شما ثبت شد  </div>`,
+            type:'success',
+            showCloseButton: true,
+            confirmButtonText:"متوجه شدم !!" ,
+            confirmButtonColor:'#0d6394',
+            customClass: {
+            // container: 'containerClass',  header: 'header-class', title: 'title-class',image: 'image-class',
+            popup: 'popupClass',
+            icon: 'iconClass',
+            content:'contentClass',
+            confirmButton: 'confirmButtonClass',
+            cancelButton: 'cancelButtonClass',
+            actions: 'actionsClass',
+                        }
+       }).then(() => { window.location.href  = `/product/${pro_id}/${name}`;});//end swal
+
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
@@ -85,16 +91,16 @@ function Explain_active(class1 , class2){
      }
    });
  }
- function sabtQuestionStock(id,name) {
-   var mobail=$('#mobailQuestionsStock').val();var check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
+ function sabtQuestionStock(pro_id,name) {
+   let mobail=$('#mobailQuestionsStock').val();const check =/^[0-9]{10}$/;if(check.test(mobail)){mobail = 0 + mobail;}
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'post',
      url:'/sabtQuestionStock',
      data: {
-          pro_id: id ,
+          pro_id ,
           name:$('#nameQuestionsStock').val(),
-          mobail:mobail,
+          mobail,
           email:$('#emailQuestionsStock').val(),
           question:$('#questionQuestionsStock').val(),
           amniat:$('#amniatQuestionsStock').val(),
@@ -103,10 +109,22 @@ function Explain_active(class1 , class2){
        $('#formQuestionAjaxStock').empty();
        $('#formQuestionStock').trigger('reset');//del form
        $('#form_sabtOrder').trigger('reset');
-       $('#endQuestionStock').modal('show');
-       $("#endQuestionStock").on('hide.bs.modal', function () {
-       window.location.href  = "/product/" + id + "/" + name;
-     });
+       Swal.fire({
+            html:`<div class="alert alert-success alertClass" > ممنون !! پرسش شما ثبت شد . </div>`,
+            type:'success',
+            showCloseButton: true,
+            confirmButtonText:"متوجه شدم !!" ,
+            confirmButtonColor:'#0d6394',
+            customClass: {
+            // container: 'containerClass',  header: 'header-class', title: 'title-class',image: 'image-class',
+            popup: 'popupClass',
+            icon: 'iconClass',
+            content:'contentClass',
+            confirmButton: 'confirmButtonClass',
+            cancelButton: 'cancelButtonClass',
+            actions: 'actionsClass',
+                        }
+       }).then(() => { window.location.href  = `/product/${pro_id}/${name}`;});//end swal
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
@@ -115,20 +133,19 @@ function Explain_active(class1 , class2){
          $('.form-control').css("border-color" , "#fff");
          captcha();
           if(error['name']){
-            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['name']+'</div>');
+            $('#formQuestionAjaxStock').html(`<div class="alert alert-danger">${error['name']}</div>`);
             $('#nameQuestionsStock').css("border-color" , "#c30909");
          }else if(error['mobail']){
-            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['mobail']+'</div>');
+            $('#formQuestionAjaxStock').html(`<div class="alert alert-danger">${error['mobail']}</div>`);
             $('#mobailQuestionsStock').css("border-color" , "#c30909");
-
          }else if(error['email']){
-            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['email']+'</div>');
+            $('#formQuestionAjaxStock').html(`<div class="alert alert-danger">${error['email']}</div>`);
             $('#emailQuestionsStock').css("border-color" , "#c30909");
          }else if(error['question']){
-            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['question']+'</div>');
+            $('#formQuestionAjaxStock').html(`<div class="alert alert-danger">${error['question']}</div>`);
             $('#questionQuestionsStock').css("border-color" , "#c30909");
          }else if(error['amniat']){
-            $('#formQuestionAjaxStock').html('<div class="alert alert-danger">'+error['amniat']+'</div>');
+            $('#formQuestionAjaxStock').html(`<div class="alert alert-danger">${error['amniat']}</div>`);
             $('#amniatQuestionsStock').css("border-color" , "#c30909");
          }
      }
@@ -158,11 +175,22 @@ function Explain_active(class1 , class2){
        $('#formAnswerAjaxStock').empty();
        $('#formAnswerStock').trigger('reset');//del form
        $('#modalAnswerStock').modal('hide');
-       $('#endAnswerStock').modal('show');
-       $("#endAnswerStock").on('hide.bs.modal', function () {
-         $.removeCookie("question");
-         window.location.href  = "/product/" + pro_id + "/" + name;
-     });
+       Swal.fire({
+            html:'<div class="alert alert-success alertClass" >ممنون !! پاسخ شما ثبت شد . </div>',
+            type:'success',
+            showCloseButton: true,
+            confirmButtonText:"متوجه شدم !!" ,
+            confirmButtonColor:'#0d6394',
+            customClass: {
+            // container: 'containerClass',  header: 'header-class', title: 'title-class',image: 'image-class',
+            popup: 'popupClass',
+            icon: 'iconClass',
+            content:'contentClass',
+            confirmButton: 'confirmButtonClass',
+            cancelButton: 'cancelButtonClass',
+            actions: 'actionsClass',
+                        }
+       }).then(() => { $.removeCookie("question"); window.location.href  = `/product/${pro_id}/${name}`;});//end swal
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
@@ -208,59 +236,27 @@ function add_pro_sabad(id){
        if(data){
          $('#sabad').html(data);
        }
-       // Swal.fire({
-       //           title: 'Are you sure?',
-       //           text: 'You will not be able to recover this imaginary file!',
-       //           type: 'warning',
-       //          // showCancelButton: true,
-       //          confirmButtonText: 'Yes, delete it!',
-       //         cancelButtonText: 'No, keep it'
-       //       } )
-//        Swal.fire(customClass: {
-// container: 'container-class',
-// popup: 'popup-class',
-// header: 'header-class',
-// title: 'title-class',
-// closeButton: 'close-button-class',
-// icon: 'icon-class',
-// image: 'image-class',
-// content: 'content-class',
-// input: 'input-class',
-// actions: 'actions-class',
-// confirmButton: 'confirm-button-class',
-// cancelButton: 'cancel-button-class',
-// footer: 'footer-class'
-// })
-             Swal.fire({
-                        html:'<div class="alert alert-success alertClass" id="fgg">محصول با موفقیت به سبد خرید اضافه شد !!</div>',
-                        type:'success',
-                        showCloseButton: true,
-                        showCancelButton: true,
-                        confirmButtonText:"مشاهده سبد خرید" ,
-                        cancelButtonText:"خرید محصول دیگر" ,
-                        cancelButtonColor:'#0d6394',
-                        customClass: {
-                        // ,  header: 'header-class', title: 'title-class',image: 'image-class',
-                        // container: 'containerClass',
-                        popup: 'popupClass',
-                        closeButton: 'closeButtonClass',
-                        icon: 'iconClass',
-                        content:'contentClass',
-                        confirmButton: 'confirmButtonClass',
-                        cancelButton: 'cancelButtonClass',
-                        actions: 'actionsClass',
-                        footer:'footerClass',
+       Swal.fire({
+            html:'<div class="alert alert-success alertClass" >محصول با موفقیت به سبد خرید اضافه شد !!</div>',
+            type:'success',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonText:"مشاهده سبد خرید" ,
+            cancelButtonText:"خرید محصول دیگر" ,
+            cancelButtonColor:'#0d6394',
+            customClass: {
+            // container: 'containerClass',  header: 'header-class', title: 'title-class',image: 'image-class',
+            popup: 'popupClass',
+            closeButton: 'closeButtonClass',
+            icon: 'iconClass',
+            content:'contentClass',
+            confirmButton: 'confirmButtonClass',
+            cancelButton: 'cancelButtonClass',
+            actions: 'actionsClass',
+            footer:'footerClass',
                         }
-                      }).then((result) => {if (result.value) {
-
-
-                        // window.location.href=`/show_sabad_pro`;
-                      }
-                      }
-                    )
-
-         // $('#pro_add_sabad').modal('show');
+       }).then((result) => {if (result.value) { window.location.href=`/show_sabad_pro`;}});//end swal
      },
-     error:function(){alert(56)}
+     error:function(){}
    });
 }

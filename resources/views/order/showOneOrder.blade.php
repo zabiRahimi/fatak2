@@ -42,7 +42,7 @@
                         if(empty($pic_pro->$pic_s)){continue;}
                       ?>
                       <div class="smallImgSlickOne">
-                        <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " onclick="b_img_pro('{{$b_img_p}}')">
+                        <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " onclick="b_img_pro('.{{$b_img_p}}')">
                       </div>
                     @endfor
                   </div>

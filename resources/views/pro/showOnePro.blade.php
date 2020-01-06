@@ -31,7 +31,7 @@
                           if(empty($pic_pro->$pic_s)){continue;}
                         ?>
                         <div class="smallImgSlickOne">
-                          <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " onclick="b_img_pro('{{$b_img_p}}')">
+                          <img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " onclick="b_img_pro('.{{$b_img_p}}')">
                         </div>
                       @endfor
 
@@ -328,11 +328,6 @@
   </div>
 
 </div>
-<!--modal ثبت سوال -->
-<div class="modal " id="endQuestionStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content">
-      <div class="modal-body alert alert-success  alertQuestionSuccess">ممنون !! پرسش شما ثبت شد .</div>
-      <div class="divQuestionModal"><button type="button"  class="btn btn-info " data-dismiss="modal" >متوجه شدم !! </button></div></div></div>
-</div><!--end modal -->
 {{-- modal پاسخ --}}
 <div class="modal fade" id="modalAnswerStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header modalAnswerheaderStock"><h5 class="modal-title ">پاسخ </h5><span aria-hidden="true"data-dismiss="modal" aria-label="Close">&times;</span></div>
@@ -373,18 +368,6 @@
       </div>
     </div>
   </div>
-</div><!--end modal -->
-<!--modal ثبت پاسخ-->
-<div class="modal " id="endAnswerStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content"><div class="modal-body alert alert-success  alertQuestionSuccess">ممنون !! پاسخ شما ثبت شد .</div>
-      <div class="divQuestionModal"><button type="button"  class="btn btn-info" data-dismiss="modal" >متوجه شدم !! </button></div>
-    </div></div>
-</div><!--end modal -->
-<!--modal ثبت نظر -->
-<div class="modal " id="endNazarStock" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document"><div class="modal-content"><div class="modal-body alert alert-success  alertQuestionSuccess"> ممنون !! نظر شما ثبت شد  </div>
-    <div class="divQuestionModal"><button type="button"  class="btn btn-info" data-dismiss="modal" >متوجه شدم !! </button>  </div>
-  </div></div>
 </div><!--end modal -->
 <!--modal پیام اضافه شدن به سبد خرید -->
 <div class="modal " id="pro_add_sabad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -28,7 +28,7 @@
                 $b_img_p='b-img-p'.$i;
                 if(empty($pic_pro->$pic_s)){continue;}
               ?>
-              <div class=""><img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="img" class="sp5-768" height="77" onclick="b_img_pro('{{$b_img_p}}')"></div>
+              <div class=""><img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="img" class="sp5-768" height="77" onclick="b_img_pro('.{{$b_img_p}}')"></div>
             @endfor
           </div>
       </div>
@@ -60,7 +60,7 @@
               $b_img_p='b-img-p'.$i;
               if(empty($pic_pro->$pic_s)){continue;}
             ?>
-            <div class=""><img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " class="" height="54" onclick="b_img_pro('{{$b_img_p}}')"></div>
+            <div class=""><img src="../../img_pro/{{$pic_pro->$pic_s}}" alt="  " class="" height="54" onclick="b_img_pro('.{{$b_img_p}}')"></div>
           @endfor
         </div>
       </div>

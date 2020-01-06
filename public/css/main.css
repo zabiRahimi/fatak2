@@ -281,7 +281,7 @@ display:inline;
 /* 888888888888888888888888888888&&&&&&&&&&&&& */
 /* ************ مربوط به آلرتها **************** */
 /*                   sweetalert2                           */
-.closeButtonClass{border:none;color:red;}
+.closeButtonClass{border:none;color:#d08e63;}
 @media (max-width:1200px) {}
 @media (max-width:992px) {}
 @media (max-width:768px) {}
@@ -290,9 +290,16 @@ display:inline;
   .popupClass{width: 280px;padding: 4px;}
   .iconClass{font-size: 10px;margin: 8px auto 3px;}
   .contentClass{width: 100%;margin: 12px auto;}
-  .alertClass{margin: 0 auto;padding: 3px ;font-size: 14px;}
+  .alertClass{margin: 0 auto;padding: 2px ;font-size: 14px;}
   .actionsClass{margin-top: 2px;padding: 0 3px; }
   .confirmButtonClass , .cancelButtonClass{padding: 3px 5px;font-size: 14px !important;}
 }
 @media (max-width:454px) {}
-@media (max-width:332px) {}
+@media (max-width:332px) {
+  .closeButtonClass{font-size: 20px;}
+  .popupClass{width: 220px;padding: 2px;}
+  .iconClass{font-size: 8px;margin: 4px auto 2px;}
+  .contentClass{margin: 8px auto;}
+  .alertClass{font-size: 12px;}
+  .confirmButtonClass , .cancelButtonClass{padding: 3px 4px;font-size: 12px !important;}
+}
