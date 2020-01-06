@@ -90,10 +90,10 @@
         <div class="downContentSP">
             {{-- Explain == توضیح دادن --}}
                 <ul class="Explain_ul  ">
-                  <li class="Explain_li1  Explain_active" onclick="Explain_active('Explain_li1' , '.Explain_Explain')">  <i class="fas fa-clipboard-check"></i> توضیحات کالا </li>
-                  <li class="Explain_li2 " onclick="Explain_active('Explain_li2', '.Explain_specs')"> <i class="fas fa-clipboard-list"></i> مشخصات کالا </li>
-                  <li class="Explain_li3 " onclick="Explain_active('Explain_li3', '.Explain_question');captcha()"> <i class="fas fa-question-circle"></i> پرسش و پاسخ </li>
-                  <li class="Explain_li4" onclick="Explain_active('Explain_li4', '.Explain_nazar');captcha()"> <i class="fas fa-comment"></i> نظرات کاربران</li>
+                  <li class="Explain_li1  Explain_active" onclick="Explain_active('.Explain_li1' , '.Explain_Explain')">  <i class="fas fa-clipboard-check"></i> توضیحات کالا </li>
+                  <li class="Explain_li2 " onclick="Explain_active('.Explain_li2', '.Explain_specs')"> <i class="fas fa-clipboard-list"></i> مشخصات کالا </li>
+                  <li class="Explain_li3 " onclick="Explain_active('.Explain_li3', '.Explain_question');captcha()"> <i class="fas fa-question-circle"></i> پرسش و پاسخ </li>
+                  <li class="Explain_li4" onclick="Explain_active('.Explain_li4', '.Explain_nazar');captcha()"> <i class="fas fa-comment"></i> نظرات کاربران</li>
                 </ul>
                 {{-- این تگ صرفا جهت نمایش دو قسمت مشخصات کالا و پرسش و پاسخ است هنگامی که کاربر دکمه متناظر با آن را فشار می دهد --}}
                 <div class="showExplain Explain_body"></div>
@@ -370,7 +370,7 @@
   </div>
 </div><!--end modal -->
 <!--modal پیام اضافه شدن به سبد خرید -->
-<div class="modal " id="pro_add_sabad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal " id="pro_add_sabad" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
 
@@ -385,5 +385,5 @@
       </div>
     </div>
   </div>
-</div><!--end modal -->
+</div> --}}
 @endsection

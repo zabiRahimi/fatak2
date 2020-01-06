@@ -2,10 +2,9 @@ function b_img_pro(class1){
   $('.big_img_pro').removeClass('active_img_pro');
   $(class1).addClass('active_img_pro');
 }
-
 function Explain_active(class1 , class2){
   $('.Explain_ul li').removeClass('Explain_active');
-  $('.'+class1).addClass('Explain_active');
+  $(class1).addClass('Explain_active');
   if (class2 == '.Explain_Explain') {
     $('.showExplain').css('display' , 'none');
     $('.showExplain_line').css('display' , 'none');
@@ -63,7 +62,6 @@ function Explain_active(class1 , class2){
             actions: 'actionsClass',
                         }
        }).then(() => { window.location.href  = `/product/${pro_id}/${name}`;});//end swal
-
      },
      error: function(xhr) {
          var errors = xhr.responseJSON;
@@ -195,10 +193,10 @@ function Explain_active(class1 , class2){
      error: function(xhr) {
          var errors = xhr.responseJSON;
          var error=errors.errors;
-          $('#modalAnswerStock').scrollTop(0);
+         $('#modalAnswerStock').scrollTop(0);
          $('.form-control').css("border-color" , "#fff");
          captcha();
-          if(error['name']){
+         if(error['name']){
             $('#formAnswerAjaxStock').html(`<div class="alert alert-danger">${error['name']}</div>`);
             $('#nameAnswerStock').css("border-color" , "#c30909");
          }else if(error['mobail']){

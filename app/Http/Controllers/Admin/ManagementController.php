@@ -47,8 +47,8 @@ class ManagementController extends Controller
       {
         $id=$add['id'];
         $access2=$add['access'];
-        Cookie::queue('checkLogManeg', $id);
-        Cookie::queue('checkModir', $access2);
+        Cookie::queue('checkLogManeg', $id,0);
+        Cookie::queue('checkModir', $access2,0);
 
       }else{
         return response()->json(['errors' => ['no_karbar' => ['اطلاعات اشتباه است .']]], 422);
@@ -59,10 +59,10 @@ class ManagementController extends Controller
       }
   }
   public function logoutManeg(){
-    Cookie::queue('checkLogManeg', '',time() - 3600);
-    Cookie::queue('checkModir', '',time() - 3600);
+    // Cookie::queue('checkLogManeg', '',time() - 3600);
+    // Cookie::queue('checkModir', '',time() - 3600);
     // return redirect('/');
-    return redirect('/logoutManeg');
+    return redirect('/logoutManeg')->withCookie(Cookie::forget('checkLogManeg'))->withCookie(Cookie::forget('checkModir'));
   }
   public function dashbordAdmin(Request $request){
       $id=$this->id;$nameModir=$this->nameModir;$access=$this->access;

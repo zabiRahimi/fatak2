@@ -106,7 +106,7 @@ class ShopController extends Controller
       if (Hash::check($pas, $add['pas']))
       {
         $id=$add['id'];
-        Cookie::queue('checkLogShop', $id);
+        Cookie::queue('checkLogShop', $id , 0);
       }else{
         return response()->json(['errors' => ['no_karbar' => ['موبایل و یا رمز عبور اشتباه است .']]], 422);
       }
@@ -116,8 +116,8 @@ class ShopController extends Controller
       }
   }
   public function logoutShop(){
-    Cookie::queue('checkLogShop', '',time() - 3600);
-    return redirect('/');
+    // Cookie::queue('checkLogShop', ' ' , time() - 3600);
+    return redirect('/')->withCookie(Cookie::forget('checkLogShop'));
   }
   public function dashboard_shop(Request $request)
   {
@@ -243,7 +243,7 @@ class ShopController extends Controller
       $nameImg[]=$imgPro['pic_b'.$i];
     }
     if(!empty($nameImg)){
-      Cookie::queue('namePic', serialize($nameImg));
+      Cookie::queue('namePic', serialize($nameImg),0);
     }else{
       $nameImg=null;
     }
@@ -300,7 +300,7 @@ class ShopController extends Controller
       $nameImg[]=$imgPro['pic_b'.$i];
     }
     if(!empty($nameImg)){
-      Cookie::queue('namePic', serialize($nameImg));
+      Cookie::queue('namePic', serialize($nameImg),0);
     }else{
       $nameImg=null;
     }
@@ -357,13 +357,13 @@ class ShopController extends Controller
   }
   public function pro_searchC(Save_pro_search $request)
   {
-    Cookie::queue($request->nameCookieCheck, $request->check);
+    Cookie::queue($request->nameCookieCheck, $request->check,0);
     if ($request->check=='all') {
       Cookie::queue($request->nameCookie,  '',time() - 3600);
     } elseif($request->check=='pro') {
-      Cookie::queue($request->nameCookie, $request->pro);
+      Cookie::queue($request->nameCookie, $request->pro,0);
     }
-    else{Cookie::queue($request->nameCookie, $request->id);}
+    else{Cookie::queue($request->nameCookie, $request->id,0);}
   }
 
   // public function allPro_searchC(Request $request)
@@ -374,25 +374,25 @@ class ShopController extends Controller
   public function date_searchC(Request $request)
   {
     $this->validate($request, ['nameCookie'=>'required|alpha_num','day' => 'required',]);
-    Cookie::queue($request->nameCookie, $request->day);
+    Cookie::queue($request->nameCookie, $request->day,0);
   }
   // از تاریخ تا تاریخ
   public function fromDAte_searchC(Save_searchDateShop $request)
   {
-    Cookie::queue($request->nameCookie, 'fromDAte');
+    Cookie::queue($request->nameCookie, 'fromDAte',0);
     $day1=$request->day1;$month1=$request->month1;$year1=$request->year1;
     $day2=$request->day2;$month2=$request->month2;$year2=$request->year2;
     $date1=Verta::createJalali($year1,$month1,$day1,0,0,0);$date1=$date1->timestamp;
     $date2=Verta::createJalali($year2,$month2,$day2,23,59,59);$date2=$date2->timestamp ;
-    Cookie::queue($request->nameCookieD1, $date1);
-    Cookie::queue($request->nameCookieD2, $date2);
+    Cookie::queue($request->nameCookieD1, $date1,0);
+    Cookie::queue($request->nameCookieD2, $date2,0);
   }
   public function ostan_searchC(Request $request)
   {
     $this->validate($request, ['nameCookieOstanAndCity'=>'required|alpha_num','nameCookieOstan'=>'required|alpha_num','nameCookieCity'=>'required|alpha_num','osatn' => 'required|farsi','city' => 'nullable|farsi',]);
-    Cookie::queue($request->nameCookieOstanAndCity, 'ok');
-    Cookie::queue($request->nameCookieOstan, $request->osatn);
-    Cookie::queue($request->nameCookieCity, $request->city);
+    Cookie::queue($request->nameCookieOstanAndCity, 'ok',0);
+    Cookie::queue($request->nameCookieOstan, $request->osatn,0);
+    Cookie::queue($request->nameCookieCity, $request->city,0);
   }
   public function AllOstan_searchC(Request $request)
   {
@@ -636,18 +636,18 @@ class ShopController extends Controller
   public function codeBuyProShop(Save_codeBuyProShop $request)
   {
     $code=$request->code;
-    Cookie::queue('codeBuyProShC', $code);
+    Cookie::queue('codeBuyProShC', $code,0);
   }
   public function nameBuyProShop(Save_nameBuyProShop $request)
   {
     $namePro=$request->namePro;
-    Cookie::queue('nameBuyProShC', $namePro);
-    Cookie::queue('codeBuyProShC', '');
+    Cookie::queue('nameBuyProShC', $namePro,0);
+    Cookie::queue('codeBuyProShC', '',0);
   }
   public function allBuyProShop()
   {
-    Cookie::queue('nameBuyProShC', '');
-    Cookie::queue('codeBuyProShC', '');
+    Cookie::queue('nameBuyProShC', '',0);
+    Cookie::queue('codeBuyProShC', '',0);
   }
   public function buyProShopOne(Request $request)
   {
@@ -677,11 +677,11 @@ class ShopController extends Controller
 
     if (empty($request->cookie($nameCookei))) {
       $nameImg=[$name];
-      Cookie::queue($nameCookei, serialize($nameImg));
+      Cookie::queue($nameCookei, serialize($nameImg),0);
     } else {
     $nameImg=unserialize($request->cookie($nameCookei));
     $nameImg[]=$name;
-    Cookie::queue($nameCookei, serialize($nameImg));
+    Cookie::queue($nameCookei, serialize($nameImg),0);
     }
     return "$name";
   }
@@ -727,7 +727,7 @@ class ShopController extends Controller
       $AdelImg=unserialize($request->cookie('namePic'));
       $key = array_search($nameImg  , $AdelImg);
         array_splice($AdelImg,$key, 1);//حذف یک مقدار از آرایه و همچنین حذف اندیس آن
-      (count($AdelImg)>0) ? Cookie::queue('namePic', serialize($AdelImg)) : Cookie::queue('namePic', '' , time() - 3600) ;
+      (count($AdelImg)>0) ? Cookie::queue('namePic', serialize($AdelImg),0) : Cookie::queue('namePic', '' , time() - 3600) ;
 
 
     return $nameImg;
@@ -798,13 +798,13 @@ class ShopController extends Controller
   public function codeOldOrderShop(Save_codeOldOrderShop $request)
   {
     $code=$request->code;
-    Cookie::queue('codeOldOrShC', $code);
+    Cookie::queue('codeOldOrShC', $code,0);
   }
   public function nameOldOrderShop(Save_nameOldOrderShop $request)
   {
     $namePro=$request->namePro;
-    Cookie::queue('nameOldOrShC', $namePro);
-    Cookie::queue('codeOldOrShC', '');
+    Cookie::queue('nameOldOrShC', $namePro,0);
+    Cookie::queue('codeOldOrShC', '',0);
   }
   // public function allOldOrderShop()
   // {
@@ -825,7 +825,7 @@ class ShopController extends Controller
         $nameImg[]=$imgPro['pic_b'.$i];
       }
       if(!empty($nameImg)){
-        Cookie::queue('namePic', serialize($nameImg));
+        Cookie::queue('namePic', serialize($nameImg),0);
       }
     return view('shop.oldOrderOneShop',compact('stage','seller','orderNum','oldOrderNum','buyOrderNum','payOrderNum', 'proStockNum','proUnStockNum','backOrderNum','oldOrderOne','proOne','imgPro','id_order','id_pro','stampProOrder','numShowOrder'));
   }
@@ -976,13 +976,13 @@ class ShopController extends Controller
   {
     $date1=$request->date1;
     $date2=$request->date2;
-    Cookie::queue('date1BackShop', $date1);
-    Cookie::queue('date2BackShop', $date2);
+    Cookie::queue('date1BackShop', $date1,0);
+    Cookie::queue('date2BackShop', $date2,0);
   }
   public function SearchNameBackShop(Save_namePayShop $request)
   {
     $namePro=$request->namePro;
-    Cookie::queue('nameBackShop', $namePro);
+    Cookie::queue('nameBackShop', $namePro,0);
   }
   public function SearchAllNameBackShop()
   {
@@ -999,7 +999,7 @@ class ShopController extends Controller
       }
       return response()->json(['errors' => ['codePro' => ['محصولی با این کد تا کنون ارجاع نشده است .']]], 422);
     }
-    Cookie::queue('codeOkBackShop', 'ok');
+    Cookie::queue('codeOkBackShop', 'ok',0);
     return $code;
   }
   public function payShop(Request $request)
@@ -1049,7 +1049,7 @@ class ShopController extends Controller
   public function SearchNamePayShop(Save_namePayShop $request)
   {
     $namePro=$request->namePro;
-    Cookie::queue('namePayShop', $namePro);
+    Cookie::queue('namePayShop', $namePro,0);
   }
   public function SearchAllNamePayShop()
   {
@@ -1059,8 +1059,8 @@ class ShopController extends Controller
   {
     $date1=$request->date1;
     $date2=$request->date2;
-    Cookie::queue('date1PayShop', $date1);
-    Cookie::queue('date2PayShop', $date2);
+    Cookie::queue('date1PayShop', $date1,0);
+    Cookie::queue('date2PayShop', $date2,0);
   }
   // 30 روزه
   public function SearchAllDatePayShop()
@@ -1083,7 +1083,7 @@ class ShopController extends Controller
       }
       return response()->json(['errors' => ['codePro' => ['کد محصول اشتباه است .']]], 422);
     }
-    Cookie::queue('codeOkPayShop', 'ok');
+    Cookie::queue('codeOkPayShop', 'ok',0);
     return $code;
   }
 

@@ -35,7 +35,7 @@ class RegisterController extends Controller
         if (Hash::check($pas, $add['pas']))
         {
           $id=$add['id'];
-          Cookie::queue('check_log', $id);
+          Cookie::queue('check_log', $id,0);
         }else{
           return response()->json(['errors' => ['no_karbar' => ['نام کاربری و یا رمز عبور اشتباه است .']]], 422);
         }
@@ -45,8 +45,8 @@ class RegisterController extends Controller
         }
     }
     public function logout_user(){
-      Cookie::queue('check_log', '',time() - 3600);
-      return redirect('/');
+      // Cookie::queue('check_log', '',time() - 3600);
+      return redirect('/')->withCookie(Cookie::forget('check_log'));
     }
     public function dashboard_user(Request $request){
       $id=$request->cookie('check_log');

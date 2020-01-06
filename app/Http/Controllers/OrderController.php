@@ -144,7 +144,7 @@ class OrderController extends Controller
       // $arrayProChild=['pro_id'=>$pro_id,'shop_id'=>$shop->id,'num_buy'=>1,'price_pro'=>$price];
       // if ($request->cookie('dataPro')) {Cookie::queue('dataPro', '' , time() - 3600);}
       // نکته : چنانچه چند محصول باشد باید از آرایه دو بعدی اسبفاده شود
-       Cookie::queue('dataPro',serialize($dataPro));
+       Cookie::queue('dataPro',serialize($dataPro),0);
        // if ($request->cookie('dataPro')) {
        //    $arrayPro=unserialize( $request->cookie('dataPro'));
        //    $arrayPro[$pro_id]=$arrayProChild;
@@ -263,7 +263,7 @@ class OrderController extends Controller
         // $pricePishtaz=80000;
       }else{$priceSefarshi=0;$pricePishtaz=0;}
       $pricePost=[1=>$priceAmanat,2=>$priceSefarshi,3=>$pricePishtaz];
-      Cookie::queue('pricePost', serialize($pricePost));
+      Cookie::queue('pricePost', serialize($pricePost),0);
       // Cookie::queue('priceAmanat', $priceAmanat);
       // Cookie::queue('priceSefarshi', $priceSefarshi);
       // Cookie::queue('pricePishtaz', $pricePishtaz);
@@ -275,7 +275,7 @@ class OrderController extends Controller
     public function end_price_all(Request $request)  {
       $this->validate($request, ['modelPost'=>'required|numeric' , 'namePost' =>'required|farsi']);
       $modelPost=[$request->modelPost , $request->namePost];
-      Cookie::queue('modelPost', serialize($modelPost));
+      Cookie::queue('modelPost', serialize($modelPost),0);
 
     }
     //حساب کردن قیمت پست کالا هنگامی که کاربر مبادرت به خرید بیش از یک کالا می نمایید .
@@ -284,7 +284,7 @@ class OrderController extends Controller
       $num=$num2=$num3=$request->num;
       $dataPro=unserialize($request->cookie('dataPro'));
       $dataPro['num_buy']=$num;
-      Cookie::queue('dataPro' , serialize($dataPro));
+      Cookie::queue('dataPro' , serialize($dataPro),0);
       do {
         // code...
         $i=$num ;
@@ -591,7 +591,7 @@ class OrderController extends Controller
       $pricePishtaz=array_sum($pricePishtaz1);
       // $pricePost=[$priceAmanat,$priceSefarshi,$pricePishtaz];
       $pricePost=[1=>$priceAmanat,2=>$priceSefarshi,3=>$pricePishtaz];
-      Cookie::queue('pricePost', serialize($pricePost));
+      Cookie::queue('pricePost', serialize($pricePost),0);
       // Cookie::queue('priceSefarshi', $priceSefarshi);
       // Cookie::queue('priceAmanat', $priceAmanat);
       // // Cookie::queue('pricePishtaz', '' , time() - 3600 );
@@ -632,8 +632,8 @@ class OrderController extends Controller
       }
       $payWork=($price + $price_post) * 2 / 100 + 2000;
       $allPrice= $price + $price_post + $payWork;
-      Cookie::queue('postOrder', $post2);
-      Cookie::queue('pricePostOrder', $price_post);
+      Cookie::queue('postOrder', $post2,0);
+      Cookie::queue('pricePostOrder', $price_post,0);
       // Cookie::queue('numProOrder', $num);
       return view('order.factor_order',compact('dataPro','modelPost','shop','order','price','post2','price_post','payWork','allPrice','dataPro','pricePost'));
     }
@@ -689,7 +689,7 @@ public function save_data_buyerOrder(Save_data_buyer $request){
       $saveBuy->date_up=time();
       $saveBuy->stage=1;
       $saveBuy->save();
-      Cookie::queue('dataPro' , serialize($dataPro));
+      Cookie::queue('dataPro' , serialize($dataPro),0);
       DB::commit();
       }
       catch ( Exception  $e){
@@ -751,7 +751,7 @@ public function save_data_buyerOrder(Save_data_buyer $request){
       //   Throw new Execption('no');
       //
       // }else{DB::commit();}
-      Cookie::queue('dataPro' , serialize($dataPro));
+      Cookie::queue('dataPro' , serialize($dataPro),0);
       DB::commit();
 
       }

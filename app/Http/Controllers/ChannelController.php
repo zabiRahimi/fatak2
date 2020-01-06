@@ -62,7 +62,7 @@ class ChannelController extends Controller
         if (Hash::check($pas, $add['pas']))
         {
           $id=$add['id'];
-          Cookie::queue('check_log_channel', $id);
+          Cookie::queue('check_log_channel', $id,0);
         }else{
           return response()->json(['errors' => ['no_karbar' => ['موبایل و یا رمز عبور اشتباه است .']]], 422);
         }
@@ -72,8 +72,8 @@ class ChannelController extends Controller
         }
     }
     public function logoutCh(){
-      Cookie::queue('check_log_channel', '',time() - 3600);
-      return redirect('/');
+      // Cookie::queue('check_log_channel', '',time() - 3600);
+      return redirect('/')->withCookie(Cookie::forget('check_log_channel'));
     }
     public function dashboard_channel(Request $request){
       $user=Channel::find($this->id);

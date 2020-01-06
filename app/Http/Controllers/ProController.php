@@ -30,7 +30,7 @@ class ProController extends Controller
     if(empty($request->cookie($nameCookei))){
       $bazdid= $show_pro->bazdid+1;
       $show_pro->update(['bazdid'=>$bazdid]);
-      Cookie::queue($nameCookei, 'ok');
+      Cookie::queue($nameCookei, 'ok',0);
     }
     return  view('pro.showOnePro', compact('show_pro','pic_pro','nazar_pro','count_nazar_pro','question_pro','count_question_pro','answer_pro'
      ,'numProSabad','check','shop'));

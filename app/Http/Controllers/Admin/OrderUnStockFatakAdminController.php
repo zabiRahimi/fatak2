@@ -133,7 +133,7 @@ class OrderUnStockFatakAdminController extends Controller
   public function pro_searchUSF(Request $request)
   {
     $this->validate($request, ['nameCookie'=>'required|alpha_num','pro' => 'required',]);
-    Cookie::queue($request->nameCookie, $request->pro);
+    Cookie::queue($request->nameCookie, $request->pro,0);
   }
   public function allPro_searchUSF(Request $request)
   {
@@ -143,22 +143,22 @@ class OrderUnStockFatakAdminController extends Controller
   public function date_searchUSF(Request $request)
   {
     $this->validate($request, ['nameCookie'=>'required|alpha_num','day' => 'required',]);
-    Cookie::queue($request->nameCookie, $request->day);
+    Cookie::queue($request->nameCookie, $request->day,0);
   }
   // از تاریخ تا تاریخ
   public function fromDAte_searchUSF(Request $request)
   {
     $this->validate($request, ['nameCookie'=>'required|alpha_num','nameCookieD1'=>'required|alpha_num','nameCookieD2'=>'required|alpha_num','date1' => 'required|jdate:Y/m/d','date2' => 'required|jdate:Y/m/d',]);
-    Cookie::queue($request->nameCookie, 'fromDAte');
-    Cookie::queue($request->nameCookieD1, $request->date1);
-    Cookie::queue($request->nameCookieD2, $request->date2);
+    Cookie::queue($request->nameCookie, 'fromDAte',0);
+    Cookie::queue($request->nameCookieD1, $request->date1,0);
+    Cookie::queue($request->nameCookieD2, $request->date2,0);
   }
   public function ostan_searchNPUF(Request $request)
   {
     $this->validate($request, ['osatn' => 'required|farsi','city' => 'nullable|farsi',]);
-    Cookie::queue('ostanAndCityOkSCONPUSF', 'ok');
-    Cookie::queue('ostanSCONPUSF', $request->osatn);
-    Cookie::queue('citySCONPUSF', $request->city);
+    Cookie::queue('ostanAndCityOkSCONPUSF', 'ok',0);
+    Cookie::queue('ostanSCONPUSF', $request->osatn,0);
+    Cookie::queue('citySCONPUSF', $request->city,0);
   }
   public function AllOstan_searchNPUF(Request $request)
   {

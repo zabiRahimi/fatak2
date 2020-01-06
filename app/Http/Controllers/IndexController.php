@@ -98,7 +98,7 @@ class IndexController extends Controller
         $save_ip->show=1;
         $save_ip->save();
         Cookie::queue('ch',$channel_id ,259200);
-        Cookie::queue('ch_buy',$channel_id);
+        Cookie::queue('ch_buy',$channel_id,0);
       }
     }
     public function sabt_shekait(Save_sabt_shekait $request)

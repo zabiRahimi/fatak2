@@ -16,19 +16,19 @@ class SabadController extends Controller
     if(empty($request->cookie($nameCookei))){
       if (empty($request->cookie('id_pros'))) {
         $idPro=[$id];
-        Cookie::queue('id_pros', serialize($idPro));
+        Cookie::queue('id_pros', serialize($idPro),0);
       } else {
         $idPro=unserialize($request->cookie('id_pros'));
         $idPro[]=$id;
-        Cookie::queue('id_pros', serialize($idPro));
+        Cookie::queue('id_pros', serialize($idPro),0);
       }
-      Cookie::queue($nameCookei, 'hast');
+      Cookie::queue($nameCookei, 'hast',0);
       if(empty($request->cookie('numProSabad'))){
-        Cookie::queue('numProSabad', 1);
+        Cookie::queue('numProSabad', 1,0);
         $num=1;
       }else{
         $numadd=$request->cookie('numProSabad')+1;
-        Cookie::queue('numProSabad', $numadd);
+        Cookie::queue('numProSabad', $numadd,0);
         $num=$request->cookie('numProSabad')+1 ;
       }
       return $num;
@@ -51,13 +51,13 @@ class SabadController extends Controller
             continue;
           }
           $val[]=$key;
-          Cookie::queue('id_pros', serialize($val));
+          Cookie::queue('id_pros', serialize($val),0);
           Cookie::queue('vazn' . $key, '', time() - 3600);
           Cookie::queue('pakat' . $key, '', time() - 3600);
         }
       $numProSabad=$request->cookie('numProSabad');
       $numProSabad--;
-      Cookie::queue('numProSabad', $numProSabad);
+      Cookie::queue('numProSabad', $numProSabad,0);
       }
       return redirect('/show_sabad_pro');
     }
@@ -83,19 +83,19 @@ class SabadController extends Controller
       //جهت تنظیم وزن یک محصول
       $new_gram=$old_gram+$gram_post;
       $new_pakat=$old_pakat+$pakat;
-      Cookie::queue($vazn_id, $new_gram);//استفاده در فایلهای پست پیشتاز و ویژه
-      Cookie::queue($pakat_id, $new_pakat);
+      Cookie::queue($vazn_id, $new_gram,0);//استفاده در فایلهای پست پیشتاز و ویژه
+      Cookie::queue($pakat_id, $new_pakat,0);
     } else {
       $num--;
       //جهت تنظیم وزن یک محصول
       $new_gram=$old_gram-$gram_post;
       $new_pakat=$old_pakat-$pakat;
-      Cookie::queue($vazn_id, $new_gram);//استفاده در فایلهای پست پیشتاز و ویژه
-      Cookie::queue($pakat_id, $new_pakat);
+      Cookie::queue($vazn_id, $new_gram,0);//استفاده در فایلهای پست پیشتاز و ویژه
+      Cookie::queue($pakat_id, $new_pakat,0);
     }
   //ذخیره تعداد محصول خریداری  شده
   $num_id='num' . $request->id;
-  Cookie::queue($num_id, $num);
+  Cookie::queue($num_id, $num,0);
   return $num;
  }
  //مجموع قیمت جدید برای محصولی که کاربر مبادرت به خرید بیشتر از یک کالا نموده
@@ -143,7 +143,7 @@ class SabadController extends Controller
    public function end_price_all(Request $request){
         $price_pros=str_replace (',' ,'',$request->price_pros);
         $price_post=str_replace (',' ,'',$request->price_post);
-        Cookie::queue('model_post', $request->model_post);
+        Cookie::queue('model_post', $request->model_post,0);
         $all=$price_pros+$price_post;
         return number_format($all);
        }
@@ -181,7 +181,7 @@ class SabadController extends Controller
      foreach ( $sabad as $value) {
        $value2=Pro::find($value);
        $name_pro[]=$value2->name;
-       Cookie::queue('end_name_pro', serialize($name_pro));
+       Cookie::queue('end_name_pro', serialize($name_pro),0);
        $seller=$value2->seller;
              $num_id='num' . $value;
               $num_pro=$request->cookie($num_id);
@@ -239,6 +239,6 @@ class SabadController extends Controller
       }
   public function create_cookie(Request $request){
         $name_cookie=$request->name_cookie;
-        Cookie::queue($name_cookie, 'ok');
+        Cookie::queue($name_cookie, 'ok',0);
       }
 }//end class
