@@ -56,7 +56,7 @@ class IndexController extends Controller
       $pro_nazar=NazarPro::get();
       $count=Pro::where('show' , 1)->count();
       $check=$request->cookie('check_log');
-      if(!empty($request->cookie('numProSabad'))){$numProSabad=$request->cookie('numProSabad');}else{$numProSabad=0;}
+      if(!empty($request->cookie('numProSabad'))){$arraySabad=unserialize($request->cookie('numProSabad'));$numProSabad=$arraySabad['numPro'];}else{$numProSabad=0;}
       return view('welcome', compact('ch','pro' , 'pro_pic', 'pro_nazar' , 'count' , 'numProSabad','check'  ));
     }
     public function show_ajax(Request $request){

@@ -11,28 +11,60 @@ class SabadController extends Controller
 {
   // اضافه کردن کالا به سبد خرید
   public function add_pro_sabad (Request $request ){
-    $id=$request->id;
-    $nameCookei='addpro'. $id;
-    if(empty($request->cookie($nameCookei))){
-      if (empty($request->cookie('id_pros'))) {
-        $idPro=[$id];
-        Cookie::queue('id_pros', serialize($idPro),0);
-      } else {
-        $idPro=unserialize($request->cookie('id_pros'));
-        $idPro[]=$id;
-        Cookie::queue('id_pros', serialize($idPro),0);
+    $pro_id=$request->pro_id;
+    $shop=$request->shop;
+    // چک کردن سبد خرید که آیه قبلا به آن محصولی اضافه شده یا خیر
+    if(empty($request->cookie('numProSabad'))){
+      $arraySabad=['shop'=>$shop,'proIds'=>[$pro_id],'numPro'=>1];
+      Cookie::queue('numProSabad',serialize($arraySabad),0);
+      return 1;
+    }else{
+      $arraySabad=unserialize($request->cookie('numProSabad'));
+      if($shop!=$arraySabad['shop']){
+        return response()->json(['errors' => ['errorShop' => [ 'error not shop ' ]]],422);
+          // return 'error';
       }
-      Cookie::queue($nameCookei, 'hast',0);
-      if(empty($request->cookie('numProSabad'))){
-        Cookie::queue('numProSabad', 1,0);
-        $num=1;
+
+      foreach ($arraySabad['proIds'] as $value) {
+        if($value==$pro_id){
+          $repeatPro='ok';
+          break;
+        }
+      }
+      if(!empty($repeatPro)&&$repeatPro=='ok'){
+        return response()->json(['errors' => ['repeatPro' => [ 'error repeat Pro ' ]]],422);
       }else{
-        $numadd=$request->cookie('numProSabad')+1;
-        Cookie::queue('numProSabad', $numadd,0);
-        $num=$request->cookie('numProSabad')+1 ;
+        $arraySabad['numPro']=$arraySabad['numPro']+1;
+        $arraySabad['proIds'][]=$pro_id;
+        Cookie::queue('numProSabad',serialize($arraySabad),0);
+        return $arraySabad['numPro'];
+
       }
-      return $num;
+      // foreach(unserialize($request->cookie('checkAddSabad') as $key->)){
+      //
+      // }
+      // آیا محصول قبلا به سبد اضافه شده یا خیر
+      // if()
     }
+    // $nameCookei='addpro'. $id;
+    // if(empty($request->cookie($nameCookei))){
+    //   if (empty($request->cookie('id_pros'))) {
+    //     $idPro=[$id];
+    //     Cookie::queue('id_pros', serialize($idPro),0);
+    //   } else {
+    //     $idPro=unserialize($request->cookie('id_pros'));
+    //     $idPro[]=$id;
+    //     Cookie::queue('id_pros', serialize($idPro),0);
+    //   }
+    //   Cookie::queue($nameCookei, 'hast',0);
+    //   if(empty($request->cookie('numProSabad'))){
+    //     Cookie::queue('numProSabad', 1,0);
+    //     $num=1;
+    //   }else{
+    //     $numadd=$request->cookie('numProSabad')+1;
+    //     Cookie::queue('numProSabad', $numadd,0);
+    //     $num=$request->cookie('numProSabad')+1 ;
+    //   }
   }
   //مشاهده سبد خرید
   public function show_sabad_pro(Request $request){

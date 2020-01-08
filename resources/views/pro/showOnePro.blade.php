@@ -68,7 +68,7 @@
                     <span class="priceIUCSP_s3">تومان</span>
                   @endif
                 </div>
-                <div class="divBtnKharid divBtnKharid_p" onclick="add_pro_sabad({{$show_pro->id}})">
+                <div class="divBtnKharid divBtnKharid_p" onclick="add_pro_sabad({{$show_pro->id}} ,'{{$shop->shop}}' )">
                    <i class="fas fa-cart-plus"></i> <span class="">افزودن به سبد خرید</span>
                 </div>
                 <div class="addSeller">

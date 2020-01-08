@@ -222,13 +222,14 @@ function Explain_active(class1 , class2){
    $('.form-control').css("border-color" , "#fff");
 });
 // اضافه کردن کالا به سبد خرید
-function add_pro_sabad(id){
+function add_pro_sabad(pro_id , shop){
    $.ajaxSetup({ headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')}});
    $.ajax({
      type:'put',
      url:'../../add_pro_sabad',
      data: {
-          id: id ,
+          pro_id,
+          shop,
           },
      success:function(data){
        if(data){

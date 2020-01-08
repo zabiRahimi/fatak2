@@ -24,7 +24,7 @@ class ProController extends Controller
     $answer_pro=AnswerPro::where('pro_id' , $id)->get();
     $check=$request->cookie('check_log');
     $shop=Shop::find($show_pro->shop_id);
-    if(!empty($request->cookie('numProSabad'))){$numProSabad=$request->cookie('numProSabad');}else{$numProSabad=0;}//تعداد محصولات موجود در سبد خرید
+    if(!empty($request->cookie('numProSabad'))){$arraySabad=unserialize($request->cookie('numProSabad'));$numProSabad=$arraySabad['numPro'];}else{$numProSabad=0;}//تعداد محصولات موجود در سبد خرید
     //ثبت بازدید
     $nameCookei='sabt'. $id;
     if(empty($request->cookie($nameCookei))){
