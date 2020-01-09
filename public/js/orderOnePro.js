@@ -256,6 +256,36 @@ function add_pro_sabad(pro_id , shop){
                         }
        }).then((result) => {if (result.value) { window.location.href=`/show_sabad_pro`;}});//end swal
      },
-     error:function(){}
+     error:function(xhr){
+       const errors = xhr.responseJSON;
+       const error=errors.errors;
+       if(error['errorShop']){
+        var errorText=`<h6>شما نمی توانید هم زمان از چند فروشگاه خرید کنید</h6> 
+         در حال حاضر می توانید محصولاتی دیگر از فروشگاه ${shop} خرید نمایید ، جهت خرید این محصول ابتدا باید اقدام به خرید
+          محصولات افزوده شده به سبد خرید کنید ، یا اینکه محصولات داخل سبد را حذف نموده و سپس این محصول را به سبد اضافه نمایید .`
+       }else if (error['repeatPro']) {
+         alert (error['repeatPro'])
+       }
+       Swal.fire({
+            html:`<div class="alert alert-danger alertClass" >${errorText}</div>`,
+            type:'error',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonText:"مشاهده سبد خرید" ,
+            cancelButtonText:"خرید محصول دیگر" ,
+            cancelButtonColor:'#0d6394',
+            customClass: {
+            // container: 'containerClass',  header: 'header-class', title: 'title-class',image: 'image-class',
+            popup: 'popupClass',
+            closeButton: 'closeButtonClass',
+            icon: 'iconClass',
+            content:'contentClass',
+            confirmButton: 'confirmButtonClass',
+            cancelButton: 'cancelButtonClass',
+            actions: 'actionsClass',
+            footer:'footerClass',
+                        }
+     });
+   }
    });
 }
