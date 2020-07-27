@@ -14,6 +14,7 @@ class Save_editShop extends FormRequest
     public function authorize()
     {
         return true;
+        
     }
     public function validationData() {
        $parametr=$this->all();
@@ -66,7 +67,7 @@ class Save_editShop extends FormRequest
     {
         $id=Request::input('id');
         return [
-          'shop'=>'required|pas|min:4|unique:shops,codemly,'.$id,
+          'shop'=>'required|pas|min:4|unique:shops,shop,'.$id,
           'seller'=>'required|name|min:5',
           'codemly'=>'required|codemly|unique:shops,codemly,'.$id,
           'mobail'=>'required|mobail|unique:shops,mobail,'.$id,
